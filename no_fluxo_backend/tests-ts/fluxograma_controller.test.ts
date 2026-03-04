@@ -97,16 +97,20 @@ describe('FluxogramaController', () => {
       const mockSelectCursos = jest.fn(() => ({ like: mockLike }));
       mockFrom.mockImplementationOnce(() => ({ select: mockSelectCursos }));
 
-      // Mock para equivalencias: select().or().or()
-      const mockOr2 = jest.fn().mockResolvedValue({ data: [], error: null });
-      const mockOr1 = jest.fn(() => ({ or: mockOr2 }));
-      const mockSelectEquivalencias = jest.fn(() => ({ or: mockOr1 }));
+      // Mock para equivalencias: select().or() (tabela equivalencias + join materias)
+      const mockOrEquiv = jest.fn().mockResolvedValue({ data: [], error: null });
+      const mockSelectEquivalencias = jest.fn(() => ({ or: mockOrEquiv }));
       mockFrom.mockImplementationOnce(() => ({ select: mockSelectEquivalencias }));
 
       // Mock para pre_requisitos: select().in()
-      const mockIn = jest.fn().mockResolvedValue({ data: [], error: null });
-      const mockSelectPreReq = jest.fn(() => ({ in: mockIn }));
+      const mockInPreReq = jest.fn().mockResolvedValue({ data: [], error: null });
+      const mockSelectPreReq = jest.fn(() => ({ in: mockInPreReq }));
       mockFrom.mockImplementationOnce(() => ({ select: mockSelectPreReq }));
+
+      // Mock para co_requisitos: select().in()
+      const mockInCoReq = jest.fn().mockResolvedValue({ data: [], error: null });
+      const mockSelectCoReq = jest.fn(() => ({ in: mockInCoReq }));
+      mockFrom.mockImplementationOnce(() => ({ select: mockSelectCoReq }));
 
       const handler = FluxogramaController.routes["fluxograma"].value;
       await handler(mockRequest as Request, mockResponse as Response);

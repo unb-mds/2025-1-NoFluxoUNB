@@ -13,6 +13,7 @@ import {
 	createCoRequisitoModelFromJson,
 	createEquivalenciaModelFromJson
 } from '$lib/factories';
+import { getCodigosFromExpressaoLogica } from '$lib/utils/expressao-logica';
 
 /**
  * Fluxograma service — wraps SupabaseDataService for course/subject data.
@@ -101,7 +102,13 @@ class FluxogramaService {
 		);
 
 		const materiaCodes = new Set(materias.filter((m) => m.nivel !== 0).map((m) => m.codigoMateria));
-		const preRequisitosInCurso = preRequisitos.filter((pr) => materiaCodes.has(pr.codigoMateriaRequisito));
+		const preRequisitosInCurso = preRequisitos.filter((pr) => {
+			if (pr.expressaoLogica) {
+				const codigos = getCodigosFromExpressaoLogica(pr.expressaoLogica);
+				return codigos.some((c) => materiaCodes.has(c));
+			}
+			return materiaCodes.has(pr.codigoMateriaRequisito);
+		});
 		const allMateriaCodes = new Set(materias.map((m) => m.codigoMateria));
 		const coRequisitosInCurso = coRequisitos.filter((cr) => allMateriaCodes.has(cr.codigoMateriaCoRequisito));
 
@@ -131,9 +138,19 @@ class FluxogramaService {
 		for (const materia of materias) materia.preRequisitos = [];
 		for (const preReq of preRequisitosInCurso) {
 			const targetMateria = materias.find((m) => m.idMateria === preReq.idMateria);
-			if (targetMateria) {
-				const prereqMateria = materiaMap.get(preReq.codigoMateriaRequisito);
-				if (prereqMateria) targetMateria.preRequisitos!.push(prereqMateria);
+			if (!targetMateria) continue;
+			const codigosPrereq = preReq.expressaoLogica
+				? getCodigosFromExpressaoLogica(preReq.expressaoLogica)
+				: preReq.codigoMateriaRequisito
+					? [preReq.codigoMateriaRequisito.trim().toUpperCase()]
+					: [];
+			const existingCodes = new Set(targetMateria.preRequisitos!.map((m) => m.codigoMateria));
+			for (const code of codigosPrereq) {
+				const prereqMateria = materiaMap.get(code);
+				if (prereqMateria && !existingCodes.has(code)) {
+					targetMateria.preRequisitos!.push(prereqMateria);
+					existingCodes.add(code);
+				}
 			}
 		}
 

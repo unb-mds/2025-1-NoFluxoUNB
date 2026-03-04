@@ -1,6 +1,8 @@
 import { createSupabaseBrowserClient } from '$lib/supabase/client';
 import type { MatrizModel } from '$lib/types/matriz';
 import { parseCurriculoCompleto } from '$lib/types/matriz';
+import type { ExpressaoLogicaRecursiva } from '$lib/utils/expressao-logica';
+import { getCodigosFromExpressaoLogica } from '$lib/utils/expressao-logica';
 
 /** Simple in-memory cache for public data that rarely changes (courses, matrices). */
 const cache = new Map<string, { data: unknown; ts: number }>();
@@ -290,13 +292,18 @@ export class SupabaseDataService {
 
 		const equivalencias = (equivalenciasResult.data || []).map((eq: Record<string, unknown>) => {
 			const mat = eq.materias as { codigo_materia?: string; nome_materia?: string } | null;
+			const codigos = getCodigosFromExpressaoLogica(
+				eq.expressao_logica as ExpressaoLogicaRecursiva | null | undefined
+			);
+			const primeiroCodigo = codigos[0] ?? '';
 			return {
 				...eq,
 				codigo_materia_origem: mat?.codigo_materia ?? '',
 				nome_materia_origem: mat?.nome_materia ?? '',
-				codigo_materia_equivalente: '',
+				codigo_materia_equivalente: primeiroCodigo,
 				nome_materia_equivalente: '',
-				expressao: eq.expressao_original ?? ''
+				expressao: eq.expressao_original ?? '',
+				expressao_logica: eq.expressao_logica ?? null
 			};
 		});
 

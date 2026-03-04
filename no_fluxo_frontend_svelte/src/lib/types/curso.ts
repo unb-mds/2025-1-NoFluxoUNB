@@ -5,7 +5,10 @@
 import type { MateriaModel } from './materia';
 import type { EquivalenciaModel } from './equivalencia';
 
-import type { ExpressaoLogicaJson } from '$lib/utils/expressao-logica';
+import type {
+	ExpressaoLogicaJson,
+	ExpressaoLogicaRecursiva
+} from '$lib/utils/expressao-logica';
 import { evaluateExpressaoLogica } from '$lib/utils/expressao-logica';
 
 export interface PreRequisitoModel {
@@ -16,8 +19,8 @@ export interface PreRequisitoModel {
 	nomeMateriaRequisito: string;
 	/** Exibição e conferência humana. */
 	expressaoOriginal?: string | null;
-	/** Árvore de decisão para validação: { materias: string[], operador: "OU"|"E"|null }. */
-	expressaoLogica?: ExpressaoLogicaJson | null;
+	/** Árvore de decisão: { materias, operador } ou recursivo { operador, condicoes }. */
+	expressaoLogica?: ExpressaoLogicaJson | ExpressaoLogicaRecursiva | null;
 }
 
 export interface CoRequisitoModel {
@@ -27,7 +30,7 @@ export interface CoRequisitoModel {
 	codigoMateriaCoRequisito: string;
 	nomeMateriaCoRequisito: string;
 	expressaoOriginal?: string | null;
-	expressaoLogica?: ExpressaoLogicaJson | null;
+	expressaoLogica?: ExpressaoLogicaJson | ExpressaoLogicaRecursiva | null;
 }
 
 export type CourseType = 'graduacao' | 'pos-graduacao' | 'tecnico' | 'outro';
@@ -77,13 +80,17 @@ export function getSubjectsBySemester(curso: CursoModel): Map<number, MateriaMod
 
 /**
  * Verifica se todos os pré-requisitos da matéria estão cumpridos (usa expressao_logica quando existir).
+ * Deduplica por idPreRequisito pois o backend pode retornar múltiplos registros expandidos.
  */
 export function satisfazPreRequisitos(
 	preRequisitosParaMateria: PreRequisitoModel[],
 	completedCodes: Set<string>
 ): boolean {
+	const vistos = new Set<number>();
 	for (const pr of preRequisitosParaMateria) {
-		if (pr.expressaoLogica?.materias?.length) {
+		if (pr.expressaoLogica != null) {
+			if (vistos.has(pr.idPreRequisito)) continue;
+			vistos.add(pr.idPreRequisito);
 			if (!evaluateExpressaoLogica(pr.expressaoLogica, completedCodes)) return false;
 		} else {
 			const code = (pr.codigoMateriaRequisito || '').trim().toUpperCase();
