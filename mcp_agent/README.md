@@ -6,7 +6,7 @@ Agente inteligente para recomendação de disciplinas da UnB usando busca semân
 
 Esta pasta contém o sistema de IA do NoFluxoUNB, composto por:
 - **Servidor MCP** (Model Context Protocol) para integração com LLMs
-- **Agente Sabiá** para interação via terminal
+- **Agente Sabiá** para interação via terminal ou chamado pelo backend
 - **Modelo de embedding** local para busca semântica
 - **Integração com Supabase** para consulta de disciplinas
 
@@ -15,103 +15,174 @@ Esta pasta contém o sistema de IA do NoFluxoUNB, composto por:
 ```
 mcp_agent/
 ├── servidor_mcp_sabia.py    # Servidor MCP com busca vetorial
-├── agente_sabia.py           # Interface interativa no terminal
-├── modelo_local_v2/          # Modelo SentenceTransformer local
+├── agente_sabia.py           # Agente (modo interativo + modo API via stdin)
+├── baixar_modelo.py          # Script para baixar o modelo local
+├── databaseScript.py         # Script para popular embeddings no Supabase
+├── modelo_local_v2/          # Modelo SentenceTransformer local (~420MB)
 ├── .env                      # Credenciais (Supabase + Maritaca)
-└── requirements.txt          # Dependências Python
+└── requirements-mcp.txt      # Dependências mínimas do MCP Agent
 ```
 
 ## 🔧 Componentes Principais
 
 ### 1. **servidor_mcp_sabia.py**
 Servidor MCP que expõe a ferramenta `buscar_materias_unb`:
-- Carrega modelo de embedding na inicialização (otimização)
+- Carrega modelo de embedding na inicialização
 - Gera embeddings de 384 dimensões
 - Consulta função RPC `match_materias` no Supabase
 - Retorna disciplinas ordenadas por similaridade semântica
-
-**Características:**
-- Pré-inicialização de sistemas para reduzir latência
-- Logs detalhados para debugging
-- Threshold de similaridade: 0.3
-- Retorna top 10 resultados
+- Threshold de similaridade: 0.3 · Top 10 resultados
 
 ### 2. **agente_sabia.py**
-Interface de linha de comando para testes:
-- Modo interativo: conversa contínua com o agente
-- Modo API: usa MCP server via subprocess
-- Expansão de termos com Sabiázinho-4 (modelo menor)
-- Respostas contextualizadas com Sabiá-4 (modelo principal)
+Opera em dois modos:
+- **Modo interativo:** conversa contínua via terminal
+- **Modo API (stdin):** recebe JSON pelo stdin, retorna JSON pelo stdout — usado pelo backend Node.js
 
-**Comandos:**
 ```bash
-python agente_sabia.py               # Modo interativo
-python agente_sabia.py --modo api    # Modo API (via MCP)
+python agente_sabia.py                            # Modo interativo
+echo '{"interesse": "IA"}' | python agente_sabia.py  # Modo API
 ```
 
 ### 3. **modelo_local_v2/**
-Modelo de embedding **paraphrase-multilingual-MiniLM-L12-v2**:
-- **Dimensões:** 384
-- **Multilíngue:** Suporta português
-- **Tamanho:** ~420MB
-- **Uso:** Busca semântica de disciplinas
+Modelo **paraphrase-multilingual-MiniLM-L12-v2** (384D, multilíngue, ~420MB).
 
-## 🚀 Como Usar
+---
+
+## 🚀 Como Subir o MCP Agent
 
 ### Pré-requisitos
-```bash
-# Ativar ambiente virtual
-cd C:\Users\Gustavo\Desktop\2025-1-NoFluxoUNB
+
+> **Windows:** Python 3.11 ou 3.12 é recomendado. O Python 3.14 ainda não tem wheels pré-compilados para `pyiceberg`/`pyroaring` (dependências indiretas do `supabase`), causando erro de compilação. Alternativa: instalar [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
+
+### Passo 1 – Ambiente virtual
+
+**Opção A: venv dentro do `no_fluxo_backend` (recomendado para dev)**
+
+```powershell
+cd no_fluxo_backend
+python -m venv venv
 .\venv\Scripts\Activate.ps1
+```
 
-# Instalar dependências
-pip install sentence-transformers supabase python-dotenv maritalk fastmcp
+**Opção B: venv na raiz do projeto**
 
-# Baixar modelo local ( a pasta criada deve estar dentro da pasta 'mcp_agent')
+```powershell
+cd 2025-1-NoFluxoUNB
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
+
+### Passo 2 – Instalar dependências Python
+
+```powershell
+# PyTorch CPU (deve ser instalado antes para evitar download da versão CUDA)
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+# Dependências do projeto
+pip install -r requirements.txt
+```
+
+> O `pnpm dev` dentro de `no_fluxo_backend` faz isso automaticamente via `postinstall`.
+
+### Passo 3 – Baixar o modelo de embeddings
+
+```powershell
+cd mcp_agent
 python baixar_modelo.py
 ```
 
-### Configuração (.env)
+O modelo será salvo em `mcp_agent/modelo_local_v2/`. Tamanho: ~420MB.
+
+### Passo 4 – Configurar variáveis de ambiente
+
+Crie/edite `mcp_agent/.env`:
+
 ```env
-SUPABASE_URL=https://seu-projeto.supabase.co
-SUPABASE_KEY=sua-chave-api
-MARITACA_API_KEY=sua-chave-maritaca
+SUPABASE_URL=https://lijmhbstgdinsukovyfl.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=sua_service_role_key
+SUPABASE_KEY=sua_anon_key
+MARITACA_API_KEY=sua_chave_maritaca
 ```
 
-### Executar Agente Interativo
-```bash
+> As mesmas variáveis devem estar em `no_fluxo_backend/.env` para o backend chamar o agente.
+
+### Passo 5 – Testar o agente interativo
+
+```powershell
 cd mcp_agent
 python agente_sabia.py
 ```
 
-**Exemplo de uso:**
 ```
-Digite sua pergunta: quero aprender inteligência artificial
-🎓 10 disciplinas encontradas
+Conectando ao Servidor MCP...
+✅ Agente Sabiá-4 Pronto!
 
-[Respostas com disciplinas relevantes...]
+Você: machine learning
 ```
 
-### Integração com Website
-O servidor MCP é usado pelo backend Node.js através de:
-```typescript
-// no_fluxo_backend/src/services/assistente.service.ts
-const mcp = spawn('python', ['mcp_agent/servidor_mcp_sabia.py']);
+### Passo 6 – Testar o modo API (como o backend chama)
+
+```powershell
+echo '{"interesse": "inteligencia artificial"}' | python agente_sabia.py
 ```
+
+Retorno esperado:
+```json
+{
+  "success": true,
+  "disciplinas": [
+    {"codigo": "CIC0087", "nome": "APRENDIZADO DE MÁQUINA", "nota": 10, "justificativa": "..."}
+  ],
+  "resposta_completa": "..."
+}
+```
+
+---
+
+## 🌐 Subir o Backend com o MCP integrado
+
+O backend Node.js chama o `agente_sabia.py` automaticamente via `SabiaService`. Para subir tudo junto:
+
+```powershell
+# Na pasta no_fluxo_backend
+cd no_fluxo_backend
+npm run dev
+# OU com pnpm da raiz:
+pnpm dev:backend
+```
+
+O `npm run dev` já executa os `pip install` necessários antes de iniciar o nodemon.
+
+O `SabiaService` detecta o Python na seguinte ordem:
+1. `venv/Scripts/python.exe` na raiz do projeto
+2. `no_fluxo_backend/venv/Scripts/python.exe`
+3. `python` do sistema (PATH)
+
+---
 
 ## 📊 Pipeline de Busca
 
-1. **Entrada do usuário:** "inteligência artificial"
-2. **Expansão (Sabiázinho-4):** machine learning, redes neurais, aprendizado profundo
-3. **Embedding:** Converte termos em vetor 384D
-4. **Busca Vetorial:** Consulta Supabase com similaridade de cosseno
-5. **Ranking:** Retorna top 10 (threshold ≥ 0.3)
-6. **Resposta (Sabiá-4):** Formata resultado com contexto educacional
+```
+Usuário → "inteligência artificial"
+    ↓
+Sabiázinho-4 expande termos: ["machine learning", "redes neurais", "aprendizado profundo"]
+    ↓
+SentenceTransformer gera embedding (384D) para cada termo
+    ↓
+Supabase RPC match_materias (pgvector, similaridade cosseno, threshold ≥ 0.3)
+    ↓
+Top 10 disciplinas por termo → merge e deduplicação
+    ↓
+Sabiá-4 rankeia e justifica
+    ↓
+JSON estruturado retornado ao frontend
+```
+
+---
 
 ## 🔍 Funções do Banco de Dados
 
 ### `match_materias`
-RPC function no Supabase para busca vetorial:
 ```sql
 CREATE OR REPLACE FUNCTION match_materias(
     query_embedding vector(384),
@@ -119,78 +190,94 @@ CREATE OR REPLACE FUNCTION match_materias(
     match_count int
 )
 RETURNS TABLE (
-    codigo_materia text,
-    nome_materia text,
-    departamento text,
-    ementa text,
+    "Codigo" text,
+    "Nome" text,
+    "Departamento" text,
+    "Ementa" text,
     similaridade float
 )
 ```
 
-Usa operador `<=>` (distância de cosseno) do pgvector.
+---
 
 ## 📈 Performance
 
-- **Inicialização:** ~2-3s (modelo + Supabase)
-- **Busca:** ~500-800ms por query
-- **Primeira query:** ~30s (carregamento inicial)
-- **Queries seguintes:** <1s (sistemas pré-carregados)
-
-## 🐛 Debugging
-
-Para ver logs detalhados:
-```bash
-python agente_sabia.py 2>&1 | more
-```
-
-Logs incluem:
-- `[MCP]` - Servidor MCP
-- `[MARITACA]` - Chamadas à API Maritaca
-- `[BUSCA]` - Busca vetorial
-- Embeddings gerados (primeiros 5 valores)
-- Scores de similaridade
-
-## 🔒 Segurança
-
-- **Credenciais:** Armazenadas em `.env` (não versionado)
-- **API Keys:** Maritaca AI e Supabase
-- **Modelo Local:** Sem vazamento de dados para APIs externas
-
-## 🛠️ Manutenção
-
-### Atualizar Modelo
-Se precisar trocar o modelo de embedding:
-1. Apagar pasta `modelo_local_v2/`
-2. Editar `servidor_mcp_sabia.py` (linha 56)
-3. Executar - novo modelo será baixado
-
-### Ajustar Threshold
-Para resultados mais/menos rigorosos:
-```python
-# servidor_mcp_sabia.py, linha 121
-"match_threshold": 0.3,  # Menor = mais resultados
-```
-
-## 📚 Dependências
-
-```
-sentence-transformers>=2.2.0  # Embeddings
-supabase>=1.0.0              # Banco vetorial
-python-dotenv>=1.0.0         # Variáveis de ambiente
-maritalk>=0.9.0              # Maritaca AI (Sabiá)
-fastmcp>=0.1.0               # Protocolo MCP
-```
-
-## 🤝 Integração
-
-O agente é usado em:
-- **Website:** Rota `/assistente` (frontend Svelte)
-- **Backend:** `AssistenteService` (Node.js)
-- **Terminal:** Modo interativo para testes
+| Etapa | Tempo |
+|---|---|
+| Inicialização (modelo + Supabase) | ~2–3s |
+| Primeira query (cold start) | ~20–30s |
+| Queries seguintes | ~5–10s |
+| Busca vetorial por termo | ~500–800ms |
 
 ---
 
-**Versão:** 1.0  
+## 🐛 Debugging
+
+```powershell
+# Ver logs detalhados (stderr)
+python agente_sabia.py 2>&1 | more
+
+# Testar servidor MCP isolado
+python servidor_mcp_sabia.py
+```
+
+Prefixos de log:
+- `[MCP]` — Servidor MCP
+- `[SABIÁ]` — Chamadas à API Maritaca
+- `[BUSCA]` — Busca vetorial no Supabase
+
+---
+
+## ⚠️ Solução de Problemas
+
+### `FileNotFoundError: [WinError 2]` ao iniciar o agente
+
+O `agente_sabia.py` não encontrou o Python para iniciar o servidor MCP. O script usa `sys.executable` (mesmo Python que está rodando) se o venv da raiz não existir. Verifique se está rodando com o venv ativado.
+
+### `Microsoft Visual C++ 14.0 or greater is required` (pyiceberg, pyroaring)
+
+Ocorre no Windows com Python 3.14. Soluções:
+
+1. **Usar Python 3.11 ou 3.12** (recomendado):
+   ```powershell
+   py -3.12 -m venv venv312
+   .\venv312\Scripts\Activate.ps1
+   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+   pip install -r requirements.txt
+   ```
+
+2. **Instalar Microsoft C++ Build Tools:** [https://visualstudio.microsoft.com/visual-cpp-build-tools/](https://visualstudio.microsoft.com/visual-cpp-build-tools/) → carga de trabalho "Desenvolvimento para desktop com C++"
+
+### `spawn ... ENOENT` no backend Node.js
+
+O `SabiaService` não encontrou o executável Python. Verifique:
+- Se o venv existe em `no_fluxo_backend/venv/` ou na raiz
+- Se `python` está no PATH do sistema
+
+### Conflito de versões httpx / supabase
+
+O `mcp` exige `httpx >= 0.26`. Versões antigas do `supabase` (`1.x`) exigem `httpx < 0.24`. Use `supabase >= 2.24, < 2.25` (sem `pyiceberg`):
+
+```
+supabase>=2.24.0,<2.25.0
+```
+
+---
+
+## 📚 Dependências principais
+
+| Pacote | Versão | Uso |
+|---|---|---|
+| `sentence-transformers` | latest | Embeddings locais |
+| `supabase` | >=2.24,<2.25 | Banco vetorial |
+| `python-dotenv` | latest | Variáveis de ambiente |
+| `openai` | latest | API Maritaca (compatível OpenAI) |
+| `mcp` | latest | Model Context Protocol |
+| `torch` | CPU wheel | Backbone dos embeddings |
+
+---
+
+**Versão:** 2.0  
 **Modelo:** paraphrase-multilingual-MiniLM-L12-v2 (384D)  
 **LLM:** Sabiá-4 + Sabiázinho-4 (Maritaca AI)  
 **Banco:** Supabase PostgreSQL + pgvector

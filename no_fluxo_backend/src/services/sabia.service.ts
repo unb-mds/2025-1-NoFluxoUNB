@@ -6,6 +6,7 @@
 
 import { spawn } from 'child_process';
 import path from 'path';
+import fs from 'fs';
 import logger from '../logger';
 
 export interface SabiaDisciplina {
@@ -30,9 +31,17 @@ export class SabiaService {
     constructor() {
         // Path to the unified Python script (works in both interactive and API mode)
         this.pythonScriptPath = path.join(__dirname, '../../..', 'mcp_agent', 'agente_sabia.py');
-        
-        // Path to Python executable in venv
-        this.pythonExePath = path.join(__dirname, '../../..', 'venv', 'Scripts', 'python.exe');
+
+        // Resolve Python executable: root venv → backend venv → system python
+        const rootVenv    = path.join(__dirname, '../../..', 'venv', 'Scripts', 'python.exe');
+        const backendVenv = path.join(__dirname, '../..', 'venv', 'Scripts', 'python.exe');
+        if (fs.existsSync(rootVenv)) {
+            this.pythonExePath = rootVenv;
+        } else if (fs.existsSync(backendVenv)) {
+            this.pythonExePath = backendVenv;
+        } else {
+            this.pythonExePath = 'python';
+        }
         
         // Check if required env vars are set
         logger.info('[SabiaService] Checking environment variables...');

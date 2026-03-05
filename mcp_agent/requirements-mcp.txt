@@ -1,0 +1,16 @@
+# Dependências mínimas para o MCP Agent (busca semântica)
+# Use Python 3.11 ou 3.12 para evitar compilação de extensões C no Windows.
+# Python 3.14 ainda não tem wheels pré-compilados para pyiceberg/pyroaring.
+
+# Core MCP
+mcp
+python-dotenv
+
+# Busca semântica (SentenceTransformer)
+sentence-transformers
+
+# Banco/Supabase (se usar databaseScript)
+supabase
+
+# OpenAI/Google (agente_sabia)
+openai

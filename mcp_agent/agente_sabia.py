@@ -226,13 +226,14 @@ async def main():
                 print(json.dumps({"success": False, "error": "Campo 'interesse' é obrigatório"}))
                 return
             
-            # Caminho absoluto para o Python e o script MCP
+            # Usa o mesmo Python que está rodando este script
             script_dir = Path(__file__).parent
-            python_exe = script_dir.parent / "venv" / "Scripts" / "python.exe"
+            venv_python = script_dir.parent / "venv" / "Scripts" / "python.exe"
+            python_exe = str(venv_python) if venv_python.exists() else sys.executable
             server_script = script_dir / "servidor_mcp_sabia.py"
             
             server_params = StdioServerParameters(
-                command=str(python_exe),
+                command=python_exe,
                 args=[str(server_script)]
             )
             
@@ -262,13 +263,14 @@ async def main():
     # MODO INTERATIVO: Interface de linha de comando
     print("Conectando ao Servidor MCP...")
     
-    # Caminho absoluto para o Python e o script MCP
+    # Usa o Python atual (sys.executable) para garantir mesmo ambiente
     script_dir = Path(__file__).parent
-    python_exe = script_dir.parent / "venv" / "Scripts" / "python.exe"
+    venv_python = script_dir.parent / "venv" / "Scripts" / "python.exe"
+    python_exe = str(venv_python) if venv_python.exists() else sys.executable
     server_script = script_dir / "servidor_mcp_sabia.py"
     
     server_params = StdioServerParameters(
-        command=str(python_exe),
+        command=python_exe,
         args=[str(server_script)]
     )
     

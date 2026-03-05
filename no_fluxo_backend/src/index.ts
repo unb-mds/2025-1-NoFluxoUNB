@@ -175,24 +175,29 @@ const allowedOrigins = new Set<string>([
     'http://localhost:3000',
     'http://localhost:3008',
     'http://localhost:5000',
-    'http://localhost:5173'
+    'http://localhost:5173',
+    'http://127.0.0.1:3000',
+    'http://127.0.0.1:3008',
+    'http://127.0.0.1:5000',
+    'http://127.0.0.1:5173',
 ]);
 
 app.use(cors({
     origin: (origin, callback) => {
-        // Allow non-browser or same-origin requests
         if (!origin) return callback(null, true);
         if (allowedOrigins.has(origin)) return callback(null, true);
-        // Fallback: allow any origin to avoid accidental blocks (adjust if you want strict policy)
+        // Dev: permitir qualquer localhost/127.0.0.1
+        if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) return callback(null, true);
         return callback(null, true);
     },
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
     allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization', 'User-ID'],
     credentials: false,
     optionsSuccessStatus: 204,
+    preflightContinue: false,
 }));
 
-// Make sure OPTIONS preflight is handled quickly
+// OPTIONS preflight deve ser tratado antes das rotas
 app.options('*', cors());
 
 app.use(bodyParser.json({ limit: 500 * 1024 * 1024, }));
