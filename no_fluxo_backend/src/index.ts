@@ -1,7 +1,14 @@
+// IMPORTANT: Load .env FIRST, before any other imports
+import dotenv from "dotenv";
+import path from 'path';
+
+const envPath = path.join(__dirname, '..', '.env');
+dotenv.config({ path: envPath });
+
+// Now import everything else (services will have env vars available)
 import { createClient } from '@supabase/supabase-js'
 import { SupabaseWrapper } from './supabase_wrapper'
 import express, { Express, Request, Response } from 'express';
-import dotenv from "dotenv";
 import { Utils } from './utils';
 import { EndpointController, RequestType } from './interfaces';
 import bodyParser from 'body-parser';
@@ -14,7 +21,11 @@ import { CursosController } from './controllers/cursos_controller';
 import { MateriasController } from './controllers/materias_controller';
 import { AssistenteController } from './controllers/assistente_controller';
 
-dotenv.config();
+// Log loaded environment variables (for debugging)
+logger.info('Environment variables loaded:');
+logger.info(`  MARITACA_API_KEY: ${!!process.env.MARITACA_API_KEY}`);
+logger.info(`  SUPABASE_URL: ${!!process.env.SUPABASE_URL}`);
+logger.info(`  SUPABASE_KEY: ${!!process.env.SUPABASE_KEY}`);
 
 SupabaseWrapper.init();
 logger.info('Supabase client initialized');

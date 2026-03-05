@@ -45,6 +45,7 @@ venv
 # AI Agent
 ai_agent/logs/
 prompts/logs/
+modelo_local_v2/
 
 # Dados temporários / coleta (apenas a pasta de dados, não o código em coleta_dados/scraping)
 coleta_dados/dados/
