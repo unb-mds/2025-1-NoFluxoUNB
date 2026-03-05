@@ -90,7 +90,8 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		return json(result);
 	} catch (err) {
-		console.error('[api/integralizacao]', err);
+		const cause = err instanceof Error && 'cause' in err ? (err as Error & { cause?: Error }).cause : null;
+		console.error('[api/integralizacao]', err instanceof Error ? err.message : err, cause ? `(causa: ${cause})` : '');
 		return json(
 			{ error: err instanceof Error ? err.message : 'Erro ao calcular integralização' },
 			{ status: 500 }
