@@ -13,26 +13,26 @@
 	let { data, extractedData = null, onsave, onreset }: Props = $props();
 </script>
 
-<div class="flex flex-col items-center gap-6">
+<div class="flex min-w-0 flex-col items-center gap-4 sm:gap-6">
 	<!-- Success Header -->
 	<div class="success-icon">
-		<CheckCircle class="h-12 w-12 text-emerald-400" />
+		<CheckCircle class="h-10 w-10 text-emerald-400 sm:h-12 sm:w-12" />
 	</div>
 
 	<div class="text-center">
-		<h3 class="text-xl font-bold text-white">Processamento concluído!</h3>
-		<p class="mt-1 text-sm text-gray-400">
+		<h3 class="text-lg font-bold text-white sm:text-xl">Processamento concluído!</h3>
+		<p class="mt-1 text-xs text-gray-400 sm:text-sm">
 			Seu histórico acadêmico foi processado com sucesso.
 		</p>
 	</div>
 
 	<!-- Results -->
-	<div class="w-full">
+	<div class="w-full min-w-0">
 		<ProcessingResults {data} {extractedData} />
 	</div>
 
 	<!-- Actions -->
-	<div class="flex w-full flex-col gap-3 sm:flex-row sm:justify-center">
+	<div class="flex w-full min-w-0 flex-col gap-2 sm:flex-row sm:justify-center sm:gap-3">
 		<button
 			type="button"
 			class="action-btn primary"
@@ -57,13 +57,13 @@
 	@reference 'tailwindcss';
 
 	.success-icon {
-		@apply flex h-20 w-20 items-center justify-center rounded-full;
+		@apply flex h-16 w-16 items-center justify-center rounded-full sm:h-20 sm:w-20;
 		background: rgba(16, 185, 129, 0.1);
 		animation: success-pop 0.4s ease-out;
 	}
 
 	.action-btn {
-		@apply flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium transition-all duration-200;
+		@apply flex w-full items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all duration-200 sm:w-auto sm:px-6 sm:py-3;
 	}
 
 	.action-btn.primary {

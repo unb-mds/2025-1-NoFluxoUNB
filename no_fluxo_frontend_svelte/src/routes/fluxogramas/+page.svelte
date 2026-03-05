@@ -112,11 +112,11 @@
 
 <GraffitiBackground />
 
-<div class="relative z-10 container mx-auto max-w-6xl px-4 py-8">
+<div class="relative z-10 container mx-auto min-w-0 max-w-6xl overflow-x-hidden px-3 py-6 sm:px-4 sm:py-8">
 	<!-- Header -->
-	<div class="mb-6">
-		<h1 class="text-2xl font-bold text-white">Fluxogramas</h1>
-		<p class="text-gray-300">Explore e selecione o fluxograma do seu curso.</p>
+	<div class="mb-4 sm:mb-6">
+		<h1 class="text-xl font-bold text-white sm:text-2xl">Fluxogramas</h1>
+		<p class="text-sm text-gray-300 sm:text-base">Explore e selecione o fluxograma do seu curso.</p>
 	</div>
 
 	<!-- Search and Filter -->
@@ -132,11 +132,11 @@
 		</div>
 
 		{#if courseTypes.length > 0}
-			<div class="relative">
+			<div class="relative w-full sm:w-auto">
 				<Filter class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
 				<select
 					bind:value={selectedType}
-					class="appearance-none rounded-xl border border-white/10 bg-black/40 py-2.5 pl-10 pr-8 text-sm text-white backdrop-blur-md outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/30"
+					class="w-full appearance-none rounded-xl border border-white/10 bg-black/40 py-2.5 pl-10 pr-8 text-sm text-white backdrop-blur-md outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/30 sm:w-auto"
 				>
 					<option value="">Todos os tipos</option>
 					{#each courseTypes as type}

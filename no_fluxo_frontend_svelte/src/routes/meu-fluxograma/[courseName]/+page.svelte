@@ -8,7 +8,6 @@
 	import SubjectDetailsModal from '$lib/components/fluxograma/SubjectDetailsModal.svelte';
 	import OptativasModal from '$lib/components/fluxograma/OptativasModal.svelte';
 	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
-	import IntegralizacaoSection from '$lib/components/fluxograma/IntegralizacaoSection.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';
@@ -25,6 +24,7 @@
 	let selectedSubject = $state<MateriaModel | null>(null);
 	let showOptativas = $state(false);
 	let integralizacao = $state<IntegralizacaoResult | null>(null);
+	let integralizacaoLoading = $state(false);
 	let matrizes = $state<Array<{ curriculoCompleto: string }>>([]);
 
 	let userFluxograma = $derived(store.userFluxograma);
@@ -63,14 +63,18 @@
 				});
 			}
 			integralizacao = null;
+			integralizacaoLoading = false;
 			return;
 		}
+		integralizacaoLoading = true;
 		getIntegralizacao({
 			curriculoCompleto: cc,
 			dadosFluxograma: fluxo,
+			cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
 			equivalencias: course?.equivalencias
 		}).then((r) => {
 			integralizacao = r;
+			integralizacaoLoading = false;
 		});
 		if (course?.idCurso) {
 			supabaseDataService.getMatrizesByCurso(course.idCurso).then((m) => {
@@ -100,12 +104,18 @@
 	async function handleMatrizChange(curriculoCompleto: string) {
 		await store.loadCourseDataByCurriculoCompleto(curriculoCompleto);
 		if (userFluxograma) {
-			const r = await getIntegralizacao({
-				curriculoCompleto,
-				dadosFluxograma: userFluxograma,
-				equivalencias: store.state.courseData?.equivalencias
-			});
-			integralizacao = r;
+			integralizacaoLoading = true;
+			try {
+				const r = await getIntegralizacao({
+					curriculoCompleto,
+					dadosFluxograma: userFluxograma,
+					cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
+					equivalencias: store.state.courseData?.equivalencias
+				});
+				integralizacao = r;
+			} finally {
+				integralizacaoLoading = false;
+			}
 		}
 	}
 
@@ -127,7 +137,7 @@
 
 <GraffitiBackground />
 
-<div class="relative z-10 container mx-auto max-w-[95vw] px-4 py-6">
+<div class="relative z-10 container mx-auto min-w-0 max-w-[95vw] overflow-x-hidden px-3 py-4 sm:px-4 sm:py-6">
 	{#if store.state.loading}
 		<div class="flex flex-col items-center justify-center gap-4 py-20">
 			<Loader2 class="h-10 w-10 animate-spin text-purple-400" />
@@ -173,11 +183,8 @@
 					<ProgressSummarySection
 						courseData={store.state.courseData}
 						{userFluxograma}
-						effectiveCompletedCount={matchingCompletedCount}
-					/>
-
-					<IntegralizacaoSection
 						{integralizacao}
+						integralizacaoLoading={integralizacaoLoading}
 						{matrizes}
 						{curriculoCompletoAtual}
 						onMatrizChange={handleMatrizChange}

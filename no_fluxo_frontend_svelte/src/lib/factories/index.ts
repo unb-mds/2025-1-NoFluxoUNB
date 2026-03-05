@@ -314,6 +314,17 @@ export function createUserModelFromJson(json: Record<string, unknown>): UserMode
 				: (rawDadosUsers as Record<string, unknown>)
 			: null;
 
+	const cargaHorariaIntegralizada = (() => {
+		if (!dadosUserRow?.carga_horaria_integralizada) return null;
+		const ch = dadosUserRow.carga_horaria_integralizada as Record<string, unknown>;
+		if (typeof ch !== 'object' || ch === null) return null;
+		const o = Number(ch.obrigatoria ?? 0);
+		const op = Number(ch.optativa ?? 0);
+		const c = Number(ch.complementar ?? 0);
+		const t = Number(ch.total ?? o + op + c);
+		return { obrigatoria: o, optativa: op, complementar: c, total: t };
+	})();
+
 	if (dadosUserRow != null && dadosUserRow.fluxograma_atual != null) {
 		const fluxogramaData =
 			typeof dadosUserRow.fluxograma_atual === 'string'
@@ -350,6 +361,7 @@ export function createUserModelFromJson(json: Record<string, unknown>): UserMode
 		email: String(json.email ?? ''),
 		nomeCompleto: String(json.nome_completo ?? ''),
 		dadosFluxograma,
+		cargaHorariaIntegralizada: cargaHorariaIntegralizada ?? undefined,
 		token: json.token != null ? String(json.token) : null
 	};
 }

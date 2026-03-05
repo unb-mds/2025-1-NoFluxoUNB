@@ -34,11 +34,21 @@ export interface DadosFluxogramaUser {
 	dadosFluxograma: DadosMateria[][];
 }
 
+/** Carga horária integralizada extraída do PDF (SIGAA). */
+export interface CargaHorariaIntegralizada {
+	obrigatoria: number;
+	optativa: number;
+	complementar: number;
+	total: number;
+}
+
 export interface UserModel {
 	idUser: number;
 	email: string;
 	nomeCompleto: string;
 	dadosFluxograma?: DadosFluxogramaUser | null;
+	/** Carga horária integralizada do histórico (obrigatória, optativa, complementar). */
+	cargaHorariaIntegralizada?: CargaHorariaIntegralizada | null;
 	token?: string | null;
 }
 

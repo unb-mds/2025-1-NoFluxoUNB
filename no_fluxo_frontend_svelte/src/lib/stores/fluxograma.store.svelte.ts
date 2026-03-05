@@ -94,6 +94,11 @@ function createFluxogramaStore() {
 		return authState.user?.dadosFluxograma ?? null;
 	});
 
+	// Computed: carga horária integralizada do histórico (PDF)
+	const cargaHorariaIntegralizada = $derived.by(() => {
+		return authState.user?.cargaHorariaIntegralizada ?? null;
+	});
+
 	// Computed: completed subject codes (histórico + concluídas por equivalência)
 	const completedCodes = $derived.by(() => {
 		if (!userFluxograma) return new Set<string>();
@@ -135,6 +140,9 @@ function createFluxogramaStore() {
 		},
 		get userFluxograma() {
 			return userFluxograma;
+		},
+		get cargaHorariaIntegralizada() {
+			return cargaHorariaIntegralizada;
 		},
 		get completedCodes() {
 			return completedCodes;

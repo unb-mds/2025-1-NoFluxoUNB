@@ -162,9 +162,9 @@ const allowedOrigins = new Set<string>([
     'https://no-fluxo.com',
     'https://simplifica-pbl.space',
     'http://localhost:3000',
+    'http://localhost:3008',
     'http://localhost:5000',
-
-
+    'http://localhost:5173'
 ]);
 
 app.use(cors({

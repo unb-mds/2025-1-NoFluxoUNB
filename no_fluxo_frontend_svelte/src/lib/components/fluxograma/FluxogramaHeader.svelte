@@ -45,28 +45,28 @@
 	}
 </script>
 
-<header class="flex flex-wrap items-center justify-between gap-4">
-	<div class="flex items-center gap-3">
+<header class="flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4">
+	<div class="flex min-w-0 items-center gap-3">
 		<button
 			onclick={handleBack}
-			class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/70 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white"
+			class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/70 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white sm:h-10 sm:w-10"
 			aria-label="Voltar"
 		>
-			<ArrowLeft class="h-5 w-5" />
+			<ArrowLeft class="h-4 w-4 sm:h-5 sm:w-5" />
 		</button>
-		<div>
-			<h1 class="text-xl font-bold text-white sm:text-2xl">{courseName}</h1>
+		<div class="min-w-0 flex-1">
+			<h1 class="truncate text-lg font-bold text-white sm:text-xl md:text-2xl">{courseName}</h1>
 			{#if matrizCurricular}
-				<p class="text-sm text-white/50">{matrizCurricular}</p>
+				<p class="truncate text-xs text-white/50 sm:text-sm">{matrizCurricular}</p>
 			{/if}
 		</div>
 	</div>
 
-	<div class="flex items-center gap-2">
+	<div class="flex flex-wrap items-center gap-2">
 		{#if !store.state.isAnonymous}
 			{#if showConfirmDelete}
-				<div class="flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1.5 backdrop-blur-md">
-					<span class="text-xs text-red-300">Tem certeza?</span>
+				<div class="flex flex-wrap items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-2.5 py-1.5 backdrop-blur-md sm:px-3">
+					<span class="text-[10px] text-red-300 sm:text-xs">Tem certeza?</span>
 					<button
 						onclick={handleReupload}
 						disabled={isDeleting}
@@ -84,19 +84,20 @@
 			{:else}
 				<button
 					onclick={() => (showConfirmDelete = true)}
-					class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-4 py-2 text-sm font-medium text-white/60 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white"
+					class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/40 px-3 py-1.5 text-xs font-medium text-white/60 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
 				>
-					<RefreshCw class="h-4 w-4" />
-					Enviar Novamente
+					<RefreshCw class="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+					<span class="hidden sm:inline">Enviar Novamente</span>
+					<span class="sm:hidden">Reenviar</span>
 				</button>
 			{/if}
 		{/if}
 
 		<button
 			onclick={handleScreenshot}
-			class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-4 py-2 text-sm font-medium text-white/80 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white"
+			class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/40 px-3 py-1.5 text-xs font-medium text-white/80 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
 		>
-			<Camera class="h-4 w-4" />
+			<Camera class="h-3.5 w-3.5 sm:h-4 sm:w-4" />
 			Screenshot
 		</button>
 	</div>

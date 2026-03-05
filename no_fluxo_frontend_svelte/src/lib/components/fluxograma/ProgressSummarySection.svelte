@@ -1,26 +1,40 @@
 <script lang="ts">
 	import type { CursoModel } from '$lib/types/curso';
+	import type { IntegralizacaoResult } from '$lib/types/matriz';
 	import { isOptativa } from '$lib/types/materia';
 	import type { DadosFluxogramaUser } from '$lib/types/user';
-	import { getCompletedSubjectCodes, getTotalCreditsCompleted } from '$lib/types/user';
-	import { GraduationCap, TrendingUp, Calendar, MessageSquare } from 'lucide-svelte';
+	import { getTotalCreditsCompleted } from '$lib/types/user';
+	import { GraduationCap, Calendar, MessageSquare, X, Loader2 } from 'lucide-svelte';
 	import { goto } from '$app/navigation';
 	import { ROUTES } from '$lib/config/routes';
+	import IntegralizacaoSection from './IntegralizacaoSection.svelte';
 
 	interface Props {
 		courseData: CursoModel;
 		userFluxograma: DadosFluxogramaUser | null;
-		/** Se informado, usa este total (ex.: inclui concluídas por equivalência); senão usa só histórico */
-		effectiveCompletedCount?: number;
+		integralizacao?: IntegralizacaoResult | null;
+		integralizacaoLoading?: boolean;
+		matrizes?: Array<{ curriculoCompleto: string }>;
+		curriculoCompletoAtual?: string | null;
+		onMatrizChange?: (curriculoCompleto: string) => void;
 	}
 
-	let { courseData, userFluxograma, effectiveCompletedCount }: Props = $props();
+	let {
+		courseData,
+		userFluxograma,
+		integralizacao,
+		integralizacaoLoading = false,
+		matrizes = [],
+		curriculoCompletoAtual = null,
+		onMatrizChange
+	}: Props = $props();
+
+	let showChModal = $state(false);
 
 	let totalCredits = $derived.by(() => {
 		if (courseData.totalCreditos != null && courseData.totalCreditos > 0) {
 			return courseData.totalCreditos;
 		}
-		// Fallback: sum credits from mandatory subjects (nivel > 0) when DB value is missing
 		return courseData.materias
 			.filter((m) => !isOptativa(m))
 			.reduce((sum, m) => sum + m.creditos, 0);
@@ -28,116 +42,88 @@
 
 	let completedCredits = $derived.by(() => {
 		if (!userFluxograma) return 0;
-		const creditsMap = new Map(
-			courseData.materias.map((m) => [m.codigoMateria, m.creditos])
-		);
+		const creditsMap = new Map(courseData.materias.map((m) => [m.codigoMateria, m.creditos]));
 		return getTotalCreditsCompleted(userFluxograma, creditsMap);
 	});
 
-	let completedCount = $derived.by(() => {
-		if (effectiveCompletedCount !== undefined && effectiveCompletedCount !== null) {
-			return effectiveCompletedCount;
-		}
-		if (!userFluxograma) return 0;
-		return getCompletedSubjectCodes(userFluxograma).size;
-	});
-
-	let totalSubjects = $derived(courseData.materias.filter((m) => !isOptativa(m)).length);
-
-	let completionPercent = $derived(
-		totalSubjects > 0 ? Math.round((completedCount / totalSubjects) * 100) : 0
+	let progressLabel = $derived(
+		integralizacaoLoading ? 'Carregando...' : integralizacao ? 'Carga horária (SIGAA)' : 'Créditos'
 	);
-
-	let creditPercent = $derived(
-		totalCredits > 0 ? Math.min(100, Math.round((completedCredits / totalCredits) * 100)) : 0
+	let progressValue = $derived(
+		integralizacaoLoading
+			? '—'
+			: integralizacao && integralizacao.exigido.chTotal > 0
+				? `${integralizacao.realizado.chTotal.toLocaleString('pt-BR')}h / ${integralizacao.exigido.chTotal.toLocaleString('pt-BR')}h`
+				: `${completedCredits}/${totalCredits}`
+	);
+	let progressSublabel = $derived(
+		integralizacaoLoading ? 'aguarde' : integralizacao ? 'horas integralizadas' : 'créditos integralizados'
 	);
 
 	let currentSemester = $derived(userFluxograma?.semestreAtual ?? 1);
 
-	// SVG circular progress helper
-	function circleProgress(percent: number, radius = 38) {
-		const circumference = 2 * Math.PI * radius;
-		const offset = circumference - (percent / 100) * circumference;
-		return { circumference, offset };
+	let podeAbrirModal = $derived(!!integralizacao && !integralizacaoLoading);
+
+	function handleKeydown(e: KeyboardEvent) {
+		if (e.key === 'Escape') showChModal = false;
 	}
 
-	let creditCircle = $derived(circleProgress(creditPercent));
+	function handleBackdropClick(e: MouseEvent) {
+		if (e.target === e.currentTarget) showChModal = false;
+	}
+
+	// Bloquear scroll do body quando o modal está aberto
+	$effect(() => {
+		if (showChModal) {
+			const prev = document.body.style.overflow;
+			document.body.style.overflow = 'hidden';
+			return () => {
+				document.body.style.overflow = prev;
+			};
+		}
+	});
 </script>
 
+<svelte:window onkeydown={handleKeydown} />
+
 {#if userFluxograma}
-	<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-		<!-- Credits progress -->
-		<div class="rounded-xl border border-white/10 bg-black/40 p-4 backdrop-blur-md">
+	<div class="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+		<!-- Card CH: botão que abre modal (sem círculo de progresso) -->
+		<button
+			type="button"
+			onclick={() => (podeAbrirModal ? (showChModal = true) : null)}
+			class="rounded-xl border border-white/10 bg-black/40 p-4 text-left backdrop-blur-md transition-colors hover:border-white/20 hover:bg-black/50 {!podeAbrirModal
+				? 'cursor-default'
+				: 'cursor-pointer'}"
+		>
 			<div class="flex items-center gap-4">
-				<div class="relative h-20 w-20 shrink-0">
-					<svg class="h-20 w-20 -rotate-90" viewBox="0 0 88 88">
-						<circle
-							cx="44"
-							cy="44"
-							r="38"
-							stroke="rgba(255,255,255,0.1)"
-							stroke-width="6"
-							fill="none"
-						/>
-						<circle
-							cx="44"
-							cy="44"
-							r="38"
-							stroke="#22c55e"
-							stroke-width="6"
-							fill="none"
-							stroke-linecap="round"
-							stroke-dasharray={creditCircle.circumference}
-							stroke-dashoffset={creditCircle.offset}
-							class="transition-all duration-700"
-						/>
-					</svg>
-					<div class="absolute inset-0 flex items-center justify-center">
-						<span class="text-sm font-bold text-white">{creditPercent}%</span>
-					</div>
+				<div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-green-500/20">
+					{#if integralizacaoLoading}
+						<Loader2 class="h-7 w-7 animate-spin text-green-400" />
+					{:else}
+						<GraduationCap class="h-7 w-7 text-green-400" />
+					{/if}
 				</div>
 				<div>
 					<div class="flex items-center gap-1.5 text-green-400">
-						<GraduationCap class="h-4 w-4" />
-						<span class="text-xs font-semibold uppercase tracking-wider">Créditos</span>
+						<span class="text-xs font-semibold uppercase tracking-wider">{progressLabel}</span>
 					</div>
-					<p class="mt-1 text-lg font-bold text-white">
-						{completedCredits}<span class="text-sm font-normal text-white/50">/{totalCredits}</span>
-					</p>
-					<p class="text-xs text-white/50">créditos integralizados</p>
+					<p class="mt-1 text-lg font-bold text-white">{progressValue}</p>
+					<p class="text-xs text-white/50">{progressSublabel}</p>
+					{#if podeAbrirModal}
+						<p class="mt-1 text-xs text-cyan-400">Clique para ver detalhes</p>
+					{/if}
 				</div>
 			</div>
-		</div>
+		</button>
 
-		<!-- Completion percentage -->
-		<div class="rounded-xl border border-white/10 bg-black/40 p-4 backdrop-blur-md">
-			<div class="flex items-center gap-1.5 text-purple-400">
-				<TrendingUp class="h-4 w-4" />
-				<span class="text-xs font-semibold uppercase tracking-wider">Progresso</span>
-			</div>
-			<p class="mt-2 text-2xl font-bold text-white">
-				{completionPercent}%
-			</p>
-			<p class="mb-2 text-xs text-white/50">
-				{completedCount} de {totalSubjects} matérias concluídas
-			</p>
-			<div class="h-2 overflow-hidden rounded-full bg-white/10">
-				<div
-					class="h-full rounded-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-700"
-					style="width: {completionPercent}%"
-				></div>
-			</div>
-		</div>
-
-		<!-- Current semester -->
+		<!-- Semestre atual -->
 		<div class="rounded-xl border border-white/10 bg-black/40 p-4 backdrop-blur-md">
 			<div class="flex items-center gap-1.5 text-amber-400">
 				<Calendar class="h-4 w-4" />
 				<span class="text-xs font-semibold uppercase tracking-wider">Semestre Atual</span>
 			</div>
-			<p class="mt-2 text-2xl font-bold text-white">
-				{currentSemester}º
-			</p>
+			<p class="mt-2 text-2xl font-bold text-white">{currentSemester}º</p>
 			<p class="text-xs text-white/50">semestre</p>
 			{#if userFluxograma.ira}
 				<div class="mt-2 rounded-lg bg-white/5 px-2.5 py-1">
@@ -151,19 +137,114 @@
 		<div class="col-span-full">
 			<button
 				onclick={() => goto(ROUTES.ASSISTENTE)}
-				class="group flex w-full items-center justify-between rounded-xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 to-pink-500/10 px-5 py-3 transition-all hover:border-purple-500/30 hover:shadow-lg"
+				class="group flex w-full flex-col items-stretch gap-2 rounded-xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 to-pink-500/10 px-4 py-3 transition-colors hover:border-purple-500/30 hover:shadow-lg sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:px-5"
 			>
 				<div class="flex items-center gap-3">
-					<MessageSquare class="h-5 w-5 text-purple-400" />
-					<div class="text-left">
+					<MessageSquare class="h-4 w-4 shrink-0 text-purple-400 sm:h-5 sm:w-5" />
+					<div class="min-w-0 text-left">
 						<p class="text-sm font-semibold text-white">Precisa de ajuda?</p>
 						<p class="text-xs text-white/50">Converse com o assistente sobre seu fluxograma</p>
 					</div>
 				</div>
-				<span class="rounded-full bg-purple-600 px-4 py-1.5 text-xs font-medium text-white transition-colors group-hover:bg-purple-500">
+				<span class="rounded-full bg-purple-600 px-4 py-1.5 text-center text-xs font-medium text-white transition-colors group-hover:bg-purple-500 sm:text-left">
 					Falar com Assistente
 				</span>
 			</button>
 		</div>
 	</div>
+
+	<!-- Modal Carga Horária -->
+	{#if showChModal && integralizacao}
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div
+			class="modal-overlay"
+			onclick={handleBackdropClick}
+		>
+			<div
+				class="modal-box"
+				role="dialog"
+				aria-modal="true"
+				aria-label="Detalhes da carga horária"
+			>
+				<div class="modal-header">
+					<h2 class="text-base font-bold text-white sm:text-lg">Carga Horária (SIGAA)</h2>
+					<button
+						type="button"
+						onclick={() => (showChModal = false)}
+						class="rounded-lg p-2 text-white/60 transition-colors hover:bg-white/10 hover:text-white"
+						aria-label="Fechar"
+					>
+						<X class="h-5 w-5" />
+					</button>
+				</div>
+				<div class="modal-scroll-area">
+					<IntegralizacaoSection
+						{integralizacao}
+						{matrizes}
+						curriculoCompletoAtual={curriculoCompletoAtual ?? integralizacao.curriculoCompleto}
+						onMatrizChange={onMatrizChange}
+					/>
+				</div>
+			</div>
+		</div>
+	{/if}
 {/if}
+
+<style>
+	.modal-overlay {
+		position: fixed;
+		inset: 0;
+		z-index: 50;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		background: rgba(0, 0, 0, 0.6);
+		backdrop-filter: blur(4px);
+		padding: 0.5rem;
+	}
+	@media (min-width: 640px) {
+		.modal-overlay { padding: 1rem; }
+	}
+	.modal-box {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: flex;
+		flex-direction: column;
+		max-height: 92vh;
+		width: 100%;
+		max-width: 42rem;
+		overflow: hidden;
+		border-radius: 0.75rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(17, 24, 39, 0.95);
+		box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+		backdrop-filter: blur(24px);
+	}
+	.modal-header {
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(17, 24, 39, 0.95);
+		padding: 0.75rem 1rem;
+	}
+	@media (min-width: 640px) {
+		.modal-header { padding: 1rem 1.5rem; }
+	}
+	.modal-scroll-area {
+		flex: 1;
+		min-height: 0;
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		-webkit-overflow-scrolling: touch;
+		padding: 1rem;
+	}
+	@media (min-width: 640px) {
+		.modal-scroll-area { padding: 1.5rem; }
+	}
+</style>

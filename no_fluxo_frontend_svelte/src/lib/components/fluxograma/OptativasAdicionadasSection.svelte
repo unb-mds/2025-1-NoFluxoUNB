@@ -6,7 +6,7 @@
 </script>
 
 {#if store.optativasAdicionadas.length > 0}
-	<div class="rounded-xl border border-white/10 bg-black/40 p-4 backdrop-blur-md">
+	<div class="min-w-0 rounded-xl border border-white/10 bg-black/40 p-3 backdrop-blur-md sm:p-4">
 		<div class="mb-3 flex items-center gap-2">
 			<BookOpen class="h-4 w-4 text-blue-400" />
 			<h3 class="text-sm font-semibold uppercase tracking-wider text-white/70">

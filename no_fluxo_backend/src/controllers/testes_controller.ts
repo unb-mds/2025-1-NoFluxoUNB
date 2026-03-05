@@ -198,8 +198,9 @@ export const TestesController: EndpointController = {
                 }
 
                 const materiasBancoList = materiasBanco[0].materias_por_curso;
-                const materiasObrigatorias = materiasBancoList.filter((m: any) => m.nivel > 0);
-                const materiasOptativas = materiasBancoList.filter((m: any) => m.nivel === 0);
+                const isOptativa = (m: any) => (m.tipo_natureza !== undefined && m.tipo_natureza !== null) ? m.tipo_natureza === 1 : (m.nivel === 0 || m.nivel === null);
+                const materiasObrigatorias = materiasBancoList.filter((m: any) => !isOptativa(m));
+                const materiasOptativas = materiasBancoList.filter((m: any) => isOptativa(m));
                 const disciplinasCasadas: any[] = [];
 
                 // Extrair dados de validação do PDF
@@ -273,7 +274,7 @@ export const TestesController: EndpointController = {
                                     id_materia: materiaBanco.materias.id_materia,
                                     encontrada_no_banco: true,
                                     nivel: materiaBanco.nivel,
-                                    tipo: isOptativaCasamento(materiaBanco) ? 'optativa' : 'obrigatoria'
+                                    tipo: isOptativa(materiaBanco) ? 'optativa' : 'obrigatoria'
                                 };
                                 disciplinasCasadas.push(disciplinaCasada);
                             }

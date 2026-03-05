@@ -9,6 +9,7 @@ import {
     codigoContidoEmExpressaoLogica,
     satisfazExpressaoLogica
 } from "../utils/expressao_logica";
+import { calcularIntegralizacao } from "../services/integralizacao.service";
 
 // Helper interfaces for better type safety
 interface DisciplinaHistorico {
@@ -948,6 +949,24 @@ export const FluxogramaController: EndpointController = {
                 logger.error(`Erro ao casar disciplinas: ${error.message}`);
                 logger.error(`Error occurred after ${processingTime}ms of processing`);
                 return res.status(500).json({ error: error.message || "Erro ao casar disciplinas" });
+            }
+        }),
+
+        "integralizacao": new Pair(RequestType.POST, async (req: Request, res: Response) => {
+            const logger = createControllerLogger("FluxogramaController", "integralizacao");
+            try {
+                const { curriculoCompleto, cargaHorariaIntegralizada } = req.body;
+                if (!curriculoCompleto?.trim()) {
+                    return res.status(400).json({ error: "curriculoCompleto é obrigatório" });
+                }
+                const result = await calcularIntegralizacao(curriculoCompleto.trim(), cargaHorariaIntegralizada ?? null);
+                if (!result) {
+                    return res.status(404).json({ error: "Matriz não encontrada para o currículo informado" });
+                }
+                return res.status(200).json(result);
+            } catch (err: any) {
+                logger.error(`Erro ao calcular integralização: ${err?.message}`);
+                return res.status(500).json({ error: err?.message ?? "Erro ao calcular integralização" });
             }
         }),
 

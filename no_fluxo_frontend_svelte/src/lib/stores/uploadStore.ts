@@ -299,14 +299,33 @@ function createUploadStore() {
 					meta
 				);
 
-				// Save in the format expected when loading user (snake_case DadosFluxogramaUser)
+				// Save: atualiza dados_users (estado atual) + registra em historicos_usuarios (acompanhamento ao longo dos anos)
 				await supabaseDataService.saveFluxogramaData(
 					user.idUser,
 					dadosFluxogramaUserToJson(dados),
-					meta.semestreAtual || undefined
+					meta.semestreAtual || undefined,
+					ext?.carga_horaria_integralizada ?? undefined,
+					{
+						curso_extraido: ext?.curso_extraido ?? null,
+						matriz_curricular: ext?.matriz_curricular ?? null,
+						matricula: ext?.matricula ?? null,
+						ira: (ext?.extracted_data?.find((d) => (d as { tipo_dado?: string }).tipo_dado === 'IRA') as { valor?: number } | undefined)?.valor ?? null,
+						media_ponderada: ext?.media_ponderada ?? null,
+						carga_horaria_integralizada: ext?.carga_horaria_integralizada ?? null,
+						suspensoes: ext?.suspensoes ?? null,
+						resumo: cd?.resumo
+							? {
+									total_disciplinas: cd.resumo.total_disciplinas,
+									total_obrigatorias: cd.resumo.total_obrigatorias,
+									total_obrigatorias_concluidas: cd.resumo.total_obrigatorias_concluidas,
+									total_obrigatorias_pendentes: cd.resumo.total_obrigatorias_pendentes,
+									percentual_conclusao_obrigatorias: cd.resumo.percentual_conclusao_obrigatorias
+								}
+							: null
+					}
 				);
 
-				authStore.updateDadosFluxograma(dados);
+				authStore.updateDadosFluxograma(dados, ext?.carga_horaria_integralizada ?? undefined);
 				toast.success('Fluxograma salvo com sucesso!');
 				goto(ROUTES.MEU_FLUXOGRAMA);
 			} catch (err) {

@@ -60,12 +60,12 @@
 			{:else}
 				<ul class="divide-y divide-white/5">
 					{#each items as item}
-						<li class="flex items-center gap-3 px-4 py-2.5 text-sm">
-							<span class="font-mono text-xs text-gray-500">
-							{item.codigo || item.codigo_materia || '—'}
-						</span>
-						<span class="text-gray-300">
-							{item.nome || item.nome_materia || 'Disciplina'}
+						<li class="flex min-w-0 items-center gap-2 px-3 py-2 text-xs sm:gap-3 sm:px-4 sm:py-2.5 sm:text-sm">
+							<span class="shrink-0 font-mono text-[10px] text-gray-500 sm:text-xs">
+								{item.codigo || item.codigo_materia || '—'}
+							</span>
+							<span class="min-w-0 truncate text-gray-300">
+								{item.nome || item.nome_materia || 'Disciplina'}
 							</span>
 						</li>
 					{/each}

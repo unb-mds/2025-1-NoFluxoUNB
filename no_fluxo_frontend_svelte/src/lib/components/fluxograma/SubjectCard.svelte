@@ -115,25 +115,24 @@
 	let startY = 0;
 	let didDrag = false;
 	const DRAG_THRESHOLD = 10; // pixels
+	const LONG_PRESS_MS = 400; // reduzido para mobile
 
 	function handleTouchStart(e: TouchEvent) {
 		isTouchInteraction = true;
 		didLongPress = false;
 		didDrag = false;
-		
+
 		const touch = e.touches[0];
 		startX = touch.clientX;
 		startY = touch.clientY;
 
 		longPressTimer = setTimeout(() => {
 			didLongPress = true;
-			// On long-press, show connections (set hover state) and keep them visible
 			store.setHoveredSubject(materia.codigoMateria);
-			// Also trigger onlongpress callback if not anonymous
 			if (!store.state.isAnonymous) {
 				onlongpress?.();
 			}
-		}, 500);
+		}, LONG_PRESS_MS);
 	}
 
 	function handleTouchMove(e: TouchEvent) {
@@ -141,8 +140,7 @@
 			const touch = e.touches[0];
 			const deltaX = Math.abs(touch.clientX - startX);
 			const deltaY = Math.abs(touch.clientY - startY);
-			
-			// If user moved finger, cancel long-press and mark as drag
+
 			if (deltaX > DRAG_THRESHOLD || deltaY > DRAG_THRESHOLD) {
 				clearTimeout(longPressTimer);
 				longPressTimer = null;
@@ -156,19 +154,26 @@
 			clearTimeout(longPressTimer);
 			longPressTimer = null;
 		}
-		
-		// Only trigger click if it wasn't a drag and wasn't a long-press
+
 		if (!didDrag && !didLongPress) {
-			// Clear any previous hover state when clicking a new block
-			store.setHoveredSubject(null);
-			onclick?.();
+			// Tap rápido: modo mobile para conexões
+			const alreadyHovered = store.state.hoveredSubjectCode === materia.codigoMateria;
+			if (connectionsEnabled) {
+				// Primeiro toque: mostra conexões. Segundo toque no mesmo card: abre modal
+				if (alreadyHovered) {
+					onclick?.();
+				} else {
+					store.setHoveredSubject(materia.codigoMateria);
+				}
+			} else {
+				store.setHoveredSubject(null);
+				onclick?.();
+			}
 		}
-		
+
 		didLongPress = false;
 		didDrag = false;
-		
-		// Reset touch interaction flag after a short delay
-		// This allows subsequent mouse events to work on hybrid devices
+
 		setTimeout(() => {
 			isTouchInteraction = false;
 		}, 300);
@@ -205,6 +210,7 @@
 <button
 	class={cardClasses}
 	data-subject-code={materia.codigoMateria}
+	style="touch-action: manipulation;"
 	onclick={handleClick}
 	oncontextmenu={handleContextMenu}
 	onmouseenter={handleMouseEnter}

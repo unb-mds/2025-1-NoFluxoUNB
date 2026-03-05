@@ -20,12 +20,12 @@
 
 <AnimatedBackground />
 
-<main class="relative z-10 flex min-h-[calc(100vh-64px)] flex-col items-center px-4 py-10">
-	<div class="w-full max-w-2xl">
+<main class="relative z-10 flex min-h-[calc(100vh-64px)] flex-col items-center overflow-x-hidden px-3 py-6 sm:px-4 sm:py-10">
+	<div class="w-full max-w-2xl min-w-0">
 		<!-- Header -->
-		<div class="mb-8 text-center">
-			<h1 class="text-3xl font-bold text-white">Importar Histórico</h1>
-			<p class="mt-2 text-gray-400">
+		<div class="mb-6 text-center sm:mb-8">
+			<h1 class="text-2xl font-bold text-white sm:text-3xl">Importar Histórico</h1>
+			<p class="mt-1.5 text-sm text-gray-400 sm:mt-2 sm:text-base">
 				Envie seu histórico acadêmico em PDF para gerar seu fluxograma personalizado.
 			</p>
 		</div>
@@ -74,12 +74,10 @@
 			{/if}
 		</div>
 
-		<!-- Help Button -->
-		{#if $uploadStore.state === 'initial'}
-			<div class="mt-6 flex justify-center">
-				<HelpButton onclick={() => (showHelp = true)} />
-			</div>
-		{/if}
+		<!-- Help Button - sempre visível -->
+		<div class="mt-6 flex justify-center">
+			<HelpButton onclick={() => (showHelp = true)} />
+		</div>
 
 		<!-- File info -->
 		{#if $uploadStore.fileName && $uploadStore.state !== 'initial'}
@@ -106,7 +104,7 @@
 	@reference 'tailwindcss';
 
 	.upload-card {
-		@apply overflow-hidden rounded-2xl p-8;
+		@apply overflow-hidden rounded-2xl p-4 sm:p-8;
 		backdrop-filter: blur(16px);
 		-webkit-backdrop-filter: blur(16px);
 		background: rgba(255, 255, 255, 0.06);

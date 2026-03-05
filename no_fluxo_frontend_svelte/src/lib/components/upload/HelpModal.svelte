@@ -37,6 +37,17 @@
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'Escape') onclose();
 	}
+
+	// Bloquear scroll do body quando o modal está aberto
+	$effect(() => {
+		if (open) {
+			const prev = document.body.style.overflow;
+			document.body.style.overflow = 'hidden';
+			return () => {
+				document.body.style.overflow = prev;
+			};
+		}
+	});
 </script>
 
 {#if open}
@@ -51,13 +62,13 @@
 		transition:fade={{ duration: 200 }}
 		onkeydown={handleKeydown}
 	>
-		<div
-			class="modal"
-			use:clickOutside={{ onClickOutside: onclose }}
-			transition:fly={{ y: 30, duration: 250 }}
-		>
+	<div
+		class="modal"
+		use:clickOutside={{ onClickOutside: onclose }}
+		transition:fly={{ y: 30, duration: 250 }}
+	>
 			<!-- Header -->
-			<div class="flex items-center justify-between border-b border-white/10 px-6 py-4">
+			<div class="modal-header">
 				<h2 class="text-lg font-bold text-white md:text-xl">
 					Como obter seu histórico acadêmico
 				</h2>
@@ -72,7 +83,7 @@
 			</div>
 
 			<!-- Steps -->
-			<div class="space-y-6 px-6 py-5">
+			<div class="modal-scroll-area space-y-6">
 				{#each steps as step}
 					<div class="step-block">
 						<div class="flex items-start gap-3">
@@ -116,7 +127,7 @@
 			</div>
 
 			<!-- Footer -->
-			<div class="border-t border-white/10 px-6 py-4">
+			<div class="modal-footer">
 				<button
 					type="button"
 					class="entendi-btn"
@@ -134,17 +145,45 @@
 
 	.overlay {
 		@apply fixed inset-0 z-50 flex items-center justify-center p-4;
+		overflow: hidden;
 		background: rgba(0, 0, 0, 0.7);
 		backdrop-filter: blur(4px);
 	}
 
 	.modal {
-		@apply w-full max-w-lg overflow-hidden rounded-2xl md:max-w-xl;
+		@apply w-full max-w-lg rounded-2xl md:max-w-xl;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: flex;
+		flex-direction: column;
 		max-height: 90vh;
-		overflow-y: auto;
+		overflow: hidden;
 		background: rgba(30, 30, 30, 0.95);
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+	}
+	.modal-header {
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 1rem 1.5rem;
+	}
+	.modal-scroll-area {
+		flex: 1;
+		min-height: 0;
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		-webkit-overflow-scrolling: touch;
+		padding: 1.25rem 1.5rem;
+	}
+	.modal-footer {
+		flex-shrink: 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 1rem 1.5rem;
 	}
 
 	.step-number {

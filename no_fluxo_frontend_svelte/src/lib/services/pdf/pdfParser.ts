@@ -16,6 +16,8 @@ import {
 	extrairMatrizCurricular,
 	extrairSuspensoes,
 	extrairSemestreAtual,
+	extrairCargaHorariaIntegralizada,
+	debugCargaHorariaIntegralizada,
 	calcularNumeroSemestre,
 	type DisciplinaExtraida,
 	type EquivalenciaExtraida,
@@ -41,6 +43,13 @@ export interface ParsedPdfResult {
 	semestre_atual: string | null;
 	numero_semestre: number | null;
 	suspensoes: string[];
+	/** CH integralizada (obrigatória, optativa, complementar) da tabela "Carga Horária Integralizada/Pendente" */
+	carga_horaria_integralizada: {
+		obrigatoria: number;
+		optativa: number;
+		complementar: number;
+		total: number;
+	} | null;
 }
 
 // ─── Regex-based extractors for non-discipline data ───
@@ -208,6 +217,9 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 	// 6. Equivalências (regex)
 	const equivalencias = extrairEquivalencias(textoTotal);
 
+	// 6b. Carga horária integralizada (tabela "Carga Horária Integralizada/Pendente")
+	const cargaHorariaIntegralizada = extrairCargaHorariaIntegralizada(textoTotal);
+
 	// 7. Build the full disciplinas array with metadata entries
 	const allDisciplinas: DisciplinaExtraida[] = [...disciplinas, ...pendentes];
 
@@ -252,6 +264,12 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 	console.log(`${LOG_PREFIX} Disciplines: ${regularCount} regular, ${pendingCount} pending`);
 	console.log(`${LOG_PREFIX} Equivalencies: ${equivalencias.length}`);
 	console.log(`${LOG_PREFIX} Semester: ${semestreAtual ?? 'N/A'} (#${numeroSemestre})`);
+	if (cargaHorariaIntegralizada) {
+		console.log(`${LOG_PREFIX} CH Integralizada: ${JSON.stringify(cargaHorariaIntegralizada)}`);
+	} else {
+		const debug = debugCargaHorariaIntegralizada(textoTotal);
+		console.log(`${LOG_PREFIX} CH Integralizada: (not found)${debug.found ? ` — snippet: "${debug.snippet?.slice(0, 200)}..."` : ' — "Integralizado" não encontrado no texto'}`);
+	}
 	console.log(`${LOG_PREFIX} ========================================`);
 
 	return {
@@ -267,6 +285,7 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 		equivalencias_pdf: equivalencias,
 		semestre_atual: semestreAtual,
 		numero_semestre: numeroSemestre,
-		suspensoes
+		suspensoes,
+		carga_horaria_integralizada: cargaHorariaIntegralizada
 	};
 }

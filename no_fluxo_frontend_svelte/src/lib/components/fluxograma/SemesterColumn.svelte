@@ -29,7 +29,7 @@
 	});
 </script>
 
-<div class="semester-column flex min-w-[160px] flex-col gap-2">
+<div class="semester-column flex min-w-[130px] flex-col gap-2 sm:min-w-[160px]">
 	<div
 		class="z-10 rounded-lg border border-white/10 bg-black/60 px-3 py-2 text-center backdrop-blur-md"
 		style="transform: translateY({headerOffsetY}px); position: relative;"

@@ -49,7 +49,7 @@
 	}
 </script>
 
-<div class="rounded-xl border border-white/10 bg-black/40 p-4 backdrop-blur-md">
+<div class="min-w-0 rounded-xl border border-white/10 bg-black/40 p-3 backdrop-blur-md sm:p-4">
 	<h3 class="mb-3 text-xs font-semibold uppercase tracking-wider text-white/50">
 		Ferramentas
 	</h3>

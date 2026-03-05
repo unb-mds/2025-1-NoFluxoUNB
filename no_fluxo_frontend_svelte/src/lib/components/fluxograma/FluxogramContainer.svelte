@@ -37,6 +37,8 @@
 	let lastTouchY = $state(0);
 	let initialPinchDistance = $state(0);
 	let initialPinchZoom = $state(0);
+	/** Mobile: toque iniciou em um card — atrasa scroll para permitir tap/long-press */
+	let touchStartedOnCard = $state(false);
 
 	// Sorted semesters (excluding 0 = optativas)
 	let sortedSemesters = $derived.by(() => {
@@ -80,7 +82,10 @@
 
 	function handleTouchStart(e: TouchEvent) {
 		if (e.touches.length === 1) {
-			isDragging = true;
+			const target = e.target as HTMLElement;
+			touchStartedOnCard = !!target.closest('.subject-card');
+			// Se toque em card, não inicia scroll — permite tap/long-press
+			isDragging = !touchStartedOnCard;
 			lastTouchX = e.touches[0].clientX;
 			lastTouchY = e.touches[0].clientY;
 			if (containerRef) {
@@ -97,14 +102,29 @@
 	}
 
 	function handleTouchMove(e: TouchEvent) {
-		if (e.touches.length === 1 && isDragging && containerRef) {
-			e.preventDefault();
-			const dx = lastTouchX - e.touches[0].clientX;
-			const dy = lastTouchY - e.touches[0].clientY;
-			containerRef.scrollLeft += dx;
-			containerRef.scrollTop += dy;
-			lastTouchX = e.touches[0].clientX;
-			lastTouchY = e.touches[0].clientY;
+		if (e.touches.length === 1) {
+			// Se toque começou em card e usuário moveu, habilita scroll
+			if (touchStartedOnCard) {
+				const dx = Math.abs(e.touches[0].clientX - lastTouchX);
+				const dy = Math.abs(e.touches[0].clientY - lastTouchY);
+				if (dx > 8 || dy > 8) {
+					touchStartedOnCard = false;
+					isDragging = true;
+					if (containerRef) {
+						scrollStartX = containerRef.scrollLeft;
+						scrollStartY = containerRef.scrollTop;
+					}
+				}
+			}
+			if (isDragging && containerRef) {
+				e.preventDefault();
+				const ddx = lastTouchX - e.touches[0].clientX;
+				const ddy = lastTouchY - e.touches[0].clientY;
+				containerRef.scrollLeft += ddx;
+				containerRef.scrollTop += ddy;
+				lastTouchX = e.touches[0].clientX;
+				lastTouchY = e.touches[0].clientY;
+			}
 		} else if (e.touches.length === 2) {
 			e.preventDefault();
 			const dx = e.touches[0].clientX - e.touches[1].clientX;
@@ -117,9 +137,9 @@
 
 	function handleTouchEnd(e: TouchEvent) {
 		isDragging = false;
-		
-		// If touch ended on the container background (not a SubjectCard),
-		// clear the hover state to hide connections
+		touchStartedOnCard = false;
+
+		// Se toque terminou fora de um card, esconde conexões
 		const target = e.target as HTMLElement;
 		if (!target.closest('.subject-card')) {
 			store.setHoveredSubject(null);
@@ -135,7 +155,7 @@
 <div
 	bind:this={containerRef}
 	class="fluxogram-container relative overflow-auto rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm"
-	style="max-height: calc(100vh - 280px); cursor: grab;"
+	style="max-height: calc(100vh - 280px); min-height: 180px; cursor: grab;"
 	role="application"
 	aria-label="Fluxograma interativo"
 	onmousedown={handleMouseDown}

@@ -72,19 +72,19 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-	class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+	class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-2 backdrop-blur-sm sm:p-4"
 	onclick={handleBackdropClick}
 >
 	<div
-		class="relative max-h-[85vh] w-full max-w-lg overflow-hidden rounded-2xl border border-white/10 bg-gray-900/95 shadow-2xl backdrop-blur-xl"
+		class="relative max-h-[90vh] w-full max-w-lg overflow-hidden rounded-xl border border-white/10 bg-gray-900/95 shadow-2xl backdrop-blur-xl sm:max-h-[85vh] sm:rounded-2xl"
 		role="dialog"
 		aria-modal="true"
 		aria-label="Detalhes da matéria"
 	>
 		<!-- Header -->
-		<div class="bg-gradient-to-r {statusGradientMap[status]} border-b border-white/10 px-6 py-4">
-			<div class="flex items-start justify-between gap-3">
-				<div class="flex-1">
+		<div class="bg-gradient-to-r {statusGradientMap[status]} border-b border-white/10 px-4 py-3 sm:px-6 sm:py-4">
+			<div class="flex items-start justify-between gap-2 sm:gap-3">
+				<div class="min-w-0 flex-1">
 					<div class="mb-1 flex items-center gap-2">
 						<span class="text-xs font-semibold uppercase tracking-wider text-white/60">
 							{materia.codigoMateria}
@@ -94,7 +94,7 @@
 							<span class="text-xs text-white/60">{getStatusLabel(status)}</span>
 						</div>
 					</div>
-					<h2 class="text-lg font-bold text-white">{materia.nomeMateria}</h2>
+					<h2 class="text-base font-bold text-white sm:text-lg">{materia.nomeMateria}</h2>
 					<p class="mt-1 text-sm text-white/50">{materia.creditos > 0 ? `${materia.creditos} créditos` : 'Créditos não informados'}</p>
 				</div>
 				<button

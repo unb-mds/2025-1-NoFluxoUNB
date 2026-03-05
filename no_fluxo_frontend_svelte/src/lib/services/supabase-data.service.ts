@@ -4,6 +4,24 @@ import { parseCurriculoCompleto } from '$lib/types/matriz';
 import type { ExpressaoLogicaRecursiva } from '$lib/utils/expressao-logica';
 import { getCodigosFromExpressaoLogica } from '$lib/utils/expressao-logica';
 
+/** Metadados para registro no histórico de envios (acompanhamento ao longo dos anos) */
+export interface HistoricoEnvioMetadata {
+	curso_extraido?: string | null;
+	matriz_curricular?: string | null;
+	matricula?: string | null;
+	ira?: number | null;
+	media_ponderada?: number | null;
+	carga_horaria_integralizada?: { obrigatoria: number; optativa: number; complementar: number; total: number } | null;
+	suspensoes?: string[] | null;
+	resumo?: {
+		total_disciplinas?: number;
+		total_obrigatorias?: number;
+		total_obrigatorias_concluidas?: number;
+		total_obrigatorias_pendentes?: number;
+		percentual_conclusao_obrigatorias?: number;
+	} | null;
+}
+
 /** Simple in-memory cache for public data that rarely changes (courses, matrices). */
 const cache = new Map<string, { data: unknown; ts: number }>();
 const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
@@ -399,23 +417,61 @@ export class SupabaseDataService {
 
 	/**
 	 * Save/update user's flowchart data (upsert)
+	 * Se historicoMetadata for passado, também insere em historicos_usuarios para acompanhamento ao longo dos anos.
 	 * REPLACES: POST /fluxograma/upload-dados-fluxograma
 	 */
-	async saveFluxogramaData(idUser: number, fluxogramaData: unknown, semestreAtual?: number) {
+	async saveFluxogramaData(
+		idUser: number,
+		fluxogramaData: unknown,
+		semestreAtual?: number,
+		cargaHorariaIntegralizada?: { obrigatoria: number; optativa: number; complementar: number; total: number } | null,
+		historicoMetadata?: HistoricoEnvioMetadata | null
+	) {
+		const payload: Record<string, unknown> = {
+			id_user: idUser,
+			fluxograma_atual: JSON.stringify(fluxogramaData),
+			semestre_atual: semestreAtual ?? null
+		};
+		if (cargaHorariaIntegralizada != null) {
+			payload.carga_horaria_integralizada = cargaHorariaIntegralizada;
+		}
+
+		// 1. Atualizar dados_users (estado atual do fluxograma — mesma linha, id_dado_user preservado)
 		const { data, error } = await this.supabase
 			.from('dados_users')
-			.upsert(
-				{
-					id_user: idUser,
-					fluxograma_atual: JSON.stringify(fluxogramaData),
-					semestre_atual: semestreAtual ?? null
-				},
-				{ onConflict: 'id_user' }
-			)
+			.upsert(payload, { onConflict: 'id_user' })
 			.select()
 			.single();
 
 		if (error) throw new Error(`Erro ao salvar fluxograma: ${error.message}`);
+
+		// 2. Registrar no histórico (tabela historicos_usuarios) com FK para dados_users
+		if (historicoMetadata && data?.id_dado_user) {
+			const historicoPayload: Record<string, unknown> = {
+				id_user: idUser,
+				id_dado_user: data.id_dado_user,
+				curso_extraido: historicoMetadata.curso_extraido ?? null,
+				matriz_curricular: historicoMetadata.matriz_curricular ?? null,
+				matricula: historicoMetadata.matricula ?? null,
+				semestre_atual: semestreAtual ?? null,
+				numero_semestre: semestreAtual ?? null,
+				ira: historicoMetadata.ira ?? null,
+				media_ponderada: historicoMetadata.media_ponderada ?? null,
+				carga_horaria_integralizada: historicoMetadata.carga_horaria_integralizada ?? cargaHorariaIntegralizada ?? null,
+				suspensoes: historicoMetadata.suspensoes ?? null,
+				fluxograma_atual: fluxogramaData,
+				total_disciplinas: historicoMetadata.resumo?.total_disciplinas ?? null,
+				total_obrigatorias: historicoMetadata.resumo?.total_obrigatorias ?? null,
+				total_obrigatorias_concluidas: historicoMetadata.resumo?.total_obrigatorias_concluidas ?? null,
+				total_obrigatorias_pendentes: historicoMetadata.resumo?.total_obrigatorias_pendentes ?? null,
+				percentual_conclusao: historicoMetadata.resumo?.percentual_conclusao_obrigatorias ?? null
+			};
+			const { error: histError } = await this.supabase.from('historicos_usuarios').insert(historicoPayload);
+			if (histError) {
+				console.warn('[SupabaseDataService] Falha ao registrar histórico (tabela pode não existir):', histError.message);
+			}
+		}
+
 		return data;
 	}
 

@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { BookOpen, CheckCircle, AlertTriangle, Star } from 'lucide-svelte';
 	import DisciplinaList from './DisciplinaList.svelte';
+	import IntegralizacaoSection from '$lib/components/fluxograma/IntegralizacaoSection.svelte';
+	import { getIntegralizacao } from '$lib/services/integralizacao.service';
 	import type { CasarDisciplinasResponse, UploadPdfResponse } from '$lib/services/upload.service';
+	import type { IntegralizacaoResult } from '$lib/types/matriz';
 
 	interface Props {
 		data: CasarDisciplinasResponse;
@@ -9,6 +12,22 @@
 	}
 
 	let { data, extractedData = null }: Props = $props();
+
+	let integralizacao = $state<IntegralizacaoResult | null>(null);
+
+	// Fonte única: carga_horaria_integralizada do PDF. Calcula integralização (exigido da matriz + realizado do PDF).
+	$effect(() => {
+		const cc = data.matriz_curricular ?? extractedData?.matriz_curricular ?? '';
+		const ch = extractedData?.carga_horaria_integralizada;
+		if (!cc || !ch) return;
+		getIntegralizacao({
+			curriculoCompleto: cc,
+			dadosFluxograma: null,
+			cargaHorariaIntegralizada: ch
+		}).then((r) => {
+			integralizacao = r;
+		});
+	});
 
 	// Total só de obrigatórias (nivel > 0), sem optativas; vem do backend ou soma concluídas + pendentes
 	let totalObrigatorias = $derived(
@@ -51,44 +70,32 @@
 		}
 	]);
 
-	let completionPercent = $derived(
-		Math.round(data.resumo.percentual_conclusao_obrigatorias * 100) / 100
-	);
 </script>
 
-<div class="space-y-6">
+<div class="min-w-0 space-y-4 sm:space-y-6">
 	<!-- Stats Grid -->
-	<div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+	<div class="grid grid-cols-2 gap-2 sm:gap-3 sm:grid-cols-4">
 		{#each stats as stat}
-			<div class="rounded-xl border border-white/5 p-3 text-center {stat.bg}" title={stat.title}>
-				<div class="mx-auto mb-1.5 flex h-8 w-8 items-center justify-center rounded-full {stat.bg}">
-					<stat.icon class="h-4 w-4 {stat.color}" />
+			<div class="rounded-xl border border-white/5 p-2.5 text-center sm:p-3 {stat.bg}" title={stat.title}>
+				<div class="mx-auto mb-1 flex h-7 w-7 items-center justify-center rounded-full sm:mb-1.5 sm:h-8 sm:w-8 {stat.bg}">
+					<stat.icon class="h-3.5 w-3.5 sm:h-4 sm:w-4 {stat.color}" />
 				</div>
-				<p class="text-2xl font-bold text-white">{stat.value}</p>
-				<p class="text-xs text-gray-400">{stat.label}</p>
+				<p class="text-xl font-bold text-white sm:text-2xl">{stat.value}</p>
+				<p class="text-[10px] text-gray-400 sm:text-xs">{stat.label}</p>
 			</div>
 		{/each}
 	</div>
 
-	<!-- Completion Bar -->
-	<div class="rounded-xl border border-white/5 p-4" style="background: rgba(255,255,255,0.03);">
-		<div class="mb-2 flex items-center justify-between">
-			<span class="text-sm text-gray-400">Progresso do curso</span>
-			<span class="text-sm font-semibold text-purple-400">{completionPercent}%</span>
-		</div>
-		<div class="h-2 overflow-hidden rounded-full bg-white/10">
-			<div
-				class="h-full rounded-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-500"
-				style="width: {Math.min(completionPercent, 100)}%"
-			></div>
-		</div>
-	</div>
+	<!-- Integralização: círculo clicável (CH do PDF vs matriz) -->
+	{#if integralizacao}
+		<IntegralizacaoSection integralizacao={integralizacao} />
+	{/if}
 
-	<!-- Validation Data -->
+	<!-- Validation Data (IRA, MP, curso, matriz, semestre — horas vêm da integralização acima) -->
 	{#if data.dados_validacao || extractedData}
-		<div class="rounded-xl border border-white/5 p-4" style="background: rgba(255,255,255,0.03);">
-			<h4 class="mb-3 text-sm font-semibold text-gray-300">Dados de Validação</h4>
-			<div class="grid grid-cols-2 gap-3 text-sm">
+		<div class="rounded-xl border border-white/5 p-3 sm:p-4" style="background: rgba(255,255,255,0.03);">
+			<h4 class="mb-2 text-xs font-semibold text-gray-300 sm:mb-3 sm:text-sm">Dados de Validação</h4>
+			<div class="grid grid-cols-2 gap-2 text-xs sm:gap-3 sm:text-sm">
 				{#if data.dados_validacao?.ira != null}
 					<div>
 						<span class="text-gray-500">IRA</span>
@@ -99,12 +106,6 @@
 					<div>
 						<span class="text-gray-500">Média Ponderada</span>
 						<p class="font-medium text-white">{data.dados_validacao.media_ponderada.toFixed(2)}</p>
-					</div>
-				{/if}
-				{#if data.dados_validacao?.horas_integralizadas != null}
-					<div>
-						<span class="text-gray-500">Horas Integralizadas</span>
-						<p class="font-medium text-white">{data.dados_validacao.horas_integralizadas}h</p>
 					</div>
 				{/if}
 				{#if extractedData?.curso_extraido}
