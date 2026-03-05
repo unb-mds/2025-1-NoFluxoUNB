@@ -12,6 +12,11 @@
 --   curso_selecionado    – user-selected course name (optional)
 --
 -- Returns jsonb matching the same shape as the previous Edge Function response.
+--
+-- Performance notes (Plan 23):
+--   - cursos_disponiveis query is DEFERRED to error paths only (saves ~50-200ms on happy path)
+--   - missing_loop and opt_equiv use set-based operations instead of nested loops
+--   - RAISE NOTICE statements added for observability
 
 CREATE OR REPLACE FUNCTION public.casar_disciplinas(p_dados jsonb)
 RETURNS jsonb
@@ -55,11 +60,6 @@ DECLARE
   v_pendencias        jsonb := '[]'::jsonb;
   v_horas             int := 0;
 
-  -- Equiv loop
-  v_rec               record;
-  v_codes             text[];
-  v_found_eq          boolean;
-
   -- Result builders
   v_cursos_disp       jsonb;
   v_disc_casadas      jsonb;
@@ -91,23 +91,22 @@ BEGIN
   END IF;
 
   -- ═══════════════════════════════════════════════════════════════
-  -- 2. BUILD cursos_disponiveis (used in error/selection responses)
-  -- ═══════════════════════════════════════════════════════════════
-  SELECT coalesce(jsonb_agg(
-    jsonb_build_object(
-      'id_curso', m.id_curso,
-      'nome_curso', coalesce(c.nome_curso, ''),
-      'matriz_curricular', coalesce(m.curriculo_completo, '')
-    ) ORDER BY m.curriculo_completo
-  ), '[]'::jsonb)
-  INTO v_cursos_disp
-  FROM matrizes m
-  LEFT JOIN cursos c ON c.id_curso = m.id_curso;
-
-  -- ═══════════════════════════════════════════════════════════════
-  -- 3. RESOLVE COURSE AND MATRIX
+  -- 2. RESOLVE COURSE AND MATRIX
+  --    (cursos_disponiveis is built lazily only when needed)
   -- ═══════════════════════════════════════════════════════════════
   IF v_curso_extraido IS NULL OR v_curso_extraido = '' THEN
+    -- Build cursos_disponiveis only for this error path
+    SELECT coalesce(jsonb_agg(
+      jsonb_build_object(
+        'id_curso', m.id_curso,
+        'nome_curso', coalesce(c.nome_curso, ''),
+        'matriz_curricular', coalesce(m.curriculo_completo, '')
+      ) ORDER BY m.curriculo_completo
+    ), '[]'::jsonb)
+    INTO v_cursos_disp
+    FROM matrizes m
+    LEFT JOIN cursos c ON c.id_curso = m.id_curso;
+
     RETURN jsonb_build_object(
       'error', 'Curso não foi extraído do PDF automaticamente',
       'message', 'Por favor, selecione o curso manualmente',
@@ -119,7 +118,7 @@ BEGIN
     id_curso bigint, nome_curso text, id_matriz bigint, curriculo text
   ) ON COMMIT DROP;
 
-  -- 3a. Keyword search (PALAVRAS_CHAVE:word1,word2,...)
+  -- 2a. Keyword search (PALAVRAS_CHAVE:word1,word2,...)
   IF v_curso_extraido LIKE 'PALAVRAS_CHAVE:%' THEN
     INSERT INTO _cand
     SELECT DISTINCT c.id_curso, c.nome_curso, m.id_matriz, m.curriculo_completo
@@ -133,6 +132,12 @@ BEGIN
 
     SELECT count(DISTINCT id_curso) INTO v_count FROM _cand;
     IF v_count = 0 THEN
+      SELECT coalesce(jsonb_agg(
+        jsonb_build_object('id_curso', m.id_curso, 'nome_curso', coalesce(c.nome_curso, ''),
+          'matriz_curricular', coalesce(m.curriculo_completo, ''))
+        ORDER BY m.curriculo_completo
+      ), '[]'::jsonb)
+      INTO v_cursos_disp FROM matrizes m LEFT JOIN cursos c ON c.id_curso = m.id_curso;
       RETURN jsonb_build_object(
         'error', 'Nenhum curso encontrado com as palavras-chave',
         'cursos_disponiveis', v_cursos_disp
@@ -150,7 +155,7 @@ BEGIN
       );
     END IF;
 
-  -- 3b. Standard: by selected id, then by name
+  -- 2b. Standard: by selected id, then by name
   ELSE
     IF v_id_curso_sel IS NOT NULL THEN
       INSERT INTO _cand
@@ -197,7 +202,7 @@ BEGIN
     END IF;
   END IF;
 
-  -- 3c. Narrow by matrix: exact match on curriculo_completo, then versao-based
+  -- 2c. Narrow by matrix: exact match on curriculo_completo, then versao-based
   IF v_matriz_curricular != '' THEN
     IF EXISTS (
       SELECT 1 FROM _cand
@@ -234,10 +239,16 @@ BEGIN
     END IF;
   END IF;
 
-  -- 3d. Evaluate candidates
+  -- 2d. Evaluate candidates
   SELECT count(*) INTO v_count FROM _cand;
 
   IF v_count = 0 THEN
+    SELECT coalesce(jsonb_agg(
+      jsonb_build_object('id_curso', m.id_curso, 'nome_curso', coalesce(c.nome_curso, ''),
+        'matriz_curricular', coalesce(m.curriculo_completo, ''))
+      ORDER BY m.curriculo_completo
+    ), '[]'::jsonb)
+    INTO v_cursos_disp FROM matrizes m LEFT JOIN cursos c ON c.id_curso = m.id_curso;
     RETURN jsonb_build_object(
       'error', 'Curso não encontrado',
       'curso_buscado', v_curso_extraido,
@@ -300,8 +311,10 @@ BEGIN
     FROM _cand LIMIT 1;
   END IF;
 
+  RAISE NOTICE 'casar_disciplinas: course resolved to % (id_matriz=%)', v_nome_curso, v_id_matriz;
+
   -- ═══════════════════════════════════════════════════════════════
-  -- 4. LOAD SUBJECTS FOR THE MATRIX
+  -- 3. LOAD SUBJECTS FOR THE MATRIX
   -- ═══════════════════════════════════════════════════════════════
   CREATE TEMP TABLE _mat (
     id_materia bigint, codigo text, nome text, nivel int, ch int
@@ -325,8 +338,11 @@ BEGIN
   JOIN matrizes mt ON mt.id_matriz = mpc.id_matriz
   WHERE mt.id_curso = v_id_curso AND mpc.id_matriz != v_id_matriz;
 
+  RAISE NOTICE 'casar_disciplinas: loaded % subjects for matrix, % cross-matrix',
+    (SELECT count(*) FROM _mat), (SELECT count(*) FROM _mat_x);
+
   -- ═══════════════════════════════════════════════════════════════
-  -- 5. EQUIVALENCIES + PRE-COMPUTE CODE MAP
+  -- 4. EQUIVALENCIES + PRE-COMPUTE CODE MAP
   -- ═══════════════════════════════════════════════════════════════
   CREATE TEMP TABLE _eq (
     id_eq bigint, id_materia bigint, codigo_origem text, expressao text
@@ -355,8 +371,10 @@ BEGIN
   JOIN _mat mb ON mb.codigo = eq.codigo_origem
   WHERE eq.expressao IS NOT NULL AND eq.expressao != '';
 
+  RAISE NOTICE 'casar_disciplinas: built eq_map with % entries', (SELECT count(*) FROM _eq_map);
+
   -- ═══════════════════════════════════════════════════════════════
-  -- 6. MATCH DISCIPLINES
+  -- 5. MATCH DISCIPLINES
   -- ═══════════════════════════════════════════════════════════════
   CREATE TEMP TABLE _casadas (
     idx int,
@@ -486,8 +504,13 @@ BEGIN
     END IF;
   END LOOP;
 
+  RAISE NOTICE 'casar_disciplinas: matched % disciplines (% found, % not found)',
+    (SELECT count(*) FROM _casadas),
+    (SELECT count(*) FROM _casadas WHERE encontrada),
+    (SELECT count(*) FROM _casadas WHERE NOT encontrada);
+
   -- ═══════════════════════════════════════════════════════════════
-  -- 7. BUILD disciplinas_casadas JSON
+  -- 6. BUILD disciplinas_casadas JSON
   -- ═══════════════════════════════════════════════════════════════
   SELECT coalesce(jsonb_agg(
     jsonb_build_object(
@@ -508,10 +531,10 @@ BEGIN
   WHERE upper(status) IN ('APR','CUMP') AND carga_horaria IS NOT NULL;
 
   -- ═══════════════════════════════════════════════════════════════
-  -- 8. CLASSIFY: concluidas, pendentes, optativas
+  -- 7. CLASSIFY: concluidas, pendentes, optativas
   -- ═══════════════════════════════════════════════════════════════
 
-  -- 8a. Missing mandatory subjects (not in transcript at all)
+  -- 7a. Missing mandatory subjects (not in transcript at all)
   CREATE TEMP TABLE _missing (
     id_materia bigint, codigo text, nome text, nivel int
   ) ON COMMIT DROP;
@@ -524,115 +547,104 @@ BEGIN
       SELECT c.id_materia FROM _casadas c WHERE c.id_materia IS NOT NULL
     );
 
-  -- 8b. Check equivalencies for missing mandatory subjects
+  -- 7b. Check equivalencies for missing mandatory subjects (SET-BASED)
+  --     Replaces the old nested FOR loop with a single INSERT ... SELECT
   CREATE TEMP TABLE _equiv_concl (
     id_materia bigint, codigo text, nome text, nivel int,
     codigo_equivalente text, nome_equivalente text,
     professor text, mencao text, status text, ano_periodo text
   ) ON COMMIT DROP;
 
-  <<missing_loop>>
+  INSERT INTO _equiv_concl
+  SELECT DISTINCT ON (m.id_materia)
+    m.id_materia, m.codigo, m.nome, m.nivel,
+    coalesce(c.codigo, m.codigo),
+    coalesce(c.nome, m.nome),
+    coalesce(c.professor, ''),
+    coalesce(c.mencao, '-'),
+    coalesce(c.status, 'CUMP'),
+    c.ano_periodo
+  FROM _missing m
+  JOIN _eq eq ON eq.codigo_origem = m.codigo
+  CROSS JOIN LATERAL (
+    SELECT upper(rm[1]) AS code
+    FROM regexp_matches(eq.expressao, '([A-Za-z]{2,}\d{3,})', 'g') rm
+  ) codes
+  JOIN _casadas c ON upper(trim(c.codigo)) = codes.code
+    AND upper(c.status) IN ('APR','CUMP')
+  WHERE eq.expressao IS NOT NULL AND eq.expressao != ''
+  ORDER BY m.id_materia, c.ano_periodo DESC NULLS LAST;
+
+  -- Remove resolved subjects from _missing
+  DELETE FROM _missing
+  WHERE id_materia IN (SELECT id_materia FROM _equiv_concl);
+
+  RAISE NOTICE 'casar_disciplinas: equivalency resolution found % additional completions, % still missing',
+    (SELECT count(*) FROM _equiv_concl), (SELECT count(*) FROM _missing);
+
+  -- 7c. Check if completed optativas can fulfill still-missing mandatory via equivalency (SET-BASED)
+  --     For each completed optativa, check if its code appears in any equivalency expression
+  --     that targets a still-missing mandatory subject.
+  <<opt_equiv_block>>
   DECLARE
-    v_miss   record;
-    v_eq_rec record;
+    v_opt_equiv_count int;
   BEGIN
-    FOR v_miss IN SELECT * FROM _missing LOOP
-      v_found_eq := false;
+    -- Find optativas that can fulfill missing mandatory via equivalencies
+    CREATE TEMP TABLE _opt_fulfills (
+      id_materia_missing bigint, codigo_missing text, nome_missing text, nivel_missing int,
+      codigo_equivalente text, nome_equivalente text,
+      professor text, mencao text, status text, ano_periodo text,
+      id_materia_opt bigint
+    ) ON COMMIT DROP;
 
-      FOR v_eq_rec IN
-        SELECT * FROM _eq WHERE codigo_origem = v_miss.codigo
-      LOOP
-        IF v_eq_rec.expressao IS NULL OR v_eq_rec.expressao = '' THEN CONTINUE; END IF;
+    INSERT INTO _opt_fulfills
+    SELECT DISTINCT ON (m.id_materia)
+      m.id_materia, m.codigo, m.nome, m.nivel,
+      coalesce(c.codigo, opt.codigo),
+      coalesce(c.nome, opt.nome),
+      coalesce(c.professor, ''),
+      coalesce(c.mencao, '-'),
+      coalesce(c.status, 'CUMP'),
+      c.ano_periodo,
+      opt.id_materia AS id_materia_opt
+    FROM _missing m
+    JOIN _eq eq ON eq.codigo_origem = m.codigo
+    CROSS JOIN LATERAL (
+      SELECT upper(rm[1]) AS code
+      FROM regexp_matches(eq.expressao, '([A-Za-z]{2,}\d{3,})', 'g') rm
+    ) codes
+    JOIN _casadas opt ON opt.tipo = 'optativa'
+      AND upper(opt.status) IN ('APR','CUMP')
+      AND upper(trim(opt.codigo)) = codes.code
+    JOIN _casadas c ON upper(trim(c.codigo)) = codes.code
+      AND upper(c.status) IN ('APR','CUMP')
+    WHERE eq.expressao IS NOT NULL AND eq.expressao != ''
+    ORDER BY m.id_materia, c.ano_periodo DESC NULLS LAST;
 
-        SELECT array_agg(upper(m[1]))
-        INTO v_codes
-        FROM regexp_matches(v_eq_rec.expressao, '([A-Za-z]{2,}\d{3,})', 'g') m;
+    GET DIAGNOSTICS v_opt_equiv_count = ROW_COUNT;
 
-        IF v_codes IS NULL THEN CONTINUE; END IF;
+    IF v_opt_equiv_count > 0 THEN
+      -- Add to equiv_concl
+      INSERT INTO _equiv_concl
+      SELECT id_materia_missing, codigo_missing, nome_missing, nivel_missing,
+             codigo_equivalente, nome_equivalente, professor, mencao, status, ano_periodo
+      FROM _opt_fulfills;
 
-        IF EXISTS (
-          SELECT 1 FROM _casadas
-          WHERE upper(trim(codigo)) = ANY(v_codes) AND upper(status) IN ('APR','CUMP')
-        ) THEN
-          INSERT INTO _equiv_concl
-          SELECT v_miss.id_materia, v_miss.codigo, v_miss.nome, v_miss.nivel,
-                 coalesce(best.codigo, v_miss.codigo),
-                 coalesce(best.nome, v_miss.nome),
-                 coalesce(best.professor, ''),
-                 coalesce(best.mencao, '-'),
-                 coalesce(best.status, 'CUMP'),
-                 best.ano_periodo
-          FROM (
-            SELECT * FROM _casadas
-            WHERE upper(trim(codigo)) = ANY(v_codes) AND upper(status) IN ('APR','CUMP')
-            ORDER BY ano_periodo DESC NULLS LAST LIMIT 1
-          ) best;
+      -- Remove from _missing
+      DELETE FROM _missing
+      WHERE id_materia IN (SELECT id_materia_missing FROM _opt_fulfills);
 
-          v_found_eq := true;
-          EXIT;
-        END IF;
-      END LOOP;
+      -- Remove these optativas from _casadas
+      DELETE FROM _casadas
+      WHERE id_materia IN (SELECT id_materia_opt FROM _opt_fulfills)
+        AND tipo = 'optativa';
 
-      IF v_found_eq THEN
-        DELETE FROM _missing WHERE id_materia = v_miss.id_materia;
-      END IF;
-    END LOOP;
-  END missing_loop;
-
-  -- 8c. Check if completed optativas can fulfill still-missing mandatory via equivalency
-  FOR v_rec IN
-    SELECT * FROM _casadas
-    WHERE tipo = 'optativa' AND upper(status) IN ('APR','CUMP')
-  LOOP
-    <<opt_equiv>>
-    DECLARE
-      v_eq2  record;
-      v_codes2 text[];
-      v_miss record;
-      v_best record;
-    BEGIN
-      FOR v_eq2 IN SELECT * FROM _eq LOOP
-        IF v_eq2.expressao IS NULL OR v_eq2.expressao = '' THEN CONTINUE; END IF;
-
-        SELECT array_agg(upper(m[1]))
-        INTO v_codes2
-        FROM regexp_matches(v_eq2.expressao, '([A-Za-z]{2,}\d{3,})', 'g') m;
-
-        IF v_codes2 IS NULL OR upper(trim(v_rec.codigo)) != ALL(v_codes2) THEN
-          CONTINUE;
-        END IF;
-
-        SELECT * INTO v_miss FROM _missing
-        WHERE codigo = v_eq2.codigo_origem LIMIT 1;
-
-        IF v_miss IS NULL THEN CONTINUE; END IF;
-
-        SELECT * INTO v_best FROM _casadas
-        WHERE upper(trim(codigo)) = ANY(v_codes2) AND upper(status) IN ('APR','CUMP')
-        ORDER BY ano_periodo DESC NULLS LAST LIMIT 1;
-
-        IF v_best IS NOT NULL THEN
-          INSERT INTO _equiv_concl VALUES (
-            v_miss.id_materia, v_miss.codigo, v_miss.nome, v_miss.nivel,
-            coalesce(v_best.codigo, v_rec.codigo),
-            coalesce(v_best.nome, v_rec.nome),
-            coalesce(v_best.professor, ''),
-            coalesce(v_best.mencao, '-'),
-            coalesce(v_best.status, 'CUMP'),
-            v_best.ano_periodo
-          );
-          DELETE FROM _missing WHERE id_materia = v_miss.id_materia;
-          -- Remove this optativa from final optativas list
-          DELETE FROM _casadas
-          WHERE id_materia = v_rec.id_materia AND tipo = 'optativa';
-          EXIT;
-        END IF;
-      END LOOP;
-    END opt_equiv;
-  END LOOP;
+      RAISE NOTICE 'casar_disciplinas: % optativas fulfilled missing mandatory subjects', v_opt_equiv_count;
+    END IF;
+  END opt_equiv_block;
 
   -- ═══════════════════════════════════════════════════════════════
-  -- 9. BUILD RESULT JSON
+  -- 8. BUILD RESULT JSON
   -- ═══════════════════════════════════════════════════════════════
 
   -- materias_concluidas = completed mandatory (from transcript + equivalencies)

@@ -33,6 +33,9 @@ FROM nginx:1.27-alpine
 # Copy static build output to nginx html root
 COPY --from=builder /app/build /usr/share/nginx/html
 
+# Add .mjs MIME type (not included in nginx-alpine by default)
+RUN sed -i 's|application/javascript\s*js;|application/javascript js mjs;|' /etc/nginx/mime.types
+
 # Custom nginx config for SPA routing + pre-compressed files
 RUN cat > /etc/nginx/conf.d/default.conf <<'NGINX_CFG'
 server {

@@ -174,16 +174,20 @@ function createUploadStore() {
 
 			try {
 				// Phase 1: Parse PDF locally in the browser (0-50%)
+				console.time('[UploadStore] Phase 1: parsePdfLocally');
 				startProgressSimulation(0, 45, 3000);
 				const extracted = await uploadService.parsePdfLocally(file);
 				stopProgressSimulation();
+				console.timeEnd('[UploadStore] Phase 1: parsePdfLocally');
 				update((s) => ({ ...s, progress: 50, extractedData: extracted }));
 
 				// Phase 2: Match disciplines (50-90%)
 				update((s) => ({ ...s, state: 'processing' }));
+				console.time('[UploadStore] Phase 2: casarDisciplinas');
 				startProgressSimulation(50, 85, 4000);
 				const result = await uploadService.casarDisciplinas(extracted);
 				stopProgressSimulation();
+				console.timeEnd('[UploadStore] Phase 2: casarDisciplinas');
 
 				// Check for course selection needed
 				if ('type' in result && result.type === 'COURSE_SELECTION') {
@@ -284,6 +288,7 @@ function createUploadStore() {
 			}
 
 			try {
+				console.time('[UploadStore] Phase 3: saveAndNavigate');
 				const cd = currentState.disciplinasCasadas;
 				const ext = currentState.extractedData;
 				const meta = {
@@ -325,10 +330,12 @@ function createUploadStore() {
 					}
 				);
 
+				console.timeEnd('[UploadStore] Phase 3: saveAndNavigate');
 				authStore.updateDadosFluxograma(dados, ext?.carga_horaria_integralizada ?? undefined);
 				toast.success('Fluxograma salvo com sucesso!');
 				goto(ROUTES.MEU_FLUXOGRAMA);
 			} catch (err) {
+				console.timeEnd('[UploadStore] Phase 3: saveAndNavigate');
 				console.error('[UploadStore] saveAndNavigate error:', err);
 				const message = err instanceof Error ? err.message : 'Erro ao salvar fluxograma.';
 				toast.error(message);

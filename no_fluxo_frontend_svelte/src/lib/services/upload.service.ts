@@ -56,20 +56,51 @@ class UploadService {
 	/**
 	 * Match extracted disciplines with database.
 	 * Uses Supabase RPC (plpgsql function) — single database round-trip.
+	 * Strips full_text (not needed by the RPC) to reduce payload size.
+	 * Aborts after 30s to prevent infinite spinner.
 	 */
 	async casarDisciplinas(
 		dadosExtraidos: unknown
 	): Promise<CasarDisciplinasResponse | CourseSelectionError> {
 		const supabase = createSupabaseBrowserClient();
-		const { data, error } = await supabase.rpc('casar_disciplinas', {
-			p_dados: dadosExtraidos as Record<string, unknown>
-		});
+
+		// Strip full_text — the PL/pgSQL function never reads it, and it adds 20-100KB to the payload
+		const { full_text: _stripped, ...payload } = dadosExtraidos as Record<string, unknown>;
+
+		const payloadSize = JSON.stringify(payload).length;
+		console.log(`[Upload] RPC payload size: ${(payloadSize / 1024).toFixed(1)} KB`);
+		console.time('[Upload] casarDisciplinas RPC');
+
+		const controller = new AbortController();
+		const timeout = setTimeout(() => controller.abort(), 30_000);
+
+		let data: unknown;
+		let error: { message?: string } | null;
+
+		try {
+			const result = await supabase.rpc('casar_disciplinas', {
+				p_dados: payload
+			}, { signal: controller.signal } as unknown as Record<string, unknown>);
+			data = result.data;
+			error = result.error;
+		} catch (err) {
+			clearTimeout(timeout);
+			console.timeEnd('[Upload] casarDisciplinas RPC');
+			if (err instanceof DOMException && err.name === 'AbortError') {
+				throw new Error('O processamento demorou mais de 30 segundos. Tente novamente ou use um PDF menor.');
+			}
+			throw err;
+		}
+
+		clearTimeout(timeout);
+		console.timeEnd('[Upload] casarDisciplinas RPC');
 
 		if (error) {
 			throw new Error(error.message || 'Erro ao processar disciplinas');
 		}
 
 		const result = data as Record<string, unknown>;
+		console.log(`[Upload] RPC response size: ${(JSON.stringify(result).length / 1024).toFixed(1)} KB`);
 
 		// Check if the response is a course selection prompt
 		if (result?.cursos_disponiveis && !result?.disciplinas_casadas) {
