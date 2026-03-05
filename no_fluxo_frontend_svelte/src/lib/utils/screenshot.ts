@@ -1,6 +1,6 @@
 /**
  * Screenshot utility — captura um elemento DOM como PNG e faz o download.
- * Usa html2canvas quando disponível (melhor qualidade), com fallback nativo.
+ * Usa html2canvas-pro (suporta oklab/oklch do Tailwind v4), com fallback nativo.
  */
 
 const PADDING = 32;
@@ -14,7 +14,7 @@ export async function captureScreenshot(
 	try {
 		let html2canvas: ((el: HTMLElement, opts: Record<string, unknown>) => Promise<HTMLCanvasElement>) | null = null;
 		try {
-			const mod = await import('html2canvas');
+			const mod = await import('html2canvas-pro');
 			html2canvas = mod.default ?? mod;
 		} catch {
 			// html2canvas não instalado — usa fallback
