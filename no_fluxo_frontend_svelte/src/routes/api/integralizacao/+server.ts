@@ -17,6 +17,11 @@ function pct(exigido: number, realizado: number): number {
 
 export const POST: RequestHandler = async ({ request }) => {
 	try {
+		if (!supabaseUrl || !supabaseKey) {
+			console.error('[api/integralizacao] PUBLIC_SUPABASE_URL ou PUBLIC_SUPABASE_ANON_KEY não configurados');
+			return json({ error: 'Supabase não configurado' }, { status: 503 });
+		}
+
 		const body = await request.json();
 		const { curriculoCompleto, cargaHorariaIntegralizada } = body;
 		if (!curriculoCompleto?.trim() || !cargaHorariaIntegralizada) {
@@ -24,6 +29,12 @@ export const POST: RequestHandler = async ({ request }) => {
 		}
 
 		const cc = String(curriculoCompleto).trim();
+		const ch = cargaHorariaIntegralizada as Record<string, unknown>;
+		const reObr = Number(ch?.obrigatoria) || 0;
+		const reOpt = Number(ch?.optativa) || 0;
+		const reCompl = Number(ch?.complementar) || 0;
+		const reTotal = Number(ch?.total) || reObr + reOpt + reCompl;
+
 		const supabase = createClient(supabaseUrl, supabaseKey);
 
 		// Busca matriz por curriculo_completo exato
@@ -38,12 +49,13 @@ export const POST: RequestHandler = async ({ request }) => {
 		// Fallback: match por prefixo (ex: "6360/1" -> "6360/1 - 2017.1")
 		if (!matriz && cc.includes('/')) {
 			const prefix = cc.split(' - ')[0]?.trim() ?? cc;
-			const { data: rows } = await supabase
+			const { data: rows, error: errFallback } = await supabase
 				.from('matrizes')
 				.select('id_matriz, id_curso, curriculo_completo, ch_obrigatoria_exigida, ch_optativa_exigida, ch_complementar_exigida, ch_total_exigida')
 				.like('curriculo_completo', prefix + '%')
 				.order('curriculo_completo')
 				.limit(1);
+			if (errFallback) console.warn('[api/integralizacao] Fallback like:', errFallback.message);
 			matriz = rows?.[0] ?? null;
 		}
 
@@ -56,19 +68,14 @@ export const POST: RequestHandler = async ({ request }) => {
 		const exCompl = matriz.ch_complementar_exigida ?? 0;
 		const exTotal = matriz.ch_total_exigida ?? 0;
 
-		const reObr = cargaHorariaIntegralizada.obrigatoria ?? 0;
-		const reOpt = cargaHorariaIntegralizada.optativa ?? 0;
-		const reCompl = cargaHorariaIntegralizada.complementar ?? 0;
-		const reTotal = cargaHorariaIntegralizada.total > 0
-			? cargaHorariaIntegralizada.total
-			: reObr + reOpt + reCompl;
-
 		const result = {
 			curriculoCompleto: matriz.curriculo_completo,
 			idMatriz: matriz.id_matriz,
 			idCurso: matriz.id_curso,
 			exigido: { chObrigatoria: exObr, chOptativa: exOpt, chComplementar: exCompl, chTotal: exTotal },
 			realizado: { chObrigatoria: reObr, chOptativa: reOpt, chComplementar: reCompl, chTotal: reTotal },
+			codigosObrigatorios: [] as string[],
+			codigosConcluidos: [] as string[],
 			faltam: {
 				chObrigatoria: Math.max(0, exObr - reObr),
 				chOptativa: Math.max(0, exOpt - reOpt),

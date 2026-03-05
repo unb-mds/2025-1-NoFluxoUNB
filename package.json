@@ -1,15 +1,29 @@
 {
-  "dependencies": {
-    "@supabase/supabase-js": "^2.50.2"
+  "name": "nofluxo-unb",
+  "version": "1.0.0",
+  "description": "NoFluxo UNB - Sistema de fluxogramas acadêmicos",
+  "private": true,
+  "packageManager": "pnpm@10.12.1",
+  "scripts": {
+    "dev": "pnpm --filter no_fluxo_frontend_svelte dev",
+    "dev:frontend": "pnpm --filter no_fluxo_frontend_svelte dev",
+    "dev:backend": "pnpm --filter no-fluxo-backend dev",
+    "dev:testes-web": "pnpm --filter nofluxo-testes-web start",
+    "build": "pnpm run build:frontend && pnpm run build:backend",
+    "build:frontend": "pnpm --filter no_fluxo_frontend_svelte build",
+    "build:backend": "pnpm --filter no-fluxo-backend build",
+    "preview": "pnpm --filter no_fluxo_frontend_svelte preview",
+    "start:backend": "pnpm --filter no-fluxo-backend start",
+    "test": "pnpm run test:frontend && pnpm run test:backend",
+    "test:frontend": "pnpm --filter no_fluxo_frontend_svelte test:unit",
+    "test:backend": "pnpm --filter no-fluxo-backend test",
+    "lint": "pnpm run lint:frontend && pnpm run lint:backend",
+    "lint:frontend": "pnpm --filter no_fluxo_frontend_svelte lint",
+    "lint:backend": "pnpm --filter no-fluxo-backend lint",
+    "coleta:migrate": "pnpm --filter coleta-dados run migrate:tipo-natureza",
+    "test:historicos": "pnpm --filter test-historicos run all"
   },
-  "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "@types/winston": "^2.4.4",
-    "@typescript-eslint/eslint-plugin": "^8.36.0",
-    "@typescript-eslint/parser": "^8.36.0",
-    "eslint": "^9.30.1",
-    "jest": "^30.0.4",
-    "ts-jest": "^29.4.0",
-    "typescript": "^5.8.3"
-  }
+  "keywords": ["nofluxo", "unb", "fluxograma", "academico"],
+  "author": "NoFluxo Team",
+  "license": "MIT"
 }
