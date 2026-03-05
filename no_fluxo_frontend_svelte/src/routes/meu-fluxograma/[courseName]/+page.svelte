@@ -8,6 +8,7 @@
 	import SubjectDetailsModal from '$lib/components/fluxograma/SubjectDetailsModal.svelte';
 	import OptativasModal from '$lib/components/fluxograma/OptativasModal.svelte';
 	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
+	import ProgressToolsSection from '$lib/components/fluxograma/ProgressToolsSection.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';
@@ -29,6 +30,16 @@
 
 	let userFluxograma = $derived(store.userFluxograma);
 	let curriculoCompletoAtual = $derived(store.state.courseData?.curriculoCompleto ?? null);
+
+	/** True quando está vendo outro curso (mudança de curso) — recalcular integralização por disciplinas casadas. */
+	let eSimulacaoOutroCurso = $derived.by(() => {
+		const fluxo = userFluxograma;
+		const course = store.state.courseData;
+		if (!fluxo || !course) return false;
+		const nomeUsuario = (fluxo.nomeCurso ?? '').trim().toLowerCase();
+		const nomeExibido = (course.nomeCurso ?? '').trim().toLowerCase();
+		return nomeUsuario !== nomeExibido;
+	});
 
 	// Count only completed codes that match subjects in this course's curriculum
 	let matchingCompletedCount = $derived.by(() => {
@@ -71,7 +82,8 @@
 			curriculoCompleto: cc,
 			dadosFluxograma: fluxo,
 			cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
-			equivalencias: course?.equivalencias
+			equivalencias: course?.equivalencias,
+			recalcularPorDisciplinas: eSimulacaoOutroCurso
 		}).then((r) => {
 			integralizacao = r;
 			integralizacaoLoading = false;
@@ -104,14 +116,15 @@
 	async function handleMatrizChange(curriculoCompleto: string) {
 		await store.loadCourseDataByCurriculoCompleto(curriculoCompleto);
 		if (userFluxograma) {
-			integralizacaoLoading = true;
-			try {
-				const r = await getIntegralizacao({
-					curriculoCompleto,
-					dadosFluxograma: userFluxograma,
-					cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
-					equivalencias: store.state.courseData?.equivalencias
-				});
+		integralizacaoLoading = true;
+		try {
+			const r = await getIntegralizacao({
+				curriculoCompleto,
+				dadosFluxograma: userFluxograma,
+				cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
+				equivalencias: store.state.courseData?.equivalencias,
+				recalcularPorDisciplinas: eSimulacaoOutroCurso
+			});
 				integralizacao = r;
 			} finally {
 				integralizacaoLoading = false;
@@ -167,6 +180,7 @@
 				courseName={store.state.courseData.nomeCurso}
 				matrizCurricular={store.state.courseData.matrizCurricular}
 				{containerRef}
+				showBackToMyFluxogram={eSimulacaoOutroCurso}
 			/>
 
 			<!-- Progress simulation (only for logged-in users with history) -->
@@ -202,6 +216,11 @@
 				onSubjectClick={handleSubjectClick}
 				bind:bind_container={containerRef}
 			/>
+
+			<!-- Ferramentas (Mudança de Curso) -->
+			{#if !store.state.isAnonymous}
+				<ProgressToolsSection />
+			{/if}
 		</div>
 
 		<!-- Subject details modal -->

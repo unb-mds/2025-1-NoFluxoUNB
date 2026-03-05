@@ -17,10 +17,12 @@ export interface IntegralizacaoInput {
 	curriculoCompleto: string;
 	/** Dados do histórico do aluno (disciplinas concluídas). */
 	dadosFluxograma: DadosFluxogramaUser | null;
-	/** Carga horária integralizada do PDF (SIGAA). Quando presente, usa em vez de somar disciplinas. */
+	/** Carga horária integralizada do PDF (SIGAA). Só usar quando for o curso do usuário — em mudança de curso, recalcular. */
 	cargaHorariaIntegralizada?: CargaHorariaIntegralizada | null;
 	/** Equivalências aplicáveis (gerais + específicas da matriz) para expandir concluídas. */
 	equivalencias?: EquivalenciaModel[];
+	/** Se true, ignora cargaHorariaIntegralizada e sempre calcula a partir das disciplinas casadas (para simulação de outro curso). */
+	recalcularPorDisciplinas?: boolean;
 }
 
 /** Classificação da disciplina na grade: obrigatória (nivel >= 1) ou optativa (nivel 0). */
@@ -41,10 +43,10 @@ function pct(exigido: number, realizado: number): number {
 }
 
 export async function getIntegralizacao(input: IntegralizacaoInput): Promise<IntegralizacaoResult | null> {
-	const { curriculoCompleto, dadosFluxograma, cargaHorariaIntegralizada, equivalencias = [] } = input;
+	const { curriculoCompleto, dadosFluxograma, cargaHorariaIntegralizada, equivalencias = [], recalcularPorDisciplinas = false } = input;
 
-	// Quando temos cargaHorariaIntegralizada do PDF, usa o backend (cálculo centralizado)
-	const temChPdf = cargaHorariaIntegralizada && (cargaHorariaIntegralizada.total > 0 || cargaHorariaIntegralizada.obrigatoria > 0 || cargaHorariaIntegralizada.optativa > 0 || (cargaHorariaIntegralizada.complementar ?? 0) > 0);
+	// Quando temos cargaHorariaIntegralizada do PDF e NÃO é simulação de outro curso, usa o backend
+	const temChPdf = !recalcularPorDisciplinas && cargaHorariaIntegralizada && (cargaHorariaIntegralizada.total > 0 || cargaHorariaIntegralizada.obrigatoria > 0 || cargaHorariaIntegralizada.optativa > 0 || (cargaHorariaIntegralizada.complementar ?? 0) > 0);
 	if (temChPdf && curriculoCompleto?.trim()) {
 		try {
 			const res = await fetch('/api/integralizacao', {
@@ -82,7 +84,7 @@ export async function getIntegralizacao(input: IntegralizacaoInput): Promise<Int
 	let chOptativaRealizado: number;
 	let chComplementarRealizado: number;
 
-	if (cargaHorariaIntegralizada && (cargaHorariaIntegralizada.total > 0 || cargaHorariaIntegralizada.obrigatoria > 0 || cargaHorariaIntegralizada.optativa > 0)) {
+	if (!recalcularPorDisciplinas && cargaHorariaIntegralizada && (cargaHorariaIntegralizada.total > 0 || cargaHorariaIntegralizada.obrigatoria > 0 || cargaHorariaIntegralizada.optativa > 0)) {
 		chObrigatoriaRealizado = cargaHorariaIntegralizada.obrigatoria ?? 0;
 		chOptativaRealizado = cargaHorariaIntegralizada.optativa ?? 0;
 		chComplementarRealizado = cargaHorariaIntegralizada.complementar ?? 0;
@@ -108,7 +110,7 @@ export async function getIntegralizacao(input: IntegralizacaoInput): Promise<Int
 	};
 
 	const chTotalRealizado =
-		cargaHorariaIntegralizada && cargaHorariaIntegralizada.total > 0
+		!recalcularPorDisciplinas && cargaHorariaIntegralizada && cargaHorariaIntegralizada.total > 0
 			? cargaHorariaIntegralizada.total
 			: chObrigatoriaRealizado + chOptativaRealizado + chComplementarRealizado;
 

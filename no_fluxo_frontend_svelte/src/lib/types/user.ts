@@ -84,6 +84,9 @@ export function getCompletedSubjectCodes(dados: DadosFluxogramaUser): Set<string
 			if (isMateriaAprovada(materia)) {
 				const code = materia.codigoMateria ?? (materia as unknown as { codigo?: string }).codigo ?? '';
 				if (code) completed.add(code);
+				// Inclui codigoEquivalente para casamento em outros cursos (ex.: cursou MAT0035, conta como MAT1234)
+				const eq = materia.codigoEquivalente ?? (materia as unknown as { codigo_equivalente?: string }).codigo_equivalente ?? '';
+				if (eq && eq !== code) completed.add(eq);
 			}
 		}
 	}

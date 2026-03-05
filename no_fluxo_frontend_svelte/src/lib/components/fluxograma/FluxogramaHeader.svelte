@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowLeft, Camera, RefreshCw } from 'lucide-svelte';
+	import { ArrowLeft, Camera, RefreshCw, Home } from 'lucide-svelte';
 	import { goto } from '$app/navigation';
 	import { ROUTES } from '$lib/config/routes';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
@@ -11,9 +11,11 @@
 		courseName: string;
 		matrizCurricular?: string;
 		containerRef?: HTMLElement | null;
+		/** Mostra botão "Voltar ao meu fluxograma" quando está vendo outro curso (simulação) */
+		showBackToMyFluxogram?: boolean;
 	}
 
-	let { courseName, matrizCurricular = '', containerRef = null }: Props = $props();
+	let { courseName, matrizCurricular = '', containerRef = null, showBackToMyFluxogram = false }: Props = $props();
 
 	const store = fluxogramaStore;
 	let showConfirmDelete = $state(false);
@@ -43,6 +45,10 @@
 			showConfirmDelete = false;
 		}
 	}
+
+	function handleBackToMyFluxogram() {
+		goto(ROUTES.MEU_FLUXOGRAMA);
+	}
 </script>
 
 <header class="flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4">
@@ -63,6 +69,15 @@
 	</div>
 
 	<div class="flex flex-wrap items-center gap-2">
+		{#if showBackToMyFluxogram}
+			<button
+				onclick={handleBackToMyFluxogram}
+				class="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/40 bg-cyan-500/20 px-3 py-1.5 text-xs font-medium text-cyan-200 backdrop-blur-md transition-colors hover:bg-cyan-500/30 hover:text-cyan-100 sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+			>
+				<Home class="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+				Voltar ao meu fluxograma
+			</button>
+		{/if}
 		{#if !store.state.isAnonymous}
 			{#if showConfirmDelete}
 				<div class="flex flex-wrap items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-2.5 py-1.5 backdrop-blur-md sm:px-3">
