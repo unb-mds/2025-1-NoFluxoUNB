@@ -8,11 +8,12 @@
 		{ name: 'Guilherme Gusmão', githubUsername: 'gusmoles' },
 		{ name: 'Vitor Marconi', githubUsername: 'Vitor-Trancoso' },
 		{ name: 'Gustavo Choueiri', githubUsername: 'staann' },
-		{ name: 'Felipe Lopes', githubUsername: 'darkymeubem' },
+		{ name: 'Felipe Pedroza', githubUsername: 'darkymeubem' },
 		{ name: 'Vinícius Pereira', githubUsername: 'Vinicius-Ribeiro04' },
 		{ name: 'Arthur Fernandes', githubUsername: 'hisarxt' },
 		{ name: 'Erick Alves', githubUsername: 'erickaalves' },
-		{ name: 'Arthur Ramalho', githubUsername: 'ArthurNRamalho' }
+		{ name: 'Arthur Ramalho', githubUsername: 'ArthurNRamalho' },
+		{ name: 'Otavio Maya', githubUsername: 'knz13' }
 	];
 
 	const features = [
