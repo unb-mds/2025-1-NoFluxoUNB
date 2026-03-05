@@ -4,7 +4,7 @@ import json
 import time
 import os
 
-
+#ESSE SCRAPING EXTRAI DADOS DOS CURSOS DE GRADUAÇÃO 
 def get_viewstate(soup):
     vs = soup.find('input', {'name': 'javax.faces.ViewState'})
     return vs['value'] if vs else None
