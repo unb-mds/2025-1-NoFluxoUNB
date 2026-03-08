@@ -119,7 +119,15 @@ export class SupabaseDataService {
 				.order('ano_vigor', { ascending: false });
 
 			if (error) throw new Error(`Erro ao buscar matrizes: ${error.message}`);
-			return (data || []).map((row) => ({
+			const seen = new Set<string>();
+			return (data || [])
+				.filter((row) => {
+					const cc = row.curriculo_completo ?? '';
+					if (seen.has(cc)) return false;
+					seen.add(cc);
+					return true;
+				})
+				.map((row) => ({
 				idMatriz: row.id_matriz,
 				idCurso: row.id_curso,
 				curriculoCompleto: row.curriculo_completo,

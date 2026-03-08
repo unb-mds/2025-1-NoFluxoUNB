@@ -179,6 +179,10 @@
 			<FluxogramaHeader
 				courseName={store.state.courseData.nomeCurso}
 				matrizCurricular={store.state.courseData.matrizCurricular}
+				tipoCurso={store.state.courseData.tipoCurso}
+				{matrizes}
+				{curriculoCompletoAtual}
+				onMatrizChange={handleMatrizChange}
 				{containerRef}
 				showBackToMyFluxogram={eSimulacaoOutroCurso}
 			/>
