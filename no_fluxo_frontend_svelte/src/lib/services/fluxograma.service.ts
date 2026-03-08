@@ -24,12 +24,33 @@ import { getCodigosFromExpressaoLogica } from '$lib/utils/expressao-logica';
 
 class FluxogramaService {
 	/**
+	 * Inferir turno a partir de curriculo_completo quando a view não retorna turno
+	 * (ex.: "Engenharia - 2017.1 - DIURNO" ou "Administração - 2020.1 - noturno").
+	 */
+	private inferTurnoFromCurriculo(curriculoCompleto: string | null | undefined): string | null {
+		const s = (curriculoCompleto ?? '').trim();
+		const match = s.match(/\s*-\s*(DIURNO|NOTURNO)\s*$/i);
+		return match ? match[1].toUpperCase() : null;
+	}
+
+	/**
 	 * Get all courses (minimal info for index page)
 	 * REPLACES: GET /cursos/all-cursos
+	 * tipo_curso e turno vêm da tabela cursos (por id_curso da view), para garantir correspondência.
 	 */
 	async getAllCursos(): Promise<MinimalCursoModel[]> {
-		const data = await supabaseDataService.getCursosComCreditos();
-		return (data || []).map((c: Record<string, unknown>, index: number) => {
+		const viewRows = (await supabaseDataService.getCursosComCreditos()) || [];
+		const rows = viewRows as Record<string, unknown>[];
+		// Ids que realmente aparecem na view (para buscar tipo/turno na tabela cursos)
+		const idsFromView = rows
+			.map((c) => {
+				const raw = c.id_curso ?? c.idCurso;
+				return raw != null && raw !== '' ? Number(raw) : NaN;
+			})
+			.filter((n) => !Number.isNaN(n));
+		const tipoTurnoByCurso = await supabaseDataService.getCursosTipoTurno([...new Set(idsFromView)]);
+
+		return rows.map((c: Record<string, unknown>, index: number) => {
 			const creditos =
 				c.creditos_totais != null
 					? Number(c.creditos_totais)
@@ -40,19 +61,30 @@ class FluxogramaService {
 							: c.creditos != null
 								? Number(c.creditos)
 								: null;
-			const rawId = c.id_curso;
-			const idCurso =
-				rawId != null && rawId !== '' && !Number.isNaN(Number(rawId))
-					? Number(rawId)
-					: index;
+			const rawId = c.id_curso ?? c.idCurso;
+			const idNum = rawId != null && rawId !== '' ? Number(rawId) : NaN;
+			const idCurso = !Number.isNaN(idNum) ? idNum : index;
+			const curriculoCompleto = String(c.curriculo_completo ?? '');
+			const fromCursos = tipoTurnoByCurso.get(idCurso);
+			let tipoCursoRaw =
+				(fromCursos?.tipo_curso ?? '') ||
+				(c.tipo_curso != null ? String(c.tipo_curso).trim() : '') ||
+				(c.tipoCurso != null ? String(c.tipoCurso).trim() : '');
+			let turnoRaw =
+				(fromCursos?.turno ?? '') ||
+				(c.turno != null ? String(c.turno).trim() : '');
+			if (turnoRaw === '') {
+				turnoRaw = this.inferTurnoFromCurriculo(curriculoCompleto) ?? '';
+			}
+			const turno = turnoRaw !== '' ? turnoRaw.toUpperCase() : null;
 			return {
-				nomeCurso: String(c.nome_curso ?? ''),
-				matrizCurricular: String(c.curriculo_completo ?? ''),
+				nomeCurso: String(c.nome_curso ?? c.nomeCurso ?? ''),
+				matrizCurricular: curriculoCompleto,
 				idCurso,
 				creditos,
 				classificacao: '',
-				tipoCurso: String(c.tipo_curso ?? ''),
-				turno: c.turno != null ? String(c.turno) : null
+				tipoCurso: tipoCursoRaw !== '' ? tipoCursoRaw : '',
+				turno
 			};
 		});
 	}

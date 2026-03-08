@@ -21,13 +21,25 @@
 	let loadingCursos = $state(false);
 	let navigating = $state(false);
 
-	const cursosFiltrados = $derived(
-		searchQuery.trim()
-			? cursos.filter((c) =>
-					c.nomeCurso.toLowerCase().includes(searchQuery.toLowerCase().trim())
-				)
-			: cursos
-	);
+	const cursosFiltrados = $derived.by(() => {
+		if (!searchQuery.trim()) return cursos;
+		const q = searchQuery.toLowerCase().trim();
+		return cursos.filter(
+			(c) =>
+				c.nomeCurso.toLowerCase().includes(q) ||
+				(c.tipoCurso && c.tipoCurso.toLowerCase().includes(q)) ||
+				(c.turno && c.turno.toLowerCase().includes(q)) ||
+				(c.matrizCurricular && c.matrizCurricular.toLowerCase().includes(q))
+		);
+	});
+
+	function formatTurno(turno: string | null | undefined): string {
+		if (!turno) return '';
+		const t = turno.toUpperCase();
+		if (t === 'NOTURNO') return 'Noturno';
+		if (t === 'DIURNO') return 'Diurno';
+		return turno;
+	}
 
 	$effect(() => {
 		if (open) {
@@ -115,7 +127,7 @@
 					<Search class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
 					<input
 						type="search"
-						placeholder="Pesquisar curso..."
+						placeholder="Pesquisar por nome, tipo (ex.: Bacharelado, Licenciatura) ou currículo..."
 						bind:value={searchQuery}
 						class="w-full rounded-lg border border-white/10 bg-white/5 py-2.5 pl-10 pr-4 text-sm text-white placeholder-white/40 focus:border-amber-500/50 focus:outline-none"
 					/>
@@ -133,10 +145,31 @@
 								type="button"
 								onclick={() => handleSelectCurso(curso)}
 								disabled={navigating}
-								class="flex w-full items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-left transition-colors hover:bg-white/10 hover:border-amber-500/30 disabled:opacity-50"
+								class="flex w-full flex-col items-stretch gap-1 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-left transition-colors hover:bg-white/10 hover:border-amber-500/30 disabled:opacity-50"
 							>
-								<span class="font-medium text-white/90">{curso.nomeCurso}</span>
-								<span class="text-xs text-amber-400">Ver fluxograma →</span>
+								<div class="flex items-start justify-between gap-2">
+									<span class="font-medium text-white/90">{curso.nomeCurso}</span>
+									<span class="shrink-0 text-xs text-amber-400">Ver fluxograma →</span>
+								</div>
+								<!-- Tipo do curso (Bacharelado, Licenciatura etc.) — sempre mostrar a linha -->
+								<p class="text-xs">
+									<span class="text-white/50">Tipo:</span>
+									<span class="ml-1 font-medium {curso.tipoCurso ? 'text-cyan-300' : 'text-white/40'}">
+										{curso.tipoCurso || '—'}
+									</span>
+								</p>
+								{#if curso.turno}
+									<p class="text-xs text-white/50">
+										<span class="text-white/40">Turno:</span>
+										<span class="ml-1 text-amber-300/90">{formatTurno(curso.turno)}</span>
+									</p>
+								{/if}
+								{#if curso.matrizCurricular}
+									<p class="min-w-0 truncate text-xs text-white/50" title={curso.matrizCurricular}>
+										<span class="text-white/40">Currículo:</span>
+										<span class="ml-1">{curso.matrizCurricular}</span>
+									</p>
+								{/if}
 							</button>
 						{/each}
 						{#if cursosFiltrados.length === 0}

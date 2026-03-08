@@ -27,12 +27,16 @@ import type { AuthState } from '$lib/types/auth';
 
 export type ConnectionMode = 'off' | 'direct' | 'all';
 
+export type DisplayUnit = 'creditos' | 'horas';
+
 export interface FluxogramaState {
 	courseData: CursoModel | null;
 	loading: boolean;
 	error: string | null;
 	zoomLevel: number;
 	connectionMode: ConnectionMode;
+	/** Exibição das badges por semestre: créditos ou horas */
+	displayUnit: DisplayUnit;
 	isAnonymous: boolean;
 	hoveredSubjectCode: string | null;
 	selectedSubjectCode: string | null;
@@ -49,6 +53,7 @@ function createFluxogramaStore() {
 		error: null,
 		zoomLevel: 0.75,
 		connectionMode: 'off' as ConnectionMode,
+		displayUnit: 'horas' as DisplayUnit,
 		isAnonymous: false,
 		hoveredSubjectCode: null,
 		selectedSubjectCode: null
@@ -254,6 +259,10 @@ function createFluxogramaStore() {
 			state.connectionMode = mode;
 		},
 
+		setDisplayUnit(unit: DisplayUnit) {
+			state.displayUnit = unit;
+		},
+
 		setConnectionDensity(density: Map<number, number>) {
 			connectionDensityBySemester = density;
 		},
@@ -291,6 +300,7 @@ function createFluxogramaStore() {
 			state.error = null;
 			state.zoomLevel = 0.75;
 			state.connectionMode = 'off';
+			state.displayUnit = 'horas';
 			state.isAnonymous = false;
 			state.hoveredSubjectCode = null;
 			state.selectedSubjectCode = null;

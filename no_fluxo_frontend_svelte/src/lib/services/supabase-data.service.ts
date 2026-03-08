@@ -195,12 +195,40 @@ export class SupabaseDataService {
 			const rows = data ?? [];
 			const byCurso = new Map<number, (typeof rows)[0]>();
 			for (const row of rows) {
-				const rawId = row.id_curso;
+				const rawId = row.id_curso ?? (row as Record<string, unknown>).idCurso;
 				const id = rawId != null && rawId !== '' ? Number(rawId) : NaN;
 				if (!Number.isNaN(id) && !byCurso.has(id)) byCurso.set(id, row);
 			}
 			return byCurso.size > 0 ? [...byCurso.values()] : rows;
 		});
+	}
+
+	/**
+	 * Busca tipo_curso e turno na tabela cursos por id_curso (para enriquecer a lista da view).
+	 */
+	async getCursosTipoTurno(idCursos: number[]): Promise<Map<number, { tipo_curso: string | null; turno: string | null }>> {
+		if (idCursos.length === 0) return new Map();
+		const ids = [...new Set(idCursos)].filter((id) => Number.isInteger(id));
+		if (ids.length === 0) return new Map();
+		const { data, error } = await this.supabase
+			.from('cursos')
+			.select('id_curso, tipo_curso, turno')
+			.in('id_curso', ids);
+		if (error) {
+			console.warn('[getCursosTipoTurno] Erro ao buscar tipo/turno:', error.message);
+			return new Map();
+		}
+		const map = new Map<number, { tipo_curso: string | null; turno: string | null }>();
+		for (const row of data ?? []) {
+			const r = row as Record<string, unknown>;
+			const rawId = r.id_curso ?? r.idCurso;
+			const id = rawId != null && rawId !== '' ? Number(rawId) : NaN;
+			if (Number.isNaN(id)) continue;
+			const tipo = r.tipo_curso != null ? String(r.tipo_curso).trim() || null : (r.tipoCurso != null ? String(r.tipoCurso).trim() || null : null);
+			const turno = r.turno != null ? String(r.turno).trim() || null : null;
+			map.set(id, { tipo_curso: tipo, turno });
+		}
+		return map;
 	}
 
 	// ─── Subjects ─────────────────────────────────────────────

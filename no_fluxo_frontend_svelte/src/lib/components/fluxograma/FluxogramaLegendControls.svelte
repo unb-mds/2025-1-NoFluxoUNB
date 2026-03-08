@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { ZoomIn, ZoomOut, RotateCcw, Link2, BookOpen, ChevronDown, HelpCircle, X } from 'lucide-svelte';
-	import { fluxogramaStore, type ConnectionMode } from '$lib/stores/fluxograma.store.svelte';
+	import { fluxogramaStore, type ConnectionMode, type DisplayUnit } from '$lib/stores/fluxograma.store.svelte';
 	import { SubjectStatusEnum, getStatusLabel } from '$lib/types/materia';
 
 	interface Props {
@@ -137,6 +137,24 @@
 				Optativas
 			</button>
 		{/if}
+
+		<!-- Toggle Créditos | Horas (badges dos semestres) -->
+		<div class="flex items-center gap-0 rounded-lg border border-white/10 bg-white/5 overflow-hidden">
+			<button
+				onclick={() => store.setDisplayUnit('creditos')}
+				class="px-3 py-1.5 text-xs font-medium transition-colors {store.state.displayUnit === 'creditos' ? 'bg-cyan-500/20 text-cyan-300' : 'text-white/70 hover:bg-white/10 hover:text-white'}"
+				title="Exibir totais dos semestres em créditos"
+			>
+				Créditos
+			</button>
+			<button
+				onclick={() => store.setDisplayUnit('horas')}
+				class="px-3 py-1.5 text-xs font-medium transition-colors {store.state.displayUnit === 'horas' ? 'bg-cyan-500/20 text-cyan-300' : 'text-white/70 hover:bg-white/10 hover:text-white'}"
+				title="Exibir totais dos semestres em horas"
+			>
+				Horas
+			</button>
+		</div>
 
 		<!-- Show connections toggle + mode dropdown -->
 		<div class="connections-dropdown-group relative flex items-center gap-0">

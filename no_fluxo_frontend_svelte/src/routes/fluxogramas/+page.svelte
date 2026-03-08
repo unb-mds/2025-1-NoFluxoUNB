@@ -15,24 +15,43 @@
 
 	let searchQuery = $state('');
 	let selectedType = $state('');
+	let selectedTurno = $state('');
 	let currentPage = $state(1);
 	const perPage = 6;
 
-	// Get unique course types for filter dropdown
+	// Tipos de curso para o filtro (valores únicos)
 	let courseTypes = $derived.by(() => {
 		const types = new Set(courses.map((c) => c.tipoCurso).filter(Boolean));
 		return Array.from(types).sort();
 	});
 
-	// Filtered courses
+	const turnoOptions = [
+		{ value: '', label: 'Todos os turnos' },
+		{ value: 'DIURNO', label: 'Diurno' },
+		{ value: 'NOTURNO', label: 'Noturno' }
+	];
+
+	// Filtered courses: busca por nome (sempre); opcional por tipo e turno
 	let filtered = $derived.by(() => {
 		let result = courses;
+		// Busca por texto: nome do curso; se tiver tipo/turno, também busca neles
 		if (searchQuery.trim()) {
-			const q = searchQuery.toLowerCase();
-			result = result.filter((c) => c.nomeCurso.toLowerCase().includes(q));
+			const q = searchQuery.toLowerCase().trim();
+			result = result.filter((c) => {
+				const nome = (c.nomeCurso ?? '').toLowerCase();
+				if (nome.includes(q)) return true;
+				const tipo = (c.tipoCurso ?? '').toString().toLowerCase();
+				if (tipo && tipo.includes(q)) return true;
+				const turno = (c.turno ?? '').toString().toLowerCase();
+				if (turno && turno.includes(q)) return true;
+				return false;
+			});
 		}
 		if (selectedType) {
-			result = result.filter((c) => c.tipoCurso === selectedType);
+			result = result.filter((c) => (c.tipoCurso ?? '') === selectedType);
+		}
+		if (selectedTurno) {
+			result = result.filter((c) => (c.turno ?? '').toString().toUpperCase() === selectedTurno);
 		}
 		return result;
 	});
@@ -41,13 +60,9 @@
 	let totalPages = $derived(Math.max(1, Math.ceil(filtered.length / perPage)));
 	let paginated = $derived(filtered.slice((currentPage - 1) * perPage, currentPage * perPage));
 
-	// Reset page when filters change
-	$effect(() => {
-		// Access dependencies
-		searchQuery;
-		selectedType;
+	function onSearchOrFilterChange() {
 		currentPage = 1;
-	});
+	}
 
 	onMount(async () => {
 		try {
@@ -126,21 +141,36 @@
 			<input
 				type="text"
 				bind:value={searchQuery}
-				placeholder="Buscar curso por nome..."
+				oninput={onSearchOrFilterChange}
+				placeholder="Buscar por nome, tipo (ex.: Bacharelado) ou turno (Diurno/Noturno)..."
 				class="w-full rounded-xl border border-white/10 bg-black/40 py-2.5 pl-10 pr-4 text-sm text-white placeholder-white/40 backdrop-blur-md outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/30"
 			/>
 		</div>
 
-		{#if courseTypes.length > 0}
-			<div class="relative w-full sm:w-auto">
-				<Filter class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
+		{#if courseTypes.length > 0 || turnoOptions.length > 1}
+			<div class="flex flex-wrap gap-3">
+				{#if courseTypes.length > 0}
+					<div class="relative w-full sm:w-auto">
+						<Filter class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
+						<select
+							bind:value={selectedType}
+							onchange={onSearchOrFilterChange}
+							class="w-full appearance-none rounded-xl border border-white/10 bg-black/40 py-2.5 pl-10 pr-8 text-sm text-white backdrop-blur-md outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/30 sm:w-auto"
+						>
+							<option value="">Todos os tipos</option>
+							{#each courseTypes as type}
+								<option value={type}>{type}</option>
+							{/each}
+						</select>
+					</div>
+				{/if}
 				<select
-					bind:value={selectedType}
-					class="w-full appearance-none rounded-xl border border-white/10 bg-black/40 py-2.5 pl-10 pr-8 text-sm text-white backdrop-blur-md outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/30 sm:w-auto"
+					bind:value={selectedTurno}
+					onchange={onSearchOrFilterChange}
+					class="w-full appearance-none rounded-xl border border-white/10 bg-black/40 py-2.5 pl-4 pr-8 text-sm text-white backdrop-blur-md outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/30 sm:w-auto"
 				>
-					<option value="">Todos os tipos</option>
-					{#each courseTypes as type}
-						<option value={type}>{type}</option>
+					{#each turnoOptions as opt}
+						<option value={opt.value}>{opt.label}</option>
 					{/each}
 				</select>
 			</div>

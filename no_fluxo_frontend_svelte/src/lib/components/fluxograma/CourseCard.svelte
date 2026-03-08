@@ -8,6 +8,14 @@
 	}
 
 	let { curso, onclick }: Props = $props();
+
+	function formatTurno(turno: string | null | undefined): string {
+		if (!turno) return '';
+		const t = turno.toUpperCase();
+		if (t === 'NOTURNO') return 'Noturno';
+		if (t === 'DIURNO') return 'Diurno';
+		return turno;
+	}
 </script>
 
 <button
@@ -32,23 +40,27 @@
 
 	<h3 class="mb-1 line-clamp-2 text-sm font-semibold leading-tight text-white">
 		{curso.nomeCurso}
-		{#if curso.turno}
-			<span class="ml-1 font-normal text-white/70">({curso.turno === 'NOTURNO' ? 'Noturno' : curso.turno === 'DIURNO' ? 'Diurno' : curso.turno})</span>
-		{/if}
 	</h3>
 
-	{#if curso.matrizCurricular}
-		<p class="mb-2 flex items-center gap-1 text-xs text-white/50">
-			<BookOpen class="h-3 w-3" />
-			{curso.matrizCurricular}
+	<!-- Tipo do curso e turno em destaque (quando existir) -->
+	{#if curso.tipoCurso || curso.turno}
+		<p class="mb-2 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-white/80">
+			{#if curso.tipoCurso}
+				<span class="font-medium text-cyan-300">{curso.tipoCurso}</span>
+			{/if}
+			{#if curso.tipoCurso && curso.turno}
+				<span class="text-white/40">·</span>
+			{/if}
+			{#if curso.turno}
+				<span class="font-medium text-amber-300/90">{formatTurno(curso.turno)}</span>
+			{/if}
 		</p>
 	{/if}
 
-	{#if curso.tipoCurso}
-		<span
-			class="mt-2 inline-block rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 px-2.5 py-0.5 text-xs font-medium text-blue-300"
-		>
-			{curso.tipoCurso}
-		</span>
+	{#if curso.matrizCurricular}
+		<p class="mb-2 flex items-center gap-1 text-xs text-white/50">
+			<BookOpen class="h-3 w-3 shrink-0" />
+			<span class="line-clamp-1">{curso.matrizCurricular}</span>
+		</p>
 	{/if}
 </button>

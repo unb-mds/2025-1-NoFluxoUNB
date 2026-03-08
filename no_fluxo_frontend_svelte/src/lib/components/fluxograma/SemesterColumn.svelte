@@ -27,6 +27,38 @@
 		const gap = Math.min(MAX_GAP_REM, Math.max(MIN_GAP_REM, MIN_GAP_REM + density * GAP_PER_CONNECTION));
 		return `${gap}rem`;
 	});
+
+	// Badge: horas/créditos do semestre (exigido e realizado)
+	const stats = $derived.by(() => {
+		const totalCredits = subjects.reduce((s, m) => s + (m.creditos ?? 0), 0);
+		const totalHours = Math.round(totalCredits * 15);
+		const completed = store.completedCodes;
+		const completedCredits = subjects.reduce(
+			(s, m) => (completed.has(m.codigoMateria?.trim().toUpperCase() ?? '') ? s + (m.creditos ?? 0) : s),
+			0
+		);
+		const completedHours = Math.round(completedCredits * 15);
+		return {
+			totalCredits: Math.round(totalCredits * 10) / 10,
+			totalHours,
+			completedCredits: Math.round(completedCredits * 10) / 10,
+			completedHours
+		};
+	});
+
+	const displayUnit = $derived(store.state.displayUnit);
+	const badgeLabel = $derived.by(() => {
+		if (displayUnit === 'creditos') {
+			const ex = stats.totalCredits;
+			const re = stats.completedCredits;
+			if (store.state.isAnonymous || !store.userFluxograma) return `${ex}cr`;
+			return `${re} / ${ex}cr`;
+		}
+		const ex = stats.totalHours;
+		const re = stats.completedHours;
+		if (store.state.isAnonymous || !store.userFluxograma) return `${ex}h`;
+		return `${re} / ${ex}h`;
+	});
 </script>
 
 <div class="semester-column flex min-w-[130px] flex-col gap-2 sm:min-w-[160px]">
@@ -38,6 +70,18 @@
 			{semester === 0 ? 'Optativas' : `Semestre ${semester}`}
 		</span>
 	</div>
+
+	<!-- Badge: horas/créditos no topo (menos transparência para fácil leitura) -->
+	{#if subjects.length > 0}
+		<div
+			class="flex justify-center rounded-lg border border-cyan-400/50 bg-cyan-600/45 px-2 py-1.5 text-center shadow-sm"
+			title={displayUnit === 'creditos'
+				? `${stats.completedCredits} de ${stats.totalCredits} créditos do semestre`
+				: `${stats.completedHours} de ${stats.totalHours}h do semestre`}
+		>
+			<span class="text-xs font-semibold text-cyan-100">{badgeLabel}</span>
+		</div>
+	{/if}
 
 	<div class="flex flex-col" style="gap: {verticalGap}; transition: gap 0.3s ease;">
 		{#each subjects as materia (materia.idMateria)}
