@@ -24,6 +24,11 @@ cd mcp_agent
 pip install fastapi uvicorn google-generativeai openai supabase python-dotenv
 ```
 
+**Ou instalar tudo de uma vez:**
+```bash
+pip install -r requirements.txt
+```
+
 ### 2. Variáveis de Ambiente
 
 Crie/edite o arquivo `.env` na pasta `mcp_agent`:
@@ -154,7 +159,72 @@ python -c "import requests; print(requests.post('http://localhost:8000/recomenda
 
 ## 🐳 Deploy em Produção
 
-### Opção 1: Docker Compose
+### ✅ Checklist Antes de Deployer
+
+- [ ] **Variáveis de ambiente configuradas** (todas as chaves de API)
+- [ ] **CORS configurado** com domínios reais (não `localhost`)
+- [ ] **Health check funcionando** (`GET /health`)
+- [ ] **Múltiplos workers** habilitados (4 workers)
+- [ ] **Logs configurados** (sem `--no-access-log` em debug)
+
+### Opção 1: VPS Manual (Ubuntu/Debian)
+
+```bash
+# 1. Conectar ao servidor
+ssh seu_usuario@seu_servidor.com
+
+# 2. Instalar Python e dependências
+sudo apt update
+sudo apt install python3.11 python3.11-venv nginx -y
+
+# 3. Clonar repositório
+git clone https://github.com/seu-usuario/NoFluxoUNB.git
+cd NoFluxoUNB/mcp_agent
+
+# 4. Criar ambiente virtual
+python3.11 -m venv venv
+source venv/bin/activate
+
+# 5. Instalar dependências
+pip install -r requirements.txt
+
+# 6. Configurar variáveis de ambiente
+nano .env
+# Adicionar todas as chaves (MARITACA_API_KEY, GOOGLE_API_KEY, etc.)
+
+# 7. Testar
+./start_api_production.sh
+
+# 8. Configurar systemd (rodar como serviço)
+sudo nano /etc/systemd/system/darcy-api.service
+```
+
+**Conteúdo do `darcy-api.service`:**
+```ini
+[Unit]
+Description=Darcy AI FastAPI Service
+After=network.target
+
+[Service]
+Type=notify
+User=seu_usuario
+WorkingDirectory=/home/seu_usuario/NoFluxoUNB/mcp_agent
+ExecStart=/home/seu_usuario/NoFluxoUNB/mcp_agent/venv/bin/uvicorn api_producao:app --host 0.0.0.0 --port 8000 --workers 4
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+# Ativar serviço
+sudo systemctl daemon-reload
+sudo systemctl enable darcy-api
+sudo systemctl start darcy-api
+sudo systemctl status darcy-api
+```
+
+### Opção 2: Docker Compose
 
 ```yaml
 # docker-compose.yml

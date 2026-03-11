@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 import os
 import json
 import re
@@ -18,6 +19,16 @@ client_maritaca = OpenAI(api_key=os.environ.get("MARITACA_API_KEY"), base_url="h
 
 # Configuração do FastAPI
 app = FastAPI(title="Darcy AI - API da UnB", version="1.0")
+
+# CORS - Configurar origens permitidas em produção
+ALLOWED_ORIGINS = os.environ.get("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000").split(",")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=ALLOWED_ORIGINS,  # Em produção, substituir por domínios reais
+    allow_credentials=True,
+    allow_methods=["POST"],
+    allow_headers=["*"],
+)
 
 # Modelo de entrada de dados esperado do frontend/usuário
 class Consulta(BaseModel):
@@ -179,7 +190,17 @@ def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
         print(f"❌ Erro na ferramenta de busca: {e}")
         return json.dumps([])
 
-# 3. O ENDPOINT PRINCIPAL DA API
+# 3. ENDPOINT DE HEALTH CHECK (para monitoramento)
+@app.get("/health")
+async def health_check():
+    """Endpoint para verificar se a API está funcionando"""
+    return {
+        "status": "healthy",
+        "service": "Darcy AI",
+        "version": "2.0"
+    }
+
+# 4. O ENDPOINT PRINCIPAL DA API
 @app.post("/recomendar")
 async def recomendar_materias(consulta: Consulta):
     if not consulta.interesse.strip():

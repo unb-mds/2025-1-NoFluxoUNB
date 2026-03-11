@@ -1,0 +1,23 @@
+# Dependências para API FastAPI (api_producao.py)
+
+# Framework Web
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+pydantic==2.9.0
+
+# APIs de IA
+google-generativeai==0.8.3
+openai==1.54.3
+
+# Banco de Dados
+supabase==2.9.0
+postgrest==0.17.2
+
+# Utilitários
+python-dotenv==1.0.1
+requests==2.32.3
+
+# Dependências antigas (MCP - manter para compatibilidade)
+sentence-transformers>=2.2.0
+maritalk>=0.9.0
+fastmcp>=0.1.0
