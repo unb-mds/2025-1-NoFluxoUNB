@@ -137,20 +137,38 @@ export function limparNomeProfessor(nome: string): string {
  * Retorna o nome normalizado (espaços colapsados, trim) para melhor match.
  */
 export function extrairCurso(texto: string): string | null {
+  // Normalize line endings for consistent matching
+  const normalizedText = texto.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  
+  // Pattern 0: Multi-line course name where name appears BEFORE "Curso:" label
+  // Example:
+  //   Dados do Vínculo do(a) Discente
+  //   ENGENHARIA MECATRÔNICA - CONTROLE E AUTOMAÇÃO/FTD - ENGENHEIRO DE CONTROLE E
+  //   Curso:
+  //   AUTOMAÇÃO - DIURNO
+  // The course name is split with part before "Curso:" and part after
+  let m = normalizedText.match(
+    /(?:Discente|do Discente)\s*\n([A-ZÀ-ÿ][A-ZÀ-ÿ\s-]+)\/[A-Z]+ - [A-ZÀ-ÿ\s]+\nCurso:\s*\n[A-ZÀ-ÿ][A-ZÀ-ÿ\s]+\s+-\s+\w+/i
+  );
+  if (m) {
+    // Return the course name (before the campus code)
+    return m[1].trim().replace(/\s{2,}/g, ' ');
+  }
+
   // Pattern 1: "Curso:\n<NAME>/CAMPUS - ..."
-  let m = texto.match(
+  m = normalizedText.match(
     /Curso:\s*\n([A-ZÀ-ÿ][A-ZÀ-ÿ\s]+(?:DE\s+[A-ZÀ-ÿ\s]+)*)\/[A-Z]+ - [A-ZÀ-ÿ\s]+ - [A-ZÀ-ÿ]+/mi
   );
   if (m) return m[1].trim().replace(/\s{2,}/g, ' ');
 
   // Pattern 2: "Curso:          NAME/CAMPUS-..."
-  m = texto.match(
+  m = normalizedText.match(
     /Curso:\s+([A-ZÀ-ÿ][A-ZÀ-ÿ\s]+(?:DE\s+[A-ZÀ-ÿ\s]+)*)\/[A-Z]+\s*-/mi
   );
   if (m) return m[1].trim().replace(/\s{2,}/g, ' ');
 
   // Pattern 3: "Curso: NAME Status:"
-  m = texto.match(/Curso[:\s]+([A-ZÀ-Ÿ\s/\\-]+?)(?:\s+Status:|$)/mi);
+  m = normalizedText.match(/Curso[:\s]+([A-ZÀ-Ÿ\s/\\-]+?)(?:\s+Status:|$)/mi);
   if (m) return m[1].trim().replace(/\s{2,}/g, ' ');
 
   return null;
@@ -175,6 +193,159 @@ export function extrairMatrizCurricular(texto: string): string | null {
   if (m) return m[1].trim();
 
   return null;
+}
+
+/**
+ * Extrai a carga horária integralizada da tabela "Carga Horária Integralizada/Pendente".
+ * Localiza a linha "Integralizado" e extrai os valores numéricos das colunas Obrigatórias, Optativos, Complementares.
+ * Retorna objeto compatível com a coluna carga_horaria_integralizada da tabela dados_users.
+ * Se complementar estiver em branco, assume 0.
+ *
+ * O PDF da UnB pode extrair a tabela em layout variado:
+ * - Título "Carga Horária Integralizada/Pendente" pode vir ANTES ou DEPOIS dos dados
+ * - Linhas: Exigido, Integralizado, Pendente (cada uma em linha separada)
+ * - Valores em blocos: "630 h\n120 h\n510 h" (coluna) ou "120 h 1110 h 990 h 0 h" (linha)
+ */
+export function extrairCargaHorariaIntegralizada(texto: string): {
+	obrigatoria: number;
+	optativa: number;
+	complementar: number;
+	total: number;
+} | null {
+	const s = texto.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+
+	// Estratégia 0 (PRIORITÁRIA): "Integralizado" na MESMA LINHA que os 4 valores
+	// Ex: "Integralizado          990 h          120 h          0 h          1110 h"
+	// Evita pegar números da linha Exigido quando os valores vêm em linhas separadas
+	const linhaIntegral = s.match(/Integralizado\s+(\d+)\s*h\s+(\d+)\s*h\s+(\d+)\s*h\s+(\d+)\s*h/i);
+	if (linhaIntegral) {
+		const obrigatoria = parseInt(linhaIntegral[1], 10);
+		const optativa = parseInt(linhaIntegral[2], 10);
+		const complementar = parseInt(linhaIntegral[3], 10);
+		const total = parseInt(linhaIntegral[4], 10);
+		const soma = obrigatoria + optativa + complementar;
+		if (Math.abs(soma - total) <= 10) {
+			return { obrigatoria, optativa, complementar, total };
+		}
+	}
+	// Variante: "Integralizado" na linha anterior aos números (sem "Pendente" entre eles)
+	const linhaIntegralNext = s.match(/Integralizado\s*\n\s*(\d+)\s*h\s+(\d+)\s*h\s+(\d+)\s*h\s+(\d+)\s*h/i);
+	if (linhaIntegralNext) {
+		const obrigatoria = parseInt(linhaIntegralNext[1], 10);
+		const optativa = parseInt(linhaIntegralNext[2], 10);
+		const complementar = parseInt(linhaIntegralNext[3], 10);
+		const total = parseInt(linhaIntegralNext[4], 10);
+		const soma = obrigatoria + optativa + complementar;
+		if (Math.abs(soma - total) <= 10) {
+			return { obrigatoria, optativa, complementar, total };
+		}
+	}
+
+	// Estratégia A: Layout do PDF — Exigido, Integralizado, Pendente (linhas)
+	// Valores vêm DEPOIS das 3 linhas. O PDF da UnB extrai POR COLUNA:
+	//   Colunas: Optativos(3 vals), Total(3), Obrigatórias(3), Complementares(3)
+	//   Integralizado = 2º valor de cada coluna → idx 1, 4, 7, 10
+	const matchPendente = s.match(/Exigido\s*\nIntegralizado\s*\nPendente\s*\n/i);
+	if (matchPendente && matchPendente.index != null) {
+		const idxInicioNumeros = matchPendente.index + matchPendente[0].length;
+		const bloco = s.substring(idxInicioNumeros, idxInicioNumeros + 500);
+		const numeros = [...bloco.matchAll(/(\d+)\s*h/gi)].map((m) => parseInt(m[1], 10));
+
+		if (numeros.length >= 12) {
+			// POR COLUNA (layout real do PDF): Integralizado = idx 1,4,7,10
+			const optativa = numeros[1] ?? 0;
+			const total = numeros[4] ?? 0;
+			const obrigatoria = numeros[7] ?? 0;
+			const complementar = numeros[10] ?? 0;
+			const soma = obrigatoria + optativa + complementar;
+			if (Math.abs(soma - total) <= 10) {
+				return { obrigatoria, optativa, complementar, total: total || soma };
+			}
+		}
+		if (numeros.length >= 8) {
+			// Fallback: ordem por LINHA (Exigido, Integralizado, Pendente) → Integralizado = idx 4,5,6,7
+			// Colunas: Obrigatórias, Optativos, Complementares, Total
+			const obrig = numeros[4] ?? 0;
+			const opt = numeros[5] ?? 0;
+			const compl = numeros[6] ?? 0;
+			const total = numeros[7] ?? 0;
+			const soma = obrig + opt + compl;
+			if (Math.abs(soma - total) <= 10) {
+				return { obrigatoria: obrig, optativa: opt, complementar: compl, total: total || soma };
+			}
+		}
+	}
+
+	// Fallback: mesmo padrão (sem "Exigido" explícito antes)
+	const matchIntegral = s.match(/\nIntegralizado\s*\nPendente\s*\n/i);
+	if (matchIntegral && matchIntegral.index != null) {
+		const idxInicio = matchIntegral.index + matchIntegral[0].length;
+		const bloco = s.substring(idxInicio, idxInicio + 500);
+		const numeros = [...bloco.matchAll(/(\d+)\s*h/gi)].map((m) => parseInt(m[1], 10));
+		if (numeros.length >= 12) {
+			// POR COLUNA: Integralizado = idx 1,4,7,10
+			const optativa = numeros[1] ?? 0;
+			const total = numeros[4] ?? 0;
+			const obrigatoria = numeros[7] ?? 0;
+			const complementar = numeros[10] ?? 0;
+			const soma = obrigatoria + optativa + complementar;
+			if (Math.abs(soma - total) <= 10) {
+				return { obrigatoria, optativa, complementar, total: total || soma };
+			}
+		}
+		if (numeros.length >= 8) {
+			// Fallback por LINHA: idx 4,5,6,7 = obrig, opt, compl, total
+			const obrig = numeros[4] ?? 0, opt = numeros[5] ?? 0, compl = numeros[6] ?? 0, total = numeros[7] ?? 0;
+			const soma = obrig + opt + compl;
+			if (Math.abs(soma - total) <= 10) {
+				return { obrigatoria: obrig, optativa: opt, complementar: compl, total: total || soma };
+			}
+		}
+	}
+
+	// Estratégia B: "Integralizado" seguido de números (formato tradicional)
+	// NÃO capturar se "Pendente" aparecer antes dos números — isso indicaria layout
+	// Exigido/Integralizado/Pendente em linhas separadas com números depois (Exigido primeiro)
+	const blocoMatch = s.match(/Integralizad[oa](?:(?!Pendente)[\s\S]){0,300}?(\d+)\s*h[\s\S]{0,150}?(\d+)\s*h[\s\S]{0,150}?(\d+)\s*h(?:\s*[\s\S]{0,150}?(\d+)\s*h)?/i);
+	if (blocoMatch) {
+		const obrigatoria = parseInt(blocoMatch[1], 10);
+		const optativa = parseInt(blocoMatch[2], 10);
+		const complementar = parseInt(blocoMatch[3], 10);
+		const total = blocoMatch[4] ? parseInt(blocoMatch[4], 10) : obrigatoria + optativa + complementar;
+		const soma = obrigatoria + optativa + complementar;
+		if (Math.abs(soma - total) <= 10) {
+			return { obrigatoria, optativa, complementar, total };
+		}
+	}
+
+	// Estratégia C: Buscar bloco entre "Integralizado" e "Carga Horária" ou "Legenda"
+	const blocoIntegral = s.match(/Integralizado\s*\n([\s\S]{0,400}?)(?=Carga Horária|Legenda|Complementares|$)/i);
+	if (blocoIntegral) {
+		const nums = [...blocoIntegral[1].matchAll(/(\d+)\s*h/gi)].map((m) => parseInt(m[1], 10));
+		if (nums.length >= 3) {
+			// Se 3 valores: optativa, obrigatoria, complementar (ordem do PDF)
+			const [a, b, c] = nums;
+			return {
+				obrigatoria: b ?? 0,
+				optativa: a ?? 0,
+				complementar: c ?? 0,
+				total: (a ?? 0) + (b ?? 0) + (c ?? 0)
+			};
+		}
+	}
+
+	return null;
+}
+
+/**
+ * Versão com log para debug — use temporariamente se a extração falhar.
+ * Exemplo: console.log(debugCargaHorariaIntegralizada(fullText));
+ */
+export function debugCargaHorariaIntegralizada(texto: string): { found: boolean; snippet?: string } {
+	const idx = texto.search(/[Ii]ntegralizad[oa]|ntegralizado/i);
+	if (idx < 0) return { found: false };
+	const snippet = texto.substring(Math.max(0, idx - 30), idx + 350);
+	return { found: true, snippet };
 }
 
 export function extrairSuspensoes(texto: string): string[] {

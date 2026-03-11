@@ -20,8 +20,8 @@ export function isPublicRoute(path: string): boolean {
 }
 
 /**
- * Check if user should be redirected
- * Call this in +layout.svelte or individual pages
+ * Check if user should be redirected.
+ * This is the sole auth guard — no server-side hooks.server.ts.
  */
 export async function checkAuth(path: string): Promise<boolean> {
 	if (!browser) return true;
@@ -33,11 +33,19 @@ export async function checkAuth(path: string): Promise<boolean> {
 	// Allow anonymous users
 	if (state.isAnonymous) return true;
 
+	// Still loading auth state — let the layout spinner handle it
+	if (state.isLoading) return true;
+
 	// Check if authenticated
 	if (state.isAuthenticated && state.user) {
-		// Verify session is still valid
+		// Verify session is still valid (covers expiry check previously in hooks.server.ts)
 		const isValid = await authService.isSessionValid();
 		if (isValid) return true;
+
+		// Session expired — sign out and redirect
+		await authService.signOut();
+		await goto('/login?error=session_expired');
+		return false;
 	}
 
 	// Not authenticated, redirect to login

@@ -3,6 +3,13 @@ import { Pair, Utils } from "../utils";
 import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
 import { createControllerLogger } from '../utils/controller_logger';
+import {
+    type ExpressaoLogicaRecursiva,
+    getCodigosFromExpressaoLogica,
+    codigoContidoEmExpressaoLogica,
+    satisfazExpressaoLogica
+} from "../utils/expressao_logica";
+import { calcularIntegralizacao } from "../services/integralizacao.service";
 
 // Helper interfaces for better type safety
 interface DisciplinaHistorico {
@@ -21,6 +28,7 @@ interface DisciplinaHistorico {
 interface MateriasBanco {
     id_materia: number;
     nivel: number;
+    tipo_natureza?: number | null; // 0=obrigatória, 1=optativa (prioridade sobre nivel)
     materias: {
         id_materia: number;
         nome_materia: string;
@@ -28,13 +36,20 @@ interface MateriasBanco {
     };
 }
 
+/** Optativa: tipo_natureza=1 ou (fallback) nivel=0 */
+function isOptativa(mpc: { tipo_natureza?: number | null; nivel?: number }): boolean {
+    if (mpc.tipo_natureza !== undefined && mpc.tipo_natureza !== null) return mpc.tipo_natureza === 1;
+    return (mpc.nivel ?? 0) === 0;
+}
+
 interface EquivalenciaData {
     id_equivalencia: number;
     codigo_materia_origem: string;
     nome_materia_origem: string;
-    codigo_materia_equivalente: string;
-    nome_materia_equivalente: string;
+    codigo_materia_equivalente?: string;
+    nome_materia_equivalente?: string;
     expressao: string;
+    expressao_logica?: ExpressaoLogicaRecursiva | null;
     id_curso?: number;
     nome_curso?: string;
     matriz_curricular?: string;
@@ -43,10 +58,145 @@ interface EquivalenciaData {
     fim_vigencia?: string;
 }
 
-// Helper function to extract subject codes from equivalency expressions
+// Helper function to extract subject codes from equivalency expressions (fallback quando expressao_logica ausente)
 function extractSubjectCodes(expression: string): string[] {
     return Array.from(expression.matchAll(/[A-Z]{2,}\d{3,}/gi))
         .map((m: any) => m[0].replace(/\s+/g, '').toUpperCase());
+}
+
+/** Retorna códigos equivalentes: usa expressao_logica recursiva, senão extrai de expressao */
+function getCodigosEquivalentes(eq: EquivalenciaData): string[] {
+    const codigos = getCodigosFromExpressaoLogica(eq.expressao_logica);
+    if (codigos.length > 0) return codigos;
+    return eq.expressao ? extractSubjectCodes(eq.expressao) : [];
+}
+
+/** Verifica se um código está contido na equivalência */
+function codigoContidoNaEquivalencia(eq: EquivalenciaData, codigo: string): boolean {
+    if (!codigo) return false;
+    if (eq.expressao_logica) {
+        return codigoContidoEmExpressaoLogica(eq.expressao_logica, codigo);
+    }
+    return getCodigosEquivalentes(eq).includes(codigo.trim().toUpperCase());
+}
+
+/** Mapeia pre_requisitos: expande expressao_logica em um registro por código (para múltiplos pré-requisitos) */
+async function mapPreRequisitosFromDb(
+    rows: any[],
+    materiasPorCurso: any[]
+): Promise<any[]> {
+    const codigoParaNome = new Map<string, string>();
+    for (const mpc of materiasPorCurso ?? []) {
+        const mat = mpc.materias;
+        if (mat?.codigo_materia) {
+            codigoParaNome.set(String(mat.codigo_materia).trim().toUpperCase(), mat.nome_materia ?? "");
+        }
+    }
+
+    const codigosParaBuscar = new Set<string>();
+    for (const pr of rows ?? []) {
+        const logica = pr.expressao_logica;
+        let parsed: ExpressaoLogicaRecursiva | null = null;
+        if (logica) {
+            try {
+                parsed = typeof logica === "string" ? JSON.parse(logica) : logica;
+            } catch { /* ignora */ }
+        }
+        const codigos = getCodigosFromExpressaoLogica(parsed);
+        for (const c of codigos) {
+            if (!codigoParaNome.has(c)) codigosParaBuscar.add(c);
+        }
+    }
+
+    if (codigosParaBuscar.size > 0) {
+        const { data: materiasExtras } = await SupabaseWrapper.get()
+            .from("materias")
+            .select("codigo_materia,nome_materia")
+            .in("codigo_materia", [...codigosParaBuscar]);
+        for (const m of materiasExtras ?? []) {
+            if (m.codigo_materia) {
+                codigoParaNome.set(String(m.codigo_materia).trim().toUpperCase(), m.nome_materia ?? "");
+            }
+        }
+    }
+
+    const out: any[] = [];
+    for (const pr of rows ?? []) {
+        const logica = pr.expressao_logica;
+        let parsed: ExpressaoLogicaRecursiva | null = null;
+        if (logica) {
+            try {
+                parsed = typeof logica === "string" ? JSON.parse(logica) : logica;
+            } catch { /* ignora */ }
+        }
+        const codigosLogica = getCodigosFromExpressaoLogica(parsed);
+
+        if (codigosLogica.length > 0) {
+            for (const codigo of codigosLogica) {
+                out.push({
+                    id_pre_requisito: pr.id_pre_requisito,
+                    id_materia: pr.id_materia,
+                    id_materia_requisito: null,
+                    codigo_materia_requisito: codigo,
+                    nome_materia_requisito: codigoParaNome.get(codigo) ?? null,
+                    expressao_original: pr.expressao_original ?? null,
+                    expressao_logica: pr.expressao_logica ?? null
+                });
+            }
+        } else if (pr.id_materia_requisito && pr.materias) {
+            out.push({
+                id_pre_requisito: pr.id_pre_requisito,
+                id_materia: pr.id_materia,
+                id_materia_requisito: pr.id_materia_requisito,
+                codigo_materia_requisito: pr.materias.codigo_materia ?? null,
+                nome_materia_requisito: pr.materias.nome_materia ?? null,
+                expressao_original: pr.expressao_original ?? null,
+                expressao_logica: pr.expressao_logica ?? null
+            });
+        }
+    }
+    return out;
+}
+
+// Mapeia resposta de equivalencias+materias para EquivalenciaData (formato recursivo { operador, condicoes })
+function mapEquivalenciasFromDb(rows: any[]): EquivalenciaData[] {
+    return (rows || []).map((e: any) => {
+        const materia = e.materias ?? e.materias_origem;
+        const codigoOrigem = materia?.codigo_materia ?? '';
+        const nomeOrigem = materia?.nome_materia ?? '';
+        const expressao = e.expressao_original ?? e.expressao ?? '';
+        let expressaoLogica: ExpressaoLogicaRecursiva | null = null;
+        if (e.expressao_logica) {
+            try {
+                const parsed = typeof e.expressao_logica === "string"
+                    ? JSON.parse(e.expressao_logica) : e.expressao_logica;
+                if (typeof parsed === "string" || (parsed && typeof parsed === "object" && "condicoes" in parsed)) {
+                    expressaoLogica = parsed as ExpressaoLogicaRecursiva;
+                } else if (parsed?.materias) {
+                    // compat: formato antigo { materias, operador } -> { operador, condicoes }
+                    expressaoLogica = {
+                        operador: (parsed.operador || "OU") as "OU" | "E",
+                        condicoes: Array.isArray(parsed.materias) ? parsed.materias : []
+                    };
+                }
+            } catch (_) { /* ignora parse inválido */ }
+        }
+        const codigosEq = getCodigosFromExpressaoLogica(expressaoLogica);
+        const codigoEq = codigosEq[0] ?? (expressao ? extractSubjectCodes(expressao)[0] : '') ?? '';
+        return {
+            id_equivalencia: e.id_equivalencia,
+            codigo_materia_origem: codigoOrigem,
+            nome_materia_origem: nomeOrigem,
+            codigo_materia_equivalente: codigoEq,
+            nome_materia_equivalente: '',
+            expressao,
+            expressao_logica: expressaoLogica ?? undefined,
+            id_curso: e.id_curso,
+            curriculo: e.curriculo,
+            data_vigencia: e.data_vigencia,
+            fim_vigencia: e.fim_vigencia
+        };
+    });
 }
 
 // Helper function to get status priority for conflict resolution
@@ -110,7 +260,7 @@ function processMatchedDiscipline(
         id_materia: materiaBanco.id_materia,
         encontrada_no_banco: true,
         nivel: materiaBanco.nivel,
-        tipo: materiaBanco.nivel === 0 ? 'optativa' : 'obrigatoria'
+        tipo: isOptativa(materiaBanco) ? 'optativa' : 'obrigatoria'
     };
 
     if (existingIndex >= 0) {
@@ -134,23 +284,35 @@ function processMatchedDiscipline(
     }
 }
 
-// Helper function to check equivalencies
+// Helper function to check equivalencies (usa expressao_logica recursiva, fallback para expressao)
 function checkEquivalencies(
     disciplinasCasadas: any[],
     equivalencias: EquivalenciaData[],
     targetMateria: any,
     logger: any
 ): boolean {
+    const completedCodes = new Set(
+        disciplinasCasadas
+            .filter((d: any) => d.status === 'APR' || d.status === 'CUMP')
+            .map((d: any) => d.codigo?.trim().toUpperCase())
+            .filter(Boolean)
+    );
+
     for (const eq of equivalencias) {
-        const codigosEquivalentes = extractSubjectCodes(eq.expressao);
-        for (const codigoEq of codigosEquivalentes) {
-            const encontrada = disciplinasCasadas.find(
-                d => d.codigo === codigoEq && (d.status === 'APR' || d.status === 'CUMP')
+        let satisfeito = false;
+        if (eq.expressao_logica && getCodigosFromExpressaoLogica(eq.expressao_logica).length > 0) {
+            satisfeito = satisfazExpressaoLogica(eq.expressao_logica, completedCodes);
+        } else {
+            const codigos = getCodigosEquivalentes(eq);
+            satisfeito = codigos.some((c) => completedCodes.has(c));
+        }
+        if (satisfeito) {
+            const codigos = getCodigosEquivalentes(eq);
+            const encontrada = disciplinasCasadas.find((d: any) =>
+                d.codigo && codigos.includes(d.codigo.trim().toUpperCase()) && (d.status === 'APR' || d.status === 'CUMP')
             );
-            if (encontrada) {
-                logger.info(`Subject '${targetMateria.nome}' completed by equivalency with '${encontrada.nome}' (${encontrada.codigo})`);
-                return true;
-            }
+            logger.info(`Subject '${targetMateria.nome}' completed by equivalency with '${encontrada?.nome}' (${encontrada?.codigo})`);
+            return true;
         }
     }
     return false;
@@ -170,7 +332,7 @@ export const FluxogramaController: EndpointController = {
                 return res.status(400).json({ error: "Nome do curso não informado" });
             }
 
-            const { data, error } = await SupabaseWrapper.get().from("cursos").select("*,materias_por_curso(nivel,materias(*))").like("nome_curso", "%" + req.query.nome_curso + "%");
+            const { data, error } = await SupabaseWrapper.get().from("cursos").select("*,materias_por_curso(nivel,tipo_natureza,materias(*))").like("nome_curso", "%" + req.query.nome_curso + "%");
 
             if (error) {
                 logger.error(`Erro ao buscar fluxograma: ${error.message}`);
@@ -179,16 +341,17 @@ export const FluxogramaController: EndpointController = {
 
             for (const curso of data) {
                 // get equivalencias
-                const { data: equivalencias, error: errorEquivalencias } = await SupabaseWrapper.get()
-                    .from("vw_equivalencias_com_materias")
-                    .select("id_equivalencia,codigo_materia_origem,nome_materia_origem,codigo_materia_equivalente,nome_materia_equivalente,expressao,id_curso,nome_curso,matriz_curricular,curriculo,data_vigencia,fim_vigencia")
-                    .or(`id_curso.is.null,id_curso.eq.${curso.id_curso}`)
-                    .or(`matriz_curricular.is.null,matriz_curricular.eq.${curso.matriz_curricular}`);
+                const { data: equivalenciasRaw, error: errorEquivalencias } = await SupabaseWrapper.get()
+                    .from("equivalencias")
+                    .select("id_equivalencia,id_curso,expressao_original,expressao_logica,curriculo,data_vigencia,materias!equivalencias_id_materia_fkey(codigo_materia,nome_materia)")
+                    .or(`id_curso.is.null,id_curso.eq.${curso.id_curso}`);
 
                 if (errorEquivalencias) {
                     logger.error(`Erro ao buscar equivalencias: ${errorEquivalencias.message}`);
                     return res.status(500).json({ error: errorEquivalencias.message });
                 }
+
+                const equivalencias = mapEquivalenciasFromDb(equivalenciasRaw ?? []);
 
                 var materias_id = [];
 
@@ -196,10 +359,10 @@ export const FluxogramaController: EndpointController = {
                     materias_id.push(materia.materias.id_materia);
                 }
 
-                // get pre-requisitos
+                // get pre-requisitos (usa expressao_logica quando disponível, senão id_materia_requisito)
                 const { data: preRequisitos, error: errorPreRequisitos } = await SupabaseWrapper.get()
                     .from("pre_requisitos")
-                    .select("id_pre_requisito,id_materia,id_materia_requisito,materias:id_materia_requisito(codigo_materia,nome_materia)")
+                    .select("id_pre_requisito,id_materia,id_materia_requisito,expressao_original,expressao_logica,materias:id_materia_requisito(codigo_materia,nome_materia)")
                     .in("id_materia", materias_id);
 
                 if (errorPreRequisitos) {
@@ -207,21 +370,10 @@ export const FluxogramaController: EndpointController = {
                     return res.status(500).json({ error: errorPreRequisitos.message });
                 }
 
-                var preRequisitosCodigosComId = [];
-
-                for (const preRequisito_ of preRequisitos) {
-                    const preRequisito: any = preRequisito_;
-
-                    if (preRequisito.id_materia_requisito) {
-                        preRequisitosCodigosComId.push({
-                            id_pre_requisito: preRequisito.id_pre_requisito,
-                            id_materia: preRequisito.id_materia,
-                            id_materia_requisito: preRequisito.id_materia_requisito,
-                            codigo_materia_requisito: preRequisito.materias.codigo_materia,
-                            nome_materia_requisito: preRequisito.materias.nome_materia
-                        });
-                    }
-                }
+                const preRequisitosCodigosComId = await mapPreRequisitosFromDb(
+                    preRequisitos ?? [],
+                    curso.materias_por_curso
+                );
 
                 curso.pre_requisitos = preRequisitosCodigosComId;
 
@@ -301,7 +453,7 @@ export const FluxogramaController: EndpointController = {
                     logger.warn("Curso não foi extraído do PDF automaticamente");
                     const { data: todosCursos } = await SupabaseWrapper.get()
                         .from("cursos")
-                        .select("nome_curso, matriz_curricular")
+                        .select("id_curso, nome_curso, matriz_curricular, turno")
                         .order("nome_curso");
 
                     return res.status(400).json({
@@ -322,7 +474,7 @@ export const FluxogramaController: EndpointController = {
 
                     const { data: todosCursos } = await SupabaseWrapper.get()
                         .from("cursos")
-                        .select("nome_curso, matriz_curricular")
+                        .select("id_curso, nome_curso, matriz_curricular, turno")
                         .order("nome_curso");
 
                     logger.info(`Cursos encontrados: ${todosCursos}`);
@@ -340,7 +492,7 @@ export const FluxogramaController: EndpointController = {
 
                             const { data, error: queryError } = await SupabaseWrapper.get()
                                 .from("cursos")
-                                .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                                .select("*,materias_por_curso(id_materia,nivel,tipo_natureza,materias(*))")
                                 .eq("nome_curso", cursoSelecionado.nome_curso);
 
                             materiasBanco = data;
@@ -358,7 +510,7 @@ export const FluxogramaController: EndpointController = {
                     // Normal course search
                     let query = SupabaseWrapper.get()
                         .from("cursos")
-                        .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                        .select("*,materias_por_curso(id_materia,nivel,tipo_natureza,materias(*))")
                         .like("nome_curso", "%" + curso_extraido + "%");
 
 
@@ -386,7 +538,7 @@ export const FluxogramaController: EndpointController = {
                     logger.error(`Curso não encontrado: ${curso_extraido}`);
                     const { data: todosCursos } = await SupabaseWrapper.get()
                         .from("cursos")
-                        .select("nome_curso, matriz_curricular");
+                        .select("id_curso, nome_curso, matriz_curricular, turno");
 
                     return res.status(404).json({
                         error: "Curso não encontrado",
@@ -398,26 +550,27 @@ export const FluxogramaController: EndpointController = {
 
                 const curso = materiasBanco[0];
                 const materiasBancoList = curso.materias_por_curso;
-                const materiasObrigatorias = materiasBancoList.filter((m: any) => m.nivel > 0);
-                const materiasOptativas = materiasBancoList.filter((m: any) => m.nivel === 0);
+                const materiasObrigatorias = materiasBancoList.filter((m: any) => !isOptativa(m));
+                const materiasOptativas = materiasBancoList.filter((m: any) => isOptativa(m));
 
                 logger.info(`Course found: ${curso.nome_curso}`);
                 logger.info(`Total subjects: ${materiasBancoList.length}`);
                 logger.info(`Mandatory subjects: ${materiasObrigatorias.length}`);
                 logger.info(`Elective subjects: ${materiasOptativas.length}`);
 
-                // PRE-LOAD all equivalencies to avoid database queries in loops
-                const { data: allEquivalencies } = await SupabaseWrapper.get()
-                    .from("vw_equivalencias_com_materias")
-                    .select("id_equivalencia,codigo_materia_origem,nome_materia_origem,codigo_materia_equivalente,nome_materia_equivalente,expressao")
+                // PRE-LOAD all equivalencies to avoid database queries in loops (tabela equivalencias + join materias)
+                const { data: equivalenciasRaw } = await SupabaseWrapper.get()
+                    .from("equivalencias")
+                    .select("id_equivalencia,id_curso,expressao_original,expressao_logica,materias!equivalencias_id_materia_fkey(codigo_materia,nome_materia)")
                     .or(`id_curso.is.null,id_curso.eq.${curso.id_curso}`);
 
+                const allEquivalencies = mapEquivalenciasFromDb(equivalenciasRaw ?? []);
                 logger.info(`Loaded ${allEquivalencies?.length || 0} equivalencies`);
 
                 // PRE-LOAD other course matrices to avoid database queries in loops
                 const { data: outrasMatrizes } = await SupabaseWrapper.get()
                     .from("cursos")
-                    .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                    .select("*,materias_por_curso(id_materia,nivel,tipo_natureza,materias(*))")
                     .eq("nome_curso", curso.nome_curso);
 
                 logger.info(`Loaded ${outrasMatrizes?.length || 0} course matrices`);
@@ -479,8 +632,8 @@ export const FluxogramaController: EndpointController = {
                             for (const matriz of outrasMatrizes) {
                                 if (matriz.matriz_curricular === curso.matriz_curricular) continue;
 
-                                const obrig = matriz.materias_por_curso.filter((m: any) => m.nivel > 0);
-                                const opt = matriz.materias_por_curso.filter((m: any) => m.nivel === 0);
+                                const obrig = matriz.materias_por_curso.filter((m: any) => !isOptativa(m));
+                                const opt = matriz.materias_por_curso.filter((m: any) => isOptativa(m));
 
                                 materiaBanco = findSubjectMatch(disciplina, obrig, opt);
                                 if (materiaBanco) {
@@ -497,10 +650,8 @@ export const FluxogramaController: EndpointController = {
                         if (!materiaBanco && allEquivalencies) {
                             logger.debug(`Attempting to match "${disciplina.nome}" with equivalencies (${allEquivalencies.length} equivalencies)`);
                             const equivalenciasMatch = allEquivalencies.filter(eq =>
-                                eq.expressao && (
-                                    eq.expressao.includes(disciplina.codigo) ||
-                                    eq.expressao.includes(disciplina.nome)
-                                )
+                                codigoContidoNaEquivalencia(eq, disciplina.codigo) ||
+                                (disciplina.nome && eq.expressao?.toUpperCase().includes(disciplina.nome.toUpperCase()))
                             );
 
                             if (equivalenciasMatch.length > 0) {
@@ -524,7 +675,7 @@ export const FluxogramaController: EndpointController = {
                         // Process the match
                         if (materiaBanco) {
                             foundCount++;
-                            logger.info(`Processing matched discipline "${disciplina.nome}" - Type: ${materiaBanco.nivel === 0 ? 'elective' : 'mandatory'}`);
+                            logger.info(`Processing matched discipline "${disciplina.nome}" - Type: ${isOptativa(materiaBanco) ? 'elective' : 'mandatory'}`);
                             processMatchedDiscipline(disciplina, materiaBanco, disciplinasCasadas, logger);
                         } else {
                             notFoundCount++;
@@ -645,9 +796,9 @@ export const FluxogramaController: EndpointController = {
                         // Encontrar a disciplina do histórico usada como equivalência
                         let encontrada = null;
                         for (const eq of equivalenciasParaMateria) {
-                            const codigosEquivalentes = extractSubjectCodes(eq.expressao);
+                            const codigosEquivalentes = getCodigosEquivalentes(eq);
                             encontrada = disciplinasCasadas.find(
-                                d => codigosEquivalentes.includes(d.codigo) && (d.status === 'APR' || d.status === 'CUMP')
+                                d => d.codigo && codigosEquivalentes.includes(d.codigo.trim().toUpperCase()) && (d.status === 'APR' || d.status === 'CUMP')
                             );
                             if (encontrada) break;
                         }
@@ -680,14 +831,14 @@ export const FluxogramaController: EndpointController = {
                     if (allEquivalencies) {
                         logger.debug(`Processing elective "${disciplinaOptativa.nome}" (${disciplinaOptativa.codigo}) for equivalency potential`);
                         for (const eq of allEquivalencies) {
-                            if (!eq.expressao || !eq.expressao.toUpperCase().includes(disciplinaOptativa.codigo)) continue;
+                            if (!codigoContidoNaEquivalencia(eq, disciplinaOptativa.codigo)) continue;
 
                             const obrigatoria = materiasPendentesFinais.find((m: any) => m.codigo === eq.codigo_materia_origem);
                             if (!obrigatoria) continue;
 
-                            const codigosEquivalentes = extractSubjectCodes(eq.expressao);
+                            const codigosEquivalentes = getCodigosEquivalentes(eq);
                             const encontrada = disciplinasCasadas.find(
-                                d => codigosEquivalentes.includes(d.codigo) && (d.status === 'APR' || d.status === 'CUMP')
+                                d => d.codigo && codigosEquivalentes.includes(d.codigo.trim().toUpperCase()) && (d.status === 'APR' || d.status === 'CUMP')
                             );
 
                             if (encontrada) {
@@ -798,6 +949,24 @@ export const FluxogramaController: EndpointController = {
                 logger.error(`Erro ao casar disciplinas: ${error.message}`);
                 logger.error(`Error occurred after ${processingTime}ms of processing`);
                 return res.status(500).json({ error: error.message || "Erro ao casar disciplinas" });
+            }
+        }),
+
+        "integralizacao": new Pair(RequestType.POST, async (req: Request, res: Response) => {
+            const logger = createControllerLogger("FluxogramaController", "integralizacao");
+            try {
+                const { curriculoCompleto, cargaHorariaIntegralizada } = req.body;
+                if (!curriculoCompleto?.trim()) {
+                    return res.status(400).json({ error: "curriculoCompleto é obrigatório" });
+                }
+                const result = await calcularIntegralizacao(curriculoCompleto.trim(), cargaHorariaIntegralizada ?? null);
+                if (!result) {
+                    return res.status(404).json({ error: "Matriz não encontrada para o currículo informado" });
+                }
+                return res.status(200).json(result);
+            } catch (err: any) {
+                logger.error(`Erro ao calcular integralização: ${err?.message}`);
+                return res.status(500).json({ error: err?.message ?? "Erro ao calcular integralização" });
             }
         }),
 

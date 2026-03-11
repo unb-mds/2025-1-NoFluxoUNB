@@ -1,5 +1,5 @@
 -- RLS Policies Export
--- Exported at: 2026-02-21T02:45:34.066172+00:00
+-- Exported at: 2026-02-27T17:44:42.150435+00:00
 -- Source: lijmhbstgdinsukovyfl.supabase.co
 
 -- =============================================================================

@@ -219,7 +219,8 @@ def carregar_ids_departamentos():
     try:
         import csv
         ids = []
-        with open('coleta_dados/dados/departamentos_ID_unb.csv', 'r', encoding='utf-8') as file:
+        csv_path = os.path.join(os.path.dirname(__file__), 'departamentos_ID_unb.csv')
+        with open(csv_path, 'r', encoding='utf-8') as file:
             csv_reader = csv.reader(file)
             next(csv_reader, None)
             for row in csv_reader:
@@ -265,11 +266,10 @@ def main():
     ### ALTERAÇÃO ###
     # A verificação de argumentos e definição da pasta de saída
     # foi movida para DENTRO da função main.
-    if len(sys.argv) < 2:
-        print("Erro: Forneça o nome da pasta de saída como argumento.")
-        print("Uso: python seu_script.py <nome_da_pasta_de_saida>")
-        sys.exit(1)
-    output_dir = sys.argv[1]
+    if len(sys.argv) >= 2:
+        output_dir = sys.argv[1]
+    else:
+        output_dir = os.path.join(os.path.dirname(__file__), '..', 'dados', 'materias')
 
     print("\n" + "="*60)
     print("SCRAPER UNB - VERSÃO COMPLETA")

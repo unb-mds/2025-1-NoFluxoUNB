@@ -26,7 +26,7 @@ export const TestesController: EndpointController = {
                 // Teste 2: Verificar estrutura da tabela materias_por_curso
                 const { data: materiasTeste, error: errorMaterias } = await SupabaseWrapper.get()
                     .from("cursos")
-                    .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                    .select("*,materias_por_curso(id_materia,nivel,tipo_natureza,materias(*))")
                     .limit(1);
 
                 if (errorMaterias) {
@@ -37,8 +37,9 @@ export const TestesController: EndpointController = {
                     });
                 }
 
-                // Teste 3: Verificar se há matérias com nível 0 ou nulo
-                const materiasNivelZero = materiasTeste?.[0]?.materias_por_curso?.filter((m: any) => m.nivel === 0 || m.nivel === null) || [];
+                /** Optativa: tipo_natureza=1 ou (fallback) nivel=0 */
+                const isOptativa = (m: any) => (m.tipo_natureza !== undefined && m.tipo_natureza !== null) ? m.tipo_natureza === 1 : (m.nivel === 0 || m.nivel === null);
+                const materiasNivelZero = materiasTeste?.[0]?.materias_por_curso?.filter(isOptativa) || [];
                 
                 // Teste 4: Verificar duplicatas
                 const nomesMaterias = materiasTeste?.[0]?.materias_por_curso?.map((m: any) => m.materias.nome_materia) || [];
@@ -92,7 +93,7 @@ export const TestesController: EndpointController = {
                 // Buscar matérias do curso no banco
                 const { data: materiasBanco, error } = await SupabaseWrapper.get()
                     .from("cursos")
-                    .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                    .select("*,materias_por_curso(id_materia,nivel,tipo_natureza,materias(*))")
                     .like("nome_curso", "%" + nome_curso + "%");
 
                 if (error) {
@@ -118,9 +119,10 @@ export const TestesController: EndpointController = {
                 }
 
                 const curso = materiasBanco[0];
+                const isOptativa = (m: any) => (m.tipo_natureza !== undefined && m.tipo_natureza !== null) ? m.tipo_natureza === 1 : m.nivel === 0;
                 const materiasBancoList = curso.materias_por_curso;
-                const materiasObrigatorias = materiasBancoList.filter((m: any) => m.nivel > 0);
-                const materiasOptativas = materiasBancoList.filter((m: any) => m.nivel === 0);
+                const materiasObrigatorias = materiasBancoList.filter((m: any) => !isOptativa(m));
+                const materiasOptativas = materiasBancoList.filter((m: any) => isOptativa(m));
 
                 // Verificar duplicatas
                 const nomesMaterias = materiasBancoList.map((m: any) => m.materias.nome_materia);
@@ -176,7 +178,7 @@ export const TestesController: EndpointController = {
                 // Buscar matérias do curso no banco
                 const { data: materiasBanco, error } = await SupabaseWrapper.get()
                     .from("cursos")
-                    .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                    .select("*,materias_por_curso(id_materia,nivel,tipo_natureza,materias(*))")
                     .like("nome_curso", "%" + nome_curso + "%");
 
                 if (error) {
@@ -196,8 +198,9 @@ export const TestesController: EndpointController = {
                 }
 
                 const materiasBancoList = materiasBanco[0].materias_por_curso;
-                const materiasObrigatorias = materiasBancoList.filter((m: any) => m.nivel > 0);
-                const materiasOptativas = materiasBancoList.filter((m: any) => m.nivel === 0);
+                const isOptativa = (m: any) => (m.tipo_natureza !== undefined && m.tipo_natureza !== null) ? m.tipo_natureza === 1 : (m.nivel === 0 || m.nivel === null);
+                const materiasObrigatorias = materiasBancoList.filter((m: any) => !isOptativa(m));
+                const materiasOptativas = materiasBancoList.filter((m: any) => isOptativa(m));
                 const disciplinasCasadas: any[] = [];
 
                 // Extrair dados de validação do PDF
@@ -261,7 +264,7 @@ export const TestesController: EndpointController = {
                                         id_materia: materiaBanco.materias.id_materia,
                                         encontrada_no_banco: true,
                                         nivel: materiaBanco.nivel,
-                                        tipo: materiaBanco.nivel === 0 ? 'optativa' : 'obrigatoria'
+                                        tipo: isOptativa(materiaBanco) ? 'optativa' : 'obrigatoria'
                                     };
                                 }
                             } else {
@@ -271,7 +274,7 @@ export const TestesController: EndpointController = {
                                     id_materia: materiaBanco.materias.id_materia,
                                     encontrada_no_banco: true,
                                     nivel: materiaBanco.nivel,
-                                    tipo: materiaBanco.nivel === 0 ? 'optativa' : 'obrigatoria'
+                                    tipo: isOptativa(materiaBanco) ? 'optativa' : 'obrigatoria'
                                 };
                                 disciplinasCasadas.push(disciplinaCasada);
                             }
@@ -399,7 +402,7 @@ export const TestesController: EndpointController = {
                 try {
                     const { data: materiasBanco, error } = await SupabaseWrapper.get()
                         .from("cursos")
-                        .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                        .select("*,materias_por_curso(id_materia,nivel,tipo_natureza,materias(*))")
                         .like("nome_curso", "%" + nome_curso + "%");
 
                     if (error) throw error;
@@ -410,9 +413,10 @@ export const TestesController: EndpointController = {
                             curso_buscado: nome_curso
                         };
                     } else {
+                        const isOptativaTeste = (m: any) => (m.tipo_natureza !== undefined && m.tipo_natureza !== null) ? m.tipo_natureza === 1 : m.nivel === 0;
                         const materiasBancoList = materiasBanco[0].materias_por_curso;
-                        const materiasObrigatorias = materiasBancoList.filter((m: any) => m.nivel > 0);
-                        const materiasOptativas = materiasBancoList.filter((m: any) => m.nivel === 0);
+                        const materiasObrigatorias = materiasBancoList.filter((m: any) => !isOptativaTeste(m));
+                        const materiasOptativas = materiasBancoList.filter((m: any) => isOptativaTeste(m));
 
                         resultados.teste_curso = {
                             status: "sucesso",

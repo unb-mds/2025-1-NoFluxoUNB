@@ -4,6 +4,9 @@
  * Makes HTTP requests to the Python FastAPI server for AI recommendations.
  */
 
+import { spawn } from 'child_process';
+import path from 'path';
+import fs from 'fs';
 import logger from '../logger';
 
 export interface SabiaDisciplina {
@@ -25,9 +28,19 @@ export class SabiaService {
     private readonly available: boolean;
 
     constructor() {
-        // URL da API FastAPI (api_producao.py)
-        // Em produção, pode ser configurada via variável de ambiente
-        this.apiUrl = process.env.SABIA_API_URL || 'http://localhost:8000';
+        // Path to the unified Python script (works in both interactive and API mode)
+        this.pythonScriptPath = path.join(__dirname, '../../..', 'mcp_agent', 'agente_sabia.py');
+
+        // Resolve Python executable: root venv → backend venv → system python
+        const rootVenv    = path.join(__dirname, '../../..', 'venv', 'Scripts', 'python.exe');
+        const backendVenv = path.join(__dirname, '../..', 'venv', 'Scripts', 'python.exe');
+        if (fs.existsSync(rootVenv)) {
+            this.pythonExePath = rootVenv;
+        } else if (fs.existsSync(backendVenv)) {
+            this.pythonExePath = backendVenv;
+        } else {
+            this.pythonExePath = 'python';
+        }
         
         // Check if required env vars are set
         logger.info('[SabiaService] Checking environment variables...');

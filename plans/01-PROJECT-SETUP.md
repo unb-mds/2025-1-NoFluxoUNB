@@ -831,8 +831,8 @@ pnpm supabase gen types typescript --project-id lijmhbstgdinsukovyfl > src/lib/t
 # ============================================
 # Supabase Configuration
 # ============================================
-PUBLIC_SUPABASE_URL=https://lijmhbstgdinsukovyfl.supabase.co
-PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxpam1oYnN0Z2RpbnN1a292eWZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4MzkzNzMsImV4cCI6MjA2MzQxNTM3M30.A0bqhbEOn1SdDa5s6d9xFKHXgwpDZOA-1QJpfftFoco
+PUBLIC_SUPABASE_URL=https:
+PUBLIC_SUPABASE_ANON_KEY=
 
 # Server-only keys (never expose to client)
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here

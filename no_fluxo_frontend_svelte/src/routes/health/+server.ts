@@ -1,6 +1,2 @@
-import { json } from '@sveltejs/kit';
-import type { RequestHandler } from './$types';
-
-export const GET: RequestHandler = async () => {
-	return json({ status: 'ok' }, { status: 200 });
-};
+// Health check server route removed — static deployment uses CDN health checks.
+// A static health.json is available at /health.json instead.

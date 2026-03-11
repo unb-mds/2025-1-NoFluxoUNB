@@ -68,18 +68,18 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-	class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+	class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-2 backdrop-blur-sm sm:p-4"
 	onclick={handleBackdropClick}
 >
 	<div
-		class="relative max-h-[85vh] w-full max-w-lg overflow-hidden rounded-2xl border border-white/10 bg-gray-900/95 shadow-2xl backdrop-blur-xl"
+		class="relative max-h-[90vh] w-full max-w-lg overflow-hidden rounded-xl border border-white/10 bg-gray-900/95 shadow-2xl backdrop-blur-xl sm:max-h-[85vh] sm:rounded-2xl"
 		role="dialog"
 		aria-modal="true"
 		aria-label="Adicionar matérias optativas"
 	>
 		<!-- Header -->
-		<div class="flex items-center justify-between border-b border-white/10 px-6 py-4">
-			<h2 class="text-lg font-bold text-white">Adicionar Optativas</h2>
+		<div class="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-6 sm:py-4">
+			<h2 class="text-base font-bold text-white sm:text-lg">Adicionar Optativas</h2>
 			<button
 				onclick={onclose}
 				class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-white/20 hover:text-white"
@@ -90,7 +90,7 @@
 		</div>
 
 		<!-- Search + Semester selector -->
-		<div class="space-y-3 border-b border-white/10 px-6 py-3">
+		<div class="space-y-3 border-b border-white/10 px-4 py-2.5 sm:px-6 sm:py-3">
 			<div class="relative">
 				<Search class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
 				<input

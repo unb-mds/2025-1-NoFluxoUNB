@@ -5,7 +5,7 @@ import type {
 	PreRequisitoModel,
 	CoRequisitoModel
 } from '$lib/types/curso';
-import type { MateriaModel } from '$lib/types/materia';
+import { isOptativa, type MateriaModel } from '$lib/types/materia';
 import type { EquivalenciaModel } from '$lib/types/equivalencia';
 import {
 	createMateriaModelFromJson,
@@ -13,6 +13,7 @@ import {
 	createCoRequisitoModelFromJson,
 	createEquivalenciaModelFromJson
 } from '$lib/factories';
+import { getCodigosFromExpressaoLogica } from '$lib/utils/expressao-logica';
 
 /**
  * Fluxograma service — wraps SupabaseDataService for course/subject data.
@@ -23,32 +24,67 @@ import {
 
 class FluxogramaService {
 	/**
+	 * Inferir turno a partir de curriculo_completo quando a view não retorna turno
+	 * (ex.: "Engenharia - 2017.1 - DIURNO" ou "Administração - 2020.1 - noturno").
+	 */
+	private inferTurnoFromCurriculo(curriculoCompleto: string | null | undefined): string | null {
+		const s = (curriculoCompleto ?? '').trim();
+		const match = s.match(/\s*-\s*(DIURNO|NOTURNO)\s*$/i);
+		return match ? match[1].toUpperCase() : null;
+	}
+
+	/**
 	 * Get all courses (minimal info for index page)
 	 * REPLACES: GET /cursos/all-cursos
+	 * tipo_curso e turno vêm da tabela cursos (por id_curso da view), para garantir correspondência.
 	 */
 	async getAllCursos(): Promise<MinimalCursoModel[]> {
-		const data = await supabaseDataService.getCursosComCreditos();
-		return (data || []).map((c: Record<string, unknown>, index: number) => {
+		const viewRows = (await supabaseDataService.getCursosComCreditos()) || [];
+		const rows = viewRows as Record<string, unknown>[];
+		// Ids que realmente aparecem na view (para buscar tipo/turno na tabela cursos)
+		const idsFromView = rows
+			.map((c) => {
+				const raw = c.id_curso ?? c.idCurso;
+				return raw != null && raw !== '' ? Number(raw) : NaN;
+			})
+			.filter((n) => !Number.isNaN(n));
+		const tipoTurnoByCurso = await supabaseDataService.getCursosTipoTurno([...new Set(idsFromView)]);
+
+		return rows.map((c: Record<string, unknown>, index: number) => {
 			const creditos =
 				c.creditos_totais != null
 					? Number(c.creditos_totais)
-					: c.ch_total_exigida != null
-						? Math.floor(Number(c.ch_total_exigida) / 15)
-						: c.creditos != null
-							? Number(c.creditos)
-							: null;
-			const rawId = c.id_curso;
-			const idCurso =
-				rawId != null && rawId !== '' && !Number.isNaN(Number(rawId))
-					? Number(rawId)
-					: index;
+					: c.cred_total_exigido != null
+						? Number(c.cred_total_exigido)
+						: c.ch_total_exigida != null
+							? Math.floor(Number(c.ch_total_exigida) / 15)
+							: c.creditos != null
+								? Number(c.creditos)
+								: null;
+			const rawId = c.id_curso ?? c.idCurso;
+			const idNum = rawId != null && rawId !== '' ? Number(rawId) : NaN;
+			const idCurso = !Number.isNaN(idNum) ? idNum : index;
+			const curriculoCompleto = String(c.curriculo_completo ?? '');
+			const fromCursos = tipoTurnoByCurso.get(idCurso);
+			let tipoCursoRaw =
+				(fromCursos?.tipo_curso ?? '') ||
+				(c.tipo_curso != null ? String(c.tipo_curso).trim() : '') ||
+				(c.tipoCurso != null ? String(c.tipoCurso).trim() : '');
+			let turnoRaw =
+				(fromCursos?.turno ?? '') ||
+				(c.turno != null ? String(c.turno).trim() : '');
+			if (turnoRaw === '') {
+				turnoRaw = this.inferTurnoFromCurriculo(curriculoCompleto) ?? '';
+			}
+			const turno = turnoRaw !== '' ? turnoRaw.toUpperCase() : null;
 			return {
-				nomeCurso: String(c.nome_curso ?? ''),
-				matrizCurricular: String(c.curriculo_completo ?? ''),
+				nomeCurso: String(c.nome_curso ?? c.nomeCurso ?? ''),
+				matrizCurricular: curriculoCompleto,
 				idCurso,
 				creditos,
 				classificacao: '',
-				tipoCurso: String(c.tipo_curso ?? '')
+				tipoCurso: tipoCursoRaw !== '' ? tipoCursoRaw : '',
+				turno
 			};
 		});
 	}
@@ -100,8 +136,14 @@ class FluxogramaService {
 			createEquivalenciaModelFromJson(eq as Record<string, unknown>)
 		);
 
-		const materiaCodes = new Set(materias.filter((m) => m.nivel !== 0).map((m) => m.codigoMateria));
-		const preRequisitosInCurso = preRequisitos.filter((pr) => materiaCodes.has(pr.codigoMateriaRequisito));
+		const materiaCodes = new Set(materias.filter((m) => !isOptativa(m)).map((m) => m.codigoMateria));
+		const preRequisitosInCurso = preRequisitos.filter((pr) => {
+			if (pr.expressaoLogica) {
+				const codigos = getCodigosFromExpressaoLogica(pr.expressaoLogica);
+				return codigos.some((c) => materiaCodes.has(c));
+			}
+			return materiaCodes.has(pr.codigoMateriaRequisito);
+		});
 		const allMateriaCodes = new Set(materias.map((m) => m.codigoMateria));
 		const coRequisitosInCurso = coRequisitos.filter((cr) => allMateriaCodes.has(cr.codigoMateriaCoRequisito));
 
@@ -124,16 +166,27 @@ class FluxogramaService {
 			equivalencias,
 			preRequisitos: preRequisitosInCurso,
 			coRequisitos: coRequisitosInCurso,
-			curriculoCompleto: curriculoCompleto ?? undefined
+			curriculoCompleto: curriculoCompleto ?? undefined,
+			turno: (raw.curso as { turno?: string | null }).turno ?? null
 		};
 
 		const materiaMap = new Map(materias.map((m) => [m.codigoMateria, m]));
 		for (const materia of materias) materia.preRequisitos = [];
 		for (const preReq of preRequisitosInCurso) {
 			const targetMateria = materias.find((m) => m.idMateria === preReq.idMateria);
-			if (targetMateria) {
-				const prereqMateria = materiaMap.get(preReq.codigoMateriaRequisito);
-				if (prereqMateria) targetMateria.preRequisitos!.push(prereqMateria);
+			if (!targetMateria) continue;
+			const codigosPrereq = preReq.expressaoLogica
+				? getCodigosFromExpressaoLogica(preReq.expressaoLogica)
+				: preReq.codigoMateriaRequisito
+					? [preReq.codigoMateriaRequisito.trim().toUpperCase()]
+					: [];
+			const existingCodes = new Set(targetMateria.preRequisitos!.map((m) => m.codigoMateria));
+			for (const code of codigosPrereq) {
+				const prereqMateria = materiaMap.get(code);
+				if (prereqMateria && !existingCodes.has(code)) {
+					targetMateria.preRequisitos!.push(prereqMateria);
+					existingCodes.add(code);
+				}
 			}
 		}
 

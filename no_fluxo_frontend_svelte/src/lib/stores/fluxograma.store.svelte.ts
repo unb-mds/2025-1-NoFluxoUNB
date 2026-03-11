@@ -25,12 +25,18 @@ import { captureScreenshot } from '$lib/utils/screenshot';
 import { toast } from 'svelte-sonner';
 import type { AuthState } from '$lib/types/auth';
 
+export type ConnectionMode = 'off' | 'direct' | 'all';
+
+export type DisplayUnit = 'creditos' | 'horas';
+
 export interface FluxogramaState {
 	courseData: CursoModel | null;
 	loading: boolean;
 	error: string | null;
 	zoomLevel: number;
-	showConnections: boolean;
+	connectionMode: ConnectionMode;
+	/** Exibição das badges por semestre: créditos ou horas */
+	displayUnit: DisplayUnit;
 	isAnonymous: boolean;
 	hoveredSubjectCode: string | null;
 	selectedSubjectCode: string | null;
@@ -46,13 +52,17 @@ function createFluxogramaStore() {
 		loading: false,
 		error: null,
 		zoomLevel: 0.75,
-		showConnections: false,
+		connectionMode: 'off' as ConnectionMode,
+		displayUnit: 'horas' as DisplayUnit,
 		isAnonymous: false,
 		hoveredSubjectCode: null,
 		selectedSubjectCode: null
 	});
 
 	let optativasAdicionadas = $state<OptativaAdicionada[]>([]);
+
+	// Per-semester connection density: semester → connection count
+	let connectionDensityBySemester = $state<Map<number, number>>(new Map());
 
 	// Mirror the Svelte 4 writable authStore into a $state variable so that
 	// $derived expressions can reactively track auth changes.
@@ -87,6 +97,11 @@ function createFluxogramaStore() {
 	// Computed: user progress data (reactive to auth store changes)
 	const userFluxograma = $derived.by(() => {
 		return authState.user?.dadosFluxograma ?? null;
+	});
+
+	// Computed: carga horária integralizada do histórico (PDF)
+	const cargaHorariaIntegralizada = $derived.by(() => {
+		return authState.user?.cargaHorariaIntegralizada ?? null;
 	});
 
 	// Computed: completed subject codes (histórico + concluídas por equivalência)
@@ -131,6 +146,9 @@ function createFluxogramaStore() {
 		get userFluxograma() {
 			return userFluxograma;
 		},
+		get cargaHorariaIntegralizada() {
+			return cargaHorariaIntegralizada;
+		},
 		get completedCodes() {
 			return completedCodes;
 		},
@@ -145,6 +163,9 @@ function createFluxogramaStore() {
 		},
 		get optativasBySemester() {
 			return optativasBySemester;
+		},
+		get connectionDensityBySemester() {
+			return connectionDensityBySemester;
 		},
 
 		getSubjectStatus(materia: MateriaModel): SubjectStatusValue {
@@ -234,8 +255,20 @@ function createFluxogramaStore() {
 			state.zoomLevel = 0.75;
 		},
 
+		setConnectionMode(mode: ConnectionMode) {
+			state.connectionMode = mode;
+		},
+
+		setDisplayUnit(unit: DisplayUnit) {
+			state.displayUnit = unit;
+		},
+
+		setConnectionDensity(density: Map<number, number>) {
+			connectionDensityBySemester = density;
+		},
+
 		toggleConnections() {
-			state.showConnections = !state.showConnections;
+			state.connectionMode = state.connectionMode === 'off' ? 'direct' : 'off';
 		},
 
 		setHoveredSubject(code: string | null) {
@@ -266,11 +299,13 @@ function createFluxogramaStore() {
 			state.loading = false;
 			state.error = null;
 			state.zoomLevel = 0.75;
-			state.showConnections = false;
+			state.connectionMode = 'off';
+			state.displayUnit = 'horas';
 			state.isAnonymous = false;
 			state.hoveredSubjectCode = null;
 			state.selectedSubjectCode = null;
 			optativasAdicionadas = [];
+			connectionDensityBySemester = new Map();
 		}
 	};
 }

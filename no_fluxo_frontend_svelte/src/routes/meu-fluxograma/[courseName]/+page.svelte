@@ -8,14 +8,14 @@
 	import SubjectDetailsModal from '$lib/components/fluxograma/SubjectDetailsModal.svelte';
 	import OptativasModal from '$lib/components/fluxograma/OptativasModal.svelte';
 	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
-	import IntegralizacaoSection from '$lib/components/fluxograma/IntegralizacaoSection.svelte';
+	import ProgressToolsSection from '$lib/components/fluxograma/ProgressToolsSection.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';
 	import { supabaseDataService } from '$lib/services/supabase-data.service';
 	import { onMount } from 'svelte';
 	import { Loader2, AlertTriangle, ArrowRightLeft } from 'lucide-svelte';
-	import type { MateriaModel } from '$lib/types/materia';
+	import { isOptativa, type MateriaModel } from '$lib/types/materia';
 	import type { IntegralizacaoResult } from '$lib/types/matriz';
 
 	const store = fluxogramaStore;
@@ -25,17 +25,28 @@
 	let selectedSubject = $state<MateriaModel | null>(null);
 	let showOptativas = $state(false);
 	let integralizacao = $state<IntegralizacaoResult | null>(null);
+	let integralizacaoLoading = $state(false);
 	let matrizes = $state<Array<{ curriculoCompleto: string }>>([]);
 
 	let userFluxograma = $derived(store.userFluxograma);
 	let curriculoCompletoAtual = $derived(store.state.courseData?.curriculoCompleto ?? null);
+
+	/** True quando está vendo outro curso (mudança de curso) — recalcular integralização por disciplinas casadas. */
+	let eSimulacaoOutroCurso = $derived.by(() => {
+		const fluxo = userFluxograma;
+		const course = store.state.courseData;
+		if (!fluxo || !course) return false;
+		const nomeUsuario = (fluxo.nomeCurso ?? '').trim().toLowerCase();
+		const nomeExibido = (course.nomeCurso ?? '').trim().toLowerCase();
+		return nomeUsuario !== nomeExibido;
+	});
 
 	// Count only completed codes that match subjects in this course's curriculum
 	let matchingCompletedCount = $derived.by(() => {
 		if (!store.state.courseData) return 0;
 		const courseSubjectCodes = new Set(
 			store.state.courseData.materias
-				.filter((m) => m.nivel > 0)
+				.filter((m) => !isOptativa(m))
 				.map((m) => m.codigoMateria)
 		);
 		let count = 0;
@@ -48,7 +59,7 @@
 	// Optativas = semester 0
 	let optativas = $derived.by(() => {
 		if (!store.state.courseData) return [];
-		return store.state.courseData.materias.filter((m) => m.nivel === 0);
+		return store.state.courseData.materias.filter((m) => isOptativa(m));
 	});
 
 	// Compute integralização when course data loads (for logged-in users)
@@ -63,14 +74,19 @@
 				});
 			}
 			integralizacao = null;
+			integralizacaoLoading = false;
 			return;
 		}
+		integralizacaoLoading = true;
 		getIntegralizacao({
 			curriculoCompleto: cc,
 			dadosFluxograma: fluxo,
-			equivalencias: course?.equivalencias
+			cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
+			equivalencias: course?.equivalencias,
+			recalcularPorDisciplinas: eSimulacaoOutroCurso
 		}).then((r) => {
 			integralizacao = r;
+			integralizacaoLoading = false;
 		});
 		if (course?.idCurso) {
 			supabaseDataService.getMatrizesByCurso(course.idCurso).then((m) => {
@@ -81,11 +97,15 @@
 
 	onMount(() => {
 		if (courseName) {
-			// If the user is logged in with fluxograma data, show their progress
-			// on this course (completed subjects carry over by matching codes).
 			const user = authStore.getUser();
 			const anonymous = !user?.dadosFluxograma;
-			store.loadCourseData(courseName, anonymous);
+			// If a specific matriz was requested via query param, load it directly
+			const matrizParam = $page.url.searchParams.get('matriz');
+			if (matrizParam) {
+				store.loadCourseDataByCurriculoCompleto(matrizParam, anonymous);
+			} else {
+				store.loadCourseData(courseName, anonymous);
+			}
 		}
 
 		return () => {
@@ -96,12 +116,19 @@
 	async function handleMatrizChange(curriculoCompleto: string) {
 		await store.loadCourseDataByCurriculoCompleto(curriculoCompleto);
 		if (userFluxograma) {
+		integralizacaoLoading = true;
+		try {
 			const r = await getIntegralizacao({
 				curriculoCompleto,
 				dadosFluxograma: userFluxograma,
-				equivalencias: store.state.courseData?.equivalencias
+				cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
+				equivalencias: store.state.courseData?.equivalencias,
+				recalcularPorDisciplinas: eSimulacaoOutroCurso
 			});
-			integralizacao = r;
+				integralizacao = r;
+			} finally {
+				integralizacaoLoading = false;
+			}
 		}
 	}
 
@@ -123,7 +150,7 @@
 
 <GraffitiBackground />
 
-<div class="relative z-10 container mx-auto max-w-[95vw] px-4 py-6">
+<div class="relative z-10 container mx-auto min-w-0 max-w-[95vw] overflow-x-hidden px-3 py-4 sm:px-4 sm:py-6">
 	{#if store.state.loading}
 		<div class="flex flex-col items-center justify-center gap-4 py-20">
 			<Loader2 class="h-10 w-10 animate-spin text-purple-400" />
@@ -152,7 +179,12 @@
 			<FluxogramaHeader
 				courseName={store.state.courseData.nomeCurso}
 				matrizCurricular={store.state.courseData.matrizCurricular}
+				tipoCurso={store.state.courseData.tipoCurso}
+				{matrizes}
+				{curriculoCompletoAtual}
+				onMatrizChange={handleMatrizChange}
 				{containerRef}
+				showBackToMyFluxogram={eSimulacaoOutroCurso}
 			/>
 
 			<!-- Progress simulation (only for logged-in users with history) -->
@@ -169,11 +201,8 @@
 					<ProgressSummarySection
 						courseData={store.state.courseData}
 						{userFluxograma}
-						effectiveCompletedCount={matchingCompletedCount}
-					/>
-
-					<IntegralizacaoSection
 						{integralizacao}
+						integralizacaoLoading={integralizacaoLoading}
 						{matrizes}
 						{curriculoCompletoAtual}
 						onMatrizChange={handleMatrizChange}
@@ -191,6 +220,11 @@
 				onSubjectClick={handleSubjectClick}
 				bind:bind_container={containerRef}
 			/>
+
+			<!-- Ferramentas (Mudança de Curso) -->
+			{#if !store.state.isAnonymous}
+				<ProgressToolsSection />
+			{/if}
 		</div>
 
 		<!-- Subject details modal -->

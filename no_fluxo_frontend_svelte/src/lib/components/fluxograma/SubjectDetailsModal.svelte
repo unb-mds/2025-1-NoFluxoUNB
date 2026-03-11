@@ -3,7 +3,7 @@
 	import type { CursoModel } from '$lib/types/curso';
 	import type { EquivalenciaModel } from '$lib/types/equivalencia';
 	import { getDirectPrerequisites, getCorequisites } from '$lib/types/curso';
-	import { getStatusLabel, type SubjectStatusValue, SubjectStatusEnum } from '$lib/types/materia';
+	import { getStatusLabel, isOptativa, type SubjectStatusValue, SubjectStatusEnum } from '$lib/types/materia';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { X, BookOpen, GitBranch, Repeat2 } from 'lucide-svelte';
 
@@ -72,19 +72,19 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-	class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+	class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-2 backdrop-blur-sm sm:p-4"
 	onclick={handleBackdropClick}
 >
 	<div
-		class="relative max-h-[85vh] w-full max-w-lg overflow-hidden rounded-2xl border border-white/10 bg-gray-900/95 shadow-2xl backdrop-blur-xl"
+		class="relative max-h-[90vh] w-full max-w-lg overflow-hidden rounded-xl border border-white/10 bg-gray-900/95 shadow-2xl backdrop-blur-xl sm:max-h-[85vh] sm:rounded-2xl"
 		role="dialog"
 		aria-modal="true"
 		aria-label="Detalhes da matéria"
 	>
 		<!-- Header -->
-		<div class="bg-gradient-to-r {statusGradientMap[status]} border-b border-white/10 px-6 py-4">
-			<div class="flex items-start justify-between gap-3">
-				<div class="flex-1">
+		<div class="bg-gradient-to-r {statusGradientMap[status]} border-b border-white/10 px-4 py-3 sm:px-6 sm:py-4">
+			<div class="flex items-start justify-between gap-2 sm:gap-3">
+				<div class="min-w-0 flex-1">
 					<div class="mb-1 flex items-center gap-2">
 						<span class="text-xs font-semibold uppercase tracking-wider text-white/60">
 							{materia.codigoMateria}
@@ -94,7 +94,7 @@
 							<span class="text-xs text-white/60">{getStatusLabel(status)}</span>
 						</div>
 					</div>
-					<h2 class="text-lg font-bold text-white">{materia.nomeMateria}</h2>
+					<h2 class="text-base font-bold text-white sm:text-lg">{materia.nomeMateria}</h2>
 					<p class="mt-1 text-sm text-white/50">{materia.creditos > 0 ? `${materia.creditos} créditos` : 'Créditos não informados'}</p>
 				</div>
 				<button
@@ -169,7 +169,7 @@
 						<div class="rounded-lg bg-white/5 p-3">
 							<span class="text-xs text-white/50">Semestre</span>
 							<p class="text-sm font-semibold text-white">
-								{materia.nivel === 0 ? 'Optativa' : `${materia.nivel}º`}
+								{isOptativa(materia) ? 'Optativa' : `${materia.nivel}º`}
 							</p>
 						</div>
 						<div class="rounded-lg bg-white/5 p-3">
@@ -280,13 +280,13 @@
 				<div class="border-t border-white/10 px-6 py-3">
 					<button
 						onclick={() => {
-							const nextSem = materia.nivel > 0 ? materia.nivel : 1;
+							const nextSem = !isOptativa(materia) && materia.nivel > 0 ? materia.nivel : 1;
 							store.addOptativa(materia, nextSem);
 							onclose?.();
 						}}
 						class="w-full rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:from-purple-500 hover:to-purple-600"
 					>
-						Adicionar ao {materia.nivel > 0 ? `${materia.nivel}º` : 'próximo'} semestre
+						Adicionar ao {!isOptativa(materia) && materia.nivel > 0 ? `${materia.nivel}º` : 'próximo'} semestre
 					</button>
 				</div>
 			{/if}

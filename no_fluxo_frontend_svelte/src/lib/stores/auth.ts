@@ -20,14 +20,16 @@ function getInitialState(): AuthState {
 					rawUser.dadosFluxograma ?? rawUser.dados_fluxograma ?? null
 				);
 				// Handle both old snake_case and new camelCase formats from localStorage
+				const cargaHorariaIntegralizada = rawUser.cargaHorariaIntegralizada ?? rawUser.carga_horaria_integralizada ?? null;
 				const user: UserModel = rawUser.idUser !== undefined
-					? { ...rawUser, dadosFluxograma: dadosFluxograma ?? rawUser.dadosFluxograma ?? null }
+					? { ...rawUser, dadosFluxograma: dadosFluxograma ?? rawUser.dadosFluxograma ?? null, cargaHorariaIntegralizada: cargaHorariaIntegralizada ?? undefined }
 					: {
 							idUser: rawUser.id_user ?? 0,
 							email: rawUser.email ?? '',
 							nomeCompleto: rawUser.nome_completo ?? '',
 							token: rawUser.token ?? null,
-							dadosFluxograma: dadosFluxograma ?? rawUser.dados_fluxograma ?? null
+							dadosFluxograma: dadosFluxograma ?? rawUser.dados_fluxograma ?? null,
+							cargaHorariaIntegralizada: cargaHorariaIntegralizada ?? undefined
 						};
 				return {
 					user,
@@ -128,10 +130,17 @@ function createAuthStore() {
 			});
 		},
 
-		updateDadosFluxograma(dados: UserModel['dadosFluxograma']) {
+		updateDadosFluxograma(
+			dados: UserModel['dadosFluxograma'],
+			cargaHorariaIntegralizada?: UserModel['cargaHorariaIntegralizada']
+		) {
 			update((state) => {
 				if (state.user) {
-					const updatedUser = { ...state.user, dadosFluxograma: dados };
+					const updatedUser = {
+						...state.user,
+						dadosFluxograma: dados,
+						...(cargaHorariaIntegralizada !== undefined && { cargaHorariaIntegralizada })
+					};
 					if (browser) {
 						localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedUser));
 					}

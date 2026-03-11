@@ -99,6 +99,15 @@ const EXPECTED = {
     pendentes: 19,
     equivalencias: 4,
   },
+  'historico_231035043 (2).txt': {
+    curso: 'ENGENHARIA MECATRÔNICA - CONTROLE E AUTOMAÇÃO',
+    ira: 3.3264,
+    mp: 3.4812,
+    matriz: '2022.2',
+    suspensoes: [],
+    minDisciplinas: 35,
+    pendentes: 41,
+  },
   'historico_232021516.txt': {
     curso: 'ENGENHARIA',
     ira: 0.0,

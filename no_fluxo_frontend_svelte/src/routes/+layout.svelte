@@ -75,7 +75,7 @@
 
 <LoadingBar />
 
-<div class="flex min-h-screen flex-col">
+<div class="flex min-h-screen flex-col overflow-x-hidden">
 	{#if showNavbar}
 		<Navbar user={$currentUser} isAuthenticated={$isAuthenticated} />
 	{/if}

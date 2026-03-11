@@ -1,6 +1,6 @@
 # Database Schema
 
-> **Exported at:** 2026-02-21T02:45:34.066172+00:00
+> **Exported at:** 2026-02-27T17:44:42.150435+00:00
 > **Export method:** rpc
 > **Supabase:** lijmhbstgdinsukovyfl.supabase.co
 
@@ -116,6 +116,19 @@
 | `id_curso` | bigint |  |  |
 | `nivel` | bigint |  |  |
 
+### ✅ `materias_vetorizadas`
+
+| Column | Type | PK | Foreign Key |
+|--------|------|----|-------------|
+| `id_materia` | bigint | PK |  |
+| `created_at` | timestamp with time zone |  |  |
+| `nome_materia` | text |  |  |
+| `codigo_materia` | text |  |  |
+| `carga_horaria` | integer |  |  |
+| `ementa` | text |  |  |
+| `departamento` | text |  |  |
+| `embedding` | USER-DEFINED |  |  |
+
 ### ✅ `matrizes`
 
 | Column | Type | PK | Foreign Key |
@@ -157,20 +170,15 @@
 ### ✅ `vw_creditos_por_matriz`
 
 ```sql
- SELECT m.id_matriz,
+SELECT m.id_matriz,
+    m.id_curso,
     m.curriculo_completo,
     c.nome_curso,
+    c.tipo_curso,
+    c.turno,
     floor(((m.ch_obrigatoria_exigida)::numeric / 15.0)) AS cred_obrigatorio_exigido,
-    floor(((m.ch_optativa_exigida)::numeric / 15.0)) AS cred_optativo_exigido,
-    floor(((m.ch_complementar_exigida)::numeric / 15.0)) AS cred_complementar_exigido,
-    floor(((m.ch_total_exigida)::numeric / 15.0)) AS cred_total_exigido,
-    floor(((COALESCE(sum(mat.carga_horaria) FILTER (WHERE (mpc.nivel > 0)), (0)::bigint))::numeric / 15.0)) AS cred_obrigatorio_grade,
-    floor(((COALESCE(sum(mat.carga_horaria) FILTER (WHERE (mpc.nivel = 0)), (0)::bigint))::numeric / 15.0)) AS cred_optativo_grade
-   FROM (((matrizes m
-     JOIN cursos c ON ((c.id_curso = m.id_curso)))
-     LEFT JOIN materias_por_curso mpc ON ((mpc.id_matriz = m.id_matriz)))
-     LEFT JOIN materias mat ON ((mat.id_materia = mpc.id_materia)))
-  GROUP BY m.id_matriz, m.curriculo_completo, c.nome_curso;
+    ...
+  GROUP BY m.id_matriz, m.id_curso, m.curriculo_completo, c.nome_curso, c.tipo_curso, c.turno;
 ```
 
 ---
@@ -179,8 +187,25 @@
 
 | Function | Return Type | Arguments |
 |----------|-------------|-----------|
+| `array_to_halfvec` | halfvec | integer[], integer, boolean |
+| `array_to_halfvec` | halfvec | real[], integer, boolean |
+| `array_to_halfvec` | halfvec | numeric[], integer, boolean |
+| `array_to_halfvec` | halfvec | double precision[], integer, boolean |
+| `array_to_sparsevec` | sparsevec | real[], integer, boolean |
+| `array_to_sparsevec` | sparsevec | integer[], integer, boolean |
+| `array_to_sparsevec` | sparsevec | numeric[], integer, boolean |
+| `array_to_sparsevec` | sparsevec | double precision[], integer, boolean |
+| `array_to_vector` | vector | numeric[], integer, boolean |
+| `array_to_vector` | vector | integer[], integer, boolean |
+| `array_to_vector` | vector | real[], integer, boolean |
+| `array_to_vector` | vector | double precision[], integer, boolean |
 | `atualizar_creditos_cursos` | void | - |
+| `binary_quantize` | bit | vector |
+| `binary_quantize` | bit | halfvec |
 | `calcular_creditos_por_curso` | integer | id_curso_input bigint |
+| `cosine_distance` | double precision | halfvec, halfvec |
+| `cosine_distance` | double precision | vector, vector |
+| `cosine_distance` | double precision | sparsevec, sparsevec |
 | `export_schema` | jsonb | - |
 | `gin_extract_query_trgm` | internal | text, internal, smallint, internal, internal, internal, internal |
 | `gin_extract_value_trgm` | internal | text, internal |
@@ -197,18 +222,116 @@
 | `gtrgm_picksplit` | internal | internal, internal |
 | `gtrgm_same` | internal | gtrgm, gtrgm, internal |
 | `gtrgm_union` | gtrgm | internal, internal |
+| `halfvec` | halfvec | halfvec, integer, boolean |
+| `halfvec_accum` | double precision[] | double precision[], halfvec |
+| `halfvec_add` | halfvec | halfvec, halfvec |
+| `halfvec_avg` | halfvec | double precision[] |
+| `halfvec_cmp` | integer | halfvec, halfvec |
+| `halfvec_combine` | double precision[] | double precision[], double precision[] |
+| `halfvec_concat` | halfvec | halfvec, halfvec |
+| `halfvec_eq` | boolean | halfvec, halfvec |
+| `halfvec_ge` | boolean | halfvec, halfvec |
+| `halfvec_gt` | boolean | halfvec, halfvec |
+| `halfvec_in` | halfvec | cstring, oid, integer |
+| `halfvec_l2_squared_distance` | double precision | halfvec, halfvec |
+| `halfvec_le` | boolean | halfvec, halfvec |
+| `halfvec_lt` | boolean | halfvec, halfvec |
+| `halfvec_mul` | halfvec | halfvec, halfvec |
+| `halfvec_ne` | boolean | halfvec, halfvec |
+| `halfvec_negative_inner_product` | double precision | halfvec, halfvec |
+| `halfvec_out` | cstring | halfvec |
+| `halfvec_recv` | halfvec | internal, oid, integer |
+| `halfvec_send` | bytea | halfvec |
+| `halfvec_spherical_distance` | double precision | halfvec, halfvec |
+| `halfvec_sub` | halfvec | halfvec, halfvec |
+| `halfvec_to_float4` | real[] | halfvec, integer, boolean |
+| `halfvec_to_sparsevec` | sparsevec | halfvec, integer, boolean |
+| `halfvec_to_vector` | vector | halfvec, integer, boolean |
+| `halfvec_typmod_in` | integer | cstring[] |
+| `hamming_distance` | double precision | bit, bit |
+| `hnsw_bit_support` | internal | internal |
+| `hnsw_halfvec_support` | internal | internal |
+| `hnsw_sparsevec_support` | internal | internal |
+| `hnswhandler` | index_am_handler | internal |
+| `inner_product` | double precision | sparsevec, sparsevec |
+| `inner_product` | double precision | vector, vector |
+| `inner_product` | double precision | halfvec, halfvec |
+| `ivfflat_bit_support` | internal | internal |
+| `ivfflat_halfvec_support` | internal | internal |
+| `ivfflathandler` | index_am_handler | internal |
+| `jaccard_distance` | double precision | bit, bit |
+| `l1_distance` | double precision | halfvec, halfvec |
+| `l1_distance` | double precision | sparsevec, sparsevec |
+| `l1_distance` | double precision | vector, vector |
+| `l2_distance` | double precision | vector, vector |
+| `l2_distance` | double precision | sparsevec, sparsevec |
+| `l2_distance` | double precision | halfvec, halfvec |
+| `l2_norm` | double precision | halfvec |
+| `l2_norm` | double precision | sparsevec |
+| `l2_normalize` | vector | vector |
+| `l2_normalize` | halfvec | halfvec |
+| `l2_normalize` | sparsevec | sparsevec |
+| `match_materias` | TABLE(codigo_materia text, nome_materia text, departamento text, ementa text, similaridade double precision) | query_embedding vector, match_threshold double precision, match_count integer |
 | `set_limit` | real | real |
 | `show_limit` | real | - |
 | `show_trgm` | text[] | text |
 | `similarity` | real | text, text |
 | `similarity_dist` | real | text, text |
 | `similarity_op` | boolean | text, text |
+| `sparsevec` | sparsevec | sparsevec, integer, boolean |
+| `sparsevec_cmp` | integer | sparsevec, sparsevec |
+| `sparsevec_eq` | boolean | sparsevec, sparsevec |
+| `sparsevec_ge` | boolean | sparsevec, sparsevec |
+| `sparsevec_gt` | boolean | sparsevec, sparsevec |
+| `sparsevec_in` | sparsevec | cstring, oid, integer |
+| `sparsevec_l2_squared_distance` | double precision | sparsevec, sparsevec |
+| `sparsevec_le` | boolean | sparsevec, sparsevec |
+| `sparsevec_lt` | boolean | sparsevec, sparsevec |
+| `sparsevec_ne` | boolean | sparsevec, sparsevec |
+| `sparsevec_negative_inner_product` | double precision | sparsevec, sparsevec |
+| `sparsevec_out` | cstring | sparsevec |
+| `sparsevec_recv` | sparsevec | internal, oid, integer |
+| `sparsevec_send` | bytea | sparsevec |
+| `sparsevec_to_halfvec` | halfvec | sparsevec, integer, boolean |
+| `sparsevec_to_vector` | vector | sparsevec, integer, boolean |
+| `sparsevec_typmod_in` | integer | cstring[] |
 | `strict_word_similarity` | real | text, text |
 | `strict_word_similarity_commutator_op` | boolean | text, text |
 | `strict_word_similarity_dist_commutator_op` | real | text, text |
 | `strict_word_similarity_dist_op` | real | text, text |
 | `strict_word_similarity_op` | boolean | text, text |
+| `subvector` | halfvec | halfvec, integer, integer |
+| `subvector` | vector | vector, integer, integer |
 | `update_updated_at` | trigger | - |
+| `vector` | vector | vector, integer, boolean |
+| `vector_accum` | double precision[] | double precision[], vector |
+| `vector_add` | vector | vector, vector |
+| `vector_avg` | vector | double precision[] |
+| `vector_cmp` | integer | vector, vector |
+| `vector_combine` | double precision[] | double precision[], double precision[] |
+| `vector_concat` | vector | vector, vector |
+| `vector_dims` | integer | halfvec |
+| `vector_dims` | integer | vector |
+| `vector_eq` | boolean | vector, vector |
+| `vector_ge` | boolean | vector, vector |
+| `vector_gt` | boolean | vector, vector |
+| `vector_in` | vector | cstring, oid, integer |
+| `vector_l2_squared_distance` | double precision | vector, vector |
+| `vector_le` | boolean | vector, vector |
+| `vector_lt` | boolean | vector, vector |
+| `vector_mul` | vector | vector, vector |
+| `vector_ne` | boolean | vector, vector |
+| `vector_negative_inner_product` | double precision | vector, vector |
+| `vector_norm` | double precision | vector |
+| `vector_out` | cstring | vector |
+| `vector_recv` | vector | internal, oid, integer |
+| `vector_send` | bytea | vector |
+| `vector_spherical_distance` | double precision | vector, vector |
+| `vector_sub` | vector | vector, vector |
+| `vector_to_float4` | real[] | vector, integer, boolean |
+| `vector_to_halfvec` | halfvec | vector, integer, boolean |
+| `vector_to_sparsevec` | sparsevec | vector, integer, boolean |
+| `vector_typmod_in` | integer | cstring[] |
 | `word_similarity` | real | text, text |
 | `word_similarity_commutator_op` | boolean | text, text |
 | `word_similarity_dist_commutator_op` | real | text, text |
@@ -251,6 +374,7 @@
 | `materias_por_curso_pkey` | `materias_por_curso` |
 | `unique_materia_grade_matriz` | `materias_por_curso` |
 | `unique_materia_na_matriz` | `materias_por_curso` |
+| `materias_vetorizadas_pkey` | `materias_vetorizadas` |
 | `matrizes_curriculo_completo_key` | `matrizes` |
 | `matrizes_pkey` | `matrizes` |
 | `pre_requisitos_pkey` | `pre_requisitos` |
@@ -267,13 +391,14 @@
 | `co_requisitos` | 185 | 80 KB |
 | `co_requisitos_backup` | 270 | 16 KB |
 | `cursos` | 102 | 64 KB |
-| `dados_users` | 99 | 600 KB |
+| `dados_users` | 99 | 544 KB |
 | `equivalencias` | 19445 | 4 MB |
 | `equivalencias_backup_temp` | 8919 | 856 KB |
 | `materias` | 25624 | 8.4 MB |
 | `materias_backup_temp` | 21134 | 6.9 MB |
 | `materias_por_curso` | 65955 | 13.1 MB |
 | `materias_por_curso_backup_temp` | 75465 | 4.9 MB |
+| `materias_vetorizadas` | 27267 | 53.1 MB |
 | `matrizes` | 235 | 96 KB |
 | `pre_requisitos` | 14573 | 2.3 MB |
 | `users` | 162 | 136 KB |

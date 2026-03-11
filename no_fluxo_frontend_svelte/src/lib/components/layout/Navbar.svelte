@@ -19,11 +19,15 @@
 	let mobileMenuOpen = $state(false);
 	const supabase = createSupabaseBrowserClient();
 
-	const navLinks = [
+	const hasHistorico = $derived(!!user?.dadosFluxograma);
+
+	const navLinks = $derived([
 		{ href: ROUTES.FLUXOGRAMAS, label: 'Fluxogramas', icon: GitBranch },
 		{ href: ROUTES.ASSISTENTE, label: 'Assistente', icon: Bot },
-		{ href: ROUTES.UPLOAD_HISTORICO, label: 'Importar Histórico', icon: Upload },
-	];
+		hasHistorico
+			? { href: ROUTES.MEU_FLUXOGRAMA, label: 'Meu Fluxograma', icon: LayoutDashboard }
+			: { href: ROUTES.UPLOAD_HISTORICO, label: 'Importar Histórico', icon: Upload },
+	]);
 
 	async function handleLogout() {
 		await supabase.auth.signOut();
@@ -81,11 +85,13 @@
 							</div>
 						</DropdownMenu.Label>
 						<DropdownMenu.Separator />
-						<DropdownMenu.Item onclick={() => goto(ROUTES.MEU_FLUXOGRAMA)}>
-							<LayoutDashboard class="mr-2 h-4 w-4" />
-							Meu Fluxograma
-						</DropdownMenu.Item>
-						<DropdownMenu.Separator />
+						{#if !hasHistorico}
+							<DropdownMenu.Item onclick={() => goto(ROUTES.MEU_FLUXOGRAMA)}>
+								<LayoutDashboard class="mr-2 h-4 w-4" />
+								Meu Fluxograma
+							</DropdownMenu.Item>
+							<DropdownMenu.Separator />
+						{/if}
 						<DropdownMenu.Item onclick={handleLogout} class="text-destructive">
 							<LogOut class="mr-2 h-4 w-4" />
 							Sair
@@ -153,14 +159,16 @@
 					</a>
 				{/each}
 
-				<a
-					href={ROUTES.MEU_FLUXOGRAMA}
-					class="mobile-nav-item"
-					onclick={closeMobileMenu}
-				>
-					<LayoutDashboard class="h-5 w-5" />
-					<span>Meu Fluxograma</span>
-				</a>
+				{#if !hasHistorico}
+					<a
+						href={ROUTES.MEU_FLUXOGRAMA}
+						class="mobile-nav-item"
+						onclick={closeMobileMenu}
+					>
+						<LayoutDashboard class="h-5 w-5" />
+						<span>Meu Fluxograma</span>
+					</a>
+				{/if}
 
 				<hr class="my-3 border-white/10" />
 

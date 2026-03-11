@@ -174,16 +174,20 @@ function createUploadStore() {
 
 			try {
 				// Phase 1: Parse PDF locally in the browser (0-50%)
+				console.time('[UploadStore] Phase 1: parsePdfLocally');
 				startProgressSimulation(0, 45, 3000);
 				const extracted = await uploadService.parsePdfLocally(file);
 				stopProgressSimulation();
+				console.timeEnd('[UploadStore] Phase 1: parsePdfLocally');
 				update((s) => ({ ...s, progress: 50, extractedData: extracted }));
 
 				// Phase 2: Match disciplines (50-90%)
 				update((s) => ({ ...s, state: 'processing' }));
+				console.time('[UploadStore] Phase 2: casarDisciplinas');
 				startProgressSimulation(50, 85, 4000);
 				const result = await uploadService.casarDisciplinas(extracted);
 				stopProgressSimulation();
+				console.timeEnd('[UploadStore] Phase 2: casarDisciplinas');
 
 				// Check for course selection needed
 				if ('type' in result && result.type === 'COURSE_SELECTION') {
@@ -284,6 +288,7 @@ function createUploadStore() {
 			}
 
 			try {
+				console.time('[UploadStore] Phase 3: saveAndNavigate');
 				const cd = currentState.disciplinasCasadas;
 				const ext = currentState.extractedData;
 				const meta = {
@@ -299,17 +304,38 @@ function createUploadStore() {
 					meta
 				);
 
-				// Save in the format expected when loading user (snake_case DadosFluxogramaUser)
+				// Save: atualiza dados_users (estado atual) + registra em historicos_usuarios (acompanhamento ao longo dos anos)
 				await supabaseDataService.saveFluxogramaData(
 					user.idUser,
 					dadosFluxogramaUserToJson(dados),
-					meta.semestreAtual || undefined
+					meta.semestreAtual || undefined,
+					ext?.carga_horaria_integralizada ?? undefined,
+					{
+						curso_extraido: ext?.curso_extraido ?? null,
+						matriz_curricular: ext?.matriz_curricular ?? null,
+						matricula: ext?.matricula ?? null,
+						ira: (ext?.extracted_data?.find((d) => (d as { tipo_dado?: string }).tipo_dado === 'IRA') as { valor?: number } | undefined)?.valor ?? null,
+						media_ponderada: ext?.media_ponderada ?? null,
+						carga_horaria_integralizada: ext?.carga_horaria_integralizada ?? null,
+						suspensoes: ext?.suspensoes ?? null,
+						resumo: cd?.resumo
+							? {
+									total_disciplinas: cd.resumo.total_disciplinas,
+									total_obrigatorias: cd.resumo.total_obrigatorias,
+									total_obrigatorias_concluidas: cd.resumo.total_obrigatorias_concluidas,
+									total_obrigatorias_pendentes: cd.resumo.total_obrigatorias_pendentes,
+									percentual_conclusao_obrigatorias: cd.resumo.percentual_conclusao_obrigatorias
+								}
+							: null
+					}
 				);
 
-				authStore.updateDadosFluxograma(dados);
+				console.timeEnd('[UploadStore] Phase 3: saveAndNavigate');
+				authStore.updateDadosFluxograma(dados, ext?.carga_horaria_integralizada ?? undefined);
 				toast.success('Fluxograma salvo com sucesso!');
 				goto(ROUTES.MEU_FLUXOGRAMA);
 			} catch (err) {
+				console.timeEnd('[UploadStore] Phase 3: saveAndNavigate');
 				console.error('[UploadStore] saveAndNavigate error:', err);
 				const message = err instanceof Error ? err.message : 'Erro ao salvar fluxograma.';
 				toast.error(message);

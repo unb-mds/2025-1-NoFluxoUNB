@@ -34,11 +34,21 @@ export interface DadosFluxogramaUser {
 	dadosFluxograma: DadosMateria[][];
 }
 
+/** Carga horária integralizada extraída do PDF (SIGAA). */
+export interface CargaHorariaIntegralizada {
+	obrigatoria: number;
+	optativa: number;
+	complementar: number;
+	total: number;
+}
+
 export interface UserModel {
 	idUser: number;
 	email: string;
 	nomeCompleto: string;
 	dadosFluxograma?: DadosFluxogramaUser | null;
+	/** Carga horária integralizada do histórico (obrigatória, optativa, complementar). */
+	cargaHorariaIntegralizada?: CargaHorariaIntegralizada | null;
 	token?: string | null;
 }
 
@@ -74,6 +84,9 @@ export function getCompletedSubjectCodes(dados: DadosFluxogramaUser): Set<string
 			if (isMateriaAprovada(materia)) {
 				const code = materia.codigoMateria ?? (materia as unknown as { codigo?: string }).codigo ?? '';
 				if (code) completed.add(code);
+				// Inclui codigoEquivalente para casamento em outros cursos (ex.: cursou MAT0035, conta como MAT1234)
+				const eq = materia.codigoEquivalente ?? (materia as unknown as { codigo_equivalente?: string }).codigo_equivalente ?? '';
+				if (eq && eq !== code) completed.add(eq);
 			}
 		}
 	}

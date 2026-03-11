@@ -9,7 +9,7 @@
 
 <AnimatedBackground />
 
-<div class="flex min-h-screen items-center justify-center px-4">
+<div class="flex min-h-screen items-center justify-center overflow-x-hidden px-3 py-6 sm:px-4">
 	<div class="auth-card">
 		<LoginForm />
 	</div>

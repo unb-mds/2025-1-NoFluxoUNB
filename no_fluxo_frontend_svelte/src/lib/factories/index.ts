@@ -314,6 +314,17 @@ export function createUserModelFromJson(json: Record<string, unknown>): UserMode
 				: (rawDadosUsers as Record<string, unknown>)
 			: null;
 
+	const cargaHorariaIntegralizada = (() => {
+		if (!dadosUserRow?.carga_horaria_integralizada) return null;
+		const ch = dadosUserRow.carga_horaria_integralizada as Record<string, unknown>;
+		if (typeof ch !== 'object' || ch === null) return null;
+		const o = Number(ch.obrigatoria ?? 0);
+		const op = Number(ch.optativa ?? 0);
+		const c = Number(ch.complementar ?? 0);
+		const t = Number(ch.total ?? o + op + c);
+		return { obrigatoria: o, optativa: op, complementar: c, total: t };
+	})();
+
 	if (dadosUserRow != null && dadosUserRow.fluxograma_atual != null) {
 		const fluxogramaData =
 			typeof dadosUserRow.fluxograma_atual === 'string'
@@ -350,6 +361,7 @@ export function createUserModelFromJson(json: Record<string, unknown>): UserMode
 		email: String(json.email ?? ''),
 		nomeCompleto: String(json.nome_completo ?? ''),
 		dadosFluxograma,
+		cargaHorariaIntegralizada: cargaHorariaIntegralizada ?? undefined,
 		token: json.token != null ? String(json.token) : null
 	};
 }
@@ -389,6 +401,7 @@ export function createMateriaModelFromJson(json: Record<string, unknown>): Mater
 	const materiaData = (json.materias as Record<string, unknown>) ?? json;
 	const cargaHoraria = Number(materiaData.carga_horaria ?? json.carga_horaria ?? 0);
 
+	const tn = json.tipo_natureza as number | null | undefined;
 	return {
 		ementa: String(materiaData.ementa ?? ''),
 		idMateria: Number(materiaData.id_materia ?? 0),
@@ -396,6 +409,7 @@ export function createMateriaModelFromJson(json: Record<string, unknown>): Mater
 		codigoMateria: String(materiaData.codigo_materia ?? ''),
 		creditos: cargaHoraria > 0 ? cargaHoraria / 15 : 0,
 		nivel: Number(json.nivel ?? 0),
+		tipoNatureza: tn !== undefined && tn !== null ? tn : undefined,
 		status: materiaData.status != null ? String(materiaData.status) : null,
 		mencao: materiaData.mencao != null ? String(materiaData.mencao) : null,
 		professor: materiaData.professor != null ? String(materiaData.professor) : null,
@@ -407,24 +421,31 @@ export function createMateriaModelFromJson(json: Record<string, unknown>): Mater
 // PreRequisitoModel Factory (com expressao_original e expressao_logica JSONB)
 // ============================================================================
 
-function parseExpressaoLogica(val: unknown): { materias?: string[]; operador?: 'OU' | 'E' | null } | null {
+import { getCodigosFromExpressaoLogica } from '$lib/utils/expressao-logica';
+import type { ExpressaoLogicaRecursiva } from '$lib/utils/expressao-logica';
+
+function parseExpressaoLogica(
+	val: unknown
+): { materias?: string[]; operador?: 'OU' | 'E' | null } | ExpressaoLogicaRecursiva | null {
 	if (val == null) return null;
-	if (typeof val === 'object' && 'materias' in (val as object)) {
-		const o = val as { materias?: unknown[]; operador?: string };
-		return {
-			materias: Array.isArray(o.materias) ? o.materias.map(String) : undefined,
-			operador: o.operador === 'OU' || o.operador === 'E' ? o.operador : null
-		};
-	}
 	if (typeof val === 'string') {
 		try {
-			const parsed = JSON.parse(val) as { materias?: string[]; operador?: string };
-			return {
-				materias: parsed.materias,
-				operador: parsed.operador === 'OU' || parsed.operador === 'E' ? parsed.operador : null
-			};
+			const parsed = JSON.parse(val);
+			return parseExpressaoLogica(parsed);
 		} catch {
 			return null;
+		}
+	}
+	if (typeof val === 'object') {
+		const o = val as Record<string, unknown>;
+		if ('condicoes' in o && Array.isArray(o.condicoes)) {
+			return val as ExpressaoLogicaRecursiva;
+		}
+		if ('materias' in o) {
+			return {
+				materias: Array.isArray(o.materias) ? o.materias.map(String) : undefined,
+				operador: o.operador === 'OU' || o.operador === 'E' ? o.operador : null
+			};
 		}
 	}
 	return null;
@@ -435,7 +456,8 @@ export function createPreRequisitoModelFromJson(
 ): PreRequisitoModel {
 	const materias = json.materias as Record<string, unknown> | null | undefined;
 	const expressaoLogica = parseExpressaoLogica(json.expressao_logica);
-	const codigoFromLogica = expressaoLogica?.materias?.[0];
+	const codigosFromLogica = expressaoLogica ? getCodigosFromExpressaoLogica(expressaoLogica) : [];
+	const codigoFromLogica = codigosFromLogica[0];
 	return {
 		idPreRequisito: Number(json.id_pre_requisito ?? 0),
 		idMateria: Number(json.id_materia ?? 0),
@@ -460,7 +482,8 @@ export function createCoRequisitoModelFromJson(
 ): CoRequisitoModel {
 	const materias = json.materias as Record<string, unknown> | null | undefined;
 	const expressaoLogica = parseExpressaoLogica(json.expressao_logica);
-	const codigoFromLogica = expressaoLogica?.materias?.[0];
+	const codigosFromLogica = expressaoLogica ? getCodigosFromExpressaoLogica(expressaoLogica) : [];
+	const codigoFromLogica = codigosFromLogica[0];
 	return {
 		idCoRequisito: Number(json.id_co_requisito ?? 0),
 		idMateria: Number(json.id_materia ?? 0),
@@ -483,13 +506,17 @@ export function createCoRequisitoModelFromJson(
 export function createEquivalenciaModelFromJson(
 	json: Record<string, unknown>
 ): EquivalenciaModel {
+	const expressaoLogica = parseExpressaoLogica(json.expressao_logica);
+	const codigos = expressaoLogica ? getCodigosFromExpressaoLogica(expressaoLogica) : [];
+	const primeiroCodigo = codigos[0] ?? '';
 	return {
 		idEquivalencia: Number(json.id_equivalencia ?? 0),
 		codigoMateriaOrigem: String(json.codigo_materia_origem ?? ''),
 		nomeMateriaOrigem: String(json.nome_materia_origem ?? ''),
-		codigoMateriaEquivalente: String(json.codigo_materia_equivalente ?? ''),
+		codigoMateriaEquivalente: String(json.codigo_materia_equivalente ?? primeiroCodigo),
 		nomeMateriaEquivalente: String(json.nome_materia_equivalente ?? ''),
 		expressao: String(json.expressao ?? ''),
+		expressaoLogica: expressaoLogica ?? undefined,
 		idCurso: json.id_curso != null ? Number(json.id_curso) : null,
 		nomeCurso: json.nome_curso != null ? String(json.nome_curso) : null,
 		matrizCurricular:
@@ -540,12 +567,16 @@ export function createCursoModelFromJson(json: Record<string, unknown>): CursoMo
 	const allCoRequisitos = coRequisitosJson.map(createCoRequisitoModelFromJson);
 
 	const materiasInCursoFromCodigo = new Set(
-		materias.filter((m) => m.nivel !== 0).map((m) => m.codigoMateria)
+		materias.filter((m) => !(m.tipoNatureza === 1 || (m.tipoNatureza == null && m.nivel === 0))).map((m) => m.codigoMateria)
 	);
 
-	const preRequisitosInCurso = allPreRequisitos.filter((pr) =>
-		materiasInCursoFromCodigo.has(pr.codigoMateriaRequisito)
-	);
+	const preRequisitosInCurso = allPreRequisitos.filter((pr) => {
+		if (pr.expressaoLogica) {
+			const codigos = getCodigosFromExpressaoLogica(pr.expressaoLogica);
+			return codigos.some((c) => materiasInCursoFromCodigo.has(c));
+		}
+		return materiasInCursoFromCodigo.has(pr.codigoMateriaRequisito);
+	});
 
 	const materiasInCursoFromCodigoCoReq = new Set(
 		materias.map((m) => m.codigoMateria)
@@ -594,12 +625,20 @@ function populatePrerequisites(curso: CursoModel): void {
 		if (!targetMateria) continue;
 
 		const materiaCode = targetMateria.codigoMateria;
-		const prereqCode = preReq.codigoMateriaRequisito;
+		const codigosPrereq =
+			preReq.expressaoLogica != null
+				? getCodigosFromExpressaoLogica(preReq.expressaoLogica)
+				: preReq.codigoMateriaRequisito
+					? [preReq.codigoMateriaRequisito.trim().toUpperCase()]
+					: [];
 
 		if (!prerequisiteMap.has(materiaCode)) {
 			prerequisiteMap.set(materiaCode, []);
 		}
-		prerequisiteMap.get(materiaCode)!.push(prereqCode);
+		const existing = prerequisiteMap.get(materiaCode)!;
+		for (const code of codigosPrereq) {
+			if (code && !existing.includes(code)) existing.push(code);
+		}
 	}
 
 	for (const materia of curso.materias) {

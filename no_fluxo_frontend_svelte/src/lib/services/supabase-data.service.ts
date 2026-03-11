@@ -1,6 +1,39 @@
 import { createSupabaseBrowserClient } from '$lib/supabase/client';
 import type { MatrizModel } from '$lib/types/matriz';
 import { parseCurriculoCompleto } from '$lib/types/matriz';
+import type { ExpressaoLogicaRecursiva } from '$lib/utils/expressao-logica';
+import { getCodigosFromExpressaoLogica } from '$lib/utils/expressao-logica';
+
+/** Metadados para registro no histórico de envios (acompanhamento ao longo dos anos) */
+export interface HistoricoEnvioMetadata {
+	curso_extraido?: string | null;
+	matriz_curricular?: string | null;
+	matricula?: string | null;
+	ira?: number | null;
+	media_ponderada?: number | null;
+	carga_horaria_integralizada?: { obrigatoria: number; optativa: number; complementar: number; total: number } | null;
+	suspensoes?: string[] | null;
+	resumo?: {
+		total_disciplinas?: number;
+		total_obrigatorias?: number;
+		total_obrigatorias_concluidas?: number;
+		total_obrigatorias_pendentes?: number;
+		percentual_conclusao_obrigatorias?: number;
+	} | null;
+}
+
+/** Simple in-memory cache for public data that rarely changes (courses, matrices). */
+const cache = new Map<string, { data: unknown; ts: number }>();
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
+function cached<T>(key: string, fn: () => Promise<T>): Promise<T> {
+	const entry = cache.get(key);
+	if (entry && Date.now() - entry.ts < CACHE_TTL) return Promise.resolve(entry.data as T);
+	return fn().then((data) => {
+		cache.set(key, { data, ts: Date.now() });
+		return data;
+	});
+}
 
 /**
  * Central data service for all direct Supabase queries.
@@ -48,14 +81,17 @@ export class SupabaseDataService {
 		if (!codigoCurso || !/^\d+$/.test(codigoCurso) || versao === undefined) return null;
 		const idCurso = parseInt(codigoCurso, 10);
 
-		const { data: byCodeVersao, error: errCode } = await this.supabase
+		// Pode haver múltiplas matrizes (diurno/noturno, várias versões). Usar limit(1) em vez de maybeSingle().
+		const { data: rows, error: errCode } = await this.supabase
 			.from('matrizes')
 			.select('*')
 			.eq('id_curso', idCurso)
 			.eq('versao', versao)
-			.maybeSingle();
+			.order('ano_vigor', { ascending: false })
+			.limit(1);
 
 		if (errCode) throw new Error(`Erro ao buscar matriz: ${errCode.message}`);
+		const byCodeVersao = rows?.[0] ?? null;
 		if (!byCodeVersao) return null;
 
 		return {
@@ -75,34 +111,44 @@ export class SupabaseDataService {
 	 * Lista matrizes de um curso (para filtro/troca de matriz).
 	 */
 	async getMatrizesByCurso(idCurso: number) {
-		const { data, error } = await this.supabase
-			.from('matrizes')
-			.select('*')
-			.eq('id_curso', idCurso)
-			.order('ano_vigor', { ascending: false });
+		return cached(`matrizes_${idCurso}`, async () => {
+			const { data, error } = await this.supabase
+				.from('matrizes')
+				.select('*')
+				.eq('id_curso', idCurso)
+				.order('ano_vigor', { ascending: false });
 
-		if (error) throw new Error(`Erro ao buscar matrizes: ${error.message}`);
-		return (data || []).map((row) => ({
-			idMatriz: row.id_matriz,
-			idCurso: row.id_curso,
-			curriculoCompleto: row.curriculo_completo,
-			versao: row.versao ?? '',
-			anoVigor: row.ano_vigor ?? null,
-			chObrigatoriaExigida: row.ch_obrigatoria_exigida ?? null,
-			chOptativaExigida: row.ch_optativa_exigida ?? null,
-			chComplementarExigida: row.ch_complementar_exigida ?? null,
-			chTotalExigida: row.ch_total_exigida ?? null
-		}));
+			if (error) throw new Error(`Erro ao buscar matrizes: ${error.message}`);
+			const seen = new Set<string>();
+			return (data || [])
+				.filter((row) => {
+					const cc = row.curriculo_completo ?? '';
+					if (seen.has(cc)) return false;
+					seen.add(cc);
+					return true;
+				})
+				.map((row) => ({
+				idMatriz: row.id_matriz,
+				idCurso: row.id_curso,
+				curriculoCompleto: row.curriculo_completo,
+				versao: row.versao ?? '',
+				anoVigor: row.ano_vigor ?? null,
+				chObrigatoriaExigida: row.ch_obrigatoria_exigida ?? null,
+				chOptativaExigida: row.ch_optativa_exigida ?? null,
+				chComplementarExigida: row.ch_complementar_exigida ?? null,
+				chTotalExigida: row.ch_total_exigida ?? null
+			}));
+		});
 	}
 
 	/**
 	 * Grade da matriz: disciplinas com carga horária e categoria (obrigatória/optativa).
-	 * nivel >= 1 = obrigatória, nivel === 0 = optativa.
+	 * tipo_natureza: 0=obrigatória, 1=optativa. Fallback: nivel >= 1 = obrigatória, nivel === 0 = optativa.
 	 */
 	async getGradeByMatriz(idMatriz: number): Promise<Array<{ codigoMateria: string; cargaHoraria: number; categoria: 'obrigatoria' | 'optativa' | 'complementar' }>> {
 		const { data, error } = await this.supabase
 			.from('materias_por_curso')
-			.select('id_materia, nivel, materias(codigo_materia, carga_horaria)')
+			.select('id_materia, nivel, tipo_natureza, materias(codigo_materia, carga_horaria)')
 			.eq('id_matriz', idMatriz);
 
 		if (error) throw new Error(`Erro ao buscar grade: ${error.message}`);
@@ -112,8 +158,9 @@ export class SupabaseDataService {
 			const mat = row.materias as { codigo_materia?: string; carga_horaria?: number } | null;
 			const codigo = mat?.codigo_materia ?? '';
 			const ch = Number(mat?.carga_horaria ?? 0);
+			const tn = row.tipo_natureza as number | null | undefined;
 			const nivel = Number(row.nivel ?? 0);
-			const categoria = nivel >= 1 ? 'obrigatoria' : 'optativa';
+			const categoria = (tn !== undefined && tn !== null) ? (tn === 1 ? 'optativa' : 'obrigatoria') : (nivel >= 1 ? 'obrigatoria' : 'optativa');
 			out.push({ codigoMateria: codigo, cargaHoraria: ch, categoria });
 		}
 		return out;
@@ -125,13 +172,15 @@ export class SupabaseDataService {
 	 * Get all courses — REPLACES: GET /cursos/all-cursos
 	 */
 	async getAllCursos() {
-		const { data, error } = await this.supabase
-			.from('cursos')
-			.select('*')
-			.order('nome_curso');
+		return cached('all_cursos', async () => {
+			const { data, error } = await this.supabase
+				.from('cursos')
+				.select('*')
+				.order('nome_curso');
 
-		if (error) throw new Error(`Erro ao buscar cursos: ${error.message}`);
-		return data;
+			if (error) throw new Error(`Erro ao buscar cursos: ${error.message}`);
+			return data;
+		});
 	}
 
 	/**
@@ -139,18 +188,47 @@ export class SupabaseDataService {
 	 * Se a view retornar uma linha por matriz, deduplicamos por id_curso (primeira matriz) para a lista de cursos.
 	 */
 	async getCursosComCreditos() {
-		const { data, error } = await this.supabase.from('vw_creditos_por_matriz').select('*');
+		return cached('cursos_creditos', async () => {
+			const { data, error } = await this.supabase.from('vw_creditos_por_matriz').select('*');
 
-		if (error) throw new Error(`Erro ao buscar créditos: ${error.message}`);
-		const rows = data ?? [];
-		// Uma linha por curso (primeira matriz de cada): evita duplicata quando a view é por matriz
-		const byCurso = new Map<number, (typeof rows)[0]>();
-		for (const row of rows) {
-			const rawId = row.id_curso;
-			const id = rawId != null && rawId !== '' ? Number(rawId) : NaN;
-			if (!Number.isNaN(id) && !byCurso.has(id)) byCurso.set(id, row);
+			if (error) throw new Error(`Erro ao buscar créditos: ${error.message}`);
+			const rows = data ?? [];
+			const byCurso = new Map<number, (typeof rows)[0]>();
+			for (const row of rows) {
+				const rawId = row.id_curso ?? (row as Record<string, unknown>).idCurso;
+				const id = rawId != null && rawId !== '' ? Number(rawId) : NaN;
+				if (!Number.isNaN(id) && !byCurso.has(id)) byCurso.set(id, row);
+			}
+			return byCurso.size > 0 ? [...byCurso.values()] : rows;
+		});
+	}
+
+	/**
+	 * Busca tipo_curso e turno na tabela cursos por id_curso (para enriquecer a lista da view).
+	 */
+	async getCursosTipoTurno(idCursos: number[]): Promise<Map<number, { tipo_curso: string | null; turno: string | null }>> {
+		if (idCursos.length === 0) return new Map();
+		const ids = [...new Set(idCursos)].filter((id) => Number.isInteger(id));
+		if (ids.length === 0) return new Map();
+		const { data, error } = await this.supabase
+			.from('cursos')
+			.select('id_curso, tipo_curso, turno')
+			.in('id_curso', ids);
+		if (error) {
+			console.warn('[getCursosTipoTurno] Erro ao buscar tipo/turno:', error.message);
+			return new Map();
 		}
-		return byCurso.size > 0 ? [...byCurso.values()] : rows;
+		const map = new Map<number, { tipo_curso: string | null; turno: string | null }>();
+		for (const row of data ?? []) {
+			const r = row as Record<string, unknown>;
+			const rawId = r.id_curso ?? r.idCurso;
+			const id = rawId != null && rawId !== '' ? Number(rawId) : NaN;
+			if (Number.isNaN(id)) continue;
+			const tipo = r.tipo_curso != null ? String(r.tipo_curso).trim() || null : (r.tipoCurso != null ? String(r.tipoCurso).trim() || null : null);
+			const turno = r.turno != null ? String(r.turno).trim() || null : null;
+			map.set(id, { tipo_curso: tipo, turno });
+		}
+		return map;
 	}
 
 	// ─── Subjects ─────────────────────────────────────────────
@@ -178,7 +256,7 @@ export class SupabaseDataService {
 
 		const { data, error } = await this.supabase
 			.from('materias')
-			.select('*, materias_por_curso!inner(nivel, id_matriz)')
+			.select('*, materias_por_curso!inner(nivel, tipo_natureza, id_matriz)')
 			.in('codigo_materia', codes)
 			.eq('materias_por_curso.id_matriz', idMatriz);
 
@@ -227,6 +305,10 @@ export class SupabaseDataService {
 	 * Carrega fluxograma por id_matriz. Busca curso e grade por id_matriz.
 	 */
 	async getCourseFlowchartDataByMatriz(idMatriz: number, idCurso: number) {
+		return cached(`flowchart_${idMatriz}_${idCurso}`, () => this._fetchFlowchartByMatriz(idMatriz, idCurso));
+	}
+
+	private async _fetchFlowchartByMatriz(idMatriz: number, idCurso: number) {
 		const { data: curso, error: cursoError } = await this.supabase
 			.from('cursos')
 			.select('*')
@@ -237,7 +319,7 @@ export class SupabaseDataService {
 
 		const { data: materiasCurso, error: mcError } = await this.supabase
 			.from('materias_por_curso')
-			.select('id_materia_curso, id_materia, nivel, id_matriz, materias(id_materia, codigo_materia, nome_materia, carga_horaria, ementa)')
+			.select('id_materia_curso, id_materia, nivel, tipo_natureza, id_matriz, materias(id_materia, codigo_materia, nome_materia, carga_horaria, ementa)')
 			.eq('id_matriz', idMatriz);
 
 		if (mcError) throw new Error(`Erro ao buscar matérias: ${mcError.message}`);
@@ -268,13 +350,18 @@ export class SupabaseDataService {
 
 		const equivalencias = (equivalenciasResult.data || []).map((eq: Record<string, unknown>) => {
 			const mat = eq.materias as { codigo_materia?: string; nome_materia?: string } | null;
+			const codigos = getCodigosFromExpressaoLogica(
+				eq.expressao_logica as ExpressaoLogicaRecursiva | null | undefined
+			);
+			const primeiroCodigo = codigos[0] ?? '';
 			return {
 				...eq,
 				codigo_materia_origem: mat?.codigo_materia ?? '',
 				nome_materia_origem: mat?.nome_materia ?? '',
-				codigo_materia_equivalente: '',
+				codigo_materia_equivalente: primeiroCodigo,
 				nome_materia_equivalente: '',
-				expressao: eq.expressao_original ?? ''
+				expressao: eq.expressao_original ?? '',
+				expressao_logica: eq.expressao_logica ?? null
 			};
 		});
 
@@ -366,23 +453,61 @@ export class SupabaseDataService {
 
 	/**
 	 * Save/update user's flowchart data (upsert)
+	 * Se historicoMetadata for passado, também insere em historicos_usuarios para acompanhamento ao longo dos anos.
 	 * REPLACES: POST /fluxograma/upload-dados-fluxograma
 	 */
-	async saveFluxogramaData(idUser: number, fluxogramaData: unknown, semestreAtual?: number) {
+	async saveFluxogramaData(
+		idUser: number,
+		fluxogramaData: unknown,
+		semestreAtual?: number,
+		cargaHorariaIntegralizada?: { obrigatoria: number; optativa: number; complementar: number; total: number } | null,
+		historicoMetadata?: HistoricoEnvioMetadata | null
+	) {
+		const payload: Record<string, unknown> = {
+			id_user: idUser,
+			fluxograma_atual: JSON.stringify(fluxogramaData),
+			semestre_atual: semestreAtual ?? null
+		};
+		if (cargaHorariaIntegralizada != null) {
+			payload.carga_horaria_integralizada = cargaHorariaIntegralizada;
+		}
+
+		// 1. Atualizar dados_users (estado atual do fluxograma — mesma linha, id_dado_user preservado)
 		const { data, error } = await this.supabase
 			.from('dados_users')
-			.upsert(
-				{
-					id_user: idUser,
-					fluxograma_atual: JSON.stringify(fluxogramaData),
-					semestre_atual: semestreAtual ?? null
-				},
-				{ onConflict: 'id_user' }
-			)
+			.upsert(payload, { onConflict: 'id_user' })
 			.select()
 			.single();
 
 		if (error) throw new Error(`Erro ao salvar fluxograma: ${error.message}`);
+
+		// 2. Registrar no histórico (tabela historicos_usuarios) com FK para dados_users
+		if (historicoMetadata && data?.id_dado_user) {
+			const historicoPayload: Record<string, unknown> = {
+				id_user: idUser,
+				id_dado_user: data.id_dado_user,
+				curso_extraido: historicoMetadata.curso_extraido ?? null,
+				matriz_curricular: historicoMetadata.matriz_curricular ?? null,
+				matricula: historicoMetadata.matricula ?? null,
+				semestre_atual: semestreAtual ?? null,
+				numero_semestre: semestreAtual ?? null,
+				ira: historicoMetadata.ira ?? null,
+				media_ponderada: historicoMetadata.media_ponderada ?? null,
+				carga_horaria_integralizada: historicoMetadata.carga_horaria_integralizada ?? cargaHorariaIntegralizada ?? null,
+				suspensoes: historicoMetadata.suspensoes ?? null,
+				fluxograma_atual: fluxogramaData,
+				total_disciplinas: historicoMetadata.resumo?.total_disciplinas ?? null,
+				total_obrigatorias: historicoMetadata.resumo?.total_obrigatorias ?? null,
+				total_obrigatorias_concluidas: historicoMetadata.resumo?.total_obrigatorias_concluidas ?? null,
+				total_obrigatorias_pendentes: historicoMetadata.resumo?.total_obrigatorias_pendentes ?? null,
+				percentual_conclusao: historicoMetadata.resumo?.percentual_conclusao_obrigatorias ?? null
+			};
+			const { error: histError } = await this.supabase.from('historicos_usuarios').insert(historicoPayload);
+			if (histError) {
+				console.warn('[SupabaseDataService] Falha ao registrar histórico (tabela pode não existir):', histError.message);
+			}
+		}
+
 		return data;
 	}
 

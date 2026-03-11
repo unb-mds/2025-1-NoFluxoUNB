@@ -104,20 +104,24 @@ const Y_PROXIMITY_THRESHOLD = 3;
 
 function groupItemsIntoRows(items: PositionedTextItem[]): Map<number, PositionedTextItem[]> {
   const rows = new Map<number, PositionedTextItem[]>();
-  for (const item of items) {
-    let assignedY: number | null = null;
-    for (const existingY of rows.keys()) {
-      if (Math.abs(item.y - existingY) <= Y_PROXIMITY_THRESHOLD) {
-        assignedY = existingY;
-        break;
-      }
-    }
-    if (assignedY !== null) {
-      rows.get(assignedY)!.push(item);
+  if (items.length === 0) return rows;
+
+  const sorted = [...items].sort((a, b) => a.y - b.y);
+  let currentKey = sorted[0].y;
+  let currentGroup: PositionedTextItem[] = [sorted[0]];
+  rows.set(currentKey, currentGroup);
+
+  for (let i = 1; i < sorted.length; i++) {
+    const item = sorted[i];
+    if (Math.abs(item.y - currentKey) <= Y_PROXIMITY_THRESHOLD) {
+      currentGroup.push(item);
     } else {
-      rows.set(item.y, [item]);
+      currentKey = item.y;
+      currentGroup = [item];
+      rows.set(currentKey, currentGroup);
     }
   }
+
   return rows;
 }
 

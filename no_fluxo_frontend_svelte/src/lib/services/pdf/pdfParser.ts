@@ -10,13 +10,16 @@
  * fixing issues with multi-line professor names and long discipline name wrapping.
  */
 
-import { extractTextFromPdf, extractPositionedItems, extractMatriculaFromFilename } from './pdfExtractor';
+import { loadPdf, extractTextFromPdfDoc, extractPositionedItemsFromDoc, extractMatriculaFromFilename } from './pdfExtractor';
 import {
 	extrairCurso,
 	extrairMatrizCurricular,
 	extrairSuspensoes,
 	extrairSemestreAtual,
+	extrairCargaHorariaIntegralizada,
+	debugCargaHorariaIntegralizada,
 	calcularNumeroSemestre,
+	extrairDadosAcademicos,
 	type DisciplinaExtraida,
 	type EquivalenciaExtraida,
 	type DadosAcademicos
@@ -41,6 +44,13 @@ export interface ParsedPdfResult {
 	semestre_atual: string | null;
 	numero_semestre: number | null;
 	suspensoes: string[];
+	/** CH integralizada (obrigatória, optativa, complementar) da tabela "Carga Horária Integralizada/Pendente" */
+	carga_horaria_integralizada: {
+		obrigatoria: number;
+		optativa: number;
+		complementar: number;
+		total: number;
+	} | null;
 }
 
 // ─── Regex-based extractors for non-discipline data ───
@@ -143,10 +153,12 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 	console.log(`${LOG_PREFIX} ========================================`);
 	const startTime = performance.now();
 
-	// 1. Extract both flat text (for metadata) and positioned items (for disciplines)
+	// 1. Load PDF once, then extract both text and positioned items from the shared instance
+	const pdf = await loadPdf(file);
+
 	const [textoTotal, positionedPages] = await Promise.all([
-		extractTextFromPdf(file),
-		extractPositionedItems(file)
+		extractTextFromPdfDoc(pdf),
+		extractPositionedItemsFromDoc(pdf)
 	]);
 
 	if (!textoTotal.trim()) {
@@ -157,7 +169,7 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 		);
 	}
 
-	console.log(`${LOG_PREFIX} Text extraction done — ${textoTotal.length} chars, ${positionedPages.length} pages of positioned items`);
+	console.log(`${LOG_PREFIX} Text extraction done — ${textoTotal.length} chars, ${positionedPages.length} pages of positioned items (${(performance.now() - startTime).toFixed(0)}ms elapsed)`);
 
 	// 2. Extract matrícula from filename
 	const matricula = extractMatriculaFromFilename(file.name);
@@ -166,10 +178,10 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 	const isDetailed = textoTotal.includes('EMENTA:') && /APROVADO\(A\)|REPROVADO\(A\)/.test(textoTotal);
 	let disciplinas: DisciplinaExtraida[];
 
+	console.time(`${LOG_PREFIX} disciplineExtraction`);
 	if (isDetailed) {
 		// Detailed format (with EMENTA, OBJETIVOS) — fall back to regex for this format
 		// as it has a completely different layout
-		const { extrairDadosAcademicos } = await import('./pdfDataExtractor');
 		const dados = extrairDadosAcademicos(textoTotal);
 		disciplinas = dados.disciplinas.filter(d => d.tipo_dado === 'Disciplina Regular');
 		console.log(`${LOG_PREFIX} Used regex fallback for detailed format — ${disciplinas.length} disciplines`);
@@ -178,9 +190,21 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 		disciplinas = extractDisciplinasFromPositions(positionedPages);
 		console.log(`${LOG_PREFIX} Position-based extraction — ${disciplinas.length} disciplines`);
 	}
+	console.timeEnd(`${LOG_PREFIX} disciplineExtraction`);
 
 	// 4. Regex-based metadata extraction (these are simple single-line patterns)
+	console.time(`${LOG_PREFIX} metadataExtraction`);
 	const curso = extrairCurso(textoTotal);
+
+	// Debug: Log lines around "Discente" and "Curso" to diagnose extraction issues
+	if (!curso) {
+		const lines = textoTotal.split('\n');
+		console.log(`${LOG_PREFIX} [DEBUG] Course extraction failed. First 25 lines of text:`);
+		for (let i = 0; i < Math.min(lines.length, 25); i++) {
+			console.log(`${LOG_PREFIX} [DEBUG] Line ${i}: "${lines[i]}"`);
+		}
+	}
+
 	const matrizCurricular = extrairMatrizCurricular(textoTotal);
 	const suspensoes = extrairSuspensoes(textoTotal);
 
@@ -191,12 +215,20 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 	let mediaPonderada: number | null = null;
 	const mpMatch = textoTotal.match(/MP[:\s]+(\d+[.,]\d+)/i);
 	if (mpMatch) mediaPonderada = parseFloat(mpMatch[1].replace(',', '.'));
+	console.timeEnd(`${LOG_PREFIX} metadataExtraction`);
 
 	// 5. Pending disciplines (regex on flat text — these are in a separate section)
+	console.time(`${LOG_PREFIX} pendingDisciplines`);
 	const pendentes = extrairDisciplinasPendentes(textoTotal);
+	console.timeEnd(`${LOG_PREFIX} pendingDisciplines`);
 
 	// 6. Equivalências (regex)
+	console.time(`${LOG_PREFIX} equivalencias`);
 	const equivalencias = extrairEquivalencias(textoTotal);
+	console.timeEnd(`${LOG_PREFIX} equivalencias`);
+
+	// 6b. Carga horária integralizada (tabela "Carga Horária Integralizada/Pendente")
+	const cargaHorariaIntegralizada = extrairCargaHorariaIntegralizada(textoTotal);
 
 	// 7. Build the full disciplinas array with metadata entries
 	const allDisciplinas: DisciplinaExtraida[] = [...disciplinas, ...pendentes];
@@ -242,6 +274,12 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 	console.log(`${LOG_PREFIX} Disciplines: ${regularCount} regular, ${pendingCount} pending`);
 	console.log(`${LOG_PREFIX} Equivalencies: ${equivalencias.length}`);
 	console.log(`${LOG_PREFIX} Semester: ${semestreAtual ?? 'N/A'} (#${numeroSemestre})`);
+	if (cargaHorariaIntegralizada) {
+		console.log(`${LOG_PREFIX} CH Integralizada: ${JSON.stringify(cargaHorariaIntegralizada)}`);
+	} else {
+		const debug = debugCargaHorariaIntegralizada(textoTotal);
+		console.log(`${LOG_PREFIX} CH Integralizada: (not found)${debug.found ? ` — snippet: "${debug.snippet?.slice(0, 200)}..."` : ' — "Integralizado" não encontrado no texto'}`);
+	}
 	console.log(`${LOG_PREFIX} ========================================`);
 
 	return {
@@ -257,6 +295,7 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 		equivalencias_pdf: equivalencias,
 		semestre_atual: semestreAtual,
 		numero_semestre: numeroSemestre,
-		suspensoes
+		suspensoes,
+		carga_horaria_integralizada: cargaHorariaIntegralizada
 	};
 }

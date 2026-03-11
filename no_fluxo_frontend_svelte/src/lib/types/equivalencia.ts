@@ -3,6 +3,11 @@
  */
 
 import type { MateriaModel } from './materia';
+import type { ExpressaoLogicaRecursiva } from '$lib/utils/expressao-logica';
+import {
+	evaluateExpressaoLogica,
+	getCodigosFromExpressaoLogica
+} from '$lib/utils/expressao-logica';
 
 export interface EquivalenciaModel {
 	idEquivalencia: number;
@@ -11,6 +16,8 @@ export interface EquivalenciaModel {
 	codigoMateriaEquivalente: string;
 	nomeMateriaEquivalente: string;
 	expressao: string;
+	/** Formato recursivo { operador, condicoes } - usado quando disponível para avaliação */
+	expressaoLogica?: ExpressaoLogicaRecursiva | null;
 	idCurso?: number | null;
 	nomeCurso?: string | null;
 	matrizCurricular?: string | null;
@@ -147,11 +154,21 @@ export function isMateriaEquivalente(
 	materiasCursadas: MateriaModel[]
 ): EquivalenciaResult {
 	const materias = new Set(materiasCursadas.map((m) => m.codigoMateria));
+	const materiasNorm = new Set([...materias].map((c) => c.trim().toUpperCase()));
 
-	const result = evaluateExpressionWithTracking(equivalencia.expressao.trim(), materias);
+	let result: ExpressionResult;
+	if (equivalencia.expressaoLogica != null) {
+		const isTrue = evaluateExpressaoLogica(equivalencia.expressaoLogica, materiasNorm);
+		const codigos = getCodigosFromExpressaoLogica(equivalencia.expressaoLogica);
+		const matchingMaterias = new Set(codigos.filter((c) => materiasNorm.has(c)));
+		result = { isTrue, matchingMaterias };
+	} else {
+		result = evaluateExpressionWithTracking(equivalencia.expressao.trim(), materias);
+	}
 
-	const equivalenteMaterias = materiasCursadas.filter((materia) =>
-		result.matchingMaterias.has(materia.codigoMateria)
+	const normSet = new Set([...result.matchingMaterias].map((c) => c.trim().toUpperCase()));
+	const equivalenteMaterias = materiasCursadas.filter((m) =>
+		normSet.has(m.codigoMateria.trim().toUpperCase())
 	);
 
 	return {
@@ -187,11 +204,14 @@ export function hasValidEquivalence(
 	const relevantEquivalencias = equivalencias.filter(
 		(e) => e.codigoMateriaOrigem === subjectCode
 	);
+	const completedNorm = new Set([...completedCodes].map((c) => c.trim().toUpperCase()));
 
 	for (const equiv of relevantEquivalencias) {
-		if (evaluateExpression(equiv.expressao, completedCodes)) {
-			return true;
-		}
+		const satisfaz =
+			equiv.expressaoLogica != null
+				? evaluateExpressaoLogica(equiv.expressaoLogica, completedNorm)
+				: evaluateExpression(equiv.expressao, completedCodes);
+		if (satisfaz) return true;
 	}
 
 	return false;
@@ -209,10 +229,13 @@ export function getCompletedByEquivalenceCodes(
 	completedCodes: Set<string>
 ): Set<string> {
 	const result = new Set<string>();
+	const completedNorm = new Set([...completedCodes].map((c) => c.trim().toUpperCase()));
 	for (const equiv of equivalencias) {
-		if (evaluateExpression(equiv.expressao.trim(), completedCodes)) {
-			result.add(equiv.codigoMateriaOrigem);
-		}
+		const satisfaz =
+			equiv.expressaoLogica != null
+				? evaluateExpressaoLogica(equiv.expressaoLogica, completedNorm)
+				: evaluateExpression(equiv.expressao.trim(), completedCodes);
+		if (satisfaz) result.add(equiv.codigoMateriaOrigem);
 	}
 	return result;
 }

@@ -1,4 +1,5 @@
 import type { TextItem } from 'pdfjs-dist/types/src/display/api';
+import type { PDFDocumentProxy } from 'pdfjs-dist';
 
 const LOG_PREFIX = '[PDF-Extractor]';
 
@@ -7,14 +8,18 @@ let pdfjsLoaded = false;
 /**
  * Dynamically imports pdfjs-dist so it is never evaluated during SSR
  * (the library references DOMMatrix at module scope, which doesn't exist in Node).
+ *
+ * Uses worker from static folder (copied by postinstall) — avoids 404s in production
+ * caused by Vite's file hashing and cache mismatches.
  */
+/** Pin to the exact version from package.json to avoid mismatches between lib and worker. */
+const PDFJS_VERSION = '5.4.624';
+const PDFJS_WORKER_CDN = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${PDFJS_VERSION}/build/pdf.worker.min.mjs`;
+
 async function getPdfjs() {
 	const pdfjs = await import('pdfjs-dist');
 	if (!pdfjsLoaded) {
-		pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-			'pdfjs-dist/build/pdf.worker.min.mjs',
-			import.meta.url
-		).toString();
+		pdfjs.GlobalWorkerOptions.workerSrc = PDFJS_WORKER_CDN;
 		pdfjsLoaded = true;
 	}
 	return pdfjs;
@@ -43,24 +48,26 @@ export interface PositionedTextItem {
  * Groups text items into lines based on Y-position proximity.
  * Items within `Y_PROXIMITY_THRESHOLD` points of each other are considered
  * to be on the same line.
+ *
+ * Optimized: sorts items by Y first for O(n log n) instead of O(n*m).
  */
 function groupItemsIntoLines(items: PositionedTextItem[]): Map<number, PositionedTextItem[]> {
 	const lines = new Map<number, PositionedTextItem[]>();
+	if (items.length === 0) return lines;
 
-	for (const item of items) {
-		let assignedY: number | null = null;
+	const sorted = [...items].sort((a, b) => a.y - b.y);
+	let currentKey = sorted[0].y;
+	let currentGroup: PositionedTextItem[] = [sorted[0]];
+	lines.set(currentKey, currentGroup);
 
-		for (const existingY of lines.keys()) {
-			if (Math.abs(item.y - existingY) <= Y_PROXIMITY_THRESHOLD) {
-				assignedY = existingY;
-				break;
-			}
-		}
-
-		if (assignedY !== null) {
-			lines.get(assignedY)!.push(item);
+	for (let i = 1; i < sorted.length; i++) {
+		const item = sorted[i];
+		if (Math.abs(item.y - currentKey) <= Y_PROXIMITY_THRESHOLD) {
+			currentGroup.push(item);
 		} else {
-			lines.set(item.y, [item]);
+			currentKey = item.y;
+			currentGroup = [item];
+			lines.set(currentKey, currentGroup);
 		}
 	}
 
@@ -98,104 +105,115 @@ function reconstructLine(items: PositionedTextItem[]): string {
 }
 
 /**
- * Extracts structured text from a PDF file, reconstructing lines by sorting
- * text items by vertical then horizontal position.
- *
- * Ports the `extract_structured_text()` logic from the Python backend
- * (pdf_parser_final.py) to run client-side using PDF.js.
- *
- * @param file - The PDF File object to extract text from.
- * @returns The full reconstructed text with lines separated by newlines.
+ * Extract PositionedTextItem[] from a single PDF page's text content.
  */
-export async function extractTextFromPdf(file: File): Promise<string> {
-	console.log(`${LOG_PREFIX} Starting text extraction from "${file.name}" (${(file.size / 1024).toFixed(1)} KB)`);
-	const startTime = performance.now();
+function extractItemsFromTextContent(textContent: { items: unknown[] }): PositionedTextItem[] {
+	const items: PositionedTextItem[] = [];
+	for (const item of textContent.items) {
+		if (!('str' in (item as Record<string, unknown>))) continue;
+		const textItem = item as TextItem;
+		const text = textItem.str.trim();
+		if (!text) continue;
+		items.push({
+			text,
+			x: textItem.transform[4],
+			y: textItem.transform[5],
+			width: textItem.width
+		});
+	}
+	return items;
+}
 
+/**
+ * Load a PDF file once and return the PDFDocumentProxy.
+ * This should be called once and the result passed to both
+ * extractTextFromPdfDoc and extractPositionedItemsFromDoc.
+ */
+export async function loadPdf(file: File): Promise<PDFDocumentProxy> {
+	console.time(`${LOG_PREFIX} loadPdf`);
 	const pdfjs = await getPdfjs();
 	const arrayBuffer = await file.arrayBuffer();
 	const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
-	console.log(`${LOG_PREFIX} PDF loaded — ${pdf.numPages} page(s)`);
+	console.timeEnd(`${LOG_PREFIX} loadPdf`);
+	console.log(`${LOG_PREFIX} PDF loaded — ${pdf.numPages} page(s), ${(file.size / 1024).toFixed(1)} KB`);
+	return pdf;
+}
 
-	const allLines: [number, string][] = [];
+/**
+ * Extracts structured text from an already-loaded PDF document,
+ * reconstructing lines by sorting text items by vertical then horizontal position.
+ *
+ * Pages are loaded concurrently for better performance.
+ */
+export async function extractTextFromPdfDoc(pdf: PDFDocumentProxy): Promise<string> {
+	console.time(`${LOG_PREFIX} extractText`);
 
-	for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-		const page = await pdf.getPage(pageNum);
-		const textContent = await page.getTextContent();
-		console.log(`${LOG_PREFIX} Page ${pageNum}: ${textContent.items.length} raw text items`);
+	// Load all pages concurrently
+	const pagePromises = Array.from({ length: pdf.numPages }, (_, i) =>
+		pdf.getPage(i + 1).then(page => page.getTextContent().then(tc => ({ tc, num: i + 1 })))
+	);
+	const pagesData = await Promise.all(pagePromises);
 
-		const items: PositionedTextItem[] = [];
+	// Store lines as [y, text, pageNum] to avoid interleaving across pages
+	const allLines: [number, string, number][] = [];
 
-		for (const item of textContent.items) {
-			// Filter out non-text items (e.g. marked content)
-			if (!('str' in item)) continue;
+	for (const { tc, num } of pagesData) {
+		const items = extractItemsFromTextContent(tc);
+		console.log(`${LOG_PREFIX} Page ${num}: ${tc.items.length} raw → ${items.length} text items`);
 
-			const textItem = item as TextItem;
-			const text = textItem.str.trim();
-			if (!text) continue;
-
-			items.push({
-				text,
-				x: textItem.transform[4],
-				y: textItem.transform[5],
-				width: textItem.width
-			});
-		}
-
-		// Group items into lines by Y proximity
 		const lineGroups = groupItemsIntoLines(items);
 
-		// Reconstruct each line and store with Y position
 		for (const [y, lineItems] of lineGroups.entries()) {
 			const lineText = reconstructLine(lineItems);
 			if (lineText.trim()) {
-				allLines.push([y, lineText]);
+				allLines.push([y, lineText, num]);
 			}
 		}
 	}
 
-	// Sort lines by Y descending (PDF.js Y increases upward, so descending = top to bottom)
-	allLines.sort((a, b) => b[0] - a[0]);
+	// Sort lines: page ascending first, then Y descending within each page
+	allLines.sort((a, b) => {
+		if (a[2] !== b[2]) return a[2] - b[2]; // page ascending
+		return b[0] - a[0]; // Y descending (top to bottom)
+	});
 
 	const result = allLines.map(([, text]) => text).join('\n');
-	const elapsed = (performance.now() - startTime).toFixed(0);
-	console.log(`${LOG_PREFIX} Text extraction complete — ${allLines.length} lines, ${result.length} chars in ${elapsed}ms`);
+	console.timeEnd(`${LOG_PREFIX} extractText`);
+	console.log(`${LOG_PREFIX} Text extraction complete — ${allLines.length} lines, ${result.length} chars`);
 	return result;
 }
 
 /**
- * Extracts positioned text items from a PDF file, one array per page.
- * Each item retains its x, y coordinates and width from PDF.js.
- * This is used by the position-based discipline extractor.
+ * Extracts positioned text items from an already-loaded PDF document,
+ * one array per page. Pages are loaded concurrently.
  */
-export async function extractPositionedItems(file: File): Promise<PositionedTextItem[][]> {
-	const pdfjs = await getPdfjs();
-	const arrayBuffer = await file.arrayBuffer();
-	const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
+export async function extractPositionedItemsFromDoc(pdf: PDFDocumentProxy): Promise<PositionedTextItem[][]> {
+	console.time(`${LOG_PREFIX} extractPositionedItems`);
 
-	const pages: PositionedTextItem[][] = [];
+	const pagePromises = Array.from({ length: pdf.numPages }, (_, i) =>
+		pdf.getPage(i + 1).then(page => page.getTextContent().then(tc => ({ tc, num: i + 1 })))
+	);
+	const pagesData = await Promise.all(pagePromises);
 
-	for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-		const page = await pdf.getPage(pageNum);
-		const textContent = await page.getTextContent();
+	// Sort by page number to maintain order
+	pagesData.sort((a, b) => a.num - b.num);
 
-		const items: PositionedTextItem[] = [];
-		for (const item of textContent.items) {
-			if (!('str' in item)) continue;
-			const textItem = item as TextItem;
-			const text = textItem.str.trim();
-			if (!text) continue;
-			items.push({
-				text,
-				x: textItem.transform[4],
-				y: textItem.transform[5],
-				width: textItem.width
-			});
-		}
+	const pages: PositionedTextItem[][] = pagesData.map(({ tc }) => extractItemsFromTextContent(tc));
 
-		pages.push(items);
-	}
-
+	console.timeEnd(`${LOG_PREFIX} extractPositionedItems`);
 	return pages;
+}
+
+// ─── Legacy wrappers (kept for backwards compatibility if needed) ───
+
+export async function extractTextFromPdf(file: File): Promise<string> {
+	const pdf = await loadPdf(file);
+	return extractTextFromPdfDoc(pdf);
+}
+
+export async function extractPositionedItems(file: File): Promise<PositionedTextItem[][]> {
+	const pdf = await loadPdf(file);
+	return extractPositionedItemsFromDoc(pdf);
 }
 
 /**

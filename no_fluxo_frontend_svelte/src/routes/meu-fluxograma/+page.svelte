@@ -5,7 +5,6 @@
 	import FluxogramaLegendControls from '$lib/components/fluxograma/FluxogramaLegendControls.svelte';
 	import FluxogramContainer from '$lib/components/fluxograma/FluxogramContainer.svelte';
 	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
-	import IntegralizacaoSection from '$lib/components/fluxograma/IntegralizacaoSection.svelte';
 	import SubjectDetailsModal from '$lib/components/fluxograma/SubjectDetailsModal.svelte';
 	import OptativasModal from '$lib/components/fluxograma/OptativasModal.svelte';
 	import OptativasAdicionadasSection from '$lib/components/fluxograma/OptativasAdicionadasSection.svelte';
@@ -19,7 +18,7 @@
 	import { ROUTES } from '$lib/config/routes';
 	import { onMount } from 'svelte';
 	import { Upload, Loader2, AlertTriangle } from 'lucide-svelte';
-	import type { MateriaModel } from '$lib/types/materia';
+	import { isOptativa, type MateriaModel } from '$lib/types/materia';
 	import type { IntegralizacaoResult } from '$lib/types/matriz';
 
 	const store = fluxogramaStore;
@@ -29,6 +28,7 @@
 	let chainDialogSubject = $state<MateriaModel | null>(null);
 	let showOptativas = $state(false);
 	let integralizacao = $state<IntegralizacaoResult | null>(null);
+	let integralizacaoLoading = $state(false);
 	let matrizes = $state<Array<{ curriculoCompleto: string }>>([]);
 
 	let user = $derived(authStore.getUser());
@@ -41,7 +41,7 @@
 	// Optativas = semester 0
 	let optativas = $derived.by(() => {
 		if (!store.state.courseData) return [];
-		return store.state.courseData.materias.filter((m) => m.nivel === 0);
+		return store.state.courseData.materias.filter((m) => isOptativa(m));
 	});
 
 	$effect(() => {
@@ -55,14 +55,18 @@
 				});
 			}
 			integralizacao = null;
+			integralizacaoLoading = false;
 			return;
 		}
+		integralizacaoLoading = true;
 		getIntegralizacao({
 			curriculoCompleto: cc,
 			dadosFluxograma: fluxo,
+			cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
 			equivalencias: course?.equivalencias
 		}).then((r) => {
 			integralizacao = r;
+			integralizacaoLoading = false;
 		});
 		if (course?.idCurso) {
 			supabaseDataService.getMatrizesByCurso(course.idCurso).then((m) => {
@@ -91,12 +95,18 @@
 	async function handleMatrizChange(curriculoCompleto: string) {
 		await store.loadCourseDataByCurriculoCompleto(curriculoCompleto, false);
 		if (userFluxograma) {
-			const r = await getIntegralizacao({
-				curriculoCompleto,
-				dadosFluxograma: userFluxograma,
-				equivalencias: store.state.courseData?.equivalencias
-			});
-			integralizacao = r;
+			integralizacaoLoading = true;
+			try {
+				const r = await getIntegralizacao({
+					curriculoCompleto,
+					dadosFluxograma: userFluxograma,
+					cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
+					equivalencias: store.state.courseData?.equivalencias
+				});
+				integralizacao = r;
+			} finally {
+				integralizacaoLoading = false;
+			}
 		}
 	}
 
@@ -126,7 +136,7 @@
 
 <GraffitiBackground />
 
-<div class="relative z-10 container mx-auto max-w-[95vw] px-4 py-6">
+<div class="relative z-10 container mx-auto min-w-0 max-w-[95vw] overflow-x-hidden px-3 py-4 sm:px-4 sm:py-6">
 	{#if store.state.loading}
 		<div class="flex flex-col items-center justify-center gap-4 py-20">
 			<Loader2 class="h-10 w-10 animate-spin text-purple-400" />
@@ -137,16 +147,25 @@
 			<AlertTriangle class="mx-auto mb-3 h-8 w-8 text-red-400" />
 			<h2 class="mb-2 text-lg font-semibold text-white">Erro ao carregar fluxograma</h2>
 			<p class="mb-4 text-sm text-red-300/80">{store.state.error}</p>
-			<button
-				onclick={() =>
-					matrizCurricular?.trim()
-						? store.loadCourseDataByCurriculoCompleto(matrizCurricular.trim())
-						: courseName && store.loadCourseData(courseName)
-				}
-				class="rounded-full bg-white/10 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20"
-			>
-				Tentar novamente
-			</button>
+			<div class="flex flex-col items-center gap-3">
+				<button
+					onclick={() =>
+						matrizCurricular?.trim()
+							? store.loadCourseDataByCurriculoCompleto(matrizCurricular.trim())
+							: courseName && store.loadCourseData(courseName)
+					}
+					class="rounded-full bg-white/10 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20"
+				>
+					Tentar novamente
+				</button>
+				<button
+					onclick={() => goto(ROUTES.UPLOAD_HISTORICO)}
+					class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-700 px-6 py-2 text-sm font-semibold text-white transition-transform hover:scale-105"
+				>
+					<Upload class="h-4 w-4" />
+					Enviar histórico novamente
+				</button>
+			</div>
 		</div>
 	{:else if !userFluxograma}
 		<div class="mx-auto max-w-md rounded-2xl border border-white/10 bg-black/40 p-8 text-center backdrop-blur-md">
@@ -169,25 +188,23 @@
 			<FluxogramaHeader
 				courseName={store.state.courseData.nomeCurso}
 				matrizCurricular={store.state.courseData.matrizCurricular}
+				tipoCurso={store.state.courseData.tipoCurso}
+				{matrizes}
+				{curriculoCompletoAtual}
+				onMatrizChange={handleMatrizChange}
 				{containerRef}
 			/>
 
-			<!-- Progress summary -->
+			<!-- Progress summary (CH, semestre) -->
 			<ProgressSummarySection
 				courseData={store.state.courseData}
 				userFluxograma={store.userFluxograma}
-				effectiveCompletedCount={store.completedCodes.size}
+				{integralizacao}
+				integralizacaoLoading={integralizacaoLoading}
+				{matrizes}
+				{curriculoCompletoAtual}
+				onMatrizChange={handleMatrizChange}
 			/>
-
-			<!-- Integralização (exigido vs realizado por CH da matriz) -->
-			{#if store.state.courseData && !store.state.isAnonymous}
-				<IntegralizacaoSection
-					integralizacao={integralizacao}
-					matrizes={matrizes}
-					curriculoCompletoAtual={curriculoCompletoAtual}
-					onMatrizChange={handleMatrizChange}
-				/>
-			{/if}
 
 			<!-- Legend and controls -->
 			<FluxogramaLegendControls

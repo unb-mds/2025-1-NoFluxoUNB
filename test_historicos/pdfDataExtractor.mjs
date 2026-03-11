@@ -138,20 +138,38 @@ const SITUACAO_MAP = {
 // ─── Metadata extractors ───
 
 export function extrairCurso(texto) {
+  // Normalize line endings for consistent matching
+  const normalizedText = texto.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  
+  // Pattern 0: Multi-line course name where name appears BEFORE "Curso:" label
+  // Example:
+  //   Dados do Vínculo do(a) Discente
+  //   ENGENHARIA MECATRÔNICA - CONTROLE E AUTOMAÇÃO/FTD - ENGENHEIRO DE CONTROLE E
+  //   Curso:
+  //   AUTOMAÇÃO - DIURNO
+  // The course name is split with part before "Curso:" and part after
+  let m = normalizedText.match(
+    /(?:Discente|do Discente)\s*\n([A-ZÀ-ÿ][A-ZÀ-ÿ\s-]+)\/[A-Z]+ - [A-ZÀ-ÿ\s]+\nCurso:\s*\n[A-ZÀ-ÿ][A-ZÀ-ÿ\s]+\s+-\s+\w+/i
+  );
+  if (m) {
+    // Return the course name (before the campus code)
+    return m[1].trim().replace(/\s{2,}/g, ' ');
+  }
+
   // Pattern 1: "Curso:\n<NAME>/CAMPUS - ..."
-  let m = texto.match(
+  m = normalizedText.match(
     /Curso:\s*\n([A-ZÀ-ÿ][A-ZÀ-ÿ\s]+(?:DE\s+[A-ZÀ-ÿ\s]+)*)\/[A-Z]+ - [A-ZÀ-ÿ\s]+ - [A-ZÀ-ÿ]+/mi
   );
   if (m) return m[1].trim();
 
   // Pattern 2: "Curso:          NAME/CAMPUS-..."  (with varying whitespace and hyphens)
-  m = texto.match(
+  m = normalizedText.match(
     /Curso:\s+([A-ZÀ-ÿ][A-ZÀ-ÿ\s]+(?:DE\s+[A-ZÀ-ÿ\s]+)*)\/[A-Z]+\s*-/mi
   );
   if (m) return m[1].trim();
 
   // Pattern 3: "Curso: NAME Status:"
-  m = texto.match(/Curso[:\s]+([A-ZÀ-Ÿ\s/\\-]+?)(?:\s+Status:|$)/mi);
+  m = normalizedText.match(/Curso[:\s]+([A-ZÀ-Ÿ\s/\\-]+?)(?:\s+Status:|$)/mi);
   if (m) return m[1].trim();
 
   return null;

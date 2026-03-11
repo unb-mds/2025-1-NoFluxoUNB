@@ -16,6 +16,23 @@ def normalize(text):
     return ' '.join(text.strip().lower().split())
 
 
+def normalizar_turno_para_arquivo(turno):
+    """
+    Normaliza o turno para uso no nome do arquivo.
+    Mesmo ano/semestre com turnos diferentes = curriculos diferentes (ex: direito 2019.2 diurno vs noturno).
+    """
+    if not turno or not turno.strip():
+        return 'sem-turno'
+    t = turno.strip().upper()
+    if 'NOTURNO' in t or t == 'NOTURNO':
+        return 'noturno'
+    if 'DIURNO' in t or 'MATUTINO' in t or 'VESPERTINO' in t:
+        return 'diurno'
+    if 'INTEGRAL' in t:
+        return 'integral'
+    return normalize(turno).replace(' ', '-')[:20]
+
+
 def remover_acentos(texto):
     return unicodedata.normalize('NFKD', texto).encode('ASCII', 'ignore').decode('ASCII')
 
@@ -79,46 +96,128 @@ def extract_prazos_cargas(relatorio_html):
     return out
 
 
+def _extrair_natureza_da_celula(td):
+    """Extrai 'Obrigatória' ou 'Optativa' da célula Natureza (segunda coluna)."""
+    if not td:
+        return 'Optativa'  # fallback
+    texto = td.get_text(strip=True).lower()
+    if 'obrigat' in texto:
+        return 'Obrigatória'
+    if 'optativa' in texto:
+        return 'Optativa'
+    return 'Optativa'  # fallback
+
+
+def _parse_estrutura_celula(texto):
+    """Parse 'CODIGO - NOME - Xh' retornando (codigo, nome, ch)."""
+    m = re.match(r'^([A-Z0-9]+)\s*-\s*(.+?)\s*-\s*(\d+)h\s*$', texto, re.IGNORECASE | re.DOTALL)
+    if m:
+        codigo = remover_acentos(m.group(1)).upper()
+        nome = remover_acentos(m.group(2)).upper().strip()
+        ch = m.group(3)
+        if 'CH TOTAL' in nome or 'CH MINIMA' in nome:
+            return None
+        return {'codigo': codigo, 'nome': nome, 'ch': ch}
+    return None
+
+
 def extract_dados_por_nivel(relatorio_html):
+    """
+    Extrai dados por nível a partir do HTML da estrutura curricular.
+    Usa a estrutura de tabelas (tr.tituloRelatorio, tr.componentes) para obter
+    codigo, nome, ch e natureza (Obrigatória/Optativa) de cada matéria.
+    """
     soup = BeautifulSoup(relatorio_html, 'html.parser')
-    texto = soup.get_text(separator=' ', strip=True).lower()
-
-    blocos = re.split(r'(\d+º nível)', texto, flags=re.IGNORECASE)
     niveis = []
-    for i in range(1, len(blocos), 2):
-        nome_nivel = remover_acentos(blocos[i]).upper()
-        nome_nivel = re.sub(r'(\d+)O NIVEL', r'\1° NIVEL', nome_nivel)
-        conteudo = blocos[i + 1]
-        conteudo = re.split(r'cadeia|grupo de componentes', conteudo, flags=re.IGNORECASE)[0]
-        materias = []
-        for m in re.findall(r'([a-z0-9]+)\s*-\s*(.*?)\s*-\s*(\d+)h', conteudo, flags=re.IGNORECASE):
-            nome_materia = remover_acentos(m[1]).upper()
-            if 'CH TOTAL' in nome_materia or 'CH MINIMA' in nome_materia:
-                continue
-            materias.append({
-                'codigo': remover_acentos(m[0]).upper(),
-                'nome': nome_materia,
-                'ch': m[2]
-            })
-        if materias:
-            niveis.append({'nivel': nome_nivel, 'materias': materias})
 
-    match_optativas = re.search(r'(optativas[\w\s]*)(.*)', texto, flags=re.IGNORECASE)
-    if match_optativas:
-        conteudo_opt = match_optativas.group(2)
-        conteudo_opt = re.split(r'cadeia|grupo de componentes', conteudo_opt, flags=re.IGNORECASE)[0]
-        materias_opt = []
-        for m in re.findall(r'([a-z0-9]+)\s*-\s*(.*?)\s*-\s*(\d+)h', conteudo_opt, flags=re.IGNORECASE):
-            nome_materia = remover_acentos(m[1]).upper()
-            if 'CH TOTAL' in nome_materia or 'CH MINIMA' in nome_materia:
-                continue
-            materias_opt.append({
-                'codigo': remover_acentos(m[0]).upper(),
-                'nome': nome_materia,
-                'ch': m[2]
-            })
-        if materias_opt:
-            niveis.append({'nivel': 'OPTATIVAS', 'materias': materias_opt})
+    # Encontra todas as linhas tr na página
+    all_trs = soup.find_all('tr')
+    i = 0
+    while i < len(all_trs):
+        tr = all_trs[i]
+        classes = tr.get('class', [])
+
+        # tr.tituloRelatorio define o início de uma seção (ex: "1º Nível", "Optativas")
+        if 'tituloRelatorio' in classes:
+            td_titulo = tr.find('td')
+            if td_titulo:
+                nome_nivel = td_titulo.get_text(strip=True)
+                nome_nivel_norm = remover_acentos(nome_nivel).upper()
+                nome_nivel_norm = re.sub(r'(\d+)O NIVEL', r'\1° NIVEL', nome_nivel_norm)
+
+                # Coleta as linhas tr.componentes seguintes até outra seção
+                materias = []
+                j = i + 1
+                while j < len(all_trs):
+                    tr_comp = all_trs[j]
+                    if 'tituloRelatorio' in (tr_comp.get('class') or []):
+                        break
+                    if 'header' in (tr_comp.get('class') or []):
+                        j += 1
+                        continue
+                    if 'componentes' in (tr_comp.get('class') or []):
+                        tds = tr_comp.find_all('td')
+                        if len(tds) >= 2:
+                            texto_estrutura = tds[0].get_text(strip=True)
+                            parsed = _parse_estrutura_celula(texto_estrutura)
+                            if parsed:
+                                natureza = _extrair_natureza_da_celula(tds[1] if len(tds) > 1 else None)
+                                parsed['natureza'] = natureza
+                                materias.append(parsed)
+                    else:
+                        # Linha sem classe componentes (ex: CH Total) - para esta seção
+                        txt = tr_comp.get_text(strip=True)
+                        if 'CH Total' in txt or 'CH Mínima' in txt:
+                            pass  # ignora, continua
+                        else:
+                            break
+                    j += 1
+
+                if materias:
+                    niveis.append({'nivel': nome_nivel_norm, 'materias': materias})
+                i = j - 1  # pula até a última linha processada
+        i += 1
+
+    # Fallback: se não encontrou via HTML estruturado, usa regex no texto (sem natureza)
+    if not niveis:
+        texto = soup.get_text(separator=' ', strip=True).lower()
+        blocos = re.split(r'(\d+º nível)', texto, flags=re.IGNORECASE)
+        for idx in range(1, len(blocos), 2):
+            nome_nivel = remover_acentos(blocos[idx]).upper()
+            nome_nivel = re.sub(r'(\d+)O NIVEL', r'\1° NIVEL', nome_nivel)
+            conteudo = blocos[idx + 1]
+            conteudo = re.split(r'cadeia|grupo de componentes', conteudo, flags=re.IGNORECASE)[0]
+            materias = []
+            for m in re.findall(r'([a-z0-9]+)\s*-\s*(.*?)\s*-\s*(\d+)h', conteudo, flags=re.IGNORECASE):
+                nome_materia = remover_acentos(m[1]).upper()
+                if 'CH TOTAL' in nome_materia or 'CH MINIMA' in nome_materia:
+                    continue
+                materias.append({
+                    'codigo': remover_acentos(m[0]).upper(),
+                    'nome': nome_materia,
+                    'ch': m[2],
+                    'natureza': 'Obrigatória' if 'nivel' in nome_nivel.lower() and 'optativa' not in nome_nivel.lower() else 'Optativa'
+                })
+            if materias:
+                niveis.append({'nivel': nome_nivel, 'materias': materias})
+
+        match_optativas = re.search(r'(optativas[\w\s]*)(.*)', texto, flags=re.IGNORECASE)
+        if match_optativas:
+            conteudo_opt = match_optativas.group(2)
+            conteudo_opt = re.split(r'cadeia|grupo de componentes', conteudo_opt, flags=re.IGNORECASE)[0]
+            materias_opt = []
+            for m in re.findall(r'([a-z0-9]+)\s*-\s*(.*?)\s*-\s*(\d+)h', conteudo_opt, flags=re.IGNORECASE):
+                nome_materia = remover_acentos(m[1]).upper()
+                if 'CH TOTAL' in nome_materia or 'CH MINIMA' in nome_materia:
+                    continue
+                materias_opt.append({
+                    'codigo': remover_acentos(m[0]).upper(),
+                    'nome': nome_materia,
+                    'ch': m[2],
+                    'natureza': 'Optativa'
+                })
+            if materias_opt:
+                niveis.append({'nivel': 'OPTATIVAS', 'materias': materias_opt})
 
     return niveis
 
@@ -176,13 +275,20 @@ def scrape_estruturas():
         print("Erro: <tbody> não encontrado na tabela.")
         return
 
-    for tr in tbody.find_all('tr', class_=['linhaImpar', 'linhaPar']):
+    # Cada <tr> com linhaImpar/linhaPar é uma linha de curso (Nome, Grau, Turno, Sede, etc.)
+    # Processar CADA linha individualmente - curriculo muda conforme DIURNO/NOTURNO
+    linhas_curso = tbody.find_all('tr', class_=['linhaImpar', 'linhaPar'])
+    print(f"Total de linhas de curso a processar: {len(linhas_curso)}")
+
+    for idx, tr in enumerate(linhas_curso):
         cols = tr.find_all('td')
         if len(cols) == 0:
             continue
 
         nome_curso = cols[0].get_text(strip=True)
-        tipo_curso = cols[1].get_text(strip=True)  # <<<<<< ADICIONADO
+        tipo_curso = cols[1].get_text(strip=True)
+        turno = cols[2].get_text(strip=True) if len(cols) > 2 else ''
+        turno_arquivo = normalizar_turno_para_arquivo(turno)
 
         link_tag = tr.find('a', href=True, title="Visualizar Página do Curso")
         if not link_tag:
@@ -190,7 +296,7 @@ def scrape_estruturas():
             continue
 
         curso_url = requests.compat.urljoin(base_url, link_tag['href'])
-        print(f"Processando curso: {nome_curso}")
+        print(f"[{idx + 1}/{len(linhas_curso)}] Processando: {nome_curso} ({turno or 'sem turno'})")
         print(f"DEBUG: Link do curso: {curso_url}")
 
         resp = session.get(curso_url)
@@ -255,11 +361,15 @@ def scrape_estruturas():
                     periodo_letivo_vigor = td.get_text(strip=True)
 
             nome_arquivo = periodo_letivo_vigor if periodo_letivo_vigor else (id_arquivo if id_arquivo else f'estructura{idx+1}')
-            output_path = os.path.join(output_dir, f"{normalize(nome_curso)} - {nome_arquivo}.json")
+            nome_base = f"{normalize(nome_curso)} - {nome_arquivo}"
+            if turno_arquivo and turno_arquivo != 'sem-turno':
+                nome_base += f" - {turno_arquivo}"
+            output_path = os.path.join(output_dir, f"{nome_base}.json")
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump({
                     'curso': nome_curso,
                     'tipo_curso': tipo_curso,
+                    'turno': turno,
                     'curriculo': curriculo,
                     'periodo_letivo_vigor': periodo_letivo_vigor,
                     'prazos_cargas': prazos_cargas,

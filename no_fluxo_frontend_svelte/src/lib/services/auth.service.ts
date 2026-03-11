@@ -252,11 +252,6 @@ export class AuthService {
 	 */
 	setAnonymous(): void {
 		authStore.setAnonymous(true);
-
-		// Set cookie for SSR
-		if (typeof document !== 'undefined') {
-			document.cookie = 'nofluxo_anonimo=true; path=/; max-age=31536000; samesite=lax';
-		}
 	}
 
 	/**

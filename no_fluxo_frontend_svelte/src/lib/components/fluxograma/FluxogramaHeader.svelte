@@ -1,23 +1,46 @@
 <script lang="ts">
-	import { ArrowLeft, Camera, RefreshCw } from 'lucide-svelte';
+	import { ArrowLeft, Camera, RefreshCw, Home, LayoutGrid } from 'lucide-svelte';
 	import { goto } from '$app/navigation';
 	import { ROUTES } from '$lib/config/routes';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { fluxogramaService } from '$lib/services/fluxograma.service';
 	import { authStore } from '$lib/stores/auth';
 	import { toast } from 'svelte-sonner';
+	import { parseCurriculoCompleto } from '$lib/types/matriz';
 
 	interface Props {
 		courseName: string;
 		matrizCurricular?: string;
+		/** Ex.: Bacharelado, Licenciatura — vem da tabela cursos.tipo_curso */
+		tipoCurso?: string | null;
+		/** Lista de matrizes do mesmo curso para o seletor "Trocar matriz" */
+		matrizes?: Array<{ curriculoCompleto: string }>;
+		curriculoCompletoAtual?: string | null;
+		onMatrizChange?: (curriculoCompleto: string) => void;
 		containerRef?: HTMLElement | null;
+		/** Mostra botão "Voltar ao meu fluxograma" quando está vendo outro curso (simulação) */
+		showBackToMyFluxogram?: boolean;
 	}
 
-	let { courseName, matrizCurricular = '', containerRef = null }: Props = $props();
+	let {
+		courseName,
+		matrizCurricular = '',
+		tipoCurso = null,
+		matrizes = [],
+		curriculoCompletoAtual = null,
+		onMatrizChange,
+		containerRef = null,
+		showBackToMyFluxogram = false
+	}: Props = $props();
 
 	const store = fluxogramaStore;
 	let showConfirmDelete = $state(false);
 	let isDeleting = $state(false);
+
+	function formatMatrizLabel(cc: string) {
+		const p = parseCurriculoCompleto(cc);
+		return `${p.codigoCurso}/${p.versao}${p.ano ? ` - ${p.ano}` : ''}`;
+	}
 
 	function handleBack() {
 		goto(ROUTES.FLUXOGRAMAS);
@@ -43,30 +66,71 @@
 			showConfirmDelete = false;
 		}
 	}
+
+	function handleBackToMyFluxogram() {
+		goto(ROUTES.MEU_FLUXOGRAMA);
+	}
 </script>
 
-<header class="flex flex-wrap items-center justify-between gap-4">
-	<div class="flex items-center gap-3">
-		<button
-			onclick={handleBack}
-			class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/70 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white"
-			aria-label="Voltar"
-		>
-			<ArrowLeft class="h-5 w-5" />
-		</button>
-		<div>
-			<h1 class="text-xl font-bold text-white sm:text-2xl">{courseName}</h1>
-			{#if matrizCurricular}
-				<p class="text-sm text-white/50">{matrizCurricular}</p>
-			{/if}
+<header class="flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4">
+	<div class="flex min-w-0 flex-1 flex-col gap-1 sm:gap-1.5">
+		<div class="flex min-w-0 items-center gap-3">
+			<button
+				onclick={handleBack}
+				class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/70 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white sm:h-10 sm:w-10"
+				aria-label="Voltar"
+			>
+				<ArrowLeft class="h-4 w-4 sm:h-5 sm:w-5" />
+			</button>
+			<div class="min-w-0 flex-1">
+				<h1 class="truncate text-lg font-bold text-white sm:text-xl md:text-2xl">{courseName}</h1>
+				<div class="mt-0.5 flex flex-wrap items-center gap-2">
+					{#if tipoCurso?.trim()}
+						<span
+							class="inline-flex items-center rounded-md bg-black/60 px-2 py-0.5 text-xs font-medium text-white/90 backdrop-blur-sm"
+						>
+							{tipoCurso.trim()}
+						</span>
+					{/if}
+					{#if matrizCurricular}
+						<p class="truncate text-xs text-white/50 sm:text-sm">{matrizCurricular}</p>
+					{/if}
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div class="flex items-center gap-2">
+	<div class="flex flex-wrap items-center gap-2">
+		{#if matrizes.length > 1 && onMatrizChange}
+			<div
+				class="flex items-center gap-2 rounded-full border border-white/5 bg-black/20 px-3 py-1.5 backdrop-blur-sm transition-colors hover:bg-black/30"
+			>
+				<LayoutGrid class="h-3.5 w-3.5 shrink-0 text-white/50 sm:h-4 sm:w-4" />
+				<select
+					class="min-w-0 rounded-lg border-0 bg-white/5 py-1 pr-7 pl-2 text-xs text-white/90 focus:bg-white/10 focus:ring-1 focus:ring-cyan-500/40 focus:outline-none [&>option]:bg-gray-900 [&>option]:text-white"
+					value={curriculoCompletoAtual ?? matrizCurricular ?? ''}
+					onchange={(e) => onMatrizChange((e.target as HTMLSelectElement).value)}
+				>
+					{#each matrizes as m}
+						<option value={m.curriculoCompleto}>{formatMatrizLabel(m.curriculoCompleto)}</option>
+					{/each}
+				</select>
+				<span class="text-xs text-white/60">Trocar matriz</span>
+			</div>
+		{/if}
+		{#if showBackToMyFluxogram}
+			<button
+				onclick={handleBackToMyFluxogram}
+				class="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/40 bg-cyan-500/20 px-3 py-1.5 text-xs font-medium text-cyan-200 backdrop-blur-md transition-colors hover:bg-cyan-500/30 hover:text-cyan-100 sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+			>
+				<Home class="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+				Voltar ao meu fluxograma
+			</button>
+		{/if}
 		{#if !store.state.isAnonymous}
 			{#if showConfirmDelete}
-				<div class="flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1.5 backdrop-blur-md">
-					<span class="text-xs text-red-300">Tem certeza?</span>
+				<div class="flex flex-wrap items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-2.5 py-1.5 backdrop-blur-md sm:px-3">
+					<span class="text-[10px] text-red-300 sm:text-xs">Tem certeza?</span>
 					<button
 						onclick={handleReupload}
 						disabled={isDeleting}
@@ -84,19 +148,20 @@
 			{:else}
 				<button
 					onclick={() => (showConfirmDelete = true)}
-					class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-4 py-2 text-sm font-medium text-white/60 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white"
+					class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/40 px-3 py-1.5 text-xs font-medium text-white/60 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
 				>
-					<RefreshCw class="h-4 w-4" />
-					Enviar Novamente
+					<RefreshCw class="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+					<span class="hidden sm:inline">Enviar Novamente</span>
+					<span class="sm:hidden">Reenviar</span>
 				</button>
 			{/if}
 		{/if}
 
 		<button
 			onclick={handleScreenshot}
-			class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-4 py-2 text-sm font-medium text-white/80 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white"
+			class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/40 px-3 py-1.5 text-xs font-medium text-white/80 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
 		>
-			<Camera class="h-4 w-4" />
+			<Camera class="h-3.5 w-3.5 sm:h-4 sm:w-4" />
 			Screenshot
 		</button>
 	</div>

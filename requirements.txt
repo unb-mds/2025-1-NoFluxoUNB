@@ -18,7 +18,8 @@ tqdm
 pandas
 
 # API Clients and Helpers
-supabase
+# supabase 2.24: compatível com mcp/httpx 0.28, sem pyiceberg (evita compilação C++)
+supabase>=2.24.0,<2.25.0
 tenacity
 
 # AI-Agent
@@ -27,9 +28,10 @@ flask-cors
 requests
 python-dotenv
 
-# MCP
-google-genai
-sentence_transformers
-supabase
+#MCP Agent
+sentence-transformers
+torch
+numpy
+requests
+openai
 mcp
-

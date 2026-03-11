@@ -16,6 +16,19 @@ export interface MatrizModel {
 	chTotalExigida: number | null;
 }
 
+/** Carga horária por categoria (fonte: carga_horaria_integralizada jsonb). */
+export interface CargaHoraria {
+	obrigatoria: number;
+	optativa: number;
+	complementar: number;
+	total: number;
+}
+
+/** Converte horas em créditos (1 crédito = 15h). */
+export function horasParaCreditos(horas: number): number {
+	return Math.round((horas / 15) * 10) / 10;
+}
+
 /** Exigido pela matriz (fonte: SIGAA) vs realizado pelo aluno (soma das disciplinas concluídas). */
 export interface IntegralizacaoCategoria {
 	exigido: number;
@@ -52,17 +65,24 @@ export interface IntegralizacaoResult {
 	codigosObrigatorios: string[];
 	/** Códigos concluídos (aprovados) pelo aluno. */
 	codigosConcluidos: string[];
+	/** Percentuais de integralização (realizado/exigido * 100). */
+	pctObrigatoria: number;
+	pctOptativa: number;
+	pctComplementar: number;
+	pctTotal: number;
 }
 
-/** Decomposição do curriculo_completo para exibição/filtro: "8117/-2 - 2018.2" -> codigo "8117", versao "-2", ano "2018.2". */
+/** Decomposição do curriculo_completo para exibição/filtro: "8117/-2 - 2018.2" ou "8117/-2 - 2018.2 - DIURNO" -> codigo "8117", versao "-2", ano "2018.2". */
 export function parseCurriculoCompleto(curriculoCompleto: string): {
 	codigoCurso: string;
 	versao: string;
 	ano: string;
 } {
 	const s = (curriculoCompleto || '').trim();
-	const beforeBar = s.split('/')[0]?.trim() ?? '';
-	const afterBar = s.split('/')[1]?.trim() ?? '';
+	// Remove sufixo de turno ( - DIURNO / - NOTURNO) para parsing
+	const sNorm = s.replace(/\s*-\s*(DIURNO|NOTURNO)\s*$/i, '').trim();
+	const beforeBar = sNorm.split('/')[0]?.trim() ?? '';
+	const afterBar = sNorm.split('/')[1]?.trim() ?? '';
 	const match = afterBar.match(/\s*-\s*(\d{4}\.\d)\s*$/);
 	const ano = match ? match[1] : '';
 	const versao = match ? afterBar.replace(/\s*-\s*\d{4}\.\d\s*$/, '').trim() : afterBar;
