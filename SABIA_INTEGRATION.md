@@ -1,4 +1,4 @@
-# Integração do Agente Sabiá AI
+# Integração do Agente Sabiá AI - v2.0 (FastAPI)
 
 Este documento explica como o agente Sabiá foi integrado ao sistema NoFluxo UNB e como subir o ambiente completo.
 
@@ -126,7 +126,7 @@ curl -X POST http://localhost:3000/assistente/analyze-sabia \
 Resposta esperada:
 ```json
 {
-  "resultado": "### 🎓 Disciplinas Recomendadas pelo Sabiá...",
+  "success": true,
   "disciplinas": [
     {
       "codigo": "CIC0087",
@@ -135,7 +135,7 @@ Resposta esperada:
       "justificativa": "Fundamentos de ML e algoritmos de IA"
     }
   ],
-  "agente": "sabia"
+  "resposta_completa": "**CIC0087 - APRENDIZADO DE MÁQUINA | Nota: 9/10 | Motivo:** ..."
 }
 ```
 
