@@ -1,5 +1,6 @@
 <script lang="ts">
 	import SignupForm from '$lib/components/auth/SignupForm.svelte';
+	import AuthHomeLink from '$lib/components/auth/AuthHomeLink.svelte';
 	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
 </script>
 
@@ -7,6 +8,7 @@
 	<title>Criar Conta - NoFluxo UNB</title>
 </svelte:head>
 
+<AuthHomeLink />
 <AnimatedBackground />
 
 <div class="flex min-h-screen items-center justify-center px-4">

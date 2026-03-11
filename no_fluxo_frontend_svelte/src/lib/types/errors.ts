@@ -18,56 +18,80 @@ export interface AuthError {
 }
 
 export function parseAuthError(error: unknown): AuthError {
+	let message: string;
 	if (error instanceof Error) {
-		const message = error.message.toLowerCase();
+		message = error.message;
+	} else if (typeof error === 'string') {
+		message = error;
+	} else if (error && typeof (error as { message?: string }).message === 'string') {
+		message = (error as { message: string }).message;
+	} else {
+		message = String(error);
+	}
+	const lower = message.toLowerCase();
 
-		if (message.includes('invalid login credentials')) {
-			return {
-				code: AuthErrorCode.INVALID_CREDENTIALS,
-				message: 'Email ou senha incorretos',
-				originalError: error
-			};
-		}
+	if (lower.includes('invalid login credentials')) {
+		return {
+			code: AuthErrorCode.INVALID_CREDENTIALS,
+			message: 'Email ou senha incorretos',
+			originalError: error
+		};
+	}
 
-		if (message.includes('email not confirmed')) {
-			return {
-				code: AuthErrorCode.EMAIL_NOT_CONFIRMED,
-				message: 'Por favor, confirme seu email antes de fazer login',
-				originalError: error
-			};
-		}
+	if (lower.includes('email not confirmed')) {
+		return {
+			code: AuthErrorCode.EMAIL_NOT_CONFIRMED,
+			message: 'Por favor, confirme seu email antes de fazer login',
+			originalError: error
+		};
+	}
 
-		if (message.includes('user already registered')) {
-			return {
-				code: AuthErrorCode.EMAIL_IN_USE,
-				message: 'Este email já está em uso',
-				originalError: error
-			};
-		}
+	if (lower.includes('user already registered')) {
+		return {
+			code: AuthErrorCode.EMAIL_IN_USE,
+			message: 'Este email já está cadastrado. Faça login ou use outro email.',
+			originalError: error
+		};
+	}
 
-		if (message.includes('password should be at least')) {
-			return {
-				code: AuthErrorCode.WEAK_PASSWORD,
-				message: 'A senha deve ter pelo menos 6 caracteres',
-				originalError: error
-			};
-		}
+	if (lower.includes('password should be at least') || lower.includes('password must be')) {
+		return {
+			code: AuthErrorCode.WEAK_PASSWORD,
+			message: 'A senha deve ter pelo menos 6 caracteres',
+			originalError: error
+		};
+	}
 
-		if (message.includes('session') && message.includes('expired')) {
-			return {
-				code: AuthErrorCode.SESSION_EXPIRED,
-				message: 'Sua sessão expirou. Por favor, faça login novamente',
-				originalError: error
-			};
-		}
+	if (lower.includes('session') && lower.includes('expired')) {
+		return {
+			code: AuthErrorCode.SESSION_EXPIRED,
+			message: 'Sua sessão expirou. Por favor, faça login novamente',
+			originalError: error
+		};
+	}
 
-		if (message.includes('network') || message.includes('fetch')) {
-			return {
-				code: AuthErrorCode.NETWORK_ERROR,
-				message: 'Erro de conexão. Verifique sua internet',
-				originalError: error
-			};
-		}
+	if (lower.includes('network') || lower.includes('fetch') || lower.includes('econnrefused')) {
+		return {
+			code: AuthErrorCode.NETWORK_ERROR,
+			message: 'Erro de conexão. Verifique sua internet',
+			originalError: error
+		};
+	}
+
+	if (lower.includes('email rate limit') || lower.includes('rate limit')) {
+		return {
+			code: AuthErrorCode.BACKEND_ERROR,
+			message: 'Muitas tentativas. Aguarde alguns minutos e tente novamente.',
+			originalError: error
+		};
+	}
+
+	if (lower.includes('signup disabled') || lower.includes('sign up disabled')) {
+		return {
+			code: AuthErrorCode.SIGNUP_DISABLED,
+			message: 'Cadastro temporariamente desativado. Tente mais tarde.',
+			originalError: error
+		};
 	}
 
 	return {

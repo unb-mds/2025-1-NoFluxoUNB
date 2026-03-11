@@ -56,6 +56,15 @@
 				? `${integralizacao.realizado.chTotal.toLocaleString('pt-BR')}h / ${integralizacao.exigido.chTotal.toLocaleString('pt-BR')}h`
 				: `${completedCredits}/${totalCredits}`
 	);
+	let progressPct = $derived(
+		integralizacaoLoading
+			? null
+			: integralizacao && integralizacao.exigido.chTotal > 0
+				? Math.round((integralizacao.realizado.chTotal / integralizacao.exigido.chTotal) * 100)
+				: totalCredits > 0
+					? Math.round((completedCredits / totalCredits) * 100)
+					: null
+	);
 	let progressSublabel = $derived(
 		integralizacaoLoading ? 'aguarde' : integralizacao ? 'horas integralizadas' : 'créditos integralizados'
 	);
@@ -63,6 +72,16 @@
 	let currentSemester = $derived(userFluxograma?.semestreAtual ?? 1);
 
 	let podeAbrirModal = $derived(!!integralizacao && !integralizacaoLoading);
+
+	function circleProgress(percent: number, radius: number) {
+		const circumference = 2 * Math.PI * radius;
+		const offset = circumference - (percent / 100) * circumference;
+		return { circumference, offset };
+	}
+
+	let circleData = $derived(
+		progressPct != null ? circleProgress(progressPct, 28) : null
+	);
 
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'Escape') showChModal = false;
@@ -96,23 +115,64 @@
 				? 'cursor-default'
 				: 'cursor-pointer'}"
 		>
-			<div class="flex items-center gap-4">
-				<div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-green-500/20">
-					{#if integralizacaoLoading}
-						<Loader2 class="h-7 w-7 animate-spin text-green-400" />
-					{:else}
-						<GraduationCap class="h-7 w-7 text-green-400" />
-					{/if}
-				</div>
-				<div>
-					<div class="flex items-center gap-1.5 text-green-400">
-						<span class="text-xs font-semibold uppercase tracking-wider">{progressLabel}</span>
+			<div class="flex items-center justify-between gap-4">
+				<div class="flex min-w-0 items-center gap-4">
+					<div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-green-500/20">
+						{#if integralizacaoLoading}
+							<Loader2 class="h-7 w-7 animate-spin text-green-400" />
+						{:else}
+							<GraduationCap class="h-7 w-7 text-green-400" />
+						{/if}
 					</div>
-					<p class="mt-1 text-lg font-bold text-white">{progressValue}</p>
-					<p class="text-xs text-white/50">{progressSublabel}</p>
-					{#if podeAbrirModal}
-						<p class="mt-1 text-xs text-cyan-400">Clique para ver detalhes</p>
+					<div class="min-w-0">
+						<div class="flex items-center gap-1.5 text-green-400">
+							<span class="text-xs font-semibold uppercase tracking-wider">{progressLabel}</span>
+						</div>
+						<p class="text-xs text-white/50">{progressSublabel}</p>
+						{#if podeAbrirModal}
+							<p class="mt-1 text-xs text-cyan-400">Clique para ver detalhes</p>
+						{/if}
+					</div>
+				</div>
+				<div class="shrink-0 flex items-center gap-3">
+					{#if progressPct != null && circleData}
+						<div class="relative h-16 w-16 flex-shrink-0">
+							<svg class="h-16 w-16 -rotate-90" viewBox="0 0 64 64" aria-hidden="true">
+								<circle
+									cx="32"
+									cy="32"
+									r="28"
+									stroke="rgba(255,255,255,0.12)"
+									stroke-width="5"
+									fill="none"
+								/>
+								<circle
+									cx="32"
+									cy="32"
+									r="28"
+									stroke="#22c55e"
+									stroke-width="5"
+									fill="none"
+									stroke-linecap="round"
+									stroke-dasharray={circleData.circumference}
+									stroke-dashoffset={circleData.offset}
+									class="transition-all duration-600"
+								/>
+							</svg>
+							<div class="absolute inset-0 flex items-center justify-center">
+								<span class="text-lg font-bold text-white">{progressPct}%</span>
+							</div>
+						</div>
+					{:else if progressPct != null}
+						<div class="text-right">
+							<p class="text-2xl font-bold text-white">{progressPct}%</p>
+							<p class="text-xs text-white/50">integralização</p>
+						</div>
 					{/if}
+					<div class="text-right">
+						<p class="text-base font-semibold text-white">{progressValue}</p>
+						<p class="text-xs text-white/50">{progressSublabel}</p>
+					</div>
 				</div>
 			</div>
 		</button>

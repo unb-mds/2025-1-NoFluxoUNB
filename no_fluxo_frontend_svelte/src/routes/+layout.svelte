@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { browser } from '$app/environment';
+	import { goto } from '$app/navigation';
 	import { authStore, isLoading, currentUser, isAuthenticated } from '$lib/stores/auth';
 	import { authService } from '$lib/services/auth.service';
 	import { checkAuth, isPublicRoute } from '$lib/guards/authGuard';
@@ -13,6 +14,32 @@
 	import '../app.css';
 
 	let { children } = $props();
+
+	// Redirect from / to /auth/reset-password when landing with recovery hash or query (Supabase sent redirect_to=origin/ instead of /auth/reset-password)
+	// Redirect from / to /auth/callback when landing with OAuth code (Supabase redirectou para / em vez de /auth/callback)
+	$effect(() => {
+		if (!browser || $page.url.pathname !== '/') return;
+		const code = $page.url.searchParams.get('code');
+		if (code) {
+			const next = $page.url.searchParams.get('next') || '/fluxogramas';
+			const q = new URLSearchParams();
+			q.set('code', code);
+			if (next !== '/fluxogramas') q.set('next', next);
+			goto(`/auth/callback?${q.toString()}`, { replaceState: true });
+			return;
+		}
+		const hash = window.location.hash || '';
+		const type = $page.url.searchParams.get('type');
+		const tokenHash = $page.url.searchParams.get('token_hash');
+		const hasRecoveryHash = hash.includes('type=recovery') || (hash.includes('access_token') && hash.includes('recovery'));
+		const hasRecoveryQuery = type === 'recovery' && (tokenHash || $page.url.searchParams.get('token'));
+		if (hasRecoveryHash) {
+			goto(`/auth/reset-password${hash}`, { replaceState: true });
+		} else if (hasRecoveryQuery) {
+			const q = new URLSearchParams($page.url.searchParams);
+			goto(`/auth/reset-password?${q.toString()}${hash ? hash : ''}`, { replaceState: true });
+		}
+	});
 
 	// Determine layout visibility based on current route
 	let showNavbar = $derived(

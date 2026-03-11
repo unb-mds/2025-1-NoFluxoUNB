@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { authService } from '$lib/services/auth.service';
 	import { goto } from '$app/navigation';
-	import { isLoading, authError } from '$lib/stores/auth';
+	import { isLoading, authError, authStore } from '$lib/stores/auth';
 	import { browser } from '$app/environment';
 	import { AlertTriangle, Eye, EyeOff, Loader2, UserX } from 'lucide-svelte';
 	import GoogleIcon from '$lib/components/icons/GoogleIcon.svelte';
@@ -19,6 +20,11 @@
 	// Field-level validation errors (shown after blur)
 	let emailTouched = $state(false);
 	let passwordTouched = $state(false);
+
+	// Limpa erro global ao abrir a tela de login (evita mostrar erro de cadastro aqui)
+	onMount(() => {
+		authStore.setError(null);
+	});
 
 	let emailError = $derived.by(() => {
 		if (!emailTouched || !email) return '';

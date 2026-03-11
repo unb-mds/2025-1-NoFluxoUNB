@@ -21,7 +21,7 @@ export class UserService {
 			.from('users')
 			.select('*, dados_users(*)')
 			.eq('auth_id', authUser.user.id)
-			.single();
+			.maybeSingle();
 
 		if (error || !data) {
 			console.warn('User profile not found:', error?.message);

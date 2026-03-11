@@ -1,6 +1,9 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { authService } from '$lib/services/auth.service';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
+	import AuthHomeLink from '$lib/components/auth/AuthHomeLink.svelte';
 	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
 	import { AlertTriangle, CheckCircle, Eye, EyeOff } from 'lucide-svelte';
 
@@ -11,6 +14,31 @@
 	let success = $state(false);
 	let showPassword = $state(false);
 	let showConfirm = $state(false);
+	let verifying = $state(true);
+	let linkValid = $state(false);
+
+	onMount(async () => {
+		const tokenHash = $page.url.searchParams.get('token_hash');
+		const type = $page.url.searchParams.get('type');
+
+		if (tokenHash && type === 'recovery') {
+			const result = await authService.verifyRecoveryToken(tokenHash);
+			verifying = false;
+			linkValid = result.success;
+			if (!result.success) {
+				localError = result.error || 'Link inválido ou expirado. Solicite uma nova redefinição de senha.';
+			}
+			return;
+		}
+
+		// Sem token_hash: pode ser fluxo por hash na URL (cliente restaura sessão) ou acesso direto
+		const session = await authService.getSession();
+		verifying = false;
+		linkValid = !!session;
+		if (!session) {
+			localError = 'Acesse pelo link enviado no seu e-mail para redefinir a senha.';
+		}
+	});
 
 	async function handleSubmit(e: SubmitEvent) {
 		e.preventDefault();
@@ -37,6 +65,8 @@
 
 		if (result.success) {
 			success = true;
+			// Encerra a sessão de recovery para não deixar o usuário logado; ele deve entrar com a nova senha
+			await authService.signOut();
 			setTimeout(() => {
 				goto('/login');
 			}, 3000);
@@ -55,14 +85,27 @@
 <AnimatedBackground />
 
 <div class="relative z-10 flex min-h-screen items-center justify-center px-4">
+	<AuthHomeLink />
 	<div class="auth-card">
 		<form onsubmit={handleSubmit}>
 			<h2>Redefinir Senha</h2>
 
-			{#if success}
+			{#if verifying}
+				<div class="auth-loading">
+					<div class="spinner"></div>
+					<span>Verificando link...</span>
+				</div>
+			{:else if !linkValid}
+				<div class="auth-error">
+					<AlertTriangle class="h-5 w-5 shrink-0 text-amber-600" />
+					<span>{localError}</span>
+				</div>
+				<a href="/password-recovery" class="auth-link">Solicitar novo link</a>
+				<a href="/login" class="auth-link">Voltar ao login</a>
+			{:else if success}
 				<div class="auth-success">
 					<CheckCircle class="h-5 w-5 shrink-0 text-emerald-600" />
-					<span>Senha atualizada com sucesso! Redirecionando para o login...</span>
+					<span>Senha atualizada. Faça login com sua nova senha. Redirecionando...</span>
 				</div>
 			{:else}
 				{#if localError}
@@ -135,6 +178,43 @@
 
 	.form-group {
 		margin-bottom: 1rem;
+	}
+
+	.auth-loading {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 1rem 0;
+		color: #374151;
+	}
+
+	.auth-loading .spinner {
+		width: 32px;
+		height: 32px;
+		border: 3px solid rgba(37, 99, 235, 0.2);
+		border-top-color: #2563eb;
+		border-radius: 50%;
+		animation: spin 0.8s linear infinite;
+	}
+
+	.auth-link {
+		display: block;
+		text-align: center;
+		margin-top: 0.75rem;
+		color: #2563eb;
+		text-decoration: none;
+		font-size: 14px;
+	}
+
+	.auth-link:hover {
+		text-decoration: underline;
+	}
+
+	@keyframes spin {
+		to {
+			transform: rotate(360deg);
+		}
 	}
 
 	label {

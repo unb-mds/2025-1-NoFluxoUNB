@@ -205,17 +205,48 @@ export class SupabaseDataService {
 
 	/**
 	 * Busca tipo_curso e turno na tabela cursos por id_curso (para enriquecer a lista da view).
+	 * Faz queries em lotes para evitar limite do PostgREST com muitos ids.
 	 */
 	async getCursosTipoTurno(idCursos: number[]): Promise<Map<number, { tipo_curso: string | null; turno: string | null }>> {
-		if (idCursos.length === 0) return new Map();
+		const map = new Map<number, { tipo_curso: string | null; turno: string | null }>();
+		if (idCursos.length === 0) return map;
 		const ids = [...new Set(idCursos)].filter((id) => Number.isInteger(id));
-		if (ids.length === 0) return new Map();
+		if (ids.length === 0) return map;
+
+		const CHUNK = 80;
+		for (let i = 0; i < ids.length; i += CHUNK) {
+			const chunk = ids.slice(i, i + CHUNK);
+			const { data, error } = await this.supabase
+				.from('cursos')
+				.select('id_curso, tipo_curso, turno')
+				.in('id_curso', chunk);
+			if (error) {
+				console.warn('[getCursosTipoTurno] Erro ao buscar tipo/turno:', error.message);
+				continue;
+			}
+			for (const row of data ?? []) {
+				const r = row as Record<string, unknown>;
+				const rawId = r.id_curso ?? r.idCurso;
+				const id = rawId != null && rawId !== '' ? Number(rawId) : NaN;
+				if (Number.isNaN(id)) continue;
+				const tipo = r.tipo_curso != null ? String(r.tipo_curso).trim() || null : (r.tipoCurso != null ? String(r.tipoCurso).trim() || null : null);
+				const turno = r.turno != null ? String(r.turno).trim() || null : null;
+				map.set(id, { tipo_curso: tipo, turno });
+			}
+		}
+		return map;
+	}
+
+	/**
+	 * Busca todos os id_curso, tipo_curso, turno da tabela cursos (sem filtro).
+	 * Não usa cache. Se RLS bloquear, retorna mapa vazio.
+	 */
+	async getCursosTipoTurnoFull(): Promise<Map<number, { tipo_curso: string | null; turno: string | null }>> {
 		const { data, error } = await this.supabase
 			.from('cursos')
-			.select('id_curso, tipo_curso, turno')
-			.in('id_curso', ids);
+			.select('id_curso, tipo_curso, turno');
 		if (error) {
-			console.warn('[getCursosTipoTurno] Erro ao buscar tipo/turno:', error.message);
+			console.warn('[getCursosTipoTurnoFull] Erro:', error.message);
 			return new Map();
 		}
 		const map = new Map<number, { tipo_curso: string | null; turno: string | null }>();
@@ -227,6 +258,38 @@ export class SupabaseDataService {
 			const tipo = r.tipo_curso != null ? String(r.tipo_curso).trim() || null : (r.tipoCurso != null ? String(r.tipoCurso).trim() || null : null);
 			const turno = r.turno != null ? String(r.turno).trim() || null : null;
 			map.set(id, { tipo_curso: tipo, turno });
+		}
+		return map;
+	}
+
+	/**
+	 * Busca tipo_curso e turno por id_curso (uma requisição por id).
+	 * Usado quando getCursosTipoTurnoFull retorna vazio (ex.: RLS só permite leitura por id).
+	 * Mesma query que a tela de info do curso usa: .eq('id_curso', id).single()
+	 */
+	async getCursosTipoTurnoPorIds(ids: number[]): Promise<Map<number, { tipo_curso: string | null; turno: string | null }>> {
+		const map = new Map<number, { tipo_curso: string | null; turno: string | null }>();
+		const unicos = [...new Set(ids)].filter((id) => Number.isInteger(id));
+		const BATCH = 15;
+		for (let i = 0; i < unicos.length; i += BATCH) {
+			const chunk = unicos.slice(i, i + BATCH);
+			const results = await Promise.all(
+				chunk.map(async (id) => {
+					const { data, error } = await this.supabase
+						.from('cursos')
+						.select('id_curso, tipo_curso, turno')
+						.eq('id_curso', id)
+						.maybeSingle();
+					if (error || !data) return { id, tipo: null as string | null, turno: null as string | null };
+					const r = data as Record<string, unknown>;
+					const tipo = r.tipo_curso != null ? String(r.tipo_curso).trim() || null : (r.tipoCurso != null ? String(r.tipoCurso).trim() || null : null);
+					const turno = r.turno != null ? String(r.turno).trim() || null : null;
+					return { id, tipo, turno };
+				})
+			);
+			for (const { id, tipo, turno } of results) {
+				map.set(id, { tipo_curso: tipo, turno });
+			}
 		}
 		return map;
 	}
@@ -409,7 +472,7 @@ export class SupabaseDataService {
 			.from('users')
 			.select('*, dados_users(*)')
 			.eq('auth_id', authUser.user.id)
-			.single();
+			.maybeSingle();
 
 		if (error) {
 			console.warn('User profile not found:', error.message);

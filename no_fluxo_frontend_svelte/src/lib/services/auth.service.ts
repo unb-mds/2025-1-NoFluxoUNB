@@ -2,6 +2,7 @@ import { createSupabaseBrowserClient } from '$lib/supabase/client';
 import { authStore } from '$lib/stores/auth';
 import type { UserModel } from '$lib/types';
 import { createUserModelFromJson } from '$lib/factories';
+import { parseAuthError } from '$lib/types/errors';
 import type { User, Session } from '@supabase/supabase-js';
 
 export class AuthService {
@@ -24,7 +25,7 @@ export class AuthService {
 				.from('users')
 				.select('*, dados_users(*)')
 				.eq('auth_id', authUser.user.id)
-				.single();
+				.maybeSingle();
 
 			if (error || !data) {
 				return { success: false, error: error?.message || 'User not found' };
@@ -69,10 +70,19 @@ export class AuthService {
 				if (error.code === '23505') {
 					return this.databaseSearchUser();
 				}
-				return { success: false, error: error.message };
+				// RLS ou permissão — mensagem mais clara
+				const friendlyMessage =
+					error.message?.includes('row-level security') ||
+					error.message?.includes('policy') ||
+					error.code === '42501'
+						? 'Não foi possível criar sua conta. Tente novamente ou contate o suporte.'
+						: error.message;
+				console.error('databaseRegisterUser error:', error.code, error.message);
+				return { success: false, error: friendlyMessage };
 			}
 
 			const user = createUserModelFromJson(data as Record<string, unknown>);
+			user.token = (await this.supabase.auth.getSession()).data.session?.access_token ?? null;
 			return { success: true, user };
 		} catch (error) {
 			console.error('databaseRegisterUser error:', error);
@@ -100,12 +110,13 @@ export class AuthService {
 			});
 
 			if (error) {
-				authStore.setError(error.message);
-				return { success: false, error: error.message };
+				const msg = parseAuthError(error).message;
+				authStore.setError(msg);
+				return { success: false, error: msg };
 			}
 
 			if (!data.user) {
-				const msg = 'Erro ao criar conta no Supabase';
+				const msg = 'Erro ao criar conta. Tente novamente.';
 				authStore.setError(msg);
 				return { success: false, error: msg };
 			}
@@ -119,14 +130,15 @@ export class AuthService {
 			if (!dbResult.success) {
 				// Rollback: sign out from Supabase
 				await this.supabase.auth.signOut();
-				authStore.setError(dbResult.error);
-				return { success: false, error: dbResult.error };
+				const msg = parseAuthError(dbResult.error).message;
+				authStore.setError(msg);
+				return { success: false, error: msg };
 			}
 
 			authStore.setUser(dbResult.user);
 			return { success: true, user: data.user };
 		} catch (error) {
-			const msg = `Erro inesperado: ${error}`;
+			const msg = parseAuthError(error).message;
 			authStore.setError(msg);
 			return { success: false, error: msg };
 		}
@@ -148,8 +160,9 @@ export class AuthService {
 			});
 
 			if (error) {
-				authStore.setError(error.message);
-				return { success: false, error: error.message };
+				const msg = parseAuthError(error).message;
+				authStore.setError(msg);
+				return { success: false, error: msg };
 			}
 
 			if (!data.user) {
@@ -175,7 +188,7 @@ export class AuthService {
 			authStore.setUser(result.user);
 			return { success: true, user: result.user };
 		} catch (error) {
-			const msg = `Erro: ${error}`;
+			const msg = parseAuthError(error).message;
 			authStore.setError(msg);
 			return { success: false, error: msg };
 		}
@@ -196,40 +209,86 @@ export class AuthService {
 		});
 
 		if (error) {
-			authStore.setError(error.message);
+			const msg = parseAuthError(error).message;
+			authStore.setError(msg);
 			throw error;
 		}
 	}
 
 	/**
-	 * Handle OAuth callback and sync with backend
+	 * Exchange OAuth code for session and then handle callback (register/lookup user).
+	 * Use this on the /auth/callback page so the same client that did the exchange is used for getSession and DB — fixes new-user Google login.
 	 */
-	async handleOAuthCallback(): Promise<
+	async exchangeCodeForSessionAndHandleCallback(
+		code: string
+	): Promise<{ success: true; user: UserModel } | { success: false; error: string }> {
+		try {
+			const { data, error: exchangeError } = await this.supabase.auth.exchangeCodeForSession(code);
+
+			if (exchangeError) {
+				// Se for erro de PKCE code verifier, tentar fallback com getSession
+				if (exchangeError.message?.includes('code verifier') || exchangeError.message?.includes('PKCE')) {
+					console.warn('PKCE code verifier not found, trying fallback with getSession');
+					return this.handleOAuthCallback();
+				}
+				
+				authStore.setError(parseAuthError(exchangeError).message);
+				return { success: false, error: parseAuthError(exchangeError).message };
+			}
+
+			// Passa a sessão do exchange para não depender de getUser() logo em seguida (evita race em novos usuários)
+			return this.handleOAuthCallback(data.session ?? undefined);
+		} catch (error) {
+			const errorMessage = error instanceof Error ? error.message : String(error);
+			
+			// Se for erro de PKCE, tentar fallback
+			if (errorMessage.includes('code verifier') || errorMessage.includes('PKCE')) {
+				console.warn('PKCE exchange failed, trying fallback with getSession');
+				return this.handleOAuthCallback();
+			}
+			
+			authStore.setError(parseAuthError(errorMessage).message);
+			return { success: false, error: parseAuthError(errorMessage).message };
+		}
+	}
+
+	/**
+	 * Handle OAuth callback and sync with backend.
+	 * @param sessionOptional Se vier do exchangeCodeForSession, usa essa sessão; senão chama getUser().
+	 */
+	async handleOAuthCallback(sessionOptional?: Session): Promise<
 		{ success: true; user: UserModel } | { success: false; error: string }
 	> {
 		try {
 			authStore.setLoading(true);
 
-			const {
-				data: { session },
-				error
-			} = await this.supabase.auth.getSession();
+			let email: string;
+			let displayName: string;
 
-			if (error || !session?.user?.email) {
-				const msg = error?.message || 'Sessão inválida';
-				authStore.setError(msg);
-				return { success: false, error: msg };
+			if (sessionOptional?.user?.email) {
+				email = sessionOptional.user.email;
+				displayName =
+					sessionOptional.user.user_metadata?.name ||
+					sessionOptional.user.user_metadata?.full_name ||
+					'';
+			} else {
+				const { data: authData, error: userError } = await this.supabase.auth.getUser();
+				if (userError || !authData?.user?.email) {
+					const msg = parseAuthError(userError ?? new Error('Sessão inválida ou usuário sem e-mail')).message;
+					authStore.setError(msg);
+					return { success: false, error: msg };
+				}
+				email = authData.user.email;
+				displayName =
+					authData.user.user_metadata?.name ||
+					authData.user.user_metadata?.full_name ||
+					'';
 			}
 
-			const email = session.user.email;
-
-			// Try to find user in database (direct Supabase query)
+			// Tentar encontrar usuário no banco; se não existir (novo usuário Google), registrar
 			let result = await this.databaseSearchUser();
 
 			if (!result.success) {
-				// User not found, register (direct Supabase insert)
-				const displayName =
-					session.user.user_metadata?.name || session.user.user_metadata?.full_name || '';
 				result = await this.databaseRegisterUser(email, displayName);
 			}
 
@@ -238,10 +297,11 @@ export class AuthService {
 				return { success: true, user: result.user };
 			}
 
-			authStore.setError(result.error);
-			return { success: false, error: result.error };
+			const msg = parseAuthError(result.error).message;
+			authStore.setError(msg);
+			return { success: false, error: msg };
 		} catch (error) {
-			const msg = `Erro no callback OAuth: ${error}`;
+			const msg = parseAuthError(error).message;
 			authStore.setError(msg);
 			return { success: false, error: msg };
 		}
@@ -360,7 +420,24 @@ export class AuthService {
 		});
 
 		if (error) {
-			return { success: false, error: error.message };
+			return { success: false, error: parseAuthError(error).message };
+		}
+
+		return { success: true };
+	}
+
+	/**
+	 * Verify recovery token from email link (token_hash + type=recovery in URL).
+	 * Call this when the user lands on /auth/reset-password from the reset email.
+	 */
+	async verifyRecoveryToken(tokenHash: string): Promise<{ success: boolean; error?: string }> {
+		const { error } = await this.supabase.auth.verifyOtp({
+			type: 'recovery',
+			token_hash: tokenHash
+		});
+
+		if (error) {
+			return { success: false, error: parseAuthError(error).message };
 		}
 
 		return { success: true };
@@ -375,7 +452,7 @@ export class AuthService {
 		});
 
 		if (error) {
-			return { success: false, error: error.message };
+			return { success: false, error: parseAuthError(error).message };
 		}
 
 		return { success: true };

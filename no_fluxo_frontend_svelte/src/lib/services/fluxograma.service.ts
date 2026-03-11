@@ -36,19 +36,21 @@ class FluxogramaService {
 	/**
 	 * Get all courses (minimal info for index page)
 	 * REPLACES: GET /cursos/all-cursos
-	 * tipo_curso e turno vêm da tabela cursos (por id_curso da view), para garantir correspondência.
+	 * tipo_curso e turno: 1) getCursosTipoTurnoFull; se vazio, 2) busca por id (mesma query da tela de info do curso).
 	 */
 	async getAllCursos(): Promise<MinimalCursoModel[]> {
 		const viewRows = (await supabaseDataService.getCursosComCreditos()) || [];
 		const rows = viewRows as Record<string, unknown>[];
-		// Ids que realmente aparecem na view (para buscar tipo/turno na tabela cursos)
-		const idsFromView = rows
-			.map((c) => {
-				const raw = c.id_curso ?? c.idCurso;
-				return raw != null && raw !== '' ? Number(raw) : NaN;
-			})
-			.filter((n) => !Number.isNaN(n));
-		const tipoTurnoByCurso = await supabaseDataService.getCursosTipoTurno([...new Set(idsFromView)]);
+		let tipoTurnoByCurso = await supabaseDataService.getCursosTipoTurnoFull();
+		if (tipoTurnoByCurso.size === 0) {
+			const idsFromView = rows
+				.map((c) => {
+					const raw = c.id_curso ?? c.idCurso;
+					return raw != null && raw !== '' ? Number(raw) : NaN;
+				})
+				.filter((n) => !Number.isNaN(n));
+			tipoTurnoByCurso = await supabaseDataService.getCursosTipoTurnoPorIds([...new Set(idsFromView)]);
+		}
 
 		return rows.map((c: Record<string, unknown>, index: number) => {
 			const creditos =

@@ -3,7 +3,6 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { authService } from '$lib/services/auth.service';
-	import { createSupabaseBrowserClient } from '$lib/supabase/client';
 
 	let status = $state('Processando autenticação...');
 	let error = $state('');
@@ -20,18 +19,8 @@
 
 		if (code) {
 			try {
-				// Exchange the OAuth code for a session client-side (PKCE)
-				const supabase = createSupabaseBrowserClient();
-				const { error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
-
-				if (exchangeError) {
-					console.error('OAuth code exchange error:', exchangeError);
-					goto(`/login?error=${encodeURIComponent(exchangeError.message)}`);
-					return;
-				}
-
-				// Handle user registration/lookup in the database
-				const result = await authService.handleOAuthCallback();
+				// Usa o mesmo cliente para exchange + callback (importante para novos usuários Google)
+				const result = await authService.exchangeCodeForSessionAndHandleCallback(code);
 
 				if (result.success) {
 					status = 'Login realizado com sucesso!';
@@ -40,11 +29,17 @@
 					error = result.error;
 				}
 			} catch (err) {
-				error = 'Erro ao processar autenticação';
-				console.error(err);
+				const errorMessage = err instanceof Error ? err.message : String(err);
+				
+				// Se for erro de PKCE code verifier, dar uma mensagem mais clara
+				if (errorMessage.includes('code verifier') || errorMessage.includes('PKCE')) {
+					error = 'Erro na autenticação: o processo foi iniciado em outra aba ou navegador. Tente fazer login novamente.';
+				} else {
+					error = errorMessage;
+				}
+				console.error('Callback error:', err);
 			}
 		} else {
-			// No code param — try the implicit/hash flow
 			try {
 				const result = await authService.handleOAuthCallback();
 
@@ -55,8 +50,8 @@
 					error = result.error;
 				}
 			} catch (err) {
-				error = 'Erro ao processar autenticação';
-				console.error(err);
+				error = err instanceof Error ? err.message : String(err);
+				console.error('Callback error:', err);
 			}
 		}
 	});
