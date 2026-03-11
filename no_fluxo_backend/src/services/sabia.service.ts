@@ -1,11 +1,9 @@
 /**
  * Sabiá AI Agent Service
- * Integrates the Python-based Sabiá agent with the TypeScript backend.
- * Calls the Python script via child_process and returns structured results.
+ * Integrates with the FastAPI-based Sabiá agent (api_producao.py).
+ * Makes HTTP requests to the Python FastAPI server for AI recommendations.
  */
 
-import { spawn } from 'child_process';
-import path from 'path';
 import logger from '../logger';
 
 export interface SabiaDisciplina {
@@ -23,36 +21,35 @@ export interface SabiaResponse {
 }
 
 export class SabiaService {
-    private readonly pythonScriptPath: string;
-    private readonly pythonExePath: string;
+    private readonly apiUrl: string;
     private readonly available: boolean;
 
     constructor() {
-        // Path to the unified Python script (works in both interactive and API mode)
-        this.pythonScriptPath = path.join(__dirname, '../../..', 'mcp_agent', 'agente_sabia.py');
-        
-        // Path to Python executable in venv
-        this.pythonExePath = path.join(__dirname, '../../..', 'venv', 'Scripts', 'python.exe');
+        // URL da API FastAPI (api_producao.py)
+        // Em produção, pode ser configurada via variável de ambiente
+        this.apiUrl = process.env.SABIA_API_URL || 'http://localhost:8000';
         
         // Check if required env vars are set
         logger.info('[SabiaService] Checking environment variables...');
+        logger.info(`[SabiaService] SABIA_API_URL: ${this.apiUrl}`);
         logger.info(`[SabiaService] MARITACA_API_KEY: ${process.env.MARITACA_API_KEY ? process.env.MARITACA_API_KEY.substring(0, 20) + '...' : 'MISSING'}`);
+        logger.info(`[SabiaService] GOOGLE_API_KEY: ${process.env.GOOGLE_API_KEY ? process.env.GOOGLE_API_KEY.substring(0, 20) + '...' : 'MISSING'}`);
         logger.info(`[SabiaService] SUPABASE_URL: ${process.env.SUPABASE_URL ? process.env.SUPABASE_URL.substring(0, 30) + '...' : 'MISSING'}`);
-        logger.info(`[SabiaService] SUPABASE_KEY: ${process.env.SUPABASE_KEY ? process.env.SUPABASE_KEY.substring(0, 20) + '...' : 'MISSING'}`);
         
         const hasMaritaca = !!process.env.MARITACA_API_KEY;
-        const hasSupabase = !!(process.env.SUPABASE_URL && process.env.SUPABASE_KEY);
+        const hasGoogle = !!process.env.GOOGLE_API_KEY;
+        const hasSupabase = !!(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
         
-        this.available = hasMaritaca && hasSupabase;
+        this.available = hasMaritaca && hasGoogle && hasSupabase;
 
         if (!this.available) {
             logger.warn('[SabiaService] Sabiá AI agent unavailable — missing configuration');
             if (!hasMaritaca) logger.warn('[SabiaService] Missing: MARITACA_API_KEY');
-            if (!hasSupabase) logger.warn('[SabiaService] Missing: SUPABASE_URL or SUPABASE_KEY');
+            if (!hasGoogle) logger.warn('[SabiaService] Missing: GOOGLE_API_KEY (for Gemini embeddings)');
+            if (!hasSupabase) logger.warn('[SabiaService] Missing: SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY');
         } else {
             logger.info('[SabiaService] ✅ Sabiá AI agent initialized and ready');
-            logger.info(`[SabiaService] Python exe: ${this.pythonExePath}`);
-            logger.info(`[SabiaService] Python script: ${this.pythonScriptPath}`);
+            logger.info(`[SabiaService] API URL: ${this.apiUrl}`);
         }
     }
 
@@ -63,6 +60,7 @@ export class SabiaService {
 
     /**
      * Analyze a subject interest and return recommended disciplines using Sabiá AI.
+     * Makes an HTTP POST request to the FastAPI server (api_producao.py).
      * 
      * @param interesse - The subject/interest to analyze (e.g., "inteligência artificial")
      * @returns Promise with the Sabiá response containing disciplinas and justifications
@@ -75,81 +73,43 @@ export class SabiaService {
         logger.info(`[SabiaService] Analyzing interesse: "${interesse}"`);
         const startTime = Date.now();
 
-        return new Promise((resolve, reject) => {
-            // Spawn Python process with absolute path
-            logger.info(`[SabiaService] Spawning: ${this.pythonExePath} ${this.pythonScriptPath}`);
-            
-            const python = spawn(this.pythonExePath, [this.pythonScriptPath], {
-                env: {
-                    ...process.env,
-                    MARITACA_API_KEY: process.env.MARITACA_API_KEY,
-                    SUPABASE_URL: process.env.SUPABASE_URL,
-                    SUPABASE_KEY: process.env.SUPABASE_KEY,
+        try {
+            // Make HTTP POST request to FastAPI server
+            const response = await fetch(`${this.apiUrl}/recomendar`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
                 },
+                body: JSON.stringify({ interesse }),
             });
 
-            let stdoutData = '';
-            let stderrData = '';
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`FastAPI returned ${response.status}: ${errorText}`);
+            }
 
-            // Collect stdout
-            python.stdout.on('data', (data) => {
-                const chunk = data.toString();
-                stdoutData += chunk;
-                logger.debug(`[SabiaService] stdout chunk: ${chunk.substring(0, 100)}...`);
-            });
+            const result = await response.json() as SabiaResponse;
+            const duration = Date.now() - startTime;
 
-            // Collect stderr (for debugging)
-            python.stderr.on('data', (data) => {
-                const chunk = data.toString();
-                stderrData += chunk;
-                logger.debug(`[SabiaService] stderr: ${chunk}`);
-            });
+            if (result.success) {
+                logger.info(`[SabiaService] ✅ Analysis completed in ${duration}ms — ${result.disciplinas?.length || 0} disciplinas found`);
+            } else {
+                logger.error(`[SabiaService] ❌ Analysis failed: ${result.error || 'Unknown error'}`);
+            }
 
-            // Handle process completion
-            python.on('close', (code) => {
-                const duration = Date.now() - startTime;
-
-                logger.info(`[SabiaService] Process closed with code ${code} after ${duration}ms`);
-                
-                if (stderrData) {
-                    logger.info(`[SabiaService] stderr output:\n${stderrData}`);
-                }
-
-                if (code !== 0) {
-                    logger.error(`[SabiaService] Python process exited with code ${code}`);
-                    
-                    return reject(new Error(`Python script failed with code ${code}: ${stderrData || 'Unknown error'}`));
-                }
-
-                try {
-                    const result: SabiaResponse = JSON.parse(stdoutData);
-                    
-                    if (result.success) {
-                        logger.info(`[SabiaService] ✅ Analysis completed — ${result.disciplinas?.length || 0} disciplinas found`);
-                    } else {
-                        logger.error(`[SabiaService] ❌ Analysis failed: ${result.error}`);
-                    }
-
-                    resolve(result);
-                } catch (parseError) {
-                    logger.error(`[SabiaService] Failed to parse Python output: ${parseError}`);
-                    logger.error(`[SabiaService] Raw output: ${stdoutData}`);
-                    reject(new Error(`Failed to parse Sabiá response: ${parseError}`));
-                }
-            });
-
-            // Handle process errors
-            python.on('error', (error) => {
-                logger.error(`[SabiaService] Failed to start Python process: ${error.message}`);
-                logger.error(`[SabiaService] Stack: ${error.stack}`);
-                reject(new Error(`Failed to execute Sabiá agent: ${error.message}`));
-            });
-
-            // Send input JSON to Python via stdin with explicit UTF-8 encoding
-            const input = JSON.stringify({ interesse });
-            python.stdin.write(input, 'utf8');
-            python.stdin.end();
-        });
+            return result;
+        } catch (error) {
+            const duration = Date.now() - startTime;
+            const msg = error instanceof Error ? error.message : String(error);
+            logger.error(`[SabiaService] Error after ${duration}ms: ${msg}`);
+            
+            // Check if it's a connection error
+            if (msg.includes('ECONNREFUSED') || msg.includes('fetch failed')) {
+                throw new Error('Cannot connect to Sabiá API. Make sure api_producao.py is running on ' + this.apiUrl);
+            }
+            
+            throw error;
+        }
     }
 
     /**

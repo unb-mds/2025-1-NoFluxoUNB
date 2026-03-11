@@ -1,72 +1,115 @@
-# Integração do Agente Sabiá AI
+# Integração do Agente Sabiá AI - v2.0 (FastAPI)
 
-Este documento explica como o agente Sabiá foi integrado ao sistema NoFluxo UNB.
+Este documento explica como o agente Sabiá v2.0 (FastAPI) foi integrado ao sistema NoFluxo UNB.
 
 ## 📋 Arquitetura
 
 ```
 Frontend (Svelte)
-    ↓
+    ↓ HTTP
 Backend (TypeScript/Node.js)
+    ↓ HTTP POST /recomendar
+API FastAPI (Python) - api_producao.py
     ↓
-Serviço Sabiá (sabia.service.ts)
-    ↓
-Script Python (agente_sabia_api.py)
-    ↓
-Servidor MCP (servidor_mcp_sabia.py)
-    ↓
-Maritaca AI API + Supabase
+Gemini Embeddings (256D) + Maritaca AI + Supabase pgvector
 ```
+
+### Mudanças vs v1.0 (MCP)
+
+| Componente | v1.0 (MCP) | v2.0 (FastAPI) |
+|---|---|---|
+| Comunicação | subprocess stdin/stdout | HTTP REST |
+| Embeddings | Modelo local 420MB | Gemini API |
+| Inicialização | ~30s primeira vez | ~2s |
+| Escalabilidade | 1 processo/request | Assíncrono |
+| Deploy | Complexo (acoplado) | Simples (desacoplado) |
 
 ## 🔧 Configuração
 
 ### 1. Variáveis de Ambiente
 
-Adicione as seguintes variáveis no `.env` do backend (`no_fluxo_backend/.env`):
-
+**Backend** (`no_fluxo_backend/.env`):
 ```env
-# Sabiá AI Agent (Maritaca AI)
+# URL da API FastAPI
+SABIA_API_URL=http://localhost:8000
+
+# Maritaca AI (Sabiá)
 MARITACA_API_KEY=sua_chave_maritaca_aqui
+
+# Google Gemini (Embeddings)
+GOOGLE_API_KEY=sua_chave_google_aqui
+
+# Supabase
 SUPABASE_URL=https://lijmhbstgdinsukovyfl.supabase.co
-SUPABASE_KEY=sua_chave_supabase_anon_aqui
+SUPABASE_SERVICE_ROLE_KEY=sua_service_role_key
+```
+
+**API FastAPI** (`mcp_agent/.env`):
+```env
+# Maritaca AI (Sabiá)
+MARITACA_API_KEY=sua_chave_maritaca_aqui
+
+# Google Gemini (Embeddings)
+GOOGLE_API_KEY=sua_chave_google_aqui
+
+# Supabase
+SUPABASE_URL=https://lijmhbstgdinsukovyfl.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=sua_service_role_key
 ```
 
 ### 2. Dependências Python
-
-Certifique-se de que as dependências Python estão instaladas:
 
 ```bash
 cd mcp_agent
 pip install -r requirements.txt
 ```
 
-Dependências necessárias:
-- `openai` (para API Maritaca)
-- `mcp` (Model Context Protocol)
-- `supabase-py` (cliente Supabase)
-- `sentence-transformers` (embeddings locais)
-
-### 3. Modelo Local de Embeddings
-
-O agente usa um modelo local para gerar embeddings. Certifique-se de que a pasta `mcp_agent/modelo_local` contém o modelo do Sentence Transformers.
+Dependências principais:
+- `fastapi` - Framework web assíncrono
+- `uvicorn` - Servidor ASGI
+- `google-generativeai` - Gemini embeddings
+- `openai` - Maritaca AI (compatível com OpenAI SDK)
+- `supabase-py` - Cliente Supabase
 
 ## 🚀 Como Usar
 
+### Desenvolvimento (3 Terminais)
+
+**Terminal 1 - API FastAPI:**
+```bash
+cd mcp_agent
+start_api.bat  # Windows
+# ou
+./start_api.sh  # Linux/Mac
+```
+
+**Terminal 2 - Backend Node.js:**
+```bash
+cd no_fluxo_backend
+npm run dev
+```
+
+**Terminal 3 - Frontend Svelte:**
+```bash
+cd no_fluxo_frontend_svelte
+npm run dev
+```
+
 ### Endpoint da API
 
-**POST** `/assistente/analyze-sabia`
+**POST** `http://localhost:8000/recomendar`
 
 **Request Body:**
 ```json
 {
-  "materia": "inteligência artificial"
+  "interesse": "inteligência artificial"
 }
 ```
 
 **Response:**
 ```json
 {
-  "resultado": "### 🎓 Disciplinas Recomendadas pelo Sabiá...",
+  "success": true,
   "disciplinas": [
     {
       "codigo": "CIC0087",
@@ -75,7 +118,7 @@ O agente usa um modelo local para gerar embeddings. Certifique-se de que a pasta
       "justificativa": "Foco direto em algoritmos de IA e ML"
     }
   ],
-  "agente": "sabia"
+  "resposta_completa": "**CIC0087 - APRENDIZADO DE MÁQUINA | Nota: 9/10 | Motivo:** ..."
 }
 ```
 
