@@ -138,15 +138,15 @@ class FluxogramaService {
 			createEquivalenciaModelFromJson(eq as Record<string, unknown>)
 		);
 
-		const materiaCodes = new Set(materias.filter((m) => !isOptativa(m)).map((m) => m.codigoMateria));
+		const allMateriaCodes = new Set(materias.map((m) => m.codigoMateria));
+		// Incluir pré-requisitos cujo requisito está na grade (obrigatório ou optativa — "optatória" como pré-req de obrigatória)
 		const preRequisitosInCurso = preRequisitos.filter((pr) => {
 			if (pr.expressaoLogica) {
 				const codigos = getCodigosFromExpressaoLogica(pr.expressaoLogica);
-				return codigos.some((c) => materiaCodes.has(c));
+				return codigos.some((c) => allMateriaCodes.has(c));
 			}
-			return materiaCodes.has(pr.codigoMateriaRequisito);
+			return allMateriaCodes.has(pr.codigoMateriaRequisito);
 		});
-		const allMateriaCodes = new Set(materias.map((m) => m.codigoMateria));
 		const coRequisitosInCurso = coRequisitos.filter((cr) => allMateriaCodes.has(cr.codigoMateriaCoRequisito));
 
 		const maxSemestre = Math.max(...materias.map((m) => m.nivel || 0), 0);

@@ -566,16 +566,14 @@ export function createCursoModelFromJson(json: Record<string, unknown>): CursoMo
 	const allPreRequisitos = preRequisitosJson.map(createPreRequisitoModelFromJson);
 	const allCoRequisitos = coRequisitosJson.map(createCoRequisitoModelFromJson);
 
-	const materiasInCursoFromCodigo = new Set(
-		materias.filter((m) => !(m.tipoNatureza === 1 || (m.tipoNatureza == null && m.nivel === 0))).map((m) => m.codigoMateria)
-	);
-
+	const allMateriaCodes = new Set(materias.map((m) => m.codigoMateria));
+	// Incluir pré-requisitos cujo requisito está na grade (obrigatório ou optativa — "optatória" como pré-req de obrigatória)
 	const preRequisitosInCurso = allPreRequisitos.filter((pr) => {
 		if (pr.expressaoLogica) {
 			const codigos = getCodigosFromExpressaoLogica(pr.expressaoLogica);
-			return codigos.some((c) => materiasInCursoFromCodigo.has(c));
+			return codigos.some((c) => allMateriaCodes.has(c));
 		}
-		return materiasInCursoFromCodigo.has(pr.codigoMateriaRequisito);
+		return allMateriaCodes.has(pr.codigoMateriaRequisito);
 	});
 
 	const materiasInCursoFromCodigoCoReq = new Set(

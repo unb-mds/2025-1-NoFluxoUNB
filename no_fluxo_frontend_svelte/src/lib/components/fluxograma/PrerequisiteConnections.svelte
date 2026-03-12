@@ -597,9 +597,29 @@
 	}
 
 	function getStrokeColor(type: 'prerequisite' | 'dependent' | 'corequisite'): string {
-		if (type === 'corequisite') return '#10b981';
-		return type === 'prerequisite' ? '#a78bfa' : '#2dd4bf';
+		switch (type) {
+			case 'prerequisite': return '#a78bfa';  // violeta
+			case 'dependent': return '#2dd4bf';     // teal
+			case 'corequisite': return '#10b981';   // verde
+			default: return '#a78bfa';
+		}
 	}
+
+	/** Paleta harmônica (círculo cromático): 12 cores distribuídas no HSL para pré-requisitos no modo "todas". */
+	const PALETTE_PREREQ = [
+		'#a78bfa', // violeta
+		'#38bdf8', // azul claro
+		'#2dd4bf', // teal
+		'#34d399', // esmeralda
+		'#a3e635', // lima
+		'#facc15', // amarelo
+		'#fb923c', // laranja
+		'#f87171', // vermelho claro
+		'#f472b6', // rosa
+		'#c084fc', // violeta claro
+		'#818cf8', // índigo
+		'#22d3ee'  // ciano
+	];
 
 	// ─── Reactivity ──────────────────────────────────────────────────
 
@@ -626,7 +646,7 @@
 		style="z-index: 5;"
 	>
 		<defs>
-			<!-- markerUnits="userSpaceOnUse" + ref na ponta: seta fica alinhada ao fim da linha -->
+			<!-- Marcadores por tipo (modo diretas) -->
 			<marker
 				id="arrow-prereq"
 				markerUnits="userSpaceOnUse"
@@ -660,47 +680,45 @@
 			>
 				<polygon points="0 0, 9 4, 0 8" fill="#10b981" />
 			</marker>
-			<!-- Blue arrows for all-connections mode (white during screenshot) -->
-			<marker
-				id="arrow-navy"
-				markerUnits="userSpaceOnUse"
-				markerWidth="10"
-				markerHeight="8"
-				refX="9"
-				refY="4"
-				orient="auto"
-			>
-				<polygon points="0 0, 9 4, 0 8" fill="#3772ff" />
-			</marker>
-			<marker
-				id="arrow-white"
-				markerUnits="userSpaceOnUse"
-				markerWidth="10"
-				markerHeight="8"
-				refX="9"
-				refY="4"
-				orient="auto"
-			>
-				<polygon points="0 0, 9 4, 0 8" fill="#ffffff" />
-			</marker>
+			<!-- Paleta para pré-requisitos (modo "todas") — uma cor por seta -->
+			{#each PALETTE_PREREQ as paletteColor, j}
+				<marker
+					id="arrow-palette-{j}"
+					markerUnits="userSpaceOnUse"
+					markerWidth="10"
+					markerHeight="8"
+					refX="9"
+					refY="4"
+					orient="auto"
+				>
+					<polygon points="0 0, 9 4, 0 8" fill={paletteColor} />
+				</marker>
+			{/each}
 		</defs>
 
 		{#each lines as line, i}
 			{@const hoveredCode = store.state.hoveredSubjectCode}
 			{@const isAllMode = store.state.connectionMode === 'all'}
-			{@const isCapturingScreenshot = store.state.isCapturingScreenshot}
 			{@const isAllWithHover = isAllMode && !!hoveredCode}
 			{@const isRelated = isAllWithHover && isLineRelatedToHovered(line, hoveredCode)}
 			{@const isDimmed = isAllWithHover && !isRelated}
-			{@const strokeColor = isAllMode ? (isCapturingScreenshot ? '#ffffff' : '#3772ff') : getStrokeColor(line.type)}
-			{@const markerUrl = isAllMode ? (isCapturingScreenshot ? 'url(#arrow-white)' : 'url(#arrow-navy)') : (line.type === 'prerequisite' ? 'url(#arrow-prereq)' : line.type === 'dependent' ? 'url(#arrow-dep)' : 'url(#arrow-coreq)')}
+			{@const strokeColor = isAllMode && line.type === 'prerequisite'
+				? PALETTE_PREREQ[i % PALETTE_PREREQ.length]
+				: getStrokeColor(line.type)}
+			{@const markerUrl = isAllMode && line.type === 'prerequisite'
+				? `url(#arrow-palette-${i % PALETTE_PREREQ.length})`
+				: line.type === 'prerequisite'
+					? 'url(#arrow-prereq)'
+					: line.type === 'dependent'
+						? 'url(#arrow-dep)'
+						: 'url(#arrow-coreq)'}
 			<path
-				d={getPath(line)}
+				d={isAllMode && line.routing ? getGapRoutedPath(line) : getPath(line)}
 				fill="none"
 				stroke={strokeColor}
-				stroke-width={isRelated ? '3' : '2'}
-				stroke-opacity={isDimmed ? '0.15' : '0.7'}
-				stroke-dasharray={line.type === 'corequisite' ? '6,4' : 'none'}
+				stroke-width={isRelated ? '3' : isAllMode ? '2.5' : '2'}
+				stroke-opacity={isDimmed ? '0.2' : '0.85'}
+				stroke-dasharray={line.type === 'corequisite' ? '8,5' : 'none'}
 				marker-end={markerUrl}
 				style="transition: stroke-opacity 0.2s, stroke-width 0.2s;"
 			/>
