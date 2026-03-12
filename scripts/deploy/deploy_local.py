@@ -325,6 +325,14 @@ def _collect_deploy_env(cfg: AppConfig) -> dict[str, str] | None:
         value = os.environ.get(key, "").strip()
         if value:
             env[key] = value
+
+    if env:
+        print("\n--- Deploy env vars ---")
+        for key, value in sorted(env.items()):
+            preview = value[:8] + "..." if len(value) > 8 else value
+            print(f"  {key} = {preview} (len={len(value)})")
+        print("---\n")
+
     return env or None
 
 
@@ -635,7 +643,7 @@ def build_parser() -> argparse.ArgumentParser:
     # ── NOTE: Update choices below to match the keys in deploy_config.APPS ──
     parser.add_argument(
         "target",
-        choices=["backend", "frontend", "all"],
+        choices=["backend", "frontend", "mcp-agent", "all"],
         help="Which app to deploy (must match a key in deploy_config.APPS, or 'all')",
     )
 

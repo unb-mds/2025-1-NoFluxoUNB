@@ -44,6 +44,9 @@ server {
     root /usr/share/nginx/html;
     index index.html;
 
+    # Increase buffer size for large auth headers/cookies (Supabase tokens)
+    large_client_header_buffers 4 32k;
+
     # Serve pre-compressed gzip files (from adapter-static precompress)
     gzip_static on;
 
