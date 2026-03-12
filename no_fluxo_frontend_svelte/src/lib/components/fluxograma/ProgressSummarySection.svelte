@@ -3,7 +3,7 @@
 	import type { IntegralizacaoResult } from '$lib/types/matriz';
 	import { isOptativa } from '$lib/types/materia';
 	import type { DadosFluxogramaUser } from '$lib/types/user';
-	import { getTotalCreditsCompleted } from '$lib/types/user';
+	import { getTotalCreditsCompleted, getCurrentSubjectCodes } from '$lib/types/user';
 	import { GraduationCap, Calendar, MessageSquare, X, Loader2 } from 'lucide-svelte';
 	import { goto } from '$app/navigation';
 	import { ROUTES } from '$lib/config/routes';
@@ -70,6 +70,26 @@
 	);
 
 	let currentSemester = $derived(userFluxograma?.semestreAtual ?? 1);
+
+	/** CH das disciplinas matriculadas (MATR): simulação de +Xh se aprovado em todas. */
+	let simulacaoMatr = $derived.by(() => {
+		if (!userFluxograma || !courseData || !integralizacao || integralizacao.exigido.chTotal <= 0) return null;
+		const matrCodes = getCurrentSubjectCodes(userFluxograma);
+		if (matrCodes.size === 0) return null;
+		const codigoToCreditos = new Map(
+			courseData.materias.map((m) => [m.codigoMateria.trim().toUpperCase(), m.creditos])
+		);
+		let chHoras = 0;
+		for (const code of matrCodes) {
+			const cr = codigoToCreditos.get(code?.trim().toUpperCase() ?? '');
+			if (cr != null && cr > 0) chHoras += Math.round(cr * 15);
+		}
+		if (chHoras <= 0) return null;
+		return {
+			chMatriculadas: chHoras,
+			totalSimulado: integralizacao.realizado.chTotal + chHoras
+		};
+	});
 
 	let podeAbrirModal = $derived(!!integralizacao && !integralizacaoLoading);
 
@@ -172,6 +192,20 @@
 					<div class="text-right">
 						<p class="text-base font-semibold text-white">{progressValue}</p>
 						<p class="text-xs text-white/50">{progressSublabel}</p>
+						{#if simulacaoMatr}
+							{@const pctSimulado = integralizacao && integralizacao.exigido.chTotal > 0 ? Math.round((simulacaoMatr.totalSimulado / integralizacao.exigido.chTotal) * 100) : null}
+							<div
+								class="mt-2 flex flex-col items-center gap-0.5"
+								title="Se você for aprovado em todas as disciplinas em que está matriculado neste semestre, sua integralização passará a ser {simulacaoMatr.totalSimulado.toLocaleString('pt-BR')}h ({pctSimulado}%)."
+							>
+								<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-cyan-400/50 bg-cyan-500/10">
+									<span class="text-sm font-bold text-cyan-200">
+										{pctSimulado ?? '—'}%
+									</span>
+								</div>
+								<span class="text-[10px] text-white/50">Próximo sem. (se aprovar nas atuais)</span>
+							</div>
+						{/if}
 					</div>
 				</div>
 			</div>
@@ -244,6 +278,7 @@
 						{matrizes}
 						curriculoCompletoAtual={curriculoCompletoAtual ?? integralizacao.curriculoCompleto}
 						onMatrizChange={onMatrizChange}
+						simulacaoMatr={simulacaoMatr}
 					/>
 				</div>
 			</div>

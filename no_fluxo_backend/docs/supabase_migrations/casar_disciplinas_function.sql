@@ -53,6 +53,7 @@ DECLARE
   v_match_codigo      text;
   v_match_nome        text;
   v_match_nivel       int;
+  v_match_tipo_natureza int;  -- 0=obrigatória, 1=optativa (prioridade sobre nivel)
   v_old_status        text;
 
   -- Aggregation
@@ -319,22 +320,24 @@ BEGIN
   -- 3. LOAD SUBJECTS FOR THE MATRIX
   -- ═══════════════════════════════════════════════════════════════
   CREATE TEMP TABLE _mat (
-    id_materia bigint, codigo text, nome text, nivel int, ch int
+    id_materia bigint, codigo text, nome text, nivel int, tipo_natureza int, ch int
   ) ON COMMIT DROP;
 
   INSERT INTO _mat
-  SELECT m.id_materia, m.codigo_materia, m.nome_materia, mpc.nivel, m.carga_horaria
+  SELECT m.id_materia, m.codigo_materia, m.nome_materia, mpc.nivel,
+         coalesce(mpc.tipo_natureza, 0), m.carga_horaria
   FROM materias_por_curso mpc
   JOIN materias m ON m.id_materia = mpc.id_materia
   WHERE mpc.id_matriz = v_id_matriz;
 
   -- Cross-matrix subjects (same course, other matrices)
   CREATE TEMP TABLE _mat_x (
-    id_materia bigint, codigo text, nome text, nivel int
+    id_materia bigint, codigo text, nome text, nivel int, tipo_natureza int
   ) ON COMMIT DROP;
 
   INSERT INTO _mat_x
-  SELECT m.id_materia, m.codigo_materia, m.nome_materia, mpc.nivel
+  SELECT m.id_materia, m.codigo_materia, m.nome_materia, mpc.nivel,
+         coalesce(mpc.tipo_natureza, 0)
   FROM materias_por_curso mpc
   JOIN materias m ON m.id_materia = mpc.id_materia
   JOIN matrizes mt ON mt.id_matriz = mpc.id_matriz
@@ -359,12 +362,12 @@ BEGIN
   -- Map: equivalent_code → target subject in our matrix
   CREATE TEMP TABLE _eq_map (
     codigo_eq text, id_materia_alvo bigint,
-    codigo_alvo text, nome_alvo text, nivel_alvo int
+    codigo_alvo text, nome_alvo text, nivel_alvo int, tipo_natureza_alvo int
   ) ON COMMIT DROP;
 
   INSERT INTO _eq_map
   SELECT DISTINCT upper(codes.code),
-         eq.id_materia, mb.codigo, mb.nome, mb.nivel
+         eq.id_materia, mb.codigo, mb.nome, mb.nivel, coalesce(mb.tipo_natureza, 0)
   FROM _eq eq
   CROSS JOIN LATERAL (
     SELECT m[1] AS code
@@ -413,45 +416,50 @@ BEGIN
     v_disc_status := trim(coalesce(v_item->>'status', ''));
     v_match_id := NULL;
 
-    -- Try 1: code match in main matrix (obrigatoria first)
-    SELECT id_materia, codigo, nome, nivel
-    INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel
-    FROM _mat WHERE upper(trim(codigo)) = v_disc_codigo AND nivel > 0 LIMIT 1;
+    -- Try 1: code match in main matrix (obrigatoria first, then optativa)
+    SELECT id_materia, codigo, nome, nivel, tipo_natureza
+    INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel, v_match_tipo_natureza
+    FROM _mat WHERE upper(trim(codigo)) = v_disc_codigo AND (tipo_natureza IS NULL OR tipo_natureza != 1) AND nivel > 0 LIMIT 1;
 
     IF v_match_id IS NULL THEN
-      SELECT id_materia, codigo, nome, nivel
-      INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel
+      SELECT id_materia, codigo, nome, nivel, tipo_natureza
+      INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel, v_match_tipo_natureza
+      FROM _mat WHERE upper(trim(codigo)) = v_disc_codigo AND tipo_natureza = 1 LIMIT 1;
+    END IF;
+    IF v_match_id IS NULL THEN
+      SELECT id_materia, codigo, nome, nivel, tipo_natureza
+      INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel, v_match_tipo_natureza
       FROM _mat WHERE upper(trim(codigo)) = v_disc_codigo AND nivel = 0 LIMIT 1;
     END IF;
 
     -- Try 2: name match in main matrix
     IF v_match_id IS NULL THEN
-      SELECT id_materia, codigo, nome, nivel
-      INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel
-      FROM _mat WHERE lower(trim(nome)) = lower(v_disc_nome) AND nivel > 0 LIMIT 1;
+      SELECT id_materia, codigo, nome, nivel, tipo_natureza
+      INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel, v_match_tipo_natureza
+      FROM _mat WHERE lower(trim(nome)) = lower(v_disc_nome) AND (tipo_natureza IS NULL OR tipo_natureza != 1) AND nivel > 0 LIMIT 1;
     END IF;
     IF v_match_id IS NULL THEN
-      SELECT id_materia, codigo, nome, nivel
-      INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel
-      FROM _mat WHERE lower(trim(nome)) = lower(v_disc_nome) AND nivel = 0 LIMIT 1;
+      SELECT id_materia, codigo, nome, nivel, tipo_natureza
+      INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel, v_match_tipo_natureza
+      FROM _mat WHERE lower(trim(nome)) = lower(v_disc_nome) AND (tipo_natureza = 1 OR nivel = 0) LIMIT 1;
     END IF;
 
     -- Try 3: cross-matrix match
     IF v_match_id IS NULL THEN
-      SELECT id_materia, codigo, nome, nivel
-      INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel
+      SELECT id_materia, codigo, nome, nivel, tipo_natureza
+      INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel, v_match_tipo_natureza
       FROM _mat_x WHERE upper(trim(codigo)) = v_disc_codigo LIMIT 1;
     END IF;
     IF v_match_id IS NULL THEN
-      SELECT id_materia, codigo, nome, nivel
-      INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel
+      SELECT id_materia, codigo, nome, nivel, tipo_natureza
+      INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel, v_match_tipo_natureza
       FROM _mat_x WHERE lower(trim(nome)) = lower(v_disc_nome) LIMIT 1;
     END IF;
 
     -- Try 4: equivalency code map
     IF v_match_id IS NULL THEN
-      SELECT id_materia_alvo, codigo_alvo, nome_alvo, nivel_alvo
-      INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel
+      SELECT id_materia_alvo, codigo_alvo, nome_alvo, nivel_alvo, tipo_natureza_alvo
+      INTO v_match_id, v_match_codigo, v_match_nome, v_match_nivel, v_match_tipo_natureza
       FROM _eq_map WHERE codigo_eq = v_disc_codigo LIMIT 1;
     END IF;
 
@@ -489,7 +497,7 @@ BEGIN
         v_match_id, v_match_codigo, v_match_nome,
         v_item->>'nome', v_item->>'codigo',
         true, v_match_nivel,
-        CASE WHEN v_match_nivel = 0 THEN 'optativa' ELSE 'obrigatoria' END
+        CASE WHEN v_match_tipo_natureza = 1 THEN 'optativa' WHEN v_match_nivel = 0 THEN 'optativa' ELSE 'obrigatoria' END
       );
     ELSE
       -- No match found
@@ -536,7 +544,7 @@ BEGIN
   -- 7. CLASSIFY: concluidas, pendentes, optativas
   -- ═══════════════════════════════════════════════════════════════
 
-  -- 7a. Missing mandatory subjects (not in transcript at all)
+  -- 7a. Missing mandatory subjects (obrigatórias: tipo_natureza != 1 e nivel > 0)
   CREATE TEMP TABLE _missing (
     id_materia bigint, codigo text, nome text, nivel int
   ) ON COMMIT DROP;
@@ -544,7 +552,8 @@ BEGIN
   INSERT INTO _missing
   SELECT mb.id_materia, mb.codigo, mb.nome, mb.nivel
   FROM _mat mb
-  WHERE mb.nivel > 0
+  WHERE (mb.tipo_natureza IS NULL OR mb.tipo_natureza != 1)
+    AND mb.nivel > 0
     AND mb.id_materia NOT IN (
       SELECT c.id_materia FROM _casadas c WHERE c.id_materia IS NOT NULL
     );

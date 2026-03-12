@@ -9,9 +9,11 @@
 	interface Props {
 		/** Dados de integralização (realizado vs exigido da matriz). */
 		dadosUser: IntegralizacaoResult | null;
+		/** Simulação: +Xh se aprovado nas disciplinas matriculadas (MATR). */
+		simulacaoMatr?: { chMatriculadas: number; totalSimulado: number } | null;
 	}
 
-	let { dadosUser }: Props = $props();
+	let { dadosUser, simulacaoMatr = null }: Props = $props();
 	let unidade = $state<UnidadeExibicao>('horas');
 	let expandido = $state<Record<string, boolean>>({
 		obrigatoria: false,
@@ -150,6 +152,16 @@
 			<div class="min-w-0 flex-1">
 				<p class="text-lg font-bold text-white">{totalExibido}</p>
 				<p class="text-xs text-white/50">{sublabel}</p>
+				{#if simulacaoMatr}
+					{@const totalExigido = dadosUser?.exigido.chTotal ?? 0}
+					{@const pctSimulado = totalExigido > 0 ? Math.round((simulacaoMatr.totalSimulado / totalExigido) * 100) : null}
+					<p
+						class="mt-2 text-[11px] text-white/50"
+						title="+{simulacaoMatr.chMatriculadas.toLocaleString('pt-BR')}h se for aprovado nas disciplinas em que está matriculado"
+					>
+						Se aprovar em todas as disciplinas que está cursando neste semestre, ficará com <span class="font-medium text-cyan-300/90">{pctSimulado ?? '—'}%</span> integralizado no próximo semestre.
+					</p>
+				{/if}
 			</div>
 		</div>
 

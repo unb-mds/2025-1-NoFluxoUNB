@@ -8,9 +8,11 @@
 		matrizes?: Array<{ curriculoCompleto: string }>;
 		curriculoCompletoAtual?: string | null;
 		onMatrizChange?: (curriculoCompleto: string) => void;
+		/** Simulação: +Xh se aprovado nas matriculadas (MATR). */
+		simulacaoMatr?: { chMatriculadas: number; totalSimulado: number } | null;
 	}
 
-	let { integralizacao, matrizes = [], curriculoCompletoAtual = null, onMatrizChange }: Props = $props();
+	let { integralizacao, matrizes = [], curriculoCompletoAtual = null, onMatrizChange, simulacaoMatr = null }: Props = $props();
 
 	function parsed(curriculoCompleto: string) {
 		const p = parseCurriculoCompleto(curriculoCompleto);
@@ -33,6 +35,6 @@
 				</select>
 			</div>
 		{/if}
-		<CargaHorariaDashboard dadosUser={integralizacao} />
+		<CargaHorariaDashboard dadosUser={integralizacao} {simulacaoMatr} />
 	</div>
 {/if}

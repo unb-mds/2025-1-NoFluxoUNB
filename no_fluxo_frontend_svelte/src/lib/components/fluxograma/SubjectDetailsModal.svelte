@@ -169,7 +169,7 @@
 						<div class="rounded-lg bg-white/5 p-3">
 							<span class="text-xs text-white/50">Semestre</span>
 							<p class="text-sm font-semibold text-white">
-								{isOptativa(materia) ? 'Optativa' : `${materia.nivel}º`}
+								{materia.nivel > 0 ? `${materia.nivel}º` : '—'}
 							</p>
 						</div>
 						<div class="rounded-lg bg-white/5 p-3">
