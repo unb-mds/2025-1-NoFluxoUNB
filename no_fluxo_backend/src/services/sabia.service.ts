@@ -135,7 +135,7 @@ export class SabiaService {
      */
     formatAsMarkdown(response: SabiaResponse): string {
         if (!response.success || !response.disciplinas || response.disciplinas.length === 0) {
-            return 'Nenhuma disciplina encontrada para o tema especificado. Tente reformular sua consulta.';
+            return 'Esta plataforma destina-se exclusivamente à recomendação de disciplinas acadêmicas. Por gentileza, lembre-se de que a consulta é apenas sobre disciplinas acadêmicas. Reoriente sua pergunta para temas relacionados a áreas de estudo. Exemplo: "Quero aprender sobre inteligência artificial e suas aplicações".';
         }
 
         let markdown = `### 🎓 Disciplinas Recomendadas pelo Sabiá\n\n`;
