@@ -79,10 +79,13 @@ APPS: dict[str, AppConfig] = {
             "RAGFLOW_API_KEY",
             "RAGFLOW_BASE_URL",
             "RAGFLOW_AGENT_ID",
+            "MARITACA_API_KEY",
+            "GOOGLE_API_KEY",
         ),
         deploy_env_static={
             "NODE_ENV": "production",
             "PORT": "3325",
+            "SABIA_API_URL": "http://nofluxo-mcp-agent",
         },
     ),
 
@@ -111,6 +114,30 @@ APPS: dict[str, AppConfig] = {
             "PUBLIC_ENVIRONMENT": "production",
         },
         # No runtime env vars needed — nginx serves static files
+    ),
+
+    # ── MCP Agent (Darcy AI FastAPI) ────────────────────────────────────────
+    "mcp-agent": AppConfig(
+        key="mcp-agent",
+        app_name="nofluxo-mcp-agent",
+        namespace="non-business-apps",
+        image_name="nofluxo-mcp-agent",
+        dockerfile="k8s.mcp-agent.Dockerfile",
+        build_context=".",
+        port=8000,
+        replicas=1,
+        health_path="/health",
+        domain="darcy-nofluxo.crianex.com",
+        app_class="non-business",
+        deploy_env_keys=(
+            "MARITACA_API_KEY",
+            "GOOGLE_API_KEY",
+            "SUPABASE_URL",
+            "SUPABASE_SERVICE_ROLE_KEY",
+        ),
+        deploy_env_static={
+            "ALLOWED_ORIGINS": "https://no-fluxo.crianex.com,https://api-nofluxo.crianex.com",
+        },
     ),
 }
 

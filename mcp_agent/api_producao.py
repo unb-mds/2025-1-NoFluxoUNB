@@ -12,6 +12,17 @@ from dotenv import load_dotenv
 # 1. INICIALIZAÇÃO GLOBAL (Roda apenas quando o servidor liga)
 load_dotenv()
 
+# Print env vars on startup for debugging
+print("\n--- MCP Agent env vars at startup ---")
+for key in ("GOOGLE_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "MARITACA_API_KEY", "ALLOWED_ORIGINS"):
+    value = os.environ.get(key)
+    if value:
+        preview = value[:8] + "..." if len(value) > 8 else value
+        print(f"  {key} = {preview} (len={len(value)})")
+    else:
+        print(f"  {key} = NOT SET")
+print("---\n")
+
 # Clientes globais mantêm conexões persistentes ("quentes")
 genai.configure(api_key=os.environ.get("GOOGLE_API_KEY"))
 supabase = create_client(os.environ.get("SUPABASE_URL"), os.environ.get("SUPABASE_SERVICE_ROLE_KEY"))

@@ -7,7 +7,7 @@ WORKDIR /app
 
 # Install Node.js dependencies (include dev for tsc)
 COPY no_fluxo_backend/package*.json ./
-RUN npm ci
+RUN npm ci --ignore-scripts || npm install --ignore-scripts
 
 # Copy source code
 COPY no_fluxo_backend/src/ ./src/
