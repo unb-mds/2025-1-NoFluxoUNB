@@ -1,10 +1,20 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { currentUser } from '$lib/stores/auth';
 
 	let isHovered = $state(false);
 
 	function handleClick() {
-		goto('/signup');
+		const user = $currentUser;
+		if (user) {
+			if (user.dadosFluxograma) {
+				goto('/meu-fluxograma');
+			} else {
+				goto('/upload-historico');
+			}
+		} else {
+			goto('/signup');
+		}
 	}
 </script>
 
