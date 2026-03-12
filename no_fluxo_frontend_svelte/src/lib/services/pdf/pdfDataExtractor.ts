@@ -139,15 +139,23 @@ export function limparNomeProfessor(nome: string): string {
 export function extrairCurso(texto: string): string | null {
   // Normalize line endings for consistent matching
   const normalizedText = texto.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-  
+
+  // Pattern 0a: Nome do curso na linha logo após "Discente" (ex.: GESTÃO DE POLÍTICAS PÚBLICAS/GPP - BACHARELADO - NOTURNO)
+  // Curso: e Currículo: vêm em linhas seguintes, sem o nome repetido
+  let m = normalizedText.match(
+    /(?:Discente|do\s+Discente)\s*\n\s*([A-ZÀ-ÿ][A-ZÀ-ÿ\s]+)\/[A-Z]+\s*-\s*[A-ZÀ-ÿ\s]+\s*-\s*[A-ZÀ-ÿ]+/i
+  );
+  if (m) {
+    return m[1].trim().replace(/\s{2,}/g, ' ');
+  }
+
   // Pattern 0: Multi-line course name where name appears BEFORE "Curso:" label
   // Example:
   //   Dados do Vínculo do(a) Discente
   //   ENGENHARIA MECATRÔNICA - CONTROLE E AUTOMAÇÃO/FTD - ENGENHEIRO DE CONTROLE E
   //   Curso:
   //   AUTOMAÇÃO - DIURNO
-  // The course name is split with part before "Curso:" and part after
-  let m = normalizedText.match(
+  m = normalizedText.match(
     /(?:Discente|do Discente)\s*\n([A-ZÀ-ÿ][A-ZÀ-ÿ\s-]+)\/[A-Z]+ - [A-ZÀ-ÿ\s]+\nCurso:\s*\n[A-ZÀ-ÿ][A-ZÀ-ÿ\s]+\s+-\s+\w+/i
   );
   if (m) {
@@ -180,16 +188,22 @@ export function extrairCurso(texto: string): string | null {
  * O ano (ex.: " - 2017.2") é opcional e só visual; a comparação no banco usa só código + versão.
  */
 export function extrairMatrizCurricular(texto: string): string | null {
-  // "Currículo: 60810/1" (só código/versão — o mais importante; ano é visual)
-  let m = texto.match(/Curr[ií]culo:\s*\n?(\d+\/-?\d+)(?:\s*-\s*\d{4}\.\d)?/mi);
+  const normalizedText = texto.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+
+  // "Currículo: 60810/1" ou "Currículo:\n60810/1" (código na mesma linha ou na próxima)
+  let m = normalizedText.match(/Curr[ií]culo:\s*\n?\s*(\d+\/-?\d+)(?:\s*-\s*\d{4}\.\d)?/mi);
   if (m) return m[1].trim();
 
+  // "Currículo:" em uma linha e "8184/1 - 2019.2" várias linhas depois (layout com labels no meio)
+  m = normalizedText.match(/Curr[ií]culo:[\s\S]*?(\d+\/-?\d+)\s*-\s*(\d{4}\.\d)/mi);
+  if (m) return `${m[1].trim()} - ${m[2]}`;
+
   // "Currículo:    6360/1 - 2017.1" (com ano)
-  m = texto.match(/Curr[ií]culo:\s*\n?(\d+\/-?\d+)\s*-\s*(\d{4}\.\d)/mi);
+  m = normalizedText.match(/Curr[ií]culo:\s*\n?(\d+\/-?\d+)\s*-\s*(\d{4}\.\d)/mi);
   if (m) return `${m[1].trim()} - ${m[2]}`;
 
   // Sem label: "6360/1 - 2017.1" ou só "60810/1" no texto
-  m = texto.match(/(\d+\/-?\d+)(?:\s*-\s*\d{4}\.\d)?/m);
+  m = normalizedText.match(/(\d+\/-?\d+)(?:\s*-\s*\d{4}\.\d)?/m);
   if (m) return m[1].trim();
 
   return null;

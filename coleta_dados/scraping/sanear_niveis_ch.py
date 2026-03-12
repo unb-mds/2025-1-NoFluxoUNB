@@ -111,13 +111,27 @@ def ch_to_int(val) -> int | None:
         return None
 
 
-def parse_curriculo_completo(curriculo: str, periodo: str) -> str:
-    """Monta curriculo_completo igual ao feito em integracao_banco.py."""
+def parse_curriculo_completo(curriculo: str, periodo: str, turno: str = '') -> str:
+    """Monta curriculo_completo igual a integracao_estruturas_turno (com turno quando houver)."""
     curriculo = (curriculo or '').strip()
-    periodo   = (periodo   or '').strip()
-    if curriculo and periodo:
-        return f"{curriculo} - {periodo}"
-    return curriculo or periodo
+    periodo = (periodo or '').strip()
+    turno = (turno or '').strip().upper()
+    partes = [curriculo, periodo]
+    if turno:
+        partes.append(turno)
+    return ' - '.join(p for p in partes if p).strip(' - ')
+
+
+def get_turno_do_arquivo(nome_arquivo: str, data: dict) -> str:
+    """Turno a partir do JSON ou do nome do arquivo (igual integracao_estruturas_turno)."""
+    if data and isinstance(data, dict) and data.get('turno'):
+        return (data.get('turno') or '').strip().upper()
+    nome_lower = (nome_arquivo or '').lower()
+    if ' - noturno.json' in nome_lower:
+        return 'NOTURNO'
+    if ' - diurno.json' in nome_lower:
+        return 'DIURNO'
+    return ''
 
 
 # ---------------------------------------------------------------------------
@@ -152,7 +166,13 @@ def carregar_jsons():
 
         curriculo = data.get('curriculo', '')
         periodo   = data.get('periodo_letivo_vigor', '')
-        curriculo_completo = parse_curriculo_completo(curriculo, periodo)
+        if isinstance(curriculo, (int, float)):
+            curriculo = str(curriculo)
+        curriculo = (curriculo or '').strip()
+        if curriculo and '/' not in curriculo and curriculo.isdigit():
+            curriculo = curriculo + '/1'
+        turno = get_turno_do_arquivo(arq.name, data)
+        curriculo_completo = parse_curriculo_completo(curriculo, periodo, turno)
 
         for bloco in (data.get('niveis') or []):
             nivel_nome = bloco.get('nivel', '')

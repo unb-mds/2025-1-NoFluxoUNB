@@ -79,13 +79,15 @@ export class SupabaseDataService {
 
 		const { codigoCurso, versao } = parseCurriculoCompleto(s);
 		if (!codigoCurso || !/^\d+$/.test(codigoCurso) || versao === undefined) return null;
-		const idCurso = parseInt(codigoCurso, 10);
+		const idCursoBase = parseInt(codigoCurso, 10);
+		// Convenção: DIURNO = codigo, NOTURNO = codigo + 100000
+		const idCursosToTry = [idCursoBase, idCursoBase + 100000];
 
-		// Pode haver múltiplas matrizes (diurno/noturno, várias versões). Usar limit(1) em vez de maybeSingle().
+		// Pode haver múltiplas matrizes (diurno/noturno, várias versões). Buscar por qualquer id_curso (base ou +100000) e versao.
 		const { data: rows, error: errCode } = await this.supabase
 			.from('matrizes')
 			.select('*')
-			.eq('id_curso', idCurso)
+			.in('id_curso', idCursosToTry)
 			.eq('versao', versao)
 			.order('ano_vigor', { ascending: false })
 			.limit(1);

@@ -11,7 +11,7 @@ export interface MateriaModel {
 	nomeMateria: string;
 	codigoMateria: string;
 	nivel: number;
-	/** 0=obrigatória, 1=optativa. Usar para exibição quando disponível (prioridade sobre nivel). */
+	/** materias_por_curso.tipo_natureza: 0=obrigatória, 1=optativa. Prioridade sobre nivel para classificação. */
 	tipoNatureza?: number | null;
 	creditos: number;
 	status?: string | null;
@@ -31,7 +31,7 @@ export const SubjectStatusEnum = {
 
 export type SubjectStatusValue = (typeof SubjectStatusEnum)[keyof typeof SubjectStatusEnum];
 
-/** Optativa: tipo_natureza=1 ou (fallback) nivel=0 */
+/** Optativa: tipo_natureza=1 (materias_por_curso). Fallback: nivel=0 quando tipo_natureza ausente. */
 export function isOptativa(materia: MateriaModel): boolean {
 	if (materia.tipoNatureza !== undefined && materia.tipoNatureza !== null) return materia.tipoNatureza === 1;
 	return materia.nivel === 0;

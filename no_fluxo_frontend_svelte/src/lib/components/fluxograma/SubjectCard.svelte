@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { MateriaModel } from '$lib/types/materia';
-	import { SubjectStatusEnum, hasPrerequisites, type SubjectStatusValue } from '$lib/types/materia';
+	import { SubjectStatusEnum, hasPrerequisites, isOptativa, type SubjectStatusValue } from '$lib/types/materia';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 
 	interface Props {
@@ -226,9 +226,17 @@
 		<span class="text-[10px] font-semibold uppercase tracking-wider {textColor} opacity-80">
 			{materia.codigoMateria}
 		</span>
-		<span class="text-[10px] {textColor} opacity-60">
-			{materia.creditos}cr
-		</span>
+		<div class="flex items-center gap-1">
+			{#if isOptativa(materia)}
+				<span
+					class="rounded bg-white/20 px-1 py-0.5 text-[9px] font-medium {textColor}"
+					title="Optativa (tipo_natureza=1)"
+				>Opt.</span>
+			{/if}
+			<span class="text-[10px] {textColor} opacity-60">
+				{materia.creditos}cr
+			</span>
+		</div>
 	</div>
 	<p class="line-clamp-2 text-xs font-medium leading-tight {textColor}">
 		{materia.nomeMateria}

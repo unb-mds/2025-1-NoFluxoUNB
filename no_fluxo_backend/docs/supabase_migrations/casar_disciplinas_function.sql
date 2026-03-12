@@ -175,6 +175,7 @@ BEGIN
     END IF;
 
     -- Fallback: parse matrix as "codigo/versao"
+    -- id_curso no banco: DIURNO = codigo (ex: 8184), NOTURNO = codigo + 100000 (ex: 108184)
     IF NOT EXISTS (SELECT 1 FROM _cand)
        AND v_matriz_curricular != ''
        AND position('/' IN v_matriz_curricular) > 0
@@ -196,7 +197,8 @@ BEGIN
           SELECT c.id_curso, c.nome_curso, m.id_matriz, m.curriculo_completo
           FROM matrizes m
           JOIN cursos c ON c.id_curso = m.id_curso
-          WHERE m.id_curso = v_cod::bigint AND m.versao = v_ver;
+          WHERE m.id_curso IN (v_cod::bigint, v_cod::bigint + 100000)
+            AND m.versao = v_ver;
         END IF;
       END parse_matrix;
     END IF;

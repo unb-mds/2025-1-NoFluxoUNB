@@ -400,11 +400,11 @@ export function userModelToJson(
 export function createMateriaModelFromJson(json: Record<string, unknown>): MateriaModel {
 	const materiaData = (json.materias as Record<string, unknown>) ?? json;
 	const cargaHoraria = Number(materiaData.carga_horaria ?? json.carga_horaria ?? 0);
-
+	// materias_por_curso: nivel e tipo_natureza (0=obrigatória, 1=optativa) vêm do row
 	const tn = json.tipo_natureza as number | null | undefined;
 	return {
 		ementa: String(materiaData.ementa ?? ''),
-		idMateria: Number(materiaData.id_materia ?? 0),
+		idMateria: Number(json.id_materia ?? materiaData.id_materia ?? 0),
 		nomeMateria: String(materiaData.nome_materia ?? ''),
 		codigoMateria: String(materiaData.codigo_materia ?? ''),
 		creditos: cargaHoraria > 0 ? cargaHoraria / 15 : 0,

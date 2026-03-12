@@ -40,7 +40,7 @@
 	/** Mobile: toque iniciou em um card — atrasa scroll para permitir tap/long-press */
 	let touchStartedOnCard = $state(false);
 
-	// Sorted semesters (excluding 0 = optativas)
+	// Semestres exibidos nas colunas: todos com nivel >= 1 (inclui optativas em nivel 1+; nivel 0 = optativas só na lista/modal)
 	let sortedSemesters = $derived.by(() => {
 		const map = store.subjectsBySemester;
 		return Array.from(map.keys())

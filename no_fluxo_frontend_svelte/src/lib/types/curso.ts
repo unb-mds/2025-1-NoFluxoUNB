@@ -69,6 +69,11 @@ export function getCourseSubjectCodes(curso: CursoModel): Set<string> {
 	return new Set(curso.materias.map((m) => m.codigoMateria));
 }
 
+/**
+ * Agrupa todas as matérias do curso por semestre (nivel).
+ * Inclui obrigatórias e optativas; tipo_natureza (0=obrigatória, 1=optativa) define a natureza.
+ * Matérias com nivel 1 (mesmo optativas) aparecem no semestre 1; apenas nivel 0 fica fora das colunas (lista de optativas).
+ */
 export function getSubjectsBySemester(curso: CursoModel): Map<number, MateriaModel[]> {
 	const semesterMap = new Map<number, MateriaModel[]>();
 

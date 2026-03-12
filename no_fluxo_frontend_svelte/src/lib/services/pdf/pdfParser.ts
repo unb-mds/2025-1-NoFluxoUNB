@@ -194,7 +194,24 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 
 	// 4. Regex-based metadata extraction (these are simple single-line patterns)
 	console.time(`${LOG_PREFIX} metadataExtraction`);
-	const curso = extrairCurso(textoTotal);
+	// Extrair matriz primeiro para ancorar o curso ao bloco correto (evitar pegar outro curso no PDF)
+	const matrizCurricular = extrairMatrizCurricular(textoTotal);
+	let textoParaCurso = textoTotal;
+	if (matrizCurricular) {
+		// Encontrar a posição do código do currículo no texto (ex.: 8184/1 - 2019.2)
+		const codeMatch = matrizCurricular.match(/^(\d+)\//);
+		if (codeMatch) {
+			const code = codeMatch[1];
+			let idx = textoTotal.indexOf(code + '/');
+			if (idx === -1) idx = textoTotal.indexOf(matrizCurricular);
+			if (idx > 0) {
+				// Usar só o trecho até o currículo + margem: curso e "Discente" estão nessa região
+				const fim = Math.min(idx + matrizCurricular.length + 400, textoTotal.length);
+				textoParaCurso = textoTotal.substring(0, fim);
+			}
+		}
+	}
+	const curso = extrairCurso(textoParaCurso);
 
 	// Debug: Log lines around "Discente" and "Curso" to diagnose extraction issues
 	if (!curso) {
@@ -205,7 +222,6 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 		}
 	}
 
-	const matrizCurricular = extrairMatrizCurricular(textoTotal);
 	const suspensoes = extrairSuspensoes(textoTotal);
 
 	let ira: number | null = null;

@@ -104,7 +104,8 @@ def extrair_codigo_base(curriculo_str):
     if '/' in s:
         base = s.split('/', 1)[0].strip()
         return base if base.isdigit() else None
-    return None
+    # Curriculo só com número (ex: "5584") → código base é o próprio número
+    return s if s.isdigit() else None
 
 
 def build_dados_matriz(curriculo_str, periodo_letivo_vigor, turno=None):
@@ -363,6 +364,94 @@ def listar_arquivos_turno():
         f for f in os.listdir(PASTA_ESTRUTURAS)
         if f.endswith('.json') and (' - diurno.json' in f or ' - noturno.json' in f)
     ]
+
+
+def listar_todos_arquivos_estruturas():
+    """Retorna todos os arquivos .json da pasta estruturas-curriculares."""
+    if not os.path.isdir(PASTA_ESTRUTURAS):
+        return []
+    return sorted([f for f in os.listdir(PASTA_ESTRUTURAS) if f.endswith('.json')])
+
+
+def get_turno_do_arquivo(arquivo, matriz=None):
+    """
+    Retorna turno (DIURNO/NOTURNO) a partir do JSON ou do nome do arquivo.
+    matriz: dict do JSON (opcional); se não passado, só usa o nome do arquivo.
+    """
+    if matriz and isinstance(matriz, dict) and matriz.get('turno'):
+        return (matriz.get('turno') or '').strip().upper()
+    arquivo_lower = (arquivo or '').lower()
+    if ' - noturno.json' in arquivo_lower:
+        return 'NOTURNO'
+    if ' - diurno.json' in arquivo_lower:
+        return 'DIURNO'
+    return ''
+
+
+def processar_um_arquivo(caminho_arquivo):
+    """
+    Processa um único arquivo de estrutura curricular (cria curso, matriz e materias_por_curso se não existirem).
+    caminho_arquivo: path completo para o JSON.
+    Retorna (id_matriz, linhas_inseridas) ou (None, 0) em caso de erro/skip.
+    """
+    if not os.path.isfile(caminho_arquivo):
+        return None, 0
+    arquivo = os.path.basename(caminho_arquivo)
+    try:
+        with open(caminho_arquivo, 'r', encoding='utf-8') as f:
+            raw = json.load(f)
+    except Exception as e:
+        print(f"  [ERRO] Leitura: {e}")
+        return None, 0
+    # Alguns JSON têm raiz como lista; usar primeiro elemento dict
+    if isinstance(raw, list):
+        matriz = next((x for x in raw if isinstance(x, dict)), None)
+    elif isinstance(raw, dict):
+        matriz = raw
+    else:
+        matriz = None
+    if not matriz:
+        return None, 0
+    nome_curso = remover_acentos(matriz.get('curso', '')).replace('Ç', 'C').upper().strip()
+    tipo_curso = matriz.get('tipo_curso')
+    periodo_letivo = matriz.get('periodo_letivo_vigor')
+    curriculo_str = matriz.get('curriculo') or ''
+    if isinstance(curriculo_str, (int, float)):
+        curriculo_str = str(curriculo_str)
+    curriculo_str = (curriculo_str or '').strip()
+    if curriculo_str and '/' not in curriculo_str and curriculo_str.isdigit():
+        curriculo_str = curriculo_str + '/1'
+    turno = get_turno_do_arquivo(arquivo, matriz)
+    codigo_base = extrair_codigo_base(curriculo_str)
+    if not codigo_base:
+        print(f"  [AVISO] curriculo inválido, pulando.")
+        return None, 0
+    dados_mat = build_dados_matriz(curriculo_str, periodo_letivo, turno)
+    existe, _ = matriz_existe(dados_mat['curriculo_completo'])
+    if existe:
+        return None, 0  # já existe, não insere
+    id_curso = get_or_create_curso(codigo_base, nome_curso, tipo_curso, turno)
+    if id_curso is None:
+        return None, 0
+    prazos_cargas = matriz.get('prazos_cargas') or {}
+    id_matriz = get_or_create_matriz(
+        id_curso,
+        dados_mat['curriculo_completo'],
+        dados_mat['versao'],
+        dados_mat['ano_vigor'],
+        prazos_cargas,
+    )
+    linhas_matriz = []
+    for nivel in matriz.get('niveis', []):
+        nivel_int = nivel_to_int(nivel.get('nivel', ''))
+        for materia in nivel.get('materias', []):
+            id_materia = get_or_create_materia(materia)
+            if id_materia is None:
+                continue
+            tipo_natureza = natureza_to_tipo(materia.get('natureza', ''))
+            linhas_matriz.append((id_materia, nivel_int, tipo_natureza))
+    insert_materias_por_curso_batch(linhas_matriz, id_matriz)
+    return id_matriz, len(linhas_matriz)
 
 
 def processar():
