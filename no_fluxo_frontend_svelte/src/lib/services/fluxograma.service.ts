@@ -1,10 +1,5 @@
 import { supabaseDataService } from './supabase-data.service';
-import type {
-	CursoModel,
-	MinimalCursoModel,
-	PreRequisitoModel,
-	CoRequisitoModel
-} from '$lib/types/curso';
+import type { CursoModel, MinimalCursoModel, PreRequisitoModel, CoRequisitoModel } from '$lib/types/curso';
 import { isOptativa, type MateriaModel } from '$lib/types/materia';
 import type { EquivalenciaModel } from '$lib/types/equivalencia';
 import {
@@ -36,52 +31,78 @@ class FluxogramaService {
 	/**
 	 * Get all courses (minimal info for index page)
 	 * REPLACES: GET /cursos/all-cursos
-	 * tipo_curso e turno: 1) getCursosTipoTurnoFull; se vazio, 2) busca por id (mesma query da tela de info do curso).
+	 *
+	 * IMPORTANTE:
+	 * - tipo_curso e turno SEMPRE vêm diretamente da tabela cursos (fonte de verdade).
+	 * - A view vw_creditos_por_matriz é usada só como fonte opcional de créditos/currículo.
 	 */
 	async getAllCursos(): Promise<MinimalCursoModel[]> {
-		const viewRows = (await supabaseDataService.getCursosComCreditos()) || [];
-		const rows = viewRows as Record<string, unknown>[];
-		let tipoTurnoByCurso = await supabaseDataService.getCursosTipoTurnoFull();
-		if (tipoTurnoByCurso.size === 0) {
-			const idsFromView = rows
-				.map((c) => {
-					const raw = c.id_curso ?? c.idCurso;
-					return raw != null && raw !== '' ? Number(raw) : NaN;
-				})
-				.filter((n) => !Number.isNaN(n));
-			tipoTurnoByCurso = await supabaseDataService.getCursosTipoTurnoPorIds([...new Set(idsFromView)]);
+		// 1) Cursos "puros" da tabela cursos — garante tipo_curso/turno corretos.
+		const cursosRows = ((await supabaseDataService.getAllCursos()) || []) as Record<string, unknown>[];
+
+		// 2) Créditos opcionais (view) indexados por id_curso.
+		const creditRows = ((await supabaseDataService.getCursosComCreditos()) || []) as Record<
+			string,
+			unknown
+		>[];
+		const creditByCurso = new Map<
+			number,
+			{ creditos: number | null; curriculo_completo: string | null }
+		>();
+		for (const row of creditRows) {
+			const rawId = row.id_curso ?? row.idCurso;
+			const id = rawId != null && rawId !== '' ? Number(rawId) : NaN;
+			if (Number.isNaN(id)) continue;
+			const creditos =
+				row.creditos_totais != null
+					? Number(row.creditos_totais)
+					: row.cred_total_exigido != null
+						? Number(row.cred_total_exigido)
+						: row.ch_total_exigida != null
+							? Math.floor(Number(row.ch_total_exigida) / 15)
+							: row.creditos != null
+								? Number(row.creditos)
+								: null;
+			const curriculoCompleto =
+				row.curriculo_completo != null ? String(row.curriculo_completo) : null;
+			if (!creditByCurso.has(id)) {
+				creditByCurso.set(id, { creditos, curriculo_completo: curriculoCompleto });
+			}
 		}
 
-		return rows.map((c: Record<string, unknown>, index: number) => {
-			const creditos =
-				c.creditos_totais != null
-					? Number(c.creditos_totais)
-					: c.cred_total_exigido != null
-						? Number(c.cred_total_exigido)
-						: c.ch_total_exigida != null
-							? Math.floor(Number(c.ch_total_exigida) / 15)
-							: c.creditos != null
-								? Number(c.creditos)
-								: null;
+		// 3) Matriz representativa (curriculo_completo) por curso, direto da tabela matrizes.
+		const matrizesResumo = await supabaseDataService.getMatrizesResumoPorCurso();
+
+		// 4) Monta MinimalCursoModel com base em cursos + créditos + matriz.
+		return cursosRows.map((c: Record<string, unknown>, index: number) => {
 			const rawId = c.id_curso ?? c.idCurso;
 			const idNum = rawId != null && rawId !== '' ? Number(rawId) : NaN;
 			const idCurso = !Number.isNaN(idNum) ? idNum : index;
-			const curriculoCompleto = String(c.curriculo_completo ?? '');
-			const fromCursos = tipoTurnoByCurso.get(idCurso);
-			let tipoCursoRaw =
-				(fromCursos?.tipo_curso ?? '') ||
-				(c.tipo_curso != null ? String(c.tipo_curso).trim() : '') ||
-				(c.tipoCurso != null ? String(c.tipoCurso).trim() : '');
+
+			const creditInfo = creditByCurso.get(idCurso);
+			const creditos = creditInfo?.creditos ?? null;
+			const matrizInfo = matrizesResumo.get(idCurso);
+			// Prioriza curriculo_completo vindo da tabela matrizes; se não houver, cai para o da view (quando existir).
+			const curriculoCompleto = matrizInfo?.curriculo_completo ?? creditInfo?.curriculo_completo ?? null;
+
+			const tipoCursoRaw =
+				c.tipo_curso != null
+					? String(c.tipo_curso).trim()
+					: c.tipoCurso != null
+						? String(c.tipoCurso).trim()
+						: '';
 			let turnoRaw =
-				(fromCursos?.turno ?? '') ||
-				(c.turno != null ? String(c.turno).trim() : '');
-			if (turnoRaw === '') {
+				c.turno != null
+					? String(c.turno).trim()
+					: '';
+			if (turnoRaw === '' && curriculoCompleto) {
 				turnoRaw = this.inferTurnoFromCurriculo(curriculoCompleto) ?? '';
 			}
 			const turno = turnoRaw !== '' ? turnoRaw.toUpperCase() : null;
+
 			return {
 				nomeCurso: String(c.nome_curso ?? c.nomeCurso ?? ''),
-				matrizCurricular: curriculoCompleto,
+				matrizCurricular: curriculoCompleto ?? '',
 				idCurso,
 				creditos,
 				classificacao: '',
@@ -89,6 +110,94 @@ class FluxogramaService {
 				turno
 			};
 		});
+	}
+
+	/**
+	 * Lista TODAS as matrizes com informações de curso, para o index /fluxogramas.
+	 * Diferente de getAllCursos (que colapsa por curso), aqui cada matriz gera um card.
+	 */
+	async getAllMatrizesIndex(): Promise<MinimalCursoModel[]> {
+		const rows = ((await supabaseDataService.getAllMatrizesWithCurso()) || []) as Array<
+			Record<string, unknown> & { cursos?: Record<string, unknown> | null }
+		>;
+
+		// Créditos continuam vindo da view por curso; serão iguais em todas as matrizes do mesmo curso.
+		const creditRows = ((await supabaseDataService.getCursosComCreditos()) || []) as Record<
+			string,
+			unknown
+		>[];
+		const creditByCurso = new Map<number, number | null>();
+		for (const row of creditRows) {
+			const rawId = row.id_curso ?? (row as Record<string, unknown>).idCurso;
+			const id = rawId != null && rawId !== '' ? Number(rawId) : NaN;
+			if (Number.isNaN(id)) continue;
+			const creditos =
+				row.creditos_totais != null
+					? Number(row.creditos_totais)
+					: row.cred_total_exigido != null
+						? Number(row.cred_total_exigido)
+						: row.ch_total_exigida != null
+							? Math.floor(Number(row.ch_total_exigida) / 15)
+							: row.creditos != null
+								? Number(row.creditos)
+								: null;
+			if (!creditByCurso.has(id)) {
+				creditByCurso.set(id, creditos);
+			}
+		}
+
+		const mapped = rows
+			.map((row) => {
+				const curso = (row.cursos ?? {}) as Record<string, unknown>;
+				const rawIdCurso = curso.id_curso ?? (curso as Record<string, unknown>).idCurso;
+				const idNum = rawIdCurso != null && rawIdCurso !== '' ? Number(rawIdCurso) : NaN;
+				const idCurso = !Number.isNaN(idNum) ? idNum : null;
+
+				const curriculoCompleto =
+					(row.curriculo_completo != null ? String(row.curriculo_completo) : '') ?? '';
+
+				const tipoCursoRaw =
+					curso.tipo_curso != null
+						? String(curso.tipo_curso).trim()
+						: (curso as Record<string, unknown>).tipoCurso != null
+							? String((curso as Record<string, unknown>).tipoCurso).trim()
+							: '';
+
+				let turnoRaw =
+					curso.turno != null
+						? String(curso.turno).trim()
+						: (curso as Record<string, unknown>).turno != null
+							? String((curso as Record<string, unknown>).turno).trim()
+							: '';
+				if (turnoRaw === '' && curriculoCompleto) {
+					turnoRaw = this.inferTurnoFromCurriculo(curriculoCompleto) ?? '';
+				}
+				const turno = turnoRaw !== '' ? turnoRaw.toUpperCase() : null;
+
+				return {
+					nomeCurso: String(curso.nome_curso ?? (curso as Record<string, unknown>).nomeCurso ?? ''),
+					matrizCurricular: curriculoCompleto,
+					idCurso: idCurso ?? -1,
+					creditos: idCurso != null ? creditByCurso.get(idCurso) ?? null : null,
+					classificacao: '',
+					tipoCurso: tipoCursoRaw !== '' ? tipoCursoRaw : '',
+					turno
+				} satisfies MinimalCursoModel;
+			})
+			.filter((c) => c.matrizCurricular && c.nomeCurso);
+
+		// Ordena alfabeticamente por nome do curso e, dentro dele, por currículo
+		mapped.sort((a, b) => {
+			const nomeA = a.nomeCurso.localeCompare(b.nomeCurso, 'pt-BR', { sensitivity: 'base' });
+			if (nomeA !== 0) return nomeA;
+			const curA = (a.matrizCurricular ?? '').localeCompare(b.matrizCurricular ?? '', 'pt-BR', {
+				numeric: true,
+				sensitivity: 'base'
+			});
+			return curA;
+		});
+
+		return mapped;
 	}
 
 	/**

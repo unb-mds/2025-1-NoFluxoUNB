@@ -6,7 +6,7 @@
 	import { createSupabaseBrowserClient } from '$lib/supabase/client';
 	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
-	import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch } from 'lucide-svelte';
+import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen } from 'lucide-svelte';
 	import type { UserModel } from '$lib/types';
 
 	interface Props {
@@ -23,10 +23,11 @@
 
 	const navLinks = $derived([
 		{ href: ROUTES.FLUXOGRAMAS, label: 'Fluxogramas', icon: GitBranch },
-		{ href: ROUTES.ASSISTENTE, label: 'Assistente', icon: Bot },
 		hasHistorico
 			? { href: ROUTES.MEU_FLUXOGRAMA, label: 'Meu Fluxograma', icon: LayoutDashboard }
 			: { href: ROUTES.UPLOAD_HISTORICO, label: 'Importar Histórico', icon: Upload },
+		{ href: ROUTES.ASSISTENTE, label: 'Assistente', icon: Bot },
+		{ href: ROUTES.DISCIPLINAS, label: 'Disciplinas', icon: BookOpen },
 	]);
 
 	async function handleLogout() {

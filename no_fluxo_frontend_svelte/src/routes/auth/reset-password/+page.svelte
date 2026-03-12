@@ -86,7 +86,11 @@
 
 <div class="relative z-10 flex min-h-screen items-center justify-center px-4">
 	<AuthHomeLink />
-	<div class="auth-card">
+	<div class="flex w-full max-w-md flex-col items-center gap-4">
+		<a href="/" class="text-2xl font-marker font-bold tracking-wide text-white drop-shadow-sm">
+			NOFLX UNB
+		</a>
+		<div class="auth-card w-full">
 		<form onsubmit={handleSubmit}>
 			<h2>Redefinir Senha</h2>
 
@@ -160,6 +164,7 @@
 				</button>
 			{/if}
 		</form>
+		</div>
 	</div>
 </div>
 

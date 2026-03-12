@@ -114,13 +114,57 @@ export class SupabaseDataService {
 	 */
 	async getMatrizesByCurso(idCurso: number) {
 		return cached(`matrizes_${idCurso}`, async () => {
-			const { data, error } = await this.supabase
+			// 1) Caminho "normal": usa id_curso diretamente
+			let { data, error } = await this.supabase
 				.from('matrizes')
 				.select('*')
 				.eq('id_curso', idCurso)
 				.order('ano_vigor', { ascending: false });
 
 			if (error) throw new Error(`Erro ao buscar matrizes: ${error.message}`);
+
+			// 2) Fallback por id_curso "espelhado" (legado): em alguns bancos, cursos noturnos foram
+			// inseridos com id_curso = codigo_base + 100000 nas matrizes.
+			// Ex.: curso 5673 (noturno) pode ter matrizes com id_curso = 105673.
+			if (!data || data.length === 0) {
+				const altId = idCurso >= 100000 ? idCurso - 100000 : idCurso + 100000;
+				const { data: dataAlt, error: errorAlt } = await this.supabase
+					.from('matrizes')
+					.select('*')
+					.eq('id_curso', altId)
+					.order('ano_vigor', { ascending: false });
+				if (!errorAlt && dataAlt && dataAlt.length > 0) {
+					data = dataAlt;
+				}
+			}
+
+			// 3) Fallback final por codigo_curso + prefixo de curriculo_completo, para casos raros em que
+			// id_curso não bate nem com o espelhado, mas o código do curso está correto.
+			if (!data || data.length === 0) {
+				try {
+					const { data: cursoRow } = await this.supabase
+						.from('cursos')
+						.select('codigo_curso')
+						.eq('id_curso', idCurso)
+						.maybeSingle();
+					const codigoCurso = String(
+						(cursoRow as { codigo_curso?: string } | null)?.codigo_curso ?? ''
+					).trim();
+					if (codigoCurso) {
+						const { data: dataByCodigo } = await this.supabase
+							.from('matrizes')
+							.select('*')
+							.like('curriculo_completo', `${codigoCurso}/%`)
+							.order('ano_vigor', { ascending: false });
+						if (dataByCodigo && dataByCodigo.length > 0) {
+							data = dataByCodigo;
+						}
+					}
+				} catch {
+					// se der erro aqui, seguimos com data vazia mesmo
+				}
+			}
+
 			const seen = new Set<string>();
 			return (data || [])
 				.filter((row) => {
@@ -183,6 +227,64 @@ export class SupabaseDataService {
 			if (error) throw new Error(`Erro ao buscar cursos: ${error.message}`);
 			return data;
 		});
+	}
+
+	/**
+	 * Lista TODAS as matrizes com informações do curso (para index de fluxogramas por matriz).
+	 * Cada linha representa um par (curso, matriz).
+	 */
+	async getAllMatrizesWithCurso() {
+		return cached('all_matrizes_with_curso', async () => {
+			const { data, error } = await this.supabase
+				.from('matrizes')
+				.select('id_matriz, id_curso, curriculo_completo, ano_vigor, cursos(id_curso, nome_curso, tipo_curso, turno)')
+				.order('curriculo_completo');
+
+			if (error) throw new Error(`Erro ao buscar matrizes com curso: ${error.message}`);
+			return data;
+		});
+	}
+
+	/**
+	 * Busca, para todos os cursos, uma matriz "representativa" (última por ano_vigor) para exibir curriculo_completo.
+	 * Útil para telas de listagem (Fluxogramas, Mudança de curso).
+	 *
+	 * Considera também o padrão legado id_curso = codigo_base + 100000 (noturno), normalizando para o
+	 * id_curso base ao montar o mapa.
+	 */
+	async getMatrizesResumoPorCurso(): Promise<
+		Map<number, { id_matriz: number; curriculo_completo: string | null; ano_vigor: string | null }>
+	> {
+		const { data, error } = await this.supabase
+			.from('matrizes')
+			.select('id_matriz, id_curso, curriculo_completo, ano_vigor')
+			.order('ano_vigor', { ascending: false });
+
+		if (error) throw new Error(`Erro ao buscar matrizes resumo: ${error.message}`);
+		const map = new Map<
+			number,
+			{ id_matriz: number; curriculo_completo: string | null; ano_vigor: string | null }
+		>();
+		for (const row of data ?? []) {
+			const r = row as {
+				id_matriz: number;
+				id_curso: number | null;
+				curriculo_completo: string | null;
+				ano_vigor: string | null;
+			};
+			if (!r.id_curso) continue;
+			// Normaliza id_curso "espelhado" (>100000) para o código base.
+			const logicalId = r.id_curso >= 100000 ? r.id_curso - 100000 : r.id_curso;
+			// Como está ordenado por ano_vigor desc, o primeiro por logicalId já é o mais recente
+			if (!map.has(logicalId)) {
+				map.set(logicalId, {
+					id_matriz: r.id_matriz,
+					curriculo_completo: r.curriculo_completo ?? null,
+					ano_vigor: r.ano_vigor ?? null
+				});
+			}
+		}
+		return map;
 	}
 
 	/**

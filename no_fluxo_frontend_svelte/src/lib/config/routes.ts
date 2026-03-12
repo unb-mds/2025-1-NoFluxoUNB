@@ -9,6 +9,7 @@ export const ROUTES = {
 
   // Protected routes
   ASSISTENTE: '/assistente',
+  DISCIPLINAS: '/disciplinas',
   UPLOAD_HISTORICO: '/upload-historico',
   FLUXOGRAMAS: '/fluxogramas',
   MEU_FLUXOGRAMA: '/meu-fluxograma',
@@ -36,6 +37,7 @@ export const PUBLIC_ROUTES = [
 // Protected routes require authentication
 export const PROTECTED_ROUTES = [
   '/assistente',
+  '/disciplinas',
   '/upload-historico',
   '/fluxogramas',
   '/meu-fluxograma',

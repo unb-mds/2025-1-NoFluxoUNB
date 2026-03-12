@@ -12,7 +12,12 @@
 <AnimatedBackground />
 
 <div class="flex min-h-screen items-center justify-center overflow-x-hidden px-3 py-6 sm:px-4">
-	<div class="auth-card">
-		<LoginForm />
+	<div class="flex w-full max-w-md flex-col items-center gap-4">
+		<a href="/" class="text-2xl font-marker font-bold tracking-wide text-white drop-shadow-sm">
+			NOFLX UNB
+		</a>
+		<div class="auth-card w-full">
+			<LoginForm />
+		</div>
 	</div>
 </div>

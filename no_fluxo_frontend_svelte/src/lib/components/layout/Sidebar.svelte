@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { ROUTES } from '$lib/config/routes';
-	import { LayoutDashboard, Bot, Upload, GitBranch } from 'lucide-svelte';
+	import { LayoutDashboard, Bot, Upload, GitBranch, BookOpen } from 'lucide-svelte';
 	import type { UserModel } from '$lib/types';
 
 	interface NavItem {
@@ -35,6 +35,7 @@
 			items: [
 				{ href: ROUTES.UPLOAD_HISTORICO, label: 'Importar Histórico', icon: Upload },
 				{ href: ROUTES.ASSISTENTE, label: 'Assistente IA', icon: Bot },
+				{ href: ROUTES.DISCIPLINAS, label: 'Disciplinas', icon: BookOpen },
 			],
 		},
 	];

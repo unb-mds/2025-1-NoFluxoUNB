@@ -9,6 +9,7 @@
 	import { Search, Filter, ChevronLeft, ChevronRight, Loader2, AlertTriangle, GraduationCap } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 
+	// Agora cada item representa uma MATRIZ (curso + currículo).
 	let courses = $state<MinimalCursoModel[]>([]);
 	let loading = $state(true);
 	let error = $state<string | null>(null);
@@ -31,7 +32,7 @@
 		{ value: 'NOTURNO', label: 'Noturno' }
 	];
 
-	// Filtered courses: busca por nome (sempre); opcional por tipo e turno
+	// Filtered courses: busca por nome (sempre); opcional por tipo, turno e texto em currículo
 	let filtered = $derived.by(() => {
 		let result = courses;
 		// Busca por texto: nome do curso; se tiver tipo/turno, também busca neles
@@ -44,6 +45,8 @@
 				if (tipo && tipo.includes(q)) return true;
 				const turno = (c.turno ?? '').toString().toLowerCase();
 				if (turno && turno.includes(q)) return true;
+				const curriculo = (c.matrizCurricular ?? '').toLowerCase();
+				if (curriculo.includes(q)) return true;
 				return false;
 			});
 		}
@@ -66,7 +69,8 @@
 
 	onMount(async () => {
 		try {
-			courses = await fluxogramaService.getAllCursos();
+			// Lista TODAS as matrizes com informações de curso
+			courses = await fluxogramaService.getAllMatrizesIndex();
 		} catch (err) {
 			error = err instanceof Error ? err.message : 'Erro ao carregar cursos';
 		} finally {
@@ -207,7 +211,7 @@
 	{:else}
 		<!-- Course grid -->
 		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			{#each paginated as curso, i (curso.idCurso != null && !Number.isNaN(Number(curso.idCurso)) ? curso.idCurso : `curso-${i}-${curso.nomeCurso}`)}
+			{#each paginated as curso, i (`${curso.idCurso ?? 'curso'}-${curso.matrizCurricular ?? ''}-${i}`)}
 				<CourseCard {curso} onclick={() => navigateToCourse(curso)} />
 			{/each}
 		</div>
