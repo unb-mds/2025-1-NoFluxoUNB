@@ -40,6 +40,7 @@ export interface FluxogramaState {
 	isAnonymous: boolean;
 	hoveredSubjectCode: string | null;
 	selectedSubjectCode: string | null;
+	isCapturingScreenshot: boolean;
 }
 
 const MIN_ZOOM = 0.3;
@@ -56,7 +57,8 @@ function createFluxogramaStore() {
 		displayUnit: 'horas' as DisplayUnit,
 		isAnonymous: false,
 		hoveredSubjectCode: null,
-		selectedSubjectCode: null
+		selectedSubjectCode: null,
+		isCapturingScreenshot: false
 	});
 
 	let optativasAdicionadas = $state<OptativaAdicionada[]>([]);
@@ -285,12 +287,17 @@ function createFluxogramaStore() {
 				return;
 			}
 			try {
+				state.isCapturingScreenshot = true;
+				// Dar tempo para o DOM atualizar com as novas cores
+				await new Promise(resolve => setTimeout(resolve, 100));
 				const courseName = state.courseData?.nomeCurso ?? 'fluxograma';
 				const filename = `${courseName.replace(/\s+/g, '_')}.png`;
 				await captureScreenshot(container, filename);
 				toast.success('Screenshot salvo com sucesso!');
 			} catch {
 				toast.error('Não foi possível capturar a imagem.');
+			} finally {
+				state.isCapturingScreenshot = false;
 			}
 		},
 
@@ -304,6 +311,7 @@ function createFluxogramaStore() {
 			state.isAnonymous = false;
 			state.hoveredSubjectCode = null;
 			state.selectedSubjectCode = null;
+			state.isCapturingScreenshot = false;
 			optativasAdicionadas = [];
 			connectionDensityBySemester = new Map();
 		}
