@@ -467,10 +467,7 @@
 	// ─── Path Generation ──────────────────────────────────────────────
 
 	function getPath(line: ConnectionLine): string {
-		if (line.isAllMode && line.routing) {
-			return getGapRoutedPath(line);
-		}
-		// Simple Bezier for direct/hover mode
+		// Use simple Bezier curves for all modes (direct and all)
 		const dx = Math.abs(line.x2 - line.x1);
 		const controlOffset = Math.max(dx * 0.4, 40);
 		return `M ${line.x1} ${line.y1} C ${line.x1 + controlOffset} ${line.y1}, ${line.x2 - controlOffset} ${line.y2}, ${line.x2} ${line.y2}`;
@@ -663,21 +660,48 @@
 			>
 				<polygon points="0 0, 9 4, 0 8" fill="#10b981" />
 			</marker>
+			<!-- Blue arrows for all-connections mode (white during screenshot) -->
+			<marker
+				id="arrow-navy"
+				markerUnits="userSpaceOnUse"
+				markerWidth="10"
+				markerHeight="8"
+				refX="9"
+				refY="4"
+				orient="auto"
+			>
+				<polygon points="0 0, 9 4, 0 8" fill="#3772ff" />
+			</marker>
+			<marker
+				id="arrow-white"
+				markerUnits="userSpaceOnUse"
+				markerWidth="10"
+				markerHeight="8"
+				refX="9"
+				refY="4"
+				orient="auto"
+			>
+				<polygon points="0 0, 9 4, 0 8" fill="#ffffff" />
+			</marker>
 		</defs>
 
 		{#each lines as line, i}
 			{@const hoveredCode = store.state.hoveredSubjectCode}
-			{@const isAllWithHover = store.state.connectionMode === 'all' && !!hoveredCode}
+			{@const isAllMode = store.state.connectionMode === 'all'}
+			{@const isCapturingScreenshot = store.state.isCapturingScreenshot}
+			{@const isAllWithHover = isAllMode && !!hoveredCode}
 			{@const isRelated = isAllWithHover && isLineRelatedToHovered(line, hoveredCode)}
 			{@const isDimmed = isAllWithHover && !isRelated}
+			{@const strokeColor = isAllMode ? (isCapturingScreenshot ? '#ffffff' : '#3772ff') : getStrokeColor(line.type)}
+			{@const markerUrl = isAllMode ? (isCapturingScreenshot ? 'url(#arrow-white)' : 'url(#arrow-navy)') : (line.type === 'prerequisite' ? 'url(#arrow-prereq)' : line.type === 'dependent' ? 'url(#arrow-dep)' : 'url(#arrow-coreq)')}
 			<path
 				d={getPath(line)}
 				fill="none"
-				stroke={getStrokeColor(line.type)}
+				stroke={strokeColor}
 				stroke-width={isRelated ? '3' : '2'}
 				stroke-opacity={isDimmed ? '0.15' : '0.7'}
 				stroke-dasharray={line.type === 'corequisite' ? '6,4' : 'none'}
-				marker-end={line.type === 'prerequisite' ? 'url(#arrow-prereq)' : line.type === 'dependent' ? 'url(#arrow-dep)' : 'url(#arrow-coreq)'}
+				marker-end={markerUrl}
 				style="transition: stroke-opacity 0.2s, stroke-width 0.2s;"
 			/>
 		{/each}

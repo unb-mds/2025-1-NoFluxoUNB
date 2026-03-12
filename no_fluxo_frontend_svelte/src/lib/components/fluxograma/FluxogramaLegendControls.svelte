@@ -189,11 +189,11 @@
 							Conexões diretas
 						</button>
 						<button
-							disabled
-							class="flex w-full items-center gap-2 px-3 py-2 text-left text-xs text-white/30 cursor-not-allowed"
+							onclick={() => selectMode('all')}
+							class="flex w-full items-center gap-2 px-3 py-2 text-left text-xs transition-colors {store.state.connectionMode === 'all' ? 'bg-purple-500/20 text-purple-300' : 'text-white/70 hover:bg-white/10 hover:text-white'}"
 						>
-							<span class="h-2 w-2 rounded-full bg-white/10"></span>
-							Todas as conexões (em breve)
+							<span class="h-2 w-2 rounded-full {store.state.connectionMode === 'all' ? 'bg-purple-400' : 'bg-white/20'}"></span>
+							Todas as conexões
 						</button>
 					</div>
 				{/if}
