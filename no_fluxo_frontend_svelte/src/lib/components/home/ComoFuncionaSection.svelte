@@ -1,6 +1,6 @@
 <script lang="ts">
 	import FeatureCard from './FeatureCard.svelte';
-	import { ClipboardList, PlusCircle, CheckCircle } from 'lucide-svelte';
+	import { ClipboardList, PlusCircle, CheckCircle, Bot, ArrowRightLeft } from 'lucide-svelte';
 
 	const features = [
 		{
@@ -15,17 +15,33 @@
 			icon: PlusCircle,
 			title: 'ADICIONE OPTATIVAS',
 			description:
-				'Personalize seu fluxograma adicionando matérias optativas de acordo com seus interesses.',
+				'Personalize seu fluxograma adicionando matérias optativas alinhadas às suas áreas de interesse.',
 			gradientFrom: '#EC4899',
 			gradientTo: '#F97316'
+		},
+		{
+			icon: ArrowRightLeft,
+			title: 'SIMULE MUDANÇA DE CURSO',
+			description:
+				'Use seu histórico atual para ver como ficaria sua integralização em outro curso da UnB.',
+			gradientFrom: '#F97316',
+			gradientTo: '#22c55e'
+		},
+		{
+			icon: Bot,
+			title: 'ASSISTENTE DE IA',
+			description:
+				'Converse com a IA para receber sugestões de disciplinas e optativas que combinem com seus interesses.',
+			gradientFrom: '#22c55e',
+			gradientTo: '#EAB308'
 		},
 		{
 			icon: CheckCircle,
 			title: 'ACOMPANHE SEU PROGRESSO',
 			description:
-				'Marque as disciplinas já cursadas e visualize seu progresso no curso de forma clara.',
-			gradientFrom: '#F97316',
-			gradientTo: '#EAB308'
+				'Marque as disciplinas já cursadas, veja carga horária integralizada e quanto falta para se formar.',
+			gradientFrom: '#EAB308',
+			gradientTo: '#6366F1'
 		}
 	];
 </script>
@@ -72,7 +88,19 @@
 
 	@media (min-width: 768px) {
 		.feature-cards {
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-auto-rows: auto;
+		}
+
+		/* Colocando um "vácuo" na linha 2 coluna 2 e movendo os cards 4 e 5 */
+		:global(.feature-cards .feature-card:nth-child(4)) {
+			grid-column: 1;
+			grid-row: 2;
+		}
+
+		:global(.feature-cards .feature-card:nth-child(5)) {
+			grid-column: 3;
+			grid-row: 2;
 		}
 	}
 </style>

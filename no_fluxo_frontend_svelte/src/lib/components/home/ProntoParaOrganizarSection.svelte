@@ -11,8 +11,7 @@
 <section class="pronto-section">
 	<h2 class="section-title">PRONTO PARA ORGANIZAR SEU FLUXO?</h2>
 	<p class="pronto-desc">
-		Não perca mais tempo tentando entender seu fluxograma. O NoFluxo UNB torna tudo mais simples e
-		visual para você planejar sua jornada acadêmica.
+		Crie sua conta, envie seu histórico e deixe a IA montar um fluxograma claro e fácil de seguir.
 	</p>
 	<button
 		class="hero-btn"

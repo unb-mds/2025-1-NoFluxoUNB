@@ -135,8 +135,8 @@
 				? 'cursor-default'
 				: 'cursor-pointer'}"
 		>
-			<div class="flex items-center justify-between gap-4">
-				<div class="flex min-w-0 items-center gap-4">
+			<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+				<div class="flex min-w-0 items-center gap-3 sm:gap-4">
 					<div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-green-500/20">
 						{#if integralizacaoLoading}
 							<Loader2 class="h-7 w-7 animate-spin text-green-400" />

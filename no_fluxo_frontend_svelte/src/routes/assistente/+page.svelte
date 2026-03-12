@@ -62,7 +62,7 @@
 
 <AnimatedBackground />
 
-<div class="relative z-10 container mx-auto max-w-5xl px-4 py-8 h-[calc(100vh-100px)] flex flex-col">
+<div class="relative z-10 container mx-auto max-w-5xl px-3 py-4 sm:px-4 sm:py-8 h-[calc(100vh-88px)] sm:h-[calc(100vh-100px)] flex flex-col">
 	<!-- Header -->
 	<div class="mb-6">
 		<div class="flex items-center gap-3">
@@ -76,6 +76,15 @@
 		</div>
 	</div>
 
+	<!-- Banner de orientações -->
+	<div class="mb-3 sm:mb-4 rounded-xl border border-white/10 bg-black/40 px-3 py-2.5 sm:px-4 sm:py-3 text-xs sm:text-sm text-gray-200">
+		<p class="font-semibold text-gray-100 mb-0.5 sm:mb-1">Como usar o Darcy AI</p>
+		<p class="text-gray-300">
+			Envie só <span class="font-semibold">tópicos de interesse</span> (ex.: "IA e visão computacional"). Evite papo paralelo:
+			perguntas diretas geram <span class="font-semibold">melhores sugestões de disciplinas</span>.
+		</p>
+	</div>
+
 	<!-- Chat Container -->
 	<div class="flex-1 glass-light rounded-2xl overflow-hidden flex flex-col">
 		<!-- Mensagens -->
@@ -84,50 +93,47 @@
 				<div class="h-full flex flex-col items-center justify-center text-center">
 					<Bot class="h-16 w-16 text-pink-400 mb-4 opacity-50" />
 					<h2 class="text-xl font-semibold text-white mb-2">Como posso ajudar?</h2>
-					<p class="text-gray-400 max-w-md">
-						Pergunte sobre áreas de estudos de interesse e retornarei recomendações de disciplinas da UnB!
-					</p>
-				<div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
+					<div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 max-w-2xl">
 					<button
 						on:click={() => { mensagem = 'Direito Constitucional e Teoria da Constituição'; enviarMensagem(); }}
-						class="glass-light p-3 rounded-lg hover:bg-white/10 transition-colors text-left"
+							class="glass-light px-3 py-2 sm:p-3 rounded-lg hover:bg-white/10 transition-colors text-left text-xs sm:text-sm"
 					>
-						<p class="text-white text-sm">⚖️ Direito Constitucional</p>
+						<p class="text-white">⚖️ Direito Constitucional</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'História da África: Sociedades Pré-Coloniais e Processos de Independência'; enviarMensagem(); }}
-						class="glass-light p-3 rounded-lg hover:bg-white/10 transition-colors text-left"
+							class="glass-light px-3 py-2 sm:p-3 rounded-lg hover:bg-white/10 transition-colors text-left text-xs sm:text-sm"
 					>
-						<p class="text-white text-sm">🌍 História da África</p>
+						<p class="text-white">🌍 História da África</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'Inteligência Artificial: Aprendizado de Máquina e Redes Neurais'; enviarMensagem(); }}
-						class="glass-light p-3 rounded-lg hover:bg-white/10 transition-colors text-left"
+							class="glass-light px-3 py-2 sm:p-3 rounded-lg hover:bg-white/10 transition-colors text-left text-xs sm:text-sm"
 					>
-						<p class="text-white text-sm">🤖 Inteligência Artificial</p>
+						<p class="text-white">🤖 Inteligência Artificial</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'Bioética e Saúde Coletiva no Sistema Único de Saúde'; enviarMensagem(); }}
-						class="glass-light p-3 rounded-lg hover:bg-white/10 transition-colors text-left"
+							class="glass-light px-3 py-2 sm:p-3 rounded-lg hover:bg-white/10 transition-colors text-left text-xs sm:text-sm"
 					>
-						<p class="text-white text-sm">🦠 Microbiologia</p>
+						<p class="text-white">🦠 Microbiologia</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'Macroeconomia: Modelos de Crescimento e Políticas Monetárias'; enviarMensagem(); }}
-						class="glass-light p-3 rounded-lg hover:bg-white/10 transition-colors text-left"
+							class="glass-light px-3 py-2 sm:p-3 rounded-lg hover:bg-white/10 transition-colors text-left text-xs sm:text-sm"
 					>
-						<p class="text-white text-sm">📈 Macroeconomia</p>
+						<p class="text-white">📈 Macroeconomia</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'Cálculo Diferencial e Integral para Engenharia'; enviarMensagem(); }}
-						class="glass-light p-3 rounded-lg hover:bg-white/10 transition-colors text-left"
+							class="glass-light px-3 py-2 sm:p-3 rounded-lg hover:bg-white/10 transition-colors text-left text-xs sm:text-sm"
 					>
-						<p class="text-white text-sm">⚛️ Física Quântica</p>
+						<p class="text-white">⚛️ Física Quântica</p>
 					</button>
 				</div>
 				</div>
@@ -191,20 +197,20 @@
 		</div>
 
 		<!-- Input -->
-		<div class="border-t border-white/10 p-4">
-			<form on:submit|preventDefault={enviarMensagem} class="flex gap-2">
+		<div class="border-t border-white/10 p-2.5 sm:p-3">
+			<form on:submit|preventDefault={enviarMensagem} class="flex gap-1.5 items-center">
 				<input
 					type="text"
 					bind:value={mensagem}
 					on:keypress={handleKeyPress}
-					placeholder="Digite seu interesse (ex: machine learning)..."
+					placeholder="Só tópicos de interesse (ex: IA aplicada a saúde)..."
 					disabled={carregando}
-					class="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500/50 disabled:opacity-50"
+					class="flex-1 bg-white/5 border border-white/10 rounded-full px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500/50 disabled:opacity-50"
 				/>
 				<button
 					type="submit"
 					disabled={!mensagem.trim() || carregando}
-					class="bg-gradient-to-br from-pink-500 to-purple-600 text-white rounded-xl px-6 py-3 font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+					class="shrink-0 bg-gradient-to-br from-pink-500 to-purple-600 text-white rounded-full px-3 sm:px-4 py-2 text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-1.5 shadow-md shadow-pink-500/30"
 				>
 					{#if carregando}
 						<Loader2 class="h-5 w-5 animate-spin" />
