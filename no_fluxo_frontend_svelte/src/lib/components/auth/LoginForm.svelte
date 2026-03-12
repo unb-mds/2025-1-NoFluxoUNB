@@ -4,7 +4,7 @@
 	import { goto } from '$app/navigation';
 	import { isLoading, authError, authStore } from '$lib/stores/auth';
 	import { browser } from '$app/environment';
-	import { AlertTriangle, Eye, EyeOff, Loader2, UserX } from 'lucide-svelte';
+	import { AlertTriangle, Eye, EyeOff, Loader2, UserX, Upload, Sparkles, Lock } from 'lucide-svelte';
 	import GoogleIcon from '$lib/components/icons/GoogleIcon.svelte';
 	import { loginSchema } from '$lib/schemas/auth';
 
@@ -106,9 +106,30 @@
 	}
 </script>
 
+<!-- Benefits Banner (Fixed position) -->
+<div class="benefits-banner">
+	<div class="benefits-header">
+		<Lock class="h-4 w-4 text-blue-600" />
+		<h3 class="banner-title">Recursos Exclusivos</h3>
+	</div>
+	<ul class="benefits-list">
+		<li class="benefit-item">
+			<Upload class="h-3.5 w-3.5 text-blue-500 shrink-0 mt-0.5" />
+			<span><strong>Upload de Histórico:</strong> Fluxograma personalizado automaticamente</span>
+		</li>
+		<li class="benefit-item">
+			<Sparkles class="h-3.5 w-3.5 text-purple-500 shrink-0 mt-0.5" />
+			<span><strong>DarcyAI:</strong> Recomendações inteligentes de disciplinas</span>
+		</li>
+	</ul>
+	<p class="benefits-footer">
+		💡 Faça login para desbloquear!
+	</p>
+</div>
+
 <form onsubmit={handleLogin} class="w-full" novalidate>
 	<!-- Title -->
-	<h2 class="mb-6 text-center text-[28px] font-bold text-blue-600">Entrar</h2>
+	
 
 	<!-- Error banner -->
 	{#if localError || $authError}
@@ -256,5 +277,98 @@
 		padding: 0 1rem;
 		color: #9ca3af;
 		font-size: 0.875rem;
+	}
+
+	.benefits-banner {
+		position: fixed;
+		bottom: 1rem;
+		right: 1rem;
+		max-width: 280px;
+		background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+		border: 1px solid #bfdbfe;
+		border-radius: 10px;
+		padding: 0.75rem 0.875rem;
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
+		z-index: 50;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.benefits-banner:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.15);
+	}
+
+	@media (max-width: 640px) {
+		.benefits-banner {
+			max-width: calc(100vw - 2rem);
+			padding: 0.625rem 0.75rem;
+			bottom: 0.75rem;
+			right: 0.75rem;
+		}
+	}
+
+	.benefits-header {
+		display: flex;
+		align-items: center;
+		gap: 0.375rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.banner-title {
+		font-size: 0.8125rem;
+		font-weight: 600;
+		color: #1f2937;
+		margin: 0;
+	}
+
+	.benefits-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.benefit-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.375rem;
+		font-size: 0.75rem;
+		color: #374151;
+		line-height: 1.35;
+	}
+
+	.benefit-item strong {
+		color: #1f2937;
+	}
+
+	@media (max-width: 640px) {
+		.banner-title {
+			font-size: 0.75rem;
+		}
+
+		.benefit-item {
+			font-size: 0.6875rem;
+			gap: 0.3rem;
+		}
+	}
+
+	.benefits-footer {
+		font-size: 0.6875rem;
+		color: #2563eb;
+		text-align: center;
+		margin-top: 0.5rem;
+		padding-top: 0.5rem;
+		border-top: 1px solid #dbeafe;
+		font-weight: 500;
+	}
+
+	@media (max-width: 640px) {
+		.benefits-footer {
+			font-size: 0.625rem;
+			margin-top: 0.375rem;
+			padding-top: 0.375rem;
+		}
 	}
 </style>

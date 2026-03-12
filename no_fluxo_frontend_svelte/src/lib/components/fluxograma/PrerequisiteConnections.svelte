@@ -691,7 +691,7 @@
 					refY="4"
 					orient="auto"
 				>
-					<polygon points="0 0, 9 4, 0 8" fill={paletteColor} />
+					<polygon points="0 0, 9 4, 0 8" fill={paletteColor} fill-opacity="0.5" />
 				</marker>
 			{/each}
 		</defs>
@@ -713,11 +713,11 @@
 						? 'url(#arrow-dep)'
 						: 'url(#arrow-coreq)'}
 			<path
-				d={isAllMode && line.routing ? getGapRoutedPath(line) : getPath(line)}
+				d={getPath(line)}
 				fill="none"
 				stroke={strokeColor}
 				stroke-width={isRelated ? '3' : isAllMode ? '2.5' : '2'}
-				stroke-opacity={isDimmed ? '0.2' : '0.85'}
+				stroke-opacity={isDimmed ? '0.2' : isAllMode ? '0.5' : '0.85'}
 				stroke-dasharray={line.type === 'corequisite' ? '8,5' : 'none'}
 				marker-end={markerUrl}
 				style="transition: stroke-opacity 0.2s, stroke-width 0.2s;"
