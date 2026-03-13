@@ -5,7 +5,9 @@ import time
 import os
 import re
 import unicodedata
-
+"""
+ESSE SCRAPING EXTRAI DADOS DAS EMENTAS DAS DISCIPLINAS DE GRADUAÇÃO (AS ESTRUTURAS CURRICULARES)
+"""
 
 def get_viewstate(soup):
     vs = soup.find('input', {'name': 'javax.faces.ViewState'})
@@ -320,8 +322,9 @@ def scrape_estruturas():
 
         linhas = soup.find_all('tr', class_=['linha_impar', 'linha_par'])
         relatorios = []
+        MAX_RELATORIOS_POR_CURSO = 4  # pegar até 4 estruturas curriculares por curso (antes: 2)
         for tr in linhas:
-            if len(relatorios) == 2:
+            if len(relatorios) >= MAX_RELATORIOS_POR_CURSO:
                 break
             tds = tr.find_all('td')
             if len(tds) >= 2:

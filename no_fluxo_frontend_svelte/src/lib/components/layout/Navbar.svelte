@@ -140,6 +140,17 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen } fr
 	></div>
 	<div class="mobile-drawer-portal">
 		<div class="flex flex-col gap-1 p-4">
+			<div class="mb-2 flex items-center justify-between">
+				<span class="text-sm font-medium text-white/70">Menu</span>
+				<button
+					type="button"
+					class="mobile-close-btn"
+					onclick={closeMobileMenu}
+					aria-label="Fechar menu"
+				>
+					<X class="h-5 w-5" />
+				</button>
+			</div>
 			{#if isAuthenticated}
 				<!-- User info -->
 				<div class="mb-4 border-b border-white/10 pb-4">
@@ -274,5 +285,24 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen } fr
 	.mobile-nav-item.active {
 		background: rgba(255, 255, 255, 0.08);
 		border-left: 3px solid #9333ea;
+	}
+
+	.mobile-close-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		height: 32px;
+		width: 32px;
+		border-radius: 9999px;
+		border: none;
+		background: rgba(255, 255, 255, 0.06);
+		color: #e5e7eb;
+		cursor: pointer;
+		transition: background 0.15s ease, transform 0.1s ease;
+	}
+
+	.mobile-close-btn:hover {
+		background: rgba(255, 255, 255, 0.12);
+		transform: scale(1.03);
 	}
 </style>

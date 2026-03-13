@@ -262,17 +262,6 @@
 		Continuar com Google
 	</button>
 
-	<!-- Anonymous login -->
-	<button
-		type="button"
-		class="auth-btn-visitor mt-3"
-		onclick={handleAnonymousLogin}
-		disabled={submitting}
-	>
-		<UserX class="h-5 w-5" />
-		Entrar como Visitante
-	</button>
-
 	<!-- Links -->
 	<p class="mt-6 text-center text-sm text-gray-500">
 		Não tem uma conta?
