@@ -9,7 +9,7 @@
 
 	onMount(async () => {
 		const code = $page.url.searchParams.get('code');
-		const next = $page.url.searchParams.get('next') || '/fluxogramas';
+		const next = $page.url.searchParams.get('next') || '/upload-historico';
 		const errorParam = $page.url.searchParams.get('error');
 
 		if (errorParam) {

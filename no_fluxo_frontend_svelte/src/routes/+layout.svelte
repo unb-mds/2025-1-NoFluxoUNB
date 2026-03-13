@@ -21,10 +21,10 @@
 		if (!browser || $page.url.pathname !== '/') return;
 		const code = $page.url.searchParams.get('code');
 		if (code) {
-			const next = $page.url.searchParams.get('next') || '/fluxogramas';
+			const next = $page.url.searchParams.get('next') || '/upload-historico';
 			const q = new URLSearchParams();
 			q.set('code', code);
-			if (next !== '/fluxogramas') q.set('next', next);
+			if (next !== '/upload-historico') q.set('next', next);
 			goto(`/auth/callback?${q.toString()}`, { replaceState: true });
 			return;
 		}

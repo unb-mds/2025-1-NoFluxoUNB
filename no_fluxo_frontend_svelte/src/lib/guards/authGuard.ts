@@ -57,7 +57,7 @@ export async function checkAuth(path: string): Promise<boolean> {
  * Guard for pages that should redirect logged-in users
  * (e.g., login page should redirect to home if already logged in)
  */
-export async function checkAlreadyAuthenticated(redirectTo = '/fluxogramas'): Promise<boolean> {
+export async function checkAlreadyAuthenticated(redirectTo = '/upload-historico'): Promise<boolean> {
 	if (!browser) return false;
 
 	const state = get(authStore);

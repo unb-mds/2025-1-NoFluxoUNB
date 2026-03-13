@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { authService } from '$lib/services/auth.service';
 	import { goto } from '$app/navigation';
+	import { ROUTES } from '$lib/config/routes';
 	import { isLoading, authError, authStore } from '$lib/stores/auth';
 	import { browser } from '$app/environment';
 	import {
@@ -93,7 +94,7 @@
 		const result = await authService.signIn(email, password);
 
 		if (result.success) {
-			await goto('/fluxogramas');
+			await goto(ROUTES.UPLOAD_HISTORICO);
 		} else {
 			localError = result.error;
 		}
