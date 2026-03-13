@@ -198,7 +198,7 @@ def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
         return json.dumps(lista_retorno, ensure_ascii=False)
     
     except Exception as e:
-        print(f"❌ Erro na ferramenta de busca: {e}")
+        print(f"❌ Erro na ferramenta de busca, tente novamente mais tarde: {e}")
         return json.dumps([])
 
 # 3. ENDPOINT DE HEALTH CHECK (para monitoramento)
