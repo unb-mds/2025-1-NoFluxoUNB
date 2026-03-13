@@ -4,7 +4,18 @@
 	import { goto } from '$app/navigation';
 	import { isLoading, authError, authStore } from '$lib/stores/auth';
 	import { browser } from '$app/environment';
-	import { AlertTriangle, Eye, EyeOff, Loader2, UserX, Upload, Sparkles, Lock } from 'lucide-svelte';
+	import {
+		AlertTriangle,
+		Eye,
+		EyeOff,
+		Loader2,
+		UserX,
+		Upload,
+		Sparkles,
+		Lock,
+		Minimize2,
+		Maximize2
+	} from 'lucide-svelte';
 	import GoogleIcon from '$lib/components/icons/GoogleIcon.svelte';
 	import { loginSchema } from '$lib/schemas/auth';
 
@@ -16,6 +27,7 @@
 	let localError = $state('');
 	let submitting = $state(false);
 	let showPassword = $state(false);
+	let isBannerMinimized = $state(false);
 
 	// Field-level validation errors (shown after blur)
 	let emailTouched = $state(false);
@@ -104,27 +116,51 @@
 		authService.setAnonymous();
 		goto('/fluxogramas');
 	}
+
+	function toggleBenefitsBanner() {
+		isBannerMinimized = !isBannerMinimized;
+	}
 </script>
 
 <!-- Benefits Banner (Fixed position) -->
-<div class="benefits-banner">
+
+<div class="benefits-banner" class:minimized={isBannerMinimized}>
 	<div class="benefits-header">
-		<Lock class="h-4 w-4 text-blue-600" />
-		<h3 class="banner-title">Recursos Exclusivos</h3>
+		<div class="benefits-title-wrap">
+			<Lock class="h-4 w-4 text-blue-600" />
+			<h3 class="banner-title">Recursos Exclusivos</h3>
+		</div>
+		<button
+			type="button"
+			class="banner-toggle"
+			onclick={toggleBenefitsBanner}
+			aria-label={isBannerMinimized ? 'Expandir card de recursos' : 'Minimizar card de recursos'}
+			title={isBannerMinimized ? 'Expandir' : 'Minimizar'}
+		>
+			{#if isBannerMinimized}
+				<Maximize2 class="h-3.5 w-3.5" />
+				<span class="banner-toggle-label">Expandir</span>
+			{:else}
+				<Minimize2 class="h-3.5 w-3.5" />
+				<span class="banner-toggle-label">Minimizar</span>
+			{/if}
+		</button>
 	</div>
-	<ul class="benefits-list">
-		<li class="benefit-item">
-			<Upload class="h-3.5 w-3.5 text-blue-500 shrink-0 mt-0.5" />
-			<span><strong>Upload de Histórico:</strong> Fluxograma personalizado automaticamente</span>
-		</li>
-		<li class="benefit-item">
-			<Sparkles class="h-3.5 w-3.5 text-purple-500 shrink-0 mt-0.5" />
-			<span><strong>DarcyAI:</strong> Recomendações inteligentes de disciplinas</span>
-		</li>
-	</ul>
-	<p class="benefits-footer">
-		💡 Faça login para desbloquear!
-	</p>
+	{#if !isBannerMinimized}
+		<ul class="benefits-list">
+			<li class="benefit-item">
+				<Upload class="h-3.5 w-3.5 text-blue-500 shrink-0 mt-0.5" />
+				<span><strong>Upload de Histórico:</strong> Fluxograma personalizado automaticamente</span>
+			</li>
+			<li class="benefit-item">
+				<Sparkles class="h-3.5 w-3.5 text-purple-500 shrink-0 mt-0.5" />
+				<span><strong>DarcyAI:</strong> Recomendações inteligentes de disciplinas</span>
+			</li>
+		</ul>
+		<p class="benefits-footer">
+			💡 Faça login para desbloquear!
+		</p>
+	{/if}
 </div>
 
 <form onsubmit={handleLogin} class="w-full" novalidate>
@@ -293,6 +329,11 @@
 		transition: transform 0.3s ease, box-shadow 0.3s ease;
 	}
 
+	.benefits-banner.minimized {
+		max-width: fit-content;
+		padding: 0.55rem 0.65rem;
+	}
+
 	.benefits-banner:hover {
 		transform: translateY(-4px);
 		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.15);
@@ -310,8 +351,43 @@
 	.benefits-header {
 		display: flex;
 		align-items: center;
-		gap: 0.375rem;
+		justify-content: space-between;
 		margin-bottom: 0.5rem;
+	}
+
+	.benefits-title-wrap {
+		display: flex;
+		align-items: center;
+		gap: 0.375rem;
+	}
+
+	.benefits-banner.minimized .benefits-header {
+		margin-bottom: 0;
+		gap: 0.5rem;
+	}
+
+	.banner-toggle {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.25rem;
+		height: 1.5rem;
+		padding: 0 0.45rem;
+		border-radius: 9999px;
+		border: 1px solid #bfdbfe;
+		background: #ffffff;
+		color: #2563eb;
+		cursor: pointer;
+		font-size: 0.6875rem;
+		font-weight: 600;
+	}
+
+	.banner-toggle-label {
+		line-height: 1;
+	}
+
+	.banner-toggle:hover {
+		background: #eff6ff;
 	}
 
 	.banner-title {
@@ -346,6 +422,12 @@
 	@media (max-width: 640px) {
 		.banner-title {
 			font-size: 0.75rem;
+		}
+
+		.banner-toggle {
+			height: 1.35rem;
+			padding: 0 0.35rem;
+			font-size: 0.625rem;
 		}
 
 		.benefit-item {
