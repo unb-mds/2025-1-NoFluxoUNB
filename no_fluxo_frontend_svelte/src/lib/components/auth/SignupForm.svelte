@@ -100,9 +100,16 @@
 
 		if (result.success) {
 			success = true;
-			setTimeout(() => {
-				goto('/login');
-			}, 3000);
+			if (result.needsEmailConfirmation) {
+				// Não redireciona: usuário deve ver a mensagem para verificar o e-mail
+				setTimeout(() => {
+					goto('/login?message=confirm_email');
+				}, 8000);
+			} else {
+				setTimeout(() => {
+					goto('/login');
+				}, 3000);
+			}
 		} else {
 			localError = result.error;
 		}
@@ -126,9 +133,15 @@
 	<h2 class="mb-6 text-center text-[28px] font-bold text-blue-600">Criar Conta</h2>
 
 	{#if success}
-		<div class="auth-success flex items-center gap-3">
-			<CheckCircle class="h-5 w-5 shrink-0 text-emerald-600" />
-			<span>Conta criada com sucesso! Verifique seu email para confirmar o cadastro. Redirecionando...</span>
+		<div class="auth-success flex flex-col gap-3">
+			<div class="flex items-center gap-3">
+				<CheckCircle class="h-5 w-5 shrink-0 text-emerald-600" />
+				<span>Conta criada com sucesso!</span>
+			</div>
+			<p class="text-sm text-gray-600">
+				Enviamos um link de confirmação para <strong>{email}</strong>. Acesse seu e-mail e clique no link para ativar sua conta e poder fazer login. Se não encontrar, verifique a pasta de spam.
+			</p>
+			<p class="text-xs text-gray-500">Você será redirecionado para a página de login em instantes.</p>
 		</div>
 	{:else}
 		{#if localError}

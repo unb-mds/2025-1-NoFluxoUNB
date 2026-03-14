@@ -17,6 +17,8 @@ export interface AuthError {
 	originalError?: unknown;
 }
 
+const RATE_LIMIT_MESSAGE = 'Muitas tentativas. Aguarde alguns minutos e tente novamente.';
+
 export function parseAuthError(error: unknown): AuthError {
 	let message: string;
 	if (error instanceof Error) {
@@ -29,6 +31,16 @@ export function parseAuthError(error: unknown): AuthError {
 		message = String(error);
 	}
 	const lower = message.toLowerCase();
+
+	// HTTP 429 Too Many Requests (Supabase rate limit em signup/login)
+	const status = (error as { status?: number })?.status;
+	if (status === 429 || lower.includes('429') || lower.includes('too many requests')) {
+		return {
+			code: AuthErrorCode.BACKEND_ERROR,
+			message: RATE_LIMIT_MESSAGE,
+			originalError: error
+		};
+	}
 
 	if (lower.includes('invalid login credentials')) {
 		return {
@@ -81,7 +93,7 @@ export function parseAuthError(error: unknown): AuthError {
 	if (lower.includes('email rate limit') || lower.includes('rate limit')) {
 		return {
 			code: AuthErrorCode.BACKEND_ERROR,
-			message: 'Muitas tentativas. Aguarde alguns minutos e tente novamente.',
+			message: RATE_LIMIT_MESSAGE,
 			originalError: error
 		};
 	}
