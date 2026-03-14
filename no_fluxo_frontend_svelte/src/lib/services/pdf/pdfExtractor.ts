@@ -12,14 +12,17 @@ let pdfjsLoaded = false;
  * Uses worker from static folder (copied by postinstall) — avoids 404s in production
  * caused by Vite's file hashing and cache mismatches.
  */
-/** Pin to the exact version from package.json to avoid mismatches between lib and worker. */
-const PDFJS_VERSION = '5.4.624';
-const PDFJS_WORKER_CDN = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${PDFJS_VERSION}/build/pdf.worker.min.mjs`;
+/**
+ * Use a local worker wrapper that polyfills Uint8Array.prototype.toHex/fromHex
+ * before loading the real pdf.worker.min.mjs. This fixes crashes on browsers
+ * that don't yet support these newer JS APIs (e.g. older Chrome/Edge).
+ */
+const PDFJS_WORKER_SRC = '/pdf.worker.polyfilled.mjs';
 
 async function getPdfjs() {
 	const pdfjs = await import('pdfjs-dist');
 	if (!pdfjsLoaded) {
-		pdfjs.GlobalWorkerOptions.workerSrc = PDFJS_WORKER_CDN;
+		pdfjs.GlobalWorkerOptions.workerSrc = PDFJS_WORKER_SRC;
 		pdfjsLoaded = true;
 	}
 	return pdfjs;

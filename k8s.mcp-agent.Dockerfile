@@ -5,10 +5,9 @@ FROM python:3.11-slim AS builder
 
 WORKDIR /app
 
-# Install only production dependencies (skip legacy sentence-transformers/PyTorch)
-COPY mcp_agent/requirements.txt ./requirements-full.txt
-RUN grep -vE 'sentence-transformers|maritalk|fastmcp' requirements-full.txt > requirements.txt \
-    && pip install --no-cache-dir --prefix=/install -r requirements.txt
+# Install production dependencies
+COPY mcp_agent/requirements.txt ./requirements.txt
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
 # Copy source code
 COPY mcp_agent/ ./src/

@@ -23,6 +23,12 @@ no_fluxo_backend/dist/
 no_fluxo_backend/.env*
 no_fluxo_backend/logs/*.log
 
+# Frontend Svelte específico
+no_fluxo_frontend_svelte/node_modules/
+no_fluxo_frontend_svelte/.svelte-kit/
+no_fluxo_frontend_svelte/build/
+no_fluxo_frontend_svelte/.env*
+
 # Frontend específico
 no_fluxo_frontend/.dart_tool/
 no_fluxo_frontend/.packages
