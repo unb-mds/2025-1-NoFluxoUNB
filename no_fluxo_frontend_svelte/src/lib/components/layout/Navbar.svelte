@@ -12,23 +12,33 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen } fr
 	interface Props {
 		user: UserModel | null;
 		isAuthenticated: boolean;
+		/** Quando true, mostra Fluxogramas + Disciplinas + Assistente (sem Meu Fluxograma/Importar) e menu Visitante */
+		isAnonymous?: boolean;
 	}
 
-	let { user, isAuthenticated }: Props = $props();
+	let { user, isAuthenticated, isAnonymous = false }: Props = $props();
 
 	let mobileMenuOpen = $state(false);
 	const supabase = createSupabaseBrowserClient();
 
 	const hasHistorico = $derived(!!user?.dadosFluxograma);
 
-	const navLinks = $derived([
-		{ href: ROUTES.FLUXOGRAMAS, label: 'Fluxogramas', icon: GitBranch },
-		hasHistorico
-			? { href: ROUTES.MEU_FLUXOGRAMA, label: 'Meu Fluxograma', icon: LayoutDashboard }
-			: { href: ROUTES.UPLOAD_HISTORICO, label: 'Importar Histórico', icon: Upload },
-		{ href: ROUTES.ASSISTENTE, label: 'Assistente', icon: Bot },
-		{ href: ROUTES.DISCIPLINAS, label: 'Disciplinas', icon: BookOpen },
-	]);
+	/** Links do menu: anônimo só vê Fluxogramas e Disciplinas (sem Assistente) */
+	const navLinks = $derived(
+		isAnonymous
+			? [
+					{ href: ROUTES.FLUXOGRAMAS, label: 'Fluxogramas', icon: GitBranch },
+					{ href: ROUTES.DISCIPLINAS, label: 'Disciplinas', icon: BookOpen }
+				]
+			: [
+					{ href: ROUTES.FLUXOGRAMAS, label: 'Fluxogramas', icon: GitBranch },
+					hasHistorico
+						? { href: ROUTES.MEU_FLUXOGRAMA, label: 'Meu Fluxograma', icon: LayoutDashboard }
+						: { href: ROUTES.UPLOAD_HISTORICO, label: 'Importar Histórico', icon: Upload },
+					{ href: ROUTES.ASSISTENTE, label: 'Assistente', icon: Bot },
+					{ href: ROUTES.DISCIPLINAS, label: 'Disciplinas', icon: BookOpen }
+				]
+	);
 
 	async function handleLogout() {
 		await supabase.auth.signOut();
@@ -67,39 +77,73 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen } fr
 					</a>
 				{/each}
 
-				<!-- User Menu -->
-				<DropdownMenu.Root>
-					<DropdownMenu.Trigger>
-						<button class="relative flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20">
-							<Avatar.Root class="h-10 w-10">
-								<Avatar.Fallback class="bg-nofluxo-primary text-white font-bold">
-									{user?.nomeCompleto?.charAt(0).toUpperCase() || 'U'}
-								</Avatar.Fallback>
-							</Avatar.Root>
-						</button>
-					</DropdownMenu.Trigger>
-					<DropdownMenu.Content class="w-56" align="end">
-						<DropdownMenu.Label class="font-normal">
-							<div class="flex flex-col space-y-1">
-								<p class="text-sm font-medium leading-none">{user?.nomeCompleto || 'Usuário'}</p>
-								<p class="text-xs leading-none text-muted-foreground">{user?.email}</p>
-							</div>
-						</DropdownMenu.Label>
-						<DropdownMenu.Separator />
-						{#if !hasHistorico}
-							<DropdownMenu.Item onclick={() => goto(ROUTES.MEU_FLUXOGRAMA)}>
-								<LayoutDashboard class="mr-2 h-4 w-4" />
-								Meu Fluxograma
-							</DropdownMenu.Item>
+				<!-- User Menu (logado) ou Visitante (anônimo) -->
+				{#if isAnonymous}
+					<DropdownMenu.Root>
+						<DropdownMenu.Trigger>
+							<button class="rounded-full bg-white/10 px-4 py-2 font-marker text-sm font-bold text-white transition-colors hover:bg-white/20">
+								Visitante
+							</button>
+						</DropdownMenu.Trigger>
+						<DropdownMenu.Content class="w-56" align="end">
+							<DropdownMenu.Label class="font-normal text-muted-foreground">
+								Modo anônimo — algumas funções limitadas
+							</DropdownMenu.Label>
 							<DropdownMenu.Separator />
-						{/if}
-						<DropdownMenu.Item onclick={handleLogout} class="text-destructive">
-							<LogOut class="mr-2 h-4 w-4" />
-							Sair
-						</DropdownMenu.Item>
-					</DropdownMenu.Content>
-				</DropdownMenu.Root>
+							<DropdownMenu.Item onclick={() => { authStore.clear(); goto(ROUTES.LOGIN); }}>
+								<LogOut class="mr-2 h-4 w-4" />
+								Entrar / Criar conta
+							</DropdownMenu.Item>
+						</DropdownMenu.Content>
+					</DropdownMenu.Root>
+				{:else}
+					<DropdownMenu.Root>
+						<DropdownMenu.Trigger>
+							<button class="relative flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20">
+								<Avatar.Root class="h-10 w-10">
+									<Avatar.Fallback class="bg-nofluxo-primary text-white font-bold">
+										{user?.nomeCompleto?.charAt(0).toUpperCase() || 'U'}
+									</Avatar.Fallback>
+								</Avatar.Root>
+							</button>
+						</DropdownMenu.Trigger>
+						<DropdownMenu.Content class="w-56" align="end">
+							<DropdownMenu.Label class="font-normal">
+								<div class="flex flex-col space-y-1">
+									<p class="text-sm font-medium leading-none">{user?.nomeCompleto || 'Usuário'}</p>
+									<p class="text-xs leading-none text-muted-foreground">{user?.email}</p>
+								</div>
+							</DropdownMenu.Label>
+							<DropdownMenu.Separator />
+							{#if !hasHistorico}
+								<DropdownMenu.Item onclick={() => goto(ROUTES.MEU_FLUXOGRAMA)}>
+									<LayoutDashboard class="mr-2 h-4 w-4" />
+									Meu Fluxograma
+								</DropdownMenu.Item>
+								<DropdownMenu.Separator />
+							{/if}
+							<DropdownMenu.Item onclick={handleLogout} class="text-destructive">
+								<LogOut class="mr-2 h-4 w-4" />
+								Sair
+							</DropdownMenu.Item>
+						</DropdownMenu.Content>
+					</DropdownMenu.Root>
+				{/if}
 			{:else}
+				<a
+					href={ROUTES.FLUXOGRAMAS}
+					class="nav-link font-marker text-sm font-bold text-white lg:text-base"
+					class:active={isActive(ROUTES.FLUXOGRAMAS)}
+				>
+					Fluxogramas
+				</a>
+				<a
+					href={ROUTES.DISCIPLINAS}
+					class="nav-link font-marker text-sm font-bold text-white lg:text-base"
+					class:active={isActive(ROUTES.DISCIPLINAS)}
+				>
+					Disciplinas
+				</a>
 				<a href={ROUTES.LOGIN} class="nav-link font-marker text-sm font-bold text-white lg:text-base">
 					Entrar
 				</a>
@@ -152,10 +196,15 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen } fr
 				</button>
 			</div>
 			{#if isAuthenticated}
-				<!-- User info -->
+				<!-- User info ou Visitante -->
 				<div class="mb-4 border-b border-white/10 pb-4">
-					<p class="font-marker text-lg text-white">{user?.nomeCompleto || 'Usuário'}</p>
-					<p class="text-sm text-white/60">{user?.email}</p>
+					{#if isAnonymous}
+						<p class="font-marker text-lg text-white">Visitante</p>
+						<p class="text-sm text-white/60">Modo anônimo</p>
+					{:else}
+						<p class="font-marker text-lg text-white">{user?.nomeCompleto || 'Usuário'}</p>
+						<p class="text-sm text-white/60">{user?.email}</p>
+					{/if}
 				</div>
 
 				{#each navLinks as link}
@@ -171,7 +220,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen } fr
 					</a>
 				{/each}
 
-				{#if !hasHistorico}
+				{#if !isAnonymous && !hasHistorico}
 					<a
 						href={ROUTES.MEU_FLUXOGRAMA}
 						class="mobile-nav-item"
@@ -184,14 +233,43 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen } fr
 
 				<hr class="my-3 border-white/10" />
 
-				<button
-					onclick={() => { handleLogout(); closeMobileMenu(); }}
-					class="mobile-nav-item text-red-400"
-				>
-					<LogOut class="h-5 w-5" />
-					<span>Sair</span>
-				</button>
+				{#if isAnonymous}
+					<button
+						onclick={() => { authStore.clear(); closeMobileMenu(); goto(ROUTES.LOGIN); }}
+						class="mobile-nav-item text-amber-400"
+					>
+						<LogOut class="h-5 w-5" />
+						<span>Entrar / Criar conta</span>
+					</button>
+				{:else}
+					<button
+						onclick={() => { handleLogout(); closeMobileMenu(); }}
+						class="mobile-nav-item text-red-400"
+					>
+						<LogOut class="h-5 w-5" />
+						<span>Sair</span>
+					</button>
+				{/if}
 			{:else}
+				<a
+					href={ROUTES.FLUXOGRAMAS}
+					class="mobile-nav-item"
+					class:active={isActive(ROUTES.FLUXOGRAMAS)}
+					onclick={closeMobileMenu}
+				>
+					<GitBranch class="h-5 w-5" />
+					<span>Fluxogramas</span>
+				</a>
+				<a
+					href={ROUTES.DISCIPLINAS}
+					class="mobile-nav-item"
+					class:active={isActive(ROUTES.DISCIPLINAS)}
+					onclick={closeMobileMenu}
+				>
+					<BookOpen class="h-5 w-5" />
+					<span>Disciplinas</span>
+				</a>
+				<hr class="my-3 border-white/10" />
 				<a href={ROUTES.LOGIN} class="mobile-nav-item" onclick={closeMobileMenu}>
 					Entrar
 				</a>

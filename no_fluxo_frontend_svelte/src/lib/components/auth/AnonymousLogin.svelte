@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { authService } from '$lib/services/auth.service';
 	import { goto } from '$app/navigation';
-	import { CheckCircle, XCircle, ArrowLeft, Eye, FileX, Upload } from 'lucide-svelte';
+	import { CheckCircle, XCircle, ArrowLeft, Eye, FileX, Upload, BookOpen } from 'lucide-svelte';
 
 	let showSuccess = $state(false);
 
@@ -38,6 +38,13 @@
 						<Eye class="h-4 w-4 text-emerald-600" />
 					</div>
 					<span class="text-[0.95rem] text-gray-700">Visualizar fluxogramas de cursos</span>
+				</div>
+
+				<div class="flex items-center gap-3 py-2.5">
+					<div class="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100">
+						<BookOpen class="h-4 w-4 text-emerald-600" />
+					</div>
+					<span class="text-[0.95rem] text-gray-700">Buscar disciplinas (código, nome, pré-requisitos)</span>
 				</div>
 
 				<div class="my-1 h-px bg-gray-200"></div>

@@ -12,7 +12,9 @@ const PUBLIC_ROUTES = [
 	'/password-recovery',
 	'/login-anonimo',
 	'/auth/callback',
-	'/auth/reset-password'
+	'/auth/reset-password',
+	'/fluxogramas',
+	'/disciplinas'
 ];
 
 export function isPublicRoute(path: string): boolean {
