@@ -9,38 +9,19 @@
 
 	onMount(async () => {
 		const code = $page.url.searchParams.get('code');
-		const tokenHash = $page.url.searchParams.get('token_hash');
-		const typeParam = $page.url.searchParams.get('type');
 		const next = $page.url.searchParams.get('next') || '/upload-historico';
 		const errorParam = $page.url.searchParams.get('error');
 
 		if (errorParam) {
-			goto(`/login?error=${encodeURIComponent(errorParam)}`);
-			return;
-		}
-
-		// Confirmação de e-mail (cadastro): link do e-mail traz token_hash e type=signup ou type=email
-		if (tokenHash && (typeParam === 'signup' || typeParam === 'email')) {
-			try {
-				status = 'Confirmando seu e-mail...';
-				const otpType = typeParam === 'signup' ? 'signup' : 'email';
-				const result = await authService.verifyEmailAndRegister(tokenHash, otpType);
-				if (result.success) {
-					status = 'E-mail confirmado! Redirecionando...';
-					goto(next);
-				} else {
-					error = result.error;
-				}
-			} catch (err) {
-				error = err instanceof Error ? err.message : String(err);
-				console.error('Email verification callback error:', err);
-			}
+			goto(`/login?error=${errorParam}`);
 			return;
 		}
 
 		if (code) {
 			try {
+				// Usa o mesmo cliente para exchange + callback (importante para novos usuários Google)
 				const result = await authService.exchangeCodeForSessionAndHandleCallback(code);
+
 				if (result.success) {
 					status = 'Login realizado com sucesso!';
 					goto(next);
@@ -49,6 +30,8 @@
 				}
 			} catch (err) {
 				const errorMessage = err instanceof Error ? err.message : String(err);
+				
+				// Se for erro de PKCE code verifier, dar uma mensagem mais clara
 				if (errorMessage.includes('code verifier') || errorMessage.includes('PKCE')) {
 					error = 'Erro na autenticação: o processo foi iniciado em outra aba ou navegador. Tente fazer login novamente.';
 				} else {
@@ -59,6 +42,7 @@
 		} else {
 			try {
 				const result = await authService.handleOAuthCallback();
+
 				if (result.success) {
 					status = 'Login realizado com sucesso!';
 					goto(next);

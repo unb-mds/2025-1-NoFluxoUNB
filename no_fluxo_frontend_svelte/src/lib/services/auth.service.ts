@@ -91,27 +91,21 @@ export class AuthService {
 	}
 
 	/**
-	 * Sign up with email and password.
-	 * Com "Confirm email" ativado no Supabase, o usuário só é criado no banco após clicar no link de confirmação (auth/callback).
+	 * Sign up with email and password
 	 */
 	async signUp(
 		email: string,
 		password: string,
 		displayName?: string
-	): Promise<
-		| { success: true; user: User; needsEmailConfirmation?: boolean }
-		| { success: false; error: string }
-	> {
+	): Promise<{ success: true; user: User } | { success: false; error: string }> {
 		try {
 			authStore.setLoading(true);
 
-			const origin = typeof window !== 'undefined' ? window.location.origin : '';
 			const { data, error } = await this.supabase.auth.signUp({
 				email,
 				password,
 				options: {
-					data: displayName ? { display_name: displayName } : undefined,
-					emailRedirectTo: `${origin}/auth/callback`
+					data: displayName ? { display_name: displayName } : undefined
 				}
 			});
 
@@ -127,80 +121,26 @@ export class AuthService {
 				return { success: false, error: msg };
 			}
 
-			// Só registra no banco e faz login se o e-mail já estiver confirmado (ex.: Supabase com "Confirm email" desativado).
-			// Com confirmação obrigatória, data.session é null e o usuário será criado ao clicar no link no e-mail (auth/callback).
-			const emailConfirmed = !!data.session;
-			if (emailConfirmed) {
-				const dbResult = await this.databaseRegisterUser(
-					email,
-					displayName || email.split('@')[0]
-				);
-				if (!dbResult.success) {
-					await this.supabase.auth.signOut();
-					const msg = parseAuthError(dbResult.error).message;
-					authStore.setError(msg);
-					return { success: false, error: msg };
-				}
-				authStore.setUser(dbResult.user);
-				return { success: true, user: data.user };
+			// Register in database (direct Supabase insert)
+			const dbResult = await this.databaseRegisterUser(
+				email,
+				displayName || email.split('@')[0]
+			);
+
+			if (!dbResult.success) {
+				// Rollback: sign out from Supabase
+				await this.supabase.auth.signOut();
+				const msg = parseAuthError(dbResult.error).message;
+				authStore.setError(msg);
+				return { success: false, error: msg };
 			}
 
-			authStore.setLoading(false);
-			return {
-				success: true,
-				user: data.user,
-				needsEmailConfirmation: true
-			};
+			authStore.setUser(dbResult.user);
+			return { success: true, user: data.user };
 		} catch (error) {
 			const msg = parseAuthError(error).message;
 			authStore.setError(msg);
 			return { success: false, error: msg };
-		}
-	}
-
-	/**
-	 * Verifica o token de confirmação de e-mail (link enviado por e-mail) e registra o usuário no banco.
-	 * Chamado na página /auth/callback quando a URL contém token_hash e type=signup ou type=email.
-	 */
-	async verifyEmailAndRegister(
-		tokenHash: string,
-		otpType: 'email' | 'signup' = 'email'
-	): Promise<{ success: true; user: UserModel } | { success: false; error: string }> {
-		try {
-			const { data, error } = await this.supabase.auth.verifyOtp({
-				type: otpType,
-				token_hash: tokenHash
-			});
-
-			if (error) {
-				return { success: false, error: parseAuthError(error).message };
-			}
-
-			const user = data.user;
-			if (!user?.email) {
-				return { success: false, error: 'E-mail não encontrado na sessão.' };
-			}
-
-			const displayName =
-				user.user_metadata?.display_name ||
-				user.user_metadata?.name ||
-				user.user_metadata?.full_name ||
-				user.email.split('@')[0];
-
-			const result = await this.databaseRegisterUser(user.email, displayName);
-			if (!result.success) {
-				if (result.error?.includes('já') || result.error?.includes('already')) {
-					return this.databaseSearchUser();
-				}
-				return result;
-			}
-			authStore.setUser(result.user);
-			return { success: true, user: result.user };
-		} catch (error) {
-			return {
-				success: false,
-				error: parseAuthError(error).message
-			};
 		}
 	}
 
