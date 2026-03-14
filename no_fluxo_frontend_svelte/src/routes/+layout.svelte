@@ -3,7 +3,7 @@
 	import { page } from '$app/stores';
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
-	import { authStore, isLoading, currentUser, isAuthenticated } from '$lib/stores/auth';
+	import { authStore, isLoading, currentUser, isAuthenticated, isAnonymous } from '$lib/stores/auth';
 	import { authService } from '$lib/services/auth.service';
 	import { checkAuth, isPublicRoute } from '$lib/guards/authGuard';
 	import { isAuthRoute } from '$lib/config/routes';
@@ -104,7 +104,7 @@
 
 <div class="flex min-h-screen flex-col overflow-x-hidden">
 	{#if showNavbar}
-		<Navbar user={$currentUser} isAuthenticated={$isAuthenticated} />
+		<Navbar user={$currentUser} isAuthenticated={$isAuthenticated || $isAnonymous} isAnonymous={$isAnonymous} />
 	{/if}
 
 	<main class="flex-1">
