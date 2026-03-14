@@ -5,6 +5,7 @@
  */
 
 import logger from '../logger';
+import { Response } from 'express';
 
 export interface SabiaDisciplina {
     codigo: string;
@@ -107,6 +108,50 @@ export class SabiaService {
             }
             
             throw error;
+        }
+    }
+
+    /**
+     * Stream the Sabiá AI response via SSE, piping events from the FastAPI server.
+     */
+    async analyzarInteresseStream(interesse: string, res: Response): Promise<void> {
+        if (!this.available) {
+            throw new Error('Sabiá service is not configured');
+        }
+
+        logger.info(`[SabiaService] Streaming interesse: "${interesse}"`);
+
+        const response = await fetch(`${this.apiUrl}/recomendar-stream`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ interesse }),
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`FastAPI returned ${response.status}: ${errorText}`);
+        }
+
+        if (!response.body) {
+            throw new Error('No response body from FastAPI stream');
+        }
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+
+        try {
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                const chunk = decoder.decode(value, { stream: true });
+                res.write(chunk);
+                // Flush if available (for compression middleware)
+                if (typeof (res as any).flush === 'function') {
+                    (res as any).flush();
+                }
+            }
+        } finally {
+            res.end();
         }
     }
 

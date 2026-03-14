@@ -24,9 +24,22 @@ interface AssistenteResponse {
 
 export type AgentType = 'ragflow' | 'sabia';
 
+export interface StreamEvent {
+	stage: 'thinking' | 'searching' | 'generating' | 'disciplina' | 'done' | 'error';
+	message?: string;
+	data?: {
+		codigo: string;
+		nome: string;
+		nota: number;
+		justificativa: string;
+	};
+	resultado?: string;
+}
+
 export class AssistenteService {
 	private readonly ragflowEndpoint = '/assistente/analyze';
 	private readonly sabiaEndpoint = '/assistente/analyze-sabia';
+	private readonly sabiaStreamEndpoint = '/assistente/analyze-sabia-stream';
 
 	/**
 	 * Send a message to the AI assistant using the specified agent
@@ -99,6 +112,67 @@ export class AssistenteService {
 				throw new Error(`Erro ao se comunicar com o Sabiá: ${error.message}`);
 			}
 			throw new Error('Erro ao se comunicar com o Sabiá.');
+		}
+	}
+	/**
+	 * Stream a message to the Sabiá AI agent via SSE
+	 * @param message The user's message
+	 * @param onEvent Callback for each streamed event
+	 */
+	async streamMessageFromSabia(
+		message: string,
+		onEvent: (event: StreamEvent) => void
+	): Promise<void> {
+		const url = `${config.apiUrl}${this.sabiaStreamEndpoint}`;
+
+		const response = await fetch(url, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ materia: message } satisfies AssistenteRequest)
+		});
+
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		if (!response.body) {
+			throw new Error('No response body');
+		}
+
+		const reader = response.body.getReader();
+		const decoder = new TextDecoder();
+		let buffer = '';
+
+		while (true) {
+			const { done, value } = await reader.read();
+			if (done) break;
+
+			buffer += decoder.decode(value, { stream: true });
+
+			// Parse SSE events from the buffer
+			const lines = buffer.split('\n');
+			buffer = lines.pop() || ''; // Keep incomplete line in buffer
+
+			for (const line of lines) {
+				if (line.startsWith('data: ')) {
+					try {
+						const event: StreamEvent = JSON.parse(line.slice(6));
+						onEvent(event);
+					} catch {
+						// Skip malformed events
+					}
+				}
+			}
+		}
+
+		// Process any remaining buffer
+		if (buffer.startsWith('data: ')) {
+			try {
+				const event: StreamEvent = JSON.parse(buffer.slice(6));
+				onEvent(event);
+			} catch {
+				// Skip malformed events
+			}
 		}
 	}
 }

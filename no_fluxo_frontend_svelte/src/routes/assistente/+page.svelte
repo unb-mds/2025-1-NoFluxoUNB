@@ -2,51 +2,83 @@
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
 	import { Bot, Send, Loader2, Sparkles } from 'lucide-svelte';
-	import { AssistenteService } from '$lib/services/assistente.service';
-	
+	import { AssistenteService, type StreamEvent } from '$lib/services/assistente.service';
+	import { fly } from 'svelte/transition';
+
 	let mensagem = '';
 	let carregando = false;
+	let etapaAtual = '';
 	let historico: Array<{ tipo: 'usuario' | 'assistente', texto: string, disciplinas?: any[] }> = [];
-	
+
 	const assistente = new AssistenteService();
-	
+
 	async function enviarMensagem() {
 		if (!mensagem.trim() || carregando) return;
-		
+
 		const mensagemUsuario = mensagem.trim();
 		mensagem = '';
-		
+
 		// Adiciona mensagem do usuário ao histórico
 		historico = [...historico, { tipo: 'usuario', texto: mensagemUsuario }];
-		
+
 		carregando = true;
-		
+		etapaAtual = 'Conectando...';
+
+		// Add a placeholder assistant message that will be updated progressively
+		const assistenteIndex = historico.length;
+		historico = [...historico, { tipo: 'assistente', texto: '', disciplinas: [] }];
+
 		try {
-			const resposta = await assistente.sendMessageToSabia(mensagemUsuario);
-			
-			// Backend retorna: { resultado, disciplinas, agente } ou { erro }
-			if (resposta.erro) {
-				historico = [...historico, { 
-					tipo: 'assistente', 
-					texto: `❌ Erro: ${resposta.erro}` 
-				}];
-			} else {
-				historico = [...historico, { 
-					tipo: 'assistente', 
-					texto: resposta.resultado || 'Resposta recebida', 
-					disciplinas: resposta.disciplinas 
-				}];
-			}
+			await assistente.streamMessageFromSabia(mensagemUsuario, (event: StreamEvent) => {
+				switch (event.stage) {
+					case 'thinking':
+						etapaAtual = event.message || 'Analisando...';
+						break;
+					case 'searching':
+						etapaAtual = event.message || 'Buscando disciplinas...';
+						break;
+					case 'generating':
+						etapaAtual = event.message || 'Gerando recomendações...';
+						break;
+					case 'disciplina':
+						if (event.data) {
+							const current = historico[assistenteIndex];
+							const disciplinas = [...(current.disciplinas || []), event.data];
+							historico[assistenteIndex] = { ...current, disciplinas };
+							historico = historico; // trigger reactivity
+						}
+						break;
+					case 'done':
+						historico[assistenteIndex] = {
+							...historico[assistenteIndex],
+							texto: event.resultado || 'Resposta recebida'
+						};
+						historico = historico;
+						break;
+					case 'error':
+						historico[assistenteIndex] = {
+							tipo: 'assistente',
+							texto: `❌ Erro: ${event.message}`,
+							disciplinas: undefined
+						};
+						historico = historico;
+						break;
+				}
+			});
 		} catch (erro: any) {
-			historico = [...historico, { 
-				tipo: 'assistente', 
-				texto: `❌ Erro ao conectar: ${erro.message}` 
-			}];
+			// If the placeholder was added but streaming failed entirely
+			historico[assistenteIndex] = {
+				tipo: 'assistente',
+				texto: `❌ Erro ao conectar: ${erro.message}`,
+				disciplinas: undefined
+			};
+			historico = historico;
 		} finally {
 			carregando = false;
+			etapaAtual = '';
 		}
 	}
-	
+
 	function handleKeyPress(e: KeyboardEvent) {
 		if (e.key === 'Enter' && !e.shiftKey) {
 			e.preventDefault();
@@ -155,11 +187,11 @@
 									{#if msg.disciplinas && msg.disciplinas.length > 0}
 										<!-- Título apenas para disciplinas -->
 										<p class="text-white font-semibold mb-3">
-											🎓 {msg.disciplinas.length} disciplinas encontradas
+											🎓 {msg.disciplinas.length} {msg.disciplinas.length === 1 ? 'disciplina encontrada' : 'disciplinas encontradas'}
 										</p>
 										<div class="mt-4 space-y-2">
-											{#each msg.disciplinas as disc}
-												<div class="glass-light rounded-lg p-3 border border-white/10">
+											{#each msg.disciplinas as disc (disc.codigo)}
+												<div class="glass-light rounded-lg p-3 border border-white/10" transition:fly={{ y: 20, duration: 300 }}>
 													<div class="flex items-start justify-between gap-2">
 														<div class="flex-1">
 															<p class="text-pink-400 font-semibold text-sm">{disc.codigo}</p>
@@ -189,7 +221,7 @@
 					<div class="glass-light rounded-2xl px-4 py-3">
 						<div class="flex items-center gap-2 text-gray-400">
 							<Loader2 class="h-4 w-4 animate-spin" />
-							<span>Pensando...</span>
+							<span>{etapaAtual || 'Pensando...'}</span>
 						</div>
 					</div>
 				</div>

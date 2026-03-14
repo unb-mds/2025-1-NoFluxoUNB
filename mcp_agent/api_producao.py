@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 import os
 import json
 import re
@@ -37,7 +38,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,  # Em produção, substituir por domínios reais
     allow_credentials=True,
-    allow_methods=["POST"],
+    allow_methods=["POST", "GET"],
     allow_headers=["*"],
 )
 
@@ -271,3 +272,97 @@ async def recomendar_materias(consulta: Consulta):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# 5. ENDPOINT DE STREAMING (SSE)
+def _sse_event(stage: str, **kwargs) -> str:
+    """Format a Server-Sent Event."""
+    data = {"stage": stage, **kwargs}
+    return f"data: {json.dumps(data, ensure_ascii=False)}\n\n"
+
+
+@app.post("/recomendar-stream")
+async def recomendar_materias_stream(consulta: Consulta):
+    if not consulta.interesse.strip():
+        raise HTTPException(status_code=400, detail="O campo 'interesse' não pode estar vazio.")
+
+    def generate():
+        mensagens = [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": consulta.interesse}]
+
+        try:
+            # Stage 1: Thinking
+            yield _sse_event("thinking", message="Analisando seu interesse...")
+
+            response = client_maritaca.chat.completions.create(
+                model="sabiazinho-4",
+                messages=mensagens,
+                tools=TOOLS,
+                tool_choice="auto"
+            )
+
+            msg_ia = response.choices[0].message
+
+            if msg_ia.tool_calls:
+                mensagens.append(msg_ia)
+                tool_call = msg_ia.tool_calls[0]
+                args = json.loads(tool_call.function.arguments)
+                termos = args.get("termos_busca", [])
+
+                # Stage 2: Searching
+                yield _sse_event("searching", message="Buscando disciplinas no banco de dados...")
+
+                dados_banco = ferramenta_buscar_materias_unb(termos)
+
+                mensagens.append({
+                    "tool_call_id": tool_call.id,
+                    "role": "tool",
+                    "name": "buscar_materias_unb",
+                    "content": dados_banco
+                })
+
+                # Stage 3: Generating (with streaming)
+                yield _sse_event("generating", message="Gerando recomendações...")
+
+                stream = client_maritaca.chat.completions.create(
+                    model="sabia-4",
+                    messages=mensagens,
+                    max_tokens=1000,
+                    stream=True
+                )
+
+                resposta_texto = ""
+                codigos_emitidos = set()
+
+                for chunk in stream:
+                    delta = chunk.choices[0].delta
+                    if delta.content:
+                        resposta_texto += delta.content
+
+                        # Only parse complete lines to avoid emitting partial names
+                        last_newline = resposta_texto.rfind('\n')
+                        if last_newline == -1:
+                            continue
+                        complete_text = resposta_texto[:last_newline]
+
+                        disciplinas = parse_resposta_sabia(complete_text)
+                        for disc in disciplinas:
+                            if disc["codigo"] not in codigos_emitidos:
+                                codigos_emitidos.add(disc["codigo"])
+                                yield _sse_event("disciplina", data=disc)
+
+                # Parse any remaining text after stream ends
+                disciplinas = parse_resposta_sabia(resposta_texto)
+                for disc in disciplinas:
+                    if disc["codigo"] not in codigos_emitidos:
+                        codigos_emitidos.add(disc["codigo"])
+                        yield _sse_event("disciplina", data=disc)
+            else:
+                resposta_texto = msg_ia.content
+
+            # Stage 4: Done
+            yield _sse_event("done", resultado=resposta_texto)
+
+        except Exception as e:
+            yield _sse_event("error", message=str(e))
+
+    return StreamingResponse(generate(), media_type="text/event-stream")

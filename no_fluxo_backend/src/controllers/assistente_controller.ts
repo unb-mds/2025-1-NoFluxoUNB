@@ -80,6 +80,41 @@ export const AssistenteController: EndpointController = {
             });
         }),
 
+        'analyze-sabia-stream': new Pair(RequestType.POST, async (req: Request, res: Response) => {
+            const logger = createControllerLogger('AssistenteController', 'analyze-sabia-stream');
+
+            const { materia } = req.body;
+            if (!materia || typeof materia !== 'string' || !materia.trim()) {
+                logger.error('Missing or empty "materia" field');
+                return res.status(400).json({ erro: "O campo 'materia' é obrigatório no corpo da requisição JSON." });
+            }
+
+            if (!sabia.isAvailable()) {
+                logger.error('Sabiá service not configured');
+                return res.status(503).json({ erro: 'Serviço Sabiá indisponível.' });
+            }
+
+            // Set SSE headers
+            res.setHeader('Content-Type', 'text/event-stream');
+            res.setHeader('Cache-Control', 'no-cache');
+            res.setHeader('Connection', 'keep-alive');
+            res.setHeader('X-Accel-Buffering', 'no');
+            res.flushHeaders();
+
+            try {
+                logger.info(`Streaming with Sabiá: "${materia}"`);
+                await sabia.analyzarInteresseStream(materia, res);
+                return;
+            } catch (error) {
+                const msg = error instanceof Error ? error.message : String(error);
+                logger.error(`Stream error: ${msg}`);
+                const errorEvent = `data: ${JSON.stringify({ stage: 'error', message: msg })}\n\n`;
+                res.write(errorEvent);
+                res.end();
+                return;
+            }
+        }),
+
         'analyze-sabia': new Pair(RequestType.POST, async (req: Request, res: Response) => {
             const logger = createControllerLogger('AssistenteController', 'analyze-sabia');
             const startTime = Date.now();

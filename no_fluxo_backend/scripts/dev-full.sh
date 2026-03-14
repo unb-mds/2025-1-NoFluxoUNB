@@ -23,6 +23,16 @@ cleanup() {
 }
 trap cleanup SIGINT SIGTERM
 
+# --- Load backend .env so both processes share the same env vars ---
+if [ -f "$BACKEND_DIR/.env" ]; then
+    echo -e "${YELLOW}[env]${NC} Loading $BACKEND_DIR/.env..."
+    set +u  # temporarily allow unset vars during source
+    set -a
+    source "$BACKEND_DIR/.env"
+    set +a
+    set -u
+fi
+
 # --- MCP Agent (Python/FastAPI) ---
 echo -e "${YELLOW}[mcp-agent]${NC} Starting uvicorn on port 8000..."
 (
@@ -35,7 +45,7 @@ echo -e "${YELLOW}[mcp-agent]${NC} Starting uvicorn on port 8000..."
 echo -e "${CYAN}[backend]${NC}   Starting nodemon on port 3325..."
 (
     cd "$BACKEND_DIR"
-    npx nodemon src/index.ts 2>&1 \
+    NODE_ENV=development npx nodemon src/index.ts 2>&1 \
         | sed "s/^/$(printf "${CYAN}[backend]${NC}   ")/"
 ) &
 
