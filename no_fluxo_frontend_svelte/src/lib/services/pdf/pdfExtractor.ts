@@ -232,3 +232,18 @@ export function extractMatriculaFromFilename(filename: string): string {
 	}
 	return 'desconhecida';
 }
+
+/**
+ * Sanitiza matrícula vinda do nome do arquivo para evitar lixo como "231026330 (2)", "231026330 - cópia", etc.
+ * Mantém só dígitos se parecer matrícula (8–12 dígitos); caso contrário retorna a string limpa (sem sufixos entre parênteses/cópia).
+ */
+export function sanitizeMatriculaFromFilename(raw: string): string {
+	if (!raw || raw === 'desconhecida') return raw;
+	// Remove sufixos comuns do Windows/explorer: " (2)", " - cópia", " (1).pdf" já foi cortado
+	const cleaned = raw.replace(/\s*\(\d+\)\s*$/i, '').replace(/\s*-\s*c[óo]pia\s*$/i, '').trim();
+	// Se sobrou só dígitos (8–12), use como matrícula limpa
+	const onlyDigits = cleaned.replace(/\D/g, '');
+	if (onlyDigits.length >= 8 && onlyDigits.length <= 12) return onlyDigits;
+	// Senão retorna o texto sem os sufixos de cópia
+	return cleaned || raw;
+}

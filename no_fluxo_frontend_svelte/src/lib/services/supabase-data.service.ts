@@ -80,10 +80,10 @@ export class SupabaseDataService {
 		const { codigoCurso, versao } = parseCurriculoCompleto(s);
 		if (!codigoCurso || !/^\d+$/.test(codigoCurso) || versao === undefined) return null;
 		const idCursoBase = parseInt(codigoCurso, 10);
-		// Convenção: DIURNO = codigo, NOTURNO = codigo + 100000
-		const idCursosToTry = [idCursoBase, idCursoBase + 100000];
+		// id_curso = código do currículo (cada curso diurno/noturno tem código próprio, ex: 8150, 8117)
+		const idCursosToTry = [idCursoBase];
 
-		// Pode haver múltiplas matrizes (diurno/noturno, várias versões). Buscar por qualquer id_curso (base ou +100000) e versao.
+		// Buscar por id_curso e versao.
 		const { data: rows, error: errCode } = await this.supabase
 			.from('matrizes')
 			.select('*')
@@ -123,23 +123,8 @@ export class SupabaseDataService {
 
 			if (error) throw new Error(`Erro ao buscar matrizes: ${error.message}`);
 
-			// 2) Fallback por id_curso "espelhado" (legado): em alguns bancos, cursos noturnos foram
-			// inseridos com id_curso = codigo_base + 100000 nas matrizes.
-			// Ex.: curso 5673 (noturno) pode ter matrizes com id_curso = 105673.
-			if (!data || data.length === 0) {
-				const altId = idCurso >= 100000 ? idCurso - 100000 : idCurso + 100000;
-				const { data: dataAlt, error: errorAlt } = await this.supabase
-					.from('matrizes')
-					.select('*')
-					.eq('id_curso', altId)
-					.order('ano_vigor', { ascending: false });
-				if (!errorAlt && dataAlt && dataAlt.length > 0) {
-					data = dataAlt;
-				}
-			}
-
-			// 3) Fallback final por codigo_curso + prefixo de curriculo_completo, para casos raros em que
-			// id_curso não bate nem com o espelhado, mas o código do curso está correto.
+			// 2) Fallback por codigo_curso + prefixo de curriculo_completo, para casos raros em que
+			// id_curso não bate, mas o código do curso está correto.
 			if (!data || data.length === 0) {
 				try {
 					const { data: cursoRow } = await this.supabase
@@ -248,9 +233,7 @@ export class SupabaseDataService {
 	/**
 	 * Busca, para todos os cursos, uma matriz "representativa" (última por ano_vigor) para exibir curriculo_completo.
 	 * Útil para telas de listagem (Fluxogramas, Mudança de curso).
-	 *
-	 * Considera também o padrão legado id_curso = codigo_base + 100000 (noturno), normalizando para o
-	 * id_curso base ao montar o mapa.
+	 * id_curso = código do currículo (cada curso tem código próprio).
 	 */
 	async getMatrizesResumoPorCurso(): Promise<
 		Map<number, { id_matriz: number; curriculo_completo: string | null; ano_vigor: string | null }>
@@ -273,8 +256,7 @@ export class SupabaseDataService {
 				ano_vigor: string | null;
 			};
 			if (!r.id_curso) continue;
-			// Normaliza id_curso "espelhado" (>100000) para o código base.
-			const logicalId = r.id_curso >= 100000 ? r.id_curso - 100000 : r.id_curso;
+			const logicalId = r.id_curso;
 			// Como está ordenado por ano_vigor desc, o primeiro por logicalId já é o mais recente
 			if (!map.has(logicalId)) {
 				map.set(logicalId, {
@@ -630,9 +612,14 @@ export class SupabaseDataService {
 		cargaHorariaIntegralizada?: { obrigatoria: number; optativa: number; complementar: number; total: number } | null,
 		historicoMetadata?: HistoricoEnvioMetadata | null
 	) {
+		// Garantir que o JSON em dados_users.fluxograma_atual inclua matrícula correta (do parser do PDF)
+		let dataToStore = fluxogramaData;
+		if (historicoMetadata?.matricula != null && typeof fluxogramaData === 'object' && fluxogramaData !== null) {
+			dataToStore = { ...(fluxogramaData as Record<string, unknown>), matricula: historicoMetadata.matricula };
+		}
 		const payload: Record<string, unknown> = {
 			id_user: idUser,
-			fluxograma_atual: JSON.stringify(fluxogramaData),
+			fluxograma_atual: JSON.stringify(dataToStore),
 			semestre_atual: semestreAtual ?? null
 		};
 		if (cargaHorariaIntegralizada != null) {
@@ -662,7 +649,7 @@ export class SupabaseDataService {
 				media_ponderada: historicoMetadata.media_ponderada ?? null,
 				carga_horaria_integralizada: historicoMetadata.carga_horaria_integralizada ?? cargaHorariaIntegralizada ?? null,
 				suspensoes: historicoMetadata.suspensoes ?? null,
-				fluxograma_atual: fluxogramaData,
+				fluxograma_atual: dataToStore,
 				total_disciplinas: historicoMetadata.resumo?.total_disciplinas ?? null,
 				total_obrigatorias: historicoMetadata.resumo?.total_obrigatorias ?? null,
 				total_obrigatorias_concluidas: historicoMetadata.resumo?.total_obrigatorias_concluidas ?? null,

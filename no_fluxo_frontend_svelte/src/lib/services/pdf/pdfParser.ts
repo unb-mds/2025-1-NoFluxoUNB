@@ -10,10 +10,17 @@
  * fixing issues with multi-line professor names and long discipline name wrapping.
  */
 
-import { loadPdf, extractTextFromPdfDoc, extractPositionedItemsFromDoc, extractMatriculaFromFilename } from './pdfExtractor';
+import {
+	loadPdf,
+	extractTextFromPdfDoc,
+	extractPositionedItemsFromDoc,
+	extractMatriculaFromFilename,
+	sanitizeMatriculaFromFilename
+} from './pdfExtractor';
 import {
 	extrairCurso,
 	extrairMatrizCurricular,
+	extrairMatriculaFromText,
 	extrairSuspensoes,
 	extrairSemestreAtual,
 	extrairCargaHorariaIntegralizada,
@@ -171,8 +178,16 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 
 	console.log(`${LOG_PREFIX} Text extraction done — ${textoTotal.length} chars, ${positionedPages.length} pages of positioned items (${(performance.now() - startTime).toFixed(0)}ms elapsed)`);
 
-	// 2. Extract matrícula from filename
-	const matricula = extractMatriculaFromFilename(file.name);
+	// 2. Matrícula: prioridade do texto do PDF (evita lixo do nome do arquivo, ex.: "231026330 (2)")
+	const matriculaFromText = extrairMatriculaFromText(textoTotal);
+	const matricula =
+		matriculaFromText ??
+		sanitizeMatriculaFromFilename(extractMatriculaFromFilename(file.name));
+	if (matriculaFromText) {
+		console.log(`${LOG_PREFIX} Matrícula extraída do PDF: ${matriculaFromText}`);
+	} else if (matricula !== 'desconhecida') {
+		console.log(`${LOG_PREFIX} Matrícula do nome do arquivo (sanitizada): ${matricula}`);
+	}
 
 	// 3. Position-based discipline extraction (replaces regex)
 	const isDetailed = textoTotal.includes('EMENTA:') && /APROVADO\(A\)|REPROVADO\(A\)/.test(textoTotal);
