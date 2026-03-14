@@ -210,6 +210,26 @@ export function extrairMatrizCurricular(texto: string): string | null {
 }
 
 /**
+ * Extrai a matrícula do discente do texto do PDF (histórico escolar SIGAA).
+ * Prioridade: usar sempre o valor extraído do conteúdo do PDF para evitar lixo do nome do arquivo (ex.: "231026330 (2)").
+ * Padrões: "Matrícula: 231026330", "Matricula 231026330", "Nº do Discente 231026330", etc.
+ * Retorna apenas dígitos (8 a 12 dígitos, típico da UnB); null se não encontrar.
+ */
+export function extrairMatriculaFromText(texto: string): string | null {
+  const normalizedText = texto.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  // Matrícula (com ou sem acento) seguido de : ou espaço e depois só dígitos
+  let m = normalizedText.match(/\bMatr[ií]cula\s*:?\s*(\d{8,12})\b/i);
+  if (m) return m[1];
+  // Nº do Discente / Nº do discente
+  m = normalizedText.match(/\bN[º°]\s*do\s+Discente\s*:?\s*(\d{8,12})\b/i);
+  if (m) return m[1];
+  // Número do discente
+  m = normalizedText.match(/\bN[úu]mero\s+do\s+discente\s*:?\s*(\d{8,12})\b/i);
+  if (m) return m[1];
+  return null;
+}
+
+/**
  * Extrai a carga horária integralizada da tabela "Carga Horária Integralizada/Pendente".
  * Localiza a linha "Integralizado" e extrai os valores numéricos das colunas Obrigatórias, Optativos, Complementares.
  * Retorna objeto compatível com a coluna carga_horaria_integralizada da tabela dados_users.
