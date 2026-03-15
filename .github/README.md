@@ -14,7 +14,7 @@ Bem-vindo ao **NoFluxoUnB**, um projeto desenvolvido pela equipe do Squad 03 na 
 ![Forks](https://img.shields.io/github/forks/unb-mds/2025-1-NoFluxoUNB?style=social)
 ![Last Commit](https://img.shields.io/github/last-commit/unb-mds/2025-1-NoFluxoUNB)
 
-![Flutter](https://img.shields.io/badge/flutter-3.19.0-blue)
+
 ![Supabase](https://img.shields.io/badge/supabase-1.0.0-brightgreen)
 ![TypeScript](https://img.shields.io/badge/typescript-5.3.0-blue)
 ![DigitalOcean](https://img.shields.io/badge/digitalocean-cloud-blue)
