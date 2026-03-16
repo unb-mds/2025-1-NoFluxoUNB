@@ -131,33 +131,33 @@
 		<button
 			type="button"
 			onclick={() => (podeAbrirModal ? (showChModal = true) : null)}
-			class="rounded-xl border border-white/10 bg-black/40 p-4 text-left backdrop-blur-md transition-colors hover:border-white/20 hover:bg-black/50 {!podeAbrirModal
+			class="rounded-xl border border-white/10 bg-black/40 p-3 text-left backdrop-blur-md transition-colors hover:border-white/20 hover:bg-black/50 sm:p-4 {!podeAbrirModal
 				? 'cursor-default'
 				: 'cursor-pointer'}"
 		>
-			<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-				<div class="flex min-w-0 items-center gap-3 sm:gap-4">
-					<div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-green-500/20">
+			<div class="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+				<div class="flex min-w-0 items-center gap-2 sm:gap-4">
+					<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-green-500/20 sm:h-14 sm:w-14">
 						{#if integralizacaoLoading}
-							<Loader2 class="h-7 w-7 animate-spin text-green-400" />
+							<Loader2 class="h-6 w-6 animate-spin text-green-400 sm:h-7 sm:w-7" />
 						{:else}
-							<GraduationCap class="h-7 w-7 text-green-400" />
+							<GraduationCap class="h-6 w-6 text-green-400 sm:h-7 sm:w-7" />
 						{/if}
 					</div>
-					<div class="min-w-0">
+					<div class="min-w-0 flex-1">
 						<div class="flex items-center gap-1.5 text-green-400">
 							<span class="text-xs font-semibold uppercase tracking-wider">{progressLabel}</span>
 						</div>
 						<p class="text-xs text-white/50">{progressSublabel}</p>
 						{#if podeAbrirModal}
-							<p class="mt-1 text-xs text-cyan-400">Clique para ver detalhes</p>
+							<p class="mt-0.5 text-xs text-cyan-400 sm:mt-1">Clique para ver detalhes</p>
 						{/if}
 					</div>
 				</div>
-				<div class="shrink-0 flex items-center gap-3">
+				<div class="flex min-w-0 flex-wrap items-center justify-between gap-2 sm:justify-end sm:gap-3">
 					{#if progressPct != null && circleData}
-						<div class="relative h-16 w-16 flex-shrink-0">
-							<svg class="h-16 w-16 -rotate-90" viewBox="0 0 64 64" aria-hidden="true">
+						<div class="relative h-14 w-14 shrink-0 sm:h-16 sm:w-16">
+							<svg class="h-14 w-14 -rotate-90 sm:h-16 sm:w-16" viewBox="0 0 64 64" aria-hidden="true">
 								<circle
 									cx="32"
 									cy="32"
@@ -180,30 +180,30 @@
 								/>
 							</svg>
 							<div class="absolute inset-0 flex items-center justify-center">
-								<span class="text-lg font-bold text-white">{progressPct}%</span>
+								<span class="text-base font-bold text-white sm:text-lg">{progressPct}%</span>
 							</div>
 						</div>
 					{:else if progressPct != null}
-						<div class="text-right">
-							<p class="text-2xl font-bold text-white">{progressPct}%</p>
+						<div class="text-left sm:text-right">
+							<p class="text-xl font-bold text-white sm:text-2xl">{progressPct}%</p>
 							<p class="text-xs text-white/50">integralização</p>
 						</div>
 					{/if}
-					<div class="text-right">
-						<p class="text-base font-semibold text-white">{progressValue}</p>
+					<div class="min-w-0 flex-1 text-left sm:flex-none sm:text-right">
+						<p class="truncate text-sm font-semibold text-white sm:text-base">{progressValue}</p>
 						<p class="text-xs text-white/50">{progressSublabel}</p>
 						{#if simulacaoMatr}
 							{@const pctSimulado = integralizacao && integralizacao.exigido.chTotal > 0 ? Math.round((simulacaoMatr.totalSimulado / integralizacao.exigido.chTotal) * 100) : null}
 							<div
-								class="mt-2 flex flex-col items-center gap-0.5"
+								class="mt-1.5 flex flex-col items-start gap-0.5 sm:mt-2 sm:items-center"
 								title="Se você for aprovado em todas as disciplinas em que está matriculado neste semestre, sua integralização passará a ser {simulacaoMatr.totalSimulado.toLocaleString('pt-BR')}h ({pctSimulado}%)."
 							>
-								<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-cyan-400/50 bg-cyan-500/10">
-									<span class="text-sm font-bold text-cyan-200">
+								<div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-cyan-400/50 bg-cyan-500/10 sm:h-10 sm:w-10">
+									<span class="text-xs font-bold text-cyan-200 sm:text-sm">
 										{pctSimulado ?? '—'}%
 									</span>
 								</div>
-								<span class="text-[10px] text-white/50">Próximo sem. (se aprovar nas atuais)</span>
+								<span class="max-w-[120px] text-[10px] leading-tight text-white/50 sm:max-w-none sm:text-center">Próx. sem. (se aprovar)</span>
 							</div>
 						{/if}
 					</div>
@@ -212,15 +212,15 @@
 		</button>
 
 		<!-- Semestre atual -->
-		<div class="rounded-xl border border-white/10 bg-black/40 p-4 backdrop-blur-md">
+		<div class="rounded-xl border border-white/10 bg-black/40 p-3 backdrop-blur-md sm:p-4">
 			<div class="flex items-center gap-1.5 text-amber-400">
-				<Calendar class="h-4 w-4" />
+				<Calendar class="h-3.5 w-3.5 sm:h-4 sm:w-4" />
 				<span class="text-xs font-semibold uppercase tracking-wider">Semestre Atual</span>
 			</div>
-			<p class="mt-2 text-2xl font-bold text-white">{currentSemester}º</p>
+			<p class="mt-1.5 text-xl font-bold text-white sm:mt-2 sm:text-2xl">{currentSemester}º</p>
 			<p class="text-xs text-white/50">semestre</p>
 			{#if userFluxograma.ira}
-				<div class="mt-2 rounded-lg bg-white/5 px-2.5 py-1">
+				<div class="mt-1.5 rounded-lg bg-white/5 px-2 py-1 sm:mt-2 sm:px-2.5">
 					<span class="text-xs text-white/50">IRA: </span>
 					<span class="text-sm font-semibold text-white">{userFluxograma.ira.toFixed(1)}</span>
 				</div>
@@ -228,19 +228,19 @@
 		</div>
 
 		<!-- Assistente CTA -->
-		<div class="col-span-full">
+		<div class="col-span-full min-w-0">
 			<button
 				onclick={() => goto(ROUTES.ASSISTENTE)}
-				class="group flex w-full flex-col items-stretch gap-2 rounded-xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 to-pink-500/10 px-4 py-3 transition-colors hover:border-purple-500/30 hover:shadow-lg sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:px-5"
+				class="group flex w-full min-w-0 flex-col items-stretch gap-2 rounded-xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 to-pink-500/10 px-3 py-2.5 transition-colors hover:border-purple-500/30 hover:shadow-lg sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:px-5 sm:py-3"
 			>
-				<div class="flex items-center gap-3">
+				<div class="flex min-w-0 items-center gap-2 sm:gap-3">
 					<MessageSquare class="h-4 w-4 shrink-0 text-purple-400 sm:h-5 sm:w-5" />
-					<div class="min-w-0 text-left">
+					<div class="min-w-0 flex-1 text-left">
 						<p class="text-sm font-semibold text-white">Precisa de ajuda?</p>
 						<p class="text-xs text-white/50">Converse com o assistente sobre seu fluxograma</p>
 					</div>
 				</div>
-				<span class="rounded-full bg-purple-600 px-4 py-1.5 text-center text-xs font-medium text-white transition-colors group-hover:bg-purple-500 sm:text-left">
+				<span class="shrink-0 rounded-full bg-purple-600 px-4 py-1.5 text-center text-xs font-medium text-white transition-colors group-hover:bg-purple-500 sm:text-left">
 					Falar com Assistente
 				</span>
 			</button>

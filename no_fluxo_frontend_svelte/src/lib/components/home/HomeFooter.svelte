@@ -12,7 +12,7 @@
 	const socialLinks = [
 		{
 			icon: Github,
-			href: 'https://github.com/unb-mds/2025-1-NoFluxoUNB-2',
+			href: 'https://github.com/unb-mds/2025-1-NoFluxoUNB',
 			label: 'GitHub'
 		}
 	];

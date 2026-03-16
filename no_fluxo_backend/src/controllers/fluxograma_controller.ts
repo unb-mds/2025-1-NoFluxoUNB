@@ -7,7 +7,8 @@ import {
     type ExpressaoLogicaRecursiva,
     getCodigosFromExpressaoLogica,
     codigoContidoEmExpressaoLogica,
-    satisfazExpressaoLogica
+    satisfazExpressaoLogica,
+    parseExpressaoLogicaFromDb
 } from "../utils/expressao_logica";
 import { calcularIntegralizacao } from "../services/integralizacao.service";
 
@@ -95,13 +96,7 @@ async function mapPreRequisitosFromDb(
 
     const codigosParaBuscar = new Set<string>();
     for (const pr of rows ?? []) {
-        const logica = pr.expressao_logica;
-        let parsed: ExpressaoLogicaRecursiva | null = null;
-        if (logica) {
-            try {
-                parsed = typeof logica === "string" ? JSON.parse(logica) : logica;
-            } catch { /* ignora */ }
-        }
+        const parsed = parseExpressaoLogicaFromDb(pr.expressao_logica);
         const codigos = getCodigosFromExpressaoLogica(parsed);
         for (const c of codigos) {
             if (!codigoParaNome.has(c)) codigosParaBuscar.add(c);
@@ -122,13 +117,7 @@ async function mapPreRequisitosFromDb(
 
     const out: any[] = [];
     for (const pr of rows ?? []) {
-        const logica = pr.expressao_logica;
-        let parsed: ExpressaoLogicaRecursiva | null = null;
-        if (logica) {
-            try {
-                parsed = typeof logica === "string" ? JSON.parse(logica) : logica;
-            } catch { /* ignora */ }
-        }
+        const parsed = parseExpressaoLogicaFromDb(pr.expressao_logica);
         const codigosLogica = getCodigosFromExpressaoLogica(parsed);
 
         if (codigosLogica.length > 0) {
@@ -140,18 +129,19 @@ async function mapPreRequisitosFromDb(
                     codigo_materia_requisito: codigo,
                     nome_materia_requisito: codigoParaNome.get(codigo) ?? null,
                     expressao_original: pr.expressao_original ?? null,
-                    expressao_logica: pr.expressao_logica ?? null
+                    expressao_logica: parsed
                 });
             }
         } else if (pr.id_materia_requisito && pr.materias) {
+            const codigoReq = pr.materias.codigo_materia ?? null;
             out.push({
                 id_pre_requisito: pr.id_pre_requisito,
                 id_materia: pr.id_materia,
                 id_materia_requisito: pr.id_materia_requisito,
-                codigo_materia_requisito: pr.materias.codigo_materia ?? null,
+                codigo_materia_requisito: codigoReq,
                 nome_materia_requisito: pr.materias.nome_materia ?? null,
                 expressao_original: pr.expressao_original ?? null,
-                expressao_logica: pr.expressao_logica ?? null
+                expressao_logica: codigoReq != null ? String(codigoReq).trim().toUpperCase() : null
             });
         }
     }
@@ -165,21 +155,13 @@ function mapEquivalenciasFromDb(rows: any[]): EquivalenciaData[] {
         const codigoOrigem = materia?.codigo_materia ?? '';
         const nomeOrigem = materia?.nome_materia ?? '';
         const expressao = e.expressao_original ?? e.expressao ?? '';
-        let expressaoLogica: ExpressaoLogicaRecursiva | null = null;
-        if (e.expressao_logica) {
-            try {
-                const parsed = typeof e.expressao_logica === "string"
-                    ? JSON.parse(e.expressao_logica) : e.expressao_logica;
-                if (typeof parsed === "string" || (parsed && typeof parsed === "object" && "condicoes" in parsed)) {
-                    expressaoLogica = parsed as ExpressaoLogicaRecursiva;
-                } else if (parsed?.materias) {
-                    // compat: formato antigo { materias, operador } -> { operador, condicoes }
-                    expressaoLogica = {
-                        operador: (parsed.operador || "OU") as "OU" | "E",
-                        condicoes: Array.isArray(parsed.materias) ? parsed.materias : []
-                    };
-                }
-            } catch (_) { /* ignora parse inválido */ }
+        let expressaoLogica = parseExpressaoLogicaFromDb(e.expressao_logica);
+        if (!expressaoLogica && e.expressao_logica && typeof e.expressao_logica === "object" && (e.expressao_logica as any).materias) {
+            const parsed = e.expressao_logica as any;
+            expressaoLogica = {
+                operador: (parsed.operador || "OU") as "OU" | "E",
+                condicoes: Array.isArray(parsed.materias) ? parsed.materias : []
+            };
         }
         const codigosEq = getCodigosFromExpressaoLogica(expressaoLogica);
         const codigoEq = codigosEq[0] ?? (expressao ? extractSubjectCodes(expressao)[0] : '') ?? '';

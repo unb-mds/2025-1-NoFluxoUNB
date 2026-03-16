@@ -86,3 +86,44 @@ export function satisfazExpressaoLogicaComArray(
     const set = new Set(completedCodes.map(norm));
     return satisfazExpressaoLogica(expr, set);
 }
+
+/** Regex para código de matéria (ex: MAT0026) */
+const CODIGO_MATERIA_REGEX = /^[A-Za-z]{2,}\d{3,}$/;
+
+/**
+ * Normaliza expressao_logica vinda do banco (JSONB).
+ * Pode vir como: string simples "MAT0026"; string com aspas "\"MAT0026\""; ou objeto {"operador","condicoes"}.
+ */
+export function parseExpressaoLogicaFromDb(
+    value: unknown
+): ExpressaoLogicaRecursiva | null {
+    if (value == null) return null;
+    if (typeof value === "string") {
+        let s = value.trim();
+        if (!s) return null;
+        // Remove camadas de aspas: "MAT0026" ou \"MAT0026\"
+        while (s.length >= 2 && s.startsWith('"') && s.endsWith('"')) {
+            s = s.slice(1, -1).trim();
+        }
+        if (s.length >= 4 && s.startsWith('\\"') && s.endsWith('\\"')) {
+            s = s.slice(2, -2).trim();
+        }
+        if (!s) return null;
+        // String que parece um único código de matéria (ex: MAT0026)
+        if (CODIGO_MATERIA_REGEX.test(s)) return s.toUpperCase();
+        // String que parece JSON (ex: retorno serializado)
+        if (s.startsWith("{") || s.startsWith("[")) {
+            try {
+                const parsed = JSON.parse(value.trim()) as ExpressaoLogicaRecursiva;
+                return parsed;
+            } catch {
+                return null;
+            }
+        }
+        return s.toUpperCase();
+    }
+    if (typeof value === "object" && value !== null && "condicoes" in (value as object)) {
+        return value as ExpressaoLogicaRecursiva;
+    }
+    return null;
+}

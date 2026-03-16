@@ -424,17 +424,35 @@ export function createMateriaModelFromJson(json: Record<string, unknown>): Mater
 import { getCodigosFromExpressaoLogica } from '$lib/utils/expressao-logica';
 import type { ExpressaoLogicaRecursiva } from '$lib/utils/expressao-logica';
 
+/** Regex para código de matéria (ex: MAT0026). */
+const CODIGO_MATERIA_REGEX = /^[A-Za-z]{2,}\d{3,}$/;
+
 function parseExpressaoLogica(
 	val: unknown
 ): { materias?: string[]; operador?: 'OU' | 'E' | null } | ExpressaoLogicaRecursiva | null {
 	if (val == null) return null;
 	if (typeof val === 'string') {
-		try {
-			const parsed = JSON.parse(val);
-			return parseExpressaoLogica(parsed);
-		} catch {
-			return null;
+		let s = val.trim();
+		// Remove aspas em volta (ex: "MAT0026" ou \"MAT0026\")
+		while (s.length >= 2 && s.startsWith('"') && s.endsWith('"')) {
+			s = s.slice(1, -1).trim();
 		}
+		if (s.length >= 4 && s.startsWith('\\"') && s.endsWith('\\"')) {
+			s = s.slice(2, -2).trim();
+		}
+		if (!s) return null;
+		// String que é um único código de matéria -> usar como expressão (não fazer JSON.parse)
+		if (CODIGO_MATERIA_REGEX.test(s)) return s.toUpperCase();
+		// String que parece JSON
+		if (s.startsWith('{') || s.startsWith('[')) {
+			try {
+				const parsed = JSON.parse(val.trim());
+				return parseExpressaoLogica(parsed);
+			} catch {
+				return null;
+			}
+		}
+		return s.toUpperCase();
 	}
 	if (typeof val === 'object') {
 		const o = val as Record<string, unknown>;

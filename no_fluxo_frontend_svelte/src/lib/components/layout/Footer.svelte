@@ -14,7 +14,7 @@
 			</p>
 
 			<div class="flex space-x-4">
-				<a href="https://github.com/unb-mds/2025-1-NoFluxoUNB-2" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">
+				<a href="https://github.com/unb-mds/2025-1-NoFluxoUNB" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">
 					GitHub
 				</a>
 			</div>

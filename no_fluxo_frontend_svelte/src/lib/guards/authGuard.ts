@@ -4,7 +4,7 @@ import { get } from 'svelte/store';
 import { authStore } from '$lib/stores/auth';
 import { authService } from '$lib/services/auth.service';
 
-const PUBLIC_ROUTES = [
+const PUBLIC_ROUTES_EXACT = [
 	'/',
 	'/home',
 	'/login',
@@ -12,13 +12,16 @@ const PUBLIC_ROUTES = [
 	'/password-recovery',
 	'/login-anonimo',
 	'/auth/callback',
-	'/auth/reset-password',
-	'/fluxogramas',
-	'/disciplinas'
+	'/auth/reset-password'
 ];
 
+/** Rotas públicas por prefixo: qualquer path que comece com um deles é público (ex: /fluxogramas, /meu-fluxograma/Engenharia). */
+const PUBLIC_ROUTES_PREFIX = ['/fluxogramas', '/disciplinas', '/meu-fluxograma'];
+
 export function isPublicRoute(path: string): boolean {
-	return PUBLIC_ROUTES.includes(path);
+	const normalized = path.replace(/\/+$/, '') || '/';
+	if (PUBLIC_ROUTES_EXACT.includes(normalized)) return true;
+	return PUBLIC_ROUTES_PREFIX.some((prefix) => path === prefix || path.startsWith(prefix + '/'));
 }
 
 /**

@@ -73,8 +73,8 @@
 </script>
 
 <header class="flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4">
-	<div class="flex min-w-0 flex-1 flex-col gap-1 sm:gap-1.5">
-		<div class="flex min-w-0 items-center gap-3">
+	<div class="flex min-w-0 flex-1 flex-col gap-1 sm:min-w-0 sm:gap-1.5">
+		<div class="flex min-w-0 items-center gap-2 sm:gap-3">
 			<button
 				onclick={handleBack}
 				class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/70 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white sm:h-10 sm:w-10"
@@ -82,32 +82,32 @@
 			>
 				<ArrowLeft class="h-4 w-4 sm:h-5 sm:w-5" />
 			</button>
-			<div class="min-w-0 flex-1">
-				<h1 class="truncate text-lg font-bold text-white sm:text-xl md:text-2xl">{courseName}</h1>
-				<div class="mt-0.5 flex flex-wrap items-center gap-2">
+			<div class="min-w-0 flex-1 overflow-hidden">
+				<h1 class="truncate text-base font-bold text-white sm:text-lg md:text-xl lg:text-2xl">{courseName}</h1>
+				<div class="mt-0.5 flex flex-wrap items-center gap-1.5 sm:gap-2">
 					{#if tipoCurso?.trim()}
 						<span
-							class="inline-flex items-center rounded-md bg-black/60 px-2 py-0.5 text-xs font-medium text-white/90 backdrop-blur-sm"
+							class="inline-flex shrink-0 items-center rounded-md bg-black/60 px-2 py-0.5 text-xs font-medium text-white/90 backdrop-blur-sm"
 						>
 							{tipoCurso.trim()}
 						</span>
 					{/if}
 					{#if matrizCurricular}
-						<p class="truncate text-xs text-white/50 sm:text-sm">{matrizCurricular}</p>
+						<p class="min-w-0 truncate text-xs text-white/50 sm:text-sm">{matrizCurricular}</p>
 					{/if}
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="flex flex-wrap items-center gap-2">
+	<div class="flex min-w-0 flex-wrap items-center justify-end gap-1.5 sm:justify-start sm:gap-2">
 		{#if matrizes.length > 1 && onMatrizChange}
 			<div
-				class="flex items-center gap-2 rounded-full border border-white/5 bg-black/20 px-3 py-1.5 backdrop-blur-sm transition-colors hover:bg-black/30"
+				class="flex min-w-0 max-w-full shrink-0 items-center gap-1.5 rounded-full border border-white/5 bg-black/20 px-2 py-1.5 sm:gap-2 sm:px-3"
 			>
 				<LayoutGrid class="h-3.5 w-3.5 shrink-0 text-white/50 sm:h-4 sm:w-4" />
 				<select
-					class="min-w-0 rounded-lg border-0 bg-white/5 py-1 pr-7 pl-2 text-xs text-white/90 focus:bg-white/10 focus:ring-1 focus:ring-cyan-500/40 focus:outline-none [&>option]:bg-gray-900 [&>option]:text-white"
+					class="min-w-0 max-w-[140px] rounded-lg border-0 bg-white/5 py-1 pr-6 pl-1.5 text-xs text-white/90 focus:bg-white/10 focus:ring-1 focus:ring-cyan-500/40 focus:outline-none sm:max-w-[180px] sm:pr-7 sm:pl-2 [&>option]:bg-gray-900 [&>option]:text-white"
 					value={curriculoCompletoAtual ?? matrizCurricular ?? ''}
 					onchange={(e) => onMatrizChange((e.target as HTMLSelectElement).value)}
 				>
@@ -115,7 +115,7 @@
 						<option value={m.curriculoCompleto}>{formatMatrizLabel(m.curriculoCompleto)}</option>
 					{/each}
 				</select>
-				<span class="text-xs text-white/60">Trocar matriz</span>
+				<span class="shrink-0 text-xs text-white/60 sm:inline">Trocar matriz</span>
 			</div>
 		{/if}
 		{#if showBackToMyFluxogram}
@@ -159,7 +159,7 @@
 
 		<button
 			onclick={handleScreenshot}
-			class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/40 px-3 py-1.5 text-xs font-medium text-white/80 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+			class="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/10 bg-black/40 px-2.5 py-1.5 text-xs font-medium text-white/80 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
 		>
 			<Camera class="h-3.5 w-3.5 sm:h-4 sm:w-4" />
 			Screenshot

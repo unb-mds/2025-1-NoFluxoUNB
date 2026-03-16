@@ -71,47 +71,48 @@
 
 <svelte:window onclick={handleClickOutside} onkeydown={handleLegendKeydown} />
 
-<div class="flex min-w-0 flex-col gap-2 rounded-xl border border-white/10 bg-black/40 px-3 py-2.5 backdrop-blur-md sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4 sm:px-4 sm:py-3">
-	<!-- Legend + ícone de ajuda -->
-	<div class="flex min-w-0 flex-wrap items-center gap-2 sm:gap-3">
-		{#each legendItems as item}
-			<div class="flex items-center gap-1" title={item.label}>
-				<div class="h-2 w-2 shrink-0 rounded-sm sm:h-2.5 sm:w-2.5 {item.color}"></div>
-				<span class="text-[9px] text-white/70 sm:text-xs">{item.label}</span>
-			</div>
-		{/each}
-		{#if !store.state.isAnonymous}
-			<div class="mx-1.5 h-3 w-px bg-white/20 sm:mx-2 sm:h-4"></div>
-			<div class="flex items-center gap-1" title="Pré-requisitos cumpridos">
-				<div class="flex h-4 min-w-4 items-center justify-center rounded-full bg-green-500/80 px-0.5 text-[8px] font-bold text-white sm:h-5 sm:min-w-5 sm:px-1 sm:text-[9px]">✓</div>
-				<span class="text-[9px] text-white/70 sm:text-xs">Pré-reqs ok</span>
-			</div>
-			<div class="flex items-center gap-1" title="Falta cumprir pré-requisito">
-				<div class="flex h-4 min-w-4 items-center justify-center rounded-full bg-amber-500/80 px-0.5 text-[8px] font-bold text-white sm:h-5 sm:min-w-5 sm:px-1 sm:text-[9px]">!</div>
-				<span class="text-[9px] text-white/70 sm:text-xs">Falta pré-req</span>
-			</div>
-			<div class="hidden items-center gap-1.5 sm:flex" title="Número = quantas disciplinas têm esta como pré-requisito">
-				<span class="text-xs text-white/50">(número = dependentes)</span>
-			</div>
-		{/if}
-		{#if store.state.connectionMode !== 'off'}
-			<div class="mx-1.5 h-3 w-px bg-white/20 sm:mx-2 sm:h-4"></div>
-			<div class="flex items-center gap-1">
-				<div class="h-0.5 w-3 shrink-0 bg-purple-400 sm:w-4"></div>
-				<span class="text-[9px] text-white/70 sm:text-xs">Pré-req</span>
-			</div>
-			<div class="flex items-center gap-1">
-				<div class="h-0.5 w-3 shrink-0 bg-teal-400 sm:w-4"></div>
-				<span class="text-[9px] text-white/70 sm:text-xs">Dep.</span>
-			</div>
-			{#if store.state.connectionMode === 'all'}
-				<div class="flex items-center gap-1">
-					<div class="h-0.5 w-3 shrink-0 border-t-2 border-dashed border-green-400 sm:w-4"></div>
-					<span class="text-[9px] text-white/70 sm:text-xs">Co-req</span>
+<div class="flex min-w-0 flex-col gap-2 rounded-xl border border-white/10 bg-black/40 px-2 py-2 backdrop-blur-md sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4 sm:px-4 sm:py-3">
+	<!-- Legend: scroll horizontal em telas pequenas para não quebrar em muitas linhas -->
+	<div class="min-w-0 overflow-x-auto overflow-y-hidden pb-0.5 sm:overflow-visible sm:pb-0">
+		<div class="flex min-w-max shrink-0 flex-wrap items-center gap-x-2 gap-y-1 sm:min-w-0 sm:flex-initial sm:gap-x-3">
+			{#each legendItems as item}
+				<div class="flex shrink-0 items-center gap-1" title={item.label}>
+					<div class="h-2 w-2 shrink-0 rounded-sm sm:h-2.5 sm:w-2.5 {item.color}"></div>
+					<span class="whitespace-nowrap text-[9px] text-white/70 sm:text-xs">{item.label}</span>
+				</div>
+			{/each}
+			{#if !store.state.isAnonymous}
+				<div class="mx-0.5 h-3 shrink-0 w-px bg-white/20 sm:mx-2 sm:h-4"></div>
+				<div class="flex shrink-0 items-center gap-1" title="Pré-requisitos cumpridos">
+					<div class="flex h-4 min-w-4 items-center justify-center rounded-full bg-green-500/80 px-0.5 text-[8px] font-bold text-white sm:h-5 sm:min-w-5 sm:px-1 sm:text-[9px]">✓</div>
+					<span class="whitespace-nowrap text-[9px] text-white/70 sm:text-xs">Pré-reqs ok</span>
+				</div>
+				<div class="flex shrink-0 items-center gap-1" title="Falta cumprir pré-requisito">
+					<div class="flex h-4 min-w-4 items-center justify-center rounded-full bg-amber-500/80 px-0.5 text-[8px] font-bold text-white sm:h-5 sm:min-w-5 sm:px-1 sm:text-[9px]">!</div>
+					<span class="whitespace-nowrap text-[9px] text-white/70 sm:text-xs">Falta pré-req</span>
+				</div>
+				<div class="hidden shrink-0 items-center gap-1.5 sm:flex" title="Número = quantas disciplinas têm esta como pré-requisito">
+					<span class="whitespace-nowrap text-xs text-white/50">(número = dependentes)</span>
 				</div>
 			{/if}
-		{/if}
-
+			{#if store.state.connectionMode !== 'off'}
+				<div class="mx-0.5 h-3 shrink-0 w-px bg-white/20 sm:mx-2 sm:h-4"></div>
+				<div class="flex shrink-0 items-center gap-1">
+					<div class="h-0.5 w-3 shrink-0 bg-purple-400 sm:w-4"></div>
+					<span class="whitespace-nowrap text-[9px] text-white/70 sm:text-xs">Pré-req</span>
+				</div>
+				<div class="flex shrink-0 items-center gap-1">
+					<div class="h-0.5 w-3 shrink-0 bg-teal-400 sm:w-4"></div>
+					<span class="whitespace-nowrap text-[9px] text-white/70 sm:text-xs">Dep.</span>
+				</div>
+				{#if store.state.connectionMode === 'all'}
+					<div class="flex shrink-0 items-center gap-1">
+						<div class="h-0.5 w-3 shrink-0 border-t-2 border-dashed border-green-400 sm:w-4"></div>
+						<span class="whitespace-nowrap text-[9px] text-white/70 sm:text-xs">Co-req</span>
+					</div>
+				{/if}
+			{/if}
+		</div>
 	</div>
 
 	<!-- Controls -->
@@ -201,7 +202,7 @@
 		</div>
 
 		<!-- Zoom controls -->
-		<div class="flex items-center gap-0.5 rounded-lg border border-white/10 bg-white/5 px-0.5 py-0.5 sm:gap-1 sm:px-1">
+		<div class="flex shrink-0 items-center gap-0.5 rounded-lg border border-white/10 bg-white/5 px-0.5 py-0.5 sm:gap-1 sm:px-1">
 			<button
 				onclick={() => store.zoomOut()}
 				class="rounded p-0.5 text-white/70 transition-colors hover:bg-white/10 hover:text-white sm:p-1"
@@ -216,7 +217,7 @@
 				max="200"
 				value={zoomPercent}
 				oninput={(e) => store.setZoom(parseInt(e.currentTarget.value) / 100)}
-				class="zoom-slider mx-0.5 h-1 w-14 cursor-pointer appearance-none rounded-full bg-white/20 sm:mx-1 sm:w-20"
+				class="zoom-slider mx-0.5 h-1 min-w-[3.5rem] max-w-20 cursor-pointer appearance-none rounded-full bg-white/20 sm:mx-1 sm:w-20"
 			/>
 
 			<button
@@ -227,7 +228,7 @@
 				<ZoomIn class="h-3.5 w-3.5 sm:h-4 sm:w-4" />
 			</button>
 
-			<span class="min-w-[2.5rem] text-center text-[10px] text-white/50 sm:min-w-[3rem] sm:text-xs">{zoomPercent}%</span>
+			<span class="min-w-[2.25rem] shrink-0 text-center text-[10px] text-white/50 sm:min-w-[3rem] sm:text-xs">{zoomPercent}%</span>
 
 			<button
 				onclick={() => store.resetZoom()}
