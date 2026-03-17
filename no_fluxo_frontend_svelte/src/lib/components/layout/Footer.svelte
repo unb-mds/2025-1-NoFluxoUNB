@@ -9,6 +9,13 @@
 				<span class="text-lg font-bold text-primary">NoFluxo</span>
 			</div>
 
+			<div class="text-center">
+				<p class="text-xs uppercase tracking-wide text-muted-foreground">Contact Us</p>
+				<a href="mailto:unbnofluxo@gmail.com" class="text-sm text-foreground hover:text-primary transition-colors">
+					unbnofluxo@gmail.com
+				</a>
+			</div>
+
 			<p class="text-sm text-muted-foreground">
 				© {currentYear} NoFluxo UNB - Todos os direitos reservados
 			</p>

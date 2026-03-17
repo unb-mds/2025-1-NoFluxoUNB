@@ -35,6 +35,11 @@
 			{/each}
 		</nav>
 
+		<div class="footer-contact">
+			<p class="contact-label">Contact Us</p>
+			<a class="contact-email" href="mailto:unbnofluxo@gmail.com">unbnofluxo@gmail.com</a>
+		</div>
+
 		<div class="footer-social">
 			{#each socialLinks as social}
 				<a
@@ -113,6 +118,37 @@
 
 	.footer-link:hover {
 		color: white;
+	}
+
+	.footer-contact {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.contact-label {
+		color: #9ca3af;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+	}
+
+	.contact-email {
+		color: #f3f4f6;
+		text-decoration: none;
+		font-size: 0.875rem;
+		transition: color 0.2s;
+	}
+
+	.contact-email:hover {
+		color: #ec4899;
+	}
+
+	@media (min-width: 768px) {
+		.footer-contact {
+			align-items: flex-start;
+		}
 	}
 
 	.footer-social {
