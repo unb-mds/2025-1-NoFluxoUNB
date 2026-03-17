@@ -37,7 +37,7 @@ class TermosDeServicoScreen extends StatelessWidget {
               _buildSection(
                 title: '2. Licença de Software (Open Source)',
                 content:
-                    'O código-fonte do NoFluxo UNB é distribuído sob a Licença MIT. Isso significa que você tem total liberdade para usar, copiar, modificar e distribuir o software, desde que mantenha o aviso de direitos autorais original. Os materiais de conteúdo (textos e guias) são para fins informativos.',
+                    'O NoFluxo UNB é software livre, distribuído sob a licença GNU GPLv3. Isso significa que - Liberdade: Você pode usar, estudar, compartilhar e modificar o software. Reciprocidade: Qualquer trabalho derivado ou cópia deste código deve, obrigatoriamente, ser mantido como software livre sob a mesma licença GPLv3. Proibição de Fechamento É estritamente proibido transformar este código em um produto proprietário/fechado ou comercializá-lo sem fornecer o código-fonte correspondente.',
               ),
               _buildSection(
                 title: '3. Isenção de Responsabilidade',
