@@ -13,6 +13,8 @@ import '../screens/auth/password_recovery_screen.dart';
 import '../screens/upload-historico/presentation/upload_historico_screen.dart';
 import '../screens/fluxogramas/presentation/pages/fluxogramas_index_screen.dart';
 import '../screens/fluxogramas/presentation/pages/meu_fluxograma_screen.dart';
+import '../screens/legal/termos_de_servico_screen.dart';
+import '../screens/legal/politica_de_privacidade_screen.dart';
 import '../service/auth_service.dart';
 
 final log = Environment.getLogger('AppRouter');
@@ -25,7 +27,9 @@ class AppRouter {
     "/signup",
     "/password-recovery",
     "/home",
-    "/login-anonimo"
+    "/login-anonimo",
+    "/termos",
+    "/privacidade"
   ];
 
   static Future<Session?> safeGetSession() async {
@@ -169,6 +173,8 @@ class AppRouter {
       return MeuFluxogramaScreen(courseName: courseName);
     },
     '/login-anonimo': (context, state) => const AnonymousLoginScreen(),
+    '/termos': (context, state) => const TermosDeServicoScreen(),
+    '/privacidade': (context, state) => const PoliticaDePrivacidadeScreen(),
   };
 
   static GoRouter? router;
