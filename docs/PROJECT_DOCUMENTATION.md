@@ -71,7 +71,7 @@
 ├── COMMIT_GUIDELINES.md           # Git commit conventions
 ├── CODE_OF_CONDUCT.md             # Code of conduct
 ├── SECURITY.md                    # Security policy
-└── LICENSE                        # MIT License
+└── LICENSE                        # GNU GPLv3 License
 ```
 
 ---
