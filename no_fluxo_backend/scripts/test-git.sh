@@ -5,6 +5,7 @@
 echo "🔍 NoFluxo Git Functionality Test"
 echo "=================================="
 
+
 echo "📋 Local Git Status:"
 echo "===================="
 if [ -d ".git" ]; then
