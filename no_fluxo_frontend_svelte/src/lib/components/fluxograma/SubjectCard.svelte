@@ -210,7 +210,9 @@
 <button
 	class={cardClasses}
 	data-subject-code={materia.codigoMateria}
-	style="touch-action: manipulation;"
+	// Evita que o navegador trate gestos no card como scroll/pinch
+	// (já que o container do fluxograma implementa o pan/zoom)
+	style="touch-action: none;"
 	onclick={handleClick}
 	oncontextmenu={handleContextMenu}
 	onmouseenter={handleMouseEnter}

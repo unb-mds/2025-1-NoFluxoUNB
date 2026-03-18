@@ -1,7 +1,7 @@
 /**
  * Serviço central de Integralização: compara Exigido (da matriz) vs Realizado (aluno).
- * Quando cargaHorariaIntegralizada está disponível (PDF), chama o backend para cálculo centralizado.
- * Caso contrário, usa Supabase + grade para somar disciplinas concluídas.
+ * Quando `cargaHorariaIntegralizada` (PDF) está disponível, usa os valores do PDF.
+ * Caso contrário, calcula somando disciplinas concluídas casadas na grade (com equivalências).
  */
 
 import { supabaseDataService } from '$lib/services/supabase-data.service';
@@ -45,29 +45,10 @@ function pct(exigido: number, realizado: number): number {
 export async function getIntegralizacao(input: IntegralizacaoInput): Promise<IntegralizacaoResult | null> {
 	const { curriculoCompleto, dadosFluxograma, cargaHorariaIntegralizada, equivalencias = [], recalcularPorDisciplinas = false } = input;
 
-	// Quando temos cargaHorariaIntegralizada do PDF e NÃO é simulação de outro curso, usa o backend
-	const temChPdf = !recalcularPorDisciplinas && cargaHorariaIntegralizada && (cargaHorariaIntegralizada.total > 0 || cargaHorariaIntegralizada.obrigatoria > 0 || cargaHorariaIntegralizada.optativa > 0 || (cargaHorariaIntegralizada.complementar ?? 0) > 0);
-	if (temChPdf && curriculoCompleto?.trim()) {
-		try {
-			const res = await fetch('/api/integralizacao', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ curriculoCompleto: curriculoCompleto.trim(), cargaHorariaIntegralizada })
-			});
-			if (res.ok) {
-				const data = (await res.json()) as IntegralizacaoResult & { codigosObrigatorios?: string[]; codigosConcluidos?: string[] };
-				return {
-					...data,
-					codigosObrigatorios: data.codigosObrigatorios ?? [],
-					codigosConcluidos: data.codigosConcluidos ?? []
-				};
-			}
-		} catch {
-			// Fallback para lógica local em caso de erro
-		}
-	}
+	const cc = curriculoCompleto?.trim();
+	if (!cc) return null;
 
-	const matriz = await supabaseDataService.getMatrizByCurriculoCompleto(curriculoCompleto);
+	const matriz = await supabaseDataService.getMatrizByCurriculoCompleto(cc);
 	if (!matriz) return null;
 
 	const grade = await supabaseDataService.getGradeByMatriz(matriz.idMatriz);

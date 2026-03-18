@@ -322,21 +322,29 @@
 							{/if}
 						</ul>
 					</section>
-
-					<!-- Interação mobile -->
-					<section class="rounded-lg border border-purple-500/30 bg-purple-500/10 p-3">
-						<h3 class="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-purple-300">
-							<Link2 class="h-3.5 w-3.5" />
-							Mobile / Toque
-						</h3>
-						<ul class="space-y-2 text-white/90">
-							<li><strong>1 toque</strong> — Mostra as conexões (setas)</li>
-							<li><strong>2 toques</strong> — Abre os detalhes da disciplina</li>
-							<li><strong>Toque longo</strong> — Mostra conexões + cadeia de pré-requisitos</li>
-							<li><strong>Toque na área vazia</strong> — Esconde as conexões</li>
-						</ul>
-					</section>
 				{/if}
+
+				<!-- Interação mobile (sempre visível) -->
+				<section class="rounded-lg border border-purple-500/30 bg-purple-500/10 p-3">
+					<h3 class="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-purple-300">
+						<Link2 class="h-3.5 w-3.5" />
+						Mobile / Gestos
+					</h3>
+					<ul class="space-y-2 text-white/90">
+						<li><strong>Arrastar</strong> no fluxograma — move/pan da tela</li>
+						<li><strong>Pinçar</strong> — ajusta o zoom</li>
+
+						{#if connectionsActive}
+							<li><strong>1 toque</strong> — mostra as conexões (setas)</li>
+							<li><strong>2 toques</strong> — abre os detalhes da disciplina</li>
+							<li><strong>Toque longo</strong> — mostra conexões + cadeia de pré-requisitos{#if store.state.isAnonymous} (sem modal){/if}</li>
+							<li><strong>Toque na área vazia</strong> — esconde as conexões</li>
+						{:else}
+							<li><strong>Toque</strong> — abre diretamente os detalhes da disciplina</li>
+							<li><strong>Toque longo</strong> — destaca a disciplina e a cadeia (quando disponível)</li>
+						{/if}
+					</ul>
+				</section>
 
 				<!-- Desktop -->
 				<section>

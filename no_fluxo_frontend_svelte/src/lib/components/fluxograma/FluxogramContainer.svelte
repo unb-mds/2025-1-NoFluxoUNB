@@ -117,7 +117,9 @@
 				}
 			}
 			if (isDragging && containerRef) {
-				e.preventDefault();
+				// Importante: em alguns navegadores esse handler pode ser considerado `passive`,
+				// então `preventDefault()` dispara warning no console. O `touch-action: none`
+				// no container já evita a rolagem nativa para o gesto de arrasto/pan.
 				const ddx = lastTouchX - e.touches[0].clientX;
 				const ddy = lastTouchY - e.touches[0].clientY;
 				containerRef.scrollLeft += ddx;
@@ -126,7 +128,7 @@
 				lastTouchY = e.touches[0].clientY;
 			}
 		} else if (e.touches.length === 2) {
-			e.preventDefault();
+			// Para pinch-zoom, contamos com `touch-action: none` no container.
 			const dx = e.touches[0].clientX - e.touches[1].clientX;
 			const dy = e.touches[0].clientY - e.touches[1].clientY;
 			const distance = Math.sqrt(dx * dx + dy * dy);
@@ -155,7 +157,7 @@
 <div
 	bind:this={containerRef}
 	class="fluxogram-container relative overflow-auto rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm"
-	style="max-height: calc(100vh - 280px); min-height: 180px; cursor: grab;"
+	style="max-height: calc(100vh - 280px); min-height: 180px; cursor: grab; touch-action: none;"
 	role="application"
 	aria-label="Fluxograma interativo"
 	onmousedown={handleMouseDown}
