@@ -1,0 +1,67 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Deploy target"
+        required: true
+        default: "all"
+        type: choice
+        options:
+          - all
+          - backend
+          - frontend
+          - mcp-agent
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: pip install requests python-dotenv
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Set up QEMU (multi-arch support)
+        uses: docker/setup-qemu-action@v3
+
+      - name: Log in to private registry
+        uses: docker/login-action@v3
+        with:
+          registry: registry.kubernetes.crianex.com
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Deploy
+        env:
+          DEPLOY_API_URL: ${{ secrets.DEPLOY_API_URL }}
+          DEPLOY_API_KEY: ${{ secrets.DEPLOY_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
+          RAGFLOW_API_KEY: ${{ secrets.RAGFLOW_API_KEY }}
+          RAGFLOW_BASE_URL: ${{ secrets.RAGFLOW_BASE_URL }}
+          RAGFLOW_AGENT_ID: ${{ secrets.RAGFLOW_AGENT_ID }}
+          MARITACA_API_KEY: ${{ secrets.MARITACA_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        run: |
+          TARGET="${{ github.event.inputs.target || 'all' }}"
+          python scripts/deploy/deploy_local.py "$TARGET" \
+            --platform linux/amd64,linux/arm64 \
+            --wait \
+            --stream-logs
