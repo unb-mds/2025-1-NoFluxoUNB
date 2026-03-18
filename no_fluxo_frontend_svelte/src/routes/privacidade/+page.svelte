@@ -1,12 +1,13 @@
 <script lang="ts">
 	import Navbar from '$lib/components/layout/Navbar.svelte';
+	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import { currentUser, isAuthenticated } from '$lib/stores/auth';
 </script>
 
-<svelte:head>
-	<title>Política de Privacidade - NoFluxo UNB</title>
-	<meta name="description" content="Política de Privacidade do NoFluxo UNB" />
-</svelte:head>
+<PageMeta
+	title="Política de Privacidade"
+	description="Política de Privacidade do NoFluxo UNB — como coletamos, usamos e protegemos seus dados em conformidade com a LGPD."
+/>
 
 <div class="fixed top-0 left-0 right-0 z-50">
 	<Navbar user={$currentUser} isAuthenticated={$isAuthenticated} />

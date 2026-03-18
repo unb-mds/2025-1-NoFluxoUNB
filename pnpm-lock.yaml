@@ -8,15 +8,6 @@ importers:
 
   .: {}
 
-  coleta_dados:
-    dependencies:
-      '@supabase/supabase-js':
-        specifier: ^2.50.2
-        version: 2.98.0
-      dotenv:
-        specifier: ^16.3.1
-        version: 16.6.1
-
   no_fluxo_backend:
     dependencies:
       '@supabase/supabase-js':

@@ -1,7 +1,9 @@
 User-agent: *
+Allow: /
 Disallow: /api/
 Disallow: /upload-historico
 Disallow: /meu-fluxograma
 Disallow: /assistente
+Disallow: /auth/
 
 Sitemap: https://nofluxo.unb.br/sitemap.xml

@@ -1,11 +1,22 @@
 import { createBrowserClient } from '@supabase/ssr';
 import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from '$env/static/public';
+import { browser } from '$app/environment';
 
 /**
  * Create a Supabase client for use in the browser with cookie-based storage.
  * This ensures PKCE code verifier persists across OAuth redirects.
+ * During SSR/prerendering, returns a stub to avoid errors when env vars are empty.
  */
 export function createSupabaseBrowserClient() {
+	if (!browser && (!PUBLIC_SUPABASE_URL || !PUBLIC_SUPABASE_ANON_KEY)) {
+		// During SSR/prerendering with missing env vars, return a no-op stub
+		const stub = new Proxy({} as any, {
+			get: () => stub,
+			apply: () => stub
+		});
+		return stub as ReturnType<typeof createBrowserClient>;
+	}
+
 	return createBrowserClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
 		cookies: {
 			getAll() {

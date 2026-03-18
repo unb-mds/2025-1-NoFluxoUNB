@@ -7,13 +7,22 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			fallback: 'index.html',
+			fallback: '200.html',
 			pages: 'build',
 			assets: 'build',
 			precompress: true
 		}),
 		prerender: {
-			handleHttpError: 'warn'
+			handleHttpError: 'warn',
+			entries: [
+				'/',
+				'/login',
+				'/signup',
+				'/password-recovery',
+				'/login-anonimo',
+				'/termos',
+				'/privacidade'
+			]
 		},
 		alias: {
 			$components: 'src/lib/components',

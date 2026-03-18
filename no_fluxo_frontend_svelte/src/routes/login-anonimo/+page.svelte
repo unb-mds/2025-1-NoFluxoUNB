@@ -1,11 +1,13 @@
 <script lang="ts">
 	import AnonymousLogin from '$lib/components/auth/AnonymousLogin.svelte';
 	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 </script>
 
-<svelte:head>
-	<title>Entrar sem Conta - NoFluxo UNB</title>
-</svelte:head>
+<PageMeta
+	title="Entrar sem Conta"
+	description="Acesse o NoFluxo UNB como visitante para explorar fluxogramas de cursos da UnB sem criar uma conta."
+/>
 
 <AnimatedBackground />
 
