@@ -20,7 +20,7 @@ jobs:
     
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [20.x]
     
     steps:
     - name: Checkout code
@@ -47,11 +47,6 @@ jobs:
       run: |
         cd no_fluxo_backend
         npm run lint
-        
-    - name: Run tests
-      run: |
-        cd no_fluxo_backend
-        npm test
         
     - name: Run tests with coverage
       run: |

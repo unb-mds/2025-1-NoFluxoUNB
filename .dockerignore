@@ -58,6 +58,15 @@ documentation/
 documentacao/
 prototipo/
 tests-*
+test_historicos/
 coleta_dados/
 assets/
 no_fluxo_frontend/
+DBA/
+plans/
+docs/
+supabase/
+.github/
+
+# When building backend, exclude unrelated services
+mcp_agent/
