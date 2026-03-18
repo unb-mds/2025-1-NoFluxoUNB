@@ -5,6 +5,7 @@
 echo "🔍 NoFluxo Environment Variable Test"
 echo "===================================="
 
+
 if [ -f ".env" ]; then
     echo "✅ .env file found in current directory"
     echo "📄 .env file contents (sanitized):"
