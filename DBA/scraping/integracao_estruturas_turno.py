@@ -38,9 +38,9 @@ except ImportError:
     pass
 
 # Mesmas credenciais do integracao_banco; usa env só se for chave JWT válida (service_role)
-_SERVICE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxpam1oYnN0Z2RpbnN1a292eWZsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzgzOTM3MywiZXhwIjoyMDYzNDE1MzczfQ._o2wq5p0C6YBIrTGJsNl6xdg4l8Ju7CbwvaaeCWbeAc'
+_SERVICE_KEY = '.._o2wq5p0C6YBIrTGJsNl6xdg4l8Ju7CbwvaaeCWbeAc'
 _env_key = os.getenv('SUPABASE_SERVICE_ROLE_KEY') or os.getenv('SUPABASE_SERVICE_KEY') or os.getenv('SUPABASE_KEY') or ''
-SUPABASE_URL = os.getenv('SUPABASE_URL', 'https://lijmhbstgdinsukovyfl.supabase.co')
+SUPABASE_URL = os.getenv('SUPABASE_URL', 'https://.supabase.co')
 SUPABASE_KEY = _env_key if (_env_key and len(_env_key) > 50 and _env_key.startswith('eyJ')) else _SERVICE_KEY
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)

@@ -27,7 +27,7 @@ Maritaca AI API (Sabiázinho-4 + Sabiá-4)
 **`no_fluxo_backend/.env`**
 ```env
 # Supabase
-SUPABASE_URL=https://lijmhbstgdinsukovyfl.supabase.co
+SUPABASE_URL=https://.supabase.co
 SUPABASE_KEY=sua_anon_key
 SUPABASE_SERVICE_ROLE_KEY=sua_service_role_key
 
@@ -41,7 +41,7 @@ NODE_ENV=production
 
 **`mcp_agent/.env`**
 ```env
-SUPABASE_URL=https://lijmhbstgdinsukovyfl.supabase.co
+SUPABASE_URL=https://.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=sua_service_role_key
 SUPABASE_KEY=sua_anon_key
 MARITACA_API_KEY=sua_chave_maritaca

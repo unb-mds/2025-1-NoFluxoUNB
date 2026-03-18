@@ -74,7 +74,7 @@ PASTA_MATERIAS = BASE_DIR / 'dados' / 'materias'
 load_dotenv(SCRIPT_DIR / '.env')
 load_dotenv(SCRIPT_DIR.parent.parent / 'no_fluxo_backend' / '.env')
 
-SUPABASE_URL = os.getenv('SUPABASE_URL',  'https://lijmhbstgdinsukovyfl.supabase.co')
+SUPABASE_URL = os.getenv('SUPABASE_URL',  'https://.supabase.co')
 SUPABASE_KEY = os.getenv('SUPABASE_SERVICE_ROLE_KEY') or os.getenv('SUPABASE_KEY', '')
 
 DRY_RUN       = '--dry-run'       in sys.argv

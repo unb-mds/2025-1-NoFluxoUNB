@@ -425,7 +425,7 @@ pnpm dlx shadcn-svelte add button  # Add component
 ```env
 # .env
 PUBLIC_SUPABASE_URL=https://lijmhbstgdinsukovyfl.supabase.co
-PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+PUBLIC_SUPABASE_ANON_KEY=...
 PUBLIC_API_URL=http://localhost:3000
 PUBLIC_AGENT_URL=http://localhost:4652
 PUBLIC_REDIRECT_URL=http://localhost:5173

@@ -30,7 +30,7 @@ except ImportError:
 SUPABASE_URL = os.getenv('SUPABASE_URL', 'https://lijmhbstgdinsukovyfl.supabase.co')
 SUPABASE_KEY = os.getenv('SUPABASE_SERVICE_ROLE_KEY') or os.getenv('SUPABASE_KEY') or ''
 if not SUPABASE_KEY or len(SUPABASE_KEY) < 50:
-    SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxpam1oYnN0Z2RpbnN1a292eWZsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzgzOTM3MywiZXhwIjoyMDYzNDE1MzczfQ._o2wq5p0C6YBIrTGJsNl6xdg4l8Ju7CbwvaaeCWbeAc'
+    SUPABASE_KEY = '.s._o2wq5p0C6YBIrTGJsNl6xdg4l8Ju7CbwvaaeCWbeAc'
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 

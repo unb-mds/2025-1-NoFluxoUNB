@@ -816,7 +816,7 @@ pnpm add -D supabase
 pnpm supabase login
 
 # Generate types
-pnpm supabase gen types typescript --project-id lijmhbstgdinsukovyfl > src/lib/types/database.types.ts
+pnpm supabase gen types typescript --project-id  > src/lib/types/database.types.ts
 ```
 
 ---
@@ -1102,7 +1102,7 @@ no_fluxo_frontend_svelte/
     
     "typecheck": "tsc --noEmit",
     
-    "db:types": "supabase gen types typescript --project-id lijmhbstgdinsukovyfl > src/lib/types/database.types.ts",
+    "db:types": "supabase gen types typescript --project-id  > src/lib/types/database.types.ts",
     "db:push": "supabase db push",
     "db:pull": "supabase db pull",
     
