@@ -5,6 +5,7 @@ const { execSync } = require('child_process');
 const os = require('os');
 const { pipeline } = require('stream/promises');
 
+
 const TESSERACT_VERSION = '5.3.3';
 const DOWNLOAD_DIR = path.join(__dirname, '..', 'tesseract');
 const PLATFORM = os.platform();
