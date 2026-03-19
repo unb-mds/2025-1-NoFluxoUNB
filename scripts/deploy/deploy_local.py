@@ -230,6 +230,8 @@ def docker_build(
     build_args: Iterable[str] | None = None,
     push: bool = False,
     platforms: str | None = None,
+    cache_from: str | None = None,
+    cache_to: str | None = None,
 ) -> None:
     """Build a Docker image, optionally multi-arch via buildx.
 
@@ -253,6 +255,11 @@ def docker_build(
             print("WARNING: Multi-platform build without --push; image won't be available locally")
     else:
         cmd = [docker_bin, "build", "-t", image_ref, "-f", str(dockerfile)]
+
+    if cache_from:
+        cmd.extend(["--cache-from", cache_from])
+    if cache_to:
+        cmd.extend(["--cache-to", cache_to])
 
     if build_args:
         for arg in build_args:
@@ -425,6 +432,8 @@ def run_local_deploy(
     stream_logs: bool,
     state_file: Path | None,
     platforms: str | None = None,
+    cache_from: str | None = None,
+    cache_to: str | None = None,
 ) -> int:
     client = DeployApiClient(api_url, api_key, timeout_s=timeout_s)
 
@@ -478,6 +487,8 @@ def run_local_deploy(
             build_args=build_args,
             push=use_buildx_push,
             platforms=effective_platforms,
+            cache_from=cache_from,
+            cache_to=cache_to,
         )
         if not no_push and not use_buildx_push:
             docker_push(docker_bin, image_ref=image_ref)
@@ -675,6 +686,17 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     parser.add_argument(
+        "--cache-from",
+        default=None,
+        help="Docker buildx --cache-from value (e.g. 'type=gha' or 'type=registry,ref=...')",
+    )
+    parser.add_argument(
+        "--cache-to",
+        default=None,
+        help="Docker buildx --cache-to value (e.g. 'type=gha,mode=max')",
+    )
+
+    parser.add_argument(
         "--redeploy",
         action="store_true",
         help="Skip build/push; deploy using last stored buildId for this target",
@@ -760,6 +782,8 @@ def main(argv: list[str] | None = None) -> int:
                 stream_logs=bool(args.stream_logs),
                 state_file=state_file,
                 platforms=args.platform,
+                cache_from=args.cache_from,
+                cache_to=args.cache_to,
             )
 
         if rc != 0:

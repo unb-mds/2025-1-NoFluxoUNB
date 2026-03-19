@@ -60,5 +60,7 @@ jobs:
           TARGET="${{ github.event.inputs.target || 'all' }}"
           python scripts/deploy/deploy_local.py "$TARGET" \
             --platform linux/amd64 \
+            --cache-from type=gha \
+            --cache-to type=gha,mode=max \
             --wait \
             --stream-logs

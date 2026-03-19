@@ -1,0 +1,46 @@
+# Per-Dockerfile dockerignore (BuildKit feature)
+# Backend build only needs no_fluxo_backend/
+
+# Common excludes
+.git/
+.gitignore
+*.md
+LICENSE
+*.log
+logs/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+coverage/
+.nyc_output/
+.env.local
+.deploy/
+scripts/
+kubernetes_docs/
+documentation/
+documentacao/
+prototipo/
+tests-*
+test_historicos/
+coleta_dados/
+assets/
+DBA/
+plans/
+docs/
+supabase/
+.github/
+
+# Exclude other services entirely
+no_fluxo_frontend/
+no_fluxo_frontend_svelte/
+mcp_agent/
+
+# Exclude backend build artifacts (not source)
+no_fluxo_backend/node_modules/
+no_fluxo_backend/dist/
+no_fluxo_backend/.env*
+no_fluxo_backend/logs/*.log

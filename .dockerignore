@@ -68,5 +68,5 @@ docs/
 supabase/
 .github/
 
-# When building backend, exclude unrelated services
+# Exclude services not needed by most builds
 mcp_agent/
