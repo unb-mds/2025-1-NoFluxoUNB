@@ -21,15 +21,26 @@
 	let loadingCursos = $state(false);
 	let navigating = $state(false);
 
+	function normalizeSearchText(value: string | null | undefined): string {
+		return (value ?? '')
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '')
+			.replace(/ç/g, 'c')
+			.replace(/Ç/g, 'C')
+			.toLowerCase()
+			.trim()
+			.replace(/\s+/g, ' ');
+	}
+
 	const cursosFiltrados = $derived.by(() => {
 		if (!searchQuery.trim()) return cursos;
-		const q = searchQuery.toLowerCase().trim();
+		const q = normalizeSearchText(searchQuery);
 		return cursos.filter(
 			(c) =>
-				c.nomeCurso.toLowerCase().includes(q) ||
-				(c.tipoCurso && c.tipoCurso.toLowerCase().includes(q)) ||
-				(c.turno && c.turno.toLowerCase().includes(q)) ||
-				(c.matrizCurricular && c.matrizCurricular.toLowerCase().includes(q))
+				normalizeSearchText(c.nomeCurso).includes(q) ||
+				(c.tipoCurso && normalizeSearchText(c.tipoCurso).includes(q)) ||
+				(c.turno && normalizeSearchText(c.turno).includes(q)) ||
+				(c.matrizCurricular && normalizeSearchText(c.matrizCurricular).includes(q))
 		);
 	});
 

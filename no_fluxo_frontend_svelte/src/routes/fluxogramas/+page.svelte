@@ -20,6 +20,17 @@
 	let currentPage = $state(1);
 	const perPage = 6;
 
+	function normalizeSearchText(value: string | null | undefined): string {
+		return (value ?? '')
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '')
+			.replace(/ç/g, 'c')
+			.replace(/Ç/g, 'C')
+			.toLowerCase()
+			.trim()
+			.replace(/\s+/g, ' ');
+	}
+
 	// Tipos de curso para o filtro (valores únicos)
 	let courseTypes = $derived.by(() => {
 		const types = new Set(courses.map((c) => c.tipoCurso).filter(Boolean));
@@ -37,15 +48,15 @@
 		let result = courses;
 		// Busca por texto: nome do curso; se tiver tipo/turno, também busca neles
 		if (searchQuery.trim()) {
-			const q = searchQuery.toLowerCase().trim();
+			const q = normalizeSearchText(searchQuery);
 			result = result.filter((c) => {
-				const nome = (c.nomeCurso ?? '').toLowerCase();
+				const nome = normalizeSearchText(c.nomeCurso);
 				if (nome.includes(q)) return true;
-				const tipo = (c.tipoCurso ?? '').toString().toLowerCase();
+				const tipo = normalizeSearchText((c.tipoCurso ?? '').toString());
 				if (tipo && tipo.includes(q)) return true;
-				const turno = (c.turno ?? '').toString().toLowerCase();
+				const turno = normalizeSearchText((c.turno ?? '').toString());
 				if (turno && turno.includes(q)) return true;
-				const curriculo = (c.matrizCurricular ?? '').toLowerCase();
+				const curriculo = normalizeSearchText(c.matrizCurricular ?? '');
 				if (curriculo.includes(q)) return true;
 				return false;
 			});

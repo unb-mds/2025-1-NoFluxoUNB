@@ -118,7 +118,7 @@
 	</div>
 
 	<!-- Chat Container -->
-	<div class="flex-1 glass-light rounded-2xl overflow-hidden flex flex-col">
+	<div class="flex-1 chat-shell rounded-2xl overflow-hidden flex flex-col">
 		<!-- Mensagens -->
 		<div class="flex-1 overflow-y-auto p-6 space-y-4">
 			{#if historico.length === 0}
@@ -128,42 +128,42 @@
 					<div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 max-w-2xl">
 					<button
 						on:click={() => { mensagem = 'Direito Constitucional e Teoria da Constituição'; enviarMensagem(); }}
-							class="glass-light px-3 py-2 sm:p-3 rounded-lg hover:bg-white/10 transition-colors text-left text-xs sm:text-sm"
+							class="chat-suggestion px-3 py-2 sm:p-3 rounded-lg transition-colors text-left text-xs sm:text-sm"
 					>
 						<p class="text-white">⚖️ Direito Constitucional</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'História da África: Sociedades Pré-Coloniais e Processos de Independência'; enviarMensagem(); }}
-							class="glass-light px-3 py-2 sm:p-3 rounded-lg hover:bg-white/10 transition-colors text-left text-xs sm:text-sm"
+							class="chat-suggestion px-3 py-2 sm:p-3 rounded-lg transition-colors text-left text-xs sm:text-sm"
 					>
 						<p class="text-white">🌍 História da África</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'Inteligência Artificial: Aprendizado de Máquina e Redes Neurais'; enviarMensagem(); }}
-							class="glass-light px-3 py-2 sm:p-3 rounded-lg hover:bg-white/10 transition-colors text-left text-xs sm:text-sm"
+							class="chat-suggestion px-3 py-2 sm:p-3 rounded-lg transition-colors text-left text-xs sm:text-sm"
 					>
 						<p class="text-white">🤖 Inteligência Artificial</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'Bioética e Saúde Coletiva no Sistema Único de Saúde'; enviarMensagem(); }}
-							class="glass-light px-3 py-2 sm:p-3 rounded-lg hover:bg-white/10 transition-colors text-left text-xs sm:text-sm"
+							class="chat-suggestion px-3 py-2 sm:p-3 rounded-lg transition-colors text-left text-xs sm:text-sm"
 					>
 						<p class="text-white">🦠 Microbiologia</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'Macroeconomia: Modelos de Crescimento e Políticas Monetárias'; enviarMensagem(); }}
-							class="glass-light px-3 py-2 sm:p-3 rounded-lg hover:bg-white/10 transition-colors text-left text-xs sm:text-sm"
+							class="chat-suggestion px-3 py-2 sm:p-3 rounded-lg transition-colors text-left text-xs sm:text-sm"
 					>
 						<p class="text-white">📈 Macroeconomia</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'Cálculo Diferencial e Integral para Engenharia'; enviarMensagem(); }}
-							class="glass-light px-3 py-2 sm:p-3 rounded-lg hover:bg-white/10 transition-colors text-left text-xs sm:text-sm"
+							class="chat-suggestion px-3 py-2 sm:p-3 rounded-lg transition-colors text-left text-xs sm:text-sm"
 					>
 						<p class="text-white">⚛️ Física Quântica</p>
 					</button>
@@ -178,7 +178,7 @@
 									<p class="whitespace-pre-wrap">{msg.texto}</p>
 								</div>
 							{:else}
-								<div class="glass-light rounded-2xl px-4 py-3">
+								<div class="assistant-bubble rounded-2xl px-4 py-3">
 									<!-- Só mostra o texto se NÃO houver disciplinas -->
 									{#if !msg.disciplinas || msg.disciplinas.length === 0}
 										<p class="text-white whitespace-pre-wrap">{msg.texto}</p>
@@ -191,7 +191,7 @@
 										</p>
 										<div class="mt-4 space-y-2">
 											{#each msg.disciplinas as disc (disc.codigo)}
-												<div class="glass-light rounded-lg p-3 border border-white/10" transition:fly={{ y: 20, duration: 300 }}>
+												<div class="assistant-card rounded-lg p-3" transition:fly={{ y: 20, duration: 300 }}>
 													<div class="flex items-start justify-between gap-2">
 														<div class="flex-1">
 															<p class="text-pink-400 font-semibold text-sm">{disc.codigo}</p>
@@ -218,7 +218,7 @@
 			
 			{#if carregando}
 				<div class="flex justify-start">
-					<div class="glass-light rounded-2xl px-4 py-3">
+					<div class="assistant-bubble rounded-2xl px-4 py-3">
 						<div class="flex items-center gap-2 text-gray-400">
 							<Loader2 class="h-4 w-4 animate-spin" />
 							<span>{etapaAtual || 'Pensando...'}</span>
@@ -237,7 +237,7 @@
 					on:keypress={handleKeyPress}
 					placeholder="Só tópicos de interesse (ex: IA aplicada a saúde)..."
 					disabled={carregando}
-					class="flex-1 bg-white/5 border border-white/10 rounded-full px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500/50 disabled:opacity-50"
+					class="flex-1 bg-black/50 border border-white/20 rounded-full px-3 py-2.5 text-sm text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500/50 disabled:opacity-50"
 				/>
 				<button
 					type="submit"
@@ -257,6 +257,35 @@
 </div>
 
 <style>
+	.chat-shell {
+		background: rgba(15, 23, 42, 0.72);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+	}
+
+	.chat-suggestion {
+		background: rgba(15, 23, 42, 0.58);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		color: rgba(255, 255, 255, 0.96);
+	}
+
+	.chat-suggestion:hover {
+		background: rgba(30, 41, 59, 0.78);
+		border-color: rgba(255, 255, 255, 0.24);
+	}
+
+	.assistant-bubble {
+		background: rgba(15, 23, 42, 0.82);
+		border: 1px solid rgba(255, 255, 255, 0.18);
+		color: rgba(255, 255, 255, 0.98);
+	}
+
+	.assistant-card {
+		background: rgba(2, 6, 23, 0.8);
+		border: 1px solid rgba(255, 255, 255, 0.18);
+	}
+
 	/* Scrollbar personalizada */
 	:global(.overflow-y-auto::-webkit-scrollbar) {
 		width: 8px;

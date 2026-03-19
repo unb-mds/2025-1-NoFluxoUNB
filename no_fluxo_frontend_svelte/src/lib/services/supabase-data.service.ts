@@ -45,6 +45,17 @@ function cached<T>(key: string, fn: () => Promise<T>): Promise<T> {
 export class SupabaseDataService {
 	private supabase = createSupabaseBrowserClient();
 
+	private normalizeSearchText(value: string | null | undefined): string {
+		return (value ?? '')
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '')
+			.replace(/ç/g, 'c')
+			.replace(/Ç/g, 'C')
+			.toLowerCase()
+			.trim()
+			.replace(/\s+/g, ' ');
+	}
+
 	// ─── Matrizes (identificador curriculo_completo ou codigo/versao) ──────────
 
 	/**
@@ -529,14 +540,30 @@ export class SupabaseDataService {
 	 * Usa a primeira matriz do curso (para compatibilidade). Prefira getCourseFlowchartDataByCurriculoCompleto.
 	 */
 	async getCourseFlowchartData(courseName: string) {
+		const courseNameRaw = courseName.trim();
 		const { data: cursos, error: cursoError } = await this.supabase
 			.from('cursos')
 			.select('*')
-			.eq('nome_curso', courseName)
+			.eq('nome_curso', courseNameRaw)
 			.limit(1);
 
-		if (cursoError || !cursos?.length) throw new Error(`Curso não encontrado: ${courseName}`);
-		const curso = cursos[0];
+		if (cursoError) throw new Error(`Curso não encontrado: ${courseName}`);
+		let curso = cursos?.[0] ?? null;
+		if (!curso) {
+			// Fallback para nomes digitados com acento/ç diferente do salvo no banco.
+			const normalizedInput = this.normalizeSearchText(courseNameRaw);
+			const { data: allCursos, error: allCursosError } = await this.supabase
+				.from('cursos')
+				.select('*');
+			if (allCursosError) throw new Error(`Curso não encontrado: ${courseName}`);
+			curso =
+				(allCursos ?? []).find(
+					(c) => this.normalizeSearchText((c as Record<string, unknown>).nome_curso as string) === normalizedInput
+				) ??
+				null;
+		}
+
+		if (!curso) throw new Error(`Curso não encontrado: ${courseName}`);
 		const matrizes = await this.getMatrizesByCurso(curso.id_curso);
 		const idMatriz = matrizes[0]?.idMatriz ?? null;
 		if (idMatriz == null) throw new Error(`Nenhuma matriz encontrada para o curso: ${courseName}`);
