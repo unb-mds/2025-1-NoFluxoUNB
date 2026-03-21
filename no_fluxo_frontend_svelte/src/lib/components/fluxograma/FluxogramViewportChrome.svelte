@@ -2,6 +2,7 @@
 	import { ZoomIn, ZoomOut, RotateCcw, Link2, X, Menu } from 'lucide-svelte';
 	import { fluxogramaStore, type ConnectionMode } from '$lib/stores/fluxograma.store.svelte';
 	import { SubjectStatusEnum, getStatusLabel } from '$lib/types/materia';
+	import { portal } from '$lib/actions/portal';
 
 	interface Props {
 		/** Sincronizado com o botão “Legenda e regras” (?) no header */
@@ -175,15 +176,17 @@
 	</div>
 </div>
 
-<!-- Mobile: sheet ferramentas -->
+<!-- Mobile: sheet ferramentas (portal → body: fora do stacking context z-0 do diagrama) -->
 {#if fabMenuOpen}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<div
+		use:portal
 		class="fixed inset-0 z-[500] bg-black/55 backdrop-blur-[2px] md:hidden"
 		onclick={() => (fabMenuOpen = false)}
 		role="presentation"
 	></div>
 	<div
+		use:portal
 		class="fixed bottom-0 left-0 right-0 z-[510] max-h-[min(72dvh,520px)] overflow-hidden rounded-t-2xl border border-white/15 bg-gray-950/98 shadow-2xl backdrop-blur-xl md:hidden"
 		role="dialog"
 		aria-modal="true"
@@ -291,11 +294,12 @@
 	</div>
 {/if}
 
-<!-- Modal legenda e regras (botão ? no header) -->
+<!-- Modal legenda e regras — portal para body (z-40 da ProgressSummary ficava por cima dentro do flex) -->
 {#if helpOpen}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
+		use:portal
 		class="legend-modal-overlay fixed inset-0 z-[520] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
 		onclick={(e) => e.target === e.currentTarget && (helpOpen = false)}
 		role="presentation"
