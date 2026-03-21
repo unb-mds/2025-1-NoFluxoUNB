@@ -389,9 +389,12 @@ def extrair_dados_academicos(texto_total):
     
     disciplinas = []
     
-    # Adicionar IRA como item se encontrado
+    # Adicionar IRA como item se encontrado (valor_texto = como no PDF)
     if ira:
-        disciplinas.append({"IRA": "IRA", "valor": ira})
+        ira_item = {"IRA": "IRA", "valor": ira}
+        if ira_match:
+            ira_item["valor_texto"] = ira_match.group(1)
+        disciplinas.append(ira_item)
     
     # Extrair disciplinas regulares (processamento de duas linhas)
     linhas = texto_total.splitlines()

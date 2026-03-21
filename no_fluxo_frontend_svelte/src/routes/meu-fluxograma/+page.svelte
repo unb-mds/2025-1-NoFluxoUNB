@@ -3,6 +3,7 @@
 	import GraffitiBackground from '$lib/components/effects/GraffitiBackground.svelte';
 	import FluxogramaHeader from '$lib/components/fluxograma/FluxogramaHeader.svelte';
 	import FluxogramaLegendControls from '$lib/components/fluxograma/FluxogramaLegendControls.svelte';
+	import FluxogramViewportChrome from '$lib/components/fluxograma/FluxogramViewportChrome.svelte';
 	import FluxogramContainer from '$lib/components/fluxograma/FluxogramContainer.svelte';
 	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
 	import SubjectDetailsModal from '$lib/components/fluxograma/SubjectDetailsModal.svelte';
@@ -30,6 +31,8 @@
 	let integralizacao = $state<IntegralizacaoResult | null>(null);
 	let integralizacaoLoading = $state(false);
 	let matrizes = $state<Array<{ curriculoCompleto: string }>>([]);
+	/** Modal “Legenda e regras” (menu ⚙ do header) */
+	let fluxogramHelpOpen = $state(false);
 
 	let user = $derived(authStore.getUser());
 	let userFluxograma = $derived(user?.dadosFluxograma ?? null);
@@ -136,7 +139,7 @@
 
 <GraffitiBackground />
 
-<div class="relative z-10 container mx-auto min-w-0 max-w-[95vw] overflow-x-hidden px-3 py-4 sm:px-4 sm:py-6">
+<div class="relative z-10 container mx-auto min-w-0 max-w-[95vw] px-3 py-2 sm:px-4 sm:py-3">
 	{#if store.state.loading}
 		<div class="flex flex-col items-center justify-center gap-4 py-20">
 			<Loader2 class="h-10 w-10 animate-spin text-purple-400" />
@@ -183,49 +186,68 @@
 			</button>
 		</div>
 	{:else if store.state.courseData}
-		<div class="space-y-4">
-			<!-- Header -->
-			<FluxogramaHeader
-				courseName={store.state.courseData.nomeCurso}
-				matrizCurricular={store.state.courseData.matrizCurricular}
-				tipoCurso={store.state.courseData.tipoCurso}
-				{matrizes}
-				{curriculoCompletoAtual}
-				onMatrizChange={handleMatrizChange}
-				{containerRef}
-			/>
+		<!--
+			Bloco 1: ocupa a viewport (menos navbar). Só topo + fluxograma — a rolagem fica DENTRO do fluxograma.
+			Bloco 2: ferramentas/optativas ficam abaixo da dobra e não comprimem o diagrama.
+		-->
+		<div class="flex flex-col gap-2 pb-6">
+			<div
+				class="flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5"
+			>
+				<div class="shrink-0 space-y-3 sm:space-y-3.5 md:space-y-4">
+					<FluxogramaHeader
+						courseName={store.state.courseData.nomeCurso}
+						matrizCurricular={store.state.courseData.matrizCurricular}
+						tipoCurso={store.state.courseData.tipoCurso}
+						{matrizes}
+						{curriculoCompletoAtual}
+						onMatrizChange={handleMatrizChange}
+						{containerRef}
+						showFluxogramViewMenu={true}
+						onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
+					/>
+					<FluxogramaLegendControls
+						onOpenOptativas={() => (showOptativas = true)}
+					/>
+				</div>
 
-			<!-- Progress summary (CH, semestre) -->
-			<ProgressSummarySection
-				courseData={store.state.courseData}
-				userFluxograma={store.userFluxograma}
-				{integralizacao}
-				integralizacaoLoading={integralizacaoLoading}
-				{matrizes}
-				{curriculoCompletoAtual}
-				onMatrizChange={handleMatrizChange}
-			/>
+				<!-- z-30: garante que overlays (legenda/FAB) fiquem acima do conteúdo abaixo da dobra (ex.: card de CH) -->
+				<div class="relative z-30 min-h-0 flex-1 basis-0 overflow-hidden">
+					<FluxogramContainer
+						onSubjectClick={handleSubjectClick}
+						onSubjectLongPress={handleSubjectLongPress}
+						bind:bind_container={containerRef}
+					/>
+					<FluxogramViewportChrome bind:helpOpen={fluxogramHelpOpen} />
+				</div>
+			</div>
 
-			<!-- Legend and controls -->
-			<FluxogramaLegendControls
-				onOpenOptativas={() => (showOptativas = true)}
-			/>
-
-			<!-- Fluxogram grid -->
-			<FluxogramContainer
-				onSubjectClick={handleSubjectClick}
-				onSubjectLongPress={handleSubjectLongPress}
-				bind:bind_container={containerRef}
-			/>
-
-			<!-- Optativas added -->
 			{#if !store.state.isAnonymous}
-				<OptativasAdicionadasSection />
-			{/if}
-
-			<!-- Tools section -->
-			{#if !store.state.isAnonymous}
-				<ProgressToolsSection />
+				<div class="relative z-0 shrink-0 space-y-4 border-t border-white/10 pt-4">
+					<ProgressSummarySection
+						courseData={store.state.courseData}
+						userFluxograma={store.userFluxograma}
+						{integralizacao}
+						integralizacaoLoading={integralizacaoLoading}
+						{matrizes}
+						{curriculoCompletoAtual}
+						onMatrizChange={handleMatrizChange}
+					/>
+					<OptativasAdicionadasSection />
+					<ProgressToolsSection />
+				</div>
+			{:else}
+				<div class="relative z-0 border-t border-white/10 pt-4">
+					<ProgressSummarySection
+						courseData={store.state.courseData}
+						userFluxograma={store.userFluxograma}
+						{integralizacao}
+						integralizacaoLoading={integralizacaoLoading}
+						{matrizes}
+						{curriculoCompletoAtual}
+						onMatrizChange={handleMatrizChange}
+					/>
+				</div>
 			{/if}
 		</div>
 

@@ -4,6 +4,7 @@
 	import GraffitiBackground from '$lib/components/effects/GraffitiBackground.svelte';
 	import FluxogramaHeader from '$lib/components/fluxograma/FluxogramaHeader.svelte';
 	import FluxogramaLegendControls from '$lib/components/fluxograma/FluxogramaLegendControls.svelte';
+	import FluxogramViewportChrome from '$lib/components/fluxograma/FluxogramViewportChrome.svelte';
 	import FluxogramContainer from '$lib/components/fluxograma/FluxogramContainer.svelte';
 	import SubjectDetailsModal from '$lib/components/fluxograma/SubjectDetailsModal.svelte';
 	import OptativasModal from '$lib/components/fluxograma/OptativasModal.svelte';
@@ -27,6 +28,7 @@
 	let integralizacao = $state<IntegralizacaoResult | null>(null);
 	let integralizacaoLoading = $state(false);
 	let matrizes = $state<Array<{ curriculoCompleto: string }>>([]);
+	let fluxogramHelpOpen = $state(false);
 
 	let userFluxograma = $derived(store.userFluxograma);
 	let curriculoCompletoAtual = $derived(store.state.courseData?.curriculoCompleto ?? null);
@@ -150,7 +152,7 @@
 
 <GraffitiBackground />
 
-<div class="relative z-10 container mx-auto min-w-0 max-w-[95vw] overflow-x-hidden px-3 py-4 sm:px-4 sm:py-6">
+<div class="relative z-10 container mx-auto min-w-0 max-w-[95vw] px-3 py-2 sm:px-4 sm:py-3">
 	{#if store.state.loading}
 		<div class="flex flex-col items-center justify-center gap-4 py-20">
 			<Loader2 class="h-10 w-10 animate-spin text-purple-400" />
@@ -174,30 +176,71 @@
 			</button>
 		</div>
 	{:else if store.state.courseData}
-		<div class="space-y-4">
-			<!-- Header -->
-			<FluxogramaHeader
-				courseName={store.state.courseData.nomeCurso}
-				matrizCurricular={store.state.courseData.matrizCurricular}
-				tipoCurso={store.state.courseData.tipoCurso}
-				{matrizes}
-				{curriculoCompletoAtual}
-				onMatrizChange={handleMatrizChange}
-				{containerRef}
-				showBackToMyFluxogram={eSimulacaoOutroCurso}
-			/>
+		<div class="flex flex-col gap-2 pb-6">
+			<div
+				class="flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5"
+			>
+				<div class="shrink-0 space-y-3 sm:space-y-3.5 md:space-y-4">
+					<FluxogramaHeader
+						courseName={store.state.courseData.nomeCurso}
+						matrizCurricular={store.state.courseData.matrizCurricular}
+						tipoCurso={store.state.courseData.tipoCurso}
+						{matrizes}
+						{curriculoCompletoAtual}
+						onMatrizChange={handleMatrizChange}
+						{containerRef}
+						showBackToMyFluxogram={eSimulacaoOutroCurso}
+						showFluxogramViewMenu={true}
+						onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
+					/>
 
-			<!-- Progress simulation (only for logged-in users with history) -->
-			{#if userFluxograma && store.state.courseData}
-				<div class="space-y-4">
-					<div class="flex items-center gap-2 text-white/80">
-						<ArrowRightLeft class="h-5 w-5 text-cyan-400" />
-						<div>
-							<h3 class="text-sm font-semibold">Seu progresso neste curso</h3>
-							<p class="text-xs text-white/50">Simulação com base no seu histórico atual</p>
+					<FluxogramaLegendControls
+						onOpenOptativas={optativas.length > 0 ? () => (showOptativas = true) : undefined}
+					/>
+				</div>
+
+				<div class="relative z-30 min-h-0 flex-1 basis-0 overflow-hidden">
+					<FluxogramContainer
+						onSubjectClick={handleSubjectClick}
+						bind:bind_container={containerRef}
+					/>
+					<FluxogramViewportChrome bind:helpOpen={fluxogramHelpOpen} />
+				</div>
+			</div>
+
+			{#if !store.state.isAnonymous}
+				<div class="relative z-0 mt-2 shrink-0 space-y-4 border-t border-white/10 pt-4">
+					{#if userFluxograma && store.state.courseData}
+						<div class="space-y-2">
+							<p class="flex items-center gap-1.5 text-xs text-white/70 sm:text-sm">
+								<ArrowRightLeft class="h-4 w-4 shrink-0 text-cyan-400" />
+								<span
+									><span class="font-medium text-white/90">Progresso neste curso</span>
+									<span class="text-white/45"> · simulação pelo histórico</span></span
+								>
+							</p>
+							<ProgressSummarySection
+								courseData={store.state.courseData}
+								{userFluxograma}
+								{integralizacao}
+								integralizacaoLoading={integralizacaoLoading}
+								{matrizes}
+								{curriculoCompletoAtual}
+								onMatrizChange={handleMatrizChange}
+							/>
 						</div>
-					</div>
-
+					{/if}
+					<ProgressToolsSection />
+				</div>
+			{:else if userFluxograma && store.state.courseData}
+				<div class="relative z-0 mt-2 space-y-2 border-t border-white/10 pt-4">
+					<p class="flex items-center gap-1.5 text-xs text-white/70">
+						<ArrowRightLeft class="h-4 w-4 shrink-0 text-cyan-400" />
+						<span
+							><span class="font-medium text-white/90">Progresso neste curso</span>
+							<span class="text-white/45"> · simulação pelo histórico</span></span
+						>
+					</p>
 					<ProgressSummarySection
 						courseData={store.state.courseData}
 						{userFluxograma}
@@ -208,22 +251,6 @@
 						onMatrizChange={handleMatrizChange}
 					/>
 				</div>
-			{/if}
-
-			<!-- Legend and controls -->
-			<FluxogramaLegendControls
-				onOpenOptativas={optativas.length > 0 ? () => (showOptativas = true) : undefined}
-			/>
-
-			<!-- Fluxogram grid -->
-			<FluxogramContainer
-				onSubjectClick={handleSubjectClick}
-				bind:bind_container={containerRef}
-			/>
-
-			<!-- Ferramentas (Mudança de Curso) -->
-			{#if !store.state.isAnonymous}
-				<ProgressToolsSection />
 			{/if}
 		</div>
 

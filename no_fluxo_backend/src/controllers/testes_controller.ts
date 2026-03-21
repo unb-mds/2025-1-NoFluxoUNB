@@ -206,6 +206,7 @@ export const TestesController: EndpointController = {
                 // Extrair dados de validação do PDF
                 const dadosValidacao = {
                     ira: null as number | null,
+                    ira_texto: null as string | null,
                     horas_integralizadas: 0,
                     pendencias: []
                 };
@@ -213,7 +214,10 @@ export const TestesController: EndpointController = {
                 // Buscar dados de validação nos dados extraídos
                 for (const item of dados_extraidos.extracted_data) {
                     if (item.IRA) {
-                        dadosValidacao.ira = parseFloat(item.valor);
+                        dadosValidacao.ira = parseFloat(String(item.valor).replace(',', '.'));
+                        if (item.valor_texto != null && String(item.valor_texto).trim() !== '') {
+                            dadosValidacao.ira_texto = String(item.valor_texto).trim();
+                        }
                     }
                     if (item.tipo_dado === 'Pendencias') {
                         dadosValidacao.pendencias = item.valores || [];

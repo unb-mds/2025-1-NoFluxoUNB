@@ -28,6 +28,8 @@
  * Pure text processing with regex — no PDF libraries needed.
  */
 
+import { REGEX_IRA_HISTORICO, iraStringParaNumero } from '$lib/utils/ira';
+
 const LOG_PREFIX = '[PDF-DataExtractor]';
 
 // ─── Interfaces ───
@@ -49,6 +51,8 @@ export interface DisciplinaExtraida {
   observacao?: string;
   IRA?: string;
   valor?: number;
+  /** Trecho numérico como no PDF (ex. "4,1234") — exibição fiel, sem arredondar. */
+  valor_texto?: string;
   valores?: Record<string, number>;
 }
 
@@ -948,8 +952,12 @@ export function extrairDadosAcademicos(textoTotal: string): DadosAcademicos {
   const suspensoes = extrairSuspensoes(textoTotal);
 
   let ira: number | null = null;
-  const iraMatch = textoTotal.match(/IRA[:\s]+(\d+[.,]\d+)/i);
-  if (iraMatch) ira = parseFloat(iraMatch[1].replace(',', '.'));
+  let iraTextoHistorico: string | null = null;
+  const iraMatch = textoTotal.match(REGEX_IRA_HISTORICO);
+  if (iraMatch) {
+    iraTextoHistorico = iraMatch[1].trim();
+    ira = iraStringParaNumero(iraTextoHistorico);
+  }
 
   let mediaPonderada: number | null = null;
   const mpMatch = textoTotal.match(/MP[:\s]+(\d+[.,]\d+)/i);
@@ -1043,6 +1051,7 @@ export function extrairDadosAcademicos(textoTotal: string): DadosAcademicos {
       nota: null,
       IRA: 'IRA',
       valor: ira,
+      valor_texto: iraTextoHistorico ?? undefined,
     });
   }
 

@@ -32,6 +32,7 @@ import {
 	type DadosAcademicos
 } from './pdfDataExtractor';
 import { extractDisciplinasFromPositions } from './pdfPositionExtractor';
+import { REGEX_IRA_HISTORICO, iraStringParaNumero } from '$lib/utils/ira';
 
 const LOG_PREFIX = '[PDF-Parser]';
 
@@ -240,8 +241,12 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 	const suspensoes = extrairSuspensoes(textoTotal);
 
 	let ira: number | null = null;
-	const iraMatch = textoTotal.match(/IRA[:\s]+(\d+[.,]\d+)/i);
-	if (iraMatch) ira = parseFloat(iraMatch[1].replace(',', '.'));
+	let iraTextoHistorico: string | null = null;
+	const iraMatch = textoTotal.match(REGEX_IRA_HISTORICO);
+	if (iraMatch) {
+		iraTextoHistorico = iraMatch[1].trim();
+		ira = iraStringParaNumero(iraTextoHistorico);
+	}
 
 	let mediaPonderada: number | null = null;
 	const mpMatch = textoTotal.match(/MP[:\s]+(\d+[.,]\d+)/i);
@@ -287,7 +292,9 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 			tipo_dado: 'IRA',
 			nome: '', status: '', mencao: '', creditos: 0, codigo: '', carga_horaria: 0,
 			ano_periodo: '', prefixo: '', professor: '', turma: '', frequencia: null, nota: null,
-			IRA: 'IRA', valor: ira,
+			IRA: 'IRA',
+			valor: ira,
+			valor_texto: iraTextoHistorico ?? undefined,
 		});
 	}
 

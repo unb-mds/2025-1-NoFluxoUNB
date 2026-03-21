@@ -55,6 +55,44 @@
 	let columnGaps = $state<ColumnGap[]>([]);
 	let columnRects = $state<ColumnRect[]>([]);
 
+	/** Invalida follow-ups agendados quando um novo cálculo “principal” roda (evita corridas). */
+	let followUpGeneration = 0;
+	let followUpRaf1 = 0;
+	let followUpRaf2 = 0;
+	let followUpTimeout: ReturnType<typeof setTimeout> | null = null;
+
+	function cancelScheduledFollowUps() {
+		if (followUpRaf1) cancelAnimationFrame(followUpRaf1);
+		if (followUpRaf2) cancelAnimationFrame(followUpRaf2);
+		if (followUpTimeout) clearTimeout(followUpTimeout);
+		followUpRaf1 = 0;
+		followUpRaf2 = 0;
+		followUpTimeout = null;
+	}
+
+	/**
+	 * No modo "todas", `computeAndSetDensity` e as transições de `gap` (flex entre colunas e entre
+	 * cards) mudam o layout depois do primeiro paint. Um único rAF mede cedo demais; precisamos
+	 * remediar após reflow e após ~300ms (fim da transição CSS).
+	 */
+	function scheduleFollowUpsAfterDensity() {
+		cancelScheduledFollowUps();
+		const gen = ++followUpGeneration;
+		followUpRaf1 = requestAnimationFrame(() => {
+			followUpRaf1 = 0;
+			followUpRaf2 = requestAnimationFrame(() => {
+				followUpRaf2 = 0;
+				if (gen !== followUpGeneration) return;
+				calculateConnections(false);
+			});
+		});
+		followUpTimeout = setTimeout(() => {
+			followUpTimeout = null;
+			if (gen !== followUpGeneration) return;
+			calculateConnections(false);
+		}, 360);
+	}
+
 	// ─── Gap & Column Detection ───────────────────────────────────────
 
 	function collectColumnsAndGaps(containerEl: HTMLElement, containerRect: DOMRect, zoom: number) {
@@ -198,7 +236,7 @@
 
 	// ─── Main Calculation ─────────────────────────────────────────────
 
-	function calculateConnections() {
+	function calculateConnections(allowFollowUp = true) {
 		if (!browser || !container) {
 			lines = [];
 			return;
@@ -210,11 +248,19 @@
 
 		if (connectionMode === 'off' || !courseData) {
 			lines = [];
+			if (allowFollowUp) {
+				followUpGeneration++;
+				cancelScheduledFollowUps();
+			}
 			return;
 		}
 
 		if (connectionMode === 'direct' && !hoveredCode) {
 			lines = [];
+			if (allowFollowUp) {
+				followUpGeneration++;
+				cancelScheduledFollowUps();
+			}
 			return;
 		}
 
@@ -240,6 +286,10 @@
 			);
 			if (!hoveredMateria) {
 				lines = [];
+				if (allowFollowUp) {
+					followUpGeneration++;
+					cancelScheduledFollowUps();
+				}
 				return;
 			}
 
@@ -303,8 +353,15 @@
 		// Compute per-semester connection density and push to store
 		if (connectionMode === 'all' && courseData) {
 			computeAndSetDensity(newLines, courseData);
+			if (allowFollowUp) {
+				scheduleFollowUpsAfterDensity();
+			}
 		} else {
 			store.setConnectionDensity(new Map());
+			if (allowFollowUp) {
+				followUpGeneration++;
+				cancelScheduledFollowUps();
+			}
 		}
 	}
 
@@ -627,14 +684,35 @@
 		const _hovered = store.state.hoveredSubjectCode;
 		const _mode = store.state.connectionMode;
 		const _data = store.state.courseData;
-		const _container = container;
+		const el = container;
 		const _zoom = store.state.zoomLevel;
 
-		if (browser) {
-			requestAnimationFrame(() => {
-				calculateConnections();
+		if (!browser) return;
+
+		let resizeDebounce: ReturnType<typeof setTimeout> | null = null;
+		const ro =
+			el &&
+			new ResizeObserver(() => {
+				if (resizeDebounce) clearTimeout(resizeDebounce);
+				resizeDebounce = setTimeout(() => {
+					resizeDebounce = null;
+					calculateConnections(true);
+				}, 50);
 			});
-		}
+
+		if (el && ro) ro.observe(el);
+
+		// Dois frames: aguarda commit de layout do Svelte e primeiras transições de gap/zoom.
+		requestAnimationFrame(() => {
+			requestAnimationFrame(() => {
+				calculateConnections(true);
+			});
+		});
+
+		return () => {
+			ro?.disconnect();
+			if (resizeDebounce) clearTimeout(resizeDebounce);
+		};
 	});
 </script>
 

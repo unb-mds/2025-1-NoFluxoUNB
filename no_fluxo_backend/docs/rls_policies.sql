@@ -1,5 +1,5 @@
 -- RLS Policies Export
--- Exported at: 2026-02-27T17:44:42.150435+00:00
+-- Exported at: 2026-03-20T13:54:57.594847+00:00
 -- Source: lijmhbstgdinsukovyfl.supabase.co
 
 -- =============================================================================
@@ -10,6 +10,7 @@ ALTER TABLE public."co_requisitos" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public."cursos" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public."dados_users" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public."equivalencias" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public."historicos_usuarios" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public."materias" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public."materias_por_curso" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public."pre_requisitos" ENABLE ROW LEVEL SECURITY;
@@ -26,6 +27,8 @@ ALTER TABLE public."users" ENABLE ROW LEVEL SECURITY;
 -- DROP POLICY IF EXISTS "dados_users_select_own" ON public."dados_users";
 -- DROP POLICY IF EXISTS "dados_users_update_own" ON public."dados_users";
 -- DROP POLICY IF EXISTS "equivalencias_select_public" ON public."equivalencias";
+-- DROP POLICY IF EXISTS "historicos_usuarios_insert_own" ON public."historicos_usuarios";
+-- DROP POLICY IF EXISTS "historicos_usuarios_select_own" ON public."historicos_usuarios";
 -- DROP POLICY IF EXISTS "materias_select_public" ON public."materias";
 -- DROP POLICY IF EXISTS "materias_por_curso_select_public" ON public."materias_por_curso";
 -- DROP POLICY IF EXISTS "pre_requisitos_select_public" ON public."pre_requisitos";
@@ -112,6 +115,28 @@ CREATE POLICY "equivalencias_select_public"
     USING (true)
 ;
 
+-- Table: historicos_usuarios
+
+CREATE POLICY "historicos_usuarios_insert_own"
+    ON public."historicos_usuarios"
+    AS PERMISSIVE
+    FOR INSERT
+    TO authenticated
+    WITH CHECK ((id_user IN ( SELECT users.id_user
+   FROM users
+  WHERE (users.auth_id = auth.uid()))))
+;
+
+CREATE POLICY "historicos_usuarios_select_own"
+    ON public."historicos_usuarios"
+    AS PERMISSIVE
+    FOR SELECT
+    TO authenticated
+    USING ((id_user IN ( SELECT users.id_user
+   FROM users
+  WHERE (users.auth_id = auth.uid()))))
+;
+
 -- Table: materias
 
 CREATE POLICY "materias_select_public"
@@ -170,5 +195,5 @@ CREATE POLICY "users_update_own"
 ;
 
 -- =============================================================================
--- Total: 13 policies across 8 tables
+-- Total: 15 policies across 9 tables
 -- =============================================================================

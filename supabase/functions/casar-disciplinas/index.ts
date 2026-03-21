@@ -551,6 +551,7 @@ Deno.serve(async (req) => {
 
 		const dadosValidacao: Record<string, unknown> = {
 			ira: null,
+			ira_texto: null as string | null,
 			media_ponderada: media_ponderada ? parseFloat(media_ponderada) : null,
 			frequencia_geral: frequencia_geral ? parseFloat(frequencia_geral) : null,
 			horas_integralizadas: 0,
@@ -562,7 +563,10 @@ Deno.serve(async (req) => {
 		// Extract validation data
 		for (const item of dados_extraidos.extracted_data) {
 			if (item.IRA) {
-				dadosValidacao.ira = parseFloat(item.valor);
+				dadosValidacao.ira = parseFloat(String(item.valor).replace(',', '.'));
+				if (item.valor_texto != null && String(item.valor_texto).trim() !== '') {
+					dadosValidacao.ira_texto = String(item.valor_texto).trim();
+				}
 			}
 			if (item.tipo_dado === 'Pendencias') {
 				dadosValidacao.pendencias = item.valores || [];

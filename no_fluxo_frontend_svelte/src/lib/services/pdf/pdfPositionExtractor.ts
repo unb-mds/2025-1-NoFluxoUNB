@@ -37,6 +37,7 @@ export interface DisciplinaExtraida {
   observacao?: string;
   IRA?: string;
   valor?: number;
+  valor_texto?: string;
   valores?: Record<string, number>;
 }
 

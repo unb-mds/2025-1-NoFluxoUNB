@@ -567,6 +567,7 @@ export const FluxogramaController: EndpointController = {
                 // Initialize validation data
                 const dadosValidacao = {
                     ira: null as number | null,
+                    ira_texto: null as string | null,
                     media_ponderada: media_ponderada ? parseFloat(media_ponderada) : null,
                     frequencia_geral: frequencia_geral ? parseFloat(frequencia_geral) : null,
                     horas_integralizadas: 0,
@@ -578,8 +579,11 @@ export const FluxogramaController: EndpointController = {
                 // Extract validation data
                 for (const item of dados_extraidos.extracted_data) {
                     if (item.IRA) {
-                        dadosValidacao.ira = parseFloat(item.valor);
-                        logger.info(`IRA extracted: ${dadosValidacao.ira}`);
+                        dadosValidacao.ira = parseFloat(String(item.valor).replace(',', '.'));
+                        if (item.valor_texto != null && String(item.valor_texto).trim() !== '') {
+                            dadosValidacao.ira_texto = String(item.valor_texto).trim();
+                        }
+                        logger.info(`IRA extracted: ${dadosValidacao.ira} (texto: ${dadosValidacao.ira_texto ?? '—'})`);
                     }
                     if (item.tipo_dado === 'Pendencias') {
                         dadosValidacao.pendencias = item.valores || [];

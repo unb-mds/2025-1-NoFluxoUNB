@@ -31,6 +31,8 @@ export interface CasarDisciplinasResponse {
 	// total_disciplinas = todas casadas (inclui optativas). total_obrigatorias = só nivel > 0 (concluídas + pendentes obrig.)
 	dados_validacao: {
 		ira?: number;
+		/** Como no PDF (ex. "4,1234") — opcional até o RPC ser atualizado. */
+		ira_texto?: string | null;
 		media_ponderada?: number;
 		horas_integralizadas?: number;
 	};

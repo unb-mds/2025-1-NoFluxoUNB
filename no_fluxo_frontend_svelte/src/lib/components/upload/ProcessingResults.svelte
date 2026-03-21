@@ -3,6 +3,7 @@
 	import DisciplinaList from './DisciplinaList.svelte';
 	import IntegralizacaoSection from '$lib/components/fluxograma/IntegralizacaoSection.svelte';
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';
+	import { formatarIraParaExibicao } from '$lib/utils/ira';
 	import type { CasarDisciplinasResponse, UploadPdfResponse } from '$lib/services/upload.service';
 	import type { IntegralizacaoResult } from '$lib/types/matriz';
 
@@ -34,6 +35,14 @@
 		data.resumo.total_obrigatorias ??
 			(data.resumo.total_obrigatorias_concluidas ?? 0) + (data.resumo.total_obrigatorias_pendentes ?? 0)
 	);
+
+	/** Texto do IRA como no PDF (valor_texto), para não arredondar na tela de validação. */
+	let iraTextoHistorico = $derived.by(() => {
+		const row = extractedData?.extracted_data?.find(
+			(d) => (d as { tipo_dado?: string }).tipo_dado === 'IRA'
+		) as { valor_texto?: string } | undefined;
+		return row?.valor_texto ?? data.dados_validacao?.ira_texto ?? null;
+	});
 
 	let stats = $derived([
 		{
@@ -99,7 +108,9 @@
 				{#if data.dados_validacao?.ira != null}
 					<div>
 						<span class="text-gray-500">IRA</span>
-						<p class="font-medium text-white">{data.dados_validacao.ira.toFixed(2)}</p>
+						<p class="font-medium text-white">
+							{formatarIraParaExibicao(data.dados_validacao.ira, iraTextoHistorico)}
+						</p>
 					</div>
 				{/if}
 				{#if data.dados_validacao?.media_ponderada != null}

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onDestroy } from 'svelte';
 	import type { MateriaModel } from '$lib/types/materia';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import SemesterColumn from './SemesterColumn.svelte';
@@ -48,17 +49,23 @@
 			.sort((a, b) => a - b);
 	});
 
-	function handleMouseDown(e: MouseEvent) {
-		if (e.button !== 0 || !containerRef) return;
-		isDragging = true;
-		dragStartX = e.clientX;
-		dragStartY = e.clientY;
-		scrollStartX = containerRef.scrollLeft;
-		scrollStartY = containerRef.scrollTop;
-		containerRef.style.cursor = 'grabbing';
+	/** Só arrasta pelo “fundo” — não rouba clique dos cards nem de controles. */
+	function isPanStartTarget(target: EventTarget | null): boolean {
+		const el = target as HTMLElement | null;
+		if (!el) return false;
+		if (el.closest('.subject-card')) return false;
+		if (el.closest('button, a, input, select, textarea, [role="button"]')) return false;
+		return true;
 	}
 
-	function handleMouseMove(e: MouseEvent) {
+	function endWindowPan() {
+		window.removeEventListener('mousemove', handleWindowMouseMove);
+		window.removeEventListener('mouseup', handleWindowMouseUp);
+		isDragging = false;
+		if (containerRef) containerRef.style.cursor = 'grab';
+	}
+
+	function handleWindowMouseMove(e: MouseEvent) {
 		if (!isDragging || !containerRef) return;
 		e.preventDefault();
 		const dx = e.clientX - dragStartX;
@@ -67,9 +74,25 @@
 		containerRef.scrollTop = scrollStartY - dy;
 	}
 
+	function handleWindowMouseUp() {
+		endWindowPan();
+	}
+
+	function handleMouseDown(e: MouseEvent) {
+		if (e.button !== 0 || !containerRef || !isPanStartTarget(e.target)) return;
+		e.preventDefault();
+		isDragging = true;
+		dragStartX = e.clientX;
+		dragStartY = e.clientY;
+		scrollStartX = containerRef.scrollLeft;
+		scrollStartY = containerRef.scrollTop;
+		containerRef.style.cursor = 'grabbing';
+		window.addEventListener('mousemove', handleWindowMouseMove);
+		window.addEventListener('mouseup', handleWindowMouseUp);
+	}
+
 	function handleMouseUp() {
-		isDragging = false;
-		if (containerRef) containerRef.style.cursor = 'grab';
+		endWindowPan();
 	}
 
 	function handleWheel(e: WheelEvent) {
@@ -152,18 +175,22 @@
 	$effect(() => {
 		bind_container = innerRef;
 	});
+
+	onDestroy(() => {
+		endWindowPan();
+	});
 </script>
 
+<!-- Pan/zoom/toque no wrapper: sem elemento nativo equivalente. -->
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <div
 	bind:this={containerRef}
-	class="fluxogram-container relative overflow-auto rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm"
-	style="max-height: calc(100vh - 280px); min-height: 180px; cursor: grab; touch-action: none;"
+	class="fluxogram-container relative h-full min-h-0 w-full flex-1 select-none overflow-auto rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm"
+	style="cursor: grab; touch-action: none;"
 	role="application"
-	aria-label="Fluxograma interativo"
+	aria-label="Fluxograma interativo — arraste o fundo para mover"
 	onmousedown={handleMouseDown}
-	onmousemove={handleMouseMove}
 	onmouseup={handleMouseUp}
-	onmouseleave={handleMouseUp}
 	onwheel={handleWheel}
 	ontouchstart={handleTouchStart}
 	ontouchmove={handleTouchMove}

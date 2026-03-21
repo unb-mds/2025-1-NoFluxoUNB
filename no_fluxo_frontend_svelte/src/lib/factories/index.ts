@@ -70,6 +70,10 @@ export function createDadosFluxogramaUserFromJson(
 	return {
 		nomeCurso: String(json.nome_curso ?? ''),
 		ira: Number(json.ira ?? 0),
+		iraTexto:
+			json.ira_texto != null && String(json.ira_texto).trim() !== ''
+				? String(json.ira_texto).trim()
+				: null,
 		matricula: String(json.matricula ?? ''),
 		semestreAtual: Number(json.semestre_atual ?? 0),
 		anoAtual: String(json.ano_atual ?? ''),
@@ -96,6 +100,9 @@ export function dadosFluxogramaUserToJson(
 	return {
 		nome_curso: dados.nomeCurso,
 		ira: dados.ira,
+		...(dados.iraTexto != null && dados.iraTexto !== ''
+			? { ira_texto: dados.iraTexto }
+			: {}),
 		matricula: dados.matricula,
 		matriz_curricular: dados.matrizCurricular,
 		semestre_atual: dados.semestreAtual,
@@ -169,7 +176,7 @@ export function buildDadosFluxogramaUserFromCasarResponse(
 	response: {
 		disciplinas_casadas: Record<string, unknown>[];
 		materias_concluidas?: Record<string, unknown>[];
-		dados_validacao?: { ira?: number; horas_integralizadas?: number };
+		dados_validacao?: { ira?: number; ira_texto?: string | null; horas_integralizadas?: number };
 		curso_extraido?: string;
 		matriz_curricular?: string;
 	},
@@ -180,7 +187,8 @@ export function buildDadosFluxogramaUserFromCasarResponse(
 		matrizCurricular: string;
 		semestreAtual: number;
 		suspensoes: string[];
-	}
+	},
+	options?: { iraTexto?: string | null }
 ): DadosFluxogramaUser {
 	const disciplinas = response.disciplinas_casadas ?? [];
 	const materiasConcluidas = response.materias_concluidas ?? [];
@@ -284,9 +292,17 @@ export function buildDadosFluxogramaUserFromCasarResponse(
 	}
 
 	const dadosFluxograma: DadosMateria[][] = [primeiroSemestre];
+	const iraTextoResolved =
+		options?.iraTexto ??
+		(response.dados_validacao as { ira_texto?: string | null } | undefined)?.ira_texto ??
+		null;
 	return {
 		nomeCurso: meta.nomeCurso,
 		ira: Number(response.dados_validacao?.ira ?? 0),
+		iraTexto:
+			iraTextoResolved != null && String(iraTextoResolved).trim() !== ''
+				? String(iraTextoResolved).trim()
+				: null,
 		matricula: meta.matricula,
 		horasIntegralizadas: Number(response.dados_validacao?.horas_integralizadas ?? 0),
 		suspensoes: meta.suspensoes,
@@ -345,9 +361,16 @@ export function createUserModelFromJson(json: Record<string, unknown>): UserMode
 				semestreAtual: 0,
 				suspensoes: [] as string[]
 			};
+			const fd = fluxogramaData as Record<string, unknown>;
+			const dv = fd.dados_validacao as Record<string, unknown> | undefined;
+			const iraTextoLegacy =
+				(dv?.ira_texto as string | undefined) ??
+				(fd.ira_texto as string | undefined) ??
+				(fd.iraTexto as string | undefined);
 			dadosFluxograma = buildDadosFluxogramaUserFromCasarResponse(
 				fluxogramaData as Parameters<typeof buildDadosFluxogramaUserFromCasarResponse>[0],
-				meta
+				meta,
+				{ iraTexto: iraTextoLegacy ?? null }
 			);
 		} else {
 			dadosFluxograma = createDadosFluxogramaUserFromJson(

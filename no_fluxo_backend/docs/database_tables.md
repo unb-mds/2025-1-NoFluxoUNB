@@ -1,6 +1,6 @@
 # Database Schema
 
-> **Exported at:** 2026-02-27T17:44:42.150435+00:00
+> **Exported at:** 2026-03-20T13:54:57.594847+00:00
 > **Export method:** rpc
 > **Supabase:** lijmhbstgdinsukovyfl.supabase.co
 
@@ -18,14 +18,6 @@
 | `expressao_original` | text |  |  |
 | `expressao_logica` | jsonb |  |  |
 
-### ✅ `co_requisitos_backup`
-
-| Column | Type | PK | Foreign Key |
-|--------|------|----|-------------|
-| `id_co_requisito` | bigint |  |  |
-| `id_materia` | bigint |  |  |
-| `id_materia_corequisito` | bigint |  |  |
-
 ### ✅ `cursos`
 
 | Column | Type | PK | Foreign Key |
@@ -34,6 +26,8 @@
 | `created_at` | timestamp with time zone |  |  |
 | `nome_curso` | text |  |  |
 | `tipo_curso` | text |  |  |
+| `turno` | text |  |  |
+| `campus` | text |  |  |
 
 ### ✅ `dados_users`
 
@@ -44,6 +38,7 @@
 | `fluxograma_atual` | text |  |  |
 | `id_user` | bigint |  | → `users.id_user` |
 | `semestre_atual` | bigint |  |  |
+| `carga_horaria_integralizada` | jsonb |  |  |
 
 ### ✅ `equivalencias`
 
@@ -54,23 +49,32 @@
 | `id_curso` | bigint |  | → `cursos.id_curso` |
 | `curriculo` | text |  |  |
 | `data_vigencia` | date |  |  |
-| `fim_vigencia` | date |  |  |
 | `expressao_logica` | jsonb |  |  |
 | `expressao_original` | text |  |  |
-| `id_matriz` | bigint |  | → `matrizes.id_matriz` |
 
-### ✅ `equivalencias_backup_temp`
+### ✅ `historicos_usuarios`
 
 | Column | Type | PK | Foreign Key |
 |--------|------|----|-------------|
-| `id_equivalencia` | bigint |  |  |
-| `id_materia` | bigint |  |  |
-| `id_curso` | bigint |  |  |
-| `expressao` | text |  |  |
+| `id_historico` | bigint | PK |  |
+| `created_at` | timestamp with time zone |  |  |
+| `id_user` | bigint |  | → `users.id_user` |
+| `id_dado_user` | bigint |  | → `dados_users.id_dado_user` |
+| `curso_extraido` | text |  |  |
 | `matriz_curricular` | text |  |  |
-| `curriculo` | text |  |  |
-| `data_vigencia` | date |  |  |
-| `fim_vigencia` | date |  |  |
+| `matricula` | text |  |  |
+| `semestre_atual` | bigint |  |  |
+| `numero_semestre` | bigint |  |  |
+| `ira` | numeric |  |  |
+| `media_ponderada` | numeric |  |  |
+| `carga_horaria_integralizada` | jsonb |  |  |
+| `suspensoes` | jsonb |  |  |
+| `fluxograma_atual` | jsonb |  |  |
+| `total_disciplinas` | integer |  |  |
+| `total_obrigatorias` | integer |  |  |
+| `total_obrigatorias_concluidas` | integer |  |  |
+| `total_obrigatorias_pendentes` | integer |  |  |
+| `percentual_conclusao` | numeric |  |  |
 
 ### ✅ `materias`
 
@@ -84,18 +88,6 @@
 | `ementa` | text |  |  |
 | `departamento` | text |  |  |
 
-### ✅ `materias_backup_temp`
-
-| Column | Type | PK | Foreign Key |
-|--------|------|----|-------------|
-| `id_materia` | bigint |  |  |
-| `created_at` | timestamp with time zone |  |  |
-| `nome_materia` | text |  |  |
-| `codigo_materia` | text |  |  |
-| `carga_horaria` | bigint |  |  |
-| `ementa` | text |  |  |
-| `departamento` | text |  |  |
-
 ### ✅ `materias_por_curso`
 
 | Column | Type | PK | Foreign Key |
@@ -105,16 +97,7 @@
 | `id_materia` | bigint |  | → `materias.id_materia` |
 | `nivel` | integer |  |  |
 | `id_matriz` | bigint |  | → `matrizes.id_matriz` |
-
-### ✅ `materias_por_curso_backup_temp`
-
-| Column | Type | PK | Foreign Key |
-|--------|------|----|-------------|
-| `id_materia_curso` | bigint |  |  |
-| `created_at` | timestamp with time zone |  |  |
-| `id_materia` | bigint |  |  |
-| `id_curso` | bigint |  |  |
-| `nivel` | bigint |  |  |
+| `tipo_natureza` | integer |  |  |
 
 ### ✅ `materias_vetorizadas`
 
@@ -170,15 +153,20 @@
 ### ✅ `vw_creditos_por_matriz`
 
 ```sql
-SELECT m.id_matriz,
-    m.id_curso,
+ SELECT m.id_matriz,
     m.curriculo_completo,
     c.nome_curso,
-    c.tipo_curso,
-    c.turno,
     floor(((m.ch_obrigatoria_exigida)::numeric / 15.0)) AS cred_obrigatorio_exigido,
-    ...
-  GROUP BY m.id_matriz, m.id_curso, m.curriculo_completo, c.nome_curso, c.tipo_curso, c.turno;
+    floor(((m.ch_optativa_exigida)::numeric / 15.0)) AS cred_optativo_exigido,
+    floor(((m.ch_complementar_exigida)::numeric / 15.0)) AS cred_complementar_exigido,
+    floor(((m.ch_total_exigida)::numeric / 15.0)) AS cred_total_exigido,
+    floor(((COALESCE(sum(mat.carga_horaria) FILTER (WHERE (mpc.nivel > 0)), (0)::bigint))::numeric / 15.0)) AS cred_obrigatorio_grade,
+    floor(((COALESCE(sum(mat.carga_horaria) FILTER (WHERE (mpc.nivel = 0)), (0)::bigint))::numeric / 15.0)) AS cred_optativo_grade
+   FROM (((matrizes m
+     JOIN cursos c ON ((c.id_curso = m.id_curso)))
+     LEFT JOIN materias_por_curso mpc ON ((mpc.id_matriz = m.id_matriz)))
+     LEFT JOIN materias mat ON ((mat.id_materia = mpc.id_materia)))
+  GROUP BY m.id_matriz, m.curriculo_completo, c.nome_curso;
 ```
 
 ---
@@ -187,26 +175,29 @@ SELECT m.id_matriz,
 
 | Function | Return Type | Arguments |
 |----------|-------------|-----------|
-| `array_to_halfvec` | halfvec | integer[], integer, boolean |
-| `array_to_halfvec` | halfvec | real[], integer, boolean |
 | `array_to_halfvec` | halfvec | numeric[], integer, boolean |
+| `array_to_halfvec` | halfvec | real[], integer, boolean |
+| `array_to_halfvec` | halfvec | integer[], integer, boolean |
 | `array_to_halfvec` | halfvec | double precision[], integer, boolean |
-| `array_to_sparsevec` | sparsevec | real[], integer, boolean |
 | `array_to_sparsevec` | sparsevec | integer[], integer, boolean |
+| `array_to_sparsevec` | sparsevec | real[], integer, boolean |
 | `array_to_sparsevec` | sparsevec | numeric[], integer, boolean |
 | `array_to_sparsevec` | sparsevec | double precision[], integer, boolean |
+| `array_to_vector` | vector | real[], integer, boolean |
 | `array_to_vector` | vector | numeric[], integer, boolean |
 | `array_to_vector` | vector | integer[], integer, boolean |
-| `array_to_vector` | vector | real[], integer, boolean |
 | `array_to_vector` | vector | double precision[], integer, boolean |
 | `atualizar_creditos_cursos` | void | - |
 | `binary_quantize` | bit | vector |
 | `binary_quantize` | bit | halfvec |
 | `calcular_creditos_por_curso` | integer | id_curso_input bigint |
+| `casar_disciplinas` | jsonb | p_dados jsonb |
 | `cosine_distance` | double precision | halfvec, halfvec |
 | `cosine_distance` | double precision | vector, vector |
 | `cosine_distance` | double precision | sparsevec, sparsevec |
 | `export_schema` | jsonb | - |
+| `get_equivalencias_materia` | TABLE(id_equivalencia integer, id_materia integer, codigo_materia_origem text, nome_materia_origem text, curriculo text, expressao_original text, expressao_logica jsonb) | p_codigo text DEFAULT NULL::text, p_nome text DEFAULT NULL::text |
+| `get_pre_requisitos_materia` | TABLE(id_pre_requisito integer, id_materia integer, codigo_materia text, nome_materia text, expressao_original text, expressao_logica jsonb, codigo_requisito text, nome_requisito text) | p_codigo text DEFAULT NULL::text, p_nome text DEFAULT NULL::text |
 | `gin_extract_query_trgm` | internal | text, internal, smallint, internal, internal, internal, internal |
 | `gin_extract_value_trgm` | internal | text, internal |
 | `gin_trgm_consistent` | boolean | internal, smallint, text, integer, internal, internal, internal, internal |
@@ -253,24 +244,24 @@ SELECT m.id_matriz,
 | `hnsw_halfvec_support` | internal | internal |
 | `hnsw_sparsevec_support` | internal | internal |
 | `hnswhandler` | index_am_handler | internal |
+| `inner_product` | double precision | halfvec, halfvec |
 | `inner_product` | double precision | sparsevec, sparsevec |
 | `inner_product` | double precision | vector, vector |
-| `inner_product` | double precision | halfvec, halfvec |
 | `ivfflat_bit_support` | internal | internal |
 | `ivfflat_halfvec_support` | internal | internal |
 | `ivfflathandler` | index_am_handler | internal |
 | `jaccard_distance` | double precision | bit, bit |
-| `l1_distance` | double precision | halfvec, halfvec |
 | `l1_distance` | double precision | sparsevec, sparsevec |
 | `l1_distance` | double precision | vector, vector |
-| `l2_distance` | double precision | vector, vector |
+| `l1_distance` | double precision | halfvec, halfvec |
 | `l2_distance` | double precision | sparsevec, sparsevec |
 | `l2_distance` | double precision | halfvec, halfvec |
-| `l2_norm` | double precision | halfvec |
+| `l2_distance` | double precision | vector, vector |
 | `l2_norm` | double precision | sparsevec |
+| `l2_norm` | double precision | halfvec |
+| `l2_normalize` | sparsevec | sparsevec |
 | `l2_normalize` | vector | vector |
 | `l2_normalize` | halfvec | halfvec |
-| `l2_normalize` | sparsevec | sparsevec |
 | `match_materias` | TABLE(codigo_materia text, nome_materia text, departamento text, ementa text, similaridade double precision) | query_embedding vector, match_threshold double precision, match_count integer |
 | `set_limit` | real | real |
 | `show_limit` | real | - |
@@ -300,8 +291,8 @@ SELECT m.id_matriz,
 | `strict_word_similarity_dist_commutator_op` | real | text, text |
 | `strict_word_similarity_dist_op` | real | text, text |
 | `strict_word_similarity_op` | boolean | text, text |
-| `subvector` | halfvec | halfvec, integer, integer |
 | `subvector` | vector | vector, integer, integer |
+| `subvector` | halfvec | halfvec, integer, integer |
 | `update_updated_at` | trigger | - |
 | `vector` | vector | vector, integer, boolean |
 | `vector_accum` | double precision[] | double precision[], vector |
@@ -310,8 +301,8 @@ SELECT m.id_matriz,
 | `vector_cmp` | integer | vector, vector |
 | `vector_combine` | double precision[] | double precision[], double precision[] |
 | `vector_concat` | vector | vector, vector |
-| `vector_dims` | integer | halfvec |
 | `vector_dims` | integer | vector |
+| `vector_dims` | integer | halfvec |
 | `vector_eq` | boolean | vector, vector |
 | `vector_ge` | boolean | vector, vector |
 | `vector_gt` | boolean | vector, vector |
@@ -351,6 +342,8 @@ SELECT m.id_matriz,
 | `dados_users` | dados_users_select_own | SELECT |
 | `dados_users` | dados_users_update_own | UPDATE |
 | `equivalencias` | equivalencias_select_public | SELECT |
+| `historicos_usuarios` | historicos_usuarios_insert_own | INSERT |
+| `historicos_usuarios` | historicos_usuarios_select_own | SELECT |
 | `materias` | materias_select_public | SELECT |
 | `materias_por_curso` | materias_por_curso_select_public | SELECT |
 | `pre_requisitos` | pre_requisitos_select_public | SELECT |
@@ -366,9 +359,14 @@ SELECT m.id_matriz,
 |-------|-------|
 | `co_requisitos_pkey` | `co_requisitos` |
 | `cursos_pkey` | `cursos` |
+| `idx_cursos_turno` | `cursos` |
 | `dados_users_id_user_unique` | `dados_users` |
 | `dados_users_pkey` | `dados_users` |
 | `equivalencias_pkey` | `equivalencias` |
+| `historicos_usuarios_pkey` | `historicos_usuarios` |
+| `idx_historicos_usuarios_created_at` | `historicos_usuarios` |
+| `idx_historicos_usuarios_id_dado_user` | `historicos_usuarios` |
+| `idx_historicos_usuarios_id_user` | `historicos_usuarios` |
 | `materias_codigo_materia_key` | `materias` |
 | `materias_pkey` | `materias` |
 | `materias_por_curso_pkey` | `materias_por_curso` |
@@ -389,16 +387,13 @@ SELECT m.id_matriz,
 | Table | Estimated Rows | Size |
 |-------|----------------|------|
 | `co_requisitos` | 185 | 80 KB |
-| `co_requisitos_backup` | 270 | 16 KB |
-| `cursos` | 102 | 64 KB |
-| `dados_users` | 99 | 544 KB |
-| `equivalencias` | 19445 | 4 MB |
-| `equivalencias_backup_temp` | 8919 | 856 KB |
-| `materias` | 25624 | 8.4 MB |
-| `materias_backup_temp` | 21134 | 6.9 MB |
-| `materias_por_curso` | 65955 | 13.1 MB |
-| `materias_por_curso_backup_temp` | 75465 | 4.9 MB |
-| `materias_vetorizadas` | 27267 | 53.1 MB |
-| `matrizes` | 235 | 96 KB |
-| `pre_requisitos` | 14573 | 2.3 MB |
-| `users` | 162 | 136 KB |
+| `cursos` | 154 | 96 KB |
+| `dados_users` | 236 | 656 KB |
+| `equivalencias` | 23687 | 5.8 MB |
+| `historicos_usuarios` | 163 | 776 KB |
+| `materias` | 26223 | 8.7 MB |
+| `materias_por_curso` | 149336 | 39.5 MB |
+| `materias_vetorizadas` | 26145 | 57.5 MB |
+| `matrizes` | 518 | 200 KB |
+| `pre_requisitos` | 15507 | 2.5 MB |
+| `users` | 373 | 184 KB |

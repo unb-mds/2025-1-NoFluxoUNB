@@ -25,6 +25,8 @@ export interface DadosMateria {
 export interface DadosFluxogramaUser {
 	nomeCurso: string;
 	ira: number;
+	/** Texto do IRA como no histórico (ex. "4,1234") — exibição fiel. */
+	iraTexto?: string | null;
 	matricula: string;
 	horasIntegralizadas: number;
 	suspensoes: string[];

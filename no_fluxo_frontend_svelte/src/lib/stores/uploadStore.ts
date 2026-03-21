@@ -299,9 +299,16 @@ function createUploadStore() {
 					semestreAtual: ext?.numero_semestre ?? 0,
 					suspensoes: ext?.suspensoes ?? []
 				};
+				const iraExtraido = ext?.extracted_data?.find(
+					(d) => (d as { tipo_dado?: string }).tipo_dado === 'IRA'
+				) as { valor?: number; valor_texto?: string } | undefined;
 				const dados = buildDadosFluxogramaUserFromCasarResponse(
-					cd as { disciplinas_casadas: Record<string, unknown>[]; dados_validacao?: { ira?: number; horas_integralizadas?: number } },
-					meta
+					cd as {
+						disciplinas_casadas: Record<string, unknown>[];
+						dados_validacao?: { ira?: number; ira_texto?: string | null; horas_integralizadas?: number };
+					},
+					meta,
+					{ iraTexto: iraExtraido?.valor_texto ?? null }
 				);
 
 				// Save: atualiza dados_users (estado atual) + registra em historicos_usuarios (acompanhamento ao longo dos anos)

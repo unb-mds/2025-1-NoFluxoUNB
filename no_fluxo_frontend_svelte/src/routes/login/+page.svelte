@@ -19,7 +19,7 @@
 <AuthHomeLink />
 <AnimatedBackground />
 
-<div class="flex min-h-screen items-start justify-center overflow-x-hidden px-3 py-8 pb-32 sm:px-4 sm:py-10 sm:pb-10">
+<div class="flex min-h-screen items-start justify-center overflow-x-hidden px-3 py-8 sm:px-4 sm:py-10">
 	<div class="flex w-full max-w-md flex-col items-center gap-4">
 		<a href="/" class="text-2xl font-marker font-bold tracking-wide text-white drop-shadow-sm">
 			NOFLX UNB
