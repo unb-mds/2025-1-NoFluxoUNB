@@ -1,6 +1,7 @@
 import { supabaseDataService } from './supabase-data.service';
 import { createSupabaseBrowserClient } from '$lib/supabase/client';
 import { parsePdf, type ParsedPdfResult } from './pdf/pdfParser';
+import { filterMateriasPendentesSomenteObrigatorias } from '$lib/utils/casar-materias';
 
 /**
  * Upload service — CLIENT-SIDE approach:
@@ -44,6 +45,36 @@ export interface CourseSelectionError {
 	cursos_disponiveis: { nome_curso: string; id_curso?: number; matriz_curricular?: string; turno?: string }[];
 	palavras_chave_encontradas?: string[];
 	matriz_extraida_pdf?: string | null;
+}
+
+/**
+ * Disciplinas pendentes = só obrigatórias da matriz; remove optativas se o RPC devolver mistura.
+ * Recalcula resumo (totais e %) de obrigatórias.
+ */
+function normalizarPendentesObrigatoriasResumo(result: CasarDisciplinasResponse): void {
+	const raw = (result.materias_pendentes ?? []) as Record<string, unknown>[];
+	const filtradas = filterMateriasPendentesSomenteObrigatorias(raw);
+	result.materias_pendentes = filtradas;
+
+	const r = result.resumo ?? {
+		percentual_conclusao_obrigatorias: 0,
+		total_disciplinas: 0,
+		total_obrigatorias: 0,
+		total_obrigatorias_concluidas: 0,
+		total_obrigatorias_pendentes: 0,
+		total_optativas: 0
+	};
+	const concl = r.total_obrigatorias_concluidas ?? 0;
+	const pend = filtradas.length;
+	const totalObrig = concl + pend;
+	const pct = totalObrig > 0 ? Math.round((concl / totalObrig) * 10000) / 100 : 0;
+
+	result.resumo = {
+		...r,
+		total_obrigatorias: totalObrig,
+		total_obrigatorias_pendentes: pend,
+		percentual_conclusao_obrigatorias: pct
+	};
 }
 
 class UploadService {
@@ -127,7 +158,9 @@ class UploadService {
 			throw new Error(result.error as string);
 		}
 
-		return result as unknown as CasarDisciplinasResponse;
+		const casar = result as unknown as CasarDisciplinasResponse;
+		normalizarPendentesObrigatoriasResumo(casar);
+		return casar;
 	}
 
 	/**
