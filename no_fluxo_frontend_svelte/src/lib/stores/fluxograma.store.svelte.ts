@@ -52,7 +52,7 @@ function createFluxogramaStore() {
 		courseData: null,
 		loading: false,
 		error: null,
-		zoomLevel: 0.75,
+		zoomLevel: 0.6,
 		connectionMode: 'off' as ConnectionMode,
 		displayUnit: 'horas' as DisplayUnit,
 		isAnonymous: false,
@@ -254,7 +254,7 @@ function createFluxogramaStore() {
 		},
 
 		resetZoom() {
-			state.zoomLevel = 0.75;
+			state.zoomLevel = 0.6;
 		},
 
 		setConnectionMode(mode: ConnectionMode) {
@@ -330,7 +330,7 @@ function createFluxogramaStore() {
 			state.courseData = null;
 			state.loading = false;
 			state.error = null;
-			state.zoomLevel = 0.75;
+			state.zoomLevel = 0.6;
 			state.connectionMode = 'off';
 			state.displayUnit = 'horas';
 			state.isAnonymous = false;

@@ -24,6 +24,41 @@
 	let zoomPercent = $derived(Math.round(store.state.zoomLevel * 100));
 	let connectionsActive = $derived(store.state.connectionMode !== 'off');
 
+	/** Campo de zoom digitável — não sobrescreve enquanto o utilizador edita */
+	let zoomInputFocused = $state(false);
+	let zoomDraft = $state(String(Math.round(store.state.zoomLevel * 100)));
+
+	$effect(() => {
+		const p = zoomPercent;
+		if (!zoomInputFocused) {
+			zoomDraft = String(p);
+		}
+	});
+
+	function applyZoomDraft() {
+		const raw = zoomDraft.trim();
+		const v = parseInt(raw, 10);
+		if (Number.isNaN(v)) {
+			zoomDraft = String(zoomPercent);
+			return;
+		}
+		const clamped = Math.min(200, Math.max(30, v));
+		store.setZoom(clamped / 100);
+		zoomDraft = String(Math.round(store.state.zoomLevel * 100));
+	}
+
+	function onZoomDraftInput(e: Event & { currentTarget: HTMLInputElement }) {
+		const digits = e.currentTarget.value.replace(/\D/g, '').slice(0, 3);
+		zoomDraft = digits;
+	}
+
+	function onZoomFieldKeydown(e: KeyboardEvent) {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			(e.currentTarget as HTMLInputElement).blur();
+		}
+	}
+
 	/** Mobile: painel do FAB ferramentas (zoom + conexões) */
 	let fabMenuOpen = $state(false);
 
@@ -71,12 +106,12 @@
 >
 	<!-- Desktop: zoom + conexões (legenda: ícone de ajuda no header) -->
 	<div
-		class="pointer-events-none hidden w-full items-end justify-end px-3 pb-3 pt-0 md:pointer-events-auto md:flex md:max-h-[52px] md:min-h-[44px] md:px-4 md:pb-3"
+		class="pointer-events-none hidden w-full items-end justify-end px-3 pb-3 pt-0 md:pointer-events-auto md:flex md:px-4 md:pb-3"
 	>
 		<div
-			class="pointer-events-auto flex max-h-[48px] min-h-[40px] flex-wrap items-center justify-end gap-1.5 rounded-full border border-white/20 bg-black/35 px-2 py-1 shadow-lg backdrop-blur-xl md:flex-nowrap md:gap-2 md:px-2.5"
+			class="pointer-events-auto flex min-h-[42px] flex-wrap items-center justify-end gap-1.5 rounded-full border border-white/20 bg-black/35 px-2.5 py-1.5 shadow-lg backdrop-blur-xl md:flex-nowrap md:gap-2"
 		>
-			<div class="flex items-center gap-0.5 rounded-full bg-white/5 px-0.5">
+			<div class="flex items-center gap-0.5 rounded-full bg-white/5 px-0.5 py-0.5">
 				<button
 					type="button"
 					onclick={() => store.zoomOut()}
@@ -101,7 +136,25 @@
 				>
 					<ZoomIn class="h-4 w-4" />
 				</button>
-				<span class="min-w-[2.25rem] text-center text-[10px] text-white/55">{zoomPercent}%</span>
+				<label class="flex shrink-0 items-center gap-0.5 text-white/55" title="Zoom 30% a 200% — Enter ou clique fora para aplicar">
+					<input
+						type="text"
+						inputmode="numeric"
+						autocomplete="off"
+						maxlength="3"
+						class="w-[2.65rem] rounded border border-white/20 bg-black/50 px-1 py-0.5 text-center text-[11px] font-medium tabular-nums text-white outline-none focus:border-purple-400/50 focus:ring-1 focus:ring-inset focus:ring-purple-400/25"
+						value={zoomDraft}
+						oninput={onZoomDraftInput}
+						onfocus={() => (zoomInputFocused = true)}
+						onblur={() => {
+							applyZoomDraft();
+							zoomInputFocused = false;
+						}}
+						onkeydown={onZoomFieldKeydown}
+						aria-label="Zoom em porcentagem (30 a 200)"
+					/>
+					<span class="text-[11px]">%</span>
+				</label>
 				<button
 					type="button"
 					onclick={() => store.resetZoom()}
@@ -123,7 +176,7 @@
 				</button>
 			{:else}
 				<div
-					class="flex max-h-9 items-stretch overflow-hidden rounded-full border border-purple-500/40 bg-purple-500/15"
+					class="flex shrink-0 items-center overflow-visible rounded-full border border-purple-500/40 bg-purple-500/15"
 					role="group"
 					aria-label="Modo de conexões"
 				>
@@ -136,7 +189,7 @@
 					>
 						Diretas
 					</button>
-					<span class="flex items-center border-x border-white/20 px-0.5 text-[10px] text-white/40">|</span>
+					<span class="flex items-center self-stretch border-x border-white/20 px-0.5 text-[10px] leading-none text-white/40">|</span>
 					<button
 						type="button"
 						onclick={() => selectMode('all')}
@@ -231,7 +284,25 @@
 					>
 						<ZoomIn class="h-5 w-5" />
 					</button>
-					<span class="w-12 shrink-0 text-center text-sm text-white/70">{zoomPercent}%</span>
+					<label class="flex shrink-0 items-center gap-1 text-white/70" title="30 a 200% — Enter ou fora do campo para aplicar">
+						<input
+							type="text"
+							inputmode="numeric"
+							autocomplete="off"
+							maxlength="3"
+							class="w-11 rounded-lg border border-white/20 bg-black/40 py-1 text-center text-sm font-medium text-white tabular-nums outline-none focus:border-purple-400/60 focus:ring-1 focus:ring-purple-400/40"
+							value={zoomDraft}
+							oninput={onZoomDraftInput}
+							onfocus={() => (zoomInputFocused = true)}
+							onblur={() => {
+								applyZoomDraft();
+								zoomInputFocused = false;
+							}}
+							onkeydown={onZoomFieldKeydown}
+							aria-label="Zoom em porcentagem (30 a 200)"
+						/>
+						<span class="text-sm">%</span>
+					</label>
 					<button
 						type="button"
 						onclick={() => store.resetZoom()}
