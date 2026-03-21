@@ -7,6 +7,7 @@
 	import { GraduationCap, Calendar, X, Loader2 } from 'lucide-svelte';
 	import { formatarIraParaExibicao } from '$lib/utils/ira';
 	import IntegralizacaoSection from './IntegralizacaoSection.svelte';
+	import { portal } from '$lib/actions/portal';
 
 	interface Props {
 		courseData: CursoModel;
@@ -236,12 +237,14 @@
 		</div>
 	</div>
 
-	<!-- Modal Carga Horária -->
+	<!-- Modal Carga Horária — portal → body (igual Legenda / Créditos: blur em tela inteira) -->
 	{#if showChModal && integralizacao}
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
-			class="modal-overlay"
+			use:portal
+			class="fixed inset-0 z-[5500] flex items-center justify-center overflow-hidden bg-black/60 p-4 backdrop-blur-sm sm:p-4"
+			role="presentation"
 			onclick={handleBackdropClick}
 		>
 			<div
@@ -276,30 +279,11 @@
 {/if}
 
 <style>
-	.modal-overlay {
-		position: fixed;
-		inset: 0;
-		/* Acima do fluxograma (transform/camadas GPU) e da navbar (z-50) */
-		z-index: 500;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		background: rgba(0, 0, 0, 0.6);
-		backdrop-filter: blur(4px);
-		padding: 0.5rem;
-	}
-	@media (min-width: 640px) {
-		.modal-overlay { padding: 1rem; }
-	}
 	.modal-box {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		position: relative;
 		display: flex;
 		flex-direction: column;
-		max-height: 92vh;
+		max-height: min(92vh, calc(100dvh - 2rem));
 		width: 100%;
 		max-width: 42rem;
 		overflow: hidden;

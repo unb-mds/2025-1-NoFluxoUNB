@@ -6,6 +6,7 @@
 	import { fluxogramaService } from '$lib/services/fluxograma.service';
 	import { supabaseDataService } from '$lib/services/supabase-data.service';
 	import type { MinimalCursoModel } from '$lib/types/curso';
+	import { portal } from '$lib/actions/portal';
 
 	interface Props {
 		open: boolean;
@@ -112,8 +113,11 @@
 {#if open}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<!-- Portal → body: mesmo comportamento do modal Legenda / Créditos (blur em tela inteira) -->
 	<div
-		class="mudanca-modal-overlay"
+		use:portal
+		class="fixed inset-0 z-[5500] flex items-center justify-center overflow-hidden bg-black/60 p-4 backdrop-blur-sm sm:p-4"
+		role="presentation"
 		onclick={(e) => e.target === e.currentTarget && onclose()}
 	>
 		<div class="mudanca-modal-box" role="dialog" aria-modal="true" aria-label="Mudança de curso">
@@ -129,97 +133,88 @@
 				</button>
 			</div>
 
+			<!-- Mesmo padrão do modal de integralização: topo fixo + área com scroll -->
 			<div class="mudanca-modal-body">
-				<p class="mb-4 text-xs text-white/50">
-					Selecione um curso para ver seu progresso como se estivesse nele. Suas matérias concluídas serão casadas com o currículo do curso.
-				</p>
+				<div class="mudanca-modal-body-top">
+					<p class="mb-4 text-xs text-white/50">
+						Selecione um curso para ver seu progresso como se estivesse nele. Suas matérias concluídas serão casadas com o currículo do curso.
+					</p>
 
-				<div class="relative mb-4">
-					<Search class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
-					<input
-						type="search"
-						placeholder="Pesquisar por nome, tipo (ex.: Bacharelado, Licenciatura) ou currículo..."
-						bind:value={searchQuery}
-						class="w-full rounded-lg border border-white/10 bg-white/5 py-2.5 pl-10 pr-4 text-sm text-white placeholder-white/40 focus:border-amber-500/50 focus:outline-none"
-					/>
+					<div class="relative mb-4">
+						<Search class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
+						<input
+							type="search"
+							placeholder="Pesquisar por nome, tipo (ex.: Bacharelado, Licenciatura) ou currículo..."
+							bind:value={searchQuery}
+							class="w-full rounded-lg border border-white/10 bg-white/5 py-2.5 pl-10 pr-4 text-sm text-white placeholder-white/40 focus:border-amber-500/50 focus:outline-none"
+						/>
+					</div>
 				</div>
 
-				{#if loadingCursos}
-					<div class="flex flex-col items-center justify-center gap-3 py-12">
-						<Loader2 class="h-8 w-8 animate-spin text-amber-400" />
-						<p class="text-sm text-white/60">Carregando cursos...</p>
-					</div>
-				{:else}
-					<div class="max-h-[50vh] space-y-1 overflow-y-auto overscroll-behavior-contain">
-						{#each cursosFiltrados as curso}
-							<button
-								type="button"
-								onclick={() => handleSelectCurso(curso)}
-								disabled={navigating}
-								class="flex w-full flex-col items-stretch gap-1 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-left transition-colors hover:bg-white/10 hover:border-amber-500/30 disabled:opacity-50"
-							>
-								<div class="flex items-start justify-between gap-2">
-									<span class="font-medium text-white/90">{curso.nomeCurso}</span>
-									<span class="shrink-0 text-xs text-amber-400">Ver fluxograma →</span>
-								</div>
-								<!-- Tipo do curso (Bacharelado, Licenciatura etc.) — sempre mostrar a linha -->
-								<p class="text-xs">
-									<span class="text-white/50">Tipo:</span>
-									<span class="ml-1 font-medium {curso.tipoCurso ? 'text-cyan-300' : 'text-white/40'}">
-										{curso.tipoCurso || '—'}
-									</span>
+				<div class="mudanca-modal-scroll">
+					{#if loadingCursos}
+						<div class="flex flex-col items-center justify-center gap-3 py-12">
+							<Loader2 class="h-8 w-8 animate-spin text-amber-400" />
+							<p class="text-sm text-white/60">Carregando cursos...</p>
+						</div>
+					{:else}
+						<div class="space-y-1">
+							{#each cursosFiltrados as curso}
+								<button
+									type="button"
+									onclick={() => handleSelectCurso(curso)}
+									disabled={navigating}
+									class="flex w-full flex-col items-stretch gap-1 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-left transition-colors hover:bg-white/10 hover:border-amber-500/30 disabled:opacity-50"
+								>
+									<div class="flex items-start justify-between gap-2">
+										<span class="font-medium text-white/90">{curso.nomeCurso}</span>
+										<span class="shrink-0 text-xs text-amber-400">Ver fluxograma →</span>
+									</div>
+									<p class="text-xs">
+										<span class="text-white/50">Tipo:</span>
+										<span class="ml-1 font-medium {curso.tipoCurso ? 'text-cyan-300' : 'text-white/40'}">
+											{curso.tipoCurso || '—'}
+										</span>
+									</p>
+									{#if curso.turno}
+										<p class="text-xs text-white/50">
+											<span class="text-white/40">Turno:</span>
+											<span class="ml-1 text-amber-300/90">{formatTurno(curso.turno)}</span>
+										</p>
+									{/if}
+									{#if curso.matrizCurricular}
+										<p class="min-w-0 truncate text-xs text-white/50" title={curso.matrizCurricular}>
+											<span class="text-white/40">Currículo:</span>
+											<span class="ml-1">{curso.matrizCurricular}</span>
+										</p>
+									{/if}
+								</button>
+							{/each}
+							{#if cursosFiltrados.length === 0}
+								<p class="py-8 text-center text-sm text-white/50">
+									{searchQuery.trim() ? 'Nenhum curso encontrado.' : 'Nenhum curso disponível.'}
 								</p>
-								{#if curso.turno}
-									<p class="text-xs text-white/50">
-										<span class="text-white/40">Turno:</span>
-										<span class="ml-1 text-amber-300/90">{formatTurno(curso.turno)}</span>
-									</p>
-								{/if}
-								{#if curso.matrizCurricular}
-									<p class="min-w-0 truncate text-xs text-white/50" title={curso.matrizCurricular}>
-										<span class="text-white/40">Currículo:</span>
-										<span class="ml-1">{curso.matrizCurricular}</span>
-									</p>
-								{/if}
-							</button>
-						{/each}
-						{#if cursosFiltrados.length === 0}
-							<p class="py-8 text-center text-sm text-white/50">
-								{searchQuery.trim() ? 'Nenhum curso encontrado.' : 'Nenhum curso disponível.'}
-							</p>
-						{/if}
-					</div>
-				{/if}
+							{/if}
+						</div>
+					{/if}
+				</div>
 			</div>
 		</div>
 	</div>
 {/if}
 
 <style>
-	.mudanca-modal-overlay {
-		position: fixed;
-		inset: 0;
-		z-index: 500;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		background: rgba(0, 0, 0, 0.6);
-		backdrop-filter: blur(4px);
-		padding: 1rem;
-	}
+	/* Alinhado ao .modal-box / .modal-scroll-area de ProgressSummarySection (integralização) */
 	.mudanca-modal-box {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		position: relative;
 		display: flex;
-		flex-direction: column;
-		max-height: 90vh;
+		min-height: 0;
 		width: 100%;
-		max-width: 28rem;
+		max-width: 42rem;
+		max-height: min(92vh, calc(100dvh - 2rem));
+		flex-direction: column;
 		overflow: hidden;
-		border-radius: 1rem;
+		border-radius: 0.75rem;
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		background: rgba(17, 24, 39, 0.95);
 		box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -234,11 +229,38 @@
 		background: rgba(17, 24, 39, 0.95);
 		padding: 0.75rem 1rem;
 	}
+	@media (min-width: 640px) {
+		.mudanca-modal-header {
+			padding: 1rem 1.5rem;
+		}
+	}
 	.mudanca-modal-body {
+		display: flex;
+		min-height: 0;
+		flex: 1;
+		flex-direction: column;
+		overflow: hidden;
+	}
+	.mudanca-modal-body-top {
+		flex-shrink: 0;
+		padding: 1rem 1rem 0;
+	}
+	@media (min-width: 640px) {
+		.mudanca-modal-body-top {
+			padding: 1rem 1.5rem 0;
+		}
+	}
+	.mudanca-modal-scroll {
 		flex: 1;
 		min-height: 0;
 		overflow-y: auto;
 		overscroll-behavior: contain;
+		-webkit-overflow-scrolling: touch;
 		padding: 1rem;
+	}
+	@media (min-width: 640px) {
+		.mudanca-modal-scroll {
+			padding: 1rem 1.5rem 1.5rem;
+		}
 	}
 </style>
