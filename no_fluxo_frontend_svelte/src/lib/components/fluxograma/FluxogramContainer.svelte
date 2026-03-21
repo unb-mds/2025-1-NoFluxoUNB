@@ -80,6 +80,10 @@
 
 	function handleMouseDown(e: MouseEvent) {
 		if (e.button !== 0 || !containerRef || !isPanStartTarget(e.target)) return;
+		// Modo "Todas": arrastar pelo fundo limpa o foco (como toque fora do card no mobile)
+		if (store.state.connectionMode === 'all') {
+			store.setHoveredSubject(null);
+		}
 		e.preventDefault();
 		isDragging = true;
 		dragStartX = e.clientX;

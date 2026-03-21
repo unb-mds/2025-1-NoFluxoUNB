@@ -88,7 +88,7 @@
 		{#each subjects as materia (materia.idMateria)}
 			<SubjectCard
 				{materia}
-				onclick={() => onSubjectClick?.(materia)}
+				onOpenDetails={() => onSubjectClick?.(materia)}
 				onlongpress={() => onSubjectLongPress?.(materia)}
 			/>
 		{/each}

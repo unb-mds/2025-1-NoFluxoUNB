@@ -5,11 +5,12 @@
 
 	interface Props {
 		materia: MateriaModel;
-		onclick?: () => void;
+		/** Abrir modal de detalhes (nome evita conflito com `onclick` do Svelte no `<button>`) */
+		onOpenDetails?: () => void;
 		onlongpress?: () => void;
 	}
 
-	let { materia, onclick, onlongpress }: Props = $props();
+	let { materia, onOpenDetails, onlongpress }: Props = $props();
 
 	const store = fluxogramaStore;
 	let status = $derived(store.getSubjectStatus(materia));
@@ -21,6 +22,8 @@
 	let isHovered = $derived(store.state.hoveredSubjectCode === materia.codigoMateria);
 	let isSelected = $derived(store.state.selectedSubjectCode === materia.codigoMateria);
 	let connectionsEnabled = $derived(store.state.connectionMode !== 'off');
+	/** No modo "Todas", desktop usa clique para fixar foco (como 1º toque no mobile); hover não altera o foco */
+	let isAllConnectionsMode = $derived(store.state.connectionMode === 'all');
 
 	// Check if this subject is a prerequisite of the hovered subject
 	let isPrereqOfHovered = $derived.by(() => {
@@ -96,14 +99,15 @@
 
 	function handleMouseEnter() {
 		// Don't trigger hover on touch devices (touch followed by mouse events)
-		if (!isTouchInteraction) {
+		if (!isTouchInteraction && !isAllConnectionsMode) {
 			store.setHoveredSubject(materia.codigoMateria);
 		}
 	}
 
 	function handleMouseLeave() {
 		// Don't clear hover on touch devices - it's managed by long-press
-		if (!isTouchInteraction) {
+		// Modo "Todas": foco só por clique — não limpar ao mover o rato
+		if (!isTouchInteraction && !isAllConnectionsMode) {
 			store.setHoveredSubject(null);
 		}
 	}
@@ -157,17 +161,19 @@
 
 		if (!didDrag && !didLongPress) {
 			// Tap rápido: modo mobile para conexões
-			const alreadyHovered = store.state.hoveredSubjectCode === materia.codigoMateria;
+			const c = materia.codigoMateria?.trim();
+			const h = store.state.hoveredSubjectCode?.trim();
+			const alreadyHovered = !!c && h?.toUpperCase() === c.toUpperCase();
 			if (connectionsEnabled) {
 				// Primeiro toque: mostra conexões. Segundo toque no mesmo card: abre modal
 				if (alreadyHovered) {
-					onclick?.();
+					onOpenDetails?.();
 				} else {
 					store.setHoveredSubject(materia.codigoMateria);
 				}
 			} else {
 				store.setHoveredSubject(null);
-				onclick?.();
+				onOpenDetails?.();
 			}
 		}
 
@@ -193,10 +199,20 @@
 
 	// Desktop pointer events (for right-click context menu and normal click)
 	function handleClick() {
-		// For non-touch (mouse) interactions, handle click directly
-		if (!isTouchInteraction) {
-			onclick?.();
+		if (isTouchInteraction) return;
+		// Modo "Todas": igual ao mobile — 1º clique foca pré-reqs/dependentes; 2º no mesmo card abre detalhes
+		if (isAllConnectionsMode && connectionsEnabled) {
+			const code = materia.codigoMateria?.trim();
+			const hovered = store.state.hoveredSubjectCode?.trim();
+			const alreadyHovered = !!code && hovered?.toUpperCase() === code.toUpperCase();
+			if (alreadyHovered) {
+				onOpenDetails?.();
+			} else {
+				store.setHoveredSubject(materia.codigoMateria);
+			}
+			return;
 		}
+		onOpenDetails?.();
 	}
 
 	function handleContextMenu(e: MouseEvent) {

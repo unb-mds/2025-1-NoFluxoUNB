@@ -398,8 +398,15 @@
 				<section class="mt-4">
 					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">Desktop</h3>
 					<ul class="space-y-1.5 text-white/90">
-						<li><strong>Hover</strong> — conexões</li>
-						<li><strong>Clique</strong> — detalhes</li>
+						<li>
+							<strong>Conexões diretas:</strong> <strong>hover</strong> na disciplina mostra as linhas;
+							<strong>clique</strong> abre os detalhes.
+						</li>
+						<li>
+							<strong>Modo Todas:</strong> <strong>1º clique</strong> na disciplina destaca pré-requisitos e dependentes
+							(como no mobile); <strong>2º clique</strong> no mesmo card abre detalhes. Clicar no fundo para arrastar
+							limpa o foco.
+						</li>
 						<li><strong>Clique direito</strong> — cadeia de pré-requisitos</li>
 					</ul>
 				</section>
