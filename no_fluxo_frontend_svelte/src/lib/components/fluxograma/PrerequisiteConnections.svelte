@@ -312,6 +312,31 @@
 					if (line) newLines.push(line);
 				}
 			}
+
+			// Co-requisitos ligados à disciplina em foco (mesmo critério do modo "Todas", só que filtrado)
+			if (courseData.coRequisitos?.length) {
+				const materiaMap = new Map(courseData.materias.map((m) => [m.idMateria, m]));
+				const drawnPairs = new Set<string>();
+				for (const coReq of courseData.coRequisitos) {
+					const fromMateria = materiaMap.get(coReq.idMateria);
+					if (!fromMateria) continue;
+					const a = fromMateria.codigoMateria;
+					const b = coReq.codigoMateriaCoRequisito;
+					if (a !== hoveredCode && b !== hoveredCode) continue;
+					const pairKey = [a, b].sort().join('-');
+					if (drawnPairs.has(pairKey)) continue;
+					drawnPairs.add(pairKey);
+					const line = getLineBetweenCards(
+						a,
+						b,
+						container,
+						containerRect,
+						'corequisite',
+						false
+					);
+					if (line) newLines.push(line);
+				}
+			}
 		} else if (connectionMode === 'all') {
 			for (const materia of courseData.materias) {
 				if (materia.preRequisitos) {

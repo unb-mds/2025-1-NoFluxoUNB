@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowLeft, Camera, RefreshCw, Home, LayoutGrid } from 'lucide-svelte';
+	import { ArrowLeft, Camera, RefreshCw, Home, LayoutGrid, HelpCircle } from 'lucide-svelte';
 	import FluxogramViewMenu from './FluxogramViewMenu.svelte';
 	import { goto } from '$app/navigation';
 	import { ROUTES } from '$lib/config/routes';
@@ -21,7 +21,7 @@
 		containerRef?: HTMLElement | null;
 		/** Mostra botão "Voltar ao meu fluxograma" quando está vendo outro curso (simulação) */
 		showBackToMyFluxogram?: boolean;
-		/** Menu ⚙ (Créditos/Horas + ajuda) — página do fluxograma */
+		/** Menu ⚙ (Créditos/Horas) — no mobile no header; no desktop na barra Assistente/Optativas */
 		showFluxogramViewMenu?: boolean;
 		onOpenFluxogramHelp?: () => void;
 	}
@@ -82,7 +82,9 @@
 	Mobile: título em cima; ações em grade 2×2.
 	Desktop (md+): uma única faixa — título à esquerda, matriz + reenviar + câmera alinhados à direita na mesma linha.
 -->
-<header class="min-w-0 overflow-visible pr-[max(0.25rem,env(safe-area-inset-right))]">
+<header
+	class="min-w-0 overflow-visible pl-[max(0.25rem,env(safe-area-inset-left))] pr-[max(0.25rem,env(safe-area-inset-right))]"
+>
 	<div
 		class="flex w-full max-w-full min-w-0 flex-col gap-2 md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-3"
 	>
@@ -172,9 +174,23 @@
 			{/if}
 			{#if !store.state.isAnonymous && !showConfirmDelete}
 				<div class="flex w-full min-w-0 flex-row items-center gap-2 md:contents">
-					{#if showFluxogramViewMenu && onOpenFluxogramHelp}
-						<FluxogramViewMenu onOpenHelp={onOpenFluxogramHelp} />
-					{/if}
+					<!-- Legenda e Créditos/Horas: no desktop ficam na barra Assistente/Optativas -->
+					<div class="flex items-center gap-2 md:hidden">
+						{#if onOpenFluxogramHelp}
+							<button
+								type="button"
+								onclick={() => onOpenFluxogramHelp?.()}
+								class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cyan-500/35 bg-cyan-500/10 text-cyan-200 backdrop-blur-md transition-colors hover:border-cyan-400/50 hover:bg-cyan-500/20"
+								aria-label="Legenda e regras do fluxograma"
+								title="Legenda e regras"
+							>
+								<HelpCircle class="h-[18px] w-[18px]" />
+							</button>
+						{/if}
+						{#if showFluxogramViewMenu}
+							<FluxogramViewMenu />
+						{/if}
+					</div>
 					<button
 						onclick={() => (showConfirmDelete = true)}
 						class="inline-flex min-h-9 min-w-0 flex-1 items-center justify-center gap-1 rounded-md border border-white/10 bg-black/40 px-2 py-1.5 text-[10px] font-medium text-white/60 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white md:h-10 md:w-auto md:flex-none md:rounded-full md:px-4 md:py-2 md:text-sm"
@@ -195,9 +211,22 @@
 				</div>
 			{:else}
 				<div class="flex w-full justify-end gap-2 md:contents">
-					{#if showFluxogramViewMenu && onOpenFluxogramHelp}
-						<FluxogramViewMenu onOpenHelp={onOpenFluxogramHelp} />
-					{/if}
+					<div class="flex items-center gap-2 md:hidden">
+						{#if onOpenFluxogramHelp}
+							<button
+								type="button"
+								onclick={() => onOpenFluxogramHelp?.()}
+								class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cyan-500/35 bg-cyan-500/10 text-cyan-200 backdrop-blur-md transition-colors hover:border-cyan-400/50 hover:bg-cyan-500/20"
+								aria-label="Legenda e regras do fluxograma"
+								title="Legenda e regras"
+							>
+								<HelpCircle class="h-[18px] w-[18px]" />
+							</button>
+						{/if}
+						{#if showFluxogramViewMenu}
+							<FluxogramViewMenu />
+						{/if}
+					</div>
 					<button
 						type="button"
 						onclick={handleScreenshot}

@@ -152,7 +152,7 @@
 
 <GraffitiBackground />
 
-<div class="relative z-10 container mx-auto min-w-0 max-w-[95vw] px-3 py-2 sm:px-4 sm:py-3">
+<div class="relative z-10 container mx-auto w-full min-w-0 max-w-full px-3 py-2 sm:px-4 sm:py-3">
 	{#if store.state.loading}
 		<div class="flex flex-col items-center justify-center gap-4 py-20">
 			<Loader2 class="h-10 w-10 animate-spin text-purple-400" />
@@ -196,10 +196,12 @@
 
 					<FluxogramaLegendControls
 						onOpenOptativas={optativas.length > 0 ? () => (showOptativas = true) : undefined}
+						showFluxogramViewMenu={true}
+						onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
 					/>
 				</div>
 
-				<div class="relative z-30 min-h-0 flex-1 basis-0 overflow-hidden">
+				<div class="relative z-0 min-h-0 flex-1 basis-0 overflow-hidden">
 					<FluxogramContainer
 						onSubjectClick={handleSubjectClick}
 						bind:bind_container={containerRef}
@@ -209,7 +211,7 @@
 			</div>
 
 			{#if !store.state.isAnonymous}
-				<div class="relative z-0 mt-2 shrink-0 space-y-4 border-t border-white/10 pt-4">
+				<div class="relative z-40 mt-2 shrink-0 space-y-4 border-t border-white/10 pt-4">
 					{#if userFluxograma && store.state.courseData}
 						<div class="space-y-2">
 							<p class="flex items-center gap-1.5 text-xs text-white/70 sm:text-sm">
@@ -233,7 +235,7 @@
 					<ProgressToolsSection />
 				</div>
 			{:else if userFluxograma && store.state.courseData}
-				<div class="relative z-0 mt-2 space-y-2 border-t border-white/10 pt-4">
+				<div class="relative z-40 mt-2 space-y-2 border-t border-white/10 pt-4">
 					<p class="flex items-center gap-1.5 text-xs text-white/70">
 						<ArrowRightLeft class="h-4 w-4 shrink-0 text-cyan-400" />
 						<span

@@ -31,7 +31,7 @@
 	let integralizacao = $state<IntegralizacaoResult | null>(null);
 	let integralizacaoLoading = $state(false);
 	let matrizes = $state<Array<{ curriculoCompleto: string }>>([]);
-	/** Modal “Legenda e regras” (menu ⚙ do header) */
+	/** Modal “Legenda e regras” (ícone ? no header) */
 	let fluxogramHelpOpen = $state(false);
 
 	let user = $derived(authStore.getUser());
@@ -139,7 +139,7 @@
 
 <GraffitiBackground />
 
-<div class="relative z-10 container mx-auto min-w-0 max-w-[95vw] px-3 py-2 sm:px-4 sm:py-3">
+<div class="relative z-10 container mx-auto w-full min-w-0 max-w-full px-3 py-2 sm:px-4 sm:py-3">
 	{#if store.state.loading}
 		<div class="flex flex-col items-center justify-center gap-4 py-20">
 			<Loader2 class="h-10 w-10 animate-spin text-purple-400" />
@@ -208,11 +208,13 @@
 					/>
 					<FluxogramaLegendControls
 						onOpenOptativas={() => (showOptativas = true)}
+						showFluxogramViewMenu={true}
+						onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
 					/>
 				</div>
 
-				<!-- z-30: garante que overlays (legenda/FAB) fiquem acima do conteúdo abaixo da dobra (ex.: card de CH) -->
-				<div class="relative z-30 min-h-0 flex-1 basis-0 overflow-hidden">
+				<!-- z-0: diagrama na base; modais ficam em z-[500]+ e a faixa de progresso em z-40 para não ficarem sob o transform dos cards -->
+				<div class="relative z-0 min-h-0 flex-1 basis-0 overflow-hidden">
 					<FluxogramContainer
 						onSubjectClick={handleSubjectClick}
 						onSubjectLongPress={handleSubjectLongPress}
@@ -223,7 +225,7 @@
 			</div>
 
 			{#if !store.state.isAnonymous}
-				<div class="relative z-0 shrink-0 space-y-4 border-t border-white/10 pt-4">
+				<div class="relative z-40 shrink-0 space-y-4 border-t border-white/10 pt-4">
 					<ProgressSummarySection
 						courseData={store.state.courseData}
 						userFluxograma={store.userFluxograma}
@@ -237,7 +239,7 @@
 					<ProgressToolsSection />
 				</div>
 			{:else}
-				<div class="relative z-0 border-t border-white/10 pt-4">
+				<div class="relative z-40 border-t border-white/10 pt-4">
 					<ProgressSummarySection
 						courseData={store.state.courseData}
 						userFluxograma={store.userFluxograma}

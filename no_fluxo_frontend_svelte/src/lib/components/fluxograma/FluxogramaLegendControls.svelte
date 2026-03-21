@@ -1,24 +1,35 @@
 <script lang="ts">
-	import { BookOpen, Bot } from 'lucide-svelte';
+	import { BookOpen, Bot, HelpCircle } from 'lucide-svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { ROUTES } from '$lib/config/routes';
+	import FluxogramViewMenu from './FluxogramViewMenu.svelte';
 
 	interface Props {
 		onOpenOptativas?: () => void;
+		/** Desktop: mesma barra que Assistente/Optativas; no mobile ficam no header */
+		onOpenFluxogramHelp?: () => void;
+		showFluxogramViewMenu?: boolean;
 	}
 
-	let { onOpenOptativas }: Props = $props();
+	let { onOpenOptativas, onOpenFluxogramHelp, showFluxogramViewMenu = false }: Props = $props();
 
 	const store = fluxogramaStore;
+
+	let hasPrimaryActions = $derived(!store.state.isAnonymous || !!onOpenOptativas);
+	let hasViewActions = $derived(!!onOpenFluxogramHelp || showFluxogramViewMenu);
+	/** Só ajuda/⚙ sem Assistente/Optativas — esconde barra vazia no mobile */
+	let viewOnlyOnDesktop = $derived(!hasPrimaryActions && hasViewActions);
 </script>
 
 <!--
-	Ações à parte do diagrama: optativas e assistente.
-	Legenda, zoom e conexões: controles flutuantes sobre o diagrama (FluxogramViewportChrome); Créditos/Horas no menu ⚙ do header.
+	Ações à parte do diagrama: Assistente, Optativas; no desktop também ? (legenda) e ⚙ (créditos/horas).
+	No mobile, ? e ⚙ continuam no header (FluxogramaHeader).
 -->
-{#if !store.state.isAnonymous || onOpenOptativas}
+{#if hasPrimaryActions || hasViewActions}
 	<div
-		class="flex min-w-0 flex-wrap items-center gap-2 rounded-lg border border-white/10 bg-black/35 px-2.5 py-1.5 backdrop-blur-md sm:gap-2.5 sm:px-3 sm:py-2"
+		class="flex min-w-0 flex-wrap items-center gap-2 overflow-visible rounded-lg border border-white/10 bg-black/35 px-2.5 py-1.5 backdrop-blur-md sm:gap-2.5 sm:px-3 sm:py-2 {viewOnlyOnDesktop
+			? 'hidden md:flex'
+			: ''}"
 	>
 		{#if !store.state.isAnonymous}
 			<a
@@ -41,5 +52,22 @@
 				Optativas
 			</button>
 		{/if}
+
+		<div class="hidden items-center gap-2 md:ml-auto md:flex md:shrink-0">
+			{#if onOpenFluxogramHelp}
+				<button
+					type="button"
+					onclick={() => onOpenFluxogramHelp?.()}
+					class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cyan-500/35 bg-cyan-500/10 text-cyan-200 backdrop-blur-md transition-colors hover:border-cyan-400/50 hover:bg-cyan-500/20"
+					aria-label="Legenda e regras do fluxograma"
+					title="Legenda e regras"
+				>
+					<HelpCircle class="h-[18px] w-[18px]" />
+				</button>
+			{/if}
+			{#if showFluxogramViewMenu}
+				<FluxogramViewMenu />
+			{/if}
+		</div>
 	</div>
 {/if}

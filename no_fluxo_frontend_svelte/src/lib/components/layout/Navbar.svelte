@@ -57,10 +57,12 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen } fr
 	let isActive = $derived((href: string) => $page.url.pathname === href || $page.url.pathname.startsWith(href + '/'));
 </script>
 
-<header class="navbar-glass sticky top-0 z-50 w-full">
-	<nav class="mx-auto flex items-center justify-between px-4 py-2 md:px-8 md:py-3">
+<header class="navbar-glass sticky top-0 z-50 w-full max-w-[100vw]">
+	<nav
+		class="mx-auto flex min-h-[3rem] max-w-full items-center justify-between gap-2 px-[max(0.75rem,env(safe-area-inset-left))] py-2 pt-[max(0.5rem,env(safe-area-inset-top))] pr-[max(0.75rem,env(safe-area-inset-right))] md:min-h-0 md:px-8 md:py-3 md:pt-3"
+	>
 		<!-- Logo -->
-		<a href="/" class="logo text-shadow">
+		<a href="/" class="logo min-w-0 shrink-0 text-shadow">
 			NOFLX UNB
 		</a>
 
@@ -158,7 +160,8 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen } fr
 
 		<!-- Mobile Menu Button -->
 		<button
-			class="text-white md:hidden"
+			type="button"
+			class="inline-flex shrink-0 touch-manipulation items-center justify-center rounded-lg p-1.5 text-white outline-none ring-offset-2 ring-offset-transparent focus-visible:ring-2 focus-visible:ring-white/40 md:hidden"
 			onclick={toggleMobileMenu}
 			aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
 		>
@@ -321,10 +324,13 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen } fr
 		top: 0;
 		right: 0;
 		bottom: 0;
-		width: 280px;
+		width: min(280px, 85vw);
+		max-width: 100vw;
 		z-index: 9999;
 		display: flex;
 		flex-direction: column;
+		padding-bottom: env(safe-area-inset-bottom, 0px);
+		padding-top: env(safe-area-inset-top, 0px);
 		background: linear-gradient(180deg, #0a0a0a 0%, #1a0a2e 100%);
 		animation: slideIn 200ms ease-out;
 	}
