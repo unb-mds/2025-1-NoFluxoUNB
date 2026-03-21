@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Settings2, X } from 'lucide-svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
+	import { portal } from '$lib/actions/portal';
 
 	const store = fluxogramaStore;
 	let open = $state(false);
@@ -22,7 +23,7 @@
 <svelte:window onmousedown={handleDocClick} onkeydown={handleWindowKeydown} />
 
 <!--
-	Créditos/Horas: sempre modal central (mobile e desktop) — dropdown cobria o fluxograma.
+	Créditos/Horas: modal em portal (body) — ancestrais com backdrop-blur/transform prendiam o fixed e o fluxograma passava por cima.
 -->
 <div class="relative shrink-0" data-fluxo-view-menu>
 	<button
@@ -41,7 +42,9 @@
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
-			class="fixed inset-0 z-[500] flex items-center justify-center bg-black/55 p-4 backdrop-blur-sm"
+			use:portal
+			data-fluxo-view-menu
+			class="fixed inset-0 z-[5500] flex items-center justify-center bg-black/55 p-4 backdrop-blur-sm"
 			role="presentation"
 			onclick={close}
 		>

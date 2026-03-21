@@ -281,23 +281,48 @@ function createFluxogramaStore() {
 			state.selectedSubjectCode = code;
 		},
 
-		async saveScreenshot(container: HTMLElement | null) {
+		/**
+		 * @param captureOptions.connectionMode — `off`: só disciplinas (sem linhas). `all`: todas as conexões no print. Estado do usuário é restaurado após a captura.
+		 */
+		async saveScreenshot(
+			container: HTMLElement | null,
+			captureOptions?: { connectionMode: 'off' | 'all' }
+		) {
 			if (!container) {
 				toast.error('Elemento do fluxograma não encontrado.');
 				return;
 			}
+			const prevMode = state.connectionMode;
+			const prevHover = state.hoveredSubjectCode;
+			const shouldRestore = !!captureOptions?.connectionMode;
 			try {
 				state.isCapturingScreenshot = true;
-				// Dar tempo para o DOM atualizar com as novas cores
-				await new Promise(resolve => setTimeout(resolve, 100));
+				if (captureOptions?.connectionMode) {
+					state.connectionMode = captureOptions.connectionMode;
+					state.hoveredSubjectCode = null;
+				}
+				// Modo "todas" altera gaps entre colunas — precisa de mais tempo para o layout/SVG
+				const delayMs = captureOptions?.connectionMode === 'all' ? 450 : captureOptions?.connectionMode === 'off' ? 180 : 100;
+				await new Promise((resolve) => setTimeout(resolve, delayMs));
 				const courseName = state.courseData?.nomeCurso ?? 'fluxograma';
-				const filename = `${courseName.replace(/\s+/g, '_')}.png`;
+				const base = courseName.replace(/\s+/g, '_');
+				const suffix =
+					captureOptions?.connectionMode === 'all'
+						? '_todas_conexoes'
+						: captureOptions?.connectionMode === 'off'
+							? '_normal'
+							: '';
+				const filename = `${base}${suffix}.png`;
 				await captureScreenshot(container, filename);
 				toast.success('Screenshot salvo com sucesso!');
 			} catch {
 				toast.error('Não foi possível capturar a imagem.');
 			} finally {
 				state.isCapturingScreenshot = false;
+				if (shouldRestore) {
+					state.connectionMode = prevMode;
+					state.hoveredSubjectCode = prevHover;
+				}
 			}
 		},
 

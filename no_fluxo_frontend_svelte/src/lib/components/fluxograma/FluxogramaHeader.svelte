@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { ArrowLeft, Camera, RefreshCw, Home, LayoutGrid, HelpCircle } from 'lucide-svelte';
 	import FluxogramViewMenu from './FluxogramViewMenu.svelte';
+	import ScreenshotChoiceModal from './ScreenshotChoiceModal.svelte';
 	import { goto } from '$app/navigation';
 	import { ROUTES } from '$lib/config/routes';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
@@ -42,6 +43,7 @@
 	const store = fluxogramaStore;
 	let showConfirmDelete = $state(false);
 	let isDeleting = $state(false);
+	let screenshotChoiceOpen = $state(false);
 
 	function formatMatrizLabel(cc: string) {
 		const p = parseCurriculoCompleto(cc);
@@ -53,7 +55,7 @@
 	}
 
 	function handleScreenshot() {
-		store.saveScreenshot(containerRef);
+		screenshotChoiceOpen = true;
 	}
 
 	async function handleReupload() {
@@ -240,4 +242,10 @@
 			{/if}
 		</div>
 	</div>
+
+	<ScreenshotChoiceModal
+		open={screenshotChoiceOpen}
+		onclose={() => (screenshotChoiceOpen = false)}
+		containerRef={containerRef}
+	/>
 </header>
