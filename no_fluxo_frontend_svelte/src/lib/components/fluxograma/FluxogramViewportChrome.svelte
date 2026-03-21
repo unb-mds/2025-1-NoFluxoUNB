@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { ZoomIn, ZoomOut, RotateCcw, Link2, X, Menu } from 'lucide-svelte';
 	import { fluxogramaStore, type ConnectionMode } from '$lib/stores/fluxograma.store.svelte';
-	import { SubjectStatusEnum, getStatusLabel } from '$lib/types/materia';
 	import { portal } from '$lib/actions/portal';
 
 	interface Props {
@@ -12,14 +11,6 @@
 	let { helpOpen = $bindable(false) }: Props = $props();
 
 	const store = fluxogramaStore;
-
-	const legendItems = [
-		{ status: SubjectStatusEnum.COMPLETED, label: getStatusLabel(SubjectStatusEnum.COMPLETED), color: 'bg-green-500' },
-		{ status: SubjectStatusEnum.IN_PROGRESS, label: getStatusLabel(SubjectStatusEnum.IN_PROGRESS), color: 'bg-purple-500' },
-		{ status: SubjectStatusEnum.AVAILABLE, label: getStatusLabel(SubjectStatusEnum.AVAILABLE), color: 'bg-orange-500' },
-		{ status: SubjectStatusEnum.FAILED, label: getStatusLabel(SubjectStatusEnum.FAILED), color: 'bg-red-500' },
-		{ status: SubjectStatusEnum.LOCKED, label: getStatusLabel(SubjectStatusEnum.LOCKED), color: 'bg-gray-500' }
-	];
 
 	let zoomPercent = $derived(Math.round(store.state.zoomLevel * 100));
 	let connectionsActive = $derived(store.state.connectionMode !== 'off');
@@ -393,17 +384,10 @@
 				</button>
 			</div>
 			<div class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 text-sm">
-				<section class="space-y-2">
-					<h3 class="text-xs font-semibold uppercase tracking-wide text-white/55">Status</h3>
-					<ul class="space-y-1.5">
-						{#each legendItems as item}
-							<li class="flex items-center gap-2">
-								<div class="h-3 w-3 shrink-0 rounded-sm {item.color}"></div>
-								<span class="text-white/90">{item.label}</span>
-							</li>
-						{/each}
-					</ul>
-				</section>
+				<p class="mb-4 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/65">
+					<strong class="text-white/85">Status</strong> (Aprovado, Matriculado, etc.): as cores estão na
+					<strong class="text-white/90">barra acima do fluxograma</strong>, junto de Assistente e Optativas.
+				</p>
 				{#if !store.state.isAnonymous}
 					<section class="mt-4 border-t border-white/10 pt-4">
 						<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">Indicadores</h3>

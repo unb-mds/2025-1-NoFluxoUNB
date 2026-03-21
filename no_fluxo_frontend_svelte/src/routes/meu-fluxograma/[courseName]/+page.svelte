@@ -185,6 +185,7 @@
 						courseName={store.state.courseData.nomeCurso}
 						matrizCurricular={store.state.courseData.matrizCurricular}
 						tipoCurso={store.state.courseData.tipoCurso}
+						turno={store.state.courseData.turno}
 						{matrizes}
 						{curriculoCompletoAtual}
 						onMatrizChange={handleMatrizChange}

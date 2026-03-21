@@ -265,6 +265,16 @@ class FluxogramaService {
 			(raw.curso.matriz_curricular as string) ??
 			null;
 
+		let turnoRaw =
+			(raw.curso as { turno?: string | null }).turno != null
+				? String((raw.curso as { turno?: string | null }).turno).trim()
+				: '';
+		let turnoResolved =
+			turnoRaw !== '' ? turnoRaw.toUpperCase() : this.inferTurnoFromCurriculo(curriculoCompleto);
+		if (!turnoResolved) {
+			turnoResolved = this.inferTurnoFromCurriculo(String(raw.curso.matriz_curricular ?? ''));
+		}
+
 		const curso: CursoModel = {
 			nomeCurso: String(raw.curso.nome_curso),
 			matrizCurricular: String(raw.curso.matriz_curricular ?? curriculoCompleto ?? ''),
@@ -278,7 +288,7 @@ class FluxogramaService {
 			preRequisitos: preRequisitosInCurso,
 			coRequisitos: coRequisitosInCurso,
 			curriculoCompleto: curriculoCompleto ?? undefined,
-			turno: (raw.curso as { turno?: string | null }).turno ?? null
+			turno: turnoResolved ?? null
 		};
 
 		const materiaMap = new Map(materias.map((m) => [m.codigoMateria, m]));

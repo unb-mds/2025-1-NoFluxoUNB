@@ -2,7 +2,17 @@
 	import { BookOpen, Bot, HelpCircle } from 'lucide-svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { ROUTES } from '$lib/config/routes';
+	import { SubjectStatusEnum, getStatusLabel } from '$lib/types/materia';
 	import FluxogramViewMenu from './FluxogramViewMenu.svelte';
+
+	/** Cores dos cartões — mesma legenda que existia no modal (?), agora fixa nesta barra */
+	const statusLegendItems = [
+		{ label: getStatusLabel(SubjectStatusEnum.COMPLETED), color: 'bg-green-500' },
+		{ label: getStatusLabel(SubjectStatusEnum.IN_PROGRESS), color: 'bg-purple-500' },
+		{ label: getStatusLabel(SubjectStatusEnum.AVAILABLE), color: 'bg-orange-500' },
+		{ label: getStatusLabel(SubjectStatusEnum.FAILED), color: 'bg-red-500' },
+		{ label: getStatusLabel(SubjectStatusEnum.LOCKED), color: 'bg-gray-500' }
+	];
 
 	interface Props {
 		onOpenOptativas?: () => void;
@@ -22,15 +32,31 @@
 </script>
 
 <!--
-	Ações à parte do diagrama: Assistente, Optativas; no desktop também ? (legenda) e ⚙ (créditos/horas).
+	Legenda de status no topo; abaixo: Assistente, Optativas; no desktop também ? e ⚙.
 	No mobile, ? e ⚙ continuam no header (FluxogramaHeader).
 -->
 {#if hasPrimaryActions || hasViewActions}
 	<div
-		class="flex min-w-0 flex-wrap items-center gap-2 overflow-visible rounded-lg border border-white/10 bg-black/35 px-2.5 py-1.5 backdrop-blur-md sm:gap-2.5 sm:px-3 sm:py-2 {viewOnlyOnDesktop
+		class="flex min-w-0 flex-col gap-2 overflow-visible rounded-lg border border-white/10 bg-black/35 px-2.5 py-2 backdrop-blur-md sm:gap-2.5 sm:px-3 sm:py-2.5 {viewOnlyOnDesktop
 			? 'hidden md:flex'
 			: ''}"
 	>
+		<div
+			class="flex flex-wrap items-center gap-x-2.5 gap-y-1 border-b border-white/10 pb-2 sm:gap-x-3"
+			role="group"
+			aria-label="Legenda de status das disciplinas no fluxograma"
+		>
+			{#each statusLegendItems as item}
+				<span
+					class="inline-flex items-center gap-1.5 text-[10px] leading-tight font-medium text-white/90 sm:text-[11px]"
+				>
+					<span class="h-2.5 w-2.5 shrink-0 rounded-sm {item.color}" aria-hidden="true"></span>
+					{item.label}
+				</span>
+			{/each}
+		</div>
+
+		<div class="flex min-w-0 flex-wrap items-center gap-2 sm:gap-2.5">
 		{#if !store.state.isAnonymous}
 			<a
 				href={ROUTES.ASSISTENTE}
@@ -68,6 +94,7 @@
 			{#if showFluxogramViewMenu}
 				<FluxogramViewMenu />
 			{/if}
+		</div>
 		</div>
 	</div>
 {/if}

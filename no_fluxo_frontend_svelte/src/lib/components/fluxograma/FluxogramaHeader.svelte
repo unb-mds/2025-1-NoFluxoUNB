@@ -15,6 +15,8 @@
 		matrizCurricular?: string;
 		/** Ex.: Bacharelado, Licenciatura — vem da tabela cursos.tipo_curso */
 		tipoCurso?: string | null;
+		/** Diurno / Noturno — vem de cursos.turno (ou inferido do currículo). Não exibe se vazio. */
+		turno?: string | null;
 		/** Lista de matrizes do mesmo curso para o seletor "Trocar matriz" */
 		matrizes?: Array<{ curriculoCompleto: string }>;
 		curriculoCompletoAtual?: string | null;
@@ -31,6 +33,7 @@
 		courseName,
 		matrizCurricular = '',
 		tipoCurso = null,
+		turno = null,
 		matrizes = [],
 		curriculoCompletoAtual = null,
 		onMatrizChange,
@@ -49,6 +52,16 @@
 		const p = parseCurriculoCompleto(cc);
 		return `${p.codigoCurso}/${p.versao}${p.ano ? ` - ${p.ano}` : ''}`;
 	}
+
+	function formatTurnoBadge(t: string | null | undefined): string {
+		if (!t?.trim()) return '';
+		const u = t.trim().toUpperCase();
+		if (u === 'NOTURNO') return 'Noturno';
+		if (u === 'DIURNO') return 'Diurno';
+		return t.trim();
+	}
+
+	let turnoLabel = $derived(formatTurnoBadge(turno));
 
 	function handleBack() {
 		goto(ROUTES.FLUXOGRAMAS);
@@ -107,6 +120,14 @@
 								class="inline-flex shrink-0 items-center rounded-md bg-black/60 px-2 py-0.5 text-xs font-medium text-white/90 backdrop-blur-sm"
 							>
 								{tipoCurso.trim()}
+							</span>
+						{/if}
+						{#if turnoLabel}
+							<span
+								class="inline-flex shrink-0 items-center rounded-md border border-amber-500/35 bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-200/95 backdrop-blur-sm"
+								title="Turno"
+							>
+								{turnoLabel}
 							</span>
 						{/if}
 						{#if matrizCurricular}
