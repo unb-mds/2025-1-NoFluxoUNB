@@ -52,10 +52,10 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-          PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
-          PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
+          PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           RAGFLOW_API_KEY: ${{ secrets.RAGFLOW_API_KEY }}
-          RAGFLOW_BASE_URL: ${{ secrets.RAGFLOW_BASE_URL }}
+          RAGFLOW_BASE_URL: ${{ secrets.RAGFLOW_URL }}
           RAGFLOW_AGENT_ID: ${{ secrets.RAGFLOW_AGENT_ID }}
           MARITACA_API_KEY: ${{ secrets.MARITACA_API_KEY }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
