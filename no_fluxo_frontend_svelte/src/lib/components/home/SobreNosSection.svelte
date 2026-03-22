@@ -1,24 +1,77 @@
 <script lang="ts">
-	import { Check, MessageCircle } from 'lucide-svelte';
+	import { Check } from 'lucide-svelte';
 	import MemberCard from './MemberCard.svelte';
 
-	let isCardHovered = $state(false);
-
 	const teamMembers = [
-		{ name: 'Guilherme Gusmão', githubUsername: 'gusmoles' },
-		{ name: 'Vitor Marconi', githubUsername: 'Vitor-Trancoso' },
-		{ name: 'Gustavo Choueiri', githubUsername: 'staann' },
-		{ name: 'Felipe Pedroza', githubUsername: 'darkymeubem' },
-		{ name: 'Vinícius Pereira', githubUsername: 'Vinicius-Ribeiro04' },
-		{ name: 'Arthur Fernandes', githubUsername: 'hisarxt' },
-		{ name: 'Erick Alves', githubUsername: 'erickaalves' },
-		{ name: 'Arthur Ramalho', githubUsername: 'ArthurNRamalho' },
-		{ name: 'Otavio Maya', githubUsername: 'knz13' }
+		{
+			name: 'Guilherme Gusmão',
+			githubUsername: 'gusmoles',
+			specialties: ['Frontend', 'UX/UI', 'Design'],
+			linkedin: 'https://www.linkedin.com/in/guilherme-gusmão-nepomuceno-9b44a826a/',
+			email: ''
+		},
+		{
+			name: 'Vitor Marconi',
+			githubUsername: 'Vitor-Trancoso',
+			specialties: ['Fullstack', 'Design', 'Arquitetura visual'],
+			linkedin: 'https://www.linkedin.com/in/vitor-marconi-4a069524a/',
+			email: ''
+		},
+		{
+			name: 'Gustavo Choueiri',
+			githubUsername: 'staann',
+			specialties: ['Inteligência Artificial', 'Automações', 'Engenharia de Dados'],
+			linkedin: 'https://www.linkedin.com/in/gustavochoueiri',
+			email: ''
+		},
+		{
+			name: 'Felipe Pedroza',
+			githubUsername: 'darkymeubem',
+			specialties: ['Banco de dados', 'Ciência de dados', 'Fullstack'],
+			linkedin: 'https://www.linkedin.com/in/felipe-lopes-pedroza-74b7a527b/',
+			email: ''
+		},
+		{
+			name: 'Vinícius Pereira',
+			githubUsername: 'Vinicius-Ribeiro04',
+			specialties: ['Frontend', 'Design', 'Canvas'],
+			linkedin: 'https://www.linkedin.com/in/vinicius-ribeiro-6192b2270/',
+			email: ''
+		},
+		{
+			name: 'Arthur Fernandes',
+			githubUsername: 'hisarxt',
+			specialties: ['QA Analyst', 'Banco de dados', 'Frontend'],
+			linkedin: 'https://www.linkedin.com/in/artxrz/',
+			email: ''
+		},
+		{
+			name: 'Erick Alves',
+			githubUsername: 'erickaalves',
+			specialties: ['Frontend', 'Scrum', 'Trafego pago'],
+			linkedin: '',
+			email: ''
+		},
+		{
+			name: 'Arthur Ramalho',
+			githubUsername: 'ArthurNRamalho',
+			specialties: ['Design', 'Documentação', 'Planejamento'],
+			linkedin: '',
+			email: ''
+		},
+		{
+			name: 'Otavio Maya',
+			githubUsername: 'knz13',
+			specialties: ['Fullstack', 'Integração', 'Dockerização'],
+			linkedin: 'https://www.linkedin.com/in/otávio-maya-8416931a5/',
+			email: ''
+		}
 	];
 
 	const features = [
 		{
 			title: 'UX moderna:',
+			linkedin: '',
 			description: 'Interface visual clara, responsiva e fácil de navegar.'
 		},
 		{
@@ -38,9 +91,6 @@
 
 	<div
 		class="sobre-card"
-		onmouseenter={() => (isCardHovered = true)}
-		onmouseleave={() => (isCardHovered = false)}
-		style="transform: scale({isCardHovered ? 1.02 : 1});"
 	>
 		<p class="sobre-text">
 			O NoFluxoUnB é criado na disciplina de Métodos de Desenvolvimento de Software ministrada pela
@@ -74,7 +124,14 @@
 
 	<div class="team-grid">
 		{#each teamMembers as member}
-			<MemberCard name={member.name} githubUsername={member.githubUsername} />
+			<MemberCard
+				name={member.name}
+				githubUsername={member.githubUsername}
+				specialties={member.specialties}
+				//instagram={member.instagram}
+				linkedin={member.linkedin}
+				email={member.email}
+			/>
 		{/each}
 	</div>
 </section>
@@ -106,25 +163,16 @@
 		transition: transform 0.2s ease;
 	}
 
+	.sobre-card:hover {
+		transform: scale(1.02);
+	}
+
 	.sobre-text {
 		color: white;
 		font-size: clamp(0.8125rem, 1.5vw, 1.125rem);
 		line-height: 1.7;
 		text-align: justify;
 		margin-bottom: 0.75rem;
-	}
-
-	.sobre-note {
-		display: flex;
-		align-items: center;
-		gap: 0.375rem;
-		margin-bottom: 1.125rem;
-	}
-
-	.sobre-note p {
-		color: rgba(255, 255, 255, 0.8);
-		font-size: clamp(0.6875rem, 1.2vw, 0.875rem);
-		font-style: italic;
 	}
 
 	.sobre-features {
