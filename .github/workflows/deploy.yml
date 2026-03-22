@@ -62,6 +62,6 @@ jobs:
         run: |
           TARGET="${{ github.event.inputs.target || 'all' }}"
           python scripts/deploy/deploy_local.py "$TARGET" \
-            --platform linux/amd64,linux/arm64 \
+            --platform linux/amd64 \
             --wait \
             --stream-logs
