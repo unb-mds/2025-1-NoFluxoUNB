@@ -124,11 +124,11 @@
 
 	<div class="team-grid">
 		{#each teamMembers as member}
+			<!-- TODO: add instagram={member.instagram} prop -->
 			<MemberCard
 				name={member.name}
 				githubUsername={member.githubUsername}
 				specialties={member.specialties}
-				//instagram={member.instagram}
 				linkedin={member.linkedin}
 				email={member.email}
 			/>
