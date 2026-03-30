@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowLeft, Camera, RefreshCw, Home, LayoutGrid, HelpCircle } from 'lucide-svelte';
+	import { ArrowLeft, Camera, RefreshCw, Home, LayoutGrid, Info } from 'lucide-svelte';
 	import FluxogramViewMenu from './FluxogramViewMenu.svelte';
 	import ScreenshotChoiceModal from './ScreenshotChoiceModal.svelte';
 	import { goto } from '$app/navigation';
@@ -207,7 +207,7 @@
 								aria-label="Legenda e regras do fluxograma"
 								title="Legenda e regras"
 							>
-								<HelpCircle class="h-[18px] w-[18px]" />
+								<Info class="h-[18px] w-[18px]" />
 							</button>
 						{/if}
 						{#if showFluxogramViewMenu}
@@ -243,7 +243,7 @@
 								aria-label="Legenda e regras do fluxograma"
 								title="Legenda e regras"
 							>
-								<HelpCircle class="h-[18px] w-[18px]" />
+								<Info class="h-[18px] w-[18px]" />
 							</button>
 						{/if}
 						{#if showFluxogramViewMenu}

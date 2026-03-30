@@ -62,7 +62,9 @@
 	});
 </script>
 
-<div class="semester-column flex min-w-[130px] flex-col gap-3 sm:min-w-[160px]">
+<div
+	class="semester-column flex min-w-[130px] max-w-[220px] flex-col gap-3 sm:min-w-[160px] sm:max-w-[240px]"
+>
 	<div
 		class="z-10 rounded-lg border border-white/10 bg-black/60 px-3 py-2 text-center backdrop-blur-md"
 		style="transform: translateY({headerOffsetY}px); position: relative;"

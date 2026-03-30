@@ -3,7 +3,7 @@
  * Uses camelCase convention for TypeScript
  */
 
-export type SubjectStatus = 'APR' | 'CUMP' | 'MATR' | 'REP' | 'TRC' | '-';
+export type SubjectStatus = 'APR' | 'CUMP' | 'DISP' | 'MATR' | 'REP' | 'TRC' | '-';
 
 export type GradeMention = 'SS' | 'MS' | 'MM' | 'MI' | 'II' | 'SR' | '-';
 
@@ -56,7 +56,7 @@ export interface UserModel {
 
 export function isMateriaCursada(dadosMateria: DadosMateria): boolean {
 	const status = String(dadosMateria.status ?? '').trim().toUpperCase();
-	return status === 'APR' || status === 'CUMP';
+	return status === 'APR' || status === 'CUMP' || status === 'DISP';
 }
 
 export function isMateriaAprovada(dadosMateria: DadosMateria): boolean {
@@ -67,7 +67,8 @@ export function isMateriaAprovada(dadosMateria: DadosMateria): boolean {
 		mencao === 'MM' ||
 		mencao === 'MS' ||
 		status === 'APR' ||
-		status === 'CUMP'
+		status === 'CUMP' ||
+		status === 'DISP'
 	);
 }
 

@@ -418,7 +418,7 @@ export function extrairSemestreAtual(
 export function calcularNumeroSemestre(
   disciplinas: DisciplinaExtraida[]
 ): number {
-  const validStatuses = new Set(['APR', 'REP', 'REPF', 'REPMF', 'CUMP']);
+  const validStatuses = new Set(['APR', 'DISP', 'REP', 'REPF', 'REPMF', 'CUMP']);
   const uniqueSemesters = new Set<string>();
   for (const d of disciplinas) {
     if (validStatuses.has(d.status) && d.ano_periodo) {

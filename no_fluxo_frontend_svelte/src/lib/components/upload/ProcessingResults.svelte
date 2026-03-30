@@ -59,7 +59,7 @@
 			icon: CheckCircle,
 			color: 'text-emerald-400',
 			bg: 'bg-emerald-500/10',
-			title: 'Obrigatórias concluídas (APR/CUMP ou por equivalência)'
+			title: 'Obrigatórias concluídas (APR/CUMP/DISP ou por equivalência)'
 		},
 		{
 			label: 'Pendentes (obrig.)',

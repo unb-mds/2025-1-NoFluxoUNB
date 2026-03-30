@@ -11,6 +11,7 @@ import {
     parseExpressaoLogicaFromDb
 } from "../utils/expressao_logica";
 import { calcularIntegralizacao } from "../services/integralizacao.service";
+import { isDisciplinaIntegralizada } from "../utils/historico_sigaa";
 
 // Helper interfaces for better type safety
 interface DisciplinaHistorico {
@@ -183,7 +184,7 @@ function mapEquivalenciasFromDb(rows: any[]): EquivalenciaData[] {
 
 // Helper function to get status priority for conflict resolution
 function getStatusPriority(status: string): number {
-    if (status === 'APR' || status === 'CUMP') return 3;
+    if (isDisciplinaIntegralizada(status)) return 3;
     if (status === 'MATR') return 2;
     return 1; // REP, etc.
 }
@@ -275,7 +276,7 @@ function checkEquivalencies(
 ): boolean {
     const completedCodes = new Set(
         disciplinasCasadas
-            .filter((d: any) => d.status === 'APR' || d.status === 'CUMP')
+            .filter((d: any) => isDisciplinaIntegralizada(d.status))
             .map((d: any) => d.codigo?.trim().toUpperCase())
             .filter(Boolean)
     );
@@ -291,7 +292,7 @@ function checkEquivalencies(
         if (satisfeito) {
             const codigos = getCodigosEquivalentes(eq);
             const encontrada = disciplinasCasadas.find((d: any) =>
-                d.codigo && codigos.includes(d.codigo.trim().toUpperCase()) && (d.status === 'APR' || d.status === 'CUMP')
+                d.codigo && codigos.includes(d.codigo.trim().toUpperCase()) && isDisciplinaIntegralizada(d.status)
             );
             logger.info(`Subject '${targetMateria.nome}' completed by equivalency with '${encontrada?.nome}' (${encontrada?.codigo})`);
             return true;
@@ -689,7 +690,7 @@ export const FluxogramaController: EndpointController = {
                 let mandatoryCount = 0;
 
                 for (const disciplinaCasada of disciplinasCasadas) {
-                    const isCompleted = disciplinaCasada.status === 'APR' || disciplinaCasada.status === 'CUMP';
+                    const isCompleted = isDisciplinaIntegralizada(disciplinaCasada.status);
                     const isInProgress = disciplinaCasada.status === 'MATR';
                     const isElective = disciplinaCasada.tipo === 'optativa';
 
@@ -784,7 +785,7 @@ export const FluxogramaController: EndpointController = {
                         for (const eq of equivalenciasParaMateria) {
                             const codigosEquivalentes = getCodigosEquivalentes(eq);
                             encontrada = disciplinasCasadas.find(
-                                d => d.codigo && codigosEquivalentes.includes(d.codigo.trim().toUpperCase()) && (d.status === 'APR' || d.status === 'CUMP')
+                                d => d.codigo && codigosEquivalentes.includes(d.codigo.trim().toUpperCase()) && isDisciplinaIntegralizada(d.status)
                             );
                             if (encontrada) break;
                         }
@@ -824,7 +825,7 @@ export const FluxogramaController: EndpointController = {
 
                             const codigosEquivalentes = getCodigosEquivalentes(eq);
                             const encontrada = disciplinasCasadas.find(
-                                d => d.codigo && codigosEquivalentes.includes(d.codigo.trim().toUpperCase()) && (d.status === 'APR' || d.status === 'CUMP')
+                                d => d.codigo && codigosEquivalentes.includes(d.codigo.trim().toUpperCase()) && isDisciplinaIntegralizada(d.status)
                             );
 
                             if (encontrada) {
@@ -884,7 +885,7 @@ export const FluxogramaController: EndpointController = {
                 let horasIntegralizadas = 0;
                 let disciplinasComCargaHoraria = 0;
                 for (const disciplina of disciplinasCasadas) {
-                    if ((disciplina.status === 'APR' || disciplina.status === 'CUMP') && disciplina.carga_horaria) {
+                    if (isDisciplinaIntegralizada(disciplina.status) && disciplina.carga_horaria) {
                         horasIntegralizadas += disciplina.carga_horaria;
                         disciplinasComCargaHoraria++;
                     }

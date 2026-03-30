@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ZoomIn, ZoomOut, RotateCcw, Link2, X, Menu } from 'lucide-svelte';
+	import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle } from 'lucide-svelte';
 	import { fluxogramaStore, type ConnectionMode } from '$lib/stores/fluxograma.store.svelte';
 	import { portal } from '$lib/actions/portal';
 
@@ -162,7 +162,7 @@
 					onclick={handleConnectionsToggle}
 					class="inline-flex items-center gap-1 rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-white/75 transition-colors hover:bg-white/10"
 				>
-					<Link2 class="h-3.5 w-3.5" />
+					<HelpCircle class="h-3.5 w-3.5" />
 					<span class="hidden sm:inline">Conexões</span>
 				</button>
 			{:else}
@@ -212,10 +212,10 @@
 			onclick={() => (fabMenuOpen = !fabMenuOpen)}
 			class="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-purple-600/90 to-indigo-700/95 text-white shadow-xl backdrop-blur-md transition-transform active:scale-95"
 			aria-expanded={fabMenuOpen}
-			aria-label="Ferramentas do fluxograma: zoom e conexões"
+			aria-label="Ajuda e ferramentas do fluxograma"
 			title="Zoom e conexões"
 		>
-			<Menu class="h-6 w-6" />
+			<HelpCircle class="h-6 w-6" />
 		</button>
 	</div>
 </div>
@@ -314,7 +314,7 @@
 						}}
 						class="flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 py-3 text-sm font-medium text-white/85"
 					>
-						<Link2 class="h-4 w-4" />
+						<HelpCircle class="h-4 w-4" />
 						Ativar conexões
 					</button>
 				{:else}
@@ -433,7 +433,7 @@
 				</section>
 				<section class="mt-4 rounded-lg border border-purple-500/30 bg-purple-500/10 p-3">
 					<h3 class="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-purple-300">
-						<Link2 class="h-3.5 w-3.5" />
+						<HelpCircle class="h-3.5 w-3.5" />
 						Mobile / toque
 					</h3>
 					<ul class="space-y-2 text-sm text-white/90">

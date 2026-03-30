@@ -19,7 +19,7 @@
 </script>
 
 <button
-	class="course-card group relative w-full min-w-0 overflow-hidden rounded-xl border border-white/10 bg-black/40 p-4 text-left backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-white/20 hover:bg-black/50 hover:shadow-xl hover:shadow-purple-500/10 sm:rounded-2xl sm:p-5 sm:hover:scale-[1.03]"
+	class="course-card group relative mx-auto w-full min-w-0 max-w-xl overflow-hidden rounded-xl border border-white/10 bg-black/40 p-4 text-left backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-white/20 hover:bg-black/50 hover:shadow-xl hover:shadow-purple-500/10 sm:rounded-2xl sm:p-5 sm:hover:scale-[1.03]"
 	{onclick}
 >
 	<!-- Gradient accent top bar -->

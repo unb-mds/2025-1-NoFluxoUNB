@@ -402,7 +402,7 @@ def extrair_semestre_atual(disciplinas):
 def calcular_numero_semestre(disciplinas):
     """
     Calcula o número do semestre baseado na quantidade de semestres onde houve conclusão de disciplinas
-    Considera apenas semestres onde houve aprovação, reprovação ou cumprimento de disciplinas
+    Considera semestres onde houve aprovação, dispensa, reprovação ou cumprimento (equivalência) de disciplinas
     """
     if not disciplinas:
         return None
@@ -417,9 +417,10 @@ def calcular_numero_semestre(disciplinas):
             
             # Considera apenas disciplinas efetivamente concluídas
             # APR = Aprovado
+            # DISP = Dispensa (integralizada sem cursar)
             # REP/REPF/REPMF = Reprovado (por nota, falta ou média/falta)
             # CUMP = Cumpriu por equivalência
-            if (status in ['APR', 'REP', 'REPF', 'REPMF', 'CUMP'] and 
+            if (status in ['APR', 'DISP', 'REP', 'REPF', 'REPMF', 'CUMP'] and 
                 ano_periodo and ano_periodo.strip()):
                 try:
                     semestres_cursados.add(ano_periodo)

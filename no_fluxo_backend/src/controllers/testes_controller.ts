@@ -2,6 +2,7 @@ import { EndpointController, RequestType } from "../interfaces";
 import { Pair } from "../utils";
 import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
+import { isDisciplinaIntegralizada } from "../utils/historico_sigaa";
 
 export const TestesController: EndpointController = {
     name: "testes",
@@ -255,7 +256,7 @@ export const TestesController: EndpointController = {
                                 
                                 // Prioridade: APR/CUMP > MATR > REP
                                 const prioridade = (status: string) => {
-                                    if (status === 'APR' || status === 'CUMP') return 3;
+                                    if (isDisciplinaIntegralizada(status)) return 3;
                                     if (status === 'MATR') return 2;
                                     return 1; // REP, etc.
                                 };
@@ -299,7 +300,7 @@ export const TestesController: EndpointController = {
                 // Calcular horas integralizadas
                 let horasIntegralizadas = 0;
                 for (const disciplina of disciplinasCasadas) {
-                    if ((disciplina.status === 'APR' || disciplina.status === 'CUMP') && disciplina.carga_horaria) {
+                    if (isDisciplinaIntegralizada(disciplina.status) && disciplina.carga_horaria) {
                         horasIntegralizadas += disciplina.carga_horaria;
                     }
                 }
@@ -307,16 +308,16 @@ export const TestesController: EndpointController = {
 
                 // Classificar disciplinas
                 const materiasConcluidas = disciplinasCasadas.filter(d => 
-                    (d.status === 'APR' || d.status === 'CUMP') && d.tipo !== 'optativa'
+                    isDisciplinaIntegralizada(d.status) && d.tipo !== 'optativa'
                 );
                 const materiasPendentes = disciplinasCasadas.filter(d => 
-                    d.status !== 'APR' && d.status !== 'CUMP' && d.tipo !== 'optativa'
+                    !isDisciplinaIntegralizada(d.status) && d.tipo !== 'optativa'
                 );
                 const materiasOptativasConcluidas = disciplinasCasadas.filter(d => 
-                    (d.status === 'APR' || d.status === 'CUMP') && d.tipo === 'optativa'
+                    isDisciplinaIntegralizada(d.status) && d.tipo === 'optativa'
                 );
                 const materiasOptativasPendentes = disciplinasCasadas.filter(d => 
-                    d.status !== 'APR' && d.status !== 'CUMP' && d.tipo === 'optativa'
+                    !isDisciplinaIntegralizada(d.status) && d.tipo === 'optativa'
                 );
 
                 return res.status(200).json({

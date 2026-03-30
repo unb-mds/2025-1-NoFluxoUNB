@@ -74,7 +74,7 @@
 
 	let cardClasses = $derived.by(() => {
 		const gradient = gradientMap[status];
-		const base = `subject-card relative w-full cursor-pointer rounded-xl border p-3 text-left transition-all duration-200`;
+		const base = `subject-card relative flex w-full max-w-[220px] min-w-0 flex-col text-left cursor-pointer rounded-xl border p-3 transition-all duration-200 sm:max-w-[240px]`;
 		const borderColor =
 			isSelected
 				? 'border-white/60 ring-2 ring-white/30'
@@ -238,7 +238,7 @@
 	role="button"
 	tabindex="0"
 >
-	<div class="mb-1 flex items-center justify-between gap-1">
+	<div class="mb-1 flex shrink-0 items-center justify-between gap-1">
 		<span class="text-[10px] font-semibold uppercase tracking-wider {textColor} opacity-80">
 			{materia.codigoMateria}
 		</span>
@@ -248,9 +248,15 @@
 			</span>
 		</div>
 	</div>
-	<p class="line-clamp-2 text-xs font-medium leading-tight {textColor}">
-		{materia.nomeMateria}
-	</p>
+	<!-- Bloco do nome com altura fixa: não estica o card; nome completo no tooltip -->
+	<div class="h-[2.25rem] shrink-0 overflow-hidden">
+		<p
+			class="line-clamp-2 break-words text-xs font-medium leading-[1.125rem] {textColor}"
+			title={materia.nomeMateria}
+		>
+			{materia.nomeMateria}
+		</p>
+	</div>
 
 	{#if concluidaPorEquivalencia}
 		<span

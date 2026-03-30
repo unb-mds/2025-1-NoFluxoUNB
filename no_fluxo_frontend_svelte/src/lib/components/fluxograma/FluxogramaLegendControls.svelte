@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { BookOpen, Bot, HelpCircle } from 'lucide-svelte';
+import { BookOpen, Bot, Info } from 'lucide-svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { ROUTES } from '$lib/config/routes';
 	import { SubjectStatusEnum, getStatusLabel } from '$lib/types/materia';
@@ -88,7 +88,7 @@
 					aria-label="Legenda e regras do fluxograma"
 					title="Legenda e regras"
 				>
-					<HelpCircle class="h-[18px] w-[18px]" />
+					<Info class="h-[18px] w-[18px]" />
 				</button>
 			{/if}
 			{#if showFluxogramViewMenu}

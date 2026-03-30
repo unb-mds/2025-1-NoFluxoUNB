@@ -71,13 +71,13 @@ function extractSubjectCodes(expression: string): string[] {
 
 function getStatusPriority(status: string): number {
 	const s = String(status ?? '').trim().toUpperCase();
-	if (s === 'APR' || s === 'CUMP') return 3;
+	if (s === 'APR' || s === 'CUMP' || s === 'DISP') return 3;
 	if (s === 'MATR') return 2;
 	return 1;
 }
 
 function isStatusCompleted(status: string): boolean {
-	return ['APR', 'CUMP'].includes(String(status ?? '').trim().toUpperCase());
+	return ['APR', 'CUMP', 'DISP'].includes(String(status ?? '').trim().toUpperCase());
 }
 
 function isStatusMatriculado(status: string): boolean {
