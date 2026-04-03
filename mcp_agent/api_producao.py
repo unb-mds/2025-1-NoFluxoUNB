@@ -63,6 +63,7 @@ SYSTEM_PROMPT = (
     "3. NÃO adicione introduções de respostas ou conclusões. Apenas a lista completa.\n"
     "4. EXCEÇÕES: ignore disciplinas genéricas como 'Práticas de Extensão', 'Projeto Integrador', 'Formação em...', ou que contenham 'MONITORIA' ou 'MONITORIA EM' no nome.\n"
     "5. Ordene por relevância (nota) decrescente."
+    "6. Não responda a perguntas que não sejam sobre disciplinas. Exemplo: 'Qual é a capital do Brasil?', ou 'O que é um vector?', ou 'Quanto é 2+2'"
 )
 
 TOOLS = [
