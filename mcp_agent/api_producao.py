@@ -63,7 +63,6 @@ SYSTEM_PROMPT = (
     "3. NÃO adicione introduções de respostas ou conclusões. Apenas a lista completa.\n"
     "4. EXCEÇÕES: ignore disciplinas genéricas como 'Práticas de Extensão', 'Projeto Integrador', 'Formação em...', ou que contenham 'MONITORIA' ou 'MONITORIA EM' no nome.\n"
     "5. Ordene por relevância (nota) decrescente."
-    "6. Não responda a perguntas que não sejam sobre disciplinas. Exemplo: 'Qual é a capital do Brasil?', ou 'O que é um vector?', ou 'Quanto é 2+2'"
 )
 
 TOOLS = [
@@ -320,6 +319,13 @@ async def recomendar_materias(consulta: Consulta):
             # --- ROTEAMENTO ---
             if nome_ferramenta == "buscar_optativas_curso":
                 print(f"\n[DEBUG] 🎓 IA escolheu buscar optativas do curso.")
+                if not consulta.matriz_curricular.strip():
+                    return {
+                        "success": False,
+                        "error": "Envie o historico academico",
+                        "disciplinas": [],
+                        "resposta_completa": "Envie o historico academico"
+                    }
                 # Passa a string da matriz direto da consulta!
                 dados_banco = ferramenta_buscar_optativas(consulta.matriz_curricular)
             elif nome_ferramenta == "buscar_materias_unb":
@@ -394,6 +400,9 @@ async def recomendar_materias_stream(consulta: Consulta):
 
                 # Stage 2: Searching & Roteamento
                 if nome_ferramenta == "buscar_optativas_curso":
+                    if not consulta.matriz_curricular.strip():
+                        yield _sse_event("error", message="Envie o historico academico")
+                        return
                     yield _sse_event("searching", message="Consultando sua matriz curricular...")
                     dados_banco = ferramenta_buscar_optativas(consulta.matriz_curricular)
                 else:

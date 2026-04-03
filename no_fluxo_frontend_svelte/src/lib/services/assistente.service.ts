@@ -124,10 +124,21 @@ export class AssistenteService {
      */
     async streamMessageFromSabia(
         message: string,
-        matrizCurricular: string, // 2. ADICIONADO: A função agora aceita 3 argumentos
-        onEvent: (event: StreamEvent) => void
+        matrizCurricularOrOnEvent: string | ((event: StreamEvent) => void),
+        onEventMaybe?: (event: StreamEvent) => void
     ): Promise<void> {
         const url = `${config.apiUrl}${this.sabiaStreamEndpoint}`;
+
+        // Backward-compatible signatures:
+        // - streamMessageFromSabia(message, onEvent)
+        // - streamMessageFromSabia(message, matrizCurricular, onEvent)
+        const hasMatriz = typeof matrizCurricularOrOnEvent === 'string';
+        const matrizCurricular = hasMatriz ? matrizCurricularOrOnEvent : undefined;
+        const onEvent = hasMatriz ? onEventMaybe : matrizCurricularOrOnEvent;
+
+        if (typeof onEvent !== 'function') {
+            throw new Error('Callback de stream inválido.');
+        }
 
         const response = await fetch(url, {
             method: 'POST',
