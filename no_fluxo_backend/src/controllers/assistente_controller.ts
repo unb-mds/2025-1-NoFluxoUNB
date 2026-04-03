@@ -83,11 +83,13 @@ export const AssistenteController: EndpointController = {
         'analyze-sabia-stream': new Pair(RequestType.POST, async (req: Request, res: Response) => {
             const logger = createControllerLogger('AssistenteController', 'analyze-sabia-stream');
 
-            const { materia } = req.body;
+            const { materia, matriz_curricular } = req.body;
             if (!materia || typeof materia !== 'string' || !materia.trim()) {
                 logger.error('Missing or empty "materia" field');
                 return res.status(400).json({ erro: "O campo 'materia' é obrigatório no corpo da requisição JSON." });
             }
+
+            const matrizCurricular = typeof matriz_curricular === 'string' ? matriz_curricular : '';
 
             if (!sabia.isAvailable()) {
                 logger.error('Sabiá service not configured');
@@ -103,7 +105,7 @@ export const AssistenteController: EndpointController = {
 
             try {
                 logger.info(`Streaming with Sabiá: "${materia}"`);
-                await sabia.analyzarInteresseStream(materia, res);
+                await sabia.analyzarInteresseStream(materia, matrizCurricular, res);
                 return;
             } catch (error) {
                 const msg = error instanceof Error ? error.message : String(error);
@@ -120,11 +122,13 @@ export const AssistenteController: EndpointController = {
             const startTime = Date.now();
 
             // Validate input
-            const { materia } = req.body;
+            const { materia, matriz_curricular } = req.body;
             if (!materia || typeof materia !== 'string' || !materia.trim()) {
                 logger.error('Missing or empty "materia" field');
                 return res.status(400).json({ erro: "O campo 'materia' é obrigatório no corpo da requisição JSON." });
             }
+
+            const matrizCurricular = typeof matriz_curricular === 'string' ? matriz_curricular : '';
 
             // Check if Sabiá is configured
             if (!sabia.isAvailable()) {
@@ -136,7 +140,7 @@ export const AssistenteController: EndpointController = {
                 logger.info(`Processing with Sabiá: "${materia}"`);
 
                 // Call Sabiá AI service
-                const result = await sabia.analyzarInteresse(materia);
+                const result = await sabia.analyzarInteresse(materia, matrizCurricular);
 
                 if (!result.success) {
                     const errorMsg = result.error || 'Erro desconhecido no agente Sabiá.';

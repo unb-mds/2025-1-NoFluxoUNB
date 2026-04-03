@@ -43,41 +43,64 @@ app.add_middleware(
 )
 
 # Modelo de entrada de dados esperado do frontend/usuário
+# Modelo de entrada de dados esperado do frontend/usuário
 class Consulta(BaseModel):
     interesse: str
+    matriz_curricular: str = "" # Adicionado: Recebe a string do curso direto do frontend
 
-# Prompt do Sistema (mantido do seu código original)
+# Prompt do Sistema
 SYSTEM_PROMPT = (
     "Você é o Darcy, assistente da UnB. Sua tarefa é listar as disciplinas encontradas no banco de dados.\n\n"
     "REGRAS CRÍTICAS:\n"
-    "1. Liste as disciplinas retornadas pela ferramenta 'buscar_materias_unb', com limite máximo de 14 disciplinas.\n"
-    "2. Use EXATAMENTE este formato: **CÓDIGO - NOME DA DISCIPLINA | Nota: X/10 | Motivo:** justificativa curta.\n"
-    "3. Priorize as disciplinas mais relevantes (maior nota) se houver mais de 14.\n"
-    "4. NÃO adicione introduções de respostas ou conclusões. Apenas a lista completa.\n"
-    "5. EXCEÇÕES: ignore disciplinas genéricas como 'Práticas de Extensão', 'Projeto Integrador', 'Formação em...', ou que contenham 'MONITORIA' ou 'MONITORIA EM' no nome.\n"
-    "6. Ordene por relevância (nota) decrescente."
+    "1. Se o aluno pedir 'disciplinas optativas' ou 'o que posso puxar de optativa', use a ferramenta 'buscar_optativas_curso'.\n"
+    "2. Se o aluno pedir um ASSUNTO geral, liste as disciplinas retornadas pela ferramenta 'buscar_materias_unb', com limite máximo de 14 disciplinas.\n"
+    "3. Use EXATAMENTE este formato: **CÓDIGO - NOME DA DISCIPLINA | Nota: X/10 | Motivo:** justificativa curta.\n"
+    "4. Se estiver listando optativas do curso, explique no 'Motivo' que aquela matéria faz parte da matriz curricular específica do aluno.\n"
+    "5. Priorize as disciplinas mais relevantes (maior nota) se houver mais de 14.\n"
+    "6. NÃO adicione introduções de respostas ou conclusões. Apenas a lista completa.\n"
+    "7. EXCEÇÕES: ignore disciplinas genéricas como 'Práticas de Extensão', 'Projeto Integrador', 'Formação em...', ou que contenham 'MONITORIA' ou 'MONITORIA EM' no nome.\n"
+    "8. Ordene por relevância (nota) decrescente."
 )
 
-TOOLS = [{
-    "type": "function",
-    "function": {
-        "name": "buscar_materias_unb",
-        "description": "Busca matérias na base de dados da UnB expandindo o termo de pesquisa.",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "termos_busca": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Lista com EXATAMENTE 4 strings obrigatórias: [termo_principal, sinônimo1, sinônimo2, termo_relacionado]. SEMPRE preencha os 4 campos, mesmo que repita termos similares."
-                }
-            },
-            "required": ["termos_busca"]
+TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "buscar_materias_unb",
+            "description": "Busca matérias na base de dados da UnB expandindo o termo de pesquisa.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "termos_busca": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Lista com EXATAMENTE 4 strings obrigatórias: [termo_principal, sinônimo1, sinônimo2, termo_relacionado]. SEMPRE preencha os 4 campos, mesmo que repita termos similares."
+                    }
+                },
+                "required": ["termos_busca"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "buscar_optativas_curso",
+            "description": "Busca as disciplinas OPTATIVAS específicas da matriz curricular do usuário logado.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "aviso": {
+                        "type": "string",
+                        "description": "Apenas envie 'ok' para prosseguir."
+                    }
+                },
+                "required": ["aviso"]
+            }
         }
     }
-}]
+]
 
 def parse_resposta_sabia(texto: str) -> list:
     """Extrai as disciplinas do texto da IA bloqueando qualquer duplicação."""
@@ -119,6 +142,49 @@ def parse_resposta_sabia(texto: str) -> list:
             
     return disciplinas
 
+import re # Certifique-se de que o 'import re' está no topo do seu ficheiro (já deve estar)
+
+import re # Certifique-se de que o 'import re' está no topo do seu ficheiro (já deve estar)
+
+# --- NOVA FUNÇÃO: O FLUXO DIRETO PELA MATRIZ (COM LIMPEZA REGEX) ---
+def ferramenta_buscar_optativas(matriz_curricular: str) -> str:
+    # 1. LIMPEZA INTELIGENTE (REGEX):
+    # Procura por " - XXXX.X" (ex: " - 2025.1") no final da string e remove.
+    # Se receber "8117/-3 - 2025.1", transforma em "8117/-3"
+    # Se receber "1856/3 - 2024.2", transforma em "1856/3"
+    # Se já vier "8117/-3" sem o ano, não altera nada.
+    matriz_limpa = re.sub(r'\s*-\s*\d{4}\.\d+$', '', matriz_curricular).strip()
+    
+    print(f"\n[DEBUG] 🎓 Frontend enviou: '{matriz_curricular}' | Buscando no BD por: '{matriz_limpa}'")
+    
+    if not matriz_limpa:
+        return json.dumps([{"codigo": "ERRO", "nome": "Matriz curricular não informada. Peça ao aluno para enviar o currículo ou fazer upload do histórico."}])
+        
+    try:
+        # 2. Pegar ID da matriz no banco
+        mat_id_res = supabase.table("matrizes").select("id_matriz").ilike("curriculo_completo", f"%{matriz_limpa}%").execute()
+        
+        if not mat_id_res.data: 
+            return json.dumps([{"codigo": "ERRO", "nome": f"A matriz '{matriz_limpa}' não foi encontrada na base de dados."}])
+            
+        id_matriz = mat_id_res.data[0]['id_matriz']
+        print(f"[DEBUG] ID da Matriz encontrada: {id_matriz}")
+
+        # 3. Pegar matérias por curso onde tipo_natureza == 1 (Optativas)
+        materias_res = supabase.table("materias_por_curso").select("id_materia").eq("id_matriz", id_matriz).eq("tipo_natureza", 1).execute()
+        
+        #print(f"[DEBUG] ✅ Encontradas {len(materias_res.data)} optativas na matriz.")
+
+        x = json.dumps(materias_res.data,ensure_ascii=False)
+
+        
+        print(f"[DEBUG] ✅ {x}")
+        return json.dumps(materias_res.data, ensure_ascii=False)
+        
+    except Exception as e:
+        print(f"❌ Erro no fluxo de optativas: {e}")
+        return json.dumps([])
+
 def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
     print(f"\n[DEBUG] 🧠 Termos recebidos da Maritaca: {termos_busca}")
     try:
@@ -154,8 +220,7 @@ def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
             }).execute()
             
             print(f"[DEBUG] Resultados para '{termo_atual}': {len(res.data or [])} encontrados.")
-            print(f"[DEBUG] Dados brutos: {res.data}\n\n\n")
-            print(f'[DEBUG] {"-"*50}\n')
+            
             for item in (res.data or []):
                 # Pega o código, remove espaços em branco nas pontas e força MAIÚSCULA
                 codigo_bruto = item.get("codigo_materia") or ""
@@ -177,24 +242,10 @@ def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
             for item in resultados_finais.values()
         ]
             
-        # Ordena e limita a 15 para economizar tokens na resposta da Maritaca
+        # Ordena e limita a 25 para economizar tokens na resposta da Maritaca
         lista_retorno = sorted(lista_retorno, key=lambda x: x['similaridade'], reverse=True)[:25]
-        #lista_final = []
-        
-        '''
-        for item in lista_retorno:
-
-            if item['codigo'] not in lista_final:
-                lista_final.append(item)
-        '''
-
-
 
         print(f"[DEBUG] ✅ Total de matérias únicas retornadas: {len(lista_retorno)}")
-
-        for materia in lista_retorno:
-            print(f"[DEBUG] {materia['codigo']} - {materia['nome']} | Similaridade: {materia['similaridade']}")
-
 
         return json.dumps(lista_retorno, ensure_ascii=False)
     
@@ -236,19 +287,24 @@ async def recomendar_materias(consulta: Consulta):
             mensagens.append(msg_ia)
             tool_call = msg_ia.tool_calls[0] # Usa apenas a primeira para economia extrema
             args = json.loads(tool_call.function.arguments)
+            nome_ferramenta = tool_call.function.name
             
-            # ✅ CORREÇÃO: Extraindo 'termos_busca' em vez de 'interesse'
-            termos = args.get("termos_busca", [])
-            
-            print(f"\n[DEBUG] Termos enviados para o banco: {termos}\n")
-            
-            # Chama a função Python passando a lista
-            dados_banco = ferramenta_buscar_materias_unb(termos)
+            # --- ROTEAMENTO ---
+            if nome_ferramenta == "buscar_optativas_curso":
+                print(f"\n[DEBUG] 🎓 IA escolheu buscar optativas do curso.")
+                # Passa a string da matriz direto da consulta!
+                dados_banco = ferramenta_buscar_optativas(consulta.matriz_curricular)
+            elif nome_ferramenta == "buscar_materias_unb":
+                termos = args.get("termos_busca", [])
+                print(f"\n[DEBUG] Termos enviados para o banco: {termos}\n")
+                dados_banco = ferramenta_buscar_materias_unb(termos)
+            else:
+                dados_banco = "[]"
             
             mensagens.append({
                 "tool_call_id": tool_call.id,
                 "role": "tool",
-                "name": "buscar_materias_unb",
+                "name": nome_ferramenta,
                 "content": dados_banco
             })
 
@@ -306,17 +362,21 @@ async def recomendar_materias_stream(consulta: Consulta):
                 mensagens.append(msg_ia)
                 tool_call = msg_ia.tool_calls[0]
                 args = json.loads(tool_call.function.arguments)
-                termos = args.get("termos_busca", [])
+                nome_ferramenta = tool_call.function.name
 
-                # Stage 2: Searching
-                yield _sse_event("searching", message="Buscando disciplinas no banco de dados...")
-
-                dados_banco = ferramenta_buscar_materias_unb(termos)
+                # Stage 2: Searching & Roteamento
+                if nome_ferramenta == "buscar_optativas_curso":
+                    yield _sse_event("searching", message="Consultando sua matriz curricular...")
+                    dados_banco = ferramenta_buscar_optativas(consulta.matriz_curricular)
+                else:
+                    termos = args.get("termos_busca", [])
+                    yield _sse_event("searching", message="Buscando disciplinas no banco de dados...")
+                    dados_banco = ferramenta_buscar_materias_unb(termos)
 
                 mensagens.append({
                     "tool_call_id": tool_call.id,
                     "role": "tool",
-                    "name": "buscar_materias_unb",
+                    "name": nome_ferramenta,
                     "content": dados_banco
                 })
 
