@@ -10,6 +10,8 @@ import google.generativeai as genai
 from supabase import create_client
 from dotenv import load_dotenv
 
+import time
+
 # 1. INICIALIZAÇÃO GLOBAL (Roda apenas quando o servidor liga)
 load_dotenv()
 
@@ -24,7 +26,7 @@ for key in ("GOOGLE_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "MARI
         print(f"  {key} = NOT SET")
 print("---\n")
 
-# Clientes globais mantêm conexões persistentes ("quentes")
+# Clientes globais mantêm conexões persistentes
 genai.configure(api_key=os.environ.get("GOOGLE_API_KEY"))
 supabase = create_client(os.environ.get("SUPABASE_URL"), os.environ.get("SUPABASE_SERVICE_ROLE_KEY"))
 client_maritaca = OpenAI(api_key=os.environ.get("MARITACA_API_KEY"), base_url="https://chat.maritaca.ai/api")
@@ -46,20 +48,21 @@ app.add_middleware(
 # Modelo de entrada de dados esperado do frontend/usuário
 class Consulta(BaseModel):
     interesse: str
-    matriz_curricular: str = "" # Adicionado: Recebe a string do curso direto do frontend
+    matriz_curricular: str = ""
 
 # Prompt do Sistema
 SYSTEM_PROMPT = (
     "Você é o Darcy, assistente da UnB. Sua tarefa é listar as disciplinas encontradas no banco de dados.\n\n"
     "REGRAS CRÍTICAS:\n"
-    "1. Se o aluno pedir 'disciplinas optativas' ou 'o que posso puxar de optativa', use a ferramenta 'buscar_optativas_curso'.\n"
-    "2. Se o aluno pedir um ASSUNTO geral, liste as disciplinas retornadas pela ferramenta 'buscar_materias_unb', com limite máximo de 14 disciplinas.\n"
-    "3. Use EXATAMENTE este formato: **CÓDIGO - NOME DA DISCIPLINA | Nota: X/10 | Motivo:** justificativa curta.\n"
-    "4. Se estiver listando optativas do curso, explique no 'Motivo' que aquela matéria faz parte da matriz curricular específica do aluno.\n"
-    "5. Priorize as disciplinas mais relevantes (maior nota) se houver mais de 14.\n"
-    "6. NÃO adicione introduções de respostas ou conclusões. Apenas a lista completa.\n"
-    "7. EXCEÇÕES: ignore disciplinas genéricas como 'Práticas de Extensão', 'Projeto Integrador', 'Formação em...', ou que contenham 'MONITORIA' ou 'MONITORIA EM' no nome.\n"
-    "8. Ordene por relevância (nota) decrescente."
+    "1. SE BUSCAR OPTATIVAS ('buscar_optativas_curso'):\n"
+    "   - Liste no MÁXIMO 50 disciplinas.\n"
+    "   - Use o formato: **CÓDIGO - NOME DA DISCIPLINA\n"
+    "2. SE BUSCAR ASSUNTO ('buscar_materias_unb'):\n"
+    "   - Liste no MÁXIMO 15 disciplinas.\n"
+    "   - Use o formato detalhado: **CÓDIGO - NOME DA DISCIPLINA | Nota: X/10 | Motivo:** justificativa curta sobre o assunto.\n"
+    "3. NÃO adicione introduções de respostas ou conclusões. Apenas a lista completa.\n"
+    "4. EXCEÇÕES: ignore disciplinas genéricas como 'Práticas de Extensão', 'Projeto Integrador', 'Formação em...', ou que contenham 'MONITORIA' ou 'MONITORIA EM' no nome.\n"
+    "5. Ordene por relevância (nota) decrescente."
 )
 
 TOOLS = [
@@ -148,11 +151,11 @@ import re # Certifique-se de que o 'import re' está no topo do seu ficheiro (j�
 
 # --- NOVA FUNÇÃO: O FLUXO DIRETO PELA MATRIZ (COM LIMPEZA REGEX) ---
 def ferramenta_buscar_optativas(matriz_curricular: str) -> str:
-    # 1. LIMPEZA INTELIGENTE (REGEX):
-    # Procura por " - XXXX.X" (ex: " - 2025.1") no final da string e remove.
+    # (REGEX):
+    # " - XXXX.X" (ex: " - 2025.1") no final da string e remove
     # Se receber "8117/-3 - 2025.1", transforma em "8117/-3"
     # Se receber "1856/3 - 2024.2", transforma em "1856/3"
-    # Se já vier "8117/-3" sem o ano, não altera nada.
+    # Se já vier "8117/-3" sem o ano não altera nada.
     matriz_limpa = re.sub(r'\s*-\s*\d{4}\.\d+$', '', matriz_curricular).strip()
     
     print(f"\n[DEBUG] 🎓 Frontend enviou: '{matriz_curricular}' | Buscando no BD por: '{matriz_limpa}'")
@@ -161,7 +164,7 @@ def ferramenta_buscar_optativas(matriz_curricular: str) -> str:
         return json.dumps([{"codigo": "ERRO", "nome": "Matriz curricular não informada. Peça ao aluno para enviar o currículo ou fazer upload do histórico."}])
         
     try:
-        # 2. Pegar ID da matriz no banco
+        #pegar ID da matriz no banco
         mat_id_res = supabase.table("matrizes").select("id_matriz").ilike("curriculo_completo", f"%{matriz_limpa}%").execute()
         
         if not mat_id_res.data: 
@@ -170,16 +173,40 @@ def ferramenta_buscar_optativas(matriz_curricular: str) -> str:
         id_matriz = mat_id_res.data[0]['id_matriz']
         print(f"[DEBUG] ID da Matriz encontrada: {id_matriz}")
 
-        # 3. Pegar matérias por curso onde tipo_natureza == 1 (Optativas)
+        # pegar matérias por curso onde tipo_natureza == 1 (Optativas)
         materias_res = supabase.table("materias_por_curso").select("id_materia").eq("id_matriz", id_matriz).eq("tipo_natureza", 1).execute()
+
+        if not materias_res.data:
+            print("[DEBUG] Nenhuma optativa encontrada para esta matriz.")
+            return json.dumps([])
+
+        ids_optativas = [item["id_materia"] for item in materias_res.data]
         
+        detalhes_res = supabase.table("materias").select("codigo_materia, nome_materia").in_("id_materia", ids_optativas).execute()
+
+
         #print(f"[DEBUG] ✅ Encontradas {len(materias_res.data)} optativas na matriz.")
 
-        x = json.dumps(materias_res.data,ensure_ascii=False)
+        '''
+        for i in range(3):
+            print(f"[DEBUG] ✅ Optativa {i+1}: {materias_res.data[i]}\n")
+            materiaEncontrada= supabase.table("materias").select("nome_materia","codigo_materia").eq("id_materia", materias_res.data[i]["id_materia"])
+            materiaEncontrada = materiaEncontrada.data
+            time.sleep(2)
+            print(f"disciplina: {materiaEncontrada}\n")
+        '''
+        #x = json.dumps(detalhes_res.data,ensure_ascii=False)
 
         
-        print(f"[DEBUG] ✅ {x}")
-        return json.dumps(materias_res.data, ensure_ascii=False)
+        print(f"[DEBUG] ✅ Encontradas {len(detalhes_res.data)} optativas na matriz.")
+
+       
+        nomes_ignorados = ["ATIVIDADE DE EXTENSÃO", "ATIVIDADE COMPLEMENTAR"]
+        detalhes_res.data = [m for m in detalhes_res.data if m.get("nome_materia") not in nomes_ignorados]
+            #print(f"[DEBUG] ✅ Optativa {i+1}: {detalhes_res.data[i]}\n")
+
+
+        return json.dumps(detalhes_res.data, ensure_ascii=False)
         
     except Exception as e:
         print(f"❌ Erro no fluxo de optativas: {e}")
@@ -312,7 +339,7 @@ async def recomendar_materias(consulta: Consulta):
             final_response = client_maritaca.chat.completions.create(
                 model="sabia-4", 
                 messages=mensagens,
-                max_tokens=1000  # Aumentado para comportar mais disciplinas
+                max_tokens=5000  # Aumentado para comportar mais disciplinas
             )
             resposta_texto = final_response.choices[0].message.content
             print(f"\n[DEBUG] Texto bruto da IA:\n{resposta_texto}\n")
@@ -386,7 +413,7 @@ async def recomendar_materias_stream(consulta: Consulta):
                 stream = client_maritaca.chat.completions.create(
                     model="sabia-4",
                     messages=mensagens,
-                    max_tokens=1000,
+                    max_tokens=5000,
                     stream=True
                 )
 
