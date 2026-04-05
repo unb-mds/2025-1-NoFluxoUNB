@@ -64,7 +64,7 @@ export class SabiaService {
      * @param interesse - The subject/interest to analyze (e.g., "inteligência artificial")
      * @returns Promise with the Sabiá response containing disciplinas and justifications
      */
-    async analyzarInteresse(interesse: string): Promise<SabiaResponse> {
+    async analyzarInteresse(interesse: string, matrizCurricular: string = ''): Promise<SabiaResponse> {
         if (!this.available) {
             throw new Error('Sabiá service is not configured');
         }
@@ -79,7 +79,10 @@ export class SabiaService {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ interesse }),
+                body: JSON.stringify({
+                    interesse,
+                    matriz_curricular: matrizCurricular,
+                }),
             });
 
             if (!response.ok) {
@@ -114,7 +117,7 @@ export class SabiaService {
     /**
      * Stream the Sabiá AI response via SSE, piping events from the FastAPI server.
      */
-    async analyzarInteresseStream(interesse: string, res: Response): Promise<void> {
+    async analyzarInteresseStream(interesse: string, matrizCurricular: string = '', res: Response): Promise<void> {
         if (!this.available) {
             throw new Error('Sabiá service is not configured');
         }
@@ -124,7 +127,10 @@ export class SabiaService {
         const response = await fetch(`${this.apiUrl}/recomendar-stream`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ interesse }),
+            body: JSON.stringify({
+                interesse,
+                matriz_curricular: matrizCurricular,
+            }),
         });
 
         if (!response.ok) {

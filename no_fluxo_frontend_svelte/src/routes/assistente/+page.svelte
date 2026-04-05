@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
 	import { Bot, Send, Loader2, Sparkles } from 'lucide-svelte';
 	import { AssistenteService, type StreamEvent } from '$lib/services/assistente.service';
+	import { authStore } from '$lib/stores/auth';
 	import { fly } from 'svelte/transition';
 
 	let mensagem = '';
@@ -11,6 +13,29 @@
 	let historico: Array<{ tipo: 'usuario' | 'assistente', texto: string, disciplinas?: any[] }> = [];
 
 	const assistente = new AssistenteService();
+
+	function getMatrizCurricularUsuario(): string {
+		const user = authStore.getUser();
+		const fromStore = String(user?.dadosFluxograma?.matrizCurricular ?? '').trim();
+		if (fromStore) return fromStore;
+
+		if (!browser) return '';
+		try {
+			const raw = localStorage.getItem('nofluxo_user');
+			if (!raw) return '';
+			const parsed = JSON.parse(raw) as {
+				dadosFluxograma?: { matrizCurricular?: string };
+				dados_fluxograma?: { matriz_curricular?: string };
+			};
+			return String(
+				parsed?.dadosFluxograma?.matrizCurricular ??
+				parsed?.dados_fluxograma?.matriz_curricular ??
+				''
+			).trim();
+		} catch {
+			return '';
+		}
+	}
 
 	async function enviarMensagem() {
 		if (!mensagem.trim() || carregando) return;
@@ -29,7 +54,8 @@
 		historico = [...historico, { tipo: 'assistente', texto: '', disciplinas: [] }];
 
 		try {
-			await assistente.streamMessageFromSabia(mensagemUsuario, (event: StreamEvent) => {
+			const matrizCurricular = getMatrizCurricularUsuario();
+			await assistente.streamMessageFromSabia(mensagemUsuario, matrizCurricular, (event: StreamEvent) => {
 				switch (event.stage) {
 					case 'thinking':
 						etapaAtual = event.message || 'Analisando...';
