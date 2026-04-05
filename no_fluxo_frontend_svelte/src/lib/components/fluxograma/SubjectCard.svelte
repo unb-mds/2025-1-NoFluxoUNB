@@ -15,8 +15,17 @@
 	let { materia, showOptBadge = false, onOpenDetails, onlongpress }: Props = $props();
 
 	const store = fluxogramaStore;
-	let status = $derived(store.getSubjectStatus(materia));
-	let userData = $derived(store.getSubjectUserData(materia.codigoMateria));
+	/** Garante re-render ao mudar histórico / optativas (store em .svelte.ts). */
+	let status = $derived.by(() => {
+		void store.diagramLayoutRevision;
+		void store.userFluxograma;
+		return store.getSubjectStatus(materia);
+	});
+	let userData = $derived.by(() => {
+		void store.diagramLayoutRevision;
+		void store.userFluxograma;
+		return store.getSubjectUserData(materia.codigoMateria);
+	});
 	let concluidaPorEquivalencia = $derived(
 		status === SubjectStatusEnum.COMPLETED && userData?.tipoDado === 'equivalencia'
 	);

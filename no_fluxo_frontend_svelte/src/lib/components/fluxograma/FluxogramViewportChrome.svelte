@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle } from 'lucide-svelte';
+	import { browser } from '$app/environment';
 	import { fluxogramaStore, type ConnectionMode } from '$lib/stores/fluxograma.store.svelte';
 	import { portal } from '$lib/actions/portal';
+	import { matchesFluxogramCompactTouchMode } from '$lib/utils/fluxogram-viewport';
 
 	interface Props {
 		/** Sincronizado com o botão “Legenda e regras” (?) no header */
@@ -13,8 +15,6 @@
 	const store = fluxogramaStore;
 
 	let zoomPercent = $derived(Math.round(store.state.zoomLevel * 100));
-	let connectionsActive = $derived(store.state.connectionMode !== 'off');
-
 	/** Campo de zoom digitável — não sobrescreve enquanto o utilizador edita */
 	let zoomInputFocused = $state(false);
 	let zoomDraft = $state(String(Math.round(store.state.zoomLevel * 100)));
@@ -50,16 +50,32 @@
 		}
 	}
 
+	/** Mobile + landscape estreito: FAB e faixa de conexões (evita barra “desktop” em tela deitada). */
+	let compactTouch = $state(false);
 	/** Mobile: painel do FAB ferramentas (zoom + conexões) */
 	let fabMenuOpen = $state(false);
 
-	function handleConnectionsToggle() {
-		if (connectionsActive) {
-			store.setConnectionMode('off');
-		} else {
-			store.setConnectionMode('direct');
-		}
-	}
+	$effect(() => {
+		if (!browser) return;
+		const apply = () => {
+			compactTouch = matchesFluxogramCompactTouchMode();
+		};
+		apply();
+		const mqNarrow = window.matchMedia('(max-width: 768px)');
+		const mqLand = window.matchMedia('(orientation: landscape) and (max-height: 560px)');
+		mqNarrow.addEventListener('change', apply);
+		mqLand.addEventListener('change', apply);
+		window.addEventListener('resize', apply);
+		return () => {
+			mqNarrow.removeEventListener('change', apply);
+			mqLand.removeEventListener('change', apply);
+			window.removeEventListener('resize', apply);
+		};
+	});
+
+	$effect(() => {
+		if (!compactTouch) fabMenuOpen = false;
+	});
 
 	function selectMode(mode: ConnectionMode) {
 		store.setConnectionMode(mode);
@@ -86,21 +102,23 @@
 <svelte:window onkeydown={handleLegendKeydown} />
 
 <!--
-	Controles flutuantes sobre o fluxograma (não ocupam fluxo do layout).
-	Mobile: FAB ferramentas (zoom/conexões). Legenda completa: botão no header.
-	Desktop: barra única com zoom e conexões.
+	Controles flutuantes sobre o fluxograma.
+	Conexões: pill compacta no canto inferior direito (todos os breakpoints).
+	Desktop: zoom no canto inferior esquerdo. Mobile: FAB = só zoom (sheet sem duplicar conexões).
 -->
 <div
-	class="pointer-events-none absolute inset-0 z-20 flex flex-col justify-end"
+	class="pointer-events-none absolute inset-0 z-20"
 	aria-hidden="false"
 	data-fluxogram-viewport-chrome
 >
-	<!-- Desktop: zoom + conexões (legenda: ícone de ajuda no header) -->
+	<!-- Desktop: só zoom — canto inferior esquerdo (conexões ficam à direita) -->
 	<div
-		class="pointer-events-none hidden w-full items-end justify-end px-3 pb-3 pt-0 md:pointer-events-auto md:flex md:px-4 md:pb-3"
+		class="pointer-events-none absolute bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] left-[max(0.75rem,env(safe-area-inset-left,0px))] z-[30] {compactTouch
+			? 'hidden'
+			: 'hidden md:block'}"
 	>
 		<div
-			class="pointer-events-auto flex min-h-[42px] flex-wrap items-center justify-end gap-1.5 rounded-full border border-white/20 bg-black/35 px-2.5 py-1.5 shadow-lg backdrop-blur-xl md:flex-nowrap md:gap-2"
+			class="pointer-events-auto flex max-w-[calc(100vw-11rem)] items-center gap-1 rounded-full border border-white/20 bg-black/40 px-2 py-1 shadow-lg backdrop-blur-xl"
 		>
 			<div class="flex items-center gap-0.5 rounded-full bg-white/5 px-0.5 py-0.5">
 				<button
@@ -155,83 +173,92 @@
 					<RotateCcw class="h-3.5 w-3.5" />
 				</button>
 			</div>
-
-			{#if !connectionsActive}
-				<button
-					type="button"
-					onclick={handleConnectionsToggle}
-					class="inline-flex items-center gap-1 rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-white/75 transition-colors hover:bg-white/10"
-				>
-					<HelpCircle class="h-3.5 w-3.5" />
-					<span class="hidden sm:inline">Conexões</span>
-				</button>
-			{:else}
-				<div
-					class="flex shrink-0 items-center overflow-visible rounded-full border border-purple-500/40 bg-purple-500/15"
-					role="group"
-					aria-label="Modo de conexões"
-				>
-					<button
-						type="button"
-						onclick={() => selectMode('direct')}
-						class="px-2 py-1 text-[10px] font-medium sm:px-2.5 sm:text-[11px] {store.state.connectionMode === 'direct'
-							? 'bg-purple-500/40 text-white'
-							: 'text-white/65 hover:bg-white/10'}"
-					>
-						Diretas
-					</button>
-					<span class="flex items-center self-stretch border-x border-white/20 px-0.5 text-[10px] leading-none text-white/40">|</span>
-					<button
-						type="button"
-						onclick={() => selectMode('all')}
-						class="px-2 py-1 text-[10px] font-medium sm:px-2.5 sm:text-[11px] {store.state.connectionMode === 'all'
-							? 'bg-purple-500/40 text-white'
-							: 'text-white/65 hover:bg-white/10'}"
-					>
-						Todas
-					</button>
-					<button
-						type="button"
-						onclick={handleConnectionsToggle}
-						class="border-l border-white/15 px-2 py-1 text-[10px] text-white/45 hover:bg-white/10"
-						title="Desligar"
-					>
-						Off
-					</button>
-				</div>
-			{/if}
 		</div>
 	</div>
 
-	<!-- Mobile: um FAB — zoom e conexões (legenda: botão no topo) -->
-	<div
-		class="pointer-events-auto absolute bottom-[max(1rem,env(safe-area-inset-bottom))] left-[max(0.75rem,env(safe-area-inset-left))] z-40 md:hidden"
-	>
-		<button
-			type="button"
-			onclick={() => (fabMenuOpen = !fabMenuOpen)}
-			class="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-purple-600/90 to-indigo-700/95 text-white shadow-xl backdrop-blur-md transition-transform active:scale-95"
-			aria-expanded={fabMenuOpen}
-			aria-label="Ajuda e ferramentas do fluxograma"
-			title="Zoom e conexões"
+	{#snippet connectionModePill()}
+		<div
+			class="pointer-events-auto flex shrink-0 flex-nowrap items-center gap-0 rounded-full border border-purple-500/45 bg-black/45 px-0.5 py-0.5 shadow-md backdrop-blur-md supports-[backdrop-filter]:bg-black/35"
+			role="group"
+			aria-label="Modo de conexões no fluxograma"
 		>
-			<HelpCircle class="h-6 w-6" />
-		</button>
-	</div>
+			<button
+				type="button"
+				onclick={() => selectMode('direct')}
+				class="rounded-l-full px-1.5 py-1 text-[10px] font-medium sm:px-2 sm:text-[11px] {store.state.connectionMode === 'direct'
+					? 'bg-purple-500/45 text-white'
+					: 'text-white/70 hover:bg-white/10'}"
+			>
+				Diretas
+			</button>
+			<span class="flex items-center self-stretch border-x border-white/15 px-0.5 text-[9px] leading-none text-white/35">|</span>
+			<button
+				type="button"
+				onclick={() => selectMode('all')}
+				class="px-1.5 py-1 text-[10px] font-medium sm:px-2 sm:text-[11px] {store.state.connectionMode === 'all'
+					? 'bg-purple-500/45 text-white'
+					: 'text-white/70 hover:bg-white/10'}"
+			>
+				Todas
+			</button>
+			<button
+				type="button"
+				onclick={() => selectMode('off')}
+				class="rounded-r-full border-l border-white/10 px-1.5 py-1 text-[9px] text-white/45 hover:bg-white/10 sm:px-2 sm:text-[10px]"
+				title="Desligar linhas"
+			>
+				Off
+			</button>
+		</div>
+	{/snippet}
+
+	<!--
+		Mobile / touch compacto: mesma linha inferior — "?" à esquerda, conexões coladas à direita.
+	-->
+	{#if compactTouch}
+		<div
+			class="pointer-events-none absolute inset-x-0 bottom-[max(1rem,env(safe-area-inset-bottom,0px))] z-40 flex items-end justify-between gap-3 pl-[max(0.75rem,env(safe-area-inset-left,0px))] pr-[max(0.75rem,env(safe-area-inset-right,0px))]"
+		>
+			<div class="pointer-events-auto shrink-0">
+				<button
+					type="button"
+					onclick={() => (fabMenuOpen = !fabMenuOpen)}
+					class="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-purple-600/90 to-indigo-700/95 text-white shadow-xl backdrop-blur-md transition-transform active:scale-95"
+					aria-expanded={fabMenuOpen}
+					aria-label="Zoom do fluxograma"
+					title="Zoom"
+				>
+					<HelpCircle class="h-6 w-6" />
+				</button>
+			</div>
+			<div class="pointer-events-auto flex min-w-0 shrink-0 justify-end pb-0.5">
+				{@render connectionModePill()}
+			</div>
+		</div>
+	{:else}
+		<!--
+			Desktop: conexões fixas no canto inferior direito (zoom continua à esquerda).
+		-->
+		<div
+			class="pointer-events-none absolute bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-[max(0.75rem,env(safe-area-inset-right,0px))] z-[35]"
+		>
+			{@render connectionModePill()}
+		</div>
+	{/if}
 </div>
 
 <!-- Mobile: sheet ferramentas (portal → body: fora do stacking context z-0 do diagrama) -->
-{#if fabMenuOpen}
+{#if fabMenuOpen && compactTouch}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<div
 		use:portal
-		class="fixed inset-0 z-[500] bg-black/55 backdrop-blur-[2px] md:hidden"
+		class="fixed inset-0 z-[500] bg-black/55 backdrop-blur-[2px]"
 		onclick={() => (fabMenuOpen = false)}
 		role="presentation"
 	></div>
 	<div
 		use:portal
-		class="fixed bottom-0 left-0 right-0 z-[510] max-h-[min(72dvh,520px)] overflow-hidden rounded-t-2xl border border-white/15 bg-gray-950/98 shadow-2xl backdrop-blur-xl md:hidden"
+		class="fixed bottom-0 left-0 right-0 z-[510] max-h-[min(72dvh,520px)] overflow-hidden rounded-t-2xl border border-white/15 bg-gray-950/98 shadow-2xl backdrop-blur-xl [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[min(85dvh,100dvh-2rem)]"
 		role="dialog"
 		aria-modal="true"
 		aria-labelledby="fab-tools-title"
@@ -304,53 +331,9 @@
 					</button>
 				</div>
 			</div>
-			<div>
-				<p class="mb-2 text-[10px] font-semibold uppercase tracking-wide text-white/45">Conexões</p>
-				{#if !connectionsActive}
-					<button
-						type="button"
-						onclick={() => {
-							handleConnectionsToggle();
-						}}
-						class="flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 py-3 text-sm font-medium text-white/85"
-					>
-						<HelpCircle class="h-4 w-4" />
-						Ativar conexões
-					</button>
-				{:else}
-					<div class="flex overflow-hidden rounded-xl border border-purple-500/45 bg-purple-500/15">
-						<button
-							type="button"
-							onclick={() => selectMode('direct')}
-							class="flex-1 py-3 text-sm font-medium {store.state.connectionMode === 'direct'
-								? 'bg-purple-500/40 text-white'
-								: 'text-white/70'}"
-						>
-							Diretas
-						</button>
-						<span class="flex items-center border-x border-white/20 px-1 text-white/40">|</span>
-						<button
-							type="button"
-							onclick={() => selectMode('all')}
-							class="flex-1 py-3 text-sm font-medium {store.state.connectionMode === 'all'
-								? 'bg-purple-500/40 text-white'
-								: 'text-white/70'}"
-						>
-							Todas
-						</button>
-						<button
-							type="button"
-							onclick={handleConnectionsToggle}
-							class="border-l border-white/15 px-3 py-3 text-xs text-white/50"
-						>
-							Off
-						</button>
-					</div>
-				{/if}
-			</div>
-			<p class="text-center text-[11px] text-white/45">
-				Legenda, gestos e regras: ícone <strong class="text-cyan-300/90">?</strong> no topo. Créditos/Horas: menu
-				<strong class="text-white/70">⚙</strong>.
+			<p class="text-center text-[11px] text-white/50">
+				<strong class="text-purple-300/90">Diretas · Todas · Off</strong> estão no canto inferior direito do diagrama. Legenda completa: ícone de ajuda
+				<strong class="text-cyan-300/90">(?)</strong> no topo. Créditos/Horas: menu <strong class="text-white/70">⚙</strong>.
 			</p>
 		</div>
 	</div>
@@ -408,11 +391,10 @@
 				{/if}
 				<section class="mt-4 border-t border-white/10 pt-4">
 					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">Conexões (linhas)</h3>
-					{#if !connectionsActive}
-						<p class="mb-2 text-xs text-amber-200/80">
-							Ative as conexões no painel inferior (ou na barra, no desktop) para vê-las no diagrama.
-						</p>
-					{/if}
+					<p class="mb-2 text-xs text-white/55">
+						O modo das linhas é alterado só no diagrama: grupo <strong class="text-white/85">Diretas · Todas · Off</strong> no
+						<strong class="text-white/85">canto inferior direito</strong> (não neste painel).
+					</p>
 					<ul class="space-y-1.5 text-white/90">
 						<li class="flex items-center gap-2">
 							<div class="h-1 w-6 shrink-0 rounded bg-purple-400"></div>
@@ -432,10 +414,7 @@
 					</ul>
 				</section>
 				<section class="mt-4 rounded-lg border border-purple-500/30 bg-purple-500/10 p-3">
-					<h3 class="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-purple-300">
-						<HelpCircle class="h-3.5 w-3.5" />
-						Mobile / toque
-					</h3>
+					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-purple-300">Mobile / toque</h3>
 					<ul class="space-y-2 text-sm text-white/90">
 						<li>
 							<strong>1 toque</strong> na disciplina — mostra as conexões (setas), se estiverem ativas
@@ -446,7 +425,7 @@
 						</li>
 						<li><strong>Toque na área vazia</strong> — esconde as conexões</li>
 						<li class="border-t border-white/10 pt-2 text-white/80">
-							<strong>Arrastar</strong> o fundo — mover o fluxograma · <strong>Pinçar</strong> — zoom
+							<strong>Deslizar</strong> com um dedo — rola o diagrama e, no fim da área, segue rolando a página · Zoom: botão flutuante ou pinça (quando disponível)
 						</li>
 					</ul>
 				</section>

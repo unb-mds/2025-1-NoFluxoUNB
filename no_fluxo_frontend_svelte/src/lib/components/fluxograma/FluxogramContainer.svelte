@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
+	import { browser } from '$app/environment';
 	import type { MateriaModel } from '$lib/types/materia';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
+	import { matchesFluxogramCompactTouchMode } from '$lib/utils/fluxogram-viewport';
 	import SemesterColumn from './SemesterColumn.svelte';
 	import PrerequisiteConnections from './PrerequisiteConnections.svelte';
 
@@ -40,6 +42,30 @@
 	let initialPinchZoom = $state(0);
 	/** Mobile: toque iniciou em um card — atrasa scroll para permitir tap/long-press */
 	let touchStartedOnCard = $state(false);
+
+	/**
+	 * Em telas estreitas, rolagem com 1 dedo fica nativa (overflow) para encadear com a página
+	 * e não “prender” o gesto no diagrama. Desktop mantém pan customizado no fundo.
+	 */
+	let useNativeTouchScroll = $state(false);
+
+	$effect(() => {
+		if (!browser) return;
+		const apply = () => {
+			useNativeTouchScroll = matchesFluxogramCompactTouchMode();
+		};
+		apply();
+		const mqNarrow = window.matchMedia('(max-width: 768px)');
+		const mqLand = window.matchMedia('(orientation: landscape) and (max-height: 560px)');
+		mqNarrow.addEventListener('change', apply);
+		mqLand.addEventListener('change', apply);
+		window.addEventListener('resize', apply);
+		return () => {
+			mqNarrow.removeEventListener('change', apply);
+			mqLand.removeEventListener('change', apply);
+			window.removeEventListener('resize', apply);
+		};
+	});
 
 	// Semestres: grade (nivel >= 1) + semestres onde há só optativa planejada pelo usuário
 	let sortedSemesters = $derived.by(() => {
@@ -115,8 +141,12 @@
 		if (e.touches.length === 1) {
 			const target = e.target as HTMLElement;
 			touchStartedOnCard = !!target.closest('.subject-card');
-			// Se toque em card, não inicia scroll — permite tap/long-press
-			isDragging = !touchStartedOnCard;
+			if (!useNativeTouchScroll) {
+				// Se toque em card, não inicia scroll — permite tap/long-press
+				isDragging = !touchStartedOnCard;
+			} else {
+				isDragging = false;
+			}
 			lastTouchX = e.touches[0].clientX;
 			lastTouchY = e.touches[0].clientY;
 			if (containerRef) {
@@ -133,8 +163,11 @@
 	}
 
 	function handleTouchMove(e: TouchEvent) {
+		if (useNativeTouchScroll && e.touches.length === 1) {
+			return;
+		}
 		if (e.touches.length === 1) {
-			// Se toque começou em card e usuário moveu, habilita scroll
+			// Se toque começou em card e usuário moveu, habilita scroll (só desktop / pan customizado)
 			if (touchStartedOnCard) {
 				const dx = Math.abs(e.touches[0].clientX - lastTouchX);
 				const dy = Math.abs(e.touches[0].clientY - lastTouchY);
@@ -159,7 +192,7 @@
 				lastTouchY = e.touches[0].clientY;
 			}
 		} else if (e.touches.length === 2) {
-			// Para pinch-zoom, contamos com `touch-action: none` no container.
+			// Pinch: em mobile com rolagem nativa, pinch-zoom do SO pode competir; zoom fino continua no painel FAB.
 			const dx = e.touches[0].clientX - e.touches[1].clientX;
 			const dy = e.touches[0].clientY - e.touches[1].clientY;
 			const distance = Math.sqrt(dx * dx + dy * dy);
@@ -193,8 +226,10 @@
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <div
 	bind:this={containerRef}
-	class="fluxogram-container relative h-full min-h-0 w-full flex-1 select-none overflow-auto rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm"
-	style="cursor: grab; touch-action: none;"
+	class="fluxogram-container relative h-full min-h-0 w-full flex-1 select-none overflow-auto rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm {useNativeTouchScroll ? 'overscroll-y-auto' : ''}"
+	style:cursor="grab"
+	style:touch-action={useNativeTouchScroll ? 'pan-x pan-y pinch-zoom' : 'none'}
+	style:-webkit-overflow-scrolling={useNativeTouchScroll ? 'touch' : undefined}
 	role="application"
 	aria-label="Fluxograma interativo — arraste o fundo para mover"
 	onmousedown={handleMouseDown}
@@ -207,7 +242,7 @@
 >
 	<div
 		bind:this={innerRef}
-		class="relative inline-flex p-4"
+		class="relative inline-flex p-4 pb-[5.75rem] pt-4 md:pb-14"
 		style="gap: {store.state.connectionMode === 'all' ? '6rem' : '3rem'}; transform: scale({store.state.zoomLevel}); transform-origin: top left; transition: gap 0.3s ease;"
 	>
 		<!-- Prerequisite connection lines -->

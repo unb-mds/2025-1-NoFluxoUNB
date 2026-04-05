@@ -6,6 +6,7 @@
 	import { getStatusLabel, isOptativa, type SubjectStatusValue, SubjectStatusEnum } from '$lib/types/materia';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { X, BookOpen, GitBranch, Repeat2 } from 'lucide-svelte';
+	import OptativaTipoModal from './OptativaTipoModal.svelte';
 
 	interface Props {
 		materia: MateriaModel;
@@ -17,6 +18,7 @@
 
 	const store = fluxogramaStore;
 	let activeTab = $state<'info' | 'prereqs' | 'equivalencias'>('info');
+	let optativaTipoOpen = $state(false);
 
 	let status = $derived(store.getSubjectStatus(materia));
 	let userData = $derived(store.getSubjectUserData(materia.codigoMateria));
@@ -53,10 +55,12 @@
 	};
 
 	function handleKeydown(e: KeyboardEvent) {
+		if (optativaTipoOpen) return;
 		if (e.key === 'Escape') onclose?.();
 	}
 
 	function handleBackdropClick(e: MouseEvent) {
+		if (optativaTipoOpen) return;
 		if (e.target === e.currentTarget) onclose?.();
 	}
 
@@ -280,15 +284,37 @@
 				<div class="border-t border-white/10 px-6 py-3">
 					<button
 						onclick={() => {
-							const nextSem = !isOptativa(materia) && materia.nivel > 0 ? materia.nivel : 1;
+							if (isOptativa(materia)) {
+								optativaTipoOpen = true;
+								return;
+							}
+							const nextSem = materia.nivel > 0 ? materia.nivel : 1;
 							store.addOptativa(materia, nextSem);
 							onclose?.();
 						}}
 						class="w-full rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:from-purple-500 hover:to-purple-600"
 					>
-						Adicionar ao {!isOptativa(materia) && materia.nivel > 0 ? `${materia.nivel}º` : 'próximo'} semestre
+						{#if isOptativa(materia)}
+							Adicionar optativa ao fluxograma / histórico
+						{:else}
+							Adicionar ao {materia.nivel > 0 ? `${materia.nivel}º` : 'próximo'} semestre
+						{/if}
 					</button>
 				</div>
 			{/if}
 	</div>
 </div>
+
+{#if optativaTipoOpen}
+	<OptativaTipoModal
+		{materia}
+		defaultSemestre={1}
+		ondecidir={(tipo, sem) => {
+			optativaTipoOpen = false;
+			if (tipo === 'futura') store.addOptativa(materia, sem ?? 1);
+			else store.registrarOptativaConcluida(materia);
+			onclose?.();
+		}}
+		onpular={() => (optativaTipoOpen = false)}
+	/>
+{/if}

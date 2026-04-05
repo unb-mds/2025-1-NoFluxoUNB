@@ -8,11 +8,20 @@ import { dadosFluxogramaUserToJson } from '$lib/factories';
 import { authStore } from '$lib/stores/auth';
 import type { CursoModel } from '$lib/types/curso';
 import type { MateriaModel } from '$lib/types/materia';
-import { isOptativa, SubjectStatusEnum, determineSubjectStatus, type SubjectStatusValue, type OptativaAdicionada } from '$lib/types/materia';
+import {
+	isOptativa,
+	SubjectStatusEnum,
+	determineSubjectStatus,
+	prerequisitosAprovadosParaRegistrarConcluida,
+	type SubjectStatusValue,
+	type OptativaAdicionada
+} from '$lib/types/materia';
 import {
 	getCompletedSubjectCodes,
 	getCurrentSubjectCodes,
+	isMateriaAprovada,
 	type DadosFluxogramaUser,
+	type DadosMateria,
 	type OptativaPlanejadaRef,
 	findSubjectInFluxograma
 } from '$lib/types/user';
@@ -92,7 +101,7 @@ function createFluxogramaStore() {
 		loading: false,
 		error: null,
 		zoomLevel: 0.6,
-		connectionMode: 'off' as ConnectionMode,
+		connectionMode: 'direct' as ConnectionMode,
 		displayUnit: 'horas' as DisplayUnit,
 		isAnonymous: false,
 		hoveredSubjectCode: null,
@@ -101,9 +110,17 @@ function createFluxogramaStore() {
 	});
 
 	let optativasAdicionadas = $state<OptativaAdicionada[]>([]);
+	/** Inclusão manual de optativa concluída no histórico — ainda não enviada ao Supabase. */
+	let historicoManualPendenteSalvar = $state(false);
 
 	// Per-semester connection density: semester → connection count
 	let connectionDensityBySemester = $state<Map<number, number>>(new Map());
+
+	/** Incrementado ao mudar optativas planejadas ou histórico local — força recálculo das linhas no diagrama. */
+	let diagramLayoutRevision = $state(0);
+	function bumpDiagramLayout() {
+		diagramLayoutRevision += 1;
+	}
 
 	// Mirror the Svelte 4 writable authStore into a $state variable so that
 	// $derived expressions can reactively track auth changes.
@@ -151,6 +168,10 @@ function createFluxogramaStore() {
 		refsPlanejadasIguais(userFluxograma?.optativasPlanejadas, optativasAdicionadas)
 	);
 
+	const precisaSalvarPerfil = $derived.by(
+		() => !optativasPlanejamentoSalvo || historicoManualPendenteSalvar
+	);
+
 	// Computed: carga horária integralizada do histórico (PDF)
 	const cargaHorariaIntegralizada = $derived.by(() => {
 		return authState.user?.cargaHorariaIntegralizada ?? null;
@@ -166,6 +187,12 @@ function createFluxogramaStore() {
 				? getCompletedByEquivalenceCodes(courseData.equivalencias, base)
 				: new Set<string>();
 		return new Set([...base, ...byEquiv]);
+	});
+
+	/** Só disciplinas aprovadas no histórico (sem códigos “virtuais” por equivalência da matriz). */
+	const completedCodesHistorico = $derived.by(() => {
+		if (!userFluxograma) return new Set<string>();
+		return getCompletedSubjectCodes(userFluxograma);
 	});
 
 	// Computed: current subject codes
@@ -204,6 +231,9 @@ function createFluxogramaStore() {
 		get completedCodes() {
 			return completedCodes;
 		},
+		get completedCodesHistorico() {
+			return completedCodesHistorico;
+		},
 		get currentCodes() {
 			return currentCodes;
 		},
@@ -222,8 +252,18 @@ function createFluxogramaStore() {
 		get optativasPlanejamentoSalvo() {
 			return optativasPlanejamentoSalvo;
 		},
+		get historicoManualPendenteSalvar() {
+			return historicoManualPendenteSalvar;
+		},
+		get precisaSalvarPerfil() {
+			return precisaSalvarPerfil;
+		},
 		get connectionDensityBySemester() {
 			return connectionDensityBySemester;
+		},
+
+		get diagramLayoutRevision() {
+			return diagramLayoutRevision;
 		},
 
 		getSubjectStatus(materia: MateriaModel): SubjectStatusValue {
@@ -248,7 +288,70 @@ function createFluxogramaStore() {
 				return;
 			}
 			optativasAdicionadas = [...optativasAdicionadas, { materia, semestre }];
+			bumpDiagramLayout();
 			toast.success(`${materia.nomeMateria} adicionada ao ${semestre}º semestre.`);
+		},
+
+		registrarOptativaConcluida(materia: MateriaModel) {
+			const user = authStore.getUser();
+			if (state.isAnonymous || !user?.dadosFluxograma) {
+				toast.error('Entre na conta para registrar disciplina concluída.');
+				return;
+			}
+			if (
+				!prerequisitosAprovadosParaRegistrarConcluida(
+					materia,
+					completedCodes,
+					completedCodesHistorico,
+					state.courseData ?? undefined
+				)
+			) {
+				toast.error(
+					'Registre no histórico os pré-requisitos aprovados. Se algum pré-requisito for optativa, ela precisa constar como aprovada no seu histórico (não basta equivalência só na matriz).'
+				);
+				return;
+			}
+			const fluxo = user.dadosFluxograma;
+			const codeU = materia.codigoMateria.trim().toUpperCase();
+			const existente = findSubjectInFluxograma(fluxo, materia.codigoMateria);
+			if (existente && isMateriaAprovada(existente)) {
+				toast.warning('Esta disciplina já consta como concluída no histórico.');
+				return;
+			}
+			let jaTemCodigo = false;
+			for (const sem of fluxo.dadosFluxograma) {
+				for (const m of sem) {
+					if (m.codigoMateria.trim().toUpperCase() === codeU) {
+						jaTemCodigo = true;
+						break;
+					}
+				}
+				if (jaTemCodigo) break;
+			}
+			if (jaTemCodigo) {
+				toast.warning('Este código já existe no histórico com outro status.');
+				return;
+			}
+			const nova: DadosMateria = {
+				codigoMateria: materia.codigoMateria.trim(),
+				mencao: 'MS',
+				professor: '-',
+				status: 'APR',
+				anoPeriodo: fluxo.anoAtual?.trim() ? fluxo.anoAtual : null,
+				frequencia: null,
+				tipoDado: 'inclusao_manual_optativa',
+				turma: null,
+				codigoEquivalente: null,
+				nomeEquivalente: null
+			};
+			const nextGrid = fluxo.dadosFluxograma.map((s) => [...s]);
+			if (nextGrid.length === 0) nextGrid.push([]);
+			nextGrid[0].push(nova);
+			const atualizado: DadosFluxogramaUser = { ...fluxo, dadosFluxograma: nextGrid };
+			authStore.updateDadosFluxograma(atualizado);
+			historicoManualPendenteSalvar = true;
+			bumpDiagramLayout();
+			toast.success(`${materia.nomeMateria} registrada como concluída — salve para enviar ao servidor.`);
 		},
 
 		removeOptativa(codigoMateria: string) {
@@ -260,6 +363,7 @@ function createFluxogramaStore() {
 				(o) => o.materia.codigoMateria.trim().toUpperCase() !== u
 			);
 			if (opt) {
+				bumpDiagramLayout();
 				toast.success(`${opt.materia.nomeMateria} removida.`);
 			}
 		},
@@ -285,7 +389,8 @@ function createFluxogramaStore() {
 					user.dadosFluxograma.semestreAtual
 				);
 				authStore.updateDadosFluxograma(dadosAtualizados);
-				toast.success('Optativas salvas no seu perfil.');
+				historicoManualPendenteSalvar = false;
+				toast.success('Alterações salvas no seu perfil.');
 			} catch {
 				toast.error('Não foi possível salvar. Tente de novo.');
 			}
@@ -424,7 +529,7 @@ function createFluxogramaStore() {
 			state.loading = false;
 			state.error = null;
 			state.zoomLevel = 0.6;
-			state.connectionMode = 'off';
+			state.connectionMode = 'direct';
 			state.displayUnit = 'horas';
 			state.isAnonymous = false;
 			state.hoveredSubjectCode = null;

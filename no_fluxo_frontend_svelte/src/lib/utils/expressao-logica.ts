@@ -42,6 +42,21 @@ function evaluateRecursivo(
 	return false;
 }
 
+function evaluateRecursivoWithResolver(
+	expr: ExpressaoLogicaRecursiva | null | undefined,
+	isSatisfied: (code: string) => boolean
+): boolean {
+	if (!expr) return false;
+	if (typeof expr === 'string') return isSatisfied(expr);
+	if (expr && typeof expr === 'object' && Array.isArray(expr.condicoes)) {
+		if (expr.condicoes.length === 0) return false;
+		const op = (expr.operador || 'OU').toUpperCase();
+		const results = expr.condicoes.map((c) => evaluateRecursivoWithResolver(c, isSatisfied));
+		return op === 'E' ? results.every(Boolean) : results.some(Boolean);
+	}
+	return false;
+}
+
 /**
  * Extrai todos os códigos de uma expressão recursiva.
  */
@@ -86,6 +101,28 @@ export function evaluateExpressaoLogica(
 	if (operador === 'OU') return materias.some((m) => setHasCode(completedCodes, m));
 	if (operador === 'E') return materias.every((m) => setHasCode(completedCodes, m));
 	return setHasCode(completedCodes, materias[0]);
+}
+
+/**
+ * Como {@link evaluateExpressaoLogica}, mas cada folha (código) usa `isSatisfied(codigo)`.
+ * Útil p.ex. para exigir histórico real em optativas que são pré-requisito.
+ */
+export function evaluateExpressaoLogicaWithResolver(
+	expressaoLogica: ExpressaoLogicaJson | ExpressaoLogicaRecursiva | null | undefined,
+	isSatisfied: (code: string) => boolean
+): boolean {
+	if (!expressaoLogica) return false;
+
+	if (typeof expressaoLogica === 'object' && 'condicoes' in expressaoLogica) {
+		return evaluateRecursivoWithResolver(expressaoLogica as ExpressaoLogicaRecursiva, isSatisfied);
+	}
+
+	if (!expressaoLogica.materias || expressaoLogica.materias.length === 0) return false;
+	const materias = expressaoLogica.materias.map(norm);
+	const operador = expressaoLogica.operador ?? null;
+	if (operador === 'OU') return materias.some((m) => isSatisfied(m));
+	if (operador === 'E') return materias.every((m) => isSatisfied(m));
+	return isSatisfied(materias[0]);
 }
 
 /**

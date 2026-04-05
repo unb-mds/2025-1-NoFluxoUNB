@@ -711,6 +711,7 @@
 		const _data = store.state.courseData;
 		const el = container;
 		const _zoom = store.state.zoomLevel;
+		void store.diagramLayoutRevision;
 
 		if (!browser) return;
 

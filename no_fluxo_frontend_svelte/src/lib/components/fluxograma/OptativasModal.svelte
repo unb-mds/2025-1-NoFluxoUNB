@@ -1,7 +1,9 @@
 <script lang="ts">
 	import type { MateriaModel } from '$lib/types/materia';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
+	import { findSubjectInFluxograma, isMateriaAprovada } from '$lib/types/user';
 	import { X, Search, Plus, Check } from 'lucide-svelte';
+	import OptativaTipoModal from './OptativaTipoModal.svelte';
 
 	interface Props {
 		optativas: MateriaModel[];
@@ -15,6 +17,8 @@
 	let searchQuery = $state('');
 	let selectedSemester = $state(1);
 	let selectedCodes = $state<Set<string>>(new Set());
+	/** Fila para o modal “futura vs concluída” (uma disciplina por vez). */
+	let filaTipoMaterias = $state<MateriaModel[]>([]);
 
 	let filtered = $derived.by(() => {
 		if (!searchQuery.trim()) return optativas;
@@ -26,12 +30,20 @@
 		);
 	});
 
-	// Check if an optativa is already added
+	let materiaTipoCorrente = $derived(filaTipoMaterias[0] ?? null);
+
 	function isAlreadyAdded(code: string): boolean {
 		const u = code.trim().toUpperCase();
 		return store.optativasAdicionadas.some(
 			(o) => o.materia.codigoMateria.trim().toUpperCase() === u
 		);
+	}
+
+	function isJaConcluidaNoHistorico(code: string): boolean {
+		const fluxo = store.userFluxograma;
+		if (!fluxo) return false;
+		const dm = findSubjectInFluxograma(fluxo, code);
+		return dm != null && isMateriaAprovada(dm);
 	}
 
 	function toggleSelection(code: string) {
@@ -44,27 +56,53 @@
 		selectedCodes = next;
 	}
 
-	function handleConfirm() {
-		for (const code of selectedCodes) {
-			const materia = optativas.find((m) => m.codigoMateria === code);
-			if (materia) {
-				store.addOptativa(materia, selectedSemester);
-			}
-		}
+	function iniciarFilaTipo() {
+		const list = [...selectedCodes]
+			.map((c) => optativas.find((m) => m.codigoMateria === c))
+			.filter((m): m is MateriaModel => !!m);
 		selectedCodes = new Set();
-		onclose?.();
+		filaTipoMaterias = list;
+	}
+
+	function consumirTopoFila() {
+		filaTipoMaterias = filaTipoMaterias.slice(1);
+		if (filaTipoMaterias.length === 0) {
+			onclose?.();
+		}
+	}
+
+	function handleConfirm() {
+		if (selectedCodes.size === 0) return;
+		iniciarFilaTipo();
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
+		if (filaTipoMaterias.length > 0) return;
 		if (e.key === 'Escape') onclose?.();
 	}
 
 	function handleBackdropClick(e: MouseEvent) {
+		if (filaTipoMaterias.length > 0) return;
 		if (e.target === e.currentTarget) onclose?.();
 	}
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
+
+{#if materiaTipoCorrente}
+	<OptativaTipoModal
+		materia={materiaTipoCorrente}
+		defaultSemestre={selectedSemester}
+		ondecidir={(tipo, sem) => {
+			const m = filaTipoMaterias[0];
+			if (!m) return;
+			if (tipo === 'futura') store.addOptativa(m, sem ?? 1);
+			else store.registrarOptativaConcluida(m);
+			consumirTopoFila();
+		}}
+		onpular={consumirTopoFila}
+	/>
+{/if}
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -90,7 +128,7 @@
 			</button>
 		</div>
 
-		<!-- Search + Semester selector -->
+		<!-- Search + Semester selector (padrão para “futura”) -->
 		<div class="space-y-3 border-b border-white/10 px-4 py-2.5 sm:px-6 sm:py-3">
 			<div class="relative">
 				<Search class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
@@ -102,7 +140,7 @@
 				/>
 			</div>
 			<div class="flex items-center gap-3">
-				<label for="semester-select" class="text-xs font-medium text-white/60">Semestre:</label>
+				<label for="semester-select" class="text-xs font-medium text-white/60">Semestre padrão (futura):</label>
 				<select
 					id="semester-select"
 					bind:value={selectedSemester}
@@ -125,11 +163,13 @@
 				<div class="space-y-2">
 					{#each filtered as materia (materia.idMateria)}
 						{@const added = isAlreadyAdded(materia.codigoMateria)}
+						{@const concl = isJaConcluidaNoHistorico(materia.codigoMateria)}
+						{@const blocked = added || concl}
 						{@const selected = selectedCodes.has(materia.codigoMateria)}
 						<button
-							onclick={() => !added && toggleSelection(materia.codigoMateria)}
-							disabled={added}
-							class="flex w-full items-center gap-3 rounded-lg border px-4 py-3 text-left transition-colors {added
+							onclick={() => !blocked && toggleSelection(materia.codigoMateria)}
+							disabled={blocked}
+							class="flex w-full items-center gap-3 rounded-lg border px-4 py-3 text-left transition-colors {blocked
 								? 'border-white/5 bg-white/5 opacity-50 cursor-not-allowed'
 								: selected
 									? 'border-purple-500/50 bg-purple-500/10'
@@ -138,7 +178,7 @@
 							<div class="flex h-5 w-5 shrink-0 items-center justify-center rounded border {selected ? 'border-purple-400 bg-purple-500' : 'border-white/20 bg-white/5'}">
 								{#if selected}
 									<Check class="h-3 w-3 text-white" />
-								{:else if added}
+								{:else if blocked}
 									<Check class="h-3 w-3 text-white/40" />
 								{/if}
 							</div>
@@ -150,7 +190,9 @@
 								{materia.creditos} cr
 							</span>
 							{#if added}
-								<span class="text-xs text-green-400">Adicionada</span>
+								<span class="text-xs text-green-400">No fluxo</span>
+							{:else if concl}
+								<span class="text-xs text-emerald-400/90">Concluída</span>
 							{/if}
 						</button>
 					{/each}
@@ -174,7 +216,7 @@
 					: 'bg-white/5 text-white/30 cursor-not-allowed'}"
 			>
 				<Plus class="h-4 w-4" />
-				Adicionar ({selectedCodes.size})
+				Continuar ({selectedCodes.size})
 			</button>
 		</div>
 	</div>

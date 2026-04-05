@@ -48,6 +48,8 @@
 
 	// Badge: horas/créditos do semestre (exigido e realizado), inclui optativas planejadas na coluna
 	const stats = $derived.by(() => {
+		void store.diagramLayoutRevision;
+		void store.userFluxograma;
 		const completed = store.completedCodes;
 		const totalCredits =
 			subjects.reduce((s, m) => s + (m.creditos ?? 0), 0) +

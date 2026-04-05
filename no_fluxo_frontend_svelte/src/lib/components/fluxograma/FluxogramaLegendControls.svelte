@@ -37,7 +37,7 @@ import { BookOpen, Bot, Info } from 'lucide-svelte';
 -->
 {#if hasPrimaryActions || hasViewActions}
 	<div
-		class="flex min-w-0 flex-col gap-2 overflow-visible rounded-lg border border-white/10 bg-black/35 px-2.5 py-2 backdrop-blur-md sm:gap-2.5 sm:px-3 sm:py-2.5 {viewOnlyOnDesktop
+		class="flex min-w-0 flex-col gap-2 overflow-visible rounded-lg border border-white/10 bg-black/35 px-2.5 py-2 backdrop-blur-md sm:gap-2.5 sm:px-3 sm:py-2.5 [@media(orientation:landscape)_and_(max-height:560px)]:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:px-2 [@media(orientation:landscape)_and_(max-height:560px)]:py-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:gap-2 [@media(orientation:landscape)_and_(max-height:560px)]:sm:px-2 [@media(orientation:landscape)_and_(max-height:560px)]:sm:py-2 [@media(orientation:landscape)_and_(max-height:560px)]:[&>div:first-child]:hidden {viewOnlyOnDesktop
 			? 'hidden md:flex'
 			: ''}"
 	>
