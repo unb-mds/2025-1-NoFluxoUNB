@@ -5,7 +5,7 @@
 	import { getDirectPrerequisites, getCorequisites } from '$lib/types/curso';
 	import { getStatusLabel, isOptativa, type SubjectStatusValue, SubjectStatusEnum } from '$lib/types/materia';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
-	import { X, BookOpen, GitBranch, Repeat2 } from 'lucide-svelte';
+	import { X, BookOpen, GitBranch, Repeat2, Loader2, Trash2 } from 'lucide-svelte';
 	import OptativaTipoModal from './OptativaTipoModal.svelte';
 
 	interface Props {
@@ -19,8 +19,13 @@
 	const store = fluxogramaStore;
 	let activeTab = $state<'info' | 'prereqs' | 'equivalencias'>('info');
 	let optativaTipoOpen = $state(false);
+	let removendoPlanejada = $state(false);
 
 	let status = $derived(store.getSubjectStatus(materia));
+	let optativaPlanejada = $derived.by(() => {
+		void store.diagramLayoutRevision;
+		return store.isOptativaPlanejada(materia.codigoMateria);
+	});
 	let userData = $derived(store.getSubjectUserData(materia.codigoMateria));
 	let prereqs = $derived(getDirectPrerequisites(courseData, materia.codigoMateria));
 	let coreqs = $derived(getCorequisites(courseData, materia.codigoMateria));
@@ -279,10 +284,53 @@
 			{/if}
 		</div>
 
-			<!-- Add to semester footer -->
-			{#if !store.state.isAnonymous && (status === SubjectStatusEnum.AVAILABLE || status === SubjectStatusEnum.NOT_STARTED || status === SubjectStatusEnum.LOCKED)}
+			<!-- Planejamento de optativa: remover e persistir -->
+			{#if !store.state.isAnonymous && optativaPlanejada && isOptativa(materia)}
+				<div class="border-t border-white/10 px-6 py-3">
+					<p class="mb-2 text-xs text-white/50">
+						Optativa planejada no fluxograma — remoção atualiza o perfil no servidor.
+					</p>
+					<button
+						type="button"
+						disabled={removendoPlanejada}
+						onclick={async () => {
+							removendoPlanejada = true;
+							try {
+								const ok = await store.removeOptativaPlanejadaESalvar(materia.codigoMateria);
+								if (ok) onclose?.();
+							} finally {
+								removendoPlanejada = false;
+							}
+						}}
+						class="flex w-full items-center justify-center gap-2 rounded-lg border border-red-500/35 bg-red-500/15 px-4 py-2.5 text-sm font-medium text-red-100 transition-colors hover:bg-red-500/25 disabled:cursor-not-allowed disabled:opacity-50"
+					>
+						{#if removendoPlanejada}
+							<Loader2 class="h-4 w-4 animate-spin" />
+							Removendo…
+						{:else}
+							<Trash2 class="h-4 w-4" />
+							Remover do fluxograma e salvar
+						{/if}
+					</button>
+				</div>
+			{:else if store.state.isAnonymous && optativaPlanejada && isOptativa(materia)}
 				<div class="border-t border-white/10 px-6 py-3">
 					<button
+						type="button"
+						onclick={() => {
+							store.removeOptativa(materia.codigoMateria);
+							onclose?.();
+						}}
+						class="flex w-full items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/80 transition-colors hover:bg-white/10"
+					>
+						<Trash2 class="h-4 w-4" />
+						Remover do fluxograma (sessão anônima)
+					</button>
+				</div>
+			{:else if !store.state.isAnonymous && (status === SubjectStatusEnum.AVAILABLE || status === SubjectStatusEnum.NOT_STARTED || status === SubjectStatusEnum.LOCKED)}
+				<div class="border-t border-white/10 px-6 py-3">
+					<button
+						type="button"
 						onclick={() => {
 							if (isOptativa(materia)) {
 								optativaTipoOpen = true;

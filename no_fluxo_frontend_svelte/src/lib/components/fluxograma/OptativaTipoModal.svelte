@@ -18,8 +18,9 @@
 		prerequisitosAprovadosParaRegistrarConcluida(
 			materia,
 			store.completedCodes,
-			store.completedCodesHistorico,
-			store.state.courseData ?? undefined
+			store.state.courseData ?? undefined,
+			store.currentCodes,
+			store.failedCodes
 		)
 	);
 
@@ -79,8 +80,8 @@
 				</p>
 				{#if !podeMarcarConcluida}
 					<p class="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-[11px] text-amber-200/90">
-						<strong class="text-amber-100">Atenção:</strong> falta base no histórico (obrigatórias podem contar com equivalência da matriz; <strong class="text-amber-50">optativas que são pré-requisito</strong> precisam estar aprovadas no histórico). Use
-						<strong class="text-white/90">Matéria futura</strong> ou envie o histórico atualizado.
+						<strong class="text-amber-100">Atenção:</strong> os pré-requisitos desta disciplina ainda não estão cumpridos como no fluxograma. Use
+						<strong class="text-white/90">Matéria futura</strong> ou atualize o histórico.
 					</p>
 				{/if}
 				<button
@@ -99,7 +100,7 @@
 					disabled={!podeMarcarConcluida}
 					onclick={() => podeMarcarConcluida && ondecidir('concluida')}
 					title={!podeMarcarConcluida
-						? 'Pré-requisitos no histórico: optativas exigem aprovação registrada (não só equivalência na matriz).'
+						? 'Cumpra os pré-requisitos (como indicado no fluxograma) antes de registrar como concluída.'
 						: undefined}
 					class="flex w-full items-center gap-3 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-left transition-colors hover:bg-emerald-500/20 disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:bg-emerald-500/10"
 				>

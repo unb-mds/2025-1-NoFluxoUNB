@@ -59,7 +59,7 @@
 		return count;
 	});
 
-	// Optativas = semester 0
+	// Optativas do curso (modal); sem coluna pool no fluxograma.
 	let optativas = $derived.by(() => {
 		if (!store.state.courseData) return [];
 		return store.state.courseData.materias.filter((m) => isOptativa(m));
@@ -70,6 +70,8 @@
 		const course = store.state.courseData;
 		const fluxo = userFluxograma;
 		const cc = course?.curriculoCompleto;
+		void store.diagramLayoutRevision;
+		void store.optativasPlanejadasRefs;
 		if (!cc || !fluxo) {
 			if (course?.idCurso && !cc) {
 				supabaseDataService.getMatrizesByCurso(course.idCurso).then((m) => {
@@ -87,7 +89,7 @@
 			dadosFluxograma: fluxo,
 			cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
 			equivalencias: course?.equivalencias,
-			recalcularPorDisciplinas: eSimulacaoOutroCurso,
+			recalcularPorDisciplinas: true,
 			optativasPlanejadas: optPlan.length ? optPlan : undefined
 		}).then((r) => {
 			integralizacao = r;
@@ -129,7 +131,7 @@
 				dadosFluxograma: userFluxograma,
 				cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
 				equivalencias: store.state.courseData?.equivalencias,
-				recalcularPorDisciplinas: eSimulacaoOutroCurso,
+				recalcularPorDisciplinas: true,
 				optativasPlanejadas: optPlan.length ? optPlan : undefined
 			});
 				integralizacao = r;
@@ -190,7 +192,7 @@
 				</div>
 			{/if}
 			<div
-				class="flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:sm:max-h-[calc(100dvh-0.5rem)]"
+				class="flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden [overflow-anchor:none] sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:sm:max-h-[calc(100dvh-0.5rem)]"
 			>
 				<div
 					class="shrink-0 space-y-3 sm:space-y-3.5 md:space-y-4 [@media(orientation:landscape)_and_(max-height:560px)]:space-y-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:space-y-2"

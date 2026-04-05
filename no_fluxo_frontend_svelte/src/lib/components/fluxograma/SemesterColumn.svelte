@@ -6,7 +6,7 @@
 	interface Props {
 		semester: number;
 		subjects: MateriaModel[];
-		/** Optativas planejadas neste semestre (fora da coluna padrão da grade). */
+		/** Optativas planejadas pelo usuário neste semestre. */
 		optPlanned?: OptativaAdicionada[];
 		onSubjectClick?: (materia: MateriaModel) => void;
 		onSubjectLongPress?: (materia: MateriaModel) => void;
@@ -97,7 +97,7 @@
 		style="transform: translateY({headerOffsetY}px); position: relative;"
 	>
 		<span class="text-xs font-bold uppercase tracking-wider text-white/70">
-			{semester === 0 ? 'Optativas' : `Semestre ${semester}`}
+			Semestre {semester}
 		</span>
 	</div>
 

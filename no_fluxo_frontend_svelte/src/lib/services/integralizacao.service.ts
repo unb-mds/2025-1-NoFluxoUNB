@@ -21,7 +21,7 @@ export interface IntegralizacaoInput {
 	cargaHorariaIntegralizada?: CargaHorariaIntegralizada | null;
 	/** Equivalências aplicáveis (gerais + específicas da matriz) para expandir concluídas. */
 	equivalencias?: EquivalenciaModel[];
-	/** Se true, ignora cargaHorariaIntegralizada e sempre calcula a partir das disciplinas casadas (para simulação de outro curso). */
+	/** Se true, ignora cargaHorariaIntegralizada e calcula CH realizado pela grade + histórico (edições no app, optativas planejadas). */
 	recalcularPorDisciplinas?: boolean;
 	/** Optativas colocadas no fluxograma (código) — CH da grade ainda não concluída soma em “planejado”. */
 	optativasPlanejadas?: OptativaPlanejadaRef[];

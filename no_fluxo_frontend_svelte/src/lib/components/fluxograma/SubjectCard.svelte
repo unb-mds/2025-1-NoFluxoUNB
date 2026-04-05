@@ -1,6 +1,12 @@
 <script lang="ts">
 	import type { MateriaModel } from '$lib/types/materia';
-	import { SubjectStatusEnum, hasPrerequisites, type SubjectStatusValue } from '$lib/types/materia';
+	import {
+		SubjectStatusEnum,
+		canBeTaken,
+		hasPrerequisites,
+		type SubjectStatusValue
+	} from '$lib/types/materia';
+	import { satisfazPreRequisitos } from '$lib/types/curso';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 
 	interface Props {
@@ -67,11 +73,15 @@
 	});
 
 	let hasPrereqs = $derived(hasPrerequisites(materia));
+	/** Igual a determineSubjectStatus: prioriza pre_requisitos do curso (incl. requisito fora da grade + equivalência). */
 	let prereqsCompleted = $derived.by(() => {
-		if (!hasPrereqs) return true;
-		return materia.preRequisitos!.every(
-			(p) => store.completedCodes.has(p.codigoMateria)
-		);
+		const curso = store.state.courseData;
+		const rows = curso?.preRequisitos?.filter((pr) => pr.idMateria === materia.idMateria) ?? [];
+		if (rows.length > 0) {
+			return satisfazPreRequisitos(rows, store.completedCodes);
+		}
+		if (!hasPrerequisites(materia)) return true;
+		return canBeTaken(materia, store.completedCodes);
 	});
 
 	const gradientMap: Record<SubjectStatusValue, string> = {

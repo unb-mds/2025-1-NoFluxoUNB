@@ -2,9 +2,9 @@
  * Subject/Course unit type definitions
  */
 
-import type { CursoModel, PreRequisitoModel } from './curso';
+import type { CursoModel } from './curso';
 import { satisfazPreRequisitos } from './curso';
-import { evaluateExpressaoLogicaWithResolver } from '$lib/utils/expressao-logica';
+import { setHasCodeIgnoreCase } from '$lib/utils/subject-codes';
 
 export interface MateriaModel {
 	ementa: string;
@@ -86,12 +86,6 @@ export function canBeTaken(materia: MateriaModel, completedMateriasCodes: Set<st
 	);
 }
 
-function setHasCodeIgnoreCase(codes: Set<string>, code: string): boolean {
-	if (codes.has(code)) return true;
-	const codeUpper = code.trim().toUpperCase();
-	return [...codes].some((c) => c.trim().toUpperCase() === codeUpper);
-}
-
 export function determineSubjectStatus(
 	materia: MateriaModel,
 	completedCodes: Set<string>,
@@ -129,90 +123,18 @@ export function determineSubjectStatus(
 }
 
 /**
- * Para cada código: se na matriz for **optativa**, só conta o que está no **histórico** (`historicoAprovados`);
- * obrigatórias usam `aprovadosComEquivalencia` (como no fluxograma — inclui equivalências da matriz).
- */
-function codigoAprovadoParaPreRequisitoRegistroOptativa(
-	codigo: string,
-	curso: CursoModel,
-	historicoAprovados: Set<string>,
-	aprovadosComEquivalencia: Set<string>
-): boolean {
-	const u = codigo.trim().toUpperCase();
-	const m = curso.materias.find((x) => x.codigoMateria.trim().toUpperCase() === u);
-	if (m && isOptativa(m)) {
-		return setHasCodeIgnoreCase(historicoAprovados, codigo);
-	}
-	return setHasCodeIgnoreCase(aprovadosComEquivalencia, codigo);
-}
-
-function satisfazPreRequisitosRegistroOptativaConcluida(
-	preRequisitosParaMateria: PreRequisitoModel[],
-	curso: CursoModel,
-	historicoAprovados: Set<string>,
-	aprovadosComEquivalencia: Set<string>
-): boolean {
-	const resolver = (code: string) =>
-		codigoAprovadoParaPreRequisitoRegistroOptativa(code, curso, historicoAprovados, aprovadosComEquivalencia);
-	const vistos = new Set<number>();
-	for (const pr of preRequisitosParaMateria) {
-		if (pr.expressaoLogica != null) {
-			if (vistos.has(pr.idPreRequisito)) continue;
-			vistos.add(pr.idPreRequisito);
-			if (!evaluateExpressaoLogicaWithResolver(pr.expressaoLogica, resolver)) return false;
-		} else {
-			const code = (pr.codigoMateriaRequisito || '').trim();
-			if (!code) return false;
-			if (!resolver(code)) return false;
-		}
-	}
-	return true;
-}
-
-function canBeTakenRegistroOptativaConcluida(
-	materia: MateriaModel,
-	aprovadosComEquivalencia: Set<string>,
-	historicoAprovados: Set<string>,
-	curso: CursoModel | null | undefined
-): boolean {
-	if (!hasPrerequisites(materia)) return true;
-	if (!curso) {
-		return canBeTaken(materia, aprovadosComEquivalencia);
-	}
-	return materia.preRequisitos!.every((prereq) =>
-		codigoAprovadoParaPreRequisitoRegistroOptativa(
-			prereq.codigoMateria,
-			curso,
-			historicoAprovados,
-			aprovadosComEquivalencia
-		)
-	);
-}
-
-/**
- * Validação para registrar optativa como **concluída** no histórico local.
- * - `aprovadosComEquivalencia`: como no fluxograma (histórico + equivalências da matriz).
- * - `historicoAprovados`: só o que veio do PDF/histórico (`getCompletedSubjectCodes`), sem “preencher” códigos de matriz.
- *
- * Assim, pré-requisito que é **optativa** exige disciplina aprovada de verdade (ou equivalente registrado no histórico),
- * não basta equivalência da matriz que marcaria a célula como verde.
+ * Pode registrar optativa como concluída: alinhado a {@link determineSubjectStatus} (pré-requisitos,
+ * matrícula atual e reprovação), exceto quando já está concluída ou bloqueada.
  */
 export function prerequisitosAprovadosParaRegistrarConcluida(
 	materia: MateriaModel,
-	aprovadosComEquivalencia: Set<string>,
-	historicoAprovados: Set<string>,
-	curso?: CursoModel | null
+	completedCodes: Set<string>,
+	curso?: CursoModel | null,
+	currentCodes: Set<string> = new Set(),
+	failedCodes: Set<string> = new Set()
 ): boolean {
-	const prereqsParaMateria = curso?.preRequisitos?.filter((pr) => pr.idMateria === materia.idMateria) ?? [];
-	if (prereqsParaMateria.length > 0 && curso) {
-		return satisfazPreRequisitosRegistroOptativaConcluida(
-			prereqsParaMateria,
-			curso,
-			historicoAprovados,
-			aprovadosComEquivalencia
-		);
-	}
-	return canBeTakenRegistroOptativaConcluida(materia, aprovadosComEquivalencia, historicoAprovados, curso);
+	const st = determineSubjectStatus(materia, completedCodes, currentCodes, failedCodes, curso);
+	return st !== SubjectStatusEnum.LOCKED && st !== SubjectStatusEnum.COMPLETED;
 }
 
 export function getStatusColorClass(status: SubjectStatusValue): string {

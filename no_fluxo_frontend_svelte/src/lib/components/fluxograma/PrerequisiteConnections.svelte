@@ -4,6 +4,21 @@
 
 	const store = fluxogramaStore;
 
+	function normSubjectCode(code: string): string {
+		return (code || '').trim().toUpperCase();
+	}
+
+	/** Evita falha de querySelector por casing ou caracteres especiais no código. */
+	function findCardBySubjectCode(containerEl: HTMLElement, code: string): HTMLElement | null {
+		const needle = normSubjectCode(code);
+		if (!needle) return null;
+		for (const el of containerEl.querySelectorAll('[data-subject-code]')) {
+			const attr = el.getAttribute('data-subject-code');
+			if (attr != null && normSubjectCode(attr) === needle) return el as HTMLElement;
+		}
+		return null;
+	}
+
 	interface ConnectionLine {
 		x1: number;
 		y1: number;
@@ -282,7 +297,7 @@
 
 		if (hoveredCode && connectionMode === 'direct') {
 			const hoveredMateria = courseData.materias.find(
-				(m) => m.codigoMateria === hoveredCode
+				(m) => normSubjectCode(m.codigoMateria) === normSubjectCode(hoveredCode)
 			);
 			if (!hoveredMateria) {
 				lines = [];
@@ -304,7 +319,11 @@
 			}
 
 			for (const materia of courseData.materias) {
-				if (materia.preRequisitos?.some((p) => p.codigoMateria === hoveredCode)) {
+				if (
+					materia.preRequisitos?.some(
+						(p) => normSubjectCode(p.codigoMateria) === normSubjectCode(hoveredCode)
+					)
+				) {
 					const line = getLineBetweenCards(
 						hoveredCode, materia.codigoMateria,
 						container, containerRect, 'dependent', false
@@ -322,7 +341,12 @@
 					if (!fromMateria) continue;
 					const a = fromMateria.codigoMateria;
 					const b = coReq.codigoMateriaCoRequisito;
-					if (a !== hoveredCode && b !== hoveredCode) continue;
+					if (
+						normSubjectCode(a) !== normSubjectCode(hoveredCode) &&
+						normSubjectCode(b) !== normSubjectCode(hoveredCode)
+					) {
+						continue;
+					}
 					const pairKey = [a, b].sort().join('-');
 					if (drawnPairs.has(pairKey)) continue;
 					drawnPairs.add(pairKey);
@@ -395,18 +419,21 @@
 	 * For each line, increment count for both the source and target subject's semester.
 	 */
 	function computeAndSetDensity(allLines: ConnectionLine[], courseData: { materias: { codigoMateria: string }[] }) {
-		// Build code → semester map from the store's subjectsBySemester
+		// code → semestre exibido (optativa planejada sobrepõe nivel 0 da matriz no mapa)
 		const codeToSemester = new Map<string, number>();
+		const plannedSem = store.optativaPlanejadaSemestrePorCodigo;
 		for (const [sem, subjects] of store.subjectsBySemester) {
 			for (const s of subjects) {
-				codeToSemester.set(s.codigoMateria, sem);
+				const u = s.codigoMateria.trim().toUpperCase();
+				const displaySem = plannedSem.get(u) ?? sem;
+				codeToSemester.set(u, displaySem);
 			}
 		}
 
 		const density = new Map<number, number>();
 		for (const line of allLines) {
-			const fromSem = codeToSemester.get(line.fromCode);
-			const toSem = codeToSemester.get(line.toCode);
+			const fromSem = codeToSemester.get(line.fromCode.trim().toUpperCase());
+			const toSem = codeToSemester.get(line.toCode.trim().toUpperCase());
 			if (fromSem !== undefined) {
 				density.set(fromSem, (density.get(fromSem) ?? 0) + 1);
 			}
@@ -525,12 +552,8 @@
 		type: 'prerequisite' | 'dependent' | 'corequisite',
 		isAllMode: boolean = false
 	): ConnectionLine | null {
-		const fromCard = containerEl.querySelector(
-			`[data-subject-code="${fromCode}"]`
-		) as HTMLElement | null;
-		const toCard = containerEl.querySelector(
-			`[data-subject-code="${toCode}"]`
-		) as HTMLElement | null;
+		const fromCard = findCardBySubjectCode(containerEl, fromCode);
+		const toCard = findCardBySubjectCode(containerEl, toCode);
 
 		if (!fromCard || !toCard) return null;
 
@@ -549,10 +572,15 @@
 	// ─── Path Generation ──────────────────────────────────────────────
 
 	function getPath(line: ConnectionLine): string {
-		// Use simple Bezier curves for all modes (direct and all)
+		// Bézier: pontos de controle devem ir “em direção” ao outro extremo. Com optativa em
+		// semestre à esquerda do pré-requisito, x2 < x1; offsets fixos para a direita quebram a curva.
 		const dx = Math.abs(line.x2 - line.x1);
 		const controlOffset = Math.max(dx * 0.4, 40);
-		return `M ${line.x1} ${line.y1} C ${line.x1 + controlOffset} ${line.y1}, ${line.x2 - controlOffset} ${line.y2}, ${line.x2} ${line.y2}`;
+		const { x1, y1, x2, y2 } = line;
+		if (x2 >= x1) {
+			return `M ${x1} ${y1} C ${x1 + controlOffset} ${y1}, ${x2 - controlOffset} ${y2}, ${x2} ${y2}`;
+		}
+		return `M ${x1} ${y1} C ${x1 - controlOffset} ${y1}, ${x2 + controlOffset} ${y2}, ${x2} ${y2}`;
 	}
 
 	/**
@@ -675,7 +703,8 @@
 	// ─── Helpers ──────────────────────────────────────────────────────
 
 	function isLineRelatedToHovered(line: ConnectionLine, hoveredCode: string): boolean {
-		return line.fromCode === hoveredCode || line.toCode === hoveredCode;
+		const h = normSubjectCode(hoveredCode);
+		return normSubjectCode(line.fromCode) === h || normSubjectCode(line.toCode) === h;
 	}
 
 	function getStrokeColor(type: 'prerequisite' | 'dependent' | 'corequisite'): string {

@@ -117,9 +117,12 @@ class FluxogramaService {
 	 * Diferente de getAllCursos (que colapsa por curso), aqui cada matriz gera um card.
 	 */
 	async getAllMatrizesIndex(): Promise<MinimalCursoModel[]> {
-		const rows = ((await supabaseDataService.getAllMatrizesWithCurso()) || []) as Array<
-			Record<string, unknown> & { cursos?: Record<string, unknown> | null }
-		>;
+		type CursoAninhado = Record<string, unknown>;
+		type MatrizComCursoRow = Record<string, unknown> & {
+			cursos?: CursoAninhado | CursoAninhado[] | null;
+		};
+		const rows = ((await supabaseDataService.getAllMatrizesWithCurso()) ||
+			[]) as unknown as MatrizComCursoRow[];
 
 		// Créditos continuam vindo da view por curso; serão iguais em todas as matrizes do mesmo curso.
 		const creditRows = ((await supabaseDataService.getCursosComCreditos()) || []) as Record<
@@ -148,8 +151,10 @@ class FluxogramaService {
 
 		const mapped = rows
 			.map((row) => {
-				const curso = (row.cursos ?? {}) as Record<string, unknown>;
-				const rawIdCurso = curso.id_curso ?? (curso as Record<string, unknown>).idCurso;
+				const rawCursos = row.cursos;
+				const cursoRec = ((Array.isArray(rawCursos) ? rawCursos[0] : rawCursos) ??
+					{}) as Record<string, unknown>;
+				const rawIdCurso = cursoRec.id_curso ?? cursoRec.idCurso;
 				const idNum = rawIdCurso != null && rawIdCurso !== '' ? Number(rawIdCurso) : NaN;
 				const idCurso = !Number.isNaN(idNum) ? idNum : null;
 
@@ -157,25 +162,20 @@ class FluxogramaService {
 					(row.curriculo_completo != null ? String(row.curriculo_completo) : '') ?? '';
 
 				const tipoCursoRaw =
-					curso.tipo_curso != null
-						? String(curso.tipo_curso).trim()
-						: (curso as Record<string, unknown>).tipoCurso != null
-							? String((curso as Record<string, unknown>).tipoCurso).trim()
+					cursoRec.tipo_curso != null
+						? String(cursoRec.tipo_curso).trim()
+						: cursoRec.tipoCurso != null
+							? String(cursoRec.tipoCurso).trim()
 							: '';
 
-				let turnoRaw =
-					curso.turno != null
-						? String(curso.turno).trim()
-						: (curso as Record<string, unknown>).turno != null
-							? String((curso as Record<string, unknown>).turno).trim()
-							: '';
+				let turnoRaw = cursoRec.turno != null ? String(cursoRec.turno).trim() : '';
 				if (turnoRaw === '' && curriculoCompleto) {
 					turnoRaw = this.inferTurnoFromCurriculo(curriculoCompleto) ?? '';
 				}
 				const turno = turnoRaw !== '' ? turnoRaw.toUpperCase() : null;
 
 				return {
-					nomeCurso: String(curso.nome_curso ?? (curso as Record<string, unknown>).nomeCurso ?? ''),
+					nomeCurso: String(cursoRec.nome_curso ?? cursoRec.nomeCurso ?? ''),
 					matrizCurricular: curriculoCompleto,
 					idCurso: idCurso ?? -1,
 					creditos: idCurso != null ? creditByCurso.get(idCurso) ?? null : null,
@@ -247,16 +247,13 @@ class FluxogramaService {
 			createEquivalenciaModelFromJson(eq as Record<string, unknown>)
 		);
 
-		const allMateriaCodes = new Set(materias.map((m) => m.codigoMateria));
-		// Incluir pré-requisitos cujo requisito está na grade (obrigatório ou optativa — "optatória" como pré-req de obrigatória)
-		const preRequisitosInCurso = preRequisitos.filter((pr) => {
-			if (pr.expressaoLogica) {
-				const codigos = getCodigosFromExpressaoLogica(pr.expressaoLogica);
-				return codigos.some((c) => allMateriaCodes.has(c));
-			}
-			return allMateriaCodes.has(pr.codigoMateriaRequisito);
-		});
-		const coRequisitosInCurso = coRequisitos.filter((cr) => allMateriaCodes.has(cr.codigoMateriaCoRequisito));
+		const codigoNorm = (c: string) => (c || '').trim().toUpperCase();
+		const materiaCodesNorm = new Set(materias.map((m) => codigoNorm(m.codigoMateria)));
+		const idsMateriasNoCurso = new Set(materias.map((m) => m.idMateria));
+		const preRequisitosInCurso = preRequisitos.filter((pr) => idsMateriasNoCurso.has(pr.idMateria));
+		const coRequisitosInCurso = coRequisitos.filter((cr) =>
+			materiaCodesNorm.has(codigoNorm(cr.codigoMateriaCoRequisito || ''))
+		);
 
 		const maxSemestre = Math.max(...materias.map((m) => m.nivel || 0), 0);
 		const curriculoCompleto =
@@ -291,7 +288,7 @@ class FluxogramaService {
 			turno: turnoResolved ?? null
 		};
 
-		const materiaMap = new Map(materias.map((m) => [m.codigoMateria, m]));
+		const materiaByNorm = new Map(materias.map((m) => [codigoNorm(m.codigoMateria), m]));
 		for (const materia of materias) materia.preRequisitos = [];
 		for (const preReq of preRequisitosInCurso) {
 			const targetMateria = materias.find((m) => m.idMateria === preReq.idMateria);
@@ -301,12 +298,13 @@ class FluxogramaService {
 				: preReq.codigoMateriaRequisito
 					? [preReq.codigoMateriaRequisito.trim().toUpperCase()]
 					: [];
-			const existingCodes = new Set(targetMateria.preRequisitos!.map((m) => m.codigoMateria));
+			const existingNorm = new Set(targetMateria.preRequisitos!.map((m) => codigoNorm(m.codigoMateria)));
 			for (const code of codigosPrereq) {
-				const prereqMateria = materiaMap.get(code);
-				if (prereqMateria && !existingCodes.has(code)) {
+				const c = codigoNorm(code);
+				const prereqMateria = materiaByNorm.get(c);
+				if (prereqMateria && !existingNorm.has(c)) {
 					targetMateria.preRequisitos!.push(prereqMateria);
-					existingCodes.add(code);
+					existingNorm.add(c);
 				}
 			}
 		}

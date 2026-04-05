@@ -67,7 +67,7 @@
 		};
 	});
 
-	// Semestres: grade (nivel >= 1) + semestres onde há só optativa planejada pelo usuário
+	// Semestres: apenas colunas nivel >= 1 da matriz + semestres onde há optativa planejada (sem coluna “pool” nivel 0).
 	let sortedSemesters = $derived.by(() => {
 		const keys = new Set<number>();
 		for (const k of store.subjectsBySemester.keys()) {
@@ -226,7 +226,7 @@
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <div
 	bind:this={containerRef}
-	class="fluxogram-container relative h-full min-h-0 w-full flex-1 select-none overflow-auto rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm {useNativeTouchScroll ? 'overscroll-y-auto' : ''}"
+	class="fluxogram-container relative h-full min-h-0 w-full flex-1 select-none overflow-auto rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm [overflow-anchor:none] {useNativeTouchScroll ? 'overscroll-y-auto' : ''}"
 	style:cursor="grab"
 	style:touch-action={useNativeTouchScroll ? 'pan-x pan-y pinch-zoom' : 'none'}
 	style:-webkit-overflow-scrolling={useNativeTouchScroll ? 'touch' : undefined}

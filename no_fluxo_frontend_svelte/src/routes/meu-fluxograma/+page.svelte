@@ -12,7 +12,6 @@
 	import ProgressToolsSection from '$lib/components/fluxograma/ProgressToolsSection.svelte';
 	import PrerequisiteChainDialog from '$lib/components/fluxograma/PrerequisiteChainDialog.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
-	import { authStore } from '$lib/stores/auth';
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';
 	import { supabaseDataService } from '$lib/services/supabase-data.service';
 	import { goto } from '$app/navigation';
@@ -34,14 +33,13 @@
 	/** Modal “Legenda e regras” (ícone ? no header) */
 	let fluxogramHelpOpen = $state(false);
 
-	let user = $derived(authStore.getUser());
-	let userFluxograma = $derived(user?.dadosFluxograma ?? null);
+	let userFluxograma = $derived(store.userFluxograma);
 	let courseName = $derived(userFluxograma?.nomeCurso ?? '');
 	/** Currículo salvo no casamento (ex.: "60810/1") — mesma regra do casar-disciplinas para achar a matriz. */
 	let matrizCurricular = $derived((userFluxograma as { matrizCurricular?: string } | null)?.matrizCurricular ?? '');
 	let curriculoCompletoAtual = $derived(store.state.courseData?.curriculoCompleto ?? null);
 
-	// Optativas = semester 0
+	// Optativas do curso (modal); não há coluna pool no fluxograma — só ao planejar por semestre.
 	let optativas = $derived.by(() => {
 		if (!store.state.courseData) return [];
 		return store.state.courseData.materias.filter((m) => isOptativa(m));
@@ -51,6 +49,8 @@
 		const course = store.state.courseData;
 		const fluxo = userFluxograma;
 		const cc = course?.curriculoCompleto;
+		void store.diagramLayoutRevision;
+		void store.optativasPlanejadasRefs;
 		if (!cc || !fluxo) {
 			if (course?.idCurso && !cc) {
 				supabaseDataService.getMatrizesByCurso(course.idCurso).then((m) => {
@@ -68,6 +68,8 @@
 			dadosFluxograma: fluxo,
 			cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
 			equivalencias: course?.equivalencias,
+			/** Sempre pela grade + histórico local; PDF do SIGAA fica desatualizado após edições no app. */
+			recalcularPorDisciplinas: true,
 			optativasPlanejadas: optPlan.length ? optPlan : undefined
 		}).then((r) => {
 			integralizacao = r;
@@ -108,6 +110,7 @@
 					dadosFluxograma: userFluxograma,
 					cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
 					equivalencias: store.state.courseData?.equivalencias,
+					recalcularPorDisciplinas: true,
 					optativasPlanejadas: optPlan.length ? optPlan : undefined
 				});
 				integralizacao = r;
@@ -203,7 +206,7 @@
 				</div>
 			{/if}
 			<div
-				class="flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:sm:max-h-[calc(100dvh-0.5rem)]"
+				class="flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden [overflow-anchor:none] sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:sm:max-h-[calc(100dvh-0.5rem)]"
 			>
 				<div
 					class="shrink-0 space-y-3 sm:space-y-3.5 md:space-y-4 [@media(orientation:landscape)_and_(max-height:560px)]:space-y-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:space-y-2"

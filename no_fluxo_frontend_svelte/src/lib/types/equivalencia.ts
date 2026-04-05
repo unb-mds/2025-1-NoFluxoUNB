@@ -6,8 +6,15 @@ import type { MateriaModel } from './materia';
 import type { ExpressaoLogicaRecursiva } from '$lib/utils/expressao-logica';
 import {
 	evaluateExpressaoLogica,
-	getCodigosFromExpressaoLogica
+	evaluateExpression,
+	evaluateExpressionWithTracking,
+	extractSubjectCodesFromExpression,
+	getCodigosFromExpressaoLogica,
+	type ExpressionResult
 } from '$lib/utils/expressao-logica';
+
+export type { ExpressionResult };
+export { extractSubjectCodesFromExpression };
 
 export interface EquivalenciaModel {
 	idEquivalencia: number;
@@ -26,127 +33,9 @@ export interface EquivalenciaModel {
 	fimVigencia?: string | null;
 }
 
-export interface ExpressionResult {
-	isTrue: boolean;
-	matchingMaterias: Set<string>;
-}
-
 export interface EquivalenciaResult {
 	isEquivalente: boolean;
 	equivalentes: MateriaModel[];
-}
-
-function removeOuterParentheses(expression: string): string {
-	let trimmed = expression.trim();
-
-	if (trimmed.startsWith('(') && trimmed.endsWith(')')) {
-		let count = 0;
-		for (let i = 0; i < trimmed.length; i++) {
-			if (trimmed[i] === '(') count++;
-			if (trimmed[i] === ')') count--;
-			if (count === 0 && i < trimmed.length - 1) {
-				return trimmed;
-			}
-		}
-		return trimmed.substring(1, trimmed.length - 1).trim();
-	}
-
-	return trimmed;
-}
-
-function findMainOperator(expression: string, operator: string): number | null {
-	let parenthesesCount = 0;
-	const operatorLength = operator.length;
-
-	for (let i = expression.length - operatorLength; i >= 0; i--) {
-		if (expression[i] === ')') parenthesesCount++;
-		if (expression[i] === '(') parenthesesCount--;
-
-		if (
-			parenthesesCount === 0 &&
-			i + operatorLength <= expression.length &&
-			expression.substring(i, i + operatorLength) === operator
-		) {
-			const validBefore =
-				i === 0 || expression[i - 1] === ' ' || expression[i - 1] === ')';
-			const validAfter =
-				i + operatorLength === expression.length ||
-				expression[i + operatorLength] === ' ' ||
-				expression[i + operatorLength] === '(';
-
-			if (validBefore && validAfter) {
-				return i;
-			}
-		}
-	}
-
-	return null;
-}
-
-export function evaluateExpressionWithTracking(
-	expression: string,
-	materias: Set<string>
-): ExpressionResult {
-	if (!expression || expression.trim() === '') {
-		return { isTrue: false, matchingMaterias: new Set() };
-	}
-
-	expression = removeOuterParentheses(expression);
-
-	const orIndex = findMainOperator(expression, 'OU');
-	if (orIndex !== null) {
-		const left = expression.substring(0, orIndex).trim();
-		const right = expression.substring(orIndex + 2).trim();
-
-		const leftResult = evaluateExpressionWithTracking(left, materias);
-		const rightResult = evaluateExpressionWithTracking(right, materias);
-
-		const matchingMaterias = new Set<string>();
-		if (leftResult.isTrue) {
-			leftResult.matchingMaterias.forEach((m) => matchingMaterias.add(m));
-		}
-		if (rightResult.isTrue) {
-			rightResult.matchingMaterias.forEach((m) => matchingMaterias.add(m));
-		}
-
-		return {
-			isTrue: leftResult.isTrue || rightResult.isTrue,
-			matchingMaterias
-		};
-	}
-
-	const andIndex = findMainOperator(expression, 'E');
-	if (andIndex !== null) {
-		const left = expression.substring(0, andIndex).trim();
-		const right = expression.substring(andIndex + 1).trim();
-
-		const leftResult = evaluateExpressionWithTracking(left, materias);
-		const rightResult = evaluateExpressionWithTracking(right, materias);
-
-		if (leftResult.isTrue && rightResult.isTrue) {
-			const matchingMaterias = new Set<string>();
-			leftResult.matchingMaterias.forEach((m) => matchingMaterias.add(m));
-			rightResult.matchingMaterias.forEach((m) => matchingMaterias.add(m));
-			return { isTrue: true, matchingMaterias };
-		} else {
-			return { isTrue: false, matchingMaterias: new Set() };
-		}
-	}
-
-	const subjectCode = expression.trim();
-	// Comparação case-insensitive: histórico pode vir "mat0035" e a expressão "MAT0035"
-	const codeNorm = subjectCode.toUpperCase();
-	const found = [...materias].find((m) => m.trim().toUpperCase() === codeNorm);
-	const contains = !!found;
-
-	return {
-		isTrue: contains,
-		matchingMaterias: contains && found ? new Set([found]) : new Set()
-	};
-}
-
-export function evaluateExpression(expression: string, materias: Set<string>): boolean {
-	return evaluateExpressionWithTracking(expression, materias).isTrue;
 }
 
 export function isMateriaEquivalente(
@@ -229,23 +118,31 @@ export function getCompletedByEquivalenceCodes(
 	completedCodes: Set<string>
 ): Set<string> {
 	const result = new Set<string>();
-	const completedNorm = new Set([...completedCodes].map((c) => c.trim().toUpperCase()));
-	for (const equiv of equivalencias) {
-		const satisfaz =
-			equiv.expressaoLogica != null
-				? evaluateExpressaoLogica(equiv.expressaoLogica, completedNorm)
-				: evaluateExpression(equiv.expressao.trim(), completedCodes);
-		if (satisfaz) result.add(equiv.codigoMateriaOrigem);
+	/** Códigos já “válidos”; cresce com cada origem satisfeita (cadeia de equivalências). */
+	const workNorm = new Set(
+		[...completedCodes].map((c) => c.trim().toUpperCase()).filter((c) => c.length > 0)
+	);
+	let changed = true;
+	let guard = 0;
+	while (changed && guard++ < 64) {
+		changed = false;
+		for (const equiv of equivalencias) {
+			const origemRaw = (equiv.codigoMateriaOrigem || '').trim();
+			if (!origemRaw) continue;
+			const origemU = origemRaw.toUpperCase();
+			if (workNorm.has(origemU)) continue;
+			const snap = new Set(workNorm);
+			const satisfaz =
+				equiv.expressaoLogica != null
+					? evaluateExpressaoLogica(equiv.expressaoLogica, snap)
+					: evaluateExpression((equiv.expressao || '').trim(), snap);
+			if (satisfaz) {
+				workNorm.add(origemU);
+				result.add(origemRaw);
+				changed = true;
+			}
+		}
 	}
 	return result;
 }
 
-export function extractSubjectCodesFromExpression(expression: string): string[] {
-	const cleaned = expression
-		.replace(/\bOU\b/g, ' ')
-		.replace(/\bE\b/g, ' ')
-		.replace(/[()]/g, ' ')
-		.trim();
-
-	return cleaned.split(/\s+/).filter((code) => code.length > 0);
-}

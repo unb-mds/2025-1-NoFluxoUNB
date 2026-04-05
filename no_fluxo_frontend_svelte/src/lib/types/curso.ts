@@ -9,7 +9,8 @@ import type {
 	ExpressaoLogicaJson,
 	ExpressaoLogicaRecursiva
 } from '$lib/utils/expressao-logica';
-import { evaluateExpressaoLogica } from '$lib/utils/expressao-logica';
+import { evaluateExpressaoLogica, evaluateExpression } from '$lib/utils/expressao-logica';
+import { setHasCodeIgnoreCase } from '$lib/utils/subject-codes';
 
 export interface PreRequisitoModel {
 	idPreRequisito: number;
@@ -72,7 +73,7 @@ export function getCourseSubjectCodes(curso: CursoModel): Set<string> {
 /**
  * Agrupa todas as matérias do curso por semestre (nivel).
  * Inclui obrigatórias e optativas; tipo_natureza (0=obrigatória, 1=optativa) define a natureza.
- * Matérias com nivel 1 (mesmo optativas) aparecem no semestre 1; apenas nivel 0 fica fora das colunas (lista de optativas).
+ * Agrupa por nivel (semestre sugerido na matriz). Optativas nivel 0 não viram coluna no fluxograma — entram ao serem planejadas.
  */
 export function getSubjectsBySemester(curso: CursoModel): Map<number, MateriaModel[]> {
 	const semesterMap = new Map<number, MateriaModel[]>();
@@ -102,9 +103,14 @@ export function satisfazPreRequisitos(
 			vistos.add(pr.idPreRequisito);
 			if (!evaluateExpressaoLogica(pr.expressaoLogica, completedCodes)) return false;
 		} else {
-			const code = (pr.codigoMateriaRequisito || '').trim().toUpperCase();
-			const ok = code && [...completedCodes].some((c) => c.trim().toUpperCase() === code);
-			if (!ok) return false;
+			const req = pr.codigoMateriaRequisito || '';
+			if (req.trim()) {
+				if (!setHasCodeIgnoreCase(completedCodes, req)) return false;
+			} else if (pr.expressaoOriginal?.trim()) {
+				if (!evaluateExpression(pr.expressaoOriginal.trim(), completedCodes)) return false;
+			} else {
+				return false;
+			}
 		}
 	}
 	return true;

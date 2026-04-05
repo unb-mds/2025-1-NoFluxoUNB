@@ -12,7 +12,6 @@ import {
 	isOptativa,
 	SubjectStatusEnum,
 	determineSubjectStatus,
-	prerequisitosAprovadosParaRegistrarConcluida,
 	type SubjectStatusValue,
 	type OptativaAdicionada
 } from '$lib/types/materia';
@@ -146,6 +145,15 @@ function createFluxogramaStore() {
 		return map;
 	});
 
+	/** Código (uppercase) → semestre da optativa planejada (para densidade de linhas; matriz mantém nivel 0). */
+	const optativaPlanejadaSemestrePorCodigo = $derived.by(() => {
+		const m = new Map<string, number>();
+		for (const o of optativasAdicionadas) {
+			m.set(o.materia.codigoMateria.trim().toUpperCase(), o.semestre);
+		}
+		return m;
+	});
+
 	const optativasPlanejadasRefs = $derived.by((): OptativaPlanejadaRef[] =>
 		optativasAdicionadas.map((o) => ({
 			codigoMateria: o.materia.codigoMateria.trim(),
@@ -189,12 +197,6 @@ function createFluxogramaStore() {
 		return new Set([...base, ...byEquiv]);
 	});
 
-	/** Só disciplinas aprovadas no histórico (sem códigos “virtuais” por equivalência da matriz). */
-	const completedCodesHistorico = $derived.by(() => {
-		if (!userFluxograma) return new Set<string>();
-		return getCompletedSubjectCodes(userFluxograma);
-	});
-
 	// Computed: current subject codes
 	const currentCodes = $derived.by(() => {
 		if (!userFluxograma) return new Set<string>();
@@ -231,9 +233,6 @@ function createFluxogramaStore() {
 		get completedCodes() {
 			return completedCodes;
 		},
-		get completedCodesHistorico() {
-			return completedCodesHistorico;
-		},
 		get currentCodes() {
 			return currentCodes;
 		},
@@ -245,6 +244,9 @@ function createFluxogramaStore() {
 		},
 		get optativasBySemester() {
 			return optativasBySemester;
+		},
+		get optativaPlanejadaSemestrePorCodigo() {
+			return optativaPlanejadaSemestrePorCodigo;
 		},
 		get optativasPlanejadasRefs() {
 			return optativasPlanejadasRefs;
@@ -298,40 +300,26 @@ function createFluxogramaStore() {
 				toast.error('Entre na conta para registrar disciplina concluída.');
 				return;
 			}
-			if (
-				!prerequisitosAprovadosParaRegistrarConcluida(
-					materia,
-					completedCodes,
-					completedCodesHistorico,
-					state.courseData ?? undefined
-				)
-			) {
+			const st = determineSubjectStatus(
+				materia,
+				completedCodes,
+				currentCodes,
+				failedCodes,
+				state.courseData ?? undefined
+			);
+			if (st === SubjectStatusEnum.LOCKED) {
 				toast.error(
-					'Registre no histórico os pré-requisitos aprovados. Se algum pré-requisito for optativa, ela precisa constar como aprovada no seu histórico (não basta equivalência só na matriz).'
+					'Complete os pré-requisitos desta disciplina (como no fluxograma) antes de registrá-la como concluída.'
 				);
+				return;
+			}
+			if (st === SubjectStatusEnum.COMPLETED) {
+				toast.warning('Esta disciplina já consta como concluída no seu histórico.');
 				return;
 			}
 			const fluxo = user.dadosFluxograma;
 			const codeU = materia.codigoMateria.trim().toUpperCase();
-			const existente = findSubjectInFluxograma(fluxo, materia.codigoMateria);
-			if (existente && isMateriaAprovada(existente)) {
-				toast.warning('Esta disciplina já consta como concluída no histórico.');
-				return;
-			}
-			let jaTemCodigo = false;
-			for (const sem of fluxo.dadosFluxograma) {
-				for (const m of sem) {
-					if (m.codigoMateria.trim().toUpperCase() === codeU) {
-						jaTemCodigo = true;
-						break;
-					}
-				}
-				if (jaTemCodigo) break;
-			}
-			if (jaTemCodigo) {
-				toast.warning('Este código já existe no histórico com outro status.');
-				return;
-			}
+
 			const nova: DadosMateria = {
 				codigoMateria: materia.codigoMateria.trim(),
 				mencao: 'MS',
@@ -346,7 +334,34 @@ function createFluxogramaStore() {
 			};
 			const nextGrid = fluxo.dadosFluxograma.map((s) => [...s]);
 			if (nextGrid.length === 0) nextGrid.push([]);
-			nextGrid[0].push(nova);
+
+			let idxAtualizar: { si: number; mi: number } | null = null;
+			for (let si = 0; si < nextGrid.length; si++) {
+				for (let mi = 0; mi < nextGrid[si].length; mi++) {
+					const m = nextGrid[si][mi];
+					if (m.codigoMateria.trim().toUpperCase() !== codeU) continue;
+					if (isMateriaAprovada(m)) {
+						toast.warning('Esta disciplina já consta como concluída no histórico.');
+						return;
+					}
+					idxAtualizar = { si, mi };
+					break;
+				}
+				if (idxAtualizar) break;
+			}
+
+			if (idxAtualizar) {
+				const { si, mi } = idxAtualizar;
+				const old = nextGrid[si][mi];
+				nextGrid[si][mi] = {
+					...old,
+					...nova,
+					codigoMateria: old.codigoMateria
+				};
+			} else {
+				nextGrid[0].push(nova);
+			}
+
 			const atualizado: DadosFluxogramaUser = { ...fluxo, dadosFluxograma: nextGrid };
 			authStore.updateDadosFluxograma(atualizado);
 			historicoManualPendenteSalvar = true;
@@ -365,6 +380,61 @@ function createFluxogramaStore() {
 			if (opt) {
 				bumpDiagramLayout();
 				toast.success(`${opt.materia.nomeMateria} removida.`);
+			}
+		},
+
+		isOptativaPlanejada(codigoMateria: string): boolean {
+			const u = codigoMateria.trim().toUpperCase();
+			return optativasAdicionadas.some(
+				(o) => o.materia.codigoMateria.trim().toUpperCase() === u
+			);
+		},
+
+		/**
+		 * Remove optativa do planejamento e persiste `optativas_planejadas` no servidor (rollback se falhar).
+		 * Anônimo: só remove localmente.
+		 */
+		async removeOptativaPlanejadaESalvar(codigoMateria: string): Promise<boolean> {
+			const user = authStore.getUser();
+			const u = codigoMateria.trim().toUpperCase();
+			const prev = optativasAdicionadas;
+			const opt = prev.find((o) => o.materia.codigoMateria.trim().toUpperCase() === u);
+			if (!opt) return false;
+
+			if (state.isAnonymous || !user?.idUser || !user.dadosFluxograma) {
+				optativasAdicionadas = prev.filter((o) => o.materia.codigoMateria.trim().toUpperCase() !== u);
+				bumpDiagramLayout();
+				toast.success(`${opt.materia.nomeMateria} removida do planejamento (somente neste aparelho).`);
+				return true;
+			}
+
+			const next = prev.filter((o) => o.materia.codigoMateria.trim().toUpperCase() !== u);
+			optativasAdicionadas = next;
+			bumpDiagramLayout();
+
+			const refs: OptativaPlanejadaRef[] = next.map((o) => ({
+				codigoMateria: o.materia.codigoMateria.trim(),
+				semestre: o.semestre
+			}));
+			const dadosAtualizados: DadosFluxogramaUser = {
+				...user.dadosFluxograma,
+				optativasPlanejadas: refs.length ? refs : undefined
+			};
+			try {
+				await fluxogramaService.saveFluxograma(
+					user.idUser,
+					dadosFluxogramaUserToJson(dadosAtualizados),
+					user.dadosFluxograma.semestreAtual
+				);
+				authStore.updateDadosFluxograma(dadosAtualizados);
+				historicoManualPendenteSalvar = false;
+				toast.success(`${opt.materia.nomeMateria} removida e salva no perfil.`);
+				return true;
+			} catch {
+				optativasAdicionadas = prev;
+				bumpDiagramLayout();
+				toast.error('Não foi possível salvar. A optativa foi restaurada.');
+				return false;
 			}
 		},
 

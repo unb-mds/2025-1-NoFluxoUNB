@@ -639,22 +639,15 @@ export function createCursoModelFromJson(json: Record<string, unknown>): CursoMo
 	const allPreRequisitos = preRequisitosJson.map(createPreRequisitoModelFromJson);
 	const allCoRequisitos = coRequisitosJson.map(createCoRequisitoModelFromJson);
 
-	const allMateriaCodes = new Set(materias.map((m) => m.codigoMateria));
-	// Incluir pré-requisitos cujo requisito está na grade (obrigatório ou optativa — "optatória" como pré-req de obrigatória)
-	const preRequisitosInCurso = allPreRequisitos.filter((pr) => {
-		if (pr.expressaoLogica) {
-			const codigos = getCodigosFromExpressaoLogica(pr.expressaoLogica);
-			return codigos.some((c) => allMateriaCodes.has(c));
-		}
-		return allMateriaCodes.has(pr.codigoMateriaRequisito);
-	});
-
-	const materiasInCursoFromCodigoCoReq = new Set(
-		materias.map((m) => m.codigoMateria)
-	);
+	const codigoNorm = (c: string) => (c || '').trim().toUpperCase();
+	const materiaCodesNorm = new Set(materias.map((m) => codigoNorm(m.codigoMateria)));
+	const idsMateriasNoCurso = new Set(materias.map((m) => m.idMateria));
+	// Todos os pré-requisitos cuja disciplina-alvo está na matriz (incl. optativas), mesmo que o
+	// requisito não apareça na grade — assim equivalências no histórico satisfazem via satisfazPreRequisitos.
+	const preRequisitosInCurso = allPreRequisitos.filter((pr) => idsMateriasNoCurso.has(pr.idMateria));
 
 	const coRequisitosInCurso = allCoRequisitos.filter((cr) =>
-		materiasInCursoFromCodigoCoReq.has(cr.codigoMateriaCoRequisito)
+		materiaCodesNorm.has(codigoNorm(cr.codigoMateriaCoRequisito || ''))
 	);
 
 	const curso: CursoModel = {
@@ -680,13 +673,15 @@ export function createCursoModelFromJson(json: Record<string, unknown>): CursoMo
  * Populate prerequisites for all materias in a course
  */
 function populatePrerequisites(curso: CursoModel): void {
+	const codigoNorm = (c: string) => (c || '').trim().toUpperCase();
+
 	for (const materia of curso.materias) {
 		materia.preRequisitos = [];
 	}
 
 	const materiaMap = new Map<string, MateriaModel>();
 	for (const materia of curso.materias) {
-		materiaMap.set(materia.codigoMateria, materia);
+		materiaMap.set(codigoNorm(materia.codigoMateria), materia);
 	}
 
 	const prerequisiteMap = new Map<string, string[]>();
@@ -695,7 +690,7 @@ function populatePrerequisites(curso: CursoModel): void {
 		const targetMateria = curso.materias.find((m) => m.idMateria === preReq.idMateria);
 		if (!targetMateria) continue;
 
-		const materiaCode = targetMateria.codigoMateria;
+		const materiaCode = codigoNorm(targetMateria.codigoMateria);
 		const codigosPrereq =
 			preReq.expressaoLogica != null
 				? getCodigosFromExpressaoLogica(preReq.expressaoLogica)
@@ -713,23 +708,25 @@ function populatePrerequisites(curso: CursoModel): void {
 	}
 
 	for (const materia of curso.materias) {
-		const directPrerequisites = prerequisiteMap.get(materia.codigoMateria) ?? [];
+		const existingNorm = new Set<string>();
+		const directPrerequisites = prerequisiteMap.get(codigoNorm(materia.codigoMateria)) ?? [];
 
 		for (const prereqCode of directPrerequisites) {
 			const prereqMateria = materiaMap.get(prereqCode);
-			if (prereqMateria) {
+			if (prereqMateria && !existingNorm.has(prereqCode)) {
 				materia.preRequisitos!.push(prereqMateria);
+				existingNorm.add(prereqCode);
 			}
 		}
 
 		const allPrerequisites = new Set<string>();
-		collectAllPrerequisites(materia.codigoMateria, prerequisiteMap, allPrerequisites);
+		collectAllPrerequisites(codigoNorm(materia.codigoMateria), prerequisiteMap, allPrerequisites);
 
-		const existingCodes = new Set(materia.preRequisitos!.map((m) => m.codigoMateria));
 		for (const prereqCode of allPrerequisites) {
 			const prereqMateria = materiaMap.get(prereqCode);
-			if (prereqMateria && !existingCodes.has(prereqCode)) {
+			if (prereqMateria && !existingNorm.has(prereqCode)) {
 				materia.preRequisitos!.push(prereqMateria);
+				existingNorm.add(prereqCode);
 			}
 		}
 	}

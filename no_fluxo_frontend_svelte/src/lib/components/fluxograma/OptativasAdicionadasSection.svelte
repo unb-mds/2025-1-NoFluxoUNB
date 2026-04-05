@@ -5,6 +5,7 @@
 	const store = fluxogramaStore;
 
 	let saving = $state(false);
+	let removendoCodigo = $state<string | null>(null);
 
 	async function salvarPlanejamento() {
 		saving = true;
@@ -12,6 +13,19 @@
 			await store.saveOptativasPlanejadas();
 		} finally {
 			saving = false;
+		}
+	}
+
+	async function removerOptativa(codigo: string) {
+		if (store.state.isAnonymous) {
+			store.removeOptativa(codigo);
+			return;
+		}
+		removendoCodigo = codigo;
+		try {
+			await store.removeOptativaPlanejadaESalvar(codigo);
+		} finally {
+			removendoCodigo = null;
 		}
 	}
 </script>
@@ -86,11 +100,18 @@
 								</div>
 							</div>
 							<button
-								onclick={() => store.removeOptativa(opt.materia.codigoMateria)}
-								class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-white/30 opacity-0 transition-all hover:bg-red-500/20 hover:text-red-400 group-hover:opacity-100"
-								aria-label="Remover optativa"
+								type="button"
+								disabled={removendoCodigo === opt.materia.codigoMateria}
+								onclick={() => removerOptativa(opt.materia.codigoMateria)}
+								class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-white/30 opacity-0 transition-all hover:bg-red-500/20 hover:text-red-400 group-hover:opacity-100 disabled:cursor-wait disabled:opacity-60"
+								title={store.state.isAnonymous ? 'Remover só neste aparelho' : 'Remover do fluxograma e salvar no perfil'}
+								aria-label="Remover optativa do fluxograma"
 							>
-								<X class="h-3.5 w-3.5" />
+								{#if removendoCodigo === opt.materia.codigoMateria}
+									<Loader2 class="h-3.5 w-3.5 animate-spin text-red-300" />
+								{:else}
+									<X class="h-3.5 w-3.5" />
+								{/if}
 							</button>
 						</div>
 					</div>
