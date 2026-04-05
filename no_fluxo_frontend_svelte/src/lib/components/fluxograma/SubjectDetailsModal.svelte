@@ -285,10 +285,10 @@
 		</div>
 
 			<!-- Planejamento de optativa: remover e persistir -->
-			{#if !store.state.isAnonymous && optativaPlanejada && isOptativa(materia)}
+			{#if !store.state.isAnonymous && optativaPlanejada}
 				<div class="border-t border-white/10 px-6 py-3">
 					<p class="mb-2 text-xs text-white/50">
-						Optativa planejada no fluxograma — remoção atualiza o perfil no servidor.
+						Disciplina planejada no fluxograma — remoção atualiza o perfil no servidor.
 					</p>
 					<button
 						type="button"
@@ -313,7 +313,7 @@
 						{/if}
 					</button>
 				</div>
-			{:else if store.state.isAnonymous && optativaPlanejada && isOptativa(materia)}
+			{:else if store.state.isAnonymous && optativaPlanejada}
 				<div class="border-t border-white/10 px-6 py-3">
 					<button
 						type="button"
@@ -327,26 +327,16 @@
 						Remover do fluxograma (sessão anônima)
 					</button>
 				</div>
-			{:else if !store.state.isAnonymous && (status === SubjectStatusEnum.AVAILABLE || status === SubjectStatusEnum.NOT_STARTED || status === SubjectStatusEnum.LOCKED)}
+			{:else if !store.state.isAnonymous && isOptativa(materia) && (status === SubjectStatusEnum.AVAILABLE || status === SubjectStatusEnum.NOT_STARTED || status === SubjectStatusEnum.LOCKED)}
 				<div class="border-t border-white/10 px-6 py-3">
 					<button
 						type="button"
 						onclick={() => {
-							if (isOptativa(materia)) {
-								optativaTipoOpen = true;
-								return;
-							}
-							const nextSem = materia.nivel > 0 ? materia.nivel : 1;
-							store.addOptativa(materia, nextSem);
-							onclose?.();
+							optativaTipoOpen = true;
 						}}
 						class="w-full rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:from-purple-500 hover:to-purple-600"
 					>
-						{#if isOptativa(materia)}
-							Adicionar optativa ao fluxograma / histórico
-						{:else}
-							Adicionar ao {materia.nivel > 0 ? `${materia.nivel}º` : 'próximo'} semestre
-						{/if}
+						Adicionar optativa ao fluxograma / histórico
 					</button>
 				</div>
 			{/if}

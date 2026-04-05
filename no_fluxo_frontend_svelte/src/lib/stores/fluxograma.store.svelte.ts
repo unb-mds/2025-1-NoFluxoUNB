@@ -65,7 +65,9 @@ function hydrateOptativasFromRefs(
 		if (!key || seen.has(key)) continue;
 		seen.add(key);
 		const m = byCode.get(key);
-		if (m && isOptativa(m)) {
+		// Ref persistida pelo usuário: não exigir isOptativa aqui — matriz pode vir sem tipo_natureza
+		// ou com optativa em nivel>0; senão o planejamento some após recarregar.
+		if (m) {
 			const sem = Number(r.semestre);
 			out.push({ materia: m, semestre: Number.isFinite(sem) && sem >= 1 ? sem : 1 });
 		}
@@ -180,6 +182,32 @@ function createFluxogramaStore() {
 		() => !optativasPlanejamentoSalvo || historicoManualPendenteSalvar
 	);
 
+	/** Disciplinas com `inclusao_manual_optativa` ainda não enviadas (exibe em “Alterações para salvar”). */
+	const historicoManualPendenteItens = $derived.by((): { codigoMateria: string; nomeMateria: string }[] => {
+		if (!historicoManualPendenteSalvar || !userFluxograma) return [];
+		const course = state.courseData;
+		const byCode = new Map(
+			(course?.materias ?? []).map((m) => [m.codigoMateria.trim().toUpperCase(), m])
+		);
+		const seen = new Set<string>();
+		const out: { codigoMateria: string; nomeMateria: string }[] = [];
+		for (const sem of userFluxograma.dadosFluxograma) {
+			for (const dm of sem) {
+				if (dm.tipoDado !== 'inclusao_manual_optativa') continue;
+				if (!isMateriaAprovada(dm)) continue;
+				const u = dm.codigoMateria.trim().toUpperCase();
+				if (!u || seen.has(u)) continue;
+				seen.add(u);
+				const m = byCode.get(u);
+				out.push({
+					codigoMateria: dm.codigoMateria.trim(),
+					nomeMateria: m?.nomeMateria ?? dm.codigoMateria.trim()
+				});
+			}
+		}
+		return out;
+	});
+
 	// Computed: carga horária integralizada do histórico (PDF)
 	const cargaHorariaIntegralizada = $derived.by(() => {
 		return authState.user?.cargaHorariaIntegralizada ?? null;
@@ -257,6 +285,9 @@ function createFluxogramaStore() {
 		get historicoManualPendenteSalvar() {
 			return historicoManualPendenteSalvar;
 		},
+		get historicoManualPendenteItens() {
+			return historicoManualPendenteItens;
+		},
 		get precisaSalvarPerfil() {
 			return precisaSalvarPerfil;
 		},
@@ -281,6 +312,10 @@ function createFluxogramaStore() {
 		},
 
 		addOptativa(materia: MateriaModel, semestre: number) {
+			if (!isOptativa(materia)) {
+				toast.error('Só matérias optativas da matriz entram neste planejamento.');
+				return;
+			}
 			const codeU = materia.codigoMateria.trim().toUpperCase();
 			const exists = optativasAdicionadas.some(
 				(o) => o.materia.codigoMateria.trim().toUpperCase() === codeU

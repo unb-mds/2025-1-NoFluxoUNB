@@ -4,6 +4,13 @@
 
 	const store = fluxogramaStore;
 
+	/** Reage ao histórico local e ao curso (nomes das disciplinas). */
+	let historicoItens = $derived.by(() => {
+		void store.diagramLayoutRevision;
+		void store.userFluxograma;
+		return store.historicoManualPendenteItens;
+	});
+
 	let saving = $state(false);
 	let removendoCodigo = $state<string | null>(null);
 
@@ -67,17 +74,46 @@
 			</p>
 		{/if}
 
-		{#if store.historicoManualPendenteSalvar}
+		{#if store.historicoManualPendenteSalvar && historicoItens.length > 0}
 			<div
 				class="mb-3 flex items-start gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-100/95"
 			>
 				<History class="mt-0.5 h-4 w-4 shrink-0 text-emerald-300" />
-				<span>Inclusão de disciplina <strong class="text-white">concluída</strong> no histórico local — salve para sincronizar.</span>
+				<span
+					>Disciplina(s) abaixo foram marcadas como <strong class="text-white">concluídas</strong> no
+					histórico local — “Salvar no perfil” envia tudo ao servidor.</span
+				>
+			</div>
+			<p class="mb-2 text-[10px] font-medium uppercase tracking-wide text-emerald-200/70">
+				Histórico local (pendente de envio)
+			</p>
+			<div class="mb-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+				{#each historicoItens as item (`hist-${item.codigoMateria}`)}
+					<div
+						class="rounded-lg border border-emerald-500/25 bg-gradient-to-br from-emerald-500/10 to-emerald-800/5 px-4 py-3"
+					>
+						<p class="text-sm font-medium text-white/90">{item.nomeMateria}</p>
+						<p class="text-xs text-white/50">{item.codigoMateria}</p>
+						<div class="mt-1.5">
+							<span
+								class="rounded-full bg-emerald-500/30 px-2 py-0.5 text-[9px] font-semibold text-emerald-100"
+								>Concluída (local)</span
+							>
+						</div>
+					</div>
+				{/each}
+			</div>
+		{:else if store.historicoManualPendenteSalvar}
+			<div
+				class="mb-3 flex items-start gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-100/95"
+			>
+				<History class="mt-0.5 h-4 w-4 shrink-0 text-emerald-300" />
+				<span>Alteração no histórico local — salve para sincronizar com o perfil.</span>
 			</div>
 		{/if}
 
 		{#if store.optativasAdicionadas.length > 0}
-			<p class="mb-2 text-[10px] font-medium uppercase tracking-wide text-white/45">Planejadas no fluxograma</p>
+			<p class="mb-2 text-[10px] font-medium uppercase tracking-wide text-white/45">Planejadas no fluxograma (futuras)</p>
 			<div class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
 				{#each store.optativasAdicionadas as opt (`${opt.materia.codigoMateria}-${opt.semestre}`)}
 					<div
@@ -117,9 +153,9 @@
 					</div>
 				{/each}
 			</div>
-		{:else if store.historicoManualPendenteSalvar}
-			<p class="text-xs text-white/50">Nenhuma optativa futura na lista — só ajuste de histórico acima.</p>
-		{:else}
+		{/if}
+
+		{#if historicoItens.length === 0 && store.optativasAdicionadas.length === 0 && !store.historicoManualPendenteSalvar}
 			<p class="text-xs text-white/50">
 				Planejamento de optativas alterado (ex.: removeu todas). Salve para atualizar o perfil.
 			</p>

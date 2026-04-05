@@ -74,8 +74,10 @@ export function parseOptativasPlanejadasFromJson(raw: unknown): OptativaPlanejad
 		if (!item || typeof item !== 'object') continue;
 		const o = item as Record<string, unknown>;
 		const cod = String(o.codigoMateria ?? o.codigo_materia ?? '').trim();
-		const sem = Number(o.semestre ?? 0);
-		if (cod && sem >= 1) out.push({ codigoMateria: cod, semestre: sem });
+		if (!cod) continue;
+		const sem = Number(o.semestre);
+		const semestre = Number.isFinite(sem) && sem >= 1 ? sem : 1;
+		out.push({ codigoMateria: cod, semestre });
 	}
 	return out.length ? out : undefined;
 }

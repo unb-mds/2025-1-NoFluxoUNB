@@ -71,7 +71,6 @@
 		const fluxo = userFluxograma;
 		const cc = course?.curriculoCompleto;
 		void store.diagramLayoutRevision;
-		void store.optativasPlanejadasRefs;
 		if (!cc || !fluxo) {
 			if (course?.idCurso && !cc) {
 				supabaseDataService.getMatrizesByCurso(course.idCurso).then((m) => {
@@ -83,14 +82,12 @@
 			return;
 		}
 		integralizacaoLoading = true;
-		const optPlan = store.optativasPlanejadasRefs;
 		getIntegralizacao({
 			curriculoCompleto: cc,
 			dadosFluxograma: fluxo,
 			cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
 			equivalencias: course?.equivalencias,
-			recalcularPorDisciplinas: true,
-			optativasPlanejadas: optPlan.length ? optPlan : undefined
+			recalcularPorDisciplinas: eSimulacaoOutroCurso
 		}).then((r) => {
 			integralizacao = r;
 			integralizacaoLoading = false;
@@ -123,17 +120,20 @@
 	async function handleMatrizChange(curriculoCompleto: string) {
 		await store.loadCourseDataByCurriculoCompleto(curriculoCompleto);
 		if (userFluxograma) {
-		integralizacaoLoading = true;
-		try {
-			const optPlan = store.optativasPlanejadasRefs;
-			const r = await getIntegralizacao({
-				curriculoCompleto,
-				dadosFluxograma: userFluxograma,
-				cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
-				equivalencias: store.state.courseData?.equivalencias,
-				recalcularPorDisciplinas: true,
-				optativasPlanejadas: optPlan.length ? optPlan : undefined
-			});
+			integralizacaoLoading = true;
+			try {
+				const course = store.state.courseData;
+				const recalc =
+					course != null &&
+					(userFluxograma.nomeCurso ?? '').trim().toLowerCase() !==
+						(course.nomeCurso ?? '').trim().toLowerCase();
+				const r = await getIntegralizacao({
+					curriculoCompleto,
+					dadosFluxograma: userFluxograma,
+					cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
+					equivalencias: course?.equivalencias,
+					recalcularPorDisciplinas: recalc
+				});
 				integralizacao = r;
 			} finally {
 				integralizacaoLoading = false;

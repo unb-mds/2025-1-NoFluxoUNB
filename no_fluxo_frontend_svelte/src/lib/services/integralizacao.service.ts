@@ -6,7 +6,7 @@
 
 import { supabaseDataService } from '$lib/services/supabase-data.service';
 import type { IntegralizacaoResult, MatrizModel } from '$lib/types/matriz';
-import type { DadosFluxogramaUser, OptativaPlanejadaRef } from '$lib/types/user';
+import type { DadosFluxogramaUser } from '$lib/types/user';
 import type { CargaHorariaIntegralizada } from '$lib/types/user';
 import { getCompletedSubjectCodes } from '$lib/types/user';
 import { getCompletedByEquivalenceCodes } from '$lib/types/equivalencia';
@@ -21,19 +21,8 @@ export interface IntegralizacaoInput {
 	cargaHorariaIntegralizada?: CargaHorariaIntegralizada | null;
 	/** Equivalências aplicáveis (gerais + específicas da matriz) para expandir concluídas. */
 	equivalencias?: EquivalenciaModel[];
-	/** Se true, ignora cargaHorariaIntegralizada e calcula CH realizado pela grade + histórico (edições no app, optativas planejadas). */
+	/** Se true, ignora cargaHorariaIntegralizada e calcula CH realizado pela grade + histórico (ex.: simulação de outro curso). */
 	recalcularPorDisciplinas?: boolean;
-	/** Optativas colocadas no fluxograma (código) — CH da grade ainda não concluída soma em “planejado”. */
-	optativasPlanejadas?: OptativaPlanejadaRef[];
-}
-
-/** Classificação da disciplina na grade: obrigatória (nivel >= 1) ou optativa (nivel 0). */
-type CategoriaCH = 'obrigatoria' | 'optativa' | 'complementar';
-
-interface GradeItem {
-	codigoMateria: string;
-	cargaHoraria: number;
-	categoria: CategoriaCH;
 }
 
 /**
@@ -44,41 +33,13 @@ function pct(exigido: number, realizado: number): number {
 	return Math.min(100, Math.round((realizado / exigido) * 100));
 }
 
-function chOptativaPlanejadaNaGrade(
-	refs: OptativaPlanejadaRef[] | undefined,
-	grade: GradeItem[],
-	codesThatCount: Set<string>
-): number {
-	if (!refs?.length) return 0;
-	const byCode = new Map<string, GradeItem>();
-	for (const g of grade) {
-		byCode.set(g.codigoMateria.trim().toUpperCase(), g);
-	}
-	let sum = 0;
-	const seen = new Set<string>();
-	for (const r of refs) {
-		const key = r.codigoMateria.trim().toUpperCase();
-		if (!key || seen.has(key)) continue;
-		seen.add(key);
-		const item = byCode.get(key);
-		if (!item || item.categoria !== 'optativa') continue;
-		const concluida =
-			codesThatCount.has(item.codigoMateria) ||
-			[...codesThatCount].some((c) => c.trim().toUpperCase() === key);
-		if (concluida) continue;
-		sum += item.cargaHoraria;
-	}
-	return sum;
-}
-
 export async function getIntegralizacao(input: IntegralizacaoInput): Promise<IntegralizacaoResult | null> {
 	const {
 		curriculoCompleto,
 		dadosFluxograma,
 		cargaHorariaIntegralizada,
 		equivalencias = [],
-		recalcularPorDisciplinas = false,
-		optativasPlanejadas
+		recalcularPorDisciplinas = false
 	} = input;
 
 	const cc = curriculoCompleto?.trim();
@@ -145,10 +106,10 @@ export async function getIntegralizacao(input: IntegralizacaoInput): Promise<Int
 		chTotal: Math.max(0, exigido.chTotal - realizado.chTotal)
 	};
 
-	const chOptativaPlanejada = chOptativaPlanejadaNaGrade(optativasPlanejadas, grade as GradeItem[], codesThatCount);
-	const chOptAposPlanej = realizado.chOptativa + chOptativaPlanejada;
-	const pctOptativaComPlanejamento = pct(exigido.chOptativa, chOptAposPlanej);
-	const faltamChOptativaAposPlanejamento = Math.max(0, exigido.chOptativa - chOptAposPlanej);
+	/** Optativas “adicionadas” no fluxo não entram no cálculo (rever depois se necessário). */
+	const chOptativaPlanejada = 0;
+	const pctOptativaComPlanejamento = pct(exigido.chOptativa, realizado.chOptativa);
+	const faltamChOptativaAposPlanejamento = faltam.chOptativa;
 
 	return {
 		curriculoCompleto: matriz.curriculoCompleto,

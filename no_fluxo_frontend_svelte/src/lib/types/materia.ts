@@ -32,9 +32,14 @@ export const SubjectStatusEnum = {
 
 export type SubjectStatusValue = (typeof SubjectStatusEnum)[keyof typeof SubjectStatusEnum];
 
-/** Optativa: tipo_natureza=1 (materias_por_curso). Fallback: nivel=0 quando tipo_natureza ausente. */
+/**
+ * Optativa na grade: tipo_natureza=1 em materias_por_curso.
+ * tipo_natureza=0 é obrigatória (mesmo com nivel 0 em dados legados).
+ * Se tipo_natureza não veio da API, cai no fallback nivel===0 (igual grade Supabase).
+ */
 export function isOptativa(materia: MateriaModel): boolean {
-	if (materia.tipoNatureza !== undefined && materia.tipoNatureza !== null) return materia.tipoNatureza === 1;
+	if (materia.tipoNatureza === 1) return true;
+	if (materia.tipoNatureza === 0) return false;
 	return materia.nivel === 0;
 }
 

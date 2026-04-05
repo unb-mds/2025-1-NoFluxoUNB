@@ -50,7 +50,6 @@
 		const fluxo = userFluxograma;
 		const cc = course?.curriculoCompleto;
 		void store.diagramLayoutRevision;
-		void store.optativasPlanejadasRefs;
 		if (!cc || !fluxo) {
 			if (course?.idCurso && !cc) {
 				supabaseDataService.getMatrizesByCurso(course.idCurso).then((m) => {
@@ -62,15 +61,11 @@
 			return;
 		}
 		integralizacaoLoading = true;
-		const optPlan = store.optativasPlanejadasRefs;
 		getIntegralizacao({
 			curriculoCompleto: cc,
 			dadosFluxograma: fluxo,
 			cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
-			equivalencias: course?.equivalencias,
-			/** Sempre pela grade + histórico local; PDF do SIGAA fica desatualizado após edições no app. */
-			recalcularPorDisciplinas: true,
-			optativasPlanejadas: optPlan.length ? optPlan : undefined
+			equivalencias: course?.equivalencias
 		}).then((r) => {
 			integralizacao = r;
 			integralizacaoLoading = false;
@@ -104,14 +99,11 @@
 		if (userFluxograma) {
 			integralizacaoLoading = true;
 			try {
-				const optPlan = store.optativasPlanejadasRefs;
 				const r = await getIntegralizacao({
 					curriculoCompleto,
 					dadosFluxograma: userFluxograma,
 					cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
-					equivalencias: store.state.courseData?.equivalencias,
-					recalcularPorDisciplinas: true,
-					optativasPlanejadas: optPlan.length ? optPlan : undefined
+					equivalencias: store.state.courseData?.equivalencias
 				});
 				integralizacao = r;
 			} finally {
