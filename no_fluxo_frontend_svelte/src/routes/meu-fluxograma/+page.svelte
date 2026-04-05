@@ -62,11 +62,13 @@
 			return;
 		}
 		integralizacaoLoading = true;
+		const optPlan = store.optativasPlanejadasRefs;
 		getIntegralizacao({
 			curriculoCompleto: cc,
 			dadosFluxograma: fluxo,
 			cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
-			equivalencias: course?.equivalencias
+			equivalencias: course?.equivalencias,
+			optativasPlanejadas: optPlan.length ? optPlan : undefined
 		}).then((r) => {
 			integralizacao = r;
 			integralizacaoLoading = false;
@@ -100,11 +102,13 @@
 		if (userFluxograma) {
 			integralizacaoLoading = true;
 			try {
+				const optPlan = store.optativasPlanejadasRefs;
 				const r = await getIntegralizacao({
 					curriculoCompleto,
 					dadosFluxograma: userFluxograma,
 					cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
-					equivalencias: store.state.courseData?.equivalencias
+					equivalencias: store.state.courseData?.equivalencias,
+					optativasPlanejadas: optPlan.length ? optPlan : undefined
 				});
 				integralizacao = r;
 			} finally {
@@ -187,10 +191,15 @@
 		</div>
 	{:else if store.state.courseData}
 		<!--
-			Bloco 1: ocupa a viewport (menos navbar). Só topo + fluxograma — a rolagem fica DENTRO do fluxograma.
-			Bloco 2: ferramentas/optativas ficam abaixo da dobra e não comprimem o diagrama.
+			Optativas planejadas: só aparece com itens (componente interno); no topo para destaque.
+			Bloco principal: viewport — rolagem do diagrama fica dentro do fluxograma.
 		-->
 		<div class="flex flex-col gap-2 pb-6">
+			{#if store.optativasAdicionadas.length > 0}
+				<div class="relative z-50 shrink-0">
+					<OptativasAdicionadasSection />
+				</div>
+			{/if}
 			<div
 				class="flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5"
 			>
@@ -236,7 +245,6 @@
 						{curriculoCompletoAtual}
 						onMatrizChange={handleMatrizChange}
 					/>
-					<OptativasAdicionadasSection />
 					<ProgressToolsSection />
 				</div>
 			{:else}

@@ -3,7 +3,12 @@
  * Bridges between snake_case (database) and camelCase (TypeScript) conventions
  */
 
-import type { UserModel, DadosMateria, DadosFluxogramaUser } from '$lib/types/user';
+import type {
+	UserModel,
+	DadosMateria,
+	DadosFluxogramaUser,
+	OptativaPlanejadaRef
+} from '$lib/types/user';
 import { isMateriaAprovada } from '$lib/types/user';
 import type {
 	CursoModel,
@@ -62,6 +67,19 @@ export function dadosMateriaToJson(dados: DadosMateria): Record<string, unknown>
 // DadosFluxogramaUser Factory
 // ============================================================================
 
+export function parseOptativasPlanejadasFromJson(raw: unknown): OptativaPlanejadaRef[] | undefined {
+	if (!Array.isArray(raw) || raw.length === 0) return undefined;
+	const out: OptativaPlanejadaRef[] = [];
+	for (const item of raw) {
+		if (!item || typeof item !== 'object') continue;
+		const o = item as Record<string, unknown>;
+		const cod = String(o.codigoMateria ?? o.codigo_materia ?? '').trim();
+		const sem = Number(o.semestre ?? 0);
+		if (cod && sem >= 1) out.push({ codigoMateria: cod, semestre: sem });
+	}
+	return out.length ? out : undefined;
+}
+
 export function createDadosFluxogramaUserFromJson(
 	json: Record<string, unknown>
 ): DadosFluxogramaUser {
@@ -90,7 +108,10 @@ export function createDadosFluxogramaUserFromJson(
 							)
 						: []
 				)
-			: []
+			: [],
+		optativasPlanejadas: parseOptativasPlanejadasFromJson(
+			json.optativas_planejadas ?? json.optativasPlanejadas
+		)
 	};
 }
 
@@ -111,7 +132,15 @@ export function dadosFluxogramaUserToJson(
 		suspensoes: dados.suspensoes,
 		dados_fluxograma: dados.dadosFluxograma.map((semester) =>
 			semester.map(dadosMateriaToJson)
-		)
+		),
+		...(dados.optativasPlanejadas?.length
+			? {
+					optativas_planejadas: dados.optativasPlanejadas.map((p) => ({
+						codigo_materia: p.codigoMateria,
+						semestre: p.semestre
+					}))
+				}
+			: {})
 	};
 }
 
@@ -159,7 +188,10 @@ export function normalizeDadosFluxogramaFromStored(
 			anoAtual: String(raw.anoAtual ?? ''),
 			matrizCurricular: String(raw.matrizCurricular ?? ''),
 			semestreAtual: Number(raw.semestreAtual ?? 0),
-			dadosFluxograma
+			dadosFluxograma,
+			optativasPlanejadas: parseOptativasPlanejadasFromJson(
+				raw.optativasPlanejadas ?? raw.optativas_planejadas
+			)
 		};
 	}
 	return null;

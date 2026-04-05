@@ -1,17 +1,26 @@
 <script lang="ts">
-	import type { MateriaModel } from '$lib/types/materia';
+	import type { MateriaModel, OptativaAdicionada } from '$lib/types/materia';
 	import SubjectCard from './SubjectCard.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 
 	interface Props {
 		semester: number;
 		subjects: MateriaModel[];
+		/** Optativas planejadas neste semestre (fora da coluna padrão da grade). */
+		optPlanned?: OptativaAdicionada[];
 		onSubjectClick?: (materia: MateriaModel) => void;
 		onSubjectLongPress?: (materia: MateriaModel) => void;
 		headerOffsetY?: number;
 	}
 
-	let { semester, subjects, onSubjectClick, onSubjectLongPress, headerOffsetY = 0 }: Props = $props();
+	let {
+		semester,
+		subjects,
+		optPlanned = [],
+		onSubjectClick,
+		onSubjectLongPress,
+		headerOffsetY = 0
+	}: Props = $props();
 
 	const store = fluxogramaStore;
 
@@ -29,15 +38,31 @@
 		return `${gap}rem`;
 	});
 
-	// Badge: horas/créditos do semestre (exigido e realizado)
+	function codeConcluido(codigo: string, completed: Set<string>): boolean {
+		const u = codigo.trim().toUpperCase();
+		for (const c of completed) {
+			if (c.trim().toUpperCase() === u) return true;
+		}
+		return false;
+	}
+
+	// Badge: horas/créditos do semestre (exigido e realizado), inclui optativas planejadas na coluna
 	const stats = $derived.by(() => {
-		const totalCredits = subjects.reduce((s, m) => s + (m.creditos ?? 0), 0);
-		const totalHours = Math.round(totalCredits * 15);
 		const completed = store.completedCodes;
-		const completedCredits = subjects.reduce(
-			(s, m) => (completed.has(m.codigoMateria?.trim().toUpperCase() ?? '') ? s + (m.creditos ?? 0) : s),
-			0
-		);
+		const totalCredits =
+			subjects.reduce((s, m) => s + (m.creditos ?? 0), 0) +
+			optPlanned.reduce((s, o) => s + (o.materia.creditos ?? 0), 0);
+		const totalHours = Math.round(totalCredits * 15);
+		const completedCredits =
+			subjects.reduce(
+				(s, m) => (codeConcluido(m.codigoMateria, completed) ? s + (m.creditos ?? 0) : s),
+				0
+			) +
+			optPlanned.reduce(
+				(s, o) =>
+					codeConcluido(o.materia.codigoMateria, completed) ? s + (o.materia.creditos ?? 0) : s,
+				0
+			);
 		const completedHours = Math.round(completedCredits * 15);
 		return {
 			totalCredits: Math.round(totalCredits * 10) / 10,
@@ -75,7 +100,7 @@
 	</div>
 
 	<!-- Badge: horas/créditos no topo (menos transparência para fácil leitura) -->
-	{#if subjects.length > 0}
+	{#if subjects.length > 0 || optPlanned.length > 0}
 		<div
 			class="flex justify-center rounded-lg border border-cyan-400/50 bg-cyan-600/45 px-2 py-1.5 text-center shadow-sm"
 			title={displayUnit === 'creditos'
@@ -92,6 +117,14 @@
 				{materia}
 				onOpenDetails={() => onSubjectClick?.(materia)}
 				onlongpress={() => onSubjectLongPress?.(materia)}
+			/>
+		{/each}
+		{#each optPlanned as opt (`opt-${opt.materia.codigoMateria}-${semester}`)}
+			<SubjectCard
+				materia={opt.materia}
+				showOptBadge={true}
+				onOpenDetails={() => onSubjectClick?.(opt.materia)}
+				onlongpress={() => onSubjectLongPress?.(opt.materia)}
 			/>
 		{/each}
 	</div>

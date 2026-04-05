@@ -41,12 +41,16 @@
 	/** Mobile: toque iniciou em um card — atrasa scroll para permitir tap/long-press */
 	let touchStartedOnCard = $state(false);
 
-	// Semestres exibidos nas colunas: todos com nivel >= 1 (inclui optativas em nivel 1+; nivel 0 = optativas só na lista/modal)
+	// Semestres: grade (nivel >= 1) + semestres onde há só optativa planejada pelo usuário
 	let sortedSemesters = $derived.by(() => {
-		const map = store.subjectsBySemester;
-		return Array.from(map.keys())
-			.filter((k) => k > 0)
-			.sort((a, b) => a - b);
+		const keys = new Set<number>();
+		for (const k of store.subjectsBySemester.keys()) {
+			if (k > 0) keys.add(k);
+		}
+		for (const k of store.optativasBySemester.keys()) {
+			if (k > 0) keys.add(k);
+		}
+		return Array.from(keys).sort((a, b) => a - b);
 	});
 
 	/** Só arrasta pelo “fundo” — não rouba clique dos cards nem de controles. */
@@ -212,9 +216,17 @@
 		<!-- Semester columns -->
 		{#each sortedSemesters as semester (semester)}
 			{@const subjects = store.subjectsBySemester.get(semester) ?? []}
+			{@const optRaw = store.optativasBySemester.get(semester) ?? []}
+			{@const codesInCol = new Set(
+				subjects.map((m) => m.codigoMateria.trim().toUpperCase())
+			)}
+			{@const optPlanned = optRaw.filter((o) =>
+				!codesInCol.has(o.materia.codigoMateria.trim().toUpperCase())
+			)}
 			<SemesterColumn
 				{semester}
 				{subjects}
+				optPlanned={optPlanned}
 				{onSubjectClick}
 				{onSubjectLongPress}
 				{headerOffsetY}

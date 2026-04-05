@@ -5,12 +5,14 @@
 
 	interface Props {
 		materia: MateriaModel;
+		/** Optativa colocada manualmente no fluxograma (badge). */
+		showOptBadge?: boolean;
 		/** Abrir modal de detalhes (nome evita conflito com `onclick` do Svelte no `<button>`) */
 		onOpenDetails?: () => void;
 		onlongpress?: () => void;
 	}
 
-	let { materia, onOpenDetails, onlongpress }: Props = $props();
+	let { materia, showOptBadge = false, onOpenDetails, onlongpress }: Props = $props();
 
 	const store = fluxogramaStore;
 	let status = $derived(store.getSubjectStatus(materia));
@@ -241,6 +243,12 @@
 	<div class="mb-1 flex shrink-0 items-center justify-between gap-1">
 		<span class="text-[10px] font-semibold uppercase tracking-wider {textColor} opacity-80">
 			{materia.codigoMateria}
+			{#if showOptBadge}
+				<span
+					class="ml-1 rounded bg-purple-500/85 px-1 py-px text-[8px] font-bold normal-case text-white"
+					title="Optativa planejada no fluxograma"
+				>(opt)</span>
+			{/if}
 		</span>
 		<div class="flex items-center gap-1">
 			<span class="text-[10px] {textColor} opacity-60">

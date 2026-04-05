@@ -7,6 +7,12 @@ export type SubjectStatus = 'APR' | 'CUMP' | 'DISP' | 'MATR' | 'REP' | 'TRC' | '
 
 export type GradeMention = 'SS' | 'MS' | 'MM' | 'MI' | 'II' | 'SR' | '-';
 
+/** Optativas colocadas no fluxograma pelo usuário (persistido em dados_users / localStorage). */
+export interface OptativaPlanejadaRef {
+	codigoMateria: string;
+	semestre: number;
+}
+
 export interface DadosMateria {
 	codigoMateria: string;
 	mencao: GradeMention | string;
@@ -34,6 +40,8 @@ export interface DadosFluxogramaUser {
 	matrizCurricular: string;
 	semestreAtual: number;
 	dadosFluxograma: DadosMateria[][];
+	/** Planejamento de optativas no fluxograma (semestre + código). */
+	optativasPlanejadas?: OptativaPlanejadaRef[];
 }
 
 /** Carga horária integralizada extraída do PDF (SIGAA). */

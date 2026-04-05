@@ -5,11 +5,26 @@ import pandas as pd
 import re
 import json
 import os
+from urllib.parse import urljoin
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 import random
 import unicodedata
 from pathlib import Path
+
+try:
+    import lxml  # noqa: F401 — parser usado pelo BeautifulSoup
+except ImportError as _e:
+    raise ImportError(
+        "Instale o pacote 'lxml' para rodar este scraper (pip install lxml)."
+    ) from _e
+
+# Raiz DBA/ (independe do cwd ao rodar o script)
+_DBA_ROOT = Path(__file__).resolve().parent.parent
+_DEPARTAMENTOS_CSV_PATHS = (
+    _DBA_ROOT / "dados" / "departamentos_ID_unb.csv",
+    Path(__file__).resolve().parent / "departamentos_ID_unb.csv",
+)
 """
 ESTE ARQUIVO CONTÉM O CODIGO DE SCRAPPING PARA TODAS OS DEPTOS,
 Este arquivo extrai as equivalencias(especificas ou gerias),corequisitos e prerequisitos das materias
@@ -45,8 +60,59 @@ def limpar_texto(texto):
 MAX_WORKERS = 6  # Reduzido para evitar bloqueios
 REQUEST_DELAY = (2, 5)  # Intervalo maior entre requisições
 MAX_RETRIES = 5  # Mais tentativas por departamento
-OUTPUT_DIR = os.path.join("dados", "Equivalencias_Turmas_Departamentos")
+# Saída alinhada ao restante do projeto (ex.: turmas_depto_508.json)
+OUTPUT_DIR = str(_DBA_ROOT / "dados" / "materias")
 DEBUG = True  # Ativar para ver logs detalhados
+
+_BS_PARSER = "lxml"
+
+_BROWSER_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    ),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+}
+
+
+def _normalize_sigaa_redirect_url(location: str, prev_url: str) -> str:
+    if not location or not location.strip():
+        return ""
+    loc = location.strip()
+    if loc.startswith("http://sigaa.unb.br"):
+        return "https://" + loc[7:]
+    if loc.startswith("https://sigaa.unb.br"):
+        return loc
+    if loc.startswith("/"):
+        return urljoin("https://sigaa.unb.br", loc)
+    return urljoin(prev_url, loc)
+
+
+def _sigaa_follow_redirects_get(session: requests.Session, initial: requests.Response, *, page_referer: str):
+    r = initial
+    for _ in range(16):
+        if r.status_code not in (301, 302, 303, 307, 308):
+            return r
+        nxt = _normalize_sigaa_redirect_url(r.headers.get("Location") or "", getattr(r, "url", "") or page_referer)
+        if not nxt:
+            return r
+        hdrs = {**_BROWSER_HEADERS, "Referer": page_referer, "Origin": "https://sigaa.unb.br"}
+        r = session.get(nxt, headers=hdrs, allow_redirects=False, timeout=60)
+    return r
+
+
+def _viewstate_listagem(soup: BeautifulSoup):
+    for form in soup.find_all("form"):
+        for tbl in form.find_all("table"):
+            if "listagem" in (tbl.get("class") or []):
+                inp = form.find("input", {"name": "javax.faces.ViewState"})
+                if inp and inp.get("value"):
+                    return inp["value"]
+    inp = soup.find("input", {"name": "javax.faces.ViewState"})
+    if inp and inp.get("value"):
+        return inp["value"]
+    return None
 
 def limpar_texto(texto):
     
@@ -64,26 +130,35 @@ def extrair_equivalencias(cells):
         equivalencias.append(f"{codigo} ({descricao})")
     return ", ".join(equivalencias) if equivalencias else "Nenhuma"
 
-def coleta_dados(session, component_id, viewstate, base_url, params):
-    
+def coleta_dados(session, component_id, viewstate, post_url, params):
     try:
         form_data = {
             "javax.faces.ViewState": viewstate,
-            'formListagemComponentes': 'formListagemComponentes'
+            "formListagemComponentes": "formListagemComponentes",
         }
         form_data.update(params)
-        #time.sleep(random.uniform(0.5, 1.5))
 
-        response = session.post(base_url, data=form_data, headers={
-            'Referer': base_url
-        }, timeout=45)
+        post_headers = {
+            **_BROWSER_HEADERS,
+            "Referer": post_url,
+            "Origin": "https://sigaa.unb.br",
+        }
+        raw = session.post(
+            post_url,
+            data=form_data,
+            headers=post_headers,
+            timeout=45,
+            allow_redirects=False,
+        )
+        response = _sigaa_follow_redirects_get(session, raw, page_referer=post_url)
 
         if DEBUG:
-            Path("debug_html").mkdir(exist_ok=True)
-            with open(f"debug_html/componente_{component_id}.html", "w", encoding="utf-8") as f:
+            dbg = Path(OUTPUT_DIR).parent / "debug_html_equiv"
+            dbg.mkdir(parents=True, exist_ok=True)
+            with open(dbg / f"componente_{component_id}.html", "w", encoding="utf-8") as f:
                 f.write(response.text)
 
-        details_soup = BeautifulSoup(response.text, "html.parser")
+        details_soup = BeautifulSoup(response.text, _BS_PARSER)
         
         
         details = {}
@@ -183,200 +258,182 @@ def coleta_dados(session, component_id, viewstate, base_url, params):
 
 def processar_departamento(id_atual):
     """Processa um departamento com todas as verificações originais"""
+    session = None
     for tentativa in range(MAX_RETRIES):
         try:
             session = requests.Session()
-            #session.headers.update({
-                #'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-            #})
+            session.headers.update(_BROWSER_HEADERS)
 
-            # DELAY ANTIDDOS
             time.sleep(random.uniform(*REQUEST_DELAY))
 
-            # PRIMEIRA REQUISIÇÃO (OBTER TOKENS)
             base_url = "https://sigaa.unb.br/sigaa/public/componentes/busca_componentes.jsf"
             response = session.get(base_url, timeout=30)
-            
+
             if response.status_code != 200:
                 raise requests.exceptions.RequestException(f"Status {response.status_code}")
 
-            soup = BeautifulSoup(response.text, "html.parser")
-            #print(soup)
-            viewstate = soup.find("input", {"name": "javax.faces.ViewState"})["value"]
-            # 1. Encontrar o formulário principal
+            soup = BeautifulSoup(response.text, _BS_PARSER)
             form_tag = soup.find("form", {"id": "form"})
             if not form_tag:
                 raise ValueError("Formulário principal com id='form' não encontrado.")
+            vs_inp = form_tag.find("input", {"name": "javax.faces.ViewState"})
+            if not vs_inp or not vs_inp.get("value"):
+                raise ValueError("javax.faces.ViewState ausente no formulário de busca.")
+            viewstate = vs_inp["value"]
 
-            # 2. Montar um payload base com TODOS os inputs e selects do formulário
             form_data = {}
             for element in form_tag.find_all(["input", "select"]):
                 name = element.get("name")
-                if not name or element.get("type") == "submit":
+                if not name:
+                    continue
+                inp_type = (element.get("type") or "").lower()
+                if inp_type == "submit":
                     continue
 
-                value = '' # Valor padrão
+                if element.name == "select":
+                    selected_option = element.find("option", selected=True)
+                    form_data[name] = (
+                        selected_option.get("value", "") if selected_option else ""
+                    )
+                    continue
 
-                # Lógica para <select>
-                if element.name == 'select':
-                    selected_option = element.find('option', selected=True)
-                    if selected_option:
-                        value = selected_option.get('value', '')
-                        
-                # Lógica para <input> (checkboxes, radio, text, hidden, etc.)
-                elif element.name == 'input':
-                    # Para checkboxes/radios selecionados, o navegador envia o valor ou 'on'
-                    if element.get('type') in ['checkbox', 'radio'] and element.has_attr('checked'):
-                        value = element.get('value', 'on')
-                    # Para outros inputs, pega o valor diretamente
-                    elif element.get('type') not in ['checkbox', 'radio']:
-                        value = element.get('value', '')
+                if element.name == "input":
+                    if inp_type in ("checkbox", "radio"):
+                        if not element.has_attr("checked"):
+                            continue
+                        form_data[name] = element.get("value", "on")
+                        continue
+                    form_data[name] = element.get("value", "")
 
-                form_data[name] = value
-
-            # 3. Agora, defina os valores específicos para a sua busca
             form_data["form:nivel"] = "G"
             form_data["form:unidades"] = str(id_atual)
-
-            # --- ADICIONE ESTA LINHA ---
-            # Simula o JavaScript que marca o checkbox quando uma unidade é selecionada
-            form_data["form:checkUnidade"] = 'on'
-            # ---------------------------
-
+            form_data["form:tipo"] = "2"
+            form_data["form:checkTipo"] = "on"
+            form_data["form:checkUnidade"] = "on"
             form_data["javax.faces.ViewState"] = viewstate
 
-            # 4. Adicione o botão que você quer "clicar"
             buscar_button = form_tag.find("input", {"value": "Buscar Componentes"})
-            if buscar_button:
-                form_data[buscar_button.get("name")] = buscar_button.get("value")
-            else:
+            if not buscar_button:
                 raise ValueError("Botão 'Buscar Componentes' não encontrado.")
+            form_data[buscar_button.get("name")] = buscar_button.get("value")
 
-            # --- FIM DA MODIFICAÇÃO CORRIGIDA ---
+            action = (form_tag.get("action") or "/sigaa/public/componentes/busca_componentes.jsf").strip()
+            post_url = urljoin(response.url, action)
 
-            # Adicione este print para verificar o NOVO payload
-            #print("Payload corrigido a ser enviado:", form_data)
-
-            # ENVIAR FORMULÁRIO
-            #print(form_data)
-            search_response = session.post(
-                base_url, 
-                data=form_data, 
-                timeout=60
-
+            post_headers = {
+                **_BROWSER_HEADERS,
+                "Referer": response.url,
+                "Origin": "https://sigaa.unb.br",
+            }
+            search_raw = session.post(
+                post_url,
+                data=form_data,
+                headers=post_headers,
+                timeout=60,
+                allow_redirects=False,
             )
-            #print(search_response)
+            search_response = _sigaa_follow_redirects_get(
+                session, search_raw, page_referer=response.url
+            )
 
-            # VERIFICAÇÃO DE RESULTADOS
             if "Nenhuma turma encontrada" in search_response.text:
                 if DEBUG:
-                    print(f"\n[INFO] Departamento {id_atual} sem turmas")
-                return []
+                    print(f"\n[INFO] Departamento {id_atual} sem componentes na listagem")
+                return {"departamento_id": id_atual, "turmas": []}
 
-            results_soup = BeautifulSoup(search_response.text, "html.parser")
-            #print(results_soup)
-            tables = results_soup.find_all("table", {"class": "listagem"})
-            #print(tables)
-            
+            results_soup = BeautifulSoup(search_response.text, _BS_PARSER)
+            tables = results_soup.select("table.listagem")
+            viewstate_resultados = _viewstate_listagem(results_soup)
+            if not viewstate_resultados:
+                raise ValueError(
+                    "Listagem: javax.faces.ViewState não encontrado (resposta pode ser página inativa/home)."
+                )
+
             turmas_depto = []
-            #-----------MODIFICACAO FEITA AQUI------------
-            materias_com_turma_adicionada = set() 
-            turmas_depto = []
-            materias_adicionadas = set() 
-            for table_counter,table in enumerate(tables, 1):
-                component_id = None
-                #current_component_details = {}
-                current_component_name = ""
-                #current_component = {"departamento_id": id_atual}
-                current_component = {}
+            materias_adicionadas = set()
+            for table in tables:
+                for row in table.select("tr.linhaImpar, tr.linhaPar"):
+                    cols = row.find_all("td")
+                    if len(cols) < 5:
+                        continue
 
+                    link_detalhes = row.find("a", title="Detalhes do Componente Curricular")
+                    if not link_detalhes:
+                        continue
 
-                for row in table.find_all("tr"):
-                    # O ViewState pode mudar, então pegamos o mais atual da página de resultados
-                    viewstate_resultados = results_soup.find('input', {'name': 'javax.faces.ViewState'})['value']
+                    codigo_materia = limpar_texto(cols[0].text)
+                    if codigo_materia in materias_adicionadas:
+                        continue
 
-                    for row in table.find_all("tr", class_=["linhaImpar", "linhaPar"]):
-                        cols = row.find_all("td")
-                        if len(cols) < 5:
-                            continue
-                        
-                        # Encontra o link de detalhes (o que tem a imagem view.gif)
-                        link_detalhes = row.find("a", title="Detalhes do Componente Curricular")
-                        if not link_detalhes:
-                            continue
-                            
-                        # Pega o código da matéria da primeira coluna
-                        codigo_materia = limpar_texto(cols[0].text)
+                    onclick_attr = link_detalhes.get("onclick", "")
+                    params_str = re.search(r"\{([^}]+)\}", onclick_attr)
+                    if not params_str:
+                        continue
 
-                        # Evita processar a mesma matéria várias vezes se ela aparecer em mais de uma tabela
-                        if codigo_materia in materias_adicionadas:
-                            continue
+                    params = dict(re.findall(r"'([^']+)':\s*'([^']*)'", params_str.group(1)))
+                    component_id = params.get("id")
+                    if not component_id:
+                        continue
 
-                        onclick_attr = link_detalhes.get("onclick", "")
+                    dados_da_materia = coleta_dados(
+                        session,
+                        component_id,
+                        viewstate_resultados,
+                        post_url,
+                        params,
+                    )
+                    if dados_da_materia:
+                        dados_da_materia["codigo"] = codigo_materia
+                        turmas_depto.append(dados_da_materia)
+                        materias_adicionadas.add(codigo_materia)
 
-                        # Extrai todos os parâmetros de dentro do objeto JS com regex
-                        # Isso transforma {'chave1':'valor1', 'chave2':'valor2'} em um dicionário Python
-                        params_str = re.search(r"\{([^}]+)\}", onclick_attr)
-                        if not params_str:
-                            continue
-                            
-                        params = dict(re.findall(r"'([^']+)':\s*'([^']*)'", params_str.group(1)))
-                        
-                        # O 'id' do componente é o mais importante aqui
-                        component_id = params.get('id')
-                        if not component_id:
-                            continue
-
-                        # Chama a função para coletar os dados da página de detalhes
-                        # Passamos a session, o viewstate ATUAL e os parâmetros que extraímos
-                        dados_da_materia = coleta_dados(
-                            session, 
-                            component_id, 
-                            viewstate_resultados, 
-                            base_url, 
-                            params
-                        )
-                        
-                        # Combina o código da matéria com os detalhes coletados
-                        if dados_da_materia:
-                            dados_da_materia['codigo'] = codigo_materia
-                            turmas_depto.append(dados_da_materia)
-                            materias_adicionadas.add(codigo_materia)
-                                
-                
-
-
-            #return turmas_depto
-
-            #return para o salvamento de turmas por depto
             return {"departamento_id": id_atual, "turmas": turmas_depto}
 
         except Exception as e:
             if tentativa == MAX_RETRIES - 1:
                 if DEBUG:
-                    print(f"\n[FALHA] Departamento {id_atual} após {MAX_RETRIES} tentativas: {str(e)}")
-                #return []
-                #return para o salvamento de turmas por depto
+                    print(
+                        f"\n[FALHA] Departamento {id_atual} após {MAX_RETRIES} tentativas: "
+                        f"{type(e).__name__}: {e}"
+                    )
                 return {"departamento_id": id_atual, "turmas": []}
             wait_time = 10 * (tentativa + 1)
             if DEBUG:
-                print(f"\n[RETRY] Tentativa {tentativa+1} para {id_atual} - Aguardando {wait_time}s")
+                print(
+                    f"\n[RETRY] Tentativa {tentativa + 1} para {id_atual} — "
+                    f"{type(e).__name__}: {e} — aguardando {wait_time}s"
+                )
             time.sleep(wait_time)
-            
         finally:
-            session.close()
+            if session is not None:
+                session.close()
+                session = None
 
 def carregar_ids_departamentos():
-    """Carrega TODOS os 207 IDs do seu arquivo CSV"""
+    """Carrega os IDs do CSV (dados/ ou pasta do script)."""
+    import csv
+
+    csv_path = next((p for p in _DEPARTAMENTOS_CSV_PATHS if p.is_file()), None)
+    if csv_path is None:
+        print(
+            "\n[ERRO CRÍTICO] Arquivo departamentos_ID_unb.csv não encontrado. "
+            f"Procurado em: {', '.join(str(p) for p in _DEPARTAMENTOS_CSV_PATHS)}"
+        )
+        return []
+    ids = []
     try:
-        import csv
-        ids = []
-        with open('dados/departamentos_ID_unb.csv', 'r', encoding='utf-8') as file:
-            csv_reader = csv.reader(file)
-            for row in csv_reader:
-                if row and row[0].isdigit():
-                    ids.append(int(row[0]))
-        print(f"\nCarregados {len(ids)} departamentos")
+        with open(csv_path, "r", encoding="utf-8") as file:
+            for row in csv.reader(file):
+                if not row:
+                    continue
+                cell = row[0].strip()
+                if not cell.isdigit():
+                    continue
+                uid = int(cell)
+                if uid <= 0:
+                    continue
+                ids.append(uid)
+        print(f"\nCarregados {len(ids)} departamentos (fonte: {csv_path})")
         return ids
     except Exception as e:
         print(f"\n[ERRO CRÍTICO] Falha ao carregar IDs: {str(e)}")

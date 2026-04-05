@@ -70,6 +70,12 @@ export interface IntegralizacaoResult {
 	pctOptativa: number;
 	pctComplementar: number;
 	pctTotal: number;
+	/** CH de optativas planejadas no fluxo (ainda não concluídas no histórico), contadas na grade como optativa. */
+	chOptativaPlanejada?: number;
+	/** % optativa considerando realizado + planejado vs exigido. */
+	pctOptativaComPlanejamento?: number;
+	/** Faltam horas de optativa após realizado + planejado. */
+	faltamChOptativaAposPlanejamento?: number;
 }
 
 /** Decomposição do curriculo_completo para exibição/filtro: "8117/-2 - 2018.2" ou "8117/-2 - 2018.2 - DIURNO" -> codigo "8117", versao "-2", ano "2018.2". */

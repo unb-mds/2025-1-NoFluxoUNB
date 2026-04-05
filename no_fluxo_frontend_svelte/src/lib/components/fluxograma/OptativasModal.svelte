@@ -28,8 +28,9 @@
 
 	// Check if an optativa is already added
 	function isAlreadyAdded(code: string): boolean {
+		const u = code.trim().toUpperCase();
 		return store.optativasAdicionadas.some(
-			(o) => o.materia.codigoMateria === code
+			(o) => o.materia.codigoMateria.trim().toUpperCase() === u
 		);
 	}
 

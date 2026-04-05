@@ -10,6 +10,7 @@
 	import OptativasModal from '$lib/components/fluxograma/OptativasModal.svelte';
 	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
 	import ProgressToolsSection from '$lib/components/fluxograma/ProgressToolsSection.svelte';
+	import OptativasAdicionadasSection from '$lib/components/fluxograma/OptativasAdicionadasSection.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';
@@ -80,12 +81,14 @@
 			return;
 		}
 		integralizacaoLoading = true;
+		const optPlan = store.optativasPlanejadasRefs;
 		getIntegralizacao({
 			curriculoCompleto: cc,
 			dadosFluxograma: fluxo,
 			cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
 			equivalencias: course?.equivalencias,
-			recalcularPorDisciplinas: eSimulacaoOutroCurso
+			recalcularPorDisciplinas: eSimulacaoOutroCurso,
+			optativasPlanejadas: optPlan.length ? optPlan : undefined
 		}).then((r) => {
 			integralizacao = r;
 			integralizacaoLoading = false;
@@ -120,12 +123,14 @@
 		if (userFluxograma) {
 		integralizacaoLoading = true;
 		try {
+			const optPlan = store.optativasPlanejadasRefs;
 			const r = await getIntegralizacao({
 				curriculoCompleto,
 				dadosFluxograma: userFluxograma,
 				cargaHorariaIntegralizada: store.cargaHorariaIntegralizada,
 				equivalencias: store.state.courseData?.equivalencias,
-				recalcularPorDisciplinas: eSimulacaoOutroCurso
+				recalcularPorDisciplinas: eSimulacaoOutroCurso,
+				optativasPlanejadas: optPlan.length ? optPlan : undefined
 			});
 				integralizacao = r;
 			} finally {
@@ -177,6 +182,11 @@
 		</div>
 	{:else if store.state.courseData}
 		<div class="flex flex-col gap-2 pb-6">
+			{#if store.optativasAdicionadas.length > 0}
+				<div class="relative z-50 shrink-0">
+					<OptativasAdicionadasSection />
+				</div>
+			{/if}
 			<div
 				class="flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5"
 			>

@@ -4,19 +4,16 @@
  */
 
 import { fluxogramaService } from '$lib/services/fluxograma.service';
+import { dadosFluxogramaUserToJson } from '$lib/factories';
 import { authStore } from '$lib/stores/auth';
 import type { CursoModel } from '$lib/types/curso';
 import type { MateriaModel } from '$lib/types/materia';
-import {
-	SubjectStatusEnum,
-	determineSubjectStatus,
-	type SubjectStatusValue,
-	type OptativaAdicionada
-} from '$lib/types/materia';
+import { isOptativa, SubjectStatusEnum, determineSubjectStatus, type SubjectStatusValue, type OptativaAdicionada } from '$lib/types/materia';
 import {
 	getCompletedSubjectCodes,
 	getCurrentSubjectCodes,
 	type DadosFluxogramaUser,
+	type OptativaPlanejadaRef,
 	findSubjectInFluxograma
 } from '$lib/types/user';
 import { getCompletedByEquivalenceCodes } from '$lib/types/equivalencia';
@@ -46,6 +43,48 @@ export interface FluxogramaState {
 const MIN_ZOOM = 0.3;
 const MAX_ZOOM = 2.0;
 const ZOOM_STEP = 0.1;
+
+function hydrateOptativasFromRefs(
+	refs: OptativaPlanejadaRef[] | undefined,
+	course: CursoModel
+): OptativaAdicionada[] {
+	if (!refs?.length) return [];
+	const byCode = new Map(course.materias.map((m) => [m.codigoMateria.trim().toUpperCase(), m]));
+	const out: OptativaAdicionada[] = [];
+	const seen = new Set<string>();
+	for (const r of refs) {
+		const key = r.codigoMateria.trim().toUpperCase();
+		if (!key || seen.has(key)) continue;
+		seen.add(key);
+		const m = byCode.get(key);
+		if (m && isOptativa(m)) {
+			const sem = Number(r.semestre);
+			out.push({ materia: m, semestre: Number.isFinite(sem) && sem >= 1 ? sem : 1 });
+		}
+	}
+	return out;
+}
+
+function refsPlanejadasIguais(
+	salvas: OptativaPlanejadaRef[] | undefined,
+	atual: OptativaAdicionada[]
+): boolean {
+	const norm = (pairs: { c: string; s: number }[]) =>
+		[...pairs].sort((x, y) => x.c.localeCompare(y.c) || x.s - y.s);
+	const a = norm(
+		(salvas ?? []).map((r) => ({
+			c: r.codigoMateria.trim().toUpperCase(),
+			s: r.semestre
+		}))
+	);
+	const b = norm(
+		atual.map((o) => ({
+			c: o.materia.codigoMateria.trim().toUpperCase(),
+			s: o.semestre
+		}))
+	);
+	return JSON.stringify(a) === JSON.stringify(b);
+}
 
 function createFluxogramaStore() {
 	let state = $state<FluxogramaState>({
@@ -90,6 +129,13 @@ function createFluxogramaStore() {
 		return map;
 	});
 
+	const optativasPlanejadasRefs = $derived.by((): OptativaPlanejadaRef[] =>
+		optativasAdicionadas.map((o) => ({
+			codigoMateria: o.materia.codigoMateria.trim(),
+			semestre: o.semestre
+		}))
+	);
+
 	// Computed: subjects grouped by semester
 	const subjectsBySemester = $derived.by(() => {
 		if (!state.courseData) return new Map<number, MateriaModel[]>();
@@ -100,6 +146,10 @@ function createFluxogramaStore() {
 	const userFluxograma = $derived.by(() => {
 		return authState.user?.dadosFluxograma ?? null;
 	});
+
+	const optativasPlanejamentoSalvo = $derived.by(() =>
+		refsPlanejadasIguais(userFluxograma?.optativasPlanejadas, optativasAdicionadas)
+	);
 
 	// Computed: carga horária integralizada do histórico (PDF)
 	const cargaHorariaIntegralizada = $derived.by(() => {
@@ -166,6 +216,12 @@ function createFluxogramaStore() {
 		get optativasBySemester() {
 			return optativasBySemester;
 		},
+		get optativasPlanejadasRefs() {
+			return optativasPlanejadasRefs;
+		},
+		get optativasPlanejamentoSalvo() {
+			return optativasPlanejamentoSalvo;
+		},
 		get connectionDensityBySemester() {
 			return connectionDensityBySemester;
 		},
@@ -183,8 +239,9 @@ function createFluxogramaStore() {
 		},
 
 		addOptativa(materia: MateriaModel, semestre: number) {
+			const codeU = materia.codigoMateria.trim().toUpperCase();
 			const exists = optativasAdicionadas.some(
-				(o) => o.materia.codigoMateria === materia.codigoMateria
+				(o) => o.materia.codigoMateria.trim().toUpperCase() === codeU
 			);
 			if (exists) {
 				toast.warning('Esta optativa já foi adicionada.');
@@ -195,14 +252,42 @@ function createFluxogramaStore() {
 		},
 
 		removeOptativa(codigoMateria: string) {
+			const u = codigoMateria.trim().toUpperCase();
 			const opt = optativasAdicionadas.find(
-				(o) => o.materia.codigoMateria === codigoMateria
+				(o) => o.materia.codigoMateria.trim().toUpperCase() === u
 			);
 			optativasAdicionadas = optativasAdicionadas.filter(
-				(o) => o.materia.codigoMateria !== codigoMateria
+				(o) => o.materia.codigoMateria.trim().toUpperCase() !== u
 			);
 			if (opt) {
 				toast.success(`${opt.materia.nomeMateria} removida.`);
+			}
+		},
+
+		async saveOptativasPlanejadas() {
+			const user = authStore.getUser();
+			if (state.isAnonymous || !user?.idUser || !user.dadosFluxograma) {
+				toast.error('Entre na conta para salvar o planejamento de optativas.');
+				return;
+			}
+			const refs: OptativaPlanejadaRef[] = optativasAdicionadas.map((o) => ({
+				codigoMateria: o.materia.codigoMateria.trim(),
+				semestre: o.semestre
+			}));
+			const dadosAtualizados: DadosFluxogramaUser = {
+				...user.dadosFluxograma,
+				optativasPlanejadas: refs.length ? refs : undefined
+			};
+			try {
+				await fluxogramaService.saveFluxograma(
+					user.idUser,
+					dadosFluxogramaUserToJson(dadosAtualizados),
+					user.dadosFluxograma.semestreAtual
+				);
+				authStore.updateDadosFluxograma(dadosAtualizados);
+				toast.success('Optativas salvas no seu perfil.');
+			} catch {
+				toast.error('Não foi possível salvar. Tente de novo.');
 			}
 		},
 
@@ -214,6 +299,10 @@ function createFluxogramaStore() {
 			try {
 				const data = await fluxogramaService.getCourseData(courseName);
 				state.courseData = data;
+				optativasAdicionadas = hydrateOptativasFromRefs(
+					authStore.getUser()?.dadosFluxograma?.optativasPlanejadas,
+					data
+				);
 			} catch (err) {
 				const message =
 					err instanceof Error ? err.message : 'Erro ao carregar dados do curso';
@@ -231,6 +320,10 @@ function createFluxogramaStore() {
 			try {
 				const data = await fluxogramaService.getCourseDataByCurriculoCompleto(curriculoCompleto);
 				state.courseData = data;
+				optativasAdicionadas = hydrateOptativasFromRefs(
+					authStore.getUser()?.dadosFluxograma?.optativasPlanejadas,
+					data
+				);
 			} catch (err) {
 				const message =
 					err instanceof Error ? err.message : 'Erro ao carregar dados da matriz';

@@ -47,9 +47,12 @@
 			chave: 'obrigatoria',
 			label: 'Obrigatória',
 			realizado: dadosUser?.realizado.chObrigatoria ?? 0,
+			planejada: 0,
 			exigido: dadosUser?.exigido.chObrigatoria ?? 0,
 			faltam: dadosUser?.faltam.chObrigatoria ?? 0,
+			faltamAposPlanejamento: undefined as number | undefined,
 			pct: dadosUser?.pctObrigatoria ?? 0,
+			pctComPlanejamento: dadosUser?.pctObrigatoria ?? 0,
 			cor: '#3b82f6',
 			corClasse: 'text-blue-400',
 			bgClasse: 'bg-blue-500/20',
@@ -59,9 +62,12 @@
 			chave: 'optativa',
 			label: 'Optativa',
 			realizado: dadosUser?.realizado.chOptativa ?? 0,
+			planejada: dadosUser?.chOptativaPlanejada ?? 0,
 			exigido: dadosUser?.exigido.chOptativa ?? 0,
 			faltam: dadosUser?.faltam.chOptativa ?? 0,
+			faltamAposPlanejamento: dadosUser?.faltamChOptativaAposPlanejamento,
 			pct: dadosUser?.pctOptativa ?? 0,
+			pctComPlanejamento: dadosUser?.pctOptativaComPlanejamento ?? dadosUser?.pctOptativa ?? 0,
 			cor: '#a855f7',
 			corClasse: 'text-purple-400',
 			bgClasse: 'bg-purple-500/20',
@@ -73,9 +79,12 @@
 						chave: 'complementar',
 						label: 'Complementar',
 						realizado: dadosUser?.realizado.chComplementar ?? 0,
+						planejada: 0,
 						exigido: dadosUser?.exigido.chComplementar ?? 0,
 						faltam: dadosUser?.faltam.chComplementar ?? 0,
+						faltamAposPlanejamento: undefined as number | undefined,
 						pct: dadosUser?.pctComplementar ?? 0,
+						pctComPlanejamento: dadosUser?.pctComplementar ?? 0,
 						cor: '#f59e0b',
 						corClasse: 'text-amber-400',
 						bgClasse: 'bg-amber-500/20',
@@ -168,7 +177,8 @@
 		<!-- Cards expansíveis por categoria -->
 		<div class="grid grid-cols-1 gap-2 sm:gap-3 sm:grid-cols-2 lg:grid-cols-3">
 			{#each categorias as cat}
-				{@const c = circleProgress(cat.pct, 24)}
+				{@const pctExibir = cat.planejada > 0 ? cat.pctComPlanejamento : cat.pct}
+				{@const c = circleProgress(pctExibir, 24)}
 				<div
 					class="overflow-hidden rounded-xl border bg-white/5 transition-colors hover:border-opacity-80 {cat.borderClasse}"
 				>
@@ -195,13 +205,26 @@
 									/>
 								</svg>
 								<div class="absolute inset-0 flex items-center justify-center">
-									<span class="text-sm font-bold text-white">{cat.pct}%</span>
+									<span class="text-sm font-bold text-white">{pctExibir}%</span>
 								</div>
 							</div>
 							<div>
 								<p class="text-sm font-semibold {cat.corClasse}">{cat.label}</p>
 								<p class="text-xs text-white/60">
-									{formatarValor(cat.realizado, unidade)} / {formatarValor(cat.exigido, unidade)}
+									{#if cat.planejada > 0}
+										{formatarValor(cat.realizado + cat.planejada, unidade)} / {formatarValor(
+											cat.exigido,
+											unidade
+										)}
+										<span class="block text-[10px] text-white/40"
+											>({formatarValor(cat.realizado, unidade)} aprov. + {formatarValor(
+												cat.planejada,
+												unidade
+											)} planej.)</span
+										>
+									{:else}
+										{formatarValor(cat.realizado, unidade)} / {formatarValor(cat.exigido, unidade)}
+									{/if}
 								</p>
 							</div>
 						</div>
@@ -217,12 +240,25 @@
 							class="border-t border-white/10 px-4 py-3 {cat.bgClasse}"
 						>
 							<p class="text-xs text-white/70">
-								Realizado: {formatarValor(cat.realizado, unidade)}
+								Realizado (aprovado): {formatarValor(cat.realizado, unidade)}
 							</p>
+							{#if cat.planejada > 0}
+								<p class="text-xs text-white/70">
+									Planejado no fluxograma: {formatarValor(cat.planejada, unidade)}
+								</p>
+							{/if}
 							<p class="text-xs text-white/70">
 								Exigido: {formatarValor(cat.exigido, unidade)}
 							</p>
-							{#if cat.faltam > 0}
+							{#if cat.planejada > 0 && cat.faltamAposPlanejamento !== undefined}
+								{#if cat.faltamAposPlanejamento > 0}
+									<p class="mt-1 text-xs {cat.corClasse}">
+										Faltam após o planejamento: {formatarValor(cat.faltamAposPlanejamento, unidade)}
+									</p>
+								{:else if cat.exigido > 0}
+									<p class="mt-1 text-xs {cat.corClasse}">Optativas cobertas (aprovado + planejado)</p>
+								{/if}
+							{:else if cat.faltam > 0}
 								<p class="mt-1 text-xs {cat.corClasse}">Faltam: {formatarValor(cat.faltam, unidade)}</p>
 							{:else if cat.exigido > 0}
 								<p class="mt-1 text-xs {cat.corClasse}">Completo</p>

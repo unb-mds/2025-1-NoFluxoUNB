@@ -775,9 +775,9 @@ BEGIN
       FROM _casadas WHERE id_materia = v_match_id;
 
       IF FOUND THEN
-        IF (CASE WHEN upper(v_disc_status) IN ('APR','CUMP') THEN 3
+        IF (CASE WHEN upper(v_disc_status) IN ('APR','CUMP','DISP') THEN 3
                  WHEN upper(v_disc_status) = 'MATR' THEN 2 ELSE 1 END)
-         > (CASE WHEN upper(v_old_status) IN ('APR','CUMP') THEN 3
+         > (CASE WHEN upper(v_old_status) IN ('APR','CUMP','DISP') THEN 3
                  WHEN upper(v_old_status) = 'MATR' THEN 2 ELSE 1 END)
         THEN
           UPDATE _casadas SET
@@ -843,7 +843,7 @@ BEGIN
   -- Horas integralizadas
   SELECT coalesce(sum(carga_horaria), 0) INTO v_horas
   FROM _casadas
-  WHERE upper(status) IN ('APR','CUMP') AND carga_horaria IS NOT NULL;
+  WHERE upper(status) IN ('APR','CUMP','DISP') AND carga_horaria IS NOT NULL;
 
   -- ═══════════════════════════════════════════════════════════════
   -- 7. CLASSIFY: concluidas, pendentes, optativas
@@ -887,7 +887,7 @@ BEGIN
     FROM regexp_matches(eq.expressao, '([A-Za-z]{2,}\d{3,})', 'g') rm
   ) codes
   JOIN _casadas c ON upper(trim(c.codigo)) = codes.code
-    AND upper(c.status) IN ('APR','CUMP')
+    AND upper(c.status) IN ('APR','CUMP','DISP')
   WHERE eq.expressao IS NOT NULL AND eq.expressao != ''
   ORDER BY m.id_materia, c.ano_periodo DESC NULLS LAST;
 
@@ -930,10 +930,10 @@ BEGIN
       FROM regexp_matches(eq.expressao, '([A-Za-z]{2,}\d{3,})', 'g') rm
     ) codes
     JOIN _casadas opt ON opt.tipo = 'optativa'
-      AND upper(opt.status) IN ('APR','CUMP')
+      AND upper(opt.status) IN ('APR','CUMP','DISP')
       AND upper(trim(opt.codigo)) = codes.code
     JOIN _casadas c ON upper(trim(c.codigo)) = codes.code
-      AND upper(c.status) IN ('APR','CUMP')
+      AND upper(c.status) IN ('APR','CUMP','DISP')
     WHERE eq.expressao IS NOT NULL AND eq.expressao != ''
     ORDER BY m.id_materia, c.ano_periodo DESC NULLS LAST;
 
@@ -987,7 +987,7 @@ BEGIN
         THEN nome_historico ELSE NULL END
     ) AS j
     FROM _casadas
-    WHERE tipo = 'obrigatoria' AND upper(status) IN ('APR','CUMP')
+    WHERE tipo = 'obrigatoria' AND upper(status) IN ('APR','CUMP','DISP')
     UNION ALL
     -- From equivalency resolution
     SELECT jsonb_build_object(
@@ -1015,7 +1015,7 @@ BEGIN
         WHEN upper(status) = 'MATR' THEN 'em_andamento' ELSE 'pendente' END
     ) AS j
     FROM _casadas
-    WHERE tipo = 'obrigatoria' AND upper(status) NOT IN ('APR','CUMP')
+    WHERE tipo = 'obrigatoria' AND upper(status) NOT IN ('APR','CUMP','DISP')
     UNION ALL
     SELECT jsonb_build_object(
       'id_materia', id_materia, 'codigo', codigo, 'nome', nome,
@@ -1034,7 +1034,7 @@ BEGIN
       'carga_horaria', carga_horaria, 'ano_periodo', ano_periodo,
       'encontrada_no_banco', true, 'tipo', 'optativa',
       'status_fluxograma', CASE
-        WHEN upper(status) IN ('APR','CUMP') THEN 'concluida'
+        WHEN upper(status) IN ('APR','CUMP','DISP') THEN 'concluida'
         WHEN upper(status) = 'MATR' THEN 'em_andamento'
         ELSE 'pendente' END
     ) ORDER BY codigo
@@ -1044,10 +1044,10 @@ BEGIN
 
   -- Summary counts
   v_total_concl := (SELECT count(*) FROM _casadas
-                    WHERE tipo = 'obrigatoria' AND upper(status) IN ('APR','CUMP'))
+                    WHERE tipo = 'obrigatoria' AND upper(status) IN ('APR','CUMP','DISP'))
                  + (SELECT count(*) FROM _equiv_concl);
   v_total_pend  := (SELECT count(*) FROM _casadas
-                    WHERE tipo = 'obrigatoria' AND upper(status) NOT IN ('APR','CUMP'))
+                    WHERE tipo = 'obrigatoria' AND upper(status) NOT IN ('APR','CUMP','DISP'))
                  + (SELECT count(*) FROM _missing);
   v_total_obrig := v_total_concl + v_total_pend;
   v_total_opt   := (SELECT count(*) FROM _casadas WHERE tipo = 'optativa');
