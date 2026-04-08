@@ -2,11 +2,13 @@
 	import SignupForm from '$lib/components/auth/SignupForm.svelte';
 	import AuthHomeLink from '$lib/components/auth/AuthHomeLink.svelte';
 	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 </script>
 
-<svelte:head>
-	<title>Criar Conta - NoFluxo UNB</title>
-</svelte:head>
+<PageMeta
+	title="Criar Conta"
+	description="Crie sua conta gratuita no NoFluxo UNB e comece a organizar seu fluxograma acadêmico na Universidade de Brasília."
+/>
 
 <AuthHomeLink />
 <AnimatedBackground />

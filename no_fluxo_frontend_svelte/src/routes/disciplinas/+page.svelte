@@ -167,8 +167,19 @@ let materiasExtras = $state(new Map<string, MateriaRow>());
 
 <PageMeta
 	title="Buscar Disciplinas"
-	description="Busque disciplinas pelo código ou nome e visualize pré-requisitos e equivalências."
+	description="Busque disciplinas da UnB pelo código ou nome e visualize pré-requisitos e equivalências. Encontre todas as informações sobre matérias da Universidade de Brasília."
 />
+
+<svelte:head>
+	{@html `<script type="application/ld+json">${JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{ "@type": "ListItem", "position": 1, "name": "Início", "item": "https://nofluxo.unb.br/" },
+			{ "@type": "ListItem", "position": 2, "name": "Disciplinas", "item": "https://nofluxo.unb.br/disciplinas" }
+		]
+	})}</script>`}
+</svelte:head>
 
 <GraffitiBackground />
 

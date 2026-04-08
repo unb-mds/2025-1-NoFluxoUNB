@@ -63,9 +63,9 @@ server {
         try_files /health.json =404;
     }
 
-    # SPA fallback: all routes → index.html (client-side routing)
+    # SPA fallback: try prerendered .html files first, then 200.html for client-side routing
     location / {
-        try_files $uri $uri/ /index.html;
+        try_files $uri $uri/ $uri.html /200.html;
     }
 }
 NGINX_CFG

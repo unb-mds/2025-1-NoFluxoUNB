@@ -137,8 +137,19 @@
 
 <PageMeta
 	title="Fluxogramas"
-	description="Explore os fluxogramas de cursos disponíveis na UnB"
+	description="Explore os fluxogramas de cursos disponíveis na UnB. Encontre seu curso por nome, tipo ou turno e visualize a grade curricular completa."
 />
+
+<svelte:head>
+	{@html `<script type="application/ld+json">${JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{ "@type": "ListItem", "position": 1, "name": "Início", "item": "https://nofluxo.unb.br/" },
+			{ "@type": "ListItem", "position": 2, "name": "Fluxogramas", "item": "https://nofluxo.unb.br/fluxogramas" }
+		]
+	})}</script>`}
+</svelte:head>
 
 <GraffitiBackground />
 
