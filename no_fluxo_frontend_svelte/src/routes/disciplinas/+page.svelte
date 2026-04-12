@@ -6,7 +6,8 @@
 	import { fluxogramaService } from '$lib/services/fluxograma.service';
 import {
 	getCodigosFromExpressaoLogica,
-	extractSubjectCodesFromExpression
+	extractSubjectCodesFromExpression,
+	getLogicalCodeGroups
 } from '$lib/utils/expressao-logica';
 	import type { CursoModel, MinimalCursoModel } from '$lib/types/curso';
 	import { onMount } from 'svelte';
@@ -14,7 +15,7 @@ import {
 		clearCurriculumAnalysisCache,
 		normalizeSearchQuery
 	} from '$lib/utils/curriculum-utils';
-	import { Loader2 } from 'lucide-svelte';
+	import { Loader2, Eye, EyeOff } from 'lucide-svelte';
 
 	const supabase = createSupabaseBrowserClient();
 
@@ -24,6 +25,7 @@ import {
 		nomeMateria: string;
 		nivel: number | null;
 		creditos: number | null;
+	tipoNatureza: number | null;
 		source: 'matrix' | 'global';
 	}
 
@@ -45,7 +47,8 @@ type GlobalEquivItem = {
 	idMateria: number;
 	codigoOrigem: string;
 	nomeOrigem: string;
-	codigoEquivalente: string;
+	equivalentes: Array<{ codigo: string; nome: string }>;
+	gruposEquivalentes: Array<Array<{ codigo: string; nome: string }>>;
 	expressaoOriginal: string | null;
 	curriculo: string | null;
 	isSpecific: boolean;
@@ -61,10 +64,13 @@ type GlobalEquivItem = {
 
 	let termoBusca = $state('');
 	let selecionada = $state<SearchItem | null>(null);
+	let filtroTipoMatriz = $state<'todas' | 'obrigatoria' | 'optativa'>('todas');
 	let resultadosGlobais = $state<SearchItem[]>([]);
 	let carregandoBuscaGlobal = $state(false);
 	let erroBuscaGlobal = $state<string | null>(null);
 	let globalSearchReq = 0;
+	let isMobileView = $state(false);
+	let mobileListCollapsed = $state(false);
 	let globalChainLoading = $state(false);
 	let globalChainError = $state<string | null>(null);
 	let globalPreReqs = $state<SearchItem[]>([]);
@@ -72,6 +78,7 @@ type GlobalEquivItem = {
 let globalEquivsGeneral = $state<GlobalEquivItem[]>([]);
 let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 	let globalCoreqs = $state<SearchItem[]>([]);
+let globalPreReqRules = $state<string[]>([]);
 	let openGlobalPre = $state(true);
 	let openGlobalDep = $state(false);
 	let openGlobalEq = $state(false);
@@ -140,10 +147,43 @@ function sanitizeForDb(raw: string): {
 		return `${op.nomeCurso} · ${op.matrizCurricular}`;
 	}
 
+function humanTipoCurso(tipo: string | null | undefined): string | null {
+	const t = (tipo ?? '').trim().toLowerCase();
+	if (!t) return null;
+	if (t.includes('bacharel')) return 'Bacharelado';
+	if (t.includes('licenci')) return 'Licenciatura';
+	if (t.includes('tecn')) return 'Tecnológico';
+	return (tipo ?? '').trim();
+}
+
+function courseInfoByCurriculo(
+	curriculo: string | null | undefined
+): { nomeCurso: string; tipoCurso: string | null } | null {
+	const c = (curriculo ?? '').trim();
+	if (!c) return null;
+	const direct = matrizesOpcoes.find((op) => op.matrizCurricular.trim() === c);
+	if (direct?.nomeCurso) return { nomeCurso: direct.nomeCurso, tipoCurso: humanTipoCurso(direct.tipoCurso) };
+	const norm = normalizeSearchQuery(c);
+	const fuzzy = matrizesOpcoes.find(
+		(op) => normalizeSearchQuery(op.matrizCurricular) === norm
+	);
+	if (fuzzy?.nomeCurso) {
+		return { nomeCurso: fuzzy.nomeCurso, tipoCurso: humanTipoCurso(fuzzy.tipoCurso) };
+	}
+	return null;
+}
+
+function courseInfoLabel(curriculo: string | null | undefined): string | null {
+	const ci = courseInfoByCurriculo(curriculo);
+	if (!ci?.nomeCurso) return null;
+	return ci.tipoCurso ? `${ci.nomeCurso} · ${ci.tipoCurso}` : ci.nomeCurso;
+}
+
 	function limparMatrizSelecionada() {
 		curriculoSelecionado = '';
 		curso = null;
 		selecionada = null;
+	filtroTipoMatriz = 'todas';
 		clearCurriculumAnalysisCache();
 	}
 
@@ -161,6 +201,7 @@ function sanitizeForDb(raw: string): {
 					nomeMateria: m.nomeMateria,
 					nivel: m.nivel ?? null,
 					creditos: m.creditos ?? null,
+					tipoNatureza: m.tipoNatureza ?? null,
 					source: 'matrix'
 				})
 			);
@@ -170,8 +211,15 @@ function sanitizeForDb(raw: string): {
 		const q = termoNorm;
 		if (curso) {
 			const base = materiasOrdenadas;
-			if (q.length < 2) return base.slice(0, 120);
-			return base.filter((m) => matchesCodigoNome(m.codigoMateria, m.nomeMateria, termoBusca)).slice(0, 120);
+			const byTipo = base.filter((m) => {
+				if (filtroTipoMatriz === 'todas') return true;
+				if (filtroTipoMatriz === 'obrigatoria') return m.tipoNatureza === 0;
+				return m.tipoNatureza === 1;
+			});
+			if (q.length < 2) return byTipo.slice(0, 120);
+			return byTipo
+				.filter((m) => matchesCodigoNome(m.codigoMateria, m.nomeMateria, termoBusca))
+				.slice(0, 120);
 		}
 		return resultadosGlobais;
 	});
@@ -228,6 +276,7 @@ function sanitizeForDb(raw: string): {
 					m.carga_horaria != null && Number.isFinite(Number(m.carga_horaria))
 						? Number(m.carga_horaria) / 15
 						: null,
+				tipoNatureza: null,
 				source: 'global'
 			}));
 			resultadosGlobais = mapped.filter((m) => matchesCodigoNome(m.codigoMateria, m.nomeMateria, raw));
@@ -287,6 +336,7 @@ function sanitizeForDb(raw: string): {
 					row.carga_horaria != null && Number.isFinite(Number(row.carga_horaria))
 						? Number(row.carga_horaria) / 15
 						: null,
+				tipoNatureza: null,
 				source: 'global'
 			};
 			mMap.set(item.idMateria, item);
@@ -319,6 +369,7 @@ function sanitizeForDb(raw: string): {
 	globalEquivsGeneral = [];
 	globalEquivsSpecific = [];
 		globalCoreqs = [];
+	globalPreReqRules = [];
 		try {
 			await ensureGlobalGraphData();
 			const mats = materiasCache ?? new Map<number, SearchItem>();
@@ -366,6 +417,14 @@ function sanitizeForDb(raw: string): {
 			}
 
 		const focusCode = selected.codigoMateria.trim().toUpperCase();
+		const focusIds = [...(idToCode?.entries() ?? [])]
+			.filter(([, code]) => code === focusCode)
+			.map(([id]) => id);
+		const rules = preRows
+			.filter((r) => idToCode.get(r.id_materia) === focusCode)
+			.map((r) => (r.expressao_original ?? '').trim())
+			.filter((s) => s.length > 0);
+		const uniqRules = [...new Set(rules)];
 		const visitedPre = new Set<string>([focusCode]);
 		const stackPre = [focusCode];
 			while (stackPre.length) {
@@ -393,10 +452,10 @@ function sanitizeForDb(raw: string): {
 		visitedDep.delete(focusCode);
 
 			const pre = [...visitedPre]
-			.map((code) => codePrimary.get(code) ?? { idMateria: -1, codigoMateria: code, nomeMateria: 'Disciplina', nivel: null, creditos: null, source: 'global' as const })
+			.map((code) => codePrimary.get(code) ?? { idMateria: -1, codigoMateria: code, nomeMateria: 'Disciplina', nivel: null, creditos: null, tipoNatureza: null, source: 'global' as const })
 				.sort((a, b) => a.codigoMateria.localeCompare(b.codigoMateria, 'pt-BR'));
 			const dep = [...visitedDep]
-			.map((code) => codePrimary.get(code) ?? { idMateria: -1, codigoMateria: code, nomeMateria: 'Disciplina', nivel: null, creditos: null, source: 'global' as const })
+			.map((code) => codePrimary.get(code) ?? { idMateria: -1, codigoMateria: code, nomeMateria: 'Disciplina', nivel: null, creditos: null, tipoNatureza: null, source: 'global' as const })
 				.sort((a, b) => a.codigoMateria.localeCompare(b.codigoMateria, 'pt-BR'));
 
 		const coreqSet = new Set<string>();
@@ -411,19 +470,23 @@ function sanitizeForDb(raw: string): {
 			if (cb === focusCode) coreqSet.add(ca);
 			}
 			const coreq = [...coreqSet]
-			.map((code) => codePrimary.get(code) ?? { idMateria: -1, codigoMateria: code, nomeMateria: 'Disciplina', nivel: null, creditos: null, source: 'global' as const })
+			.map((code) => codePrimary.get(code) ?? { idMateria: -1, codigoMateria: code, nomeMateria: 'Disciplina', nivel: null, creditos: null, tipoNatureza: null, source: 'global' as const })
 				.sort((a, b) => a.codigoMateria.localeCompare(b.codigoMateria, 'pt-BR'));
 
-		const { data: eqRows, error: eqErr } = await supabase
-			.from('equivalencias')
-			.select(
-				'id_equivalencia, id_materia, expressao_original, expressao_logica, curriculo, materias!equivalencias_id_materia_fkey(codigo_materia, nome_materia)'
-			)
-			.eq('materias.codigo_materia', focusCode)
+		let eqRows: Array<Record<string, unknown>> = [];
+		if (focusIds.length > 0) {
+			const { data, error: eqErr } = await supabase
+				.from('equivalencias')
+				.select(
+					'id_equivalencia, id_materia, expressao_original, expressao_logica, curriculo, materias!equivalencias_id_materia_fkey(codigo_materia, nome_materia)'
+				)
+				.in('id_materia', focusIds)
 				.limit(200);
 			if (eqErr) throw new Error(eqErr.message);
+			eqRows = (data as Array<Record<string, unknown>> | null) ?? [];
+		}
 
-		const mappedEq: GlobalEquivItem[] = ((eqRows as Array<Record<string, unknown>> | null) ?? []).map((eq) => {
+		const mappedEq: GlobalEquivItem[] = (eqRows ?? []).map((eq) => {
 			const mat = (eq.materias as { codigo_materia?: string; nome_materia?: string } | null) ?? null;
 			let codigosEq: string[] = [];
 			try {
@@ -433,13 +496,37 @@ function sanitizeForDb(raw: string): {
 			} catch {
 				codigosEq = [];
 			}
-			const primeiro = codigosEq[0] ?? '';
+			if (codigosEq.length === 0 && eq.expressao_original != null) {
+				codigosEq = extractSubjectCodesFromExpression(String(eq.expressao_original));
+			}
+			const origemCode = String(mat?.codigo_materia ?? focusCode).trim().toUpperCase();
+			const equivalentes = [...new Set(codigosEq.map((c) => String(c).trim().toUpperCase()).filter(Boolean))]
+				.filter((c) => c !== origemCode)
+				.map((codigo) => ({
+					codigo,
+					nome: codePrimary.get(codigo)?.nomeMateria ?? 'sem nome'
+				}));
+			const gruposRaw = getLogicalCodeGroups(
+				(eq.expressao_logica as never) ?? null,
+				eq.expressao_original != null ? String(eq.expressao_original) : null
+			);
+			const gruposEquivalentes = gruposRaw
+				.map((group) =>
+					[...new Set(group.map((c) => String(c).trim().toUpperCase()).filter(Boolean))]
+						.filter((c) => c !== origemCode)
+						.map((codigo) => ({
+							codigo,
+							nome: codePrimary.get(codigo)?.nomeMateria ?? 'sem nome'
+						}))
+				)
+				.filter((group) => group.length > 0);
 			const curr = eq.curriculo != null ? String(eq.curriculo) : null;
 			return {
 				idMateria: Number(eq.id_materia ?? 0),
-				codigoOrigem: String(mat?.codigo_materia ?? ''),
-				nomeOrigem: String(mat?.nome_materia ?? ''),
-				codigoEquivalente: primeiro,
+				codigoOrigem: origemCode,
+				nomeOrigem: String(mat?.nome_materia ?? selected.nomeMateria ?? ''),
+				equivalentes,
+				gruposEquivalentes: gruposEquivalentes.length > 0 ? gruposEquivalentes : (equivalentes.length > 0 ? [equivalentes] : []),
 				expressaoOriginal: eq.expressao_original != null ? String(eq.expressao_original) : null,
 				curriculo: curr,
 				isSpecific: !!curr?.trim()
@@ -449,6 +536,7 @@ function sanitizeForDb(raw: string): {
 		globalPreReqs = pre;
 		globalDeps = dep;
 		globalCoreqs = coreq;
+		globalPreReqRules = uniqRules;
 		globalEquivsGeneral = mappedEq.filter((e) => !e.isSpecific);
 		globalEquivsSpecific = mappedEq.filter((e) => e.isSpecific);
 		} catch (e: unknown) {
@@ -521,6 +609,7 @@ function sanitizeForDb(raw: string): {
 		if (m.source === 'global') {
 			carregarCadeiaGlobal(m);
 		}
+		if (isMobileView) mobileListCollapsed = true;
 	}
 
 	function aoNavegarCadeia(codigo: string) {
@@ -535,8 +624,10 @@ function sanitizeForDb(raw: string): {
 				nomeMateria: m.nomeMateria,
 				nivel: m.nivel ?? null,
 				creditos: m.creditos ?? null,
+				tipoNatureza: m.tipoNatureza ?? null,
 				source: 'matrix'
 			};
+			if (isMobileView) mobileListCollapsed = true;
 		}
 	}
 
@@ -562,7 +653,16 @@ function sanitizeForDb(raw: string): {
 	});
 
 	onMount(() => {
+		const updateMobileState = () => {
+			isMobileView = window.matchMedia('(max-width: 767px)').matches;
+			if (!isMobileView) mobileListCollapsed = false;
+		};
+		updateMobileState();
+		window.addEventListener('resize', updateMobileState);
 		carregarListaMatrizes();
+		return () => {
+			window.removeEventListener('resize', updateMobileState);
+		};
 	});
 </script>
 
@@ -575,7 +675,7 @@ function sanitizeForDb(raw: string): {
 
 <div class="relative z-10 flex h-[calc(100dvh-3.5rem)] flex-col overflow-hidden">
 	<header class="flex h-14 shrink-0 items-center gap-3 border-b border-white/10 bg-black/55 px-4 backdrop-blur-md">
-		<div class="font-mono text-xs font-medium tracking-wider text-purple-300">NOFLUXO</div>
+		<div class="font-mono text-xs font-medium tracking-wider text-purple-300">DISCIPLINAS</div>
 		<div class="flex-1"></div>
 		{#if carregandoMatrizes}
 			<p class="flex items-center gap-2 text-xs text-white/55">
@@ -599,23 +699,74 @@ function sanitizeForDb(raw: string): {
 		{/if}
 	</header>
 
-	<div class="grid min-h-0 flex-1 grid-cols-1 md:grid-cols-[270px_minmax(0,1fr)]">
-		<aside class="min-h-0 border-r border-white/10 bg-zinc-950/75">
-			<div class="border-b border-white/10 p-3">
-				<input
-					type="text"
-					bind:value={termoBusca}
-					placeholder="Buscar por código ou nome..."
-					class="w-full rounded-xl border border-white/10 bg-zinc-900/70 px-3 py-2 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-purple-500/30"
-				/>
+	<div class="grid min-h-0 flex-1 grid-cols-1 grid-rows-[auto_minmax(0,1fr)] md:grid-cols-[270px_minmax(0,1fr)] md:grid-rows-1">
+		<aside class="min-h-0 border-b border-white/10 bg-zinc-950/75 md:border-b-0 md:border-r">
+			<div class="m-2 rounded-2xl border border-white/10 bg-black/25 p-2.5 md:m-0 md:rounded-none md:border-0 md:bg-transparent md:p-3 md:border-b md:border-white/10">
+				<div class="flex items-center gap-2">
+					<input
+						type="text"
+						bind:value={termoBusca}
+						placeholder="Buscar por código ou nome..."
+						class="w-full rounded-xl border border-white/10 bg-zinc-900/70 px-3 py-2 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-purple-500/30"
+						onfocus={() => {
+							if (isMobileView) mobileListCollapsed = false;
+						}}
+					/>
+					{#if isMobileView}
+						<button
+							type="button"
+							class="shrink-0 rounded-lg border border-white/15 bg-zinc-900/70 px-2.5 py-2 text-[11px] font-medium text-white/80"
+							onclick={() => (mobileListCollapsed = !mobileListCollapsed)}
+							aria-label={mobileListCollapsed ? 'Mostrar lista de matérias' : 'Ocultar lista de matérias'}
+							title={mobileListCollapsed ? 'Mostrar lista' : 'Ocultar lista'}
+						>
+							{#if mobileListCollapsed}
+								<Eye class="h-4 w-4" />
+							{:else}
+								<EyeOff class="h-4 w-4" />
+							{/if}
+						</button>
+					{/if}
+				</div>
+				{#if curso}
+					<div class="mt-2 flex flex-wrap gap-1.5">
+						<button
+							type="button"
+							class="rounded-full border px-2.5 py-1 text-[11px] font-medium transition-colors {filtroTipoMatriz === 'todas'
+								? 'border-purple-300/45 bg-purple-500/18 text-purple-100'
+								: 'border-white/15 bg-white/5 text-white/70 hover:bg-white/10'}"
+							onclick={() => (filtroTipoMatriz = 'todas')}
+						>Todas</button>
+						<button
+							type="button"
+							class="rounded-full border px-2.5 py-1 text-[11px] font-medium transition-colors {filtroTipoMatriz === 'obrigatoria'
+								? 'border-cyan-300/45 bg-cyan-500/18 text-cyan-100'
+								: 'border-white/15 bg-white/5 text-white/70 hover:bg-white/10'}"
+							onclick={() => (filtroTipoMatriz = 'obrigatoria')}
+						>Obrigatória</button>
+						<button
+							type="button"
+							class="rounded-full border px-2.5 py-1 text-[11px] font-medium transition-colors {filtroTipoMatriz === 'optativa'
+								? 'border-amber-300/45 bg-amber-500/18 text-amber-100'
+								: 'border-white/15 bg-white/5 text-white/70 hover:bg-white/10'}"
+							onclick={() => (filtroTipoMatriz = 'optativa')}
+						>Optativa</button>
+					</div>
+				{/if}
 			</div>
 
 			{#if carregandoCurso}
 				<p class="flex items-center gap-2 p-3 text-xs text-white/55">
 					<Loader2 class="h-3.5 w-3.5 animate-spin" /> Carregando disciplinas...
 				</p>
+			{:else if isMobileView && mobileListCollapsed}
+				<p class="p-3 text-xs text-white/55">Lista recolhida. Toque no ícone de olho para reabrir.</p>
 			{:else}
-				<div class="h-[calc(100%-3.25rem)] space-y-1 overflow-y-auto p-2">
+				<div
+					class="space-y-1 overflow-x-hidden overflow-y-auto px-2 pb-2 {isMobileView
+						? 'h-[9.4rem] pt-1'
+						: 'h-[calc(100%-3.25rem)] pt-2'}"
+				>
 					{#if !curso && termoNorm.length < 2}
 						<p class="p-2 text-xs text-white/45">Digite pelo menos 2 caracteres para buscar globalmente.</p>
 					{:else if resultadosBusca.length === 0}
@@ -625,12 +776,21 @@ function sanitizeForDb(raw: string): {
 						<button
 							type="button"
 							onclick={() => selecionarMateria(m)}
-							class="w-full rounded-xl border px-2.5 py-2 text-left transition-colors {selecionada &&
+							class="min-h-[4.5rem] w-full rounded-xl border px-2.5 py-2 text-left transition-colors {selecionada &&
 							selecionada.idMateria === m.idMateria
 								? 'border-purple-300/40 bg-purple-500/15'
 								: 'border-transparent hover:border-white/10 hover:bg-white/5'}"
 						>
-							<p class="font-mono text-xs font-medium text-purple-300">{m.codigoMateria}</p>
+							<div class="mb-0.5 flex items-center justify-between gap-2">
+								<p class="font-mono text-xs font-medium text-purple-300">{m.codigoMateria}</p>
+								{#if curso && m.tipoNatureza != null}
+									<span class="rounded-full border px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide {m.tipoNatureza === 1
+										? 'border-amber-300/45 bg-amber-500/18 text-amber-100'
+										: 'border-cyan-300/45 bg-cyan-500/18 text-cyan-100'}">
+										{m.tipoNatureza === 1 ? 'Optativa' : 'Obrigatória'}
+									</span>
+								{/if}
+							</div>
 							<p class="line-clamp-2 text-sm text-white/75">{m.nomeMateria}</p>
 						</button>
 					{/each}
@@ -646,7 +806,7 @@ function sanitizeForDb(raw: string): {
 			{/if}
 		</aside>
 
-		<main class="min-h-0 overflow-y-auto p-4 sm:p-6">
+		<main class="min-h-0 overflow-y-auto p-3 sm:p-6">
 			{#if erroCurso}
 				<p class="mb-3 text-sm text-red-400">{erroCurso}</p>
 			{/if}
@@ -661,6 +821,7 @@ function sanitizeForDb(raw: string): {
 					focusCode={selecionada.codigoMateria}
 					onNavigate={aoNavegarCadeia}
 					showSemesterBadge={!!curriculoSelecionado}
+					getCourseInfoByCurriculo={courseInfoByCurriculo}
 				/>
 			{:else}
 				<div class="space-y-4">
@@ -727,6 +888,18 @@ function sanitizeForDb(raw: string): {
 							</button>
 							{#if openGlobalPre}
 								<div class="border-t border-white/10 px-4 py-3">
+									{#if globalPreReqRules.length > 0}
+										<div class="mb-2 space-y-1.5">
+											<p class="text-[11px] font-semibold uppercase tracking-wide text-white/55">
+												Regras (expressão)
+											</p>
+											{#each globalPreReqRules as rule}
+												<p class="rounded-md border border-purple-300/20 bg-purple-500/8 px-2.5 py-1 text-[11px] text-purple-100/90">
+													{rule}
+												</p>
+											{/each}
+										</div>
+									{/if}
 									{#if globalPreReqs.length === 0}
 										<p class="text-xs text-white/45">Nenhuma encontrada.</p>
 									{:else}
@@ -794,7 +967,7 @@ function sanitizeForDb(raw: string): {
 								<span class="flex items-center gap-2 text-sm font-medium text-white">
 									<span class="h-2 w-2 rounded-full bg-purple-300"></span>
 									Equivalências
-									<span class="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[11px] text-white/65">{globalEquivsGeneral.length}</span>
+									<span class="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[11px] text-white/65">{globalEquivsGeneral.length + globalEquivsSpecific.length}</span>
 								</span>
 								{#if openGlobalEq}<span class="text-white/50">▲</span>{:else}<span class="text-white/50">▼</span>{/if}
 							</button>
@@ -807,11 +980,43 @@ function sanitizeForDb(raw: string): {
 										<ul class="space-y-2">
 											{#each globalEquivsGeneral as eq}
 												<li class="rounded-lg border border-purple-300/25 bg-purple-500/10 px-3 py-2 text-xs text-purple-100">
+													<div class="mb-1 flex items-center justify-between gap-2">
+														<span class="rounded-full border border-cyan-200/60 bg-cyan-300/25 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-cyan-50 shadow-[0_0_0_1px_rgba(34,211,238,0.25)]">
+															Geral
+														</span>
+													</div>
 													<p>
-														<span class="font-mono">{eq.codigoOrigem || '—'}</span>
-														↔
-														<span class="font-mono">{eq.codigoEquivalente || '—'}</span>
+														<span class="font-semibold text-purple-50">Origem:</span>
+														<span class="ml-1 font-mono">{eq.codigoOrigem || '—'}</span>
+														<span class="text-white/70"> · {eq.nomeOrigem || 'sem nome'}</span>
 													</p>
+													<p class="mt-1">
+														<span class="font-semibold text-purple-50">Equivalências:</span>
+													</p>
+													{#if eq.gruposEquivalentes.length > 0}
+														<div class="mt-1 space-y-1.5">
+															{#each eq.gruposEquivalentes as group, gi}
+																<div class="rounded-lg border border-purple-300/25 bg-purple-500/8 p-2">
+																	<div class="flex flex-wrap items-center gap-1.5">
+																		{#each group as item, ii}
+																			<span class="rounded-md border border-purple-300/30 bg-purple-500/10 px-2 py-0.5 text-[11px] text-purple-100/95">
+																				<span class="font-mono">{item.codigo}</span>
+																				<span class="text-white/70"> · {item.nome}</span>
+																			</span>
+																			{#if ii < group.length - 1}
+																				<span class="text-[10px] font-bold uppercase tracking-wide text-purple-200/85">E</span>
+																			{/if}
+																		{/each}
+																	</div>
+																</div>
+																{#if gi < eq.gruposEquivalentes.length - 1}
+																	<div class="text-[10px] font-extrabold uppercase tracking-[0.12em] text-purple-200/80">OU</div>
+																{/if}
+															{/each}
+														</div>
+													{:else}
+														<p class="mt-1 text-[11px] text-white/60">Sem códigos equivalentes identificados.</p>
+													{/if}
 													{#if eq.expressaoOriginal}
 														<p class="mt-1 text-[11px] text-white/65">{eq.expressaoOriginal}</p>
 													{/if}
@@ -820,10 +1025,66 @@ function sanitizeForDb(raw: string): {
 										</ul>
 									{/if}
 									{#if globalEquivsSpecific.length > 0}
-										<p class="mt-3 text-[11px] text-amber-200/85">
-											{globalEquivsSpecific.length} equivalência(s) específica(s) de currículo ocultas neste modo.
-											Selecione uma matriz para visualizar as específicas.
+										<p class="mt-3 mb-2 text-[11px] font-semibold uppercase tracking-wide text-white/55">
+											Específicas (por currículo)
 										</p>
+										<ul class="space-y-2">
+											{#each globalEquivsSpecific as eq}
+												<li class="rounded-lg border border-fuchsia-300/25 bg-fuchsia-500/10 px-3 py-2 text-xs text-fuchsia-100">
+													<div class="mb-1 flex items-center justify-between gap-2">
+														<span class="rounded-full border border-fuchsia-200/65 bg-fuchsia-300/30 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-fuchsia-50 shadow-[0_0_0_1px_rgba(244,114,182,0.3)]">
+															Específica
+														</span>
+													</div>
+													<p>
+														<span class="font-semibold text-fuchsia-50">Origem:</span>
+														<span class="ml-1 font-mono">{eq.codigoOrigem || '—'}</span>
+														<span class="text-white/70"> · {eq.nomeOrigem || 'sem nome'}</span>
+													</p>
+													<p class="mt-1">
+														<span class="font-semibold text-fuchsia-50">Equivalências:</span>
+													</p>
+													{#if eq.gruposEquivalentes.length > 0}
+														<div class="mt-1 space-y-1.5">
+															{#each eq.gruposEquivalentes as group, gi}
+																<div class="rounded-lg border border-fuchsia-300/25 bg-fuchsia-500/8 p-2">
+																	<div class="flex flex-wrap items-center gap-1.5">
+																		{#each group as item, ii}
+																			<span class="rounded-md border border-fuchsia-300/30 bg-fuchsia-500/10 px-2 py-0.5 text-[11px] text-fuchsia-100/95">
+																				<span class="font-mono">{item.codigo}</span>
+																				<span class="text-white/70"> · {item.nome}</span>
+																			</span>
+																			{#if ii < group.length - 1}
+																				<span class="text-[10px] font-bold uppercase tracking-wide text-fuchsia-200/85">E</span>
+																			{/if}
+																		{/each}
+																	</div>
+																</div>
+																{#if gi < eq.gruposEquivalentes.length - 1}
+																	<div class="text-[10px] font-extrabold uppercase tracking-[0.12em] text-fuchsia-200/80">OU</div>
+																{/if}
+															{/each}
+														</div>
+													{:else}
+														<p class="mt-1 text-[11px] text-white/60">Sem códigos equivalentes identificados.</p>
+													{/if}
+													{#if eq.curriculo}
+														<p class="mt-1 text-[11px] text-amber-200/85">Currículo: {eq.curriculo}</p>
+													{/if}
+													{#if courseInfoLabel(eq.curriculo)}
+														<p class="mt-1 text-[11px] text-cyan-100/85">
+															Curso: {courseInfoLabel(eq.curriculo)}
+														</p>
+													{/if}
+													{#if eq.expressaoOriginal}
+														<p class="mt-1 text-[11px] text-white/65">{eq.expressaoOriginal}</p>
+													{/if}
+												</li>
+											{/each}
+										</ul>
+									{/if}
+									{#if globalEquivsGeneral.length === 0 && globalEquivsSpecific.length === 0}
+										<p class="text-xs text-white/45">Nenhuma equivalência encontrada para esta disciplina.</p>
 									{/if}
 								</div>
 							{/if}

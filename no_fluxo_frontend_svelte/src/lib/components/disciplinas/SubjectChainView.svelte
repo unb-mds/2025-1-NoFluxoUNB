@@ -3,6 +3,11 @@
 	import type { MateriaModel } from '$lib/types/materia';
 	import { getCurriculumAnalysis, type CurriculumAnalysis } from '$lib/utils/curriculum-utils';
 	import { CHAIN_VISUAL } from '$lib/utils/curriculum-graph';
+import {
+	extractSubjectCodesFromExpression,
+	type EquivalenciaModel
+} from '$lib/types/equivalencia';
+import { getCodigosFromExpressaoLogica, getLogicalCodeGroups } from '$lib/utils/expressao-logica';
 	import { ChevronDown, ChevronUp, Link2 } from 'lucide-svelte';
 
 	interface Props {
@@ -10,9 +15,18 @@
 		focusCode: string;
 		onNavigate?: (codigoMateria: string) => void;
 		showSemesterBadge?: boolean;
+	getCourseInfoByCurriculo?: (
+		curriculo: string | null | undefined
+	) => { nomeCurso: string; tipoCurso: string | null } | null;
 	}
 
-	let { courseData, focusCode, onNavigate, showSemesterBadge = true }: Props = $props();
+let {
+	courseData,
+	focusCode,
+	onNavigate,
+	showSemesterBadge = true,
+	getCourseInfoByCurriculo
+}: Props = $props();
 
 	let analysis = $derived.by((): CurriculumAnalysis | null => {
 		void courseData;
@@ -61,6 +75,16 @@
 		);
 	});
 
+let prereqRules = $derived.by(() => {
+	const foco = analysis?.focusMateria;
+	if (!foco) return [] as string[];
+	const rows = courseData.preRequisitos?.filter((pr) => pr.idMateria === foco.idMateria) ?? [];
+	const out = rows
+		.map((r) => (r.expressaoOriginal ?? '').trim())
+		.filter((s) => s.length > 0);
+	return [...new Set(out)];
+});
+
 let materiaNameByCode = $derived.by(() => {
 	const out = new Map<string, string>();
 	for (const m of courseData.materias) {
@@ -72,6 +96,67 @@ let materiaNameByCode = $derived.by(() => {
 function nomeMateriaPorCodigo(codigo: string, fallback = ''): string {
 	const key = (codigo || '').trim().toUpperCase();
 	return materiaNameByCode.get(key) ?? fallback;
+}
+
+function courseInfoLabel(curriculo: string | null | undefined): string | null {
+	const ci = getCourseInfoByCurriculo?.(curriculo);
+	if (!ci?.nomeCurso) return null;
+	return ci.tipoCurso ? `${ci.nomeCurso} · ${ci.tipoCurso}` : ci.nomeCurso;
+}
+
+function uniqueCodes(codes: string[]): string[] {
+	return [...new Set(codes.map((c) => (c || '').trim().toUpperCase()).filter(Boolean))];
+}
+
+function equivalenciaCodes(eq: EquivalenciaModel): string[] {
+	const fromGroups = equivalenciaGroups(eq).flatMap((g) => g);
+	let fromText: string[] = [];
+	if (fromGroups.length === 0 && eq.expressao?.trim()) {
+		fromText = extractSubjectCodesFromExpression(eq.expressao);
+	}
+	const all = uniqueCodes([...fromGroups, ...fromText]);
+	const origem = (eq.codigoMateriaOrigem || '').trim().toUpperCase();
+	return all.filter((c) => c !== origem);
+}
+
+function equivalenciaGroups(eq: EquivalenciaModel): string[][] {
+	const origem = (eq.codigoMateriaOrigem || '').trim().toUpperCase();
+	const groups = getLogicalCodeGroups(eq.expressaoLogica ?? null, eq.expressao ?? null);
+	return groups
+		.map((g) => uniqueCodes(g).filter((c) => c !== origem))
+		.filter((g) => g.length > 0);
+}
+
+function equivalenciaDisplayItems(eq: EquivalenciaModel): Array<{ codigo: string; nome: string }> {
+	const parsed = equivalenciaCodes(eq);
+	if (parsed.length > 0) {
+		return parsed.map((codigo) => ({
+			codigo,
+			nome: nomeMateriaPorCodigo(codigo, 'sem nome')
+		}));
+	}
+	const fallbackCode = (eq.codigoMateriaEquivalente || '').trim().toUpperCase();
+	if (!fallbackCode) return [];
+	return [
+		{
+			codigo: fallbackCode,
+			nome: eq.nomeMateriaEquivalente || nomeMateriaPorCodigo(fallbackCode, 'sem nome')
+		}
+	];
+}
+
+function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo: string; nome: string }>> {
+	const groups = equivalenciaGroups(eq);
+	if (groups.length > 0) {
+		return groups.map((group) =>
+			group.map((codigo) => ({
+				codigo,
+				nome: nomeMateriaPorCodigo(codigo, 'sem nome')
+			}))
+		);
+	}
+	const fallback = equivalenciaDisplayItems(eq);
+	return fallback.length > 0 ? [fallback] : [];
 }
 
 	function navigateTo(m: MateriaModel) {
@@ -97,6 +182,13 @@ function nomeMateriaPorCodigo(codigo: string, fallback = ''): string {
 				</h2>
 				<p class="relative mt-1 font-mono text-xs text-purple-100/80 sm:text-sm">{analysis.focusMateria.codigoMateria}</p>
 				<div class="relative mt-4 flex flex-wrap gap-2">
+					{#if analysis.focusMateria.tipoNatureza != null}
+						<span class="rounded-lg border px-2.5 py-1 font-mono text-xs font-semibold {analysis.focusMateria.tipoNatureza === 1
+							? 'border-amber-300/45 bg-amber-500/18 text-amber-100'
+							: 'border-cyan-300/45 bg-cyan-500/18 text-cyan-100'}">
+							{analysis.focusMateria.tipoNatureza === 1 ? 'Optativa' : 'Obrigatória'}
+						</span>
+					{/if}
 					{#if showSemesterBadge}
 						<span class="rounded-lg border border-white/20 bg-violet-950/35 px-2.5 py-1 font-mono text-xs text-white/85">
 							Semestre {analysis.focusMateria.nivel || '—'}
@@ -169,6 +261,18 @@ function nomeMateriaPorCodigo(codigo: string, fallback = ''): string {
 			</button>
 			{#if openPre}
 				<div class="border-t border-white/10 px-4 py-3">
+					{#if prereqRules.length > 0}
+						<div class="mb-2 space-y-1.5">
+							<p class="text-[11px] font-semibold uppercase tracking-wide text-white/55">
+								Regras (expressão)
+							</p>
+							{#each prereqRules as rule}
+								<p class="rounded-md border border-purple-300/20 bg-purple-500/8 px-2.5 py-1 text-[11px] text-purple-100/90">
+									{rule}
+								</p>
+							{/each}
+						</div>
+					{/if}
 					{#if analysis.preRequisites.length === 0}
 						<p class="text-xs text-white/45">Nenhuma encontrada nesta matriz.</p>
 					{:else}
@@ -252,11 +356,45 @@ function nomeMateriaPorCodigo(codigo: string, fallback = ''): string {
 						<ul class="space-y-2">
 							{#each eqGeneral as eq}
 								<li class="rounded-lg border border-amber-400/20 bg-amber-500/8 px-3 py-2 text-xs text-amber-100/95">
+									<div class="mb-1 flex items-center justify-between gap-2">
+										<span class="rounded-full border border-cyan-200/60 bg-cyan-300/25 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-cyan-50 shadow-[0_0_0_1px_rgba(34,211,238,0.25)]">
+											Geral
+										</span>
+									</div>
 									<p>
-										<span class="font-mono">{eq.codigoMateriaOrigem}</span>
-										↔
-										<span class="font-mono">{eq.codigoMateriaEquivalente}</span>
+										<span class="font-semibold text-amber-50">Origem:</span>
+										<span class="ml-1 font-mono">{eq.codigoMateriaOrigem || '—'}</span>
+										<span class="text-white/70">
+											· {eq.nomeMateriaOrigem || nomeMateriaPorCodigo(eq.codigoMateriaOrigem, 'sem nome')}
+										</span>
 									</p>
+									<p class="mt-1">
+										<span class="font-semibold text-amber-50">Equivalência lógica:</span>
+									</p>
+									{#if equivalenciaDisplayGroups(eq).length > 0}
+										<div class="mt-1 space-y-1.5">
+											{#each equivalenciaDisplayGroups(eq) as group, gi}
+												<div class="rounded-lg border border-amber-300/25 bg-amber-500/8 p-2">
+													<div class="flex flex-wrap items-center gap-1.5">
+														{#each group as item, ii}
+															<span class="rounded-md border border-amber-300/30 bg-amber-500/10 px-2 py-0.5 text-[11px] text-amber-100/95">
+																<span class="font-mono">{item.codigo}</span>
+																<span class="text-white/70"> · {item.nome}</span>
+															</span>
+															{#if ii < group.length - 1}
+																<span class="text-[10px] font-bold uppercase tracking-wide text-amber-200/85">E</span>
+															{/if}
+														{/each}
+													</div>
+												</div>
+												{#if gi < equivalenciaDisplayGroups(eq).length - 1}
+													<div class="text-[10px] font-extrabold uppercase tracking-[0.12em] text-amber-200/80">OU</div>
+												{/if}
+											{/each}
+										</div>
+									{:else}
+										<p class="mt-1 text-[11px] text-white/60">Sem códigos equivalentes identificados.</p>
+									{/if}
 									{#if eq.expressao?.trim()}
 										<p class="mt-1 text-[11px] text-white/65">{eq.expressao}</p>
 									{/if}
@@ -274,22 +412,51 @@ function nomeMateriaPorCodigo(codigo: string, fallback = ''): string {
 								<li class="rounded-lg border border-purple-300/25 bg-purple-500/10 px-3 py-2 text-xs text-purple-100">
 									<div class="mb-1 flex items-center justify-between gap-2">
 										<p class="font-mono text-[11px] text-purple-100/90">EQ específica</p>
-										<span class="rounded-full border border-purple-200/35 bg-purple-300/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-purple-100">
+										<span class="rounded-full border border-fuchsia-200/65 bg-fuchsia-300/30 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-fuchsia-50 shadow-[0_0_0_1px_rgba(244,114,182,0.3)]">
 											Específica
 										</span>
 									</div>
 									<p>
 										<span class="font-semibold text-purple-50">Origem:</span>
 										<span class="ml-1 font-mono">{eq.codigoMateriaOrigem || '—'}</span>
-										<span class="text-white/70"> · {eq.nomeMateriaOrigem || nomeMateriaPorCodigo(eq.codigoMateriaOrigem, 'sem nome')}</span>
+										<span class="text-white/70">
+											· {eq.nomeMateriaOrigem || nomeMateriaPorCodigo(eq.codigoMateriaOrigem, 'sem nome')}
+										</span>
 									</p>
 									<p class="mt-1">
-										<span class="font-semibold text-purple-50">Equivalente:</span>
-										<span class="ml-1 font-mono">{eq.codigoMateriaEquivalente || '—'}</span>
-										<span class="text-white/70"> · {nomeMateriaPorCodigo(eq.codigoMateriaEquivalente, eq.nomeMateriaEquivalente || 'sem nome')}</span>
+										<span class="font-semibold text-purple-50">Equivalência lógica:</span>
 									</p>
+									{#if equivalenciaDisplayGroups(eq).length > 0}
+										<div class="mt-1 space-y-1.5">
+											{#each equivalenciaDisplayGroups(eq) as group, gi}
+												<div class="rounded-lg border border-purple-300/30 bg-purple-500/10 p-2">
+													<div class="flex flex-wrap items-center gap-1.5">
+														{#each group as item, ii}
+															<span class="rounded-md border border-purple-300/35 bg-purple-500/12 px-2 py-0.5 text-[11px] text-purple-100/95">
+																<span class="font-mono">{item.codigo}</span>
+																<span class="text-white/70"> · {item.nome}</span>
+															</span>
+															{#if ii < group.length - 1}
+																<span class="text-[10px] font-bold uppercase tracking-wide text-purple-200/85">E</span>
+															{/if}
+														{/each}
+													</div>
+												</div>
+												{#if gi < equivalenciaDisplayGroups(eq).length - 1}
+													<div class="text-[10px] font-extrabold uppercase tracking-[0.12em] text-purple-200/80">OU</div>
+												{/if}
+											{/each}
+										</div>
+									{:else}
+										<p class="mt-1 text-[11px] text-white/60">Sem códigos equivalentes identificados.</p>
+									{/if}
 									{#if eq.curriculo}
 										<p class="mt-1 text-[11px] text-amber-200/85">Currículo: {eq.curriculo}</p>
+									{/if}
+									{#if courseInfoLabel(eq.curriculo)}
+										<p class="mt-1 text-[11px] text-cyan-100/85">
+											Curso: {courseInfoLabel(eq.curriculo)}
+										</p>
 									{/if}
 									{#if eq.expressao?.trim()}
 										<p class="mt-1 text-[11px] text-white/65">{eq.expressao}</p>

@@ -32,6 +32,8 @@ export interface ExpressionResult {
 	matchingMaterias: Set<string>;
 }
 
+export type LogicalCodeGroups = string[][];
+
 function removeOuterParentheses(expression: string): string {
 	let trimmed = expression.trim();
 
@@ -200,6 +202,96 @@ export function getCodigosFromExpressaoLogica(
 		}
 	}
 	return [];
+}
+
+function dedupeGroup(groups: LogicalCodeGroups): LogicalCodeGroups {
+	const seen = new Set<string>();
+	const out: LogicalCodeGroups = [];
+	for (const g of groups) {
+		const codes = [...new Set(g.map(norm).filter(Boolean))];
+		if (codes.length === 0) continue;
+		const key = codes.join('\0');
+		if (seen.has(key)) continue;
+		seen.add(key);
+		out.push(codes);
+	}
+	return out;
+}
+
+function productGroups(a: LogicalCodeGroups, b: LogicalCodeGroups): LogicalCodeGroups {
+	if (a.length === 0) return b;
+	if (b.length === 0) return a;
+	const out: LogicalCodeGroups = [];
+	for (const ga of a) {
+		for (const gb of b) {
+			out.push([...ga, ...gb]);
+		}
+	}
+	return out;
+}
+
+function parseTextToGroups(raw: string): LogicalCodeGroups {
+	const expression = removeOuterParentheses((raw || '').trim());
+	if (!expression) return [];
+
+	const orIndex = findMainOperator(expression, 'OU');
+	if (orIndex !== null) {
+		const left = expression.substring(0, orIndex).trim();
+		const right = expression.substring(orIndex + 2).trim();
+		return dedupeGroup([...parseTextToGroups(left), ...parseTextToGroups(right)]);
+	}
+
+	const andIndex = findMainOperator(expression, 'E');
+	if (andIndex !== null) {
+		const left = expression.substring(0, andIndex).trim();
+		const right = expression.substring(andIndex + 1).trim();
+		return dedupeGroup(productGroups(parseTextToGroups(left), parseTextToGroups(right)));
+	}
+
+	if (CODIGO_MATERIA_REGEX.test(expression)) {
+		return [[norm(expression)]];
+	}
+	const extracted = extractSubjectCodesFromExpression(expression);
+	if (extracted.length > 0) return [extracted];
+	return [];
+}
+
+function parseRecToGroups(
+	expr: ExpressaoLogicaRecursiva | ExpressaoLogicaJson | null | undefined
+): LogicalCodeGroups {
+	if (!expr) return [];
+	if (typeof expr === 'string') return parseTextToGroups(expr);
+	if ('condicoes' in expr && Array.isArray(expr.condicoes)) {
+		const op = (expr.operador || 'OU').toUpperCase();
+		const children = expr.condicoes.map((c) => parseRecToGroups(c));
+		if (children.length === 0) return [];
+		if (op === 'E') {
+			return dedupeGroup(children.reduce((acc, cur) => productGroups(acc, cur), [[]] as LogicalCodeGroups));
+		}
+		return dedupeGroup(children.flatMap((x) => x));
+	}
+	if ('materias' in expr && Array.isArray(expr.materias)) {
+		const mats = expr.materias.map((m) => norm(String(m))).filter(Boolean);
+		if (mats.length === 0) return [];
+		const op = (expr.operador || 'OU')?.toUpperCase();
+		if (op === 'E') return [mats];
+		return mats.map((m) => [m]);
+	}
+	return [];
+}
+
+/**
+ * Normaliza a expressão em grupos lógicos para exibição:
+ * - cada item do array externo é um bloco ligado por `OU`;
+ * - cada item interno é uma matéria ligada por `E`.
+ */
+export function getLogicalCodeGroups(
+	expressaoLogica: ExpressaoLogicaRecursiva | ExpressaoLogicaJson | null | undefined,
+	expressaoTexto?: string | null
+): LogicalCodeGroups {
+	const fromLogic = dedupeGroup(parseRecToGroups(expressaoLogica));
+	if (fromLogic.length > 0) return fromLogic;
+	return dedupeGroup(parseTextToGroups((expressaoTexto ?? '').trim()));
 }
 
 /**

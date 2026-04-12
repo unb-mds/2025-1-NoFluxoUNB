@@ -8,6 +8,7 @@ import type { CursoModel } from '$lib/types/curso';
 import type { MateriaModel } from '$lib/types/materia';
 import type { EquivalenciaModel } from '$lib/types/equivalencia';
 import { getCodigosFromExpressaoLogica } from '$lib/utils/expressao-logica';
+import { extractSubjectCodesFromExpression } from '$lib/types/equivalencia';
 import {
 	getSubjectChain,
 	getTopologicalPrerequisiteChain,
@@ -61,8 +62,11 @@ function equivalenciasTouchingMateria(
 			try {
 				return getCodigosFromExpressaoLogica(eq.expressaoLogica).some((c) => normCode(c) === n);
 			} catch {
-				return false;
+				// cai para o parser textual abaixo
 			}
+		}
+		if (eq.expressao?.trim()) {
+			return extractSubjectCodesFromExpression(eq.expressao).some((c) => normCode(c) === n);
 		}
 		return false;
 	});
