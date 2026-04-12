@@ -75,13 +75,42 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 	let materiasCache = $state<Map<number, SearchItem> | null>(null);
 	let preReqRowsCache = $state<PreReqRow[] | null>(null);
 	let coreqRowsCache = $state<Array<{ id_materia: number; id_materia_corequisito: number | null }> | null>(null);
-	let codeToIdCache = $state<Map<string, number> | null>(null);
+let idToCodeCache = $state<Map<number, string> | null>(null);
+let codePrimaryItemCache = $state<Map<string, SearchItem> | null>(null);
+
+let globalRoadmapColumns = $derived.by(() => {
+	if (!selecionada || selecionada.source !== 'global') return [] as SearchItem[][];
+	const pre = globalPreReqs.slice(0, 3);
+	const dep = globalDeps.slice(0, 3);
+	const cols: SearchItem[][] = [];
+	if (pre.length > 0) cols.push(pre);
+	cols.push([selecionada]);
+	if (dep.length > 0) cols.push(dep);
+	return cols;
+});
 
 	let termoNorm = $derived(normalizeSearchQuery(termoBusca));
 
 	function normalizeForSearch(raw: string): string {
 		return normalizeSearchQuery(raw).replace(/[^a-z0-9]/g, '');
 	}
+
+function sanitizeForDb(raw: string): {
+	trimmed: string;
+	noAccents: string;
+	collapsed: string;
+	compact: string;
+} {
+	const trimmed = raw.trim();
+	const noAccents = trimmed
+		.normalize('NFD')
+		.replace(/[\u0300-\u036f]/g, '')
+		.replace(/ç/g, 'c')
+		.replace(/Ç/g, 'C');
+	const collapsed = noAccents.replace(/\s+/g, ' ').trim();
+	const compact = collapsed.replace(/\s+/g, '');
+	return { trimmed, noAccents, collapsed, compact };
+}
 
 	function matchesCodigoNome(codigo: string, nome: string, rawQuery: string): boolean {
 		const qNorm = normalizeSearchQuery(rawQuery);
@@ -155,9 +184,10 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 	}
 
 	async function buscarMateriasGlobais(queryNorm: string) {
-		const raw = termoBusca.trim();
-		const compact = normalizeForSearch(raw).toUpperCase();
-		if (queryNorm.length < 2 || raw.length < 2 || curso) {
+	const sanitized = sanitizeForDb(termoBusca);
+	const raw = sanitized.collapsed;
+	const compact = sanitized.compact.toUpperCase();
+	if (queryNorm.length < 2 || raw.length < 2 || curso) {
 			resultadosGlobais = [];
 			erroBuscaGlobal = null;
 			carregandoBuscaGlobal = false;
@@ -166,11 +196,12 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 		const req = ++globalSearchReq;
 		carregandoBuscaGlobal = true;
 		erroBuscaGlobal = null;
-		const safe = raw.replace(/[,]/g, ' ').replace(/[%]/g, '');
+	const safe = raw.replace(/[,]/g, ' ').replace(/[%]/g, '').trim();
+	const safeCompact = compact.replace(/[%]/g, '').trim();
 		try {
 			const codeOr =
-				compact.length >= 2
-					? `codigo_materia.ilike.%${compact}%`
+			safeCompact.length >= 2
+				? `codigo_materia.ilike.%${safeCompact}%`
 					: `codigo_materia.ilike.%${safe.toUpperCase()}%`;
 			const { data, error } = await supabase
 				.from('materias')
@@ -206,7 +237,7 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 	}
 
 	async function ensureGlobalGraphData() {
-		if (materiasCache && preReqRowsCache && coreqRowsCache && codeToIdCache) return;
+	if (materiasCache && preReqRowsCache && coreqRowsCache && idToCodeCache && codePrimaryItemCache) return;
 
 		const [{ data: mats, error: matsError }, { data: prs, error: prsError }, { data: crs, error: crsError }] =
 			await Promise.all([
@@ -228,12 +259,14 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 		if (prsError) throw new Error(prsError.message);
 		if (crsError) throw new Error(crsError.message);
 
-		const mMap = new Map<number, SearchItem>();
-		const cMap = new Map<string, number>();
+	const mMap = new Map<number, SearchItem>();
+	const i2c = new Map<number, string>();
+	const cPrimary = new Map<string, SearchItem>();
 		for (const row of (mats as MateriaRow[] | null) ?? []) {
+		const code = String(row.codigo_materia).trim().toUpperCase();
 			const item: SearchItem = {
 				idMateria: Number(row.id_materia),
-				codigoMateria: String(row.codigo_materia),
+			codigoMateria: code,
 				nomeMateria: String(row.nome_materia),
 				nivel: null,
 				creditos:
@@ -243,7 +276,8 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 				source: 'global'
 			};
 			mMap.set(item.idMateria, item);
-			cMap.set(item.codigoMateria.trim().toUpperCase(), item.idMateria);
+		i2c.set(item.idMateria, code);
+		if (!cPrimary.has(code)) cPrimary.set(code, item);
 		}
 		materiasCache = mMap;
 		preReqRowsCache = ((prs as PreReqRow[] | null) ?? []).map((r) => ({
@@ -258,7 +292,8 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 					r.id_materia_corequisito != null ? Number(r.id_materia_corequisito) : null
 			})
 		);
-		codeToIdCache = cMap;
+	idToCodeCache = i2c;
+	codePrimaryItemCache = cPrimary;
 	}
 
 	async function carregarCadeiaGlobal(selected: SearchItem) {
@@ -274,28 +309,31 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 			const mats = materiasCache ?? new Map<number, SearchItem>();
 			const preRows = preReqRowsCache ?? [];
 			const coreqRows = coreqRowsCache ?? [];
-			const codeToId = codeToIdCache ?? new Map<string, number>();
+		const idToCode = idToCodeCache ?? new Map<number, string>();
+		const codePrimary = codePrimaryItemCache ?? new Map<string, SearchItem>();
 
-			const adj = new Map<number, Set<number>>(); // req -> dependent
-			const rev = new Map<number, Set<number>>();
-			const addEdge = (u: number, v: number) => {
-				if (!adj.has(u)) adj.set(u, new Set());
-				if (!rev.has(v)) rev.set(v, new Set());
-				adj.get(u)!.add(v);
-				rev.get(v)!.add(u);
+		const adj = new Map<string, Set<string>>(); // reqCode -> dependentCode
+		const rev = new Map<string, Set<string>>();
+		const addEdge = (u: string, v: string) => {
+			if (!u || !v || u === v) return;
+			if (!adj.has(u)) adj.set(u, new Set());
+			if (!rev.has(v)) rev.set(v, new Set());
+			adj.get(u)!.add(v);
+			rev.get(v)!.add(u);
 			};
 
 			for (const r of preRows) {
-				const target = r.id_materia;
-				if (!mats.has(target)) continue;
-				if (r.id_materia_requisito != null && mats.has(r.id_materia_requisito)) {
-					addEdge(r.id_materia_requisito, target);
+			const targetCode = idToCode.get(r.id_materia);
+			if (!targetCode) continue;
+			if (r.id_materia_requisito != null) {
+				const reqCodeById = idToCode.get(r.id_materia_requisito);
+				if (reqCodeById) addEdge(reqCodeById, targetCode);
 				}
 				if (r.expressao_logica) {
 					try {
 						for (const code of getCodigosFromExpressaoLogica(r.expressao_logica as never)) {
-							const reqId = codeToId.get(code.trim().toUpperCase());
-							if (reqId && mats.has(reqId)) addEdge(reqId, target);
+						const reqCode = code.trim().toUpperCase();
+						if (reqCode) addEdge(reqCode, targetCode);
 						}
 					} catch {
 						// ignora expressão inválida e segue
@@ -303,9 +341,9 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 				}
 			}
 
-			const focus = selected.idMateria;
-			const visitedPre = new Set<number>([focus]);
-			const stackPre = [focus];
+		const focusCode = selected.codigoMateria.trim().toUpperCase();
+		const visitedPre = new Set<string>([focusCode]);
+		const stackPre = [focusCode];
 			while (stackPre.length) {
 				const v = stackPre.pop()!;
 				for (const u of rev.get(v) ?? []) {
@@ -315,10 +353,10 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 					}
 				}
 			}
-			visitedPre.delete(focus);
+		visitedPre.delete(focusCode);
 
-			const visitedDep = new Set<number>([focus]);
-			const queueDep = [focus];
+		const visitedDep = new Set<string>([focusCode]);
+		const queueDep = [focusCode];
 			while (queueDep.length) {
 				const u = queueDep.shift()!;
 				for (const v of adj.get(u) ?? []) {
@@ -328,28 +366,28 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 					}
 				}
 			}
-			visitedDep.delete(focus);
+		visitedDep.delete(focusCode);
 
 			const pre = [...visitedPre]
-				.map((id) => mats.get(id))
-				.filter((m): m is SearchItem => m != null)
+			.map((code) => codePrimary.get(code) ?? { idMateria: -1, codigoMateria: code, nomeMateria: 'Disciplina', nivel: null, creditos: null, source: 'global' as const })
 				.sort((a, b) => a.codigoMateria.localeCompare(b.codigoMateria, 'pt-BR'));
 			const dep = [...visitedDep]
-				.map((id) => mats.get(id))
-				.filter((m): m is SearchItem => m != null)
+			.map((code) => codePrimary.get(code) ?? { idMateria: -1, codigoMateria: code, nomeMateria: 'Disciplina', nivel: null, creditos: null, source: 'global' as const })
 				.sort((a, b) => a.codigoMateria.localeCompare(b.codigoMateria, 'pt-BR'));
 
-			const coreqSet = new Set<number>();
+		const coreqSet = new Set<string>();
 			for (const row of coreqRows) {
 				const a = row.id_materia;
 				const b = row.id_materia_corequisito;
 				if (b == null) continue;
-				if (a === focus && mats.has(b)) coreqSet.add(b);
-				if (b === focus && mats.has(a)) coreqSet.add(a);
+			const ca = idToCode.get(a);
+			const cb = idToCode.get(b);
+			if (!ca || !cb) continue;
+			if (ca === focusCode) coreqSet.add(cb);
+			if (cb === focusCode) coreqSet.add(ca);
 			}
 			const coreq = [...coreqSet]
-				.map((id) => mats.get(id))
-				.filter((m): m is SearchItem => m != null)
+			.map((code) => codePrimary.get(code) ?? { idMateria: -1, codigoMateria: code, nomeMateria: 'Disciplina', nivel: null, creditos: null, source: 'global' as const })
 				.sort((a, b) => a.codigoMateria.localeCompare(b.codigoMateria, 'pt-BR'));
 
 		const { data: eqRows, error: eqErr } = await supabase
@@ -357,7 +395,7 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 			.select(
 				'id_equivalencia, id_materia, expressao_original, expressao_logica, curriculo, materias!equivalencias_id_materia_fkey(codigo_materia, nome_materia)'
 			)
-				.eq('id_materia', focus)
+			.eq('materias.codigo_materia', focusCode)
 				.limit(200);
 			if (eqErr) throw new Error(eqErr.message);
 
@@ -397,18 +435,34 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 	}
 
 	async function aoEscolherMatriz(curriculo: string) {
-		curriculoSelecionado = curriculo;
+	const sanitized = sanitizeForDb(curriculo);
+	curriculoSelecionado = sanitized.trimmed;
 		selecionada = null;
 		curso = null;
 		erroCurso = null;
-		if (!curriculo?.trim()) return;
+	if (!sanitized.trimmed) return;
 
 		carregandoCurso = true;
 		clearCurriculumAnalysisCache();
 		try {
-			const matched = matrizesOpcoes.find((op) => op.matrizCurricular === curriculo.trim());
-			matrizBusca = matched ? labelMatriz(matched) : curriculo.trim();
-			curso = await fluxogramaService.getCourseDataByCurriculoCompleto(curriculo.trim());
+		const matched = matrizesOpcoes.find((op) => {
+			const optionCurriculoNorm = normalizeSearchQuery(op.matrizCurricular);
+			const optionCurriculoCompact = normalizeForSearch(op.matrizCurricular);
+			const optionLabelNorm = normalizeSearchQuery(labelMatriz(op));
+			const optionLabelCompact = normalizeForSearch(labelMatriz(op));
+			const inNorm = normalizeSearchQuery(sanitized.trimmed);
+			const inCompact = normalizeForSearch(sanitized.trimmed);
+			return (
+				optionCurriculoNorm === inNorm ||
+				optionCurriculoCompact === inCompact ||
+				optionLabelNorm === inNorm ||
+				optionLabelCompact === inCompact
+			);
+		});
+		const curriculoQuery = matched?.matrizCurricular ?? sanitized.trimmed;
+		matrizBusca = matched ? labelMatriz(matched) : curriculoQuery;
+		curriculoSelecionado = curriculoQuery;
+		curso = await fluxogramaService.getCourseDataByCurriculoCompleto(curriculoQuery);
 		} catch (e: unknown) {
 			erroCurso = e instanceof Error ? e.message : 'Erro ao carregar currículo.';
 			curso = null;
@@ -605,6 +659,39 @@ let globalEquivsSpecific = $state<GlobalEquivItem[]>([]);
 							<Loader2 class="h-4 w-4 animate-spin" /> Calculando cadeia global...
 						</p>
 					{:else}
+						<section class="rounded-2xl border border-white/10 bg-gradient-to-b from-violet-900/20 to-black/20 p-4 sm:p-5">
+							<p class="mb-3 text-xs font-medium uppercase tracking-[0.12em] text-white/45">
+								Ordem no grafo — cadeia topológica
+							</p>
+							<div class="overflow-x-auto pb-1">
+								<div class="flex min-w-max items-center gap-0">
+									{#each globalRoadmapColumns as col, ci}
+										<div class="flex flex-col items-center gap-2">
+											{#each col as m}
+												<button
+													type="button"
+													onclick={() => selecionarMateria(m)}
+													class="w-[172px] rounded-xl border px-3 py-2 text-left transition-colors {m.idMateria === selecionada.idMateria
+														? 'border-purple-300/45 bg-purple-500/14'
+														: ci === globalRoadmapColumns.length - 1
+															? 'border-cyan-300/35 bg-cyan-500/10 hover:bg-cyan-500/20'
+															: 'border-amber-300/35 bg-amber-500/10 hover:bg-amber-500/20'}"
+												>
+													<p class="font-mono text-xs {m.idMateria === selecionada.idMateria ? 'text-purple-200' : 'text-white/80'}">
+														{m.codigoMateria}
+													</p>
+													<p class="line-clamp-2 text-xs text-white/65">{m.nomeMateria}</p>
+												</button>
+											{/each}
+										</div>
+										{#if ci < globalRoadmapColumns.length - 1}
+											<div class="px-3 text-white/35" aria-hidden="true">→</div>
+										{/if}
+									{/each}
+								</div>
+							</div>
+						</section>
+
 						<section class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/45">
 							<button type="button" class="flex w-full items-center justify-between px-4 py-3 hover:bg-white/5" onclick={() => (openGlobalPre = !openGlobalPre)}>
 								<span class="flex items-center gap-2 text-sm font-medium text-white">

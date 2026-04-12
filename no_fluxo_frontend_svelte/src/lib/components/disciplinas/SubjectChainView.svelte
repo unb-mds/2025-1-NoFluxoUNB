@@ -61,6 +61,19 @@
 		);
 	});
 
+let materiaNameByCode = $derived.by(() => {
+	const out = new Map<string, string>();
+	for (const m of courseData.materias) {
+		out.set(m.codigoMateria.trim().toUpperCase(), m.nomeMateria);
+	}
+	return out;
+});
+
+function nomeMateriaPorCodigo(codigo: string, fallback = ''): string {
+	const key = (codigo || '').trim().toUpperCase();
+	return materiaNameByCode.get(key) ?? fallback;
+}
+
 	function navigateTo(m: MateriaModel) {
 		onNavigate?.(m.codigoMateria);
 	}
@@ -259,10 +272,21 @@
 						<ul class="space-y-2">
 							{#each eqSpecificThisMatrix as eq}
 								<li class="rounded-lg border border-purple-300/25 bg-purple-500/10 px-3 py-2 text-xs text-purple-100">
+									<div class="mb-1 flex items-center justify-between gap-2">
+										<p class="font-mono text-[11px] text-purple-100/90">EQ específica</p>
+										<span class="rounded-full border border-purple-200/35 bg-purple-300/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-purple-100">
+											Específica
+										</span>
+									</div>
 									<p>
-										<span class="font-mono">{eq.codigoMateriaOrigem}</span>
-										↔
-										<span class="font-mono">{eq.codigoMateriaEquivalente}</span>
+										<span class="font-semibold text-purple-50">Origem:</span>
+										<span class="ml-1 font-mono">{eq.codigoMateriaOrigem || '—'}</span>
+										<span class="text-white/70"> · {eq.nomeMateriaOrigem || nomeMateriaPorCodigo(eq.codigoMateriaOrigem, 'sem nome')}</span>
+									</p>
+									<p class="mt-1">
+										<span class="font-semibold text-purple-50">Equivalente:</span>
+										<span class="ml-1 font-mono">{eq.codigoMateriaEquivalente || '—'}</span>
+										<span class="text-white/70"> · {nomeMateriaPorCodigo(eq.codigoMateriaEquivalente, eq.nomeMateriaEquivalente || 'sem nome')}</span>
 									</p>
 									{#if eq.curriculo}
 										<p class="mt-1 text-[11px] text-amber-200/85">Currículo: {eq.curriculo}</p>
