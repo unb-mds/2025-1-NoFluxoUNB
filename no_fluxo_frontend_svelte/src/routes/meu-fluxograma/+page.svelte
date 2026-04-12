@@ -119,7 +119,8 @@
 	}
 
 	function handleSubjectOpenChain(materia: MateriaModel) {
-		if (store.state.isAnonymous) return;
+		selectedSubject = null;
+		store.setSelectedSubject(null);
 		chainDialogSubject = materia;
 	}
 

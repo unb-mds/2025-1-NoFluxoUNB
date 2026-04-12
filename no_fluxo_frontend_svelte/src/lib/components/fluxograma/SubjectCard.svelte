@@ -260,10 +260,12 @@
 	}
 
 	function handleContextMenu(e: MouseEvent) {
-		if (!store.state.isAnonymous && onlongpress) {
-			e.preventDefault();
-			onlongpress();
+		e.preventDefault();
+		if (onOpenChain) {
+			onOpenChain();
+			return;
 		}
+		onlongpress?.();
 	}
 </script>
 

@@ -121,51 +121,100 @@
 	}
 
 	function dragScroll(node: HTMLElement) {
-		let isDown = false;
+		let activePointerId: number | null = null;
 		let startX = 0;
-		let startScrollLeft = 0;
+		let lastX = 0;
+		let lastT = 0;
+		let velocityX = 0;
 		let moved = false;
+		let inertiaRaf: number | null = null;
+		const DRAG_THRESHOLD = 3;
+		const FRICTION = 0.92;
+		const STOP_VELOCITY = 0.02;
 
-		const onMouseDown = (e: MouseEvent) => {
+		node.style.cursor = 'grab';
+		node.style.scrollBehavior = 'auto';
+
+		const stopInertia = () => {
+			if (inertiaRaf != null) {
+				cancelAnimationFrame(inertiaRaf);
+				inertiaRaf = null;
+			}
+		};
+
+		const runInertia = () => {
+			stopInertia();
+			const step = () => {
+				velocityX *= FRICTION;
+				if (Math.abs(velocityX) < STOP_VELOCITY) {
+					inertiaRaf = null;
+					return;
+				}
+				node.scrollLeft -= velocityX * 16;
+				inertiaRaf = requestAnimationFrame(step);
+			};
+			inertiaRaf = requestAnimationFrame(step);
+		};
+
+		const onPointerDown = (e: PointerEvent) => {
 			if (e.button !== 0) return;
-			isDown = true;
+			stopInertia();
+			activePointerId = e.pointerId;
 			moved = false;
+			velocityX = 0;
 			startX = e.clientX;
-			startScrollLeft = node.scrollLeft;
+			lastX = e.clientX;
+			lastT = performance.now();
+			node.setPointerCapture(e.pointerId);
 			node.style.cursor = 'grabbing';
 		};
 
-		const onMouseMove = (e: MouseEvent) => {
-			if (!isDown) return;
-			const dx = e.clientX - startX;
-			if (Math.abs(dx) > 3) moved = true;
-			node.scrollLeft = startScrollLeft - dx;
+		const onPointerMove = (e: PointerEvent) => {
+			if (activePointerId !== e.pointerId) return;
+			const now = performance.now();
+			const dx = e.clientX - lastX;
+			const dt = Math.max(1, now - lastT);
+			if (Math.abs(e.clientX - startX) > DRAG_THRESHOLD) moved = true;
+			node.scrollLeft -= dx;
+			velocityX = dx / dt;
+			lastX = e.clientX;
+			lastT = now;
 			if (moved) e.preventDefault();
 		};
 
-		const onMouseUp = () => {
-			if (!isDown) return;
-			isDown = false;
+		const endPointer = (e: PointerEvent) => {
+			if (activePointerId !== e.pointerId) return;
+			try {
+				node.releasePointerCapture(e.pointerId);
+			} catch {
+				// ignore
+			}
+			activePointerId = null;
 			node.style.cursor = 'grab';
+			if (moved) runInertia();
 		};
 
 		const onClickCapture = (e: MouseEvent) => {
 			if (moved) {
 				e.preventDefault();
 				e.stopPropagation();
+				moved = false;
 			}
 		};
 
-		node.addEventListener('mousedown', onMouseDown);
-		window.addEventListener('mousemove', onMouseMove);
-		window.addEventListener('mouseup', onMouseUp);
+		node.addEventListener('pointerdown', onPointerDown);
+		node.addEventListener('pointermove', onPointerMove);
+		node.addEventListener('pointerup', endPointer);
+		node.addEventListener('pointercancel', endPointer);
 		node.addEventListener('click', onClickCapture, true);
 
 		return {
 			destroy() {
-				node.removeEventListener('mousedown', onMouseDown);
-				window.removeEventListener('mousemove', onMouseMove);
-				window.removeEventListener('mouseup', onMouseUp);
+				stopInertia();
+				node.removeEventListener('pointerdown', onPointerDown);
+				node.removeEventListener('pointermove', onPointerMove);
+				node.removeEventListener('pointerup', endPointer);
+				node.removeEventListener('pointercancel', endPointer);
 				node.removeEventListener('click', onClickCapture, true);
 			}
 		};
@@ -422,11 +471,9 @@
 <style>
 	.roadmap-scroll {
 		-webkit-overflow-scrolling: touch;
-		scroll-snap-type: x proximity;
+		scroll-snap-type: none;
 		cursor: grab;
 		user-select: none;
-	}
-	.roadmap-pill {
-		scroll-snap-align: start;
+		touch-action: pan-x;
 	}
 </style>
