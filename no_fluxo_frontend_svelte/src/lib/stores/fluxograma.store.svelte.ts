@@ -44,6 +44,8 @@ export interface FluxogramaState {
 	displayUnit: DisplayUnit;
 	isAnonymous: boolean;
 	hoveredSubjectCode: string | null;
+	/** No modo "Todas" as conexões: pré-visualização do card sob o rato (clique continua fixando `hoveredSubjectCode`). */
+	hoverPreviewSubjectCode: string | null;
 	selectedSubjectCode: string | null;
 	isCapturingScreenshot: boolean;
 }
@@ -106,6 +108,7 @@ function createFluxogramaStore() {
 		displayUnit: 'horas' as DisplayUnit,
 		isAnonymous: false,
 		hoveredSubjectCode: null,
+		hoverPreviewSubjectCode: null,
 		selectedSubjectCode: null,
 		isCapturingScreenshot: false
 	});
@@ -580,6 +583,10 @@ function createFluxogramaStore() {
 			state.hoveredSubjectCode = code;
 		},
 
+		setHoverPreviewSubject(code: string | null) {
+			state.hoverPreviewSubjectCode = code;
+		},
+
 		setSelectedSubject(code: string | null) {
 			state.selectedSubjectCode = code;
 		},
@@ -597,12 +604,14 @@ function createFluxogramaStore() {
 			}
 			const prevMode = state.connectionMode;
 			const prevHover = state.hoveredSubjectCode;
+			const prevPreview = state.hoverPreviewSubjectCode;
 			const shouldRestore = !!captureOptions?.connectionMode;
 			try {
 				state.isCapturingScreenshot = true;
 				if (captureOptions?.connectionMode) {
 					state.connectionMode = captureOptions.connectionMode;
 					state.hoveredSubjectCode = null;
+					state.hoverPreviewSubjectCode = null;
 				}
 				// Modo "todas" altera gaps entre colunas — precisa de mais tempo para o layout/SVG
 				const delayMs = captureOptions?.connectionMode === 'all' ? 450 : captureOptions?.connectionMode === 'off' ? 180 : 100;
@@ -625,6 +634,7 @@ function createFluxogramaStore() {
 				if (shouldRestore) {
 					state.connectionMode = prevMode;
 					state.hoveredSubjectCode = prevHover;
+					state.hoverPreviewSubjectCode = prevPreview;
 				}
 			}
 		},
@@ -638,6 +648,7 @@ function createFluxogramaStore() {
 			state.displayUnit = 'horas';
 			state.isAnonymous = false;
 			state.hoveredSubjectCode = null;
+			state.hoverPreviewSubjectCode = null;
 			state.selectedSubjectCode = null;
 			state.isCapturingScreenshot = false;
 			optativasAdicionadas = [];

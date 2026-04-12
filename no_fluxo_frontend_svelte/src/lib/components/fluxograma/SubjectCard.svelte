@@ -8,6 +8,7 @@
 	} from '$lib/types/materia';
 	import { satisfazPreRequisitos } from '$lib/types/curso';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
+	import { getAncestorAndDescendantCodes } from '$lib/utils/curriculum-graph';
 
 	interface Props {
 		materia: MateriaModel;
@@ -36,33 +37,36 @@
 		status === SubjectStatusEnum.COMPLETED && userData?.tipoDado === 'equivalencia'
 	);
 
-	let isHovered = $derived(store.state.hoveredSubjectCode === materia.codigoMateria);
 	let isSelected = $derived(store.state.selectedSubjectCode === materia.codigoMateria);
 	let connectionsEnabled = $derived(store.state.connectionMode !== 'off');
-	/** No modo "Todas", desktop usa clique para fixar foco (como 1º toque no mobile); hover não altera o foco */
+	/** No modo "Todas", desktop usa clique para fixar foco (como 1º toque no mobile); hover usa só pré-visualização */
 	let isAllConnectionsMode = $derived(store.state.connectionMode === 'all');
 
-	// Check if this subject is a prerequisite of the hovered subject
-	let isPrereqOfHovered = $derived.by(() => {
-		if (!connectionsEnabled) return false;
-		const hoveredCode = store.state.hoveredSubjectCode;
-		if (!hoveredCode || !store.state.courseData) return false;
-		const hoveredMateria = store.state.courseData.materias.find(
-			(m) => m.codigoMateria === hoveredCode
-		);
-		if (!hoveredMateria?.preRequisitos) return false;
-		return hoveredMateria.preRequisitos.some((p) => p.codigoMateria === materia.codigoMateria);
+	/** Matéria sob a qual calculamos pré-requisitos/dependentes (transitivo no grafo da grade). */
+	let focusSubjectCode = $derived.by(() => {
+		void store.state.hoverPreviewSubjectCode;
+		void store.state.hoveredSubjectCode;
+		const p = store.state.hoverPreviewSubjectCode?.trim();
+		const h = store.state.hoveredSubjectCode?.trim();
+		return p || h || null;
 	});
 
-	// Check if hovered subject is a prerequisite of this subject
-	let isDependentOfHovered = $derived.by(() => {
-		if (!connectionsEnabled) return false;
-		const hoveredCode = store.state.hoveredSubjectCode;
-		if (!hoveredCode || !materia.preRequisitos) return false;
-		return materia.preRequisitos.some((p) => p.codigoMateria === hoveredCode);
-	});
+	let focusActive = $derived(focusSubjectCode !== null);
 
-	let isHighlighted = $derived(isHovered || isPrereqOfHovered || isDependentOfHovered);
+	let highlightRole = $derived.by(() => {
+		void store.state.hoverPreviewSubjectCode;
+		void store.state.hoveredSubjectCode;
+		const curso = store.state.courseData;
+		const focus = focusSubjectCode;
+		if (!curso || !focus) return null;
+		const self = materia.codigoMateria.trim().toUpperCase();
+		const f = focus.toUpperCase();
+		if (self === f) return 'focus' as const;
+		const { ancestors, descendants } = getAncestorAndDescendantCodes(curso, focus);
+		if (ancestors.has(self)) return 'ancestor' as const;
+		if (descendants.has(self)) return 'descendant' as const;
+		return null;
+	});
 
 	// Prerequisite indicator: count dependents
 	let dependentCount = $derived.by(() => {
@@ -96,17 +100,21 @@
 	let cardClasses = $derived.by(() => {
 		const gradient = gradientMap[status];
 		const base = `subject-card relative flex w-full max-w-[220px] min-w-0 flex-col text-left cursor-pointer rounded-xl border p-3 transition-all duration-200 sm:max-w-[240px]`;
-		const borderColor =
-			isSelected
-				? 'border-white/60 ring-2 ring-white/30'
-				: isHighlighted
-					? 'border-white/40 shadow-lg'
-					: !connectionsEnabled && isHovered
-						? 'border-white/30 shadow-md'
-						: 'border-white/10';
+		if (isSelected) {
+			return `${base} bg-gradient-to-br ${gradient} border-white/60 ring-2 ring-white/30 opacity-100`;
+		}
+		let borderExtras = 'border-white/10';
+		const role = highlightRole;
+		if (role === 'focus') {
+			borderExtras = 'border-white/45 ring-2 ring-white/35 shadow-lg';
+		} else if (role === 'ancestor') {
+			borderExtras = 'border-purple-400/55 ring-2 ring-purple-500/40 shadow-md shadow-purple-900/20';
+		} else if (role === 'descendant') {
+			borderExtras = 'border-teal-400/55 ring-2 ring-teal-500/40 shadow-md shadow-teal-900/20';
+		}
 		const dimmed =
-			connectionsEnabled && store.state.hoveredSubjectCode && !isHighlighted ? 'opacity-40' : 'opacity-100';
-		return `${base} bg-gradient-to-br ${gradient} ${borderColor} ${dimmed}`;
+			focusActive && role === null ? 'opacity-45' : 'opacity-100';
+		return `${base} bg-gradient-to-br ${gradient} ${borderExtras} ${dimmed}`;
 	});
 
 	let textColor = $derived(
@@ -119,16 +127,19 @@
 	let isTouchInteraction = $state(false);
 
 	function handleMouseEnter() {
-		// Don't trigger hover on touch devices (touch followed by mouse events)
-		if (!isTouchInteraction && !isAllConnectionsMode) {
+		if (isTouchInteraction) return;
+		if (isAllConnectionsMode) {
+			store.setHoverPreviewSubject(materia.codigoMateria);
+		} else {
 			store.setHoveredSubject(materia.codigoMateria);
 		}
 	}
 
 	function handleMouseLeave() {
-		// Don't clear hover on touch devices - it's managed by long-press
-		// Modo "Todas": foco só por clique — não limpar ao mover o rato
-		if (!isTouchInteraction && !isAllConnectionsMode) {
+		if (isTouchInteraction) return;
+		if (isAllConnectionsMode) {
+			store.setHoverPreviewSubject(null);
+		} else {
 			store.setHoveredSubject(null);
 		}
 	}
@@ -304,10 +315,4 @@
 		</div>
 	{/if}
 
-	{#if isPrereqOfHovered && connectionsEnabled}
-		<div class="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-purple-400 ring-2 ring-black"></div>
-	{/if}
-	{#if isDependentOfHovered && connectionsEnabled}
-		<div class="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-teal-400 ring-2 ring-black"></div>
-	{/if}
 </button>

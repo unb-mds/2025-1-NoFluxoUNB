@@ -257,7 +257,8 @@
 			return;
 		}
 
-		const hoveredCode = store.state.hoveredSubjectCode;
+		const hoveredCode =
+			store.state.hoverPreviewSubjectCode ?? store.state.hoveredSubjectCode;
 		const connectionMode = store.state.connectionMode;
 		const courseData = store.state.courseData;
 
@@ -736,6 +737,7 @@
 
 	$effect(() => {
 		const _hovered = store.state.hoveredSubjectCode;
+		void store.state.hoverPreviewSubjectCode;
 		const _mode = store.state.connectionMode;
 		const _data = store.state.courseData;
 		const el = container;
@@ -830,7 +832,8 @@
 		</defs>
 
 		{#each lines as line, i}
-			{@const hoveredCode = store.state.hoveredSubjectCode}
+			{@const hoveredCode =
+				store.state.hoverPreviewSubjectCode ?? store.state.hoveredSubjectCode}
 			{@const isAllMode = store.state.connectionMode === 'all'}
 			{@const isAllWithHover = isAllMode && !!hoveredCode}
 			{@const isRelated = isAllWithHover && isLineRelatedToHovered(line, hoveredCode)}

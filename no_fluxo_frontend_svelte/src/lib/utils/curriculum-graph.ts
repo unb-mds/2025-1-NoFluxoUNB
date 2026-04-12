@@ -264,3 +264,60 @@ export function getTopologicalPrerequisiteChain(
 		totalSccCount: sccs.length
 	};
 }
+
+/** Cache por (curso + matéria em foco) para não recalcular em todo SubjectCard. */
+let hoverHighlightCache: { key: string; ancestors: Set<string>; descendants: Set<string> } | null =
+	null;
+
+/**
+ * Conjuntos para destaque no fluxograma: antecessores e descendentes transitivos
+ * no grafo pré-requisito + co-requisito (mesma adjacência de `buildForwardAdjacency`).
+ */
+export function getAncestorAndDescendantCodes(
+	curso: CursoModel,
+	focusCode: string | null
+): { ancestors: Set<string>; descendants: Set<string> } {
+	if (!focusCode?.trim()) {
+		return { ancestors: new Set(), descendants: new Set() };
+	}
+	const f = normCode(focusCode);
+	const key = `${curso.idCurso}\0${curso.matrizCurricular ?? ''}\0${f}`;
+	if (hoverHighlightCache?.key === key) {
+		return {
+			ancestors: hoverHighlightCache.ancestors,
+			descendants: hoverHighlightCache.descendants
+		};
+	}
+
+	const adj = buildForwardAdjacency(curso);
+	const codesInCourse = new Set(curso.materias.map((m) => normCode(m.codigoMateria)));
+	if (!codesInCourse.has(f)) {
+		const empty = { ancestors: new Set<string>(), descendants: new Set<string>() };
+		hoverHighlightCache = { key, ...empty };
+		return empty;
+	}
+
+	for (const c of codesInCourse) {
+		if (!adj.has(c)) adj.set(c, new Set());
+	}
+
+	const pred = prerequisiteClosure(adj, f);
+	pred.delete(f);
+
+	const descendants = new Set<string>();
+	const vis = new Set<string>([f]);
+	const q = [f];
+	while (q.length) {
+		const u = q.shift()!;
+		for (const v of adj.get(u) ?? []) {
+			if (!vis.has(v)) {
+				vis.add(v);
+				descendants.add(v);
+				q.push(v);
+			}
+		}
+	}
+
+	hoverHighlightCache = { key, ancestors: pred, descendants };
+	return { ancestors: pred, descendants };
+}
