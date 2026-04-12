@@ -248,21 +248,9 @@
 	// Desktop pointer events (for right-click context menu and normal click)
 	function handleClick(e: MouseEvent) {
 		if (isTouchInteraction) return;
-		if (!connectionsEnabled) {
-			onOpenDetails?.();
-			return;
-		}
-		// 2.º clique de um duplo clique: não repete foco/roadmap — o modal de detalhes abre no dblclick
-		if (e.detail >= 2) return;
-
-		if (isAllConnectionsMode) {
-			store.setHoveredSubject(materia.codigoMateria);
-			return;
-		}
-		if (isDirectConnectionsMode) {
-			store.setHoveredSubject(materia.codigoMateria);
-			onOpenChain?.();
-		}
+		void e;
+		// Desktop: clique esquerdo abre a ficha da matéria.
+		onOpenDetails?.();
 	}
 
 	function handleDoubleClick() {

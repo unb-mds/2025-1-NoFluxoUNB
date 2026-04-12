@@ -438,20 +438,18 @@
 					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">Desktop</h3>
 					<ul class="space-y-1.5 text-white/90">
 						<li>
-							<strong>Conexões diretas:</strong> <strong>hover</strong> destaca a cadeia no diagrama;
-							<strong>clique</strong> fixa o foco e abre o roadmap da cadeia;
-							<strong class="text-white">duplo clique</strong> abre o <strong class="text-white">modal da disciplina</strong>
-							(detalhes).
+							<strong>Conexões diretas:</strong> <strong>hover</strong> destaca a cadeia no diagrama e
+							<strong class="text-white">clique esquerdo</strong> abre o
+							<strong class="text-white">modal da disciplina</strong> (detalhes).
 						</li>
 						<li>
-							<strong>Modo Todas:</strong> <strong>clique</strong> destaca pré-requisitos e dependentes;
-							<strong class="text-white">duplo clique</strong> abre o modal da disciplina. Clicar no fundo para arrastar
-							limpa o foco.
+							<strong>Modo Todas:</strong> <strong>hover</strong> mostra o contexto e
+							<strong class="text-white">clique esquerdo</strong> abre o modal da disciplina.
 						</li>
 						<li>
-							<strong>Conexões off:</strong> <strong>clique</strong> abre direto o modal da disciplina.
+							<strong>Conexões off:</strong> <strong>clique esquerdo</strong> abre direto o modal da disciplina.
 						</li>
-						<li><strong>Clique direito</strong> — roadmap da cadeia (alternativa ao clique em Diretas)</li>
+						<li><strong>Clique direito</strong> — abre o roadmap/cadeia topológica da matéria.</li>
 					</ul>
 				</section>
 			</div>
