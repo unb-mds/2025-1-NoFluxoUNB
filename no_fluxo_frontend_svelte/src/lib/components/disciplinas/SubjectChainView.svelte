@@ -159,6 +159,22 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 	return fallback.length > 0 ? [fallback] : [];
 }
 
+let materiaCodeSet = $derived.by(() => {
+	const out = new Set<string>();
+	for (const m of courseData.materias) out.add(m.codigoMateria.trim().toUpperCase());
+	return out;
+});
+
+function canNavigateCode(codigo: string): boolean {
+	return materiaCodeSet.has((codigo || '').trim().toUpperCase());
+}
+
+function navigateToCode(codigo: string) {
+	const c = (codigo || '').trim().toUpperCase();
+	if (!c || !canNavigateCode(c)) return;
+	onNavigate?.(c);
+}
+
 	function navigateTo(m: MateriaModel) {
 		onNavigate?.(m.codigoMateria);
 	}
@@ -166,6 +182,18 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 	function isFocusMateria(m: MateriaModel, focus: string): boolean {
 		return m.codigoMateria.trim().toUpperCase() === focus.trim().toUpperCase();
 	}
+
+function roadmapCardClass(m: MateriaModel): string {
+	const code = m.codigoMateria.trim().toUpperCase();
+	const isFocus = code === analysis?.focusCode;
+	if (isFocus) {
+		return 'border-amber-300/55 bg-amber-500/14 shadow-[inset_0_0_0_1px_rgba(251,191,36,0.22)]';
+	}
+	if (analysis?.dependencies.some((d) => d.codigoMateria.trim().toUpperCase() === code)) {
+		return 'border-cyan-300/45 bg-cyan-500/12 hover:bg-cyan-500/20';
+	}
+	return 'border-[#7f9cf5]/35 bg-[#7f9cf5]/10 hover:bg-[#7f9cf5]/18';
+}
 </script>
 
 {#if analysis}
@@ -225,16 +253,15 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 								<button
 									type="button"
 									onclick={() => navigateTo(m)}
-									class="w-[162px] rounded-xl border px-3 py-2 text-left transition-colors {isFocusMateria(m, analysis.focusCode)
-										? 'border-purple-300/40 bg-black/45 shadow-[inset_0_0_0_1px_rgba(168,85,247,0.22)]'
-										: ci === graphColumns.length - 1 && analysis.dependencies.length > 0
-											? 'border-[#f6ad55]/30 bg-black/45 hover:bg-black/55'
-											: 'border-[#7f9cf5]/30 bg-black/45 hover:bg-black/55'}"
+									class="w-[172px] rounded-xl border px-3 py-2 text-left transition-colors {roadmapCardClass(m)}"
 								>
-									<p class="font-mono text-xs {isFocusMateria(m, analysis.focusCode) ? 'text-purple-200' : 'text-cyan-200'}">
+									<p class="font-mono text-xs {isFocusMateria(m, analysis.focusCode) ? 'text-amber-200' : 'text-cyan-200'}">
 										{m.codigoMateria}
 									</p>
 									<p class="line-clamp-2 text-xs text-white/65">{m.nomeMateria}</p>
+									{#if isFocusMateria(m, analysis.focusCode)}
+										<p class="mt-1 text-[10px] font-bold uppercase tracking-wide text-amber-200/90">Você está aqui</p>
+									{/if}
 								</button>
 							{/each}
 						</div>
@@ -379,10 +406,15 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 												<div class="rounded-lg border border-amber-300/25 bg-black/35 p-2">
 													<div class="flex flex-wrap items-center gap-1.5">
 														{#each group as item, ii}
-															<span class="rounded-md border border-amber-300/30 bg-amber-500/10 px-2 py-0.5 text-[11px] text-amber-100/95">
+															<button
+																type="button"
+																onclick={() => navigateToCode(item.codigo)}
+																disabled={!canNavigateCode(item.codigo)}
+																class="rounded-md border border-amber-300/30 bg-amber-500/10 px-2 py-0.5 text-[11px] text-amber-100/95 transition-colors disabled:cursor-not-allowed disabled:opacity-60 hover:bg-amber-500/20"
+															>
 																<span class="font-mono">{item.codigo}</span>
 																<span class="text-white/70"> · {item.nome}</span>
-															</span>
+															</button>
 															{#if ii < group.length - 1}
 																<span class="text-[10px] font-bold uppercase tracking-wide text-amber-200/85">E</span>
 															{/if}
@@ -434,10 +466,15 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 												<div class="rounded-lg border border-purple-300/30 bg-black/35 p-2">
 													<div class="flex flex-wrap items-center gap-1.5">
 														{#each group as item, ii}
-															<span class="rounded-md border border-purple-300/35 bg-purple-500/12 px-2 py-0.5 text-[11px] text-purple-100/95">
+															<button
+																type="button"
+																onclick={() => navigateToCode(item.codigo)}
+																disabled={!canNavigateCode(item.codigo)}
+																class="rounded-md border border-purple-300/35 bg-purple-500/12 px-2 py-0.5 text-[11px] text-purple-100/95 transition-colors disabled:cursor-not-allowed disabled:opacity-60 hover:bg-purple-500/20"
+															>
 																<span class="font-mono">{item.codigo}</span>
 																<span class="text-white/70"> · {item.nome}</span>
-															</span>
+															</button>
 															{#if ii < group.length - 1}
 																<span class="text-[10px] font-bold uppercase tracking-wide text-purple-200/85">E</span>
 															{/if}
