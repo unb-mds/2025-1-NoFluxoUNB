@@ -119,6 +119,57 @@
 	function handleBackdropClick(e: MouseEvent) {
 		if (e.target === e.currentTarget) onclose?.();
 	}
+
+	function dragScroll(node: HTMLElement) {
+		let isDown = false;
+		let startX = 0;
+		let startScrollLeft = 0;
+		let moved = false;
+
+		const onMouseDown = (e: MouseEvent) => {
+			if (e.button !== 0) return;
+			isDown = true;
+			moved = false;
+			startX = e.clientX;
+			startScrollLeft = node.scrollLeft;
+			node.style.cursor = 'grabbing';
+		};
+
+		const onMouseMove = (e: MouseEvent) => {
+			if (!isDown) return;
+			const dx = e.clientX - startX;
+			if (Math.abs(dx) > 3) moved = true;
+			node.scrollLeft = startScrollLeft - dx;
+			if (moved) e.preventDefault();
+		};
+
+		const onMouseUp = () => {
+			if (!isDown) return;
+			isDown = false;
+			node.style.cursor = 'grab';
+		};
+
+		const onClickCapture = (e: MouseEvent) => {
+			if (moved) {
+				e.preventDefault();
+				e.stopPropagation();
+			}
+		};
+
+		node.addEventListener('mousedown', onMouseDown);
+		window.addEventListener('mousemove', onMouseMove);
+		window.addEventListener('mouseup', onMouseUp);
+		node.addEventListener('click', onClickCapture, true);
+
+		return {
+			destroy() {
+				node.removeEventListener('mousedown', onMouseDown);
+				window.removeEventListener('mousemove', onMouseMove);
+				window.removeEventListener('mouseup', onMouseUp);
+				node.removeEventListener('click', onClickCapture, true);
+			}
+		};
+	}
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
@@ -188,6 +239,7 @@
 					</p>
 
 					<div
+						use:dragScroll
 						class="roadmap-scroll flex min-h-[4.5rem] items-center gap-1 overflow-x-auto rounded-xl border border-purple-500/20 bg-black/25 px-3 py-4 [scrollbar-width:thin]"
 					>
 						{#each chainDisplay.layers as layer, li}
@@ -279,6 +331,7 @@
 						<span class="text-teal-400/90">teal</span>, como no diagrama).
 					</p>
 					<div
+						use:dragScroll
 						class="roadmap-scroll flex min-h-[4rem] items-center gap-1 overflow-x-auto rounded-xl border border-teal-500/25 bg-black/20 px-3 py-4 [scrollbar-width:thin]"
 					>
 						<div
@@ -370,6 +423,8 @@
 	.roadmap-scroll {
 		-webkit-overflow-scrolling: touch;
 		scroll-snap-type: x proximity;
+		cursor: grab;
+		user-select: none;
 	}
 	.roadmap-pill {
 		scroll-snap-align: start;
