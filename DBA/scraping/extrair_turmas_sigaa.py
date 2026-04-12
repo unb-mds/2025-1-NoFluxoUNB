@@ -269,7 +269,7 @@ def main():
     if len(sys.argv) >= 2:
         output_dir = sys.argv[1]
     else:
-        output_dir = os.path.join(os.path.dirname(__file__), '..', 'dados', 'materias')
+        output_dir = os.path.join(os.path.dirname(__file__), '..', 'turmas_atual')
 
     print("\n" + "="*60)
     print("SCRAPER UNB - VERSÃO COMPLETA")

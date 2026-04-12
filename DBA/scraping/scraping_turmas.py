@@ -45,8 +45,50 @@ def limpar_texto(texto):
 MAX_WORKERS = 3  # Reduzido para evitar bloqueios
 REQUEST_DELAY = (2, 5)  # Intervalo maior entre requisições
 MAX_RETRIES = 5  # Mais tentativas por departamento
-OUTPUT_DIR = "dados_finais_teste_p_depto_20"
+OUTPUT_DIR = str((Path(__file__).resolve().parent / ".." / "dados" / "dados_finais_teste_p_depto_20").resolve())
 DEBUG = True  # Ativar para ver logs detalhados
+
+def _normalizar_texto_para_comparacao(texto):
+    """Normaliza o texto para facilitar comparações robustas de mensagens."""
+    if not isinstance(texto, str):
+        return ""
+    return _remover_acentos(texto).lower().strip()
+
+def _extrair_numero_inteiro(texto):
+    """Extrai o primeiro inteiro de uma string (ex.: ' 80 ' -> 80)."""
+    if not isinstance(texto, str):
+        return None
+    match = re.search(r"\d+", texto)
+    return int(match.group()) if match else None
+
+def _extrair_ano_periodo(texto):
+    """Extrai texto no padrão ano/período (ex.: '2026.1', '2026/1')."""
+    if not isinstance(texto, str):
+        return None
+    match = re.search(r"\b(19|20)\d{2}\s*[./-]\s*\d{1,2}\b", texto)
+    if not match:
+        return None
+    return re.sub(r"\s+", "", match.group()).replace("/", ".").replace("-", ".")
+
+def _extrair_docentes(td_docente):
+    """
+    Extrai um ou mais docentes da célula de nome.
+    Ex.: "PROF A (60h)<br/>PROF B (30h)" -> "PROF A / PROF B"
+    """
+    if td_docente is None:
+        return "Nao informado"
+
+    texto_multilinha = td_docente.get_text("\n", strip=True)
+    linhas = [limpar_texto(linha) for linha in texto_multilinha.splitlines() if limpar_texto(linha)]
+    docentes = []
+
+    for linha in linhas:
+        # Remove a carga horária no fim, mantendo apenas o nome.
+        nome = re.sub(r"\s*\(\d+h\)\s*$", "", linha, flags=re.IGNORECASE).strip()
+        if nome and nome not in docentes:
+            docentes.append(nome)
+
+    return " / ".join(docentes) if docentes else "Nao informado"
 
 def limpar_texto(texto):
     
@@ -254,22 +296,39 @@ def processar_departamento(id_atual):
             msg_sistema = results_soup.find(class_=re.compile(r"(info|erro)", re.IGNORECASE))
             if msg_sistema:
                 texto_msg = msg_sistema.text.strip()
-                if "nenhum" in texto_msg.lower() or "inválido" in texto_msg.lower() or "não encontrad" in texto_msg.lower():
+                texto_msg_norm = _normalizar_texto_para_comparacao(texto_msg)
+                if (
+                    "nenhum" in texto_msg_norm
+                    or "invalido" in texto_msg_norm
+                    or "nao encontrad" in texto_msg_norm
+                    or "nao foram encontrados resultados" in texto_msg_norm
+                ):
                     if DEBUG:
                         print(f"\n[INFO] Depto {id_atual} vazio ou sem oferta: {texto_msg}")
                     return {"departamento_id": id_atual, "turmas": []}
 
-            tables = results_soup.find_all("table", {"class": "listagem"})
+            turmas_abertas_div = results_soup.find("div", {"id": "turmasAbertas"})
+            tables = turmas_abertas_div.find_all("table", {"class": "listagem"}) if turmas_abertas_div else []
             
-            # Sistema de Debug Visual
+            # Sistema de Debug Visual / Classificacao de resposta sem tabela
             if not tables:
+                texto_pagina_norm = _normalizar_texto_para_comparacao(results_soup.get_text(" ", strip=True))
+
+                # Caso legitimo de "sem turmas" (mensagem pode variar de elemento/classe)
+                if "nao foram encontrados resultados para a busca com estes parametros" in texto_pagina_norm:
+                    if DEBUG:
+                        print(f"\n[INFO] Depto {id_atual} vazio ou sem oferta (texto da pagina).")
+                    return {"departamento_id": id_atual, "turmas": []}
+
                 if DEBUG:
                     Path("debug_html").mkdir(exist_ok=True)
                     debug_file = f"debug_html/erro_depto_{id_atual}.html"
                     with open(debug_file, "w", encoding="utf-8") as f:
                         f.write(search_response.text)
-                    print(f"\n[FALHA SILENCIOSA] Depto {id_atual}: POST recusado. HTML salvo em {debug_file}")
-                return {"departamento_id": id_atual, "turmas": []}
+                    print(f"\n[RESPOSTA INESPERADA] Depto {id_atual}: HTML salvo em {debug_file}. Tentando novamente...")
+
+                # Dispara retry (nao salva vazio em caso de resposta instavel/redirect indevido)
+                raise RuntimeError(f"Resposta sem tabela para depto {id_atual}")
 
             turmas_depto = []
 
@@ -277,26 +336,44 @@ def processar_departamento(id_atual):
                 current_component_name = ""
 
                 for row in table.find_all("tr"):
-                    if "agrupador" in row.get("class", []):
+                    row_classes = row.get("class", [])
+                    if "agrupador" in row_classes:
                         link = row.find("a")
                         if link:
                             title_span = link.find("span", {"class": "tituloDisciplina"})
                             if title_span:
                                 current_component_name = limpar_texto(title_span.text.strip())
-                                continue
+                        continue
 
-                    elif "linhaTitulo" not in row.get("class", []) and "agrupador" not in row.get("class", []):
+                    elif "linhaPar" in row_classes or "linhaImpar" in row_classes:
                         cols = row.find_all("td")
                         
                         if len(cols) >= 8:
                             if current_component_name:
+                                vagas_ofertadas = _extrair_numero_inteiro(limpar_texto(cols[5].text))
+                                vagas_ocupadas = _extrair_numero_inteiro(limpar_texto(cols[6].text))
+                                td_ano_periodo = row.find("td", class_=re.compile(r"ano[_]?periodo", re.IGNORECASE))
+                                texto_ano_periodo = (
+                                    limpar_texto(td_ano_periodo.get_text(" ", strip=True))
+                                    if td_ano_periodo
+                                    else limpar_texto(cols[1].get_text(" ", strip=True))
+                                )
+                                ano_periodo = _extrair_ano_periodo(texto_ano_periodo)
+
+                                vagas_sobrando = None
+                                if vagas_ofertadas is not None and vagas_ocupadas is not None:
+                                    vagas_sobrando = vagas_ofertadas - vagas_ocupadas
+
                                 turma = {
                                     "codigo": current_component_name.split()[0],
                                     "nome": current_component_name,
                                     "turma": limpar_texto(cols[0].text),
-                                    "docente": ((limpar_texto(cols[2].text)).split('('))[0],
+                                    "docente": _extrair_docentes(cols[2]),
                                     "horario": ((limpar_texto(cols[3].text)).split('('))[0],
-                                    "qnt_vagas": limpar_texto(cols[5].text),
+                                    "ano_periodo": ano_periodo,
+                                    "vagas_ofertadas": vagas_ofertadas,
+                                    "vagas_ocupadas": vagas_ocupadas,
+                                    "vagas_sobrando": vagas_sobrando,
                                     "local": limpar_texto(cols[7].text)
                                 }
                                 turmas_depto.append(turma)
