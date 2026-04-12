@@ -4,7 +4,10 @@
 	import SubjectChainView from '$lib/components/disciplinas/SubjectChainView.svelte';
 	import { createSupabaseBrowserClient } from '$lib/supabase/client';
 	import { fluxogramaService } from '$lib/services/fluxograma.service';
-	import { getCodigosFromExpressaoLogica } from '$lib/utils/expressao-logica';
+import {
+	getCodigosFromExpressaoLogica,
+	extractSubjectCodesFromExpression
+} from '$lib/utils/expressao-logica';
 	import type { CursoModel, MinimalCursoModel } from '$lib/types/curso';
 	import { onMount } from 'svelte';
 	import {
@@ -35,6 +38,7 @@
 		id_materia: number;
 		id_materia_requisito: number | null;
 		expressao_logica: unknown | null;
+	expressao_original?: string | null;
 	};
 
 type GlobalEquivItem = {
@@ -239,30 +243,40 @@ function sanitizeForDb(raw: string): {
 	async function ensureGlobalGraphData() {
 	if (materiasCache && preReqRowsCache && coreqRowsCache && idToCodeCache && codePrimaryItemCache) return;
 
-		const [{ data: mats, error: matsError }, { data: prs, error: prsError }, { data: crs, error: crsError }] =
-			await Promise.all([
-				supabase
-					.from('materias')
-					.select('id_materia, codigo_materia, nome_materia, carga_horaria')
-					.limit(6000),
-				supabase
-					.from('pre_requisitos')
-					.select('id_materia, id_materia_requisito, expressao_logica')
-					.limit(15000),
-				supabase
-					.from('co_requisitos')
-					.select('id_materia, id_materia_corequisito')
-					.limit(12000)
-			]);
+	async function fetchAllRows<T>(table: string, columns: string, step = 1000): Promise<T[]> {
+		let from = 0;
+		const all: T[] = [];
+		while (true) {
+			const to = from + step - 1;
+			const { data, error } = await supabase
+				.from(table)
+				.select(columns)
+				.range(from, to);
+			if (error) throw new Error(error.message);
+			const chunk = (data as T[] | null) ?? [];
+			all.push(...chunk);
+			if (chunk.length < step) break;
+			from += step;
+		}
+		return all;
+	}
 
-		if (matsError) throw new Error(matsError.message);
-		if (prsError) throw new Error(prsError.message);
-		if (crsError) throw new Error(crsError.message);
+	const [mats, prs, crs] = await Promise.all([
+		fetchAllRows<MateriaRow>('materias', 'id_materia, codigo_materia, nome_materia, carga_horaria'),
+		fetchAllRows<PreReqRow>(
+			'pre_requisitos',
+			'id_materia, id_materia_requisito, expressao_logica, expressao_original'
+		),
+		fetchAllRows<{ id_materia: number; id_materia_corequisito: number | null }>(
+			'co_requisitos',
+			'id_materia, id_materia_corequisito'
+		)
+	]);
 
 	const mMap = new Map<number, SearchItem>();
 	const i2c = new Map<number, string>();
 	const cPrimary = new Map<string, SearchItem>();
-		for (const row of (mats as MateriaRow[] | null) ?? []) {
+	for (const row of mats ?? []) {
 		const code = String(row.codigo_materia).trim().toUpperCase();
 			const item: SearchItem = {
 				idMateria: Number(row.id_materia),
@@ -280,12 +294,13 @@ function sanitizeForDb(raw: string): {
 		if (!cPrimary.has(code)) cPrimary.set(code, item);
 		}
 		materiasCache = mMap;
-		preReqRowsCache = ((prs as PreReqRow[] | null) ?? []).map((r) => ({
+	preReqRowsCache = (prs ?? []).map((r) => ({
 			id_materia: Number(r.id_materia),
 			id_materia_requisito: r.id_materia_requisito != null ? Number(r.id_materia_requisito) : null,
-			expressao_logica: r.expressao_logica
+		expressao_logica: r.expressao_logica,
+		expressao_original: r.expressao_original != null ? String(r.expressao_original) : null
 		}));
-		coreqRowsCache = ((crs as Array<{ id_materia: number; id_materia_corequisito: number | null }> | null) ?? []).map(
+	coreqRowsCache = (crs ?? []).map(
 			(r) => ({
 				id_materia: Number(r.id_materia),
 				id_materia_corequisito:
@@ -325,13 +340,15 @@ function sanitizeForDb(raw: string): {
 			for (const r of preRows) {
 			const targetCode = idToCode.get(r.id_materia);
 			if (!targetCode) continue;
+			let parsedFromLogic: string[] = [];
 			if (r.id_materia_requisito != null) {
 				const reqCodeById = idToCode.get(r.id_materia_requisito);
 				if (reqCodeById) addEdge(reqCodeById, targetCode);
 				}
 				if (r.expressao_logica) {
 					try {
-						for (const code of getCodigosFromExpressaoLogica(r.expressao_logica as never)) {
+					parsedFromLogic = getCodigosFromExpressaoLogica(r.expressao_logica as never);
+					for (const code of parsedFromLogic) {
 						const reqCode = code.trim().toUpperCase();
 						if (reqCode) addEdge(reqCode, targetCode);
 						}
@@ -339,6 +356,13 @@ function sanitizeForDb(raw: string): {
 						// ignora expressão inválida e segue
 					}
 				}
+			// Fallback: quando a expressão lógica não veio estruturada, usar expressão textual.
+			if (parsedFromLogic.length === 0 && r.expressao_original) {
+				for (const code of extractSubjectCodesFromExpression(String(r.expressao_original))) {
+					const reqCode = code.trim().toUpperCase();
+					if (reqCode) addEdge(reqCode, targetCode);
+				}
+			}
 			}
 
 		const focusCode = selected.codigoMateria.trim().toUpperCase();
