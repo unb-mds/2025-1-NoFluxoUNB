@@ -9,11 +9,13 @@
 
 	interface Props {
 		onSubjectClick?: (materia: MateriaModel) => void;
+		onSubjectOpenChain?: (materia: MateriaModel) => void;
 		onSubjectLongPress?: (materia: MateriaModel) => void;
 		bind_container?: HTMLElement | null;
 	}
 
-	let { onSubjectClick, onSubjectLongPress, bind_container = $bindable(null) }: Props = $props();
+	let { onSubjectClick, onSubjectOpenChain, onSubjectLongPress, bind_container = $bindable(null) }: Props =
+		$props();
 
 	const store = fluxogramaStore;
 
@@ -263,6 +265,7 @@
 				{subjects}
 				optPlanned={optPlanned}
 				{onSubjectClick}
+				{onSubjectOpenChain}
 				{onSubjectLongPress}
 				{headerOffsetY}
 			/>

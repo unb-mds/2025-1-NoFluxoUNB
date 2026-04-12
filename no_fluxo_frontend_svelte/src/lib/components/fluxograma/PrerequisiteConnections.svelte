@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { browser } from '$app/environment';
+	import {
+		CHAIN_VISUAL,
+		classifyChainPrereqStroke,
+		getSubjectChain
+	} from '$lib/utils/curriculum-graph';
 
 	const store = fluxogramaStore;
 
@@ -19,15 +24,22 @@
 		return null;
 	}
 
+	/** Distância horizontal máxima (px, coords SVG) para tratar como mesma coluna / mesmo semestre. */
+	const SAME_COLUMN_DX_PX = 42;
+
 	interface ConnectionLine {
 		x1: number;
 		y1: number;
 		x2: number;
 		y2: number;
 		type: 'prerequisite' | 'dependent' | 'corequisite';
+		/** Modo diretas + cadeia transitiva no hover */
+		chainStroke?: 'pre' | 'desc' | 'core';
 		isAllMode?: boolean;
 		fromCode: string;
 		toCode: string;
+		/** Pré-req e dependente empilhados na mesma coluna (seta “por fora”, mais legível). */
+		sameColumnStack?: boolean;
 		// Routing metadata for gap-based routing (populated in all-mode)
 		routing?: RoutingInfo;
 	}
@@ -297,10 +309,8 @@
 		const newLines: ConnectionLine[] = [];
 
 		if (hoveredCode && connectionMode === 'direct') {
-			const hoveredMateria = courseData.materias.find(
-				(m) => normSubjectCode(m.codigoMateria) === normSubjectCode(hoveredCode)
-			);
-			if (!hoveredMateria) {
+			const chain = getSubjectChain(courseData, hoveredCode);
+			if (!chain) {
 				lines = [];
 				if (allowFollowUp) {
 					followUpGeneration++;
@@ -309,57 +319,59 @@
 				return;
 			}
 
-			if (hoveredMateria.preRequisitos) {
-				for (const prereq of hoveredMateria.preRequisitos) {
-					const line = getLineBetweenCards(
-						prereq.codigoMateria, hoveredCode,
-						container, containerRect, 'prerequisite', false
-					);
-					if (line) newLines.push(line);
-				}
-			}
+			const S = chain.chainNodeSet;
+			const M = chain.focusCode;
+			const P = chain.precursors;
+			const D = chain.descendants;
 
 			for (const materia of courseData.materias) {
-				if (
-					materia.preRequisitos?.some(
-						(p) => normSubjectCode(p.codigoMateria) === normSubjectCode(hoveredCode)
-					)
-				) {
+				const v = normSubjectCode(materia.codigoMateria);
+				if (!S.has(v)) continue;
+				for (const prereq of materia.preRequisitos ?? []) {
+					const u = normSubjectCode(prereq.codigoMateria);
+					if (!S.has(u)) continue;
+					const stroke = classifyChainPrereqStroke(u, v, M, P, D);
 					const line = getLineBetweenCards(
-						hoveredCode, materia.codigoMateria,
-						container, containerRect, 'dependent', false
+						prereq.codigoMateria,
+						materia.codigoMateria,
+						container,
+						containerRect,
+						stroke === 'desc' ? 'dependent' : 'prerequisite',
+						false
 					);
-					if (line) newLines.push(line);
+					if (line) {
+						line.chainStroke = stroke;
+						newLines.push(line);
+					}
 				}
 			}
 
-			// Co-requisitos ligados à disciplina em foco (mesmo critério do modo "Todas", só que filtrado)
 			if (courseData.coRequisitos?.length) {
 				const materiaMap = new Map(courseData.materias.map((m) => [m.idMateria, m]));
 				const drawnPairs = new Set<string>();
 				for (const coReq of courseData.coRequisitos) {
 					const fromMateria = materiaMap.get(coReq.idMateria);
 					if (!fromMateria) continue;
-					const a = fromMateria.codigoMateria;
-					const b = coReq.codigoMateriaCoRequisito;
-					if (
-						normSubjectCode(a) !== normSubjectCode(hoveredCode) &&
-						normSubjectCode(b) !== normSubjectCode(hoveredCode)
-					) {
-						continue;
-					}
-					const pairKey = [a, b].sort().join('-');
+					const a = normSubjectCode(fromMateria.codigoMateria);
+					const b = coReq.codigoMateriaCoRequisito
+						? normSubjectCode(coReq.codigoMateriaCoRequisito)
+						: '';
+					if (!b || !S.has(a) || !S.has(b)) continue;
+					const pairKey = [a, b].sort().join('\0');
 					if (drawnPairs.has(pairKey)) continue;
 					drawnPairs.add(pairKey);
 					const line = getLineBetweenCards(
-						a,
-						b,
+						fromMateria.codigoMateria,
+						coReq.codigoMateriaCoRequisito,
 						container,
 						containerRect,
 						'corequisite',
 						false
 					);
-					if (line) newLines.push(line);
+					if (line) {
+						line.chainStroke = 'core';
+						newLines.push(line);
+					}
 				}
 			}
 		} else if (connectionMode === 'all') {
@@ -475,7 +487,11 @@
 		for (const [lineIdx, data] of lineColData) {
 			const line = allLines[lineIdx];
 			const exitGapIdx = Math.min(data.sourceCol, columnGaps.length - 1);
-			const entryGapIdx = Math.min(data.targetCol - 1, columnGaps.length - 1);
+			let entryGapIdx = Math.min(data.targetCol - 1, columnGaps.length - 1);
+			// Mesma coluna ou alvo na 1ª coluna: o vão útil é o à direita da coluna (evita índice -1).
+			if (data.sourceCol === data.targetCol || entryGapIdx < 0) {
+				entryGapIdx = exitGapIdx;
+			}
 
 			if (exitGapIdx < 0 || entryGapIdx < 0) continue;
 
@@ -520,7 +536,10 @@
 		for (const [lineIdx, data] of lineColData) {
 			const line = allLines[lineIdx];
 			const exitGapIdx = Math.min(data.sourceCol, columnGaps.length - 1);
-			const entryGapIdx = Math.min(data.targetCol - 1, columnGaps.length - 1);
+			let entryGapIdx = Math.min(data.targetCol - 1, columnGaps.length - 1);
+			if (data.sourceCol === data.targetCol || entryGapIdx < 0) {
+				entryGapIdx = exitGapIdx;
+			}
 			const isAdjacent = data.targetCol - data.sourceCol <= 1;
 
 			if (exitGapIdx < 0 || entryGapIdx < 0) continue;
@@ -567,21 +586,58 @@
 		const x2 = (toRect.left - containerRect.left) / zoom;
 		const y2 = (toRect.top + toRect.height / 2 - containerRect.top) / zoom;
 
-		return { x1, y1, x2, y2, type, isAllMode, fromCode, toCode };
+		const dx = Math.abs(x2 - x1);
+		const dy = Math.abs(y2 - y1);
+		const sameColumnStack = dx < SAME_COLUMN_DX_PX && dy > 10;
+
+		return { x1, y1, x2, y2, type, isAllMode, fromCode, toCode, sameColumnStack };
 	}
 
 	// ─── Path Generation ──────────────────────────────────────────────
 
+	/**
+	 * Mesmo semestre / mesma coluna: “U” à direita dos cards para não sobrepor o texto e manter a seta visível.
+	 */
+	function buildSameColumnStackPath(x1: number, y1: number, x2: number, y2: number): string {
+		const outward = 36;
+		const midX = Math.max(x1, x2) + outward;
+		const r = 14;
+		const dir = y2 >= y1 ? 1 : -1;
+		// Desce (ou sobe) pelo corredor vertical à direita da coluna
+		return [
+			`M ${x1} ${y1}`,
+			`L ${midX - r} ${y1}`,
+			`Q ${midX} ${y1} ${midX} ${y1 + r * dir}`,
+			`L ${midX} ${y2 - r * dir}`,
+			`Q ${midX} ${y2} ${midX - r} ${y2}`,
+			`L ${x2} ${y2}`
+		].join(' ');
+	}
+
 	function getPath(line: ConnectionLine): string {
+		const { x1, y1, x2, y2, sameColumnStack } = line;
+		if (sameColumnStack) {
+			return buildSameColumnStackPath(x1, y1, x2, y2);
+		}
 		// Bézier: pontos de controle devem ir “em direção” ao outro extremo. Com optativa em
 		// semestre à esquerda do pré-requisito, x2 < x1; offsets fixos para a direita quebram a curva.
-		const dx = Math.abs(line.x2 - line.x1);
+		const dx = Math.abs(x2 - x1);
 		const controlOffset = Math.max(dx * 0.4, 40);
-		const { x1, y1, x2, y2 } = line;
 		if (x2 >= x1) {
 			return `M ${x1} ${y1} C ${x1 + controlOffset} ${y1}, ${x2 - controlOffset} ${y2}, ${x2} ${y2}`;
 		}
 		return `M ${x1} ${y1} C ${x1 - controlOffset} ${y1}, ${x2 + controlOffset} ${y2}, ${x2} ${y2}`;
+	}
+
+	/** Modo direto: bezier; modo todas: vão entre colunas quando há `routing`. */
+	function pathForLine(line: ConnectionLine): string {
+		if (line.routing) {
+			if (line.sameColumnStack) {
+				return buildSameColumnStackPath(line.x1, line.y1, line.x2, line.y2);
+			}
+			return getGapRoutedPath(line);
+		}
+		return getPath(line);
 	}
 
 	/**
@@ -608,6 +664,12 @@
 		laneX: number
 	): string {
 		const dy = y2 - y1;
+		const dx = Math.abs(x2 - x1);
+		// Mesma coluna no modo “todas”: afasta o corredor do meio dos cards
+		let lane = laneX;
+		if (dx < SAME_COLUMN_DX_PX && Math.abs(dy) > 8) {
+			lane = Math.max(lane, Math.max(x1, x2) + 28);
+		}
 
 		// If roughly same Y, use a straight line through the gap
 		if (Math.abs(dy) < 5) {
@@ -616,19 +678,19 @@
 
 		const dirY = dy > 0 ? 1 : -1;
 		const maxR = 10;
-		const r = Math.min(maxR, Math.abs(dy) / 2, Math.abs(laneX - x1) / 2, Math.abs(x2 - laneX) / 2);
+		const r = Math.min(maxR, Math.abs(dy) / 2, Math.abs(lane - x1) / 2, Math.abs(x2 - lane) / 2);
 
 		if (r < 2) {
 			// Too tight for rounded corners, use straight segments
-			return `M ${x1} ${y1} L ${laneX} ${y1} L ${laneX} ${y2} L ${x2} ${y2}`;
+			return `M ${x1} ${y1} L ${lane} ${y1} L ${lane} ${y2} L ${x2} ${y2}`;
 		}
 
 		return [
 			`M ${x1} ${y1}`,
-			`L ${laneX - r} ${y1}`,
-			`Q ${laneX} ${y1}, ${laneX} ${y1 + r * dirY}`,
-			`L ${laneX} ${y2 - r * dirY}`,
-			`Q ${laneX} ${y2}, ${laneX + r} ${y2}`,
+			`L ${lane - r} ${y1}`,
+			`Q ${lane} ${y1}, ${lane} ${y1 + r * dirY}`,
+			`L ${lane} ${y2 - r * dirY}`,
+			`Q ${lane} ${y2}, ${lane + r} ${y2}`,
 			`L ${x2} ${y2}`
 		].join(' ');
 	}
@@ -714,6 +776,17 @@
 			case 'dependent': return '#2dd4bf';     // teal
 			case 'corequisite': return '#10b981';   // verde
 			default: return '#a78bfa';
+		}
+	}
+
+	function chainStrokeColor(st: 'pre' | 'desc' | 'core'): string {
+		switch (st) {
+			case 'pre':
+				return CHAIN_VISUAL.precursor;
+			case 'desc':
+				return CHAIN_VISUAL.descendant;
+			case 'core':
+				return CHAIN_VISUAL.corequisite;
 		}
 	}
 
@@ -815,6 +888,40 @@
 			>
 				<polygon points="0 0, 9 4, 0 8" fill="#10b981" />
 			</marker>
+			<!-- Modo diretas: cadeia transitiva (cores alinhadas ao painel de referência) -->
+			<marker
+				id="arrow-chain-pre"
+				markerUnits="userSpaceOnUse"
+				markerWidth="10"
+				markerHeight="8"
+				refX="9"
+				refY="4"
+				orient="auto"
+			>
+				<polygon points="0 0, 9 4, 0 8" fill={CHAIN_VISUAL.precursor} />
+			</marker>
+			<marker
+				id="arrow-chain-desc"
+				markerUnits="userSpaceOnUse"
+				markerWidth="10"
+				markerHeight="8"
+				refX="9"
+				refY="4"
+				orient="auto"
+			>
+				<polygon points="0 0, 9 4, 0 8" fill={CHAIN_VISUAL.descendant} />
+			</marker>
+			<marker
+				id="arrow-chain-core"
+				markerUnits="userSpaceOnUse"
+				markerWidth="10"
+				markerHeight="8"
+				refX="9"
+				refY="4"
+				orient="auto"
+			>
+				<polygon points="0 0, 9 4, 0 8" fill={CHAIN_VISUAL.corequisite} />
+			</marker>
 			<!-- Paleta para pré-requisitos (modo "todas") — uma cor por seta -->
 			{#each PALETTE_PREREQ as paletteColor, j}
 				<marker
@@ -835,21 +942,30 @@
 			{@const hoveredCode =
 				store.state.hoverPreviewSubjectCode ?? store.state.hoveredSubjectCode}
 			{@const isAllMode = store.state.connectionMode === 'all'}
+			{@const isDirectChain = !isAllMode && line.chainStroke}
 			{@const isAllWithHover = isAllMode && !!hoveredCode}
 			{@const isRelated = isAllWithHover && isLineRelatedToHovered(line, hoveredCode)}
 			{@const isDimmed = isAllWithHover && !isRelated}
-			{@const strokeColor = isAllMode && line.type === 'prerequisite'
-				? PALETTE_PREREQ[i % PALETTE_PREREQ.length]
-				: getStrokeColor(line.type)}
-			{@const markerUrl = isAllMode && line.type === 'prerequisite'
-				? `url(#arrow-palette-${i % PALETTE_PREREQ.length})`
-				: line.type === 'prerequisite'
-					? 'url(#arrow-prereq)'
-					: line.type === 'dependent'
-						? 'url(#arrow-dep)'
-						: 'url(#arrow-coreq)'}
+			{@const strokeColor = isDirectChain && line.chainStroke
+				? chainStrokeColor(line.chainStroke)
+				: isAllMode && line.type === 'prerequisite'
+					? PALETTE_PREREQ[i % PALETTE_PREREQ.length]
+					: getStrokeColor(line.type)}
+			{@const markerUrl = isDirectChain && line.chainStroke
+				? line.chainStroke === 'pre'
+					? 'url(#arrow-chain-pre)'
+					: line.chainStroke === 'desc'
+						? 'url(#arrow-chain-desc)'
+						: 'url(#arrow-chain-core)'
+				: isAllMode && line.type === 'prerequisite'
+					? `url(#arrow-palette-${i % PALETTE_PREREQ.length})`
+					: line.type === 'prerequisite'
+						? 'url(#arrow-prereq)'
+						: line.type === 'dependent'
+							? 'url(#arrow-dep)'
+							: 'url(#arrow-coreq)'}
 			<path
-				d={getPath(line)}
+				d={pathForLine(line)}
 				fill="none"
 				stroke={strokeColor}
 				stroke-width={isRelated ? '3' : isAllMode ? '2.5' : '2'}

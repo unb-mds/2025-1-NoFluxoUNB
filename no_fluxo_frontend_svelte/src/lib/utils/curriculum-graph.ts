@@ -3,6 +3,11 @@
  * como arestas bidirecionais (componentes fortemente conexos = turmas no mesmo “nível”).
  *
  * Ordenação topológica aplicada ao DAG condensado (SCCs) para exibir a cadeia até a matéria alvo.
+ *
+ * **Hover contextual (`getSubjectChain`):** pré-requisitos transitivos = DFS reverso no DAG;
+ * dependentes transitivos = BFS a partir do foco; co-requisitos = fecho fixo sobre pares em
+ * `coRequisitos` ligados à cadeia. Cache por `(idCurso, matriz, código foco)` evita recomputar
+ * em cada card; invalidação automática ao mudar o curso (nova chave).
  */
 
 import type { CursoModel } from '$lib/types/curso';
@@ -268,6 +273,120 @@ export function getTopologicalPrerequisiteChain(
 /** Cache por (curso + matéria em foco) para não recalcular em todo SubjectCard. */
 let hoverHighlightCache: { key: string; ancestors: Set<string>; descendants: Set<string> } | null =
 	null;
+
+/** Cores do modo “cadeia contextual” (hover): pré-requisitos, desbloqueios, co-req. */
+export const CHAIN_VISUAL = {
+	precursor: '#4fd1c5',
+	descendant: '#f6ad55',
+	corequisite: '#7f9cf5',
+	dimOpacity: 0.14
+} as const;
+
+export interface SubjectChainResult {
+	focusCode: string;
+	/** Pré-requisitos transitivos (exclui M). */
+	precursors: ReadonlySet<string>;
+	/** Dependências transitivas (exclui M). */
+	descendants: ReadonlySet<string>;
+	/**
+	 * Matérias alcançadas só por expansão de co-requisito a partir de P∪{M}∪D
+	 * (não são pré nem sucessoras diretos no sentido do DAG de pré-req).
+	 */
+	corequisites: ReadonlySet<string>;
+	/** Todos os nós destacados (P ∪ {M} ∪ D ∪ expansão co-req). */
+	chainNodeSet: ReadonlySet<string>;
+}
+
+let subjectChainCache: { key: string; result: SubjectChainResult } | null = null;
+
+/**
+ * Expande por pontos fixos: repetidamente adiciona parceiros de co-requisito de quem já está no conjunto.
+ */
+function expandCoReqClosure(curso: CursoModel, seed: Set<string>): Set<string> {
+	const codesInCourse = new Set(curso.materias.map((m) => normCode(m.codigoMateria)));
+	const materiaById = new Map(curso.materias.map((m) => [m.idMateria, m]));
+	const out = new Set(seed);
+	let changed = true;
+	while (changed) {
+		changed = false;
+		for (const cr of curso.coRequisitos ?? []) {
+			const a = materiaById.get(cr.idMateria)?.codigoMateria;
+			const b = cr.codigoMateriaCoRequisito ? normCode(cr.codigoMateriaCoRequisito) : null;
+			const na = a ? normCode(a) : null;
+			if (!na || !b || na === b) continue;
+			if (!codesInCourse.has(na) || !codesInCourse.has(b)) continue;
+			if (out.has(na) && !out.has(b)) {
+				out.add(b);
+				changed = true;
+			}
+			if (out.has(b) && !out.has(na)) {
+				out.add(na);
+				changed = true;
+			}
+		}
+	}
+	return out;
+}
+
+/**
+ * Cadeia contextual para hover: pré-requisitos e desbloqueios transitivos no DAG (pré-req + co-req na adjacência),
+ * mais fecho de co-requisitos ligados a qualquer nó já na cadeia.
+ *
+ * Transitividade: DFS reverso para P, BFS para D (`getAncestorAndDescendantCodes`), memoizado por (curso, foco).
+ * Co-requisitos: fecho iterativo sobre pares em `curso.coRequisitos` (O(|co-req| × iterações)).
+ */
+export function getSubjectChain(
+	curso: CursoModel,
+	targetCode: string | null | undefined
+): SubjectChainResult | null {
+	if (!targetCode?.trim()) {
+		return null;
+	}
+	const f = normCode(targetCode);
+	const key = `${curso.idCurso}\0${curso.matrizCurricular ?? ''}\0${f}`;
+	if (subjectChainCache?.key === key) {
+		return subjectChainCache.result;
+	}
+
+	const { ancestors: P, descendants: D } = getAncestorAndDescendantCodes(curso, f);
+	const seed = new Set<string>([f, ...P, ...D]);
+	const chainNodeSet = expandCoReqClosure(curso, seed);
+
+	const corequisites = new Set<string>();
+	for (const c of chainNodeSet) {
+		if (c !== f && !P.has(c) && !D.has(c)) {
+			corequisites.add(c);
+		}
+	}
+
+	const result: SubjectChainResult = {
+		focusCode: f,
+		precursors: P,
+		descendants: D,
+		corequisites,
+		chainNodeSet
+	};
+	subjectChainCache = { key, result };
+	return result;
+}
+
+/** Classifica aresta de pré-requisito u→v (v depende de u) para cor no modo cadeia. */
+export function classifyChainPrereqStroke(
+	u: string,
+	v: string,
+	focus: string,
+	precursors: ReadonlySet<string>,
+	descendants: ReadonlySet<string>
+): 'pre' | 'desc' {
+	const nu = normCode(u);
+	const nv = normCode(v);
+	const M = normCode(focus);
+	/** Tudo que flui “para frente” a partir de M (inclui dependentes). */
+	if (descendants.has(nv) && (nu === M || descendants.has(nu))) {
+		return 'desc';
+	}
+	return 'pre';
+}
 
 /**
  * Conjuntos para destaque no fluxograma: antecessores e descendentes transitivos

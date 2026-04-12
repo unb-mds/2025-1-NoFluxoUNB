@@ -11,6 +11,7 @@
 	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
 	import ProgressToolsSection from '$lib/components/fluxograma/ProgressToolsSection.svelte';
 	import OptativasAdicionadasSection from '$lib/components/fluxograma/OptativasAdicionadasSection.svelte';
+	import PrerequisiteChainDialog from '$lib/components/fluxograma/PrerequisiteChainDialog.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';
@@ -25,6 +26,7 @@
 	let courseName = $derived(decodeURIComponent($page.params.courseName || ''));
 	let containerRef: HTMLElement | null = $state(null);
 	let selectedSubject = $state<MateriaModel | null>(null);
+	let chainDialogSubject = $state<MateriaModel | null>(null);
 	let showOptativas = $state(false);
 	let integralizacao = $state<IntegralizacaoResult | null>(null);
 	let integralizacaoLoading = $state(false);
@@ -142,13 +144,23 @@
 	}
 
 	function handleSubjectClick(materia: MateriaModel) {
+		chainDialogSubject = null;
 		selectedSubject = materia;
 		store.setSelectedSubject(materia.codigoMateria);
+	}
+
+	function handleSubjectOpenChain(materia: MateriaModel) {
+		if (store.state.isAnonymous) return;
+		chainDialogSubject = materia;
 	}
 
 	function closeSubjectModal() {
 		selectedSubject = null;
 		store.setSelectedSubject(null);
+	}
+
+	function closeChainDialog() {
+		chainDialogSubject = null;
 	}
 </script>
 
@@ -221,6 +233,7 @@
 				<div class="relative z-0 min-h-0 flex-1 basis-0 overflow-hidden">
 					<FluxogramContainer
 						onSubjectClick={handleSubjectClick}
+						onSubjectOpenChain={handleSubjectOpenChain}
 						bind:bind_container={containerRef}
 					/>
 					<FluxogramViewportChrome bind:helpOpen={fluxogramHelpOpen} />
@@ -279,6 +292,14 @@
 				materia={selectedSubject}
 				courseData={store.state.courseData}
 				onclose={closeSubjectModal}
+			/>
+		{/if}
+
+		{#if chainDialogSubject && store.state.courseData}
+			<PrerequisiteChainDialog
+				materia={chainDialogSubject}
+				courseData={store.state.courseData}
+				onclose={closeChainDialog}
 			/>
 		{/if}
 

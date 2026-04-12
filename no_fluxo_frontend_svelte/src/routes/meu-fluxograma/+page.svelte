@@ -113,8 +113,14 @@
 	}
 
 	function handleSubjectClick(materia: MateriaModel) {
+		chainDialogSubject = null;
 		selectedSubject = materia;
 		store.setSelectedSubject(materia.codigoMateria);
+	}
+
+	function handleSubjectOpenChain(materia: MateriaModel) {
+		if (store.state.isAnonymous) return;
+		chainDialogSubject = materia;
 	}
 
 	function closeSubjectModal() {
@@ -226,6 +232,7 @@
 				<div class="relative z-0 min-h-0 flex-1 basis-0 overflow-hidden">
 					<FluxogramContainer
 						onSubjectClick={handleSubjectClick}
+						onSubjectOpenChain={handleSubjectOpenChain}
 						onSubjectLongPress={handleSubjectLongPress}
 						bind:bind_container={containerRef}
 					/>

@@ -9,6 +9,7 @@
 		/** Optativas planejadas pelo usuário neste semestre. */
 		optPlanned?: OptativaAdicionada[];
 		onSubjectClick?: (materia: MateriaModel) => void;
+		onSubjectOpenChain?: (materia: MateriaModel) => void;
 		onSubjectLongPress?: (materia: MateriaModel) => void;
 		headerOffsetY?: number;
 	}
@@ -18,6 +19,7 @@
 		subjects,
 		optPlanned = [],
 		onSubjectClick,
+		onSubjectOpenChain,
 		onSubjectLongPress,
 		headerOffsetY = 0
 	}: Props = $props();
@@ -118,6 +120,7 @@
 			<SubjectCard
 				{materia}
 				onOpenDetails={() => onSubjectClick?.(materia)}
+				onOpenChain={() => onSubjectOpenChain?.(materia)}
 				onlongpress={() => onSubjectLongPress?.(materia)}
 			/>
 		{/each}
@@ -126,6 +129,7 @@
 				materia={opt.materia}
 				showOptBadge={true}
 				onOpenDetails={() => onSubjectClick?.(opt.materia)}
+				onOpenChain={() => onSubjectOpenChain?.(opt.materia)}
 				onlongpress={() => onSubjectLongPress?.(opt.materia)}
 			/>
 		{/each}

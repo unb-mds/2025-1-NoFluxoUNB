@@ -8,7 +8,7 @@
 	} from '$lib/types/materia';
 	import { satisfazPreRequisitos } from '$lib/types/curso';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
-	import { getAncestorAndDescendantCodes } from '$lib/utils/curriculum-graph';
+	import { getSubjectChain } from '$lib/utils/curriculum-graph';
 
 	interface Props {
 		materia: MateriaModel;
@@ -16,10 +16,12 @@
 		showOptBadge?: boolean;
 		/** Abrir modal de detalhes (nome evita conflito com `onclick` do Svelte no `<button>`) */
 		onOpenDetails?: () => void;
+		/** Modo conexões diretas: 1º clique/toque abre o roadmap da cadeia (além das linhas). */
+		onOpenChain?: () => void;
 		onlongpress?: () => void;
 	}
 
-	let { materia, showOptBadge = false, onOpenDetails, onlongpress }: Props = $props();
+	let { materia, showOptBadge = false, onOpenDetails, onOpenChain, onlongpress }: Props = $props();
 
 	const store = fluxogramaStore;
 	/** Garante re-render ao mudar histórico / optativas (store em .svelte.ts). */
@@ -41,6 +43,7 @@
 	let connectionsEnabled = $derived(store.state.connectionMode !== 'off');
 	/** No modo "Todas", desktop usa clique para fixar foco (como 1º toque no mobile); hover usa só pré-visualização */
 	let isAllConnectionsMode = $derived(store.state.connectionMode === 'all');
+	let isDirectConnectionsMode = $derived(store.state.connectionMode === 'direct');
 
 	/** Matéria sob a qual calculamos pré-requisitos/dependentes (transitivo no grafo da grade). */
 	let focusSubjectCode = $derived.by(() => {
@@ -51,20 +54,30 @@
 		return p || h || null;
 	});
 
-	let focusActive = $derived(focusSubjectCode !== null);
+	/** Isolamento visual da cadeia só quando conexões estão visíveis. */
+	let chainHighlightActive = $derived(connectionsEnabled && focusSubjectCode !== null);
 
-	let highlightRole = $derived.by(() => {
+	let subjectChain = $derived.by(() => {
 		void store.state.hoverPreviewSubjectCode;
 		void store.state.hoveredSubjectCode;
 		const curso = store.state.courseData;
 		const focus = focusSubjectCode;
 		if (!curso || !focus) return null;
+		return getSubjectChain(curso, focus);
+	});
+
+	let highlightRole = $derived.by(() => {
+		void store.state.hoverPreviewSubjectCode;
+		void store.state.hoveredSubjectCode;
+		const focus = focusSubjectCode;
+		const chain = subjectChain;
+		if (!focus || !chain) return null;
 		const self = materia.codigoMateria.trim().toUpperCase();
-		const f = focus.toUpperCase();
+		const f = chain.focusCode;
 		if (self === f) return 'focus' as const;
-		const { ancestors, descendants } = getAncestorAndDescendantCodes(curso, focus);
-		if (ancestors.has(self)) return 'ancestor' as const;
-		if (descendants.has(self)) return 'descendant' as const;
+		if (chain.precursors.has(self)) return 'precursor' as const;
+		if (chain.descendants.has(self)) return 'descendant' as const;
+		if (chain.corequisites.has(self)) return 'corequisite' as const;
 		return null;
 	});
 
@@ -99,21 +112,26 @@
 
 	let cardClasses = $derived.by(() => {
 		const gradient = gradientMap[status];
-		const base = `subject-card relative flex w-full max-w-[220px] min-w-0 flex-col text-left cursor-pointer rounded-xl border p-3 transition-all duration-200 sm:max-w-[240px]`;
+		const base = `subject-card relative flex w-full max-w-[220px] min-w-0 flex-col text-left cursor-pointer rounded-xl border p-3 transition-[opacity,box-shadow,border-color] duration-300 sm:max-w-[240px]`;
 		if (isSelected) {
 			return `${base} bg-gradient-to-br ${gradient} border-white/60 ring-2 ring-white/30 opacity-100`;
 		}
 		let borderExtras = 'border-white/10';
 		const role = highlightRole;
+		// Cores alinhadas a CHAIN_VISUAL (tailwind precisa do literal no fonte)
 		if (role === 'focus') {
-			borderExtras = 'border-white/45 ring-2 ring-white/35 shadow-lg';
-		} else if (role === 'ancestor') {
-			borderExtras = 'border-purple-400/55 ring-2 ring-purple-500/40 shadow-md shadow-purple-900/20';
+			borderExtras = 'border-[#7f9cf5] ring-2 ring-[#7f9cf5]/50 shadow-lg';
+		} else if (role === 'precursor') {
+			borderExtras = 'border-[#4fd1c5] ring-2 ring-[#4fd1c5]/45 shadow-md';
 		} else if (role === 'descendant') {
-			borderExtras = 'border-teal-400/55 ring-2 ring-teal-500/40 shadow-md shadow-teal-900/20';
+			borderExtras = 'border-[#f6ad55] ring-2 ring-[#f6ad55]/45 shadow-md';
+		} else if (role === 'corequisite') {
+			borderExtras = 'border-[#7f9cf5] ring-2 ring-[#7f9cf5]/40 shadow-md';
 		}
 		const dimmed =
-			focusActive && role === null ? 'opacity-45' : 'opacity-100';
+			chainHighlightActive && role === null
+				? 'opacity-[0.14] saturate-[0.35]'
+				: 'opacity-100';
 		return `${base} bg-gradient-to-br ${gradient} ${borderExtras} ${dimmed}`;
 	});
 
@@ -197,11 +215,21 @@
 			const h = store.state.hoveredSubjectCode?.trim();
 			const alreadyHovered = !!c && h?.toUpperCase() === c.toUpperCase();
 			if (connectionsEnabled) {
-				// Primeiro toque: mostra conexões. Segundo toque no mesmo card: abre modal
-				if (alreadyHovered) {
-					onOpenDetails?.();
-				} else {
-					store.setHoveredSubject(materia.codigoMateria);
+				if (isAllConnectionsMode) {
+					// Primeiro toque: mostra conexões. Segundo toque no mesmo card: abre detalhes
+					if (alreadyHovered) {
+						onOpenDetails?.();
+					} else {
+						store.setHoveredSubject(materia.codigoMateria);
+					}
+				} else if (isDirectConnectionsMode) {
+					// Diretas: 1º toque = linhas + roadmap; 2º no mesmo card = detalhes
+					if (alreadyHovered) {
+						onOpenDetails?.();
+					} else {
+						store.setHoveredSubject(materia.codigoMateria);
+						onOpenChain?.();
+					}
 				}
 			} else {
 				store.setHoveredSubject(null);
@@ -241,6 +269,19 @@
 				onOpenDetails?.();
 			} else {
 				store.setHoveredSubject(materia.codigoMateria);
+			}
+			return;
+		}
+		// Modo "Diretas": 1º clique abre roadmap da cadeia + linhas; 2º no mesmo card abre detalhes
+		if (isDirectConnectionsMode && connectionsEnabled) {
+			const code = materia.codigoMateria?.trim();
+			const hovered = store.state.hoveredSubjectCode?.trim();
+			const alreadyHovered = !!code && hovered?.toUpperCase() === code.toUpperCase();
+			if (alreadyHovered) {
+				onOpenDetails?.();
+			} else {
+				store.setHoveredSubject(materia.codigoMateria);
+				onOpenChain?.();
 			}
 			return;
 		}
@@ -295,6 +336,15 @@
 			{materia.nomeMateria}
 		</p>
 	</div>
+
+	{#if highlightRole === 'focus' && chainHighlightActive && subjectChain}
+		<p class="mt-1 text-[9px] font-medium leading-snug text-white/75" aria-live="polite">
+			{subjectChain.precursors.size} antes · {subjectChain.descendants.size} desbloqueia
+			{#if subjectChain.corequisites.size > 0}
+				· {subjectChain.corequisites.size} co-req
+			{/if}
+		</p>
+	{/if}
 
 	{#if concluidaPorEquivalencia}
 		<span
