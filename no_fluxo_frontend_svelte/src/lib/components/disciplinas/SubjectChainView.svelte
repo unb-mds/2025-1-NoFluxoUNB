@@ -170,7 +170,7 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 
 {#if analysis}
 	<div class="space-y-5">
-		<section class="relative overflow-hidden rounded-2xl border border-purple-300/20 bg-gradient-to-r from-zinc-950/95 via-purple-950/45 to-zinc-950/90 p-4 shadow-[0_14px_34px_rgba(0,0,0,0.45)] sm:p-6">
+		<section class="relative overflow-hidden rounded-2xl border border-purple-300/20 bg-gradient-to-r from-zinc-950/98 via-purple-950/35 to-black/95 p-4 shadow-[0_14px_34px_rgba(0,0,0,0.55)] sm:p-6">
 			<div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(167,139,250,0.15),transparent_42%)]"></div>
 			<div class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),transparent_45%)]"></div>
 			<p class="relative mb-2 inline-flex rounded-md border border-purple-300/35 bg-purple-500/12 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-purple-100">
@@ -211,10 +211,12 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 			{/if}
 		</section>
 
-		<section class="rounded-2xl border border-white/10 bg-gradient-to-b from-violet-900/20 to-black/20 p-4 sm:p-5">
-			<p class="mb-3 text-xs font-medium uppercase tracking-[0.12em] text-white/45">
-				Ordem no grafo — cadeia topológica
-			</p>
+		<section class="rounded-2xl border border-white/10 bg-zinc-950/78 p-4 sm:p-5">
+			<div class="mb-3 border-b border-white/10 pb-2">
+				<p class="text-xs font-semibold uppercase tracking-[0.12em] text-white/80">
+					Ordem no grafo — cadeia topológica
+				</p>
+			</div>
 			<div class="overflow-x-auto pb-1">
 				<div class="flex min-w-max items-center gap-0">
 					{#each graphColumns as col, ci}
@@ -224,10 +226,10 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 									type="button"
 									onclick={() => navigateTo(m)}
 									class="w-[162px] rounded-xl border px-3 py-2 text-left transition-colors {isFocusMateria(m, analysis.focusCode)
-										? 'border-purple-300/45 bg-purple-500/14'
+										? 'border-purple-300/40 bg-black/45 shadow-[inset_0_0_0_1px_rgba(168,85,247,0.22)]'
 										: ci === graphColumns.length - 1 && analysis.dependencies.length > 0
-											? 'border-[#f6ad55]/30 bg-[#f6ad55]/10 hover:bg-[#f6ad55]/20'
-											: 'border-[#7f9cf5]/30 bg-[#7f9cf5]/8 hover:bg-[#7f9cf5]/18'}"
+											? 'border-[#f6ad55]/30 bg-black/45 hover:bg-black/55'
+											: 'border-[#7f9cf5]/30 bg-black/45 hover:bg-black/55'}"
 								>
 									<p class="font-mono text-xs {isFocusMateria(m, analysis.focusCode) ? 'text-purple-200' : 'text-cyan-200'}">
 										{m.codigoMateria}
@@ -244,7 +246,7 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 			</div>
 		</section>
 
-		<section class="overflow-hidden rounded-2xl border border-white/10 bg-violet-950/20">
+		<section class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/72">
 			<button
 				type="button"
 				class="flex w-full items-center justify-between px-4 py-3 hover:bg-white/5"
@@ -293,7 +295,7 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 			{/if}
 		</section>
 
-		<section class="overflow-hidden rounded-2xl border border-white/10 bg-violet-950/20">
+		<section class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/72">
 			<button
 				type="button"
 				class="flex w-full items-center justify-between px-4 py-3 hover:bg-white/5"
@@ -330,7 +332,7 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 			{/if}
 		</section>
 
-		<section class="overflow-hidden rounded-2xl border border-white/10 bg-violet-950/20">
+		<section class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/72">
 			<button
 				type="button"
 				class="flex w-full items-center justify-between px-4 py-3 hover:bg-white/5"
@@ -355,7 +357,7 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 						<p class="mb-1 text-[11px] font-semibold uppercase tracking-wide text-white/55">Gerais</p>
 						<ul class="space-y-2">
 							{#each eqGeneral as eq}
-								<li class="rounded-lg border border-amber-400/20 bg-amber-500/8 px-3 py-2 text-xs text-amber-100/95">
+								<li class="rounded-lg border border-amber-400/20 bg-black/45 px-3 py-2 text-xs text-amber-100/95">
 									<div class="mb-1 flex items-center justify-between gap-2">
 										<span class="rounded-full border border-cyan-200/60 bg-cyan-300/25 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-cyan-50 shadow-[0_0_0_1px_rgba(34,211,238,0.25)]">
 											Geral
@@ -374,7 +376,7 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 									{#if equivalenciaDisplayGroups(eq).length > 0}
 										<div class="mt-1 space-y-1.5">
 											{#each equivalenciaDisplayGroups(eq) as group, gi}
-												<div class="rounded-lg border border-amber-300/25 bg-amber-500/8 p-2">
+												<div class="rounded-lg border border-amber-300/25 bg-black/35 p-2">
 													<div class="flex flex-wrap items-center gap-1.5">
 														{#each group as item, ii}
 															<span class="rounded-md border border-amber-300/30 bg-amber-500/10 px-2 py-0.5 text-[11px] text-amber-100/95">
@@ -409,7 +411,7 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 						</p>
 						<ul class="space-y-2">
 							{#each eqSpecificThisMatrix as eq}
-								<li class="rounded-lg border border-purple-300/25 bg-purple-500/10 px-3 py-2 text-xs text-purple-100">
+								<li class="rounded-lg border border-purple-300/25 bg-black/45 px-3 py-2 text-xs text-purple-100">
 									<div class="mb-1 flex items-center justify-between gap-2">
 										<p class="font-mono text-[11px] text-purple-100/90">EQ específica</p>
 										<span class="rounded-full border border-fuchsia-200/65 bg-fuchsia-300/30 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-fuchsia-50 shadow-[0_0_0_1px_rgba(244,114,182,0.3)]">
@@ -429,7 +431,7 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 									{#if equivalenciaDisplayGroups(eq).length > 0}
 										<div class="mt-1 space-y-1.5">
 											{#each equivalenciaDisplayGroups(eq) as group, gi}
-												<div class="rounded-lg border border-purple-300/30 bg-purple-500/10 p-2">
+												<div class="rounded-lg border border-purple-300/30 bg-black/35 p-2">
 													<div class="flex flex-wrap items-center gap-1.5">
 														{#each group as item, ii}
 															<span class="rounded-md border border-purple-300/35 bg-purple-500/12 px-2 py-0.5 text-[11px] text-purple-100/95">
@@ -470,7 +472,7 @@ function equivalenciaDisplayGroups(eq: EquivalenciaModel): Array<Array<{ codigo:
 		</section>
 
 		{#if analysis.corequisites.length > 0}
-			<section class="overflow-hidden rounded-2xl border border-white/10 bg-violet-950/20">
+			<section class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/72">
 				<button
 					type="button"
 					class="flex w-full items-center justify-between px-4 py-3 hover:bg-white/5"

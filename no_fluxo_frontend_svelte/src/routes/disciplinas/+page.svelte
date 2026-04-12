@@ -825,7 +825,7 @@ function courseInfoLabel(curriculo: string | null | undefined): string | null {
 				/>
 			{:else}
 				<div class="space-y-4">
-					<div class="rounded-2xl border border-white/10 bg-gradient-to-b from-zinc-900/92 to-black/78 p-5 sm:p-6">
+					<div class="rounded-2xl border border-white/10 bg-gradient-to-b from-zinc-950/95 to-black/88 p-5 sm:p-6">
 					<p class="mb-2 inline-flex rounded-md border border-purple-300/30 bg-purple-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-purple-200">
 						Matéria global
 					</p>
@@ -844,10 +844,12 @@ function courseInfoLabel(curriculo: string | null | undefined): string | null {
 							<Loader2 class="h-4 w-4 animate-spin" /> Calculando cadeia global...
 						</p>
 					{:else}
-						<section class="rounded-2xl border border-white/10 bg-gradient-to-b from-violet-900/20 to-black/20 p-4 sm:p-5">
-							<p class="mb-3 text-xs font-medium uppercase tracking-[0.12em] text-white/45">
-								Ordem no grafo — cadeia topológica
-							</p>
+						<section class="rounded-2xl border border-white/10 bg-zinc-950/78 p-4 sm:p-5">
+							<div class="mb-3 border-b border-white/10 pb-2">
+								<p class="text-xs font-semibold uppercase tracking-[0.12em] text-white/80">
+									Ordem no grafo — cadeia topológica
+								</p>
+							</div>
 							<div class="overflow-x-auto pb-1">
 								<div class="flex min-w-max items-center gap-0">
 									{#each globalRoadmapColumns as col, ci}
@@ -857,10 +859,10 @@ function courseInfoLabel(curriculo: string | null | undefined): string | null {
 													type="button"
 													onclick={() => selecionarMateria(m)}
 													class="w-[172px] rounded-xl border px-3 py-2 text-left transition-colors {m.idMateria === selecionada.idMateria
-														? 'border-purple-300/45 bg-purple-500/14'
+														? 'border-purple-300/40 bg-black/45 shadow-[inset_0_0_0_1px_rgba(168,85,247,0.22)]'
 														: ci === globalRoadmapColumns.length - 1
-															? 'border-cyan-300/35 bg-cyan-500/10 hover:bg-cyan-500/20'
-															: 'border-amber-300/35 bg-amber-500/10 hover:bg-amber-500/20'}"
+															? 'border-cyan-300/35 bg-black/45 hover:bg-black/55'
+															: 'border-amber-300/35 bg-black/45 hover:bg-black/55'}"
 												>
 													<p class="font-mono text-xs {m.idMateria === selecionada.idMateria ? 'text-purple-200' : 'text-white/80'}">
 														{m.codigoMateria}
@@ -877,7 +879,7 @@ function courseInfoLabel(curriculo: string | null | undefined): string | null {
 							</div>
 						</section>
 
-						<section class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/45">
+						<section class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/72">
 							<button type="button" class="flex w-full items-center justify-between px-4 py-3 hover:bg-white/5" onclick={() => (openGlobalPre = !openGlobalPre)}>
 								<span class="flex items-center gap-2 text-sm font-medium text-white">
 									<span class="h-2 w-2 rounded-full bg-amber-300"></span>
@@ -914,7 +916,7 @@ function courseInfoLabel(curriculo: string | null | undefined): string | null {
 								</div>
 							{/if}
 						</section>
-						<section class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/45">
+						<section class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/72">
 							<button type="button" class="flex w-full items-center justify-between px-4 py-3 hover:bg-white/5" onclick={() => (openGlobalDep = !openGlobalDep)}>
 								<span class="flex items-center gap-2 text-sm font-medium text-white">
 									<span class="h-2 w-2 rounded-full bg-cyan-300"></span>
@@ -940,7 +942,7 @@ function courseInfoLabel(curriculo: string | null | undefined): string | null {
 							{/if}
 						</section>
 						{#if globalCoreqs.length > 0}
-							<section class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/45">
+							<section class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/72">
 								<button type="button" class="flex w-full items-center justify-between px-4 py-3 hover:bg-white/5" onclick={() => (openGlobalCoreq = !openGlobalCoreq)}>
 									<span class="flex items-center gap-2 text-sm font-medium text-white">
 										<span class="h-2 w-2 rounded-full bg-indigo-300"></span>
@@ -962,7 +964,7 @@ function courseInfoLabel(curriculo: string | null | undefined): string | null {
 								{/if}
 							</section>
 						{/if}
-						<section class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/45">
+						<section class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/72">
 							<button type="button" class="flex w-full items-center justify-between px-4 py-3 hover:bg-white/5" onclick={() => (openGlobalEq = !openGlobalEq)}>
 								<span class="flex items-center gap-2 text-sm font-medium text-white">
 									<span class="h-2 w-2 rounded-full bg-purple-300"></span>
