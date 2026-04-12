@@ -183,9 +183,8 @@
 		longPressTimer = setTimeout(() => {
 			didLongPress = true;
 			store.setHoveredSubject(materia.codigoMateria);
-			if (!store.state.isAnonymous) {
-				onlongpress?.();
-			}
+			// Mobile: toque longo abre a ficha (detalhes) da disciplina — não o roadmap
+			onOpenDetails?.();
 		}, LONG_PRESS_MS);
 	}
 
@@ -210,27 +209,9 @@
 		}
 
 		if (!didDrag && !didLongPress) {
-			// Tap rápido: modo mobile para conexões
-			const c = materia.codigoMateria?.trim();
-			const h = store.state.hoveredSubjectCode?.trim();
-			const alreadyHovered = !!c && h?.toUpperCase() === c.toUpperCase();
+			// Tap rápido (mobile): 1 toque só destaca o fluxo no diagrama — não abre modal
 			if (connectionsEnabled) {
-				if (isAllConnectionsMode) {
-					// Primeiro toque: mostra conexões. Segundo toque no mesmo card: abre detalhes
-					if (alreadyHovered) {
-						onOpenDetails?.();
-					} else {
-						store.setHoveredSubject(materia.codigoMateria);
-					}
-				} else if (isDirectConnectionsMode) {
-					// Diretas: 1º toque = linhas + roadmap; 2º no mesmo card = detalhes
-					if (alreadyHovered) {
-						onOpenDetails?.();
-					} else {
-						store.setHoveredSubject(materia.codigoMateria);
-						onOpenChain?.();
-					}
-				}
+				store.setHoveredSubject(materia.codigoMateria);
 			} else {
 				store.setHoveredSubject(null);
 				onOpenDetails?.();
@@ -258,33 +239,28 @@
 	}
 
 	// Desktop pointer events (for right-click context menu and normal click)
-	function handleClick() {
+	function handleClick(e: MouseEvent) {
 		if (isTouchInteraction) return;
-		// Modo "Todas": igual ao mobile — 1º clique foca pré-reqs/dependentes; 2º no mesmo card abre detalhes
-		if (isAllConnectionsMode && connectionsEnabled) {
-			const code = materia.codigoMateria?.trim();
-			const hovered = store.state.hoveredSubjectCode?.trim();
-			const alreadyHovered = !!code && hovered?.toUpperCase() === code.toUpperCase();
-			if (alreadyHovered) {
-				onOpenDetails?.();
-			} else {
-				store.setHoveredSubject(materia.codigoMateria);
-			}
+		if (!connectionsEnabled) {
+			onOpenDetails?.();
 			return;
 		}
-		// Modo "Diretas": 1º clique abre roadmap da cadeia + linhas; 2º no mesmo card abre detalhes
-		if (isDirectConnectionsMode && connectionsEnabled) {
-			const code = materia.codigoMateria?.trim();
-			const hovered = store.state.hoveredSubjectCode?.trim();
-			const alreadyHovered = !!code && hovered?.toUpperCase() === code.toUpperCase();
-			if (alreadyHovered) {
-				onOpenDetails?.();
-			} else {
-				store.setHoveredSubject(materia.codigoMateria);
-				onOpenChain?.();
-			}
+		// 2.º clique de um duplo clique: não repete foco/roadmap — o modal de detalhes abre no dblclick
+		if (e.detail >= 2) return;
+
+		if (isAllConnectionsMode) {
+			store.setHoveredSubject(materia.codigoMateria);
 			return;
 		}
+		if (isDirectConnectionsMode) {
+			store.setHoveredSubject(materia.codigoMateria);
+			onOpenChain?.();
+		}
+	}
+
+	function handleDoubleClick() {
+		if (isTouchInteraction) return;
+		if (!connectionsEnabled) return;
 		onOpenDetails?.();
 	}
 
@@ -301,6 +277,7 @@
 	data-subject-code={materia.codigoMateria}
 	style="touch-action: none;"
 	onclick={handleClick}
+	ondblclick={handleDoubleClick}
 	oncontextmenu={handleContextMenu}
 	onmouseenter={handleMouseEnter}
 	onmouseleave={handleMouseLeave}

@@ -417,11 +417,12 @@
 					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-purple-300">Mobile / toque</h3>
 					<ul class="space-y-2 text-sm text-white/90">
 						<li>
-							<strong>1 toque</strong> na disciplina — mostra as conexões (setas), se estiverem ativas
+							<strong>1 toque</strong> na disciplina (com conexões ativas) — só <strong class="text-white"
+								>destaca o fluxo</strong> no diagrama (cores e setas); <strong>não abre modal</strong>.
 						</li>
-						<li><strong>2 toques</strong> — abre os detalhes da disciplina</li>
 						<li>
-							<strong>Toque longo</strong> — mostra conexões e a cadeia de pré-requisitos
+							<strong>Segurar</strong> o dedo no card — abre a <strong class="text-white">ficha da disciplina</strong>
+							(detalhes completos).
 						</li>
 						<li><strong>Toque na área vazia</strong> — esconde as conexões</li>
 						<li class="border-t border-white/10 pt-2 text-white/80">
@@ -433,15 +434,20 @@
 					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">Desktop</h3>
 					<ul class="space-y-1.5 text-white/90">
 						<li>
-							<strong>Conexões diretas:</strong> <strong>hover</strong> na disciplina mostra as linhas;
-							<strong>clique</strong> abre os detalhes.
+							<strong>Conexões diretas:</strong> <strong>hover</strong> destaca a cadeia no diagrama;
+							<strong>clique</strong> fixa o foco e abre o roadmap da cadeia;
+							<strong class="text-white">duplo clique</strong> abre o <strong class="text-white">modal da disciplina</strong>
+							(detalhes).
 						</li>
 						<li>
-							<strong>Modo Todas:</strong> <strong>1º clique</strong> na disciplina destaca pré-requisitos e dependentes
-							(como no mobile); <strong>2º clique</strong> no mesmo card abre detalhes. Clicar no fundo para arrastar
+							<strong>Modo Todas:</strong> <strong>clique</strong> destaca pré-requisitos e dependentes;
+							<strong class="text-white">duplo clique</strong> abre o modal da disciplina. Clicar no fundo para arrastar
 							limpa o foco.
 						</li>
-						<li><strong>Clique direito</strong> — cadeia de pré-requisitos</li>
+						<li>
+							<strong>Conexões off:</strong> <strong>clique</strong> abre direto o modal da disciplina.
+						</li>
+						<li><strong>Clique direito</strong> — roadmap da cadeia (alternativa ao clique em Diretas)</li>
 					</ul>
 				</section>
 			</div>
