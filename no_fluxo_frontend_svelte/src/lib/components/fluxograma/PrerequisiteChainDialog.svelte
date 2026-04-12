@@ -2,9 +2,9 @@
 	import type { MateriaModel } from '$lib/types/materia';
 	import type { CursoModel } from '$lib/types/curso';
 	import { SubjectStatusEnum, getStatusLabel } from '$lib/types/materia';
-	import { getDirectPrerequisites } from '$lib/types/curso';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
-	import { X, GitBranch, ChevronRight, Check, AlertTriangle, Lock } from 'lucide-svelte';
+	import { getTopologicalPrerequisiteChain } from '$lib/utils/curriculum-graph';
+	import { X, GitBranch, ChevronRight, Check, AlertTriangle, Lock, Layers } from 'lucide-svelte';
 
 	interface Props {
 		materia: MateriaModel;
@@ -20,33 +20,28 @@
 	// Can this subject be taken?
 	let canTake = $derived(status === SubjectStatusEnum.AVAILABLE || status === SubjectStatusEnum.COMPLETED || status === SubjectStatusEnum.IN_PROGRESS);
 
-	// Get prerequisite chain (recursive levels)
-	function getPrereqLevels(code: string, visited = new Set<string>()): MateriaModel[][] {
-		if (visited.has(code)) return [];
-		visited.add(code);
+	// Cadeia completa: grafo (pré-requisitos + co-requisitos como SCC) + ordenação topológica do DAG condensado
+	let topoChain = $derived(
+		getTopologicalPrerequisiteChain(courseData, materia.codigoMateria)
+	);
 
-		const directPrereqs = getDirectPrerequisites(courseData, code);
-		if (directPrereqs.length === 0) return [];
-
-		const levels: MateriaModel[][] = [directPrereqs];
-
-		for (const prereq of directPrereqs) {
-			const subLevels = getPrereqLevels(prereq.codigoMateria, visited);
-			for (let i = 0; i < subLevels.length; i++) {
-				if (levels.length <= i + 1) {
-					levels.push([]);
-				}
-				// Add subjects that aren't already in this level
-				for (const sub of subLevels[i]) {
-					if (!levels[i + 1].some((m) => m.codigoMateria === sub.codigoMateria)) {
-						levels[i + 1].push(sub);
-					}
-				}
-			}
+	/** Evita listar só a matéria clicada como única “camada” (redundante com o cabeçalho). */
+	let chainDisplay = $derived.by(() => {
+		const L = topoChain.layers;
+		const code = materia.codigoMateria.trim().toUpperCase();
+		if (L.length === 0) {
+			const failedTopo = topoChain.totalSccCount > 0;
+			return { layers: L, emptyKind: failedTopo ? ('topo_fail' as const) : ('none' as const) };
 		}
-
-		return levels;
-	}
+		if (
+			L.length === 1 &&
+			L[0].materias.length === 1 &&
+			L[0].materias[0].codigoMateria.trim().toUpperCase() === code
+		) {
+			return { layers: [] as typeof L, emptyKind: 'no_prereq' as const };
+		}
+		return { layers: L, emptyKind: null };
+	});
 
 	// Get direct dependents (subjects that have this subject as a prerequisite)
 	let dependents = $derived.by(() => {
@@ -54,8 +49,6 @@
 			m.preRequisitos?.some((p) => p.codigoMateria === materia.codigoMateria)
 		);
 	});
-
-	let prereqLevels = $derived(getPrereqLevels(materia.codigoMateria));
 
 	const statusIcons: Record<string, typeof Check> = {
 		[SubjectStatusEnum.COMPLETED]: Check,
@@ -137,25 +130,41 @@
 		<!-- Content -->
 		<div class="max-h-[50vh] overflow-y-auto px-6 py-4">
 			<!-- Prerequisite levels -->
-			{#if prereqLevels.length > 0}
+			{#if chainDisplay.layers.length > 0}
 				<div class="mb-4">
-					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wider text-white/50">
-						Pré-requisitos ({prereqLevels.reduce((sum, l) => sum + l.length, 0)})
-					</h3>
-					{#each prereqLevels as level, i}
+					<div class="mb-2 flex items-center gap-2 text-white/50">
+						<Layers class="h-3.5 w-3.5 shrink-0 text-purple-400/80" />
+						<h3 class="text-xs font-semibold uppercase tracking-wider">
+							Cadeia (ordem topológica · {chainDisplay.layers.length}
+							{chainDisplay.layers.length === 1 ? 'camada' : 'camadas'})
+						</h3>
+					</div>
+					<p class="mb-3 text-[10px] leading-relaxed text-white/35">
+						Pré-requisitos em sequência válida; co-requisitos aparecem no mesmo bloco (componente fortemente
+						conexo).
+					</p>
+					{#each chainDisplay.layers as layer, i}
 						<div class="mb-2">
-							<p class="mb-1 text-[10px] font-medium uppercase tracking-wider text-purple-300/60">
-								Nível {i + 1}
+							<p class="mb-1 flex flex-wrap items-center gap-2 text-[10px] font-medium uppercase tracking-wider text-purple-300/70">
+								<span>Camada {i + 1}</span>
+								{#if layer.isCoReqCluster}
+									<span
+										class="rounded bg-cyan-500/15 px-1.5 py-0.5 font-normal normal-case text-cyan-300/90"
+										>Co-requisitos</span
+									>
+								{/if}
 							</p>
-							<div class="space-y-1 pl-3 border-l-2 border-purple-500/20">
-								{#each level as prereq}
+							<div class="space-y-1 border-l-2 border-purple-500/25 pl-3">
+								{#each layer.materias as prereq}
 									{@const prereqStatus = store.getSubjectStatus(prereq)}
 									{@const StatusIcon = statusIcons[prereqStatus] ?? Lock}
 									<div class="flex items-center gap-2 rounded-md bg-white/5 px-3 py-1.5">
 										<StatusIcon class="h-3.5 w-3.5 shrink-0 {statusColors[prereqStatus]}" />
-										<div class="flex-1 min-w-0">
-											<p class="text-xs font-medium text-white/80 truncate">{prereq.nomeMateria}</p>
-											<p class="text-[10px] text-white/40">{prereq.codigoMateria} · {getStatusLabel(prereqStatus)}</p>
+										<div class="min-w-0 flex-1">
+											<p class="truncate text-xs font-medium text-white/80">{prereq.nomeMateria}</p>
+											<p class="text-[10px] text-white/40">
+												{prereq.codigoMateria} · {getStatusLabel(prereqStatus)}
+											</p>
 										</div>
 									</div>
 								{/each}
@@ -164,7 +173,15 @@
 					{/each}
 				</div>
 			{:else}
-				<p class="mb-4 text-sm text-white/40">Nenhum pré-requisito.</p>
+				<p class="mb-4 text-sm text-white/40">
+					{#if chainDisplay.emptyKind === 'no_prereq'}
+						Nenhum pré-requisito na grade deste curso.
+					{:else if chainDisplay.emptyKind === 'topo_fail'}
+						Não foi possível ordenar a cadeia (grafo condensado inválido).
+					{:else}
+						Matéria fora da grade carregada.
+					{/if}
+				</p>
 			{/if}
 
 			<!-- Dependents -->
