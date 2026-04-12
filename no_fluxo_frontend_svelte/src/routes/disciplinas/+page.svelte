@@ -1,355 +1,180 @@
 <script lang="ts">
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import GraffitiBackground from '$lib/components/effects/GraffitiBackground.svelte';
-	import { createSupabaseBrowserClient } from '$lib/supabase/client';
-	import { getCodigosFromExpressaoLogica } from '$lib/utils/expressao-logica';
+	import SubjectChainView from '$lib/components/disciplinas/SubjectChainView.svelte';
+	import { fluxogramaService } from '$lib/services/fluxograma.service';
+	import type { CursoModel, MinimalCursoModel } from '$lib/types/curso';
+	import type { MateriaModel } from '$lib/types/materia';
+	import { onMount } from 'svelte';
+	import {
+		clearCurriculumAnalysisCache,
+		materiaMatchesNormalizedQuery,
+		normalizeSearchQuery
+	} from '$lib/utils/curriculum-utils';
+	import { Loader2 } from 'lucide-svelte';
 
-	const supabase = createSupabaseBrowserClient();
+	let matrizesOpcoes = $state<MinimalCursoModel[]>([]);
+	let curriculoSelecionado = $state('');
+	let curso = $state<CursoModel | null>(null);
+	let carregandoMatrizes = $state(true);
+	let carregandoCurso = $state(false);
+	let erroCurso = $state<string | null>(null);
 
-	type MateriaRow = {
-		id_materia: number;
-		codigo_materia: string;
-		nome_materia: string;
-	};
+	let termoBusca = $state('');
+	let selecionada = $state<MateriaModel | null>(null);
 
-	type PreRequisitoRow = {
-		id_pre_requisito: number;
-		id_materia: number;
-		codigo_materia: string;
-		nome_materia: string;
-		expressao_original: string | null;
-		expressao_logica: unknown | null;
-		codigo_requisito: string | null;
-		nome_requisito: string | null;
-	};
+	let termoNorm = $derived(normalizeSearchQuery(termoBusca));
 
-	type EquivalenciaRow = {
-		id_equivalencia: number;
-		id_materia: number;
-		expressao_original: string | null;
-		expressao_logica: unknown | null;
-		codigo_materia_origem: string | null;
-		nome_materia_origem: string | null;
-		curriculo: string | null;
-	};
+	let materiasOrdenadas = $derived.by(() => {
+		const c = curso;
+		if (!c?.materias?.length) return [];
+		return [...c.materias].sort(
+			(a, b) => a.codigoMateria.localeCompare(b.codigoMateria, 'pt-BR') || a.nivel - b.nivel
+		);
+	});
 
-let termoBusca = $state('');
-let carregandoBusca = $state(false);
-let resultados = $state<MateriaRow[]>([]);
-let erroBusca = $state<string | null>(null);
+	let resultadosBusca = $derived.by(() => {
+		const q = termoNorm;
+		const base = materiasOrdenadas;
+		if (q.length < 2) return base.slice(0, 120);
+		return base.filter((m) => materiaMatchesNormalizedQuery(m, q)).slice(0, 120);
+	});
 
-let selecionada = $state<MateriaRow | null>(null);
-let carregandoDetalhes = $state(false);
-let prereqs = $state<PreRequisitoRow[]>([]);
-let equivs = $state<EquivalenciaRow[]>([]);
-let erroDetalhes = $state<string | null>(null);
-
-let materiasExtras = $state(new Map<string, MateriaRow>());
-
-	async function buscarMaterias() {
-		const termo = termoBusca.trim();
-		if (!termo || termo.length < 2) {
-			resultados = [];
-			selecionada = null;
-			prereqs = [];
-			equivs = [];
-			erroBusca = null;
-			return;
+	async function carregarListaMatrizes() {
+		carregandoMatrizes = true;
+		try {
+			matrizesOpcoes = await fluxogramaService.getAllMatrizesIndex();
+		} catch (e: unknown) {
+			erroCurso = e instanceof Error ? e.message : 'Erro ao listar matrizes.';
+		} finally {
+			carregandoMatrizes = false;
 		}
+	}
 
-		carregandoBusca = true;
-		erroBusca = null;
+	async function aoEscolherMatriz(curriculo: string) {
+		curriculoSelecionado = curriculo;
 		selecionada = null;
-		prereqs = [];
-		equivs = [];
+		termoBusca = '';
+		curso = null;
+		erroCurso = null;
+		if (!curriculo?.trim()) return;
 
+		carregandoCurso = true;
+		clearCurriculumAnalysisCache();
 		try {
-			const { data, error } = await supabase
-				.from('materias')
-				.select('id_materia, codigo_materia, nome_materia')
-				.or(
-					`codigo_materia.ilike.${termo.toUpperCase()}%,nome_materia.ilike.%${termo}%`
-				)
-				.order('codigo_materia')
-				.limit(25);
-
-			if (error) {
-				erroBusca = error.message;
-				resultados = [];
-			} else {
-				resultados = data as MateriaRow[] || [];
-			}
-		} catch (e: any) {
-			erroBusca = e?.message ?? 'Erro ao buscar disciplinas.';
-			resultados = [];
+			curso = await fluxogramaService.getCourseDataByCurriculoCompleto(curriculo.trim());
+		} catch (e: unknown) {
+			erroCurso = e instanceof Error ? e.message : 'Erro ao carregar currículo.';
+			curso = null;
 		} finally {
-			carregandoBusca = false;
+			carregandoCurso = false;
 		}
 	}
 
-	async function carregarDetalhes(m: MateriaRow) {
+	function selecionarMateria(m: MateriaModel) {
 		selecionada = m;
-		carregandoDetalhes = true;
-		erroDetalhes = null;
-		prereqs = [];
-		equivs = [];
-
-		try {
-			const [pre, eq] = await Promise.all([
-				supabase.rpc('get_pre_requisitos_materia', {
-					p_codigo: m.codigo_materia,
-					p_nome: null
-				}),
-				supabase.rpc('get_equivalencias_materia', {
-					p_codigo: m.codigo_materia,
-					p_nome: null
-				})
-			]);
-
-			if (pre.error) {
-				erroDetalhes = pre.error.message;
-			} else {
-				prereqs = (pre.data as unknown as PreRequisitoRow[]) || [];
-			}
-
-			if (eq.error) {
-				erroDetalhes = (erroDetalhes ? erroDetalhes + ' / ' : '') + eq.error.message;
-			} else {
-				equivs = (eq.data as unknown as EquivalenciaRow[]) || [];
-			}
-			
-			// Carregar nomes das matérias envolvidas nas expressões (pré-requisitos e equivalências)
-			const codigosExtras = new Set<string>();
-			for (const pr of prereqs) {
-				for (const c of codigosDaExpressao(pr.expressao_logica)) {
-					const key = c.trim().toUpperCase();
-					if (key && !materiasExtras.has(key)) codigosExtras.add(key);
-				}
-			}
-			for (const eqRow of equivs) {
-				for (const c of codigosDaExpressao(eqRow.expressao_logica)) {
-					const key = c.trim().toUpperCase();
-					if (key && !materiasExtras.has(key)) codigosExtras.add(key);
-				}
-			}
-			if (codigosExtras.size > 0) {
-				const { data: mats, error: matsError } = await supabase
-					.from('materias')
-					.select('codigo_materia, nome_materia, id_materia')
-					.in('codigo_materia', [...codigosExtras]);
-				if (!matsError && mats) {
-					for (const row of mats as any[]) {
-						const key = String(row.codigo_materia).trim().toUpperCase();
-						materiasExtras.set(key, {
-							id_materia: row.id_materia,
-							codigo_materia: row.codigo_materia,
-							nome_materia: row.nome_materia
-						});
-					}
-				}
-			}
-		} catch (e: any) {
-			erroDetalhes = e?.message ?? 'Erro ao carregar detalhes.';
-		} finally {
-			carregandoDetalhes = false;
-		}
 	}
 
-	function codigosDaExpressao(expressaoLogica: unknown): string[] {
-		if (!expressaoLogica) return [];
-		try {
-			return getCodigosFromExpressaoLogica(expressaoLogica as any);
-		} catch {
-			return [];
-		}
+	function aoNavegarCadeia(codigo: string) {
+		const c = curso;
+		if (!c) return;
+		const u = codigo.trim().toUpperCase();
+		const m = c.materias.find((x) => x.codigoMateria.trim().toUpperCase() === u);
+		if (m) selecionada = m;
 	}
+
+	onMount(() => {
+		carregarListaMatrizes();
+	});
 </script>
 
 <PageMeta
-	title="Buscar Disciplinas"
-	description="Busque disciplinas pelo código ou nome e visualize pré-requisitos e equivalências."
+	title="Disciplinas"
+	description="Busque disciplinas na matriz curricular e visualize a cadeia de pré-requisitos no contexto do curso."
 />
 
 <GraffitiBackground />
 
-<div class="relative z-10 container mx-auto max-w-5xl px-3 py-4 sm:px-4 sm:py-6 space-y-4">
-	<h1 class="text-xl sm:text-2xl font-bold text-white mb-1">Disciplinas</h1>
-	<p class="text-xs sm:text-sm text-white/60 mb-3">
-		Busque por <span class="font-semibold">código</span> (ex.: CIC0004) ou por parte do
-		<span class="font-semibold">nome</span> da disciplina.
-	</p>
-
-	<!-- Busca -->
-	<form
-		class="flex flex-col sm:flex-row gap-2 sm:gap-3 items-stretch sm:items-center"
-		onsubmit={async (e) => { e.preventDefault(); await buscarMaterias(); }}
-	>
-		<input
-			type="text"
-			bind:value={termoBusca}
-			placeholder="Ex.: CIC0004 ou Inteligência Artificial"
-			class="flex-1 rounded-full bg-black/40 border border-white/15 px-4 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-pink-500/60"
-		/>
-		<button
-			type="submit"
-			class="shrink-0 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 px-4 py-2.5 text-sm font-medium text-white shadow-md hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
-			disabled={carregandoBusca || termoBusca.trim().length < 2}
-		>
-			{carregandoBusca ? 'Buscando...' : 'Buscar'}
-		</button>
-	</form>
-
-	{#if erroBusca}
-		<p class="text-sm text-red-400">{erroBusca}</p>
-	{/if}
-
-	<div class="grid grid-cols-1 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.8fr)] gap-4">
-		<!-- Lista de resultados -->
-		<div class="space-y-2">
-			<h2 class="text-sm font-semibold text-white/80 mb-1">Resultados</h2>
-			{#if resultados.length === 0 && !carregandoBusca && termoBusca.trim().length >= 2}
-				<p class="text-xs text-white/50">Nenhuma disciplina encontrada para esse termo.</p>
-			{/if}
-			<div class="space-y-1.5 max-h-[320px] overflow-y-auto pr-1">
-				{#each resultados as m}
-					<button
-						type="button"
-						onclick={() => carregarDetalhes(m)}
-						class="w-full rounded-lg border px-3 py-2 text-left text-xs sm:text-sm transition-colors {selecionada && selecionada.id_materia === m.id_materia
-							? 'border-pink-400/60 bg-pink-500/10 text-white'
-							: 'border-white/10 bg-black/30 text-white/80 hover:bg-black/50'}"
-					>
-						<p class="font-semibold text-white">{m.codigo_materia}</p>
-						<p class="truncate">{m.nome_materia}</p>
-					</button>
+<div class="relative z-10 flex h-[calc(100dvh-3.5rem)] flex-col overflow-hidden">
+	<header class="flex h-14 shrink-0 items-center gap-3 border-b border-white/10 bg-black/55 px-4 backdrop-blur-md">
+		<div class="font-mono text-xs font-medium tracking-wider text-lime-300">NOFLUXO</div>
+		<div class="flex-1"></div>
+		{#if carregandoMatrizes}
+			<p class="flex items-center gap-2 text-xs text-white/55">
+				<Loader2 class="h-3.5 w-3.5 animate-spin" /> Carregando matrizes…
+			</p>
+		{:else}
+			<select
+				id="matriz-select"
+				class="max-w-[360px] rounded-xl border border-white/15 bg-zinc-900/80 px-3 py-1.5 text-xs text-white sm:text-sm"
+				bind:value={curriculoSelecionado}
+				onchange={() => aoEscolherMatriz(curriculoSelecionado)}
+			>
+				<option value="">Selecione a matriz</option>
+				{#each matrizesOpcoes as op}
+					<option value={op.matrizCurricular}>
+						{op.nomeCurso} · {op.matrizCurricular}
+					</option>
 				{/each}
+			</select>
+		{/if}
+	</header>
+
+	<div class="grid min-h-0 flex-1 grid-cols-1 md:grid-cols-[270px_minmax(0,1fr)]">
+		<aside class="min-h-0 border-r border-white/10 bg-zinc-950/75">
+			<div class="border-b border-white/10 p-3">
+				<input
+					type="text"
+					bind:value={termoBusca}
+					placeholder="Buscar por código ou nome..."
+					class="w-full rounded-xl border border-white/10 bg-zinc-900/70 px-3 py-2 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-lime-500/30"
+				/>
 			</div>
-		</div>
 
-		<!-- Detalhes -->
-		<div class="space-y-3">
-			<h2 class="text-sm font-semibold text-white/80 mb-1">Detalhes</h2>
-			{#if !selecionada}
-				<p class="text-xs text-white/50">Selecione uma disciplina na lista para ver pré-requisitos e equivalências.</p>
+			{#if !curso && !carregandoCurso}
+				<p class="p-3 text-xs text-white/45">Escolha uma matriz para listar as disciplinas.</p>
+			{:else if carregandoCurso}
+				<p class="flex items-center gap-2 p-3 text-xs text-white/55">
+					<Loader2 class="h-3.5 w-3.5 animate-spin" /> Carregando disciplinas...
+				</p>
 			{:else}
-				<div class="rounded-2xl border border-white/15 bg-gradient-to-br from-black/60 via-slate-950/80 to-slate-900/80 p-3 sm:p-4 space-y-3 shadow-[0_18px_45px_rgba(0,0,0,0.65)]">
-					<div class="flex items-start justify-between gap-2">
-						<div>
-							<p class="text-[11px] uppercase tracking-[0.18em] text-pink-300/80 mb-0.5">
-								Disciplina selecionada
-							</p>
-							<p class="text-sm sm:text-base font-semibold text-white">
-								{selecionada.codigo_materia} · {selecionada.nome_materia}
-							</p>
-						</div>
-					</div>
-
-					{#if erroDetalhes}
-						<p class="text-xs text-red-400">{erroDetalhes}</p>
+				<div class="h-[calc(100%-3.25rem)] space-y-1 overflow-y-auto p-2">
+					{#if resultadosBusca.length === 0}
+						<p class="p-2 text-xs text-white/45">Nenhuma disciplina para esse termo.</p>
 					{/if}
-
-					<!-- Pré-requisitos -->
-					<div class="space-y-1.5">
-						<h3 class="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-sky-200">
-							<span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-sky-500/20 border border-sky-400/60 text-[9px] text-sky-100 shadow-sm">
-								PR
-							</span>
-							Pré-requisitos
-						</h3>
-						{#if carregandoDetalhes}
-							<p class="text-xs text-white/50">Carregando pré-requisitos...</p>
-						{:else if prereqs.length === 0}
-							<p class="text-xs text-white/50">Nenhum pré-requisito registrado.</p>
-						{:else}
-							{#each prereqs as pr}
-								<div class="rounded-xl border border-sky-400/20 bg-sky-500/5 px-3 py-2.5 space-y-1.5">
-									{#if pr.expressao_original}
-										<div class="inline-flex items-center gap-1 rounded-full bg-sky-500/20 px-2 py-0.5 mb-1">
-											<span class="h-1.5 w-1.5 rounded-full bg-sky-300"></span>
-											<p class="text-[10px] font-semibold uppercase tracking-wide text-sky-100">
-												Expressão de pré‑requisito
-											</p>
-										</div>
-										<p class="text-xs text-sky-50/90 mb-1">{pr.expressao_original}</p>
-									{/if}
-
-									{#if codigosDaExpressao(pr.expressao_logica).length > 0}
-										<p class="text-[11px] font-semibold text-sky-100 mt-1">Matérias na expressão</p>
-										<div class="flex flex-wrap gap-1.5 mt-0.5">
-											{#each codigosDaExpressao(pr.expressao_logica) as c}
-												{@const key = c.trim().toUpperCase()}
-												{@const mat = materiasExtras.get(key)}
-												<span class="inline-flex items-center gap-1 rounded-full bg-sky-500/15 border border-sky-400/40 px-2.5 py-0.5 text-[10px] text-sky-50">
-													<span class="h-1.5 w-1.5 rounded-full bg-sky-300"></span>
-													{c}{mat ? ` · ${mat.nome_materia}` : ''}
-												</span>
-											{/each}
-										</div>
-									{:else if pr.codigo_requisito}
-										<p class="text-[11px] font-semibold text-sky-100 mt-1">Matéria requerida</p>
-										<p class="text-xs text-sky-50/90">
-											{pr.codigo_requisito} · {pr.nome_requisito}
-										</p>
-									{/if}
-								</div>
-							{/each}
-						{/if}
-					</div>
-
-					<!-- Equivalências -->
-					<div class="space-y-1.5">
-						<h3 class="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-emerald-200">
-							<span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-400/60 text-[9px] text-emerald-50 shadow-sm">
-								EQ
-							</span>
-							Equivalências
-						</h3>
-						{#if carregandoDetalhes}
-							<p class="text-xs text-white/50">Carregando equivalências...</p>
-						{:else if equivs.length === 0}
-							<p class="text-xs text-white/50">Nenhuma equivalência registrada.</p>
-						{:else}
-							{#each equivs as eq}
-								<div class="rounded-xl border border-emerald-400/25 bg-emerald-500/5 px-3 py-2.5 space-y-1.5">
-									<p class="text-xs text-emerald-50/95">
-										Disciplina: {eq.codigo_materia_origem} · {eq.nome_materia_origem}
-									</p>
-									{#if eq.curriculo}
-										<p class="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-300/60 px-2.5 py-0.5 text-[10px] text-amber-100 mt-0.5">
-											<span class="h-1.5 w-1.5 rounded-full bg-amber-300"></span>
-											Currículo específico: {eq.curriculo}
-										</p>
-									{/if}
-									{#if eq.expressao_original}
-										<div class="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 px-2 py-0.5 mt-1">
-											<span class="h-1.5 w-1.5 rounded-full bg-emerald-300"></span>
-											<p class="text-[10px] font-semibold uppercase tracking-wide text-emerald-50">
-												Expressão de equivalência
-											</p>
-										</div>
-										<p class="text-xs text-emerald-50/90 mb-1">{eq.expressao_original}</p>
-									{/if}
-
-									{#if codigosDaExpressao(eq.expressao_logica).length > 0}
-										<p class="text-[11px] font-semibold text-emerald-100 mt-1">Matérias na equivalência</p>
-										<div class="flex flex-wrap gap-1.5 mt-0.5">
-											{#each codigosDaExpressao(eq.expressao_logica) as c}
-												{@const key = c.trim().toUpperCase()}
-												{@const mat = materiasExtras.get(key)}
-												<span class="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 border border-emerald-400/40 px-2.5 py-0.5 text-[10px] text-emerald-50">
-													<span class="h-1.5 w-1.5 rounded-full bg-emerald-300"></span>
-													{c}{mat ? ` · ${mat.nome_materia}` : ''}
-												</span>
-											{/each}
-										</div>
-									{/if}
-								</div>
-							{/each}
-						{/if}
-					</div>
+					{#each resultadosBusca as m}
+						<button
+							type="button"
+							onclick={() => selecionarMateria(m)}
+							class="w-full rounded-xl border px-2.5 py-2 text-left transition-colors {selecionada &&
+							selecionada.idMateria === m.idMateria
+								? 'border-lime-300/40 bg-lime-400/12'
+								: 'border-transparent hover:border-white/10 hover:bg-white/5'}"
+						>
+							<p class="font-mono text-xs font-medium text-lime-300">{m.codigoMateria}</p>
+							<p class="line-clamp-2 text-sm text-white/75">{m.nomeMateria}</p>
+						</button>
+					{/each}
 				</div>
 			{/if}
-		</div>
+		</aside>
+
+		<main class="min-h-0 overflow-y-auto p-4 sm:p-6">
+			{#if erroCurso}
+				<p class="mb-3 text-sm text-red-400">{erroCurso}</p>
+			{/if}
+
+			{#if !selecionada}
+				<div class="flex h-full items-center justify-center rounded-2xl border border-white/10 bg-black/20">
+					<p class="text-sm text-white/45">Selecione uma matéria para ver a cadeia.</p>
+				</div>
+			{:else if curso}
+				<SubjectChainView
+					courseData={curso}
+					focusCode={selecionada.codigoMateria}
+					onNavigate={aoNavegarCadeia}
+				/>
+			{/if}
+		</main>
 	</div>
 </div>
-
