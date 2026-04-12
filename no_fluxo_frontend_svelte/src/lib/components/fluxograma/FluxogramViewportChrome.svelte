@@ -417,12 +417,16 @@
 					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-purple-300">Mobile / toque</h3>
 					<ul class="space-y-2 text-sm text-white/90">
 						<li>
-							<strong>1 toque</strong> na disciplina (com conexões ativas) — só <strong class="text-white"
-								>destaca o fluxo</strong> no diagrama (cores e setas); <strong>não abre modal</strong>.
+							<strong>1 toque</strong> na disciplina (com conexões ativas) — <strong class="text-white"
+								>seleciona e destaca a cadeia</strong> no diagrama.
 						</li>
 						<li>
-							<strong>Segurar</strong> o dedo no card — abre a <strong class="text-white">ficha da disciplina</strong>
-							(detalhes completos).
+							<strong>2º toque</strong> na mesma disciplina — abre a
+							<strong class="text-white">ficha da disciplina</strong> (ementa/detalhes).
+						</li>
+						<li>
+							<strong>Segurar</strong> o dedo no card — abre a <strong class="text-white">cadeia topológica</strong>
+							(roadmap da disciplina).
 						</li>
 						<li><strong>Toque na área vazia</strong> — esconde as conexões</li>
 						<li class="border-t border-white/10 pt-2 text-white/80">

@@ -16,7 +16,7 @@
 		showOptBadge?: boolean;
 		/** Abrir modal de detalhes (nome evita conflito com `onclick` do Svelte no `<button>`) */
 		onOpenDetails?: () => void;
-		/** Modo conexões diretas: 1º clique/toque abre o roadmap da cadeia (além das linhas). */
+		/** Abre o diálogo de cadeia topológica da matéria. */
 		onOpenChain?: () => void;
 		onlongpress?: () => void;
 	}
@@ -183,8 +183,8 @@
 		longPressTimer = setTimeout(() => {
 			didLongPress = true;
 			store.setHoveredSubject(materia.codigoMateria);
-			// Mobile: toque longo abre a ficha (detalhes) da disciplina — não o roadmap
-			onOpenDetails?.();
+			// Mobile: toque longo abre o roadmap/cadeia topológica da disciplina.
+			onOpenChain?.();
 		}, LONG_PRESS_MS);
 	}
 
@@ -209,9 +209,16 @@
 		}
 
 		if (!didDrag && !didLongPress) {
-			// Tap rápido (mobile): 1 toque só destaca o fluxo no diagrama — não abre modal
+			// Tap rápido (mobile):
+			// 1º toque seleciona/destaca cadeia; 2º toque na mesma matéria abre detalhes.
 			if (connectionsEnabled) {
-				store.setHoveredSubject(materia.codigoMateria);
+				const current = (store.state.hoveredSubjectCode ?? '').trim().toUpperCase();
+				const mine = materia.codigoMateria.trim().toUpperCase();
+				if (current === mine) {
+					onOpenDetails?.();
+				} else {
+					store.setHoveredSubject(materia.codigoMateria);
+				}
 			} else {
 				store.setHoveredSubject(null);
 				onOpenDetails?.();
