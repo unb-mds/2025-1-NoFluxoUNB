@@ -2,7 +2,20 @@
 	import { browser } from '$app/environment';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
-	import { Bot, Send, Loader2, Sparkles, ChevronDown, Plus, BookOpen } from 'lucide-svelte';
+	import {
+		Bot,
+		Send,
+		Loader2,
+		Sparkles,
+		ChevronDown,
+		Plus,
+		BookOpen,
+		User,
+		Clock3,
+		MapPin,
+		Users,
+		CalendarClock
+	} from 'lucide-svelte';
 	import { AssistenteService, type StreamEvent } from '$lib/services/assistente.service';
 	import { assistenteUIService } from '$lib/services/assistente-ui.service';
 	import { authStore } from '$lib/stores/auth';
@@ -120,9 +133,127 @@
 		vagasOfertadas: number | null,
 		vagasOcupadas: number | null
 	): string {
-		if (vagasSobrando != null) return String(vagasSobrando);
-		if (vagasOfertadas != null && vagasOcupadas != null) return String(vagasOfertadas - vagasOcupadas);
+		if (vagasSobrando != null) return String(Math.max(0, vagasSobrando));
+		if (vagasOfertadas != null && vagasOcupadas != null)
+			return String(Math.max(0, vagasOfertadas - vagasOcupadas));
 		return '-';
+	}
+
+	const DIA_MAP: Record<string, string> = {
+		'2': 'Seg',
+		'3': 'Ter',
+		'4': 'Qua',
+		'5': 'Qui',
+		'6': 'Sex',
+		'7': 'Sab'
+	};
+
+	const SLOT_MAP: Record<'M' | 'T' | 'N', Record<string, string>> = {
+		M: {
+			'1': '08:00-08:55',
+			'2': '08:55-09:50',
+			'3': '10:00-10:55',
+			'4': '10:55-11:50',
+			'5': '12:00-12:55'
+		},
+		T: {
+			'1': '12:55-13:50',
+			'2': '14:00-14:55',
+			'3': '14:55-15:50',
+			'4': '16:00-16:55',
+			'5': '16:55-17:50',
+			'6': '18:00-18:55',
+			'7': '18:55-19:50'
+		},
+		N: {
+			'1': '19:00-19:50',
+			'2': '19:50-20:40',
+			'3': '20:50-21:40',
+			'4': '21:40-22:30'
+		}
+	};
+
+	function turnoLabel(turno: 'M' | 'T' | 'N'): string {
+		if (turno === 'M') return 'Manha';
+		if (turno === 'T') return 'Tarde';
+		return 'Noite';
+	}
+
+	type HorarioLinha = {
+		dia: string;
+		faixas: string[];
+	};
+
+	function formatHorarioSigaa(rawHorario: string): HorarioLinha[] {
+		const raw = String(rawHorario ?? '').trim();
+		if (!raw) return [];
+
+		// Ex.: 24M12, 35T34, 6N1234, múltiplos blocos no mesmo texto.
+		const regex = /([2-7]+)\s*([MTN])\s*([1-7]+)/g;
+		const out: HorarioLinha[] = [];
+		let match: RegExpExecArray | null = regex.exec(raw);
+
+		while (match) {
+			const diasCod = match[1] ?? '';
+			const turno = (match[2] ?? 'M') as 'M' | 'T' | 'N';
+			const slotsCod = match[3] ?? '';
+			const faixas = [...slotsCod].map((s) => SLOT_MAP[turno]?.[s] ?? `${turno}${s}`);
+
+			for (const d of [...diasCod]) {
+				const dia = DIA_MAP[d] ?? d;
+				out.push({
+					dia,
+					faixas
+				});
+			}
+			match = regex.exec(raw);
+		}
+
+		return out;
+	}
+
+	function formatHoraCompacta(raw: string): string {
+		const [h, m] = raw.split(':');
+		if (!h) return raw;
+		const hora = String(Number(h));
+		if (!m || m === '00') return `${hora}h`;
+		return `${hora}h${m}`;
+	}
+
+	function compactarFaixasHorarias(faixas: string[]): string {
+		if (!faixas || faixas.length === 0) return '-';
+		const primeira = faixas[0];
+		const ultima = faixas[faixas.length - 1];
+		const inicio = primeira.split('-')[0] ?? primeira;
+		const fim = ultima.split('-')[1] ?? ultima;
+		return `${formatHoraCompacta(inicio)} - ${formatHoraCompacta(fim)}`;
+	}
+
+	function formatLocalSigaa(rawLocal: string): string[] {
+		const raw = String(rawLocal ?? '').trim();
+		if (!raw) return [];
+
+		// Ex.: "2N12(ICC ANF.12) 35N34(ICC ANF.15)"
+		const regex = /([2-7]+[MTN][1-7]+)\(([^)]+)\)/g;
+		const out: string[] = [];
+		let match: RegExpExecArray | null = regex.exec(raw);
+
+		while (match) {
+			const codigo = String(match[1] ?? '').trim().toUpperCase();
+			const local = String(match[2] ?? '').trim();
+			const horarios = formatHorarioSigaa(codigo);
+			if (horarios.length === 0) {
+				out.push(`${local} (${codigo})`);
+			} else {
+				for (const h of horarios) {
+					out.push(`${h.dia} (${compactarFaixasHorarias(h.faixas)}) - ${local}`);
+				}
+			}
+			match = regex.exec(raw);
+		}
+
+		if (out.length > 0) return out;
+		return [raw];
 	}
 
 	function toMateriaModel(disc: DisciplinaUI): MateriaModel {
@@ -293,6 +424,11 @@
 			enviarMensagem();
 		}
 	}
+
+	function pedirOptativasDoCurso() {
+		mensagem = 'Recomende matérias optativas baseado no meu curso';
+		void enviarMensagem();
+	}
 </script>
 
 <PageMeta
@@ -323,6 +459,18 @@
 			Envie só <span class="font-semibold">tópicos de interesse</span> (ex.: "IA e visão computacional"). Evite papo paralelo:
 			perguntas diretas geram <span class="font-semibold">melhores sugestões de disciplinas</span>.
 		</p>
+		<button
+			type="button"
+			class="mt-2.5 w-full text-left rounded-lg border border-fuchsia-400/35 bg-fuchsia-500/10 hover:bg-fuchsia-500/20 px-3 py-2 transition-colors"
+			on:click={pedirOptativasDoCurso}
+		>
+			<p class="text-fuchsia-100 font-semibold text-xs sm:text-sm">
+				✨ Recomende matérias optativas baseado no meu curso
+			</p>
+			<p class="text-fuchsia-100/80 text-[11px] sm:text-xs mt-0.5">
+				Usa sua matriz curricular para sugerir optativas alinhadas ao seu curso.
+			</p>
+		</button>
 	</div>
 
 	<!-- Chat Container -->
@@ -590,7 +738,7 @@
 
 {#if turmasModalDisciplina}
 	<div class="fixed inset-0 z-[500] flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm">
-		<div class="w-full max-w-2xl rounded-2xl border border-white/15 bg-slate-950/95 shadow-2xl">
+		<div class="w-full max-w-3xl rounded-2xl border border-white/15 bg-slate-950/95 shadow-2xl">
 			<div class="flex items-start justify-between border-b border-white/10 px-5 py-4">
 				<div>
 					<h3 class="text-white font-semibold text-lg">Turmas Disponíveis</h3>
@@ -613,30 +761,84 @@
 				</button>
 			</div>
 
-			<div class="max-h-[60vh] overflow-y-auto p-4 space-y-2">
+			<div class="max-h-[64vh] overflow-y-auto p-5 space-y-4">
 				{#if !turmasModalDisciplina.turmas || turmasModalDisciplina.turmas.length === 0}
 					<p class="text-sm text-white/60">Nenhuma turma encontrada para esta disciplina.</p>
 				{:else}
 					{#each turmasModalDisciplina.turmas as turma}
-						<div class="rounded-xl border border-white/10 bg-white/5 p-3">
-							<div class="flex flex-wrap items-center justify-between gap-2">
-								<p class="text-sm font-semibold text-white">
-									Turma {turma.turma || '-'} · {turma.anoPeriodo || '-'}
+						<div class="rounded-xl border border-white/10 bg-white/[0.06] p-5">
+							<div class="flex flex-wrap items-start justify-between gap-4">
+								<p class="text-[1.08rem] font-bold text-blue-300">
+									Turma {turma.turma || '-'} - {turma.anoPeriodo || '-'}
 								</p>
-								<p class="text-xs text-emerald-300">
-									Vagas sobrando: {formatVagas(turma.vagasSobrando, turma.vagasOfertadas, turma.vagasOcupadas)}
-								</p>
-							</div>
-							<div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-								<p class="text-white/80"><span class="text-white/55">Docente:</span> {turma.docente || '-'}</p>
-								<p class="text-white/80"><span class="text-white/55">Horário:</span> {turma.horario || '-'}</p>
-								<p class="text-white/80"><span class="text-white/55">Local:</span> {turma.local || '-'}</p>
-								<p class="text-white/80">
-									<span class="text-white/55">Vagas:</span>
-									{turma.vagasOcupadas ?? '-'} / {turma.vagasOfertadas ?? '-'}
+								<p class="text-sm">
+									<span class="text-white/80">Vagas sobrando:</span>
+									<span class="ml-1 text-white font-black text-lg">
+										{formatVagas(turma.vagasSobrando, turma.vagasOfertadas, turma.vagasOcupadas)}
+									</span>
 								</p>
 							</div>
-							<p class="mt-2 text-[11px] text-white/50">
+
+							<div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+								<div class="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2.5">
+									<p class="text-sky-300/90 text-xs mb-1 inline-flex items-center gap-1.5 font-semibold">
+										<User class="h-3.5 w-3.5" />
+										Docente
+									</p>
+									<p class="text-white font-semibold leading-snug">{turma.docente || '-'}</p>
+								</div>
+								<div class="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2.5">
+									<p class="text-sky-300/90 text-xs mb-1 inline-flex items-center gap-1.5 font-semibold">
+										<Clock3 class="h-3.5 w-3.5" />
+										Horário
+									</p>
+									{#if formatHorarioSigaa(turma.horario).length > 0}
+										<div class="space-y-1.5">
+											{#each formatHorarioSigaa(turma.horario) as linha}
+												<div class="grid grid-cols-[108px_minmax(0,1fr)] gap-2 text-[13px] leading-snug rounded-md bg-black/20 px-2 py-1">
+													<p class="text-white/90 font-semibold">
+														{linha.dia}
+														<span class="text-white/70">({linha.faixas.join(' | ')})</span>
+													</p>
+													<p class="text-white font-medium">{compactarFaixasHorarias(linha.faixas)}</p>
+												</div>
+											{/each}
+											<p class="text-[11px] text-white/45">Código SIGAA: {turma.horario}</p>
+										</div>
+									{:else}
+										<p class="text-white/90 leading-snug">{turma.horario || '-'}</p>
+									{/if}
+								</div>
+								<div class="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2.5">
+									<p class="text-sky-300/90 text-xs mb-1 inline-flex items-center gap-1.5 font-semibold">
+										<MapPin class="h-3.5 w-3.5" />
+										Local
+									</p>
+									{#if formatLocalSigaa(turma.local).length > 0}
+										<div class="space-y-1">
+											{#each formatLocalSigaa(turma.local) as localLinha}
+												<p class="text-white font-semibold leading-snug">{localLinha}</p>
+											{/each}
+											<p class="text-[11px] text-white/45">Origem SIGAA: {turma.local || '-'}</p>
+										</div>
+									{:else}
+										<p class="text-white font-semibold leading-snug">{turma.local || '-'}</p>
+									{/if}
+								</div>
+								<div class="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2.5">
+									<p class="text-sky-300/90 text-xs mb-1 inline-flex items-center gap-1.5 font-semibold">
+										<Users class="h-3.5 w-3.5" />
+										Vagas (ocupadas / ofertadas)
+									</p>
+									<p class="leading-snug">
+										<span class="text-white font-bold">{turma.vagasOcupadas ?? '-'}</span>
+										<span class="text-white/70"> / </span>
+										<span class="text-white font-bold">{turma.vagasOfertadas ?? '-'}</span>
+									</p>
+								</div>
+							</div>
+							<p class="mt-4 text-[11px] text-white/50 inline-flex items-center gap-1.5">
+								<CalendarClock class="h-3.5 w-3.5" />
 								Atualizado em: {formatDate(turma.lastUpdatedAt)}
 							</p>
 						</div>
