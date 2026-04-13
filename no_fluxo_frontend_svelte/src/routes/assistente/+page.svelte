@@ -26,7 +26,6 @@
 
 	type DisciplinaStream = NonNullable<StreamEvent['data']>;
 	type DisciplinaUI = DisciplinaStream & {
-		cardId: string;
 		idMateria?: number;
 		departamento?: string;
 		ementa?: string;
@@ -51,8 +50,9 @@
 		}>;
 		ultimaAtualizacaoTurmas?: string | null;
 		carregandoDetalhes?: boolean;
+		detalhesCarregados?: boolean;
 		erroDetalhes?: string | null;
-		expanded?: boolean;
+		aberto: boolean;
 	};
 
 	type ChatMessage = {
@@ -65,7 +65,6 @@
 	let carregando = false;
 	let etapaAtual = '';
 	let historico: ChatMessage[] = [];
-	let discCardSeq = 0;
 	let materiaModal: MateriaModel | null = null;
 	let turmasModalDisciplina: DisciplinaUI | null = null;
 
@@ -95,23 +94,27 @@
 		}
 	}
 
-	function createDiscCardId(msgIndex: number, discCode: string): string {
-		discCardSeq += 1;
-		return `disc-${msgIndex}-${String(discCode ?? '').trim().toUpperCase()}-${discCardSeq}`;
-	}
-
-	function toggleExpand(msgIndex: number, cardId: string) {
+	function toggleExpand(msgIndex: number, discIndex: number) {
 		const nextHistorico = [...historico];
 		const current = nextHistorico[msgIndex];
 		if (!current?.disciplinas) return;
+		const alvo = current.disciplinas[discIndex];
+		if (!alvo) return;
+		const abrindoAgora = !alvo.aberto;
 
 		nextHistorico[msgIndex] = {
 			...current,
-			disciplinas: current.disciplinas.map((disc) =>
-				disc.cardId === cardId ? { ...disc, expanded: !disc.expanded } : disc
+			disciplinas: current.disciplinas.map((disc, idx) =>
+				idx === discIndex ? { ...disc, aberto: !disc.aberto } : disc
 			)
 		};
 		historico = nextHistorico;
+
+		// Evita travar a UI carregando detalhes de todas as matérias de uma vez.
+		// Carrega só quando o aluno abre o card.
+		if (abrindoAgora && !alvo.detalhesCarregados && !alvo.carregandoDetalhes) {
+			void enriquecerDisciplina(msgIndex, alvo.codigo, getMatrizCurricularUsuario());
+		}
 	}
 
 	function updateDisciplina(
@@ -303,6 +306,37 @@
 		turmasModalDisciplina = disc;
 	}
 
+	function getTurmasSeguras(disc?: DisciplinaUI | null): NonNullable<DisciplinaUI['turmas']> {
+		if (!disc?.turmas || !Array.isArray(disc.turmas)) return [];
+		return disc.turmas.filter((turma) => !!turma && typeof turma === 'object');
+	}
+
+	async function garantirDetalhesDisciplina(
+		msgIndex: number,
+		discIndex: number
+	): Promise<DisciplinaUI | null> {
+		const msg = historico[msgIndex];
+		const disc = msg?.disciplinas?.[discIndex];
+		if (!disc) return null;
+		if (disc.detalhesCarregados) return disc;
+		if (!disc.carregandoDetalhes) {
+			await enriquecerDisciplina(msgIndex, disc.codigo, getMatrizCurricularUsuario());
+		}
+		return historico[msgIndex]?.disciplinas?.[discIndex] ?? null;
+	}
+
+	async function abrirModalAdicionarComDetalhes(msgIndex: number, discIndex: number) {
+		const disc = await garantirDetalhesDisciplina(msgIndex, discIndex);
+		if (!disc?.idMateria) return;
+		abrirModalAdicionar(disc);
+	}
+
+	async function abrirModalTurmasComDetalhes(msgIndex: number, discIndex: number) {
+		const disc = await garantirDetalhesDisciplina(msgIndex, discIndex);
+		if (!disc) return;
+		abrirModalTurmas(disc);
+	}
+
 	async function enriquecerDisciplina(msgIndex: number, codigo: string, matrizCurricular: string) {
 		const key = `${codigo.toUpperCase()}|${matrizCurricular}`;
 		if (detailsCache.has(key)) {
@@ -341,6 +375,7 @@
 					turmas: context.turmas,
 					ultimaAtualizacaoTurmas: context.ultimaAtualizacaoTurmas,
 					carregandoDetalhes: false,
+					detalhesCarregados: true,
 					erroDetalhes: null
 				}));
 			} catch (error) {
@@ -348,6 +383,7 @@
 				updateDisciplina(msgIndex, codigo, (disc) => ({
 					...disc,
 					carregandoDetalhes: false,
+					detalhesCarregados: false,
 					erroDetalhes: msg
 				}));
 			}
@@ -399,17 +435,16 @@
 								const disciplinas = [
 									...(current.disciplinas || []),
 									{
-										cardId: createDiscCardId(assistenteIndex, event.data.codigo),
 										...event.data,
-										carregandoDetalhes: true,
+										carregandoDetalhes: false,
+										detalhesCarregados: false,
 										erroDetalhes: null,
-										expanded: false
+										aberto: false
 									} satisfies DisciplinaUI
 								];
 
 								historico[assistenteIndex] = { ...current, disciplinas };
 								historico = [...historico];
-								void enriquecerDisciplina(assistenteIndex, event.data.codigo, matrizCurricular);
 							}
 							break;
 						case 'done':
@@ -576,7 +611,7 @@
 											🎓 {msg.disciplinas.length} {msg.disciplinas.length === 1 ? 'disciplina encontrada' : 'disciplinas encontradas'}
 										</p>
 										<div class="mt-4 space-y-3">
-											{#each msg.disciplinas as disc (disc.cardId)}
+											{#each msg.disciplinas as disc, discIndex}
 												<div class="assistant-card rounded-xl p-3 sm:p-4" transition:fly={{ y: 20, duration: 300 }}>
 													<div class="flex items-start justify-between gap-2">
 														<div>
@@ -586,11 +621,11 @@
 														<button
 															type="button"
 															class="text-white/60 hover:text-white transition-colors"
-															on:click|stopPropagation={() => toggleExpand(msgIndex, disc.cardId)}
-															aria-label={disc.expanded ? 'Recolher card' : 'Expandir card'}
+															on:click={() => toggleExpand(msgIndex, discIndex)}
+															aria-label={disc.aberto ? 'Recolher card' : 'Expandir card'}
 														>
 															<ChevronDown
-																class={disc.expanded
+																class={disc.aberto
 																	? 'h-4 w-4 transition-transform rotate-180'
 																	: 'h-4 w-4 transition-transform'}
 															/>
@@ -622,7 +657,7 @@
 														</div>
 													{/if}
 
-													{#if disc.expanded}
+													{#if disc.aberto}
 														<div class="mt-3 space-y-2" in:fly={{ y: -6, duration: 180 }} out:fly={{ y: -4, duration: 140 }}>
 															{#if disc.carregandoDetalhes}
 																<div class="flex items-center gap-2 text-xs text-white/65">
@@ -678,20 +713,30 @@
 														<button
 															type="button"
 															class="assistant-action-btn"
-															on:click={() => abrirModalAdicionar(disc)}
-															disabled={!disc.idMateria}
+															on:click={() => void abrirModalAdicionarComDetalhes(msgIndex, discIndex)}
+															disabled={!!disc.carregandoDetalhes}
 														>
-															<Plus class="h-4 w-4" />
-															Adicionar
+															{#if disc.carregandoDetalhes}
+																<Loader2 class="h-4 w-4 animate-spin" />
+																Carregando...
+															{:else}
+																<Plus class="h-4 w-4" />
+																Adicionar
+															{/if}
 														</button>
 														<button
 															type="button"
 															class="assistant-action-btn secondary"
-															on:click={() => abrirModalTurmas(disc)}
-															disabled={!disc.idMateria || disc.carregandoDetalhes}
+															on:click={() => void abrirModalTurmasComDetalhes(msgIndex, discIndex)}
+															disabled={!!disc.carregandoDetalhes}
 														>
-															<BookOpen class="h-4 w-4" />
-															Ver Turmas
+															{#if disc.carregandoDetalhes}
+																<Loader2 class="h-4 w-4 animate-spin" />
+																Carregando...
+															{:else}
+																<BookOpen class="h-4 w-4" />
+																Ver Turmas
+															{/if}
 														</button>
 													</div>
 												</div>
@@ -765,16 +810,17 @@
 {/if}
 
 {#if turmasModalDisciplina}
+	{@const turmasModalLista = getTurmasSeguras(turmasModalDisciplina)}
 	<div class="fixed inset-0 z-[500] flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm" in:fade={{ duration: 160 }} out:fade={{ duration: 130 }}>
 		<div class="w-full max-w-3xl rounded-2xl border border-white/15 bg-slate-950/95 shadow-2xl" in:fly={{ y: 10, duration: 180 }} out:fly={{ y: 8, duration: 140 }}>
 			<div class="flex items-start justify-between border-b border-white/10 px-5 py-4">
 				<div>
 					<h3 class="text-white font-semibold text-lg">Turmas Disponíveis</h3>
 					<p class="text-white/70 text-sm">
-						{turmasModalDisciplina.codigo} - {turmasModalDisciplina.nome}
+						{turmasModalDisciplina?.codigo ?? '-'} - {turmasModalDisciplina?.nome ?? '-'}
 					</p>
 					<p class="text-xs text-white/55 mt-1">
-						Última atualização: {formatDate(turmasModalDisciplina.ultimaAtualizacaoTurmas)}
+						Última atualização: {formatDate(turmasModalDisciplina?.ultimaAtualizacaoTurmas)}
 					</p>
 				</div>
 				<button
@@ -790,10 +836,10 @@
 			</div>
 
 			<div class="max-h-[64vh] overflow-y-auto p-5 space-y-4">
-				{#if !turmasModalDisciplina.turmas || turmasModalDisciplina.turmas.length === 0}
+				{#if turmasModalLista.length === 0}
 					<p class="text-sm text-white/60">Nenhuma turma encontrada para esta disciplina.</p>
 				{:else}
-					{#each turmasModalDisciplina.turmas as turma}
+					{#each turmasModalLista as turma}
 						<div class="rounded-xl border border-white/10 bg-white/[0.06] p-5">
 							<div class="flex flex-wrap items-start justify-between gap-4">
 								<p class="text-[1.08rem] font-bold text-blue-300">
