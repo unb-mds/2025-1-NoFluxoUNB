@@ -20,7 +20,7 @@
 	import { assistenteUIService } from '$lib/services/assistente-ui.service';
 	import { authStore } from '$lib/stores/auth';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
-	import { fly } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	import type { MateriaModel } from '$lib/types/materia';
 	import OptativaTipoModal from '$lib/components/fluxograma/OptativaTipoModal.svelte';
 
@@ -50,8 +50,9 @@
 		}>;
 		ultimaAtualizacaoTurmas?: string | null;
 		carregandoDetalhes?: boolean;
+		detalhesCarregados?: boolean;
 		erroDetalhes?: string | null;
-		expanded?: boolean;
+		aberto: boolean;
 	};
 
 	type ChatMessage = {
@@ -93,11 +94,27 @@
 		}
 	}
 
-	function toggleExpand(msgIndex: number, codigo: string) {
-		updateDisciplina(msgIndex, codigo, (disc) => ({
-			...disc,
-			expanded: !disc.expanded
-		}));
+	function toggleExpand(msgIndex: number, discIndex: number) {
+		const nextHistorico = [...historico];
+		const current = nextHistorico[msgIndex];
+		if (!current?.disciplinas) return;
+		const alvo = current.disciplinas[discIndex];
+		if (!alvo) return;
+		const abrindoAgora = !alvo.aberto;
+
+		nextHistorico[msgIndex] = {
+			...current,
+			disciplinas: current.disciplinas.map((disc, idx) =>
+				idx === discIndex ? { ...disc, aberto: !disc.aberto } : disc
+			)
+		};
+		historico = nextHistorico;
+
+		// Evita travar a UI carregando detalhes de todas as matérias de uma vez.
+		// Carrega só quando o aluno abre o card.
+		if (abrindoAgora && !alvo.detalhesCarregados && !alvo.carregandoDetalhes) {
+			void enriquecerDisciplina(msgIndex, alvo.codigo, getMatrizCurricularUsuario());
+		}
 	}
 
 	function updateDisciplina(
@@ -137,6 +154,17 @@
 		if (vagasOfertadas != null && vagasOcupadas != null)
 			return String(Math.max(0, vagasOfertadas - vagasOcupadas));
 		return '-';
+	}
+
+	function getVagasSobrandoNumero(
+		vagasSobrando: number | null,
+		vagasOfertadas: number | null,
+		vagasOcupadas: number | null
+	): number | null {
+		if (vagasSobrando != null) return Math.max(0, vagasSobrando);
+		if (vagasOfertadas != null && vagasOcupadas != null)
+			return Math.max(0, vagasOfertadas - vagasOcupadas);
+		return null;
 	}
 
 	const DIA_MAP: Record<string, string> = {
@@ -278,6 +306,37 @@
 		turmasModalDisciplina = disc;
 	}
 
+	function getTurmasSeguras(disc?: DisciplinaUI | null): NonNullable<DisciplinaUI['turmas']> {
+		if (!disc?.turmas || !Array.isArray(disc.turmas)) return [];
+		return disc.turmas.filter((turma) => !!turma && typeof turma === 'object');
+	}
+
+	async function garantirDetalhesDisciplina(
+		msgIndex: number,
+		discIndex: number
+	): Promise<DisciplinaUI | null> {
+		const msg = historico[msgIndex];
+		const disc = msg?.disciplinas?.[discIndex];
+		if (!disc) return null;
+		if (disc.detalhesCarregados) return disc;
+		if (!disc.carregandoDetalhes) {
+			await enriquecerDisciplina(msgIndex, disc.codigo, getMatrizCurricularUsuario());
+		}
+		return historico[msgIndex]?.disciplinas?.[discIndex] ?? null;
+	}
+
+	async function abrirModalAdicionarComDetalhes(msgIndex: number, discIndex: number) {
+		const disc = await garantirDetalhesDisciplina(msgIndex, discIndex);
+		if (!disc?.idMateria) return;
+		abrirModalAdicionar(disc);
+	}
+
+	async function abrirModalTurmasComDetalhes(msgIndex: number, discIndex: number) {
+		const disc = await garantirDetalhesDisciplina(msgIndex, discIndex);
+		if (!disc) return;
+		abrirModalTurmas(disc);
+	}
+
 	async function enriquecerDisciplina(msgIndex: number, codigo: string, matrizCurricular: string) {
 		const key = `${codigo.toUpperCase()}|${matrizCurricular}`;
 		if (detailsCache.has(key)) {
@@ -316,6 +375,7 @@
 					turmas: context.turmas,
 					ultimaAtualizacaoTurmas: context.ultimaAtualizacaoTurmas,
 					carregandoDetalhes: false,
+					detalhesCarregados: true,
 					erroDetalhes: null
 				}));
 			} catch (error) {
@@ -323,6 +383,7 @@
 				updateDisciplina(msgIndex, codigo, (disc) => ({
 					...disc,
 					carregandoDetalhes: false,
+					detalhesCarregados: false,
 					erroDetalhes: msg
 				}));
 			}
@@ -375,15 +436,15 @@
 									...(current.disciplinas || []),
 									{
 										...event.data,
-										carregandoDetalhes: true,
+										carregandoDetalhes: false,
+										detalhesCarregados: false,
 										erroDetalhes: null,
-										expanded: false
+										aberto: false
 									} satisfies DisciplinaUI
 								];
 
 								historico[assistenteIndex] = { ...current, disciplinas };
 								historico = [...historico];
-								void enriquecerDisciplina(assistenteIndex, event.data.codigo, matrizCurricular);
 							}
 							break;
 						case 'done':
@@ -550,7 +611,7 @@
 											🎓 {msg.disciplinas.length} {msg.disciplinas.length === 1 ? 'disciplina encontrada' : 'disciplinas encontradas'}
 										</p>
 										<div class="mt-4 space-y-3">
-											{#each msg.disciplinas as disc, discIndex (`${msgIndex}-${disc.codigo}-${discIndex}`)}
+											{#each msg.disciplinas as disc, discIndex}
 												<div class="assistant-card rounded-xl p-3 sm:p-4" transition:fly={{ y: 20, duration: 300 }}>
 													<div class="flex items-start justify-between gap-2">
 														<div>
@@ -560,11 +621,11 @@
 														<button
 															type="button"
 															class="text-white/60 hover:text-white transition-colors"
-															on:click={() => toggleExpand(msgIndex, disc.codigo)}
-															aria-label={disc.expanded ? 'Recolher card' : 'Expandir card'}
+															on:click={() => toggleExpand(msgIndex, discIndex)}
+															aria-label={disc.aberto ? 'Recolher card' : 'Expandir card'}
 														>
 															<ChevronDown
-																class={disc.expanded
+																class={disc.aberto
 																	? 'h-4 w-4 transition-transform rotate-180'
 																	: 'h-4 w-4 transition-transform'}
 															/>
@@ -596,8 +657,8 @@
 														</div>
 													{/if}
 
-													{#if disc.expanded}
-														<div class="mt-3 space-y-2">
+													{#if disc.aberto}
+														<div class="mt-3 space-y-2" in:fly={{ y: -6, duration: 180 }} out:fly={{ y: -4, duration: 140 }}>
 															{#if disc.carregandoDetalhes}
 																<div class="flex items-center gap-2 text-xs text-white/65">
 																	<Loader2 class="h-3.5 w-3.5 animate-spin" />
@@ -607,16 +668,18 @@
 																<p class="text-xs text-red-300/90">{disc.erroDetalhes}</p>
 															{/if}
 
-															{#if disc.prerequisitos && disc.prerequisitos.length > 0}
-																<div>
-																	<p class="text-xs text-white/60 mb-1">Pré-requisitos:</p>
+															<div>
+																<p class="text-xs text-white/60 mb-1">Pré-requisitos:</p>
+																{#if disc.prerequisitos && disc.prerequisitos.length > 0}
 																	<div class="flex flex-wrap gap-1.5">
 																		{#each disc.prerequisitos as req}
 																			<span class="req-chip">{req}</span>
 																		{/each}
 																	</div>
-																</div>
-															{/if}
+																{:else}
+																	<p class="text-sm text-white/70">Esta matéria não possui pré-requisito.</p>
+																{/if}
+															</div>
 
 															{#if disc.prerequisitosExpressoes && disc.prerequisitosExpressoes.length > 0}
 																<div class="space-y-2">
@@ -650,20 +713,30 @@
 														<button
 															type="button"
 															class="assistant-action-btn"
-															on:click={() => abrirModalAdicionar(disc)}
-															disabled={!disc.idMateria}
+															on:click={() => void abrirModalAdicionarComDetalhes(msgIndex, discIndex)}
+															disabled={!!disc.carregandoDetalhes}
 														>
-															<Plus class="h-4 w-4" />
-															Adicionar
+															{#if disc.carregandoDetalhes}
+																<Loader2 class="h-4 w-4 animate-spin" />
+																Carregando...
+															{:else}
+																<Plus class="h-4 w-4" />
+																Adicionar
+															{/if}
 														</button>
 														<button
 															type="button"
 															class="assistant-action-btn secondary"
-															on:click={() => abrirModalTurmas(disc)}
-															disabled={!disc.idMateria || disc.carregandoDetalhes}
+															on:click={() => void abrirModalTurmasComDetalhes(msgIndex, discIndex)}
+															disabled={!!disc.carregandoDetalhes}
 														>
-															<BookOpen class="h-4 w-4" />
-															Ver Turmas
+															{#if disc.carregandoDetalhes}
+																<Loader2 class="h-4 w-4 animate-spin" />
+																Carregando...
+															{:else}
+																<BookOpen class="h-4 w-4" />
+																Ver Turmas
+															{/if}
 														</button>
 													</div>
 												</div>
@@ -737,16 +810,17 @@
 {/if}
 
 {#if turmasModalDisciplina}
-	<div class="fixed inset-0 z-[500] flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm">
-		<div class="w-full max-w-3xl rounded-2xl border border-white/15 bg-slate-950/95 shadow-2xl">
+	{@const turmasModalLista = getTurmasSeguras(turmasModalDisciplina)}
+	<div class="fixed inset-0 z-[500] flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm" in:fade={{ duration: 160 }} out:fade={{ duration: 130 }}>
+		<div class="w-full max-w-3xl rounded-2xl border border-white/15 bg-slate-950/95 shadow-2xl" in:fly={{ y: 10, duration: 180 }} out:fly={{ y: 8, duration: 140 }}>
 			<div class="flex items-start justify-between border-b border-white/10 px-5 py-4">
 				<div>
 					<h3 class="text-white font-semibold text-lg">Turmas Disponíveis</h3>
 					<p class="text-white/70 text-sm">
-						{turmasModalDisciplina.codigo} - {turmasModalDisciplina.nome}
+						{turmasModalDisciplina?.codigo ?? '-'} - {turmasModalDisciplina?.nome ?? '-'}
 					</p>
 					<p class="text-xs text-white/55 mt-1">
-						Última atualização: {formatDate(turmasModalDisciplina.ultimaAtualizacaoTurmas)}
+						Última atualização: {formatDate(turmasModalDisciplina?.ultimaAtualizacaoTurmas)}
 					</p>
 				</div>
 				<button
@@ -762,10 +836,10 @@
 			</div>
 
 			<div class="max-h-[64vh] overflow-y-auto p-5 space-y-4">
-				{#if !turmasModalDisciplina.turmas || turmasModalDisciplina.turmas.length === 0}
+				{#if turmasModalLista.length === 0}
 					<p class="text-sm text-white/60">Nenhuma turma encontrada para esta disciplina.</p>
 				{:else}
-					{#each turmasModalDisciplina.turmas as turma}
+					{#each turmasModalLista as turma}
 						<div class="rounded-xl border border-white/10 bg-white/[0.06] p-5">
 							<div class="flex flex-wrap items-start justify-between gap-4">
 								<p class="text-[1.08rem] font-bold text-blue-300">
@@ -773,7 +847,12 @@
 								</p>
 								<p class="text-sm">
 									<span class="text-white/80">Vagas sobrando:</span>
-									<span class="ml-1 text-white font-black text-lg">
+									<span
+										class="ml-1 font-black text-lg"
+										class:text-green-400={getVagasSobrandoNumero(turma.vagasSobrando, turma.vagasOfertadas, turma.vagasOcupadas) !== null && getVagasSobrandoNumero(turma.vagasSobrando, turma.vagasOfertadas, turma.vagasOcupadas)! > 0}
+										class:text-red-400={getVagasSobrandoNumero(turma.vagasSobrando, turma.vagasOfertadas, turma.vagasOcupadas) === 0}
+										class:text-white={getVagasSobrandoNumero(turma.vagasSobrando, turma.vagasOfertadas, turma.vagasOcupadas) === null}
+									>
 										{formatVagas(turma.vagasSobrando, turma.vagasOfertadas, turma.vagasOcupadas)}
 									</span>
 								</p>
@@ -796,10 +875,7 @@
 										<div class="space-y-1.5">
 											{#each formatHorarioSigaa(turma.horario) as linha}
 												<div class="grid grid-cols-[108px_minmax(0,1fr)] gap-2 text-[13px] leading-snug rounded-md bg-black/20 px-2 py-1">
-													<p class="text-white/90 font-semibold">
-														{linha.dia}
-														<span class="text-white/70">({linha.faixas.join(' | ')})</span>
-													</p>
+													<p class="text-white/90 font-semibold">{linha.dia}</p>
 													<p class="text-white font-medium">{compactarFaixasHorarias(linha.faixas)}</p>
 												</div>
 											{/each}
@@ -924,10 +1000,26 @@
 		font-size: 0.875rem;
 		font-weight: 600;
 		border: 1px solid rgba(255, 255, 255, 0.18);
+		transition:
+			transform 160ms ease,
+			box-shadow 160ms ease,
+			opacity 160ms ease,
+			background 160ms ease;
+		will-change: transform;
 	}
 
 	.assistant-action-btn.secondary {
 		background: rgba(15, 23, 42, 0.8);
+	}
+
+	.assistant-action-btn:hover:not(:disabled) {
+		transform: translateY(-1px) scale(1.01);
+		box-shadow: 0 8px 20px rgba(236, 72, 153, 0.25);
+	}
+
+	.assistant-action-btn.secondary:hover:not(:disabled) {
+		box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+		background: rgba(30, 41, 59, 0.9);
 	}
 
 	.assistant-action-btn:disabled {

@@ -89,6 +89,16 @@ class AssistenteUIService {
 		};
 	}
 
+	private async fetchPrerequisitosViaBackend(codigoMateria: string): Promise<PrereqRow[]> {
+		const url = `${config.apiUrl}/assistente/prerequisitos-by-codigo?codigo=${encodeURIComponent(
+			codigoMateria
+		)}`;
+		const response = await fetch(url);
+		if (!response.ok) return [];
+		const data = (await response.json()) as { prerequisitos?: PrereqRow[] };
+		return Array.isArray(data.prerequisitos) ? data.prerequisitos : [];
+	}
+
 	private extractSubjectCodesFromExpression(expression: string | null | undefined): string[] {
 		if (!expression) return [];
 		const normalized = String(expression)
@@ -163,7 +173,15 @@ class AssistenteUIService {
 			? materiaCursoRows.find((row) => Number(row.id_matriz) === matrizId) ?? materiaCursoRows[0]
 			: materiaCursoRows[0];
 
-		const prereqRows = (prereqResult.data ?? []) as PrereqRow[];
+		let prereqRows = (prereqResult.data ?? []) as PrereqRow[];
+		if (prereqRows.length === 0 || prereqResult.error) {
+			try {
+				const fallbackPrereqs = await this.fetchPrerequisitosViaBackend(codigo);
+				if (fallbackPrereqs.length > 0) prereqRows = fallbackPrereqs;
+			} catch {
+				// mantém vazio caso fallback também falhe
+			}
+		}
 		const prereqCodes = new Set<string>();
 		const prereqExpressionRows: Array<{
 			expressaoOriginal: string | null;
