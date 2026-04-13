@@ -15,6 +15,7 @@ import { SabiaService } from '../services/sabia.service';
 import { removeAccents } from '../utils/text.utils';
 import { formatRanking } from '../utils/ranking.formatter';
 import { createControllerLogger } from '../utils/controller_logger';
+import { SupabaseWrapper } from '../supabase_wrapper';
 
 const ragflow = new RagflowService();
 const sabia = new SabiaService();
@@ -163,6 +164,69 @@ export const AssistenteController: EndpointController = {
                 const msg = error instanceof Error ? error.message : String(error);
                 logger.error(`Error after ${duration}ms: ${msg}`);
                 return res.status(500).json({ erro: `Ocorreu um erro interno no servidor: ${msg}` });
+            }
+        }),
+
+        'turmas-by-codigo': new Pair(RequestType.GET, async (req: Request, res: Response) => {
+            const logger = createControllerLogger('AssistenteController', 'turmas-by-codigo');
+            const codigoRaw = String(req.query.codigo ?? '').trim().toUpperCase();
+
+            if (!codigoRaw) {
+                return res.status(400).json({ erro: "Informe o parâmetro 'codigo'." });
+            }
+
+            try {
+                const { data: materiaRows, error: materiaError } = await SupabaseWrapper.get()
+                    .from('materias')
+                    .select('id_materia')
+                    .eq('codigo_materia', codigoRaw)
+                    .limit(1);
+
+                if (materiaError) {
+                    logger.error(`Erro ao buscar matéria por código: ${materiaError.message}`);
+                    return res.status(500).json({ erro: 'Erro ao buscar matéria.' });
+                }
+
+                if (!materiaRows || materiaRows.length === 0) {
+                    return res.json({ turmas: [], ultimaAtualizacaoTurmas: null });
+                }
+
+                const idMateria = Number(materiaRows[0].id_materia);
+                const { data: turmasRows, error: turmasError } = await SupabaseWrapper.get()
+                    .from('turmas')
+                    .select('*')
+                    .eq('id_materia', idMateria)
+                    .order('ano_periodo', { ascending: false })
+                    .limit(50);
+
+                if (turmasError) {
+                    logger.error(`Erro ao buscar turmas: ${turmasError.message}`);
+                    return res.status(500).json({ erro: 'Erro ao buscar turmas.' });
+                }
+
+                const turmas = (turmasRows ?? []).map((row) => ({
+                    turma: row.turma ?? '',
+                    anoPeriodo: row.ano_periodo ?? '',
+                    docente: row.docente ?? '',
+                    horario: row.horario ?? '',
+                    local: row.local ?? '',
+                    vagasOfertadas: row.vagas_ofertadas ?? null,
+                    vagasOcupadas: row.vagas_ocupadas ?? null,
+                    vagasSobrando: row.vagas_sobrando ?? null,
+                    lastUpdatedAt: row.last_updated_at ?? row.updated_at ?? null,
+                }));
+
+                const ultimaAtualizacaoTurmas = turmas
+                    .map((t) => t.lastUpdatedAt)
+                    .filter((v) => typeof v === 'string')
+                    .sort()
+                    .reverse()[0] ?? null;
+
+                return res.json({ turmas, ultimaAtualizacaoTurmas });
+            } catch (error) {
+                const msg = error instanceof Error ? error.message : String(error);
+                logger.error(`Erro interno ao buscar turmas: ${msg}`);
+                return res.status(500).json({ erro: `Erro interno: ${msg}` });
             }
         }),
     },
