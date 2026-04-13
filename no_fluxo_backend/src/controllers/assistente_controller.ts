@@ -229,5 +229,48 @@ export const AssistenteController: EndpointController = {
                 return res.status(500).json({ erro: `Erro interno: ${msg}` });
             }
         }),
+
+        'prerequisitos-by-codigo': new Pair(RequestType.GET, async (req: Request, res: Response) => {
+            const logger = createControllerLogger('AssistenteController', 'prerequisitos-by-codigo');
+            const codigoRaw = String(req.query.codigo ?? '').trim().toUpperCase();
+
+            if (!codigoRaw) {
+                return res.status(400).json({ erro: "Informe o parâmetro 'codigo'." });
+            }
+
+            try {
+                const { data: materiaRows, error: materiaError } = await SupabaseWrapper.get()
+                    .from('materias')
+                    .select('id_materia')
+                    .eq('codigo_materia', codigoRaw)
+                    .limit(1);
+
+                if (materiaError) {
+                    logger.error(`Erro ao buscar matéria: ${materiaError.message}`);
+                    return res.status(500).json({ erro: 'Erro ao buscar matéria.' });
+                }
+
+                if (!materiaRows || materiaRows.length === 0) {
+                    return res.json({ prerequisitos: [] });
+                }
+
+                const idMateria = Number(materiaRows[0].id_materia);
+                const { data: prereqRows, error: prereqError } = await SupabaseWrapper.get()
+                    .from('pre_requisitos')
+                    .select('id_materia_requisito, expressao_original, expressao_logica, materias:id_materia_requisito(codigo_materia, nome_materia)')
+                    .eq('id_materia', idMateria);
+
+                if (prereqError) {
+                    logger.error(`Erro ao buscar pré-requisitos: ${prereqError.message}`);
+                    return res.status(500).json({ erro: 'Erro ao buscar pré-requisitos.' });
+                }
+
+                return res.json({ prerequisitos: prereqRows ?? [] });
+            } catch (error) {
+                const msg = error instanceof Error ? error.message : String(error);
+                logger.error(`Erro interno ao buscar pré-requisitos: ${msg}`);
+                return res.status(500).json({ erro: `Erro interno: ${msg}` });
+            }
+        }),
     },
 };

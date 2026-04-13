@@ -20,12 +20,13 @@
 	import { assistenteUIService } from '$lib/services/assistente-ui.service';
 	import { authStore } from '$lib/stores/auth';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
-	import { fly } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	import type { MateriaModel } from '$lib/types/materia';
 	import OptativaTipoModal from '$lib/components/fluxograma/OptativaTipoModal.svelte';
 
 	type DisciplinaStream = NonNullable<StreamEvent['data']>;
 	type DisciplinaUI = DisciplinaStream & {
+		cardId: string;
 		idMateria?: number;
 		departamento?: string;
 		ementa?: string;
@@ -64,6 +65,7 @@
 	let carregando = false;
 	let etapaAtual = '';
 	let historico: ChatMessage[] = [];
+	let discCardSeq = 0;
 	let materiaModal: MateriaModel | null = null;
 	let turmasModalDisciplina: DisciplinaUI | null = null;
 
@@ -93,11 +95,23 @@
 		}
 	}
 
-	function toggleExpand(msgIndex: number, codigo: string) {
-		updateDisciplina(msgIndex, codigo, (disc) => ({
-			...disc,
-			expanded: !disc.expanded
-		}));
+	function createDiscCardId(msgIndex: number, discCode: string): string {
+		discCardSeq += 1;
+		return `disc-${msgIndex}-${String(discCode ?? '').trim().toUpperCase()}-${discCardSeq}`;
+	}
+
+	function toggleExpand(msgIndex: number, cardId: string) {
+		const nextHistorico = [...historico];
+		const current = nextHistorico[msgIndex];
+		if (!current?.disciplinas) return;
+
+		nextHistorico[msgIndex] = {
+			...current,
+			disciplinas: current.disciplinas.map((disc) =>
+				disc.cardId === cardId ? { ...disc, expanded: !disc.expanded } : disc
+			)
+		};
+		historico = nextHistorico;
 	}
 
 	function updateDisciplina(
@@ -137,6 +151,17 @@
 		if (vagasOfertadas != null && vagasOcupadas != null)
 			return String(Math.max(0, vagasOfertadas - vagasOcupadas));
 		return '-';
+	}
+
+	function getVagasSobrandoNumero(
+		vagasSobrando: number | null,
+		vagasOfertadas: number | null,
+		vagasOcupadas: number | null
+	): number | null {
+		if (vagasSobrando != null) return Math.max(0, vagasSobrando);
+		if (vagasOfertadas != null && vagasOcupadas != null)
+			return Math.max(0, vagasOfertadas - vagasOcupadas);
+		return null;
 	}
 
 	const DIA_MAP: Record<string, string> = {
@@ -374,6 +399,7 @@
 								const disciplinas = [
 									...(current.disciplinas || []),
 									{
+										cardId: createDiscCardId(assistenteIndex, event.data.codigo),
 										...event.data,
 										carregandoDetalhes: true,
 										erroDetalhes: null,
@@ -550,7 +576,7 @@
 											🎓 {msg.disciplinas.length} {msg.disciplinas.length === 1 ? 'disciplina encontrada' : 'disciplinas encontradas'}
 										</p>
 										<div class="mt-4 space-y-3">
-											{#each msg.disciplinas as disc, discIndex (`${msgIndex}-${disc.codigo}-${discIndex}`)}
+											{#each msg.disciplinas as disc (disc.cardId)}
 												<div class="assistant-card rounded-xl p-3 sm:p-4" transition:fly={{ y: 20, duration: 300 }}>
 													<div class="flex items-start justify-between gap-2">
 														<div>
@@ -560,7 +586,7 @@
 														<button
 															type="button"
 															class="text-white/60 hover:text-white transition-colors"
-															on:click={() => toggleExpand(msgIndex, disc.codigo)}
+															on:click|stopPropagation={() => toggleExpand(msgIndex, disc.cardId)}
 															aria-label={disc.expanded ? 'Recolher card' : 'Expandir card'}
 														>
 															<ChevronDown
@@ -597,7 +623,7 @@
 													{/if}
 
 													{#if disc.expanded}
-														<div class="mt-3 space-y-2">
+														<div class="mt-3 space-y-2" in:fly={{ y: -6, duration: 180 }} out:fly={{ y: -4, duration: 140 }}>
 															{#if disc.carregandoDetalhes}
 																<div class="flex items-center gap-2 text-xs text-white/65">
 																	<Loader2 class="h-3.5 w-3.5 animate-spin" />
@@ -607,16 +633,18 @@
 																<p class="text-xs text-red-300/90">{disc.erroDetalhes}</p>
 															{/if}
 
-															{#if disc.prerequisitos && disc.prerequisitos.length > 0}
-																<div>
-																	<p class="text-xs text-white/60 mb-1">Pré-requisitos:</p>
+															<div>
+																<p class="text-xs text-white/60 mb-1">Pré-requisitos:</p>
+																{#if disc.prerequisitos && disc.prerequisitos.length > 0}
 																	<div class="flex flex-wrap gap-1.5">
 																		{#each disc.prerequisitos as req}
 																			<span class="req-chip">{req}</span>
 																		{/each}
 																	</div>
-																</div>
-															{/if}
+																{:else}
+																	<p class="text-sm text-white/70">Esta matéria não possui pré-requisito.</p>
+																{/if}
+															</div>
 
 															{#if disc.prerequisitosExpressoes && disc.prerequisitosExpressoes.length > 0}
 																<div class="space-y-2">
@@ -737,8 +765,8 @@
 {/if}
 
 {#if turmasModalDisciplina}
-	<div class="fixed inset-0 z-[500] flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm">
-		<div class="w-full max-w-3xl rounded-2xl border border-white/15 bg-slate-950/95 shadow-2xl">
+	<div class="fixed inset-0 z-[500] flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm" in:fade={{ duration: 160 }} out:fade={{ duration: 130 }}>
+		<div class="w-full max-w-3xl rounded-2xl border border-white/15 bg-slate-950/95 shadow-2xl" in:fly={{ y: 10, duration: 180 }} out:fly={{ y: 8, duration: 140 }}>
 			<div class="flex items-start justify-between border-b border-white/10 px-5 py-4">
 				<div>
 					<h3 class="text-white font-semibold text-lg">Turmas Disponíveis</h3>
@@ -773,7 +801,12 @@
 								</p>
 								<p class="text-sm">
 									<span class="text-white/80">Vagas sobrando:</span>
-									<span class="ml-1 text-white font-black text-lg">
+									<span
+										class="ml-1 font-black text-lg"
+										class:text-green-400={getVagasSobrandoNumero(turma.vagasSobrando, turma.vagasOfertadas, turma.vagasOcupadas) !== null && getVagasSobrandoNumero(turma.vagasSobrando, turma.vagasOfertadas, turma.vagasOcupadas)! > 0}
+										class:text-red-400={getVagasSobrandoNumero(turma.vagasSobrando, turma.vagasOfertadas, turma.vagasOcupadas) === 0}
+										class:text-white={getVagasSobrandoNumero(turma.vagasSobrando, turma.vagasOfertadas, turma.vagasOcupadas) === null}
+									>
 										{formatVagas(turma.vagasSobrando, turma.vagasOfertadas, turma.vagasOcupadas)}
 									</span>
 								</p>
@@ -796,10 +829,7 @@
 										<div class="space-y-1.5">
 											{#each formatHorarioSigaa(turma.horario) as linha}
 												<div class="grid grid-cols-[108px_minmax(0,1fr)] gap-2 text-[13px] leading-snug rounded-md bg-black/20 px-2 py-1">
-													<p class="text-white/90 font-semibold">
-														{linha.dia}
-														<span class="text-white/70">({linha.faixas.join(' | ')})</span>
-													</p>
+													<p class="text-white/90 font-semibold">{linha.dia}</p>
 													<p class="text-white font-medium">{compactarFaixasHorarias(linha.faixas)}</p>
 												</div>
 											{/each}
@@ -924,10 +954,26 @@
 		font-size: 0.875rem;
 		font-weight: 600;
 		border: 1px solid rgba(255, 255, 255, 0.18);
+		transition:
+			transform 160ms ease,
+			box-shadow 160ms ease,
+			opacity 160ms ease,
+			background 160ms ease;
+		will-change: transform;
 	}
 
 	.assistant-action-btn.secondary {
 		background: rgba(15, 23, 42, 0.8);
+	}
+
+	.assistant-action-btn:hover:not(:disabled) {
+		transform: translateY(-1px) scale(1.01);
+		box-shadow: 0 8px 20px rgba(236, 72, 153, 0.25);
+	}
+
+	.assistant-action-btn.secondary:hover:not(:disabled) {
+		box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+		background: rgba(30, 41, 59, 0.9);
 	}
 
 	.assistant-action-btn:disabled {
