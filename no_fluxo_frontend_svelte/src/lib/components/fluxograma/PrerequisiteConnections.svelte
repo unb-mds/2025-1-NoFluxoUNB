@@ -629,14 +629,8 @@
 		return `M ${x1} ${y1} C ${x1 - controlOffset} ${y1}, ${x2 + controlOffset} ${y2}, ${x2} ${y2}`;
 	}
 
-	/** Modo direto: bezier; modo todas: vão entre colunas quando há `routing`. */
+	/** Usa o mesmo traçado dinâmico (bezier) das conexões individuais em todos os modos. */
 	function pathForLine(line: ConnectionLine): string {
-		if (line.routing) {
-			if (line.sameColumnStack) {
-				return buildSameColumnStackPath(line.x1, line.y1, line.x2, line.y2);
-			}
-			return getGapRoutedPath(line);
-		}
 		return getPath(line);
 	}
 
