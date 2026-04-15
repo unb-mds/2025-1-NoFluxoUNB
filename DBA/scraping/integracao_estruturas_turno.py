@@ -37,11 +37,10 @@ try:
 except ImportError:
     pass
 
-# Mesmas credenciais do integracao_banco; usa env só se for chave JWT válida (service_role)
-_SERVICE_KEY = '.._o2wq5p0C6YBIrTGJsNl6xdg4l8Ju7CbwvaaeCWbeAc'
-_env_key = os.getenv('SUPABASE_SERVICE_ROLE_KEY') or os.getenv('SUPABASE_SERVICE_KEY') or os.getenv('SUPABASE_KEY') or ''
-SUPABASE_URL = os.getenv('SUPABASE_URL', 'https://.supabase.co')
-SUPABASE_KEY = _env_key if (_env_key and len(_env_key) > 50 and _env_key.startswith('eyJ')) else _SERVICE_KEY
+SUPABASE_URL = os.getenv('SUPABASE_URL')
+SUPABASE_KEY = os.getenv('SUPABASE_SERVICE_ROLE_KEY') or os.getenv('SUPABASE_SERVICE_KEY') or os.getenv('SUPABASE_KEY')
+if not SUPABASE_URL or not SUPABASE_KEY:
+    raise RuntimeError("Defina SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY no .env (ver no_fluxo_backend/.env.example).")
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 

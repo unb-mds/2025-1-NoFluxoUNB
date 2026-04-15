@@ -27,10 +27,10 @@ try:
 except ImportError:
     pass
 
-SUPABASE_URL = os.getenv('SUPABASE_URL', 'https://lijmhbstgdinsukovyfl.supabase.co')
-SUPABASE_KEY = os.getenv('SUPABASE_SERVICE_ROLE_KEY') or os.getenv('SUPABASE_KEY') or ''
-if not SUPABASE_KEY or len(SUPABASE_KEY) < 50:
-    SUPABASE_KEY = '.s._o2wq5p0C6YBIrTGJsNl6xdg4l8Ju7CbwvaaeCWbeAc'
+SUPABASE_URL = os.getenv('SUPABASE_URL')
+SUPABASE_KEY = os.getenv('SUPABASE_SERVICE_ROLE_KEY') or os.getenv('SUPABASE_KEY')
+if not SUPABASE_URL or not SUPABASE_KEY:
+    raise RuntimeError("Defina SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY no .env (ver no_fluxo_backend/.env.example).")
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 

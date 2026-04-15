@@ -74,8 +74,10 @@ PASTA_MATERIAS = BASE_DIR / 'dados' / 'materias'
 load_dotenv(SCRIPT_DIR / '.env')
 load_dotenv(SCRIPT_DIR.parent.parent / 'no_fluxo_backend' / '.env')
 
-SUPABASE_URL = os.getenv('SUPABASE_URL',  'https://.supabase.co')
-SUPABASE_KEY = os.getenv('SUPABASE_SERVICE_ROLE_KEY') or os.getenv('SUPABASE_KEY', '')
+SUPABASE_URL = os.getenv('SUPABASE_URL')
+SUPABASE_KEY = os.getenv('SUPABASE_SERVICE_ROLE_KEY') or os.getenv('SUPABASE_KEY')
+if not SUPABASE_URL or not SUPABASE_KEY:
+    raise RuntimeError("Defina SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY no .env (ver no_fluxo_backend/.env.example).")
 
 DRY_RUN       = '--dry-run'       in sys.argv
 ONLY_INTEGRITY= '--only-integrity' in sys.argv
