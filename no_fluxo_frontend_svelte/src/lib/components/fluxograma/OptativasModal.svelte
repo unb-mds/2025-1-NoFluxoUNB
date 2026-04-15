@@ -97,7 +97,7 @@
 			const m = filaTipoMaterias[0];
 			if (!m) return;
 			if (tipo === 'futura') store.addOptativa(m, sem ?? 1);
-			else store.registrarOptativaConcluida(m);
+			else store.registrarOptativaConcluida(m, sem ?? 1);
 			consumirTopoFila();
 		}}
 		onpular={consumirTopoFila}

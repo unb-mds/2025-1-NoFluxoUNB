@@ -692,6 +692,25 @@ export class SupabaseDataService {
 		return data;
 	}
 
+	async saveOptativasManuaisData(
+		idUser: number,
+		optativasManuais: Array<{ codigo: string; nivel_alocado: number; status: string; nome?: string | null }>
+	) {
+		const payload = {
+			id_user: idUser,
+			optativas_manuais: optativasManuais
+		};
+
+		const { data, error } = await this.supabase
+			.from('dados_users')
+			.upsert(payload, { onConflict: 'id_user' })
+			.select()
+			.single();
+
+		if (error) throw new Error(`Erro ao salvar optativas manuais: ${error.message}`);
+		return data;
+	}
+
 	/**
 	 * Delete user's flowchart data
 	 * REPLACES: DELETE /fluxograma/delete-fluxograma

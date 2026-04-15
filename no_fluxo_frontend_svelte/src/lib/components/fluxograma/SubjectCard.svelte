@@ -38,6 +38,10 @@
 	let concluidaPorEquivalencia = $derived(
 		status === SubjectStatusEnum.COMPLETED && userData?.tipoDado === 'equivalencia'
 	);
+	let destaqueReprovacao = $derived.by(() => {
+		const st = String(userData?.status ?? '').toUpperCase();
+		return st === 'REP' || st === 'REPF' || st === 'REPMF';
+	});
 
 	let isSelected = $derived(store.state.selectedSubjectCode === materia.codigoMateria);
 	let connectionsEnabled = $derived(store.state.connectionMode !== 'off');
@@ -117,6 +121,9 @@
 			return `${base} bg-gradient-to-br ${gradient} border-white/60 ring-2 ring-white/30 opacity-100`;
 		}
 		let borderExtras = 'border-white/10';
+		if (destaqueReprovacao) {
+			borderExtras = 'border-red-300/85 ring-2 ring-red-400/45 shadow-md shadow-red-700/20';
+		}
 		const role = highlightRole;
 		// Cores alinhadas a CHAIN_VISUAL (tailwind precisa do literal no fonte)
 		if (role === 'focus') {

@@ -66,6 +66,8 @@
 	let etapaAtual = '';
 	let historico: ChatMessage[] = [];
 	let materiaModal: MateriaModel | null = null;
+	let permitirConcluidaNoModal = false;
+	let salvandoOptativas = false;
 	let turmasModalDisciplina: DisciplinaUI | null = null;
 
 	const assistente = new AssistenteService();
@@ -290,16 +292,17 @@
 			idMateria: Number(disc.idMateria ?? -1),
 			nomeMateria: disc.nome,
 			codigoMateria: disc.codigo,
-			nivel: Number(disc.nivel ?? 0),
-			tipoNatureza: disc.tipoNatureza ?? null,
+			// Na IA, qualquer item adicionado por este fluxo deve entrar como optativa planejada.
+			nivel: 0,
+			tipoNatureza: 1,
 			creditos: Number(disc.creditos ?? 0),
 			preRequisitos: []
 		};
 	}
 
 	function abrirModalAdicionar(disc: DisciplinaUI) {
-		if (!disc.idMateria) return;
 		materiaModal = toMateriaModel(disc);
+		permitirConcluidaNoModal = Number(disc.idMateria ?? -1) > 0;
 	}
 
 	function abrirModalTurmas(disc: DisciplinaUI) {
@@ -327,7 +330,7 @@
 
 	async function abrirModalAdicionarComDetalhes(msgIndex: number, discIndex: number) {
 		const disc = await garantirDetalhesDisciplina(msgIndex, discIndex);
-		if (!disc?.idMateria) return;
+		if (!disc) return;
 		abrirModalAdicionar(disc);
 	}
 
@@ -335,6 +338,16 @@
 		const disc = await garantirDetalhesDisciplina(msgIndex, discIndex);
 		if (!disc) return;
 		abrirModalTurmas(disc);
+	}
+
+	async function salvarOptativasNaIA() {
+		if (salvandoOptativas) return;
+		salvandoOptativas = true;
+		try {
+			await fluxogramaStore.saveOptativasPlanejadas();
+		} finally {
+			salvandoOptativas = false;
+		}
 	}
 
 	async function enriquecerDisciplina(msgIndex: number, codigo: string, matrizCurricular: string) {
@@ -499,90 +512,65 @@
 
 <AnimatedBackground />
 
-<div class="relative z-10 mx-auto w-full max-w-none px-3 py-4 sm:px-4 sm:py-8 lg:px-8 h-[calc(100vh-88px)] sm:h-[calc(100vh-100px)] flex flex-col">
-	<!-- Header -->
-	<div class="mb-6">
-		<div class="flex items-center gap-3">
-			<div class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-purple-600">
-				<Sparkles class="h-6 w-6 text-white" />
-			</div>
-			<div>
-				<h1 class="text-2xl font-bold text-white">Darcy AI</h1>
-				<p class="text-gray-300 text-sm">Powered by Maritaca AI</p>
+<div class="relative z-10 mx-auto flex h-[calc(100vh-88px)] min-h-0 w-full max-w-none flex-col px-2 py-2 sm:h-[calc(100vh-100px)] sm:px-3 sm:py-3 lg:px-6">
+	<!-- Chat Container -->
+	<div class="chat-shell relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl">
+		<div class="pointer-events-none absolute inset-x-0 top-2 z-10 flex justify-center">
+			<div class="flex items-center gap-2 rounded-full border border-white/10 bg-black/25 px-3 py-1 backdrop-blur-[1px]">
+				<Sparkles class="h-3 w-3 text-pink-400" />
+				<div class="flex items-baseline gap-1">
+					<span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30 sm:text-xs">Darcy AI</span>
+					<span class="text-[9px] font-medium text-white/20 sm:text-[10px]">Powered by Maritaca AI</span>
+				</div>
 			</div>
 		</div>
-	</div>
-
-	<!-- Banner de orientações -->
-	<div class="mb-3 sm:mb-4 rounded-xl border border-white/10 bg-black/40 px-3 py-2.5 sm:px-4 sm:py-3 text-xs sm:text-sm text-gray-200">
-		<p class="font-semibold text-gray-100 mb-0.5 sm:mb-1">Como usar o Darcy AI</p>
-		<p class="text-gray-300">
-			Envie só <span class="font-semibold">tópicos de interesse</span> (ex.: "IA e visão computacional"). Evite papo paralelo:
-			perguntas diretas geram <span class="font-semibold">melhores sugestões de disciplinas</span>.
-		</p>
-		<button
-			type="button"
-			class="mt-2.5 w-full text-left rounded-lg border border-fuchsia-400/35 bg-fuchsia-500/10 hover:bg-fuchsia-500/20 px-3 py-2 transition-colors"
-			on:click={pedirOptativasDoCurso}
-		>
-			<p class="text-fuchsia-100 font-semibold text-xs sm:text-sm">
-				✨ Recomende matérias optativas baseado no meu curso
-			</p>
-			<p class="text-fuchsia-100/80 text-[11px] sm:text-xs mt-0.5">
-				Usa sua matriz curricular para sugerir optativas alinhadas ao seu curso.
-			</p>
-		</button>
-	</div>
-
-	<!-- Chat Container -->
-	<div class="flex-1 chat-shell rounded-2xl overflow-hidden flex flex-col">
 		<!-- Mensagens -->
-		<div class="flex-1 overflow-y-auto p-6 space-y-4">
+		<div class="flex-1 overflow-y-auto space-y-2.5 p-3 sm:p-4">
 			{#if historico.length === 0}
 				<div class="h-full flex flex-col items-center justify-center text-center">
-					<Bot class="h-16 w-16 text-pink-400 mb-4 opacity-50" />
-					<h2 class="text-xl font-semibold text-white mb-2">Como posso ajudar?</h2>
-					<div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 max-w-2xl">
+					<Bot class="mb-2 h-10 w-10 text-pink-400 opacity-50" />
+					<h2 class="mb-1 text-base font-semibold text-white">Como posso ajudar?</h2>
+					<div class="mt-3 grid max-w-2xl grid-cols-2 gap-1.5 sm:grid-cols-3 sm:auto-rows-fr sm:gap-2">
 					<button
 						on:click={() => { mensagem = 'Direito Constitucional e Teoria da Constituição'; enviarMensagem(); }}
-							class="chat-suggestion px-3 py-2 sm:p-3 rounded-lg transition-colors text-left text-xs sm:text-sm"
+							class="chat-suggestion h-full rounded-md px-2 py-1.5 text-left text-[11px] transition-colors sm:text-xs"
 					>
 						<p class="text-white">⚖️ Direito Constitucional</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'História da África: Sociedades Pré-Coloniais e Processos de Independência'; enviarMensagem(); }}
-							class="chat-suggestion px-3 py-2 sm:p-3 rounded-lg transition-colors text-left text-xs sm:text-sm"
+							class="chat-suggestion h-full rounded-md px-2 py-1.5 text-left text-[11px] transition-colors sm:text-xs"
 					>
 						<p class="text-white">🌍 História da África</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'Inteligência Artificial: Aprendizado de Máquina e Redes Neurais'; enviarMensagem(); }}
-							class="chat-suggestion px-3 py-2 sm:p-3 rounded-lg transition-colors text-left text-xs sm:text-sm"
+							class="chat-suggestion h-full rounded-md px-2 py-1.5 text-left text-[11px] transition-colors sm:text-xs"
 					>
 						<p class="text-white">🤖 Inteligência Artificial</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'Bioética e Saúde Coletiva no Sistema Único de Saúde'; enviarMensagem(); }}
-							class="chat-suggestion px-3 py-2 sm:p-3 rounded-lg transition-colors text-left text-xs sm:text-sm"
+							class="chat-suggestion h-full rounded-md px-2 py-1.5 text-left text-[11px] transition-colors sm:text-xs"
 					>
 						<p class="text-white">🦠 Microbiologia</p>
 					</button>
 
 					<button
 						on:click={() => { mensagem = 'Macroeconomia: Modelos de Crescimento e Políticas Monetárias'; enviarMensagem(); }}
-							class="chat-suggestion px-3 py-2 sm:p-3 rounded-lg transition-colors text-left text-xs sm:text-sm"
+							class="chat-suggestion h-full rounded-md px-2 py-1.5 text-left text-[11px] transition-colors sm:text-xs"
 					>
 						<p class="text-white">📈 Macroeconomia</p>
 					</button>
 
 					<button
-						on:click={() => { mensagem = 'Cálculo Diferencial e Integral para Engenharia'; enviarMensagem(); }}
-							class="chat-suggestion px-3 py-2 sm:p-3 rounded-lg transition-colors text-left text-xs sm:text-sm"
+						on:click={pedirOptativasDoCurso}
+							class="chat-suggestion h-full rounded-md border border-fuchsia-400/30 bg-fuchsia-500/10 px-2 py-1.5 text-left text-[11px] transition-colors hover:bg-fuchsia-500/20 sm:text-xs"
 					>
-						<p class="text-white">⚛️ Física Quântica</p>
+						<p class="text-fuchsia-100">✨ Recomendar matérias do meu curso</p>
 					</button>
 				</div>
 				</div>
@@ -591,32 +579,32 @@
 					<div class="flex {msg.tipo === 'usuario' ? 'justify-end' : 'justify-start'}">
 						<div class={msg.tipo === 'usuario' ? 'max-w-[80%]' : 'w-full lg:max-w-[980px]'}>
 							{#if msg.tipo === 'usuario'}
-								<div class="bg-gradient-to-br from-pink-500 to-purple-600 text-white rounded-2xl px-4 py-3">
-									<p class="whitespace-pre-wrap">{msg.texto}</p>
+								<div class="rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 px-3 py-2 text-sm text-white">
+									<p class="whitespace-pre-wrap leading-snug">{msg.texto}</p>
 								</div>
 							{:else}
 								<div
 									class={msg.disciplinas && msg.disciplinas.length > 0
 										? 'assistant-list-shell'
-										: 'assistant-bubble rounded-2xl px-4 py-3'}
+										: 'assistant-bubble rounded-2xl px-3 py-2'}
 								>
 									<!-- Só mostra o texto se NÃO houver disciplinas -->
 									{#if !msg.disciplinas || msg.disciplinas.length === 0}
-										<p class="text-white whitespace-pre-wrap">{msg.texto}</p>
+										<p class="whitespace-pre-wrap text-sm leading-snug text-white">{msg.texto}</p>
 									{/if}
 									
 									{#if msg.disciplinas && msg.disciplinas.length > 0}
 										<!-- Título apenas para disciplinas -->
-										<p class="text-white font-semibold mb-3">
+										<p class="mb-2 text-sm font-semibold text-white">
 											🎓 {msg.disciplinas.length} {msg.disciplinas.length === 1 ? 'disciplina encontrada' : 'disciplinas encontradas'}
 										</p>
-										<div class="mt-4 space-y-3">
+										<div class="mt-2 space-y-2">
 											{#each msg.disciplinas as disc, discIndex}
-												<div class="assistant-card rounded-xl p-3 sm:p-4" transition:fly={{ y: 20, duration: 300 }}>
+												<div class="assistant-card rounded-xl p-2.5 sm:p-3" transition:fly={{ y: 20, duration: 300 }}>
 													<div class="flex items-start justify-between gap-2">
 														<div>
 															<p class="text-amber-300 font-semibold text-xs tracking-wide">{disc.codigo}</p>
-															<p class="text-white font-semibold text-base leading-tight">{disc.nome}</p>
+															<p class="text-sm font-semibold leading-tight text-white sm:text-[15px]">{disc.nome}</p>
 														</div>
 														<button
 															type="button"
@@ -632,8 +620,8 @@
 														</button>
 													</div>
 
-													<div class="mt-2 flex items-center justify-between gap-3">
-														<div class="flex flex-wrap gap-2 text-[11px]">
+													<div class="mt-1.5 flex items-center justify-between gap-2">
+														<div class="flex flex-wrap gap-1.5 text-[10px]">
 															{#if disc.creditos != null && disc.creditos > 0}
 																<span class="tag-chip">{disc.creditos} créditos</span>
 															{/if}
@@ -645,20 +633,20 @@
 															{/if}
 														</div>
 														<div class="flex items-baseline gap-1 text-emerald-300">
-															<span class="text-xl font-bold leading-none">{disc.nota}</span>
-															<span class="text-xs text-emerald-200/80">/10</span>
+															<span class="text-lg font-bold leading-none">{disc.nota}</span>
+															<span class="text-[11px] text-emerald-200/80">/10</span>
 														</div>
 													</div>
 
 													{#if disc.justificativa}
-														<div class="mt-3 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-3 py-2">
-															<p class="text-[11px] font-semibold text-emerald-200/90 mb-0.5">Por que recomenda:</p>
-															<p class="text-sm text-emerald-50/90">{disc.justificativa}</p>
+														<div class="mt-2 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1.5">
+															<p class="mb-0.5 text-[10px] font-semibold text-emerald-200/90">Por que recomenda:</p>
+															<p class="text-xs text-emerald-50/90">{disc.justificativa}</p>
 														</div>
 													{/if}
 
 													{#if disc.aberto}
-														<div class="mt-3 space-y-2" in:fly={{ y: -6, duration: 180 }} out:fly={{ y: -4, duration: 140 }}>
+														<div class="mt-2 space-y-1.5" in:fly={{ y: -6, duration: 180 }} out:fly={{ y: -4, duration: 140 }}>
 															{#if disc.carregandoDetalhes}
 																<div class="flex items-center gap-2 text-xs text-white/65">
 																	<Loader2 class="h-3.5 w-3.5 animate-spin" />
@@ -677,7 +665,7 @@
 																		{/each}
 																	</div>
 																{:else}
-																	<p class="text-sm text-white/70">Esta matéria não possui pré-requisito.</p>
+																	<p class="text-xs text-white/70">Esta matéria não possui pré-requisito.</p>
 																{/if}
 															</div>
 
@@ -709,7 +697,7 @@
 														</div>
 													{/if}
 
-													<div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
+													<div class="mt-2 grid grid-cols-1 gap-1.5 sm:grid-cols-2">
 														<button
 															type="button"
 															class="assistant-action-btn"
@@ -752,8 +740,8 @@
 			
 			{#if carregando}
 				<div class="flex justify-start">
-					<div class="assistant-bubble rounded-2xl px-4 py-3">
-						<div class="flex items-center gap-2 text-gray-400">
+					<div class="assistant-bubble rounded-2xl px-3 py-2">
+						<div class="flex items-center gap-2 text-sm text-gray-400">
 							<Loader2 class="h-4 w-4 animate-spin" />
 							<span>{etapaAtual || 'Pensando...'}</span>
 						</div>
@@ -763,7 +751,25 @@
 		</div>
 
 		<!-- Input -->
-		<div class="border-t border-white/10 p-2.5 sm:p-3">
+		<div class="border-t border-white/10 p-2 sm:p-2.5">
+			{#if fluxogramaStore.precisaSalvarPerfil}
+				<div class="mb-1.5 flex items-center justify-between gap-2 rounded-md border border-emerald-400/25 bg-emerald-500/10 px-2 py-1">
+					<p class="text-[10px] text-emerald-100/95">Alterações pendentes no perfil.</p>
+					<button
+						type="button"
+						class="inline-flex shrink-0 items-center justify-center gap-1 rounded-md border border-emerald-300/35 bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold text-emerald-100 transition-colors hover:bg-emerald-500/25 disabled:cursor-not-allowed disabled:opacity-50"
+						on:click={() => void salvarOptativasNaIA()}
+						disabled={salvandoOptativas}
+					>
+						{#if salvandoOptativas}
+							<Loader2 class="h-3 w-3 animate-spin" />
+							Salvando...
+						{:else}
+							Salvar
+						{/if}
+					</button>
+				</div>
+			{/if}
 			<form on:submit|preventDefault={enviarMensagem} class="flex gap-1.5 items-center">
 				<input
 					type="text"
@@ -771,12 +777,12 @@
 					on:keypress={handleKeyPress}
 					placeholder="Só tópicos de interesse (ex: IA aplicada a saúde)..."
 					disabled={carregando}
-					class="flex-1 bg-black/50 border border-white/20 rounded-full px-3 py-2.5 text-sm text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500/50 disabled:opacity-50"
+					class="flex-1 rounded-full border border-white/20 bg-black/50 px-3 py-2 text-sm text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500/50 disabled:opacity-50"
 				/>
 				<button
 					type="submit"
 					disabled={!mensagem.trim() || carregando}
-					class="shrink-0 bg-gradient-to-br from-pink-500 to-purple-600 text-white rounded-full px-3 sm:px-4 py-2 text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-1.5 shadow-md shadow-pink-500/30"
+					class="flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 px-3 py-1.5 text-sm font-medium text-white shadow-md shadow-pink-500/30 transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40 sm:px-3.5"
 				>
 					{#if carregando}
 						<Loader2 class="h-5 w-5 animate-spin" />
@@ -793,18 +799,21 @@
 {#if materiaModal}
 	<OptativaTipoModal
 		materia={materiaModal}
+		allowConcluida={permitirConcluidaNoModal}
 		defaultSemestre={Math.max(1, Number(authStore.getUser()?.dadosFluxograma?.semestreAtual ?? 1))}
 		ondecidir={(tipo, semestreFuturo) => {
 			if (!materiaModal) return;
 			if (tipo === 'futura') {
 				fluxogramaStore.addOptativa(materiaModal, semestreFuturo ?? 1);
 			} else {
-				fluxogramaStore.registrarOptativaConcluida(materiaModal);
+				fluxogramaStore.registrarOptativaConcluida(materiaModal, semestreFuturo ?? 1);
 			}
 			materiaModal = null;
+			permitirConcluidaNoModal = false;
 		}}
 		onpular={() => {
 			materiaModal = null;
+			permitirConcluidaNoModal = false;
 		}}
 	/>
 {/if}
@@ -965,6 +974,7 @@
 	.assistant-card {
 		background: rgba(2, 6, 23, 0.8);
 		border: 1px solid rgba(255, 255, 255, 0.18);
+		min-height: 148px;
 	}
 
 	.assistant-list-shell {
@@ -975,8 +985,9 @@
 		background: rgba(148, 163, 184, 0.15);
 		border: 1px solid rgba(148, 163, 184, 0.24);
 		color: rgba(226, 232, 240, 0.92);
-		padding: 2px 8px;
+		padding: 1px 7px;
 		border-radius: 9999px;
+		font-size: 10px;
 	}
 
 	.req-chip {
@@ -992,12 +1003,12 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 6px;
-		border-radius: 10px;
+		gap: 5px;
+		border-radius: 9px;
 		background: linear-gradient(135deg, rgba(236, 72, 153, 0.85), rgba(168, 85, 247, 0.85));
 		color: #fff;
-		padding: 8px 12px;
-		font-size: 0.875rem;
+		padding: 6px 10px;
+		font-size: 0.78rem;
 		font-weight: 600;
 		border: 1px solid rgba(255, 255, 255, 0.18);
 		transition:

@@ -367,6 +367,13 @@ class FluxogramaService {
 	async saveFluxograma(userId: number, data: unknown, semestre?: number) {
 		return supabaseDataService.saveFluxogramaData(userId, data, semestre);
 	}
+
+	async saveOptativasManuais(
+		userId: number,
+		optativasManuais: Array<{ codigo: string; nivel_alocado: number; status: string; nome?: string | null }>
+	) {
+		return supabaseDataService.saveOptativasManuaisData(userId, optativasManuais);
+	}
 }
 
 export const fluxogramaService = new FluxogramaService();

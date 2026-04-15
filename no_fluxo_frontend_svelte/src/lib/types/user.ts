@@ -3,7 +3,7 @@
  * Uses camelCase convention for TypeScript
  */
 
-export type SubjectStatus = 'APR' | 'CUMP' | 'DISP' | 'MATR' | 'REP' | 'TRC' | '-';
+export type SubjectStatus = 'APR' | 'CUMP' | 'DISP' | 'MATR' | 'REP' | 'TRC' | 'PLANEJADO' | '-';
 
 export type GradeMention = 'SS' | 'MS' | 'MM' | 'MI' | 'II' | 'SR' | '-';
 
@@ -26,6 +26,14 @@ export interface DadosMateria {
 	codigoEquivalente?: string | null;
 	/** Quando concluída por equivalência: nome da disciplina cursada (equivalente). */
 	nomeEquivalente?: string | null;
+	/** Inclusão manual do usuário (não vem do histórico oficial). */
+	isManual?: boolean;
+	/** Nível (semestre) em que a matéria deve ser alocada. */
+	nivelDestino?: number | string | null;
+	/** Nível oficial de origem da matriz (quando conhecido). */
+	nivel?: number | string | null;
+	/** Alias serializado para compatibilidade com payloads legados/externos. */
+	nivelAlocado?: number | string | null;
 }
 
 export interface DadosFluxogramaUser {
@@ -44,6 +52,13 @@ export interface DadosFluxogramaUser {
 	optativasPlanejadas?: OptativaPlanejadaRef[];
 }
 
+export interface OptativaManual {
+	codigo: string;
+	nivelAlocado: number;
+	status: 'PLANEJADO' | 'CUMP' | 'APR' | string;
+	nome?: string | null;
+}
+
 /** Carga horária integralizada extraída do PDF (SIGAA). */
 export interface CargaHorariaIntegralizada {
 	obrigatoria: number;
@@ -57,6 +72,7 @@ export interface UserModel {
 	email: string;
 	nomeCompleto: string;
 	dadosFluxograma?: DadosFluxogramaUser | null;
+	optativasManuais?: OptativaManual[];
 	/** Carga horária integralizada do histórico (obrigatória, optativa, complementar). */
 	cargaHorariaIntegralizada?: CargaHorariaIntegralizada | null;
 	token?: string | null;

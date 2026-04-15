@@ -199,7 +199,7 @@
 			Bloco principal: viewport — rolagem do diagrama fica dentro do fluxograma.
 		-->
 		<div class="flex flex-col gap-2 pb-6">
-			{#if store.precisaSalvarPerfil}
+			{#if store.precisaSalvarPerfil || store.optativasAdicionadas.length > 0}
 				<div class="relative z-50 shrink-0">
 					<OptativasAdicionadasSection />
 				</div>

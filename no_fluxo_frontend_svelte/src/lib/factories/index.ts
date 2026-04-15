@@ -7,7 +7,8 @@ import type {
 	UserModel,
 	DadosMateria,
 	DadosFluxogramaUser,
-	OptativaPlanejadaRef
+	OptativaPlanejadaRef,
+	OptativaManual
 } from '$lib/types/user';
 import { isMateriaAprovada } from '$lib/types/user';
 import type {
@@ -25,7 +26,7 @@ import type { EquivalenciaModel } from '$lib/types/equivalencia';
 
 export function createDadosMateriaFromJson(json: Record<string, unknown>): DadosMateria {
 	return {
-		codigoMateria: String(json.codigo ?? ''),
+		codigoMateria: String(json.codigo ?? json.codigoMateria ?? ''),
 		mencao: String(json.mencao ?? '-'),
 		professor: String(json.professor ?? ''),
 		status: String(json.status ?? '-'),
@@ -44,6 +45,25 @@ export function createDadosMateriaFromJson(json: Record<string, unknown>): Dados
 				? String(json.nome_equivalente)
 				: json.nomeEquivalente != null
 					? String(json.nomeEquivalente)
+					: null,
+		isManual: Boolean(json.is_manual ?? json.isManual ?? false),
+		nivelDestino:
+			json.nivel_destino != null
+				? (json.nivel_destino as number | string)
+				: json.nivelDestino != null
+					? (json.nivelDestino as number | string)
+					: null,
+		nivel:
+			json.nivel != null
+				? (json.nivel as number | string)
+				: json.nivel_alocado != null
+					? (json.nivel_alocado as number | string)
+					: null,
+		nivelAlocado:
+			json.nivel_alocado != null
+				? (json.nivel_alocado as number | string)
+				: json.nivelAlocado != null
+					? (json.nivelAlocado as number | string)
 					: null
 	};
 }
@@ -59,7 +79,11 @@ export function dadosMateriaToJson(dados: DadosMateria): Record<string, unknown>
 		tipo_dado: dados.tipoDado,
 		turma: dados.turma,
 		codigo_equivalente: dados.codigoEquivalente ?? undefined,
-		nome_equivalente: dados.nomeEquivalente ?? undefined
+		nome_equivalente: dados.nomeEquivalente ?? undefined,
+		is_manual: dados.isManual ?? undefined,
+		nivel_destino: dados.nivelDestino ?? undefined,
+		nivel: dados.nivel ?? undefined,
+		nivel_alocado: dados.nivelAlocado ?? undefined
 	};
 }
 
@@ -227,7 +251,6 @@ export function buildDadosFluxogramaUserFromCasarResponse(
 	const disciplinas = response.disciplinas_casadas ?? [];
 	const materiasConcluidas = response.materias_concluidas ?? [];
 
-	// Mapa: código da matriz (uppercase) -> dados da equivalência (info mais recente da API)
 	const equivalenciaByCode = new Map<
 		string,
 		{
@@ -244,27 +267,16 @@ export function buildDadosFluxogramaUserFromCasarResponse(
 		if (r.status_fluxograma !== 'concluida_equivalencia') continue;
 		const codigo = String(r.codigo_materia ?? r.codigo ?? '').trim().toUpperCase();
 		if (!codigo) continue;
-		const entry = {
+		equivalenciaByCode.set(codigo, {
 			professor: (r.professor as string) ?? '',
 			mencao: (r.mencao as string) ?? '-',
 			status: (r.status as string) ?? 'CUMP',
 			ano_periodo: r.ano_periodo != null ? String(r.ano_periodo) : null,
 			codigo_equivalente: r.codigo_equivalente != null ? String(r.codigo_equivalente) : null,
 			nome_equivalente: r.nome_equivalente != null ? String(r.nome_equivalente) : null
-		};
-		// Não sobrescrever entrada que já tem mais dados (ex.: professor/menção da disciplina cursada)
-		const existing = equivalenciaByCode.get(codigo);
-		if (
-			!existing ||
-			(entry.professor && !existing.professor) ||
-			(entry.mencao !== '-' && existing.mencao === '-') ||
-			(entry.codigo_equivalente && !existing.codigo_equivalente)
-		) {
-			equivalenciaByCode.set(codigo, entry);
-		}
+		});
 	}
 
-	// Montar lista: disciplinas_casadas com merge de equivalência quando existir
 	const primeiroSemestre: DadosMateria[] = disciplinas.map((d) => {
 		const raw = d as Record<string, unknown>;
 		const codigoMatriz = String(raw.codigo_materia ?? raw.codigo ?? '').trim();
@@ -279,7 +291,6 @@ export function buildDadosFluxogramaUserFromCasarResponse(
 			codigo: raw.codigo_materia ?? raw.codigo
 		});
 
-		// Dados de equivalência: preferir mapa (materias_concluidas), senão usar os da própria linha
 		const equiv = equivalenciaByCode.get(codigoUpper);
 		const isAprovada = isMateriaAprovada(base);
 		const usarComoEquivalencia =
@@ -303,7 +314,6 @@ export function buildDadosFluxogramaUserFromCasarResponse(
 	});
 
 	const codigosJaIncluidos = new Set(primeiroSemestre.map((m) => m.codigoMateria.trim().toUpperCase()));
-	// Incluir matérias que estão só em materias_concluidas (não vieram em disciplinas_casadas)
 	for (const rec of materiasConcluidas) {
 		const r = rec as Record<string, unknown>;
 		if (r.status_fluxograma !== 'concluida_equivalencia') continue;
@@ -326,6 +336,7 @@ export function buildDadosFluxogramaUserFromCasarResponse(
 	}
 
 	const dadosFluxograma: DadosMateria[][] = [primeiroSemestre];
+
 	const iraTextoResolved =
 		options?.iraTexto ??
 		(response.dados_validacao as { ira_texto?: string | null } | undefined)?.ira_texto ??
@@ -345,6 +356,26 @@ export function buildDadosFluxogramaUserFromCasarResponse(
 		semestreAtual: meta.semestreAtual,
 		dadosFluxograma
 	};
+}
+
+function parseOptativasManuais(raw: unknown): OptativaManual[] {
+	if (!Array.isArray(raw)) return [];
+	return raw
+		.map((item): OptativaManual | null => {
+			if (!item || typeof item !== 'object') return null;
+			const o = item as Record<string, unknown>;
+			const codigo = String(o.codigo ?? o.codigo_materia ?? '').trim();
+			const nivel = Number(o.nivel_alocado ?? o.nivelAlocado ?? 0);
+			if (!codigo || !Number.isFinite(nivel) || nivel < 1) return null;
+			const out: OptativaManual = {
+				codigo,
+				nivelAlocado: Math.floor(nivel),
+				status: String(o.status ?? 'PLANEJADO').toUpperCase(),
+				nome: o.nome != null ? String(o.nome) : null
+			};
+			return out;
+		})
+		.filter((v): v is OptativaManual => v != null);
 }
 
 // ============================================================================
@@ -418,6 +449,7 @@ export function createUserModelFromJson(json: Record<string, unknown>): UserMode
 		email: String(json.email ?? ''),
 		nomeCompleto: String(json.nome_completo ?? ''),
 		dadosFluxograma,
+		optativasManuais: parseOptativasManuais(dadosUserRow?.optativas_manuais),
 		cargaHorariaIntegralizada: cargaHorariaIntegralizada ?? undefined,
 		token: json.token != null ? String(json.token) : null
 	};
@@ -442,7 +474,13 @@ export function userModelToJson(
 			{
 				fluxograma_atual: JSON.stringify(
 					dadosFluxogramaUserToJson(user.dadosFluxograma)
-				)
+				),
+				optativas_manuais: (user.optativasManuais ?? []).map((o) => ({
+					codigo: o.codigo,
+					nivel_alocado: o.nivelAlocado,
+					status: o.status,
+					nome: o.nome ?? null
+				}))
 			}
 		];
 	}
@@ -582,6 +620,20 @@ export function createEquivalenciaModelFromJson(
 	json: Record<string, unknown>
 ): EquivalenciaModel {
 	const expressaoLogica = parseExpressaoLogica(json.expressao_logica);
+	const expressaoLogicaRecursiva: ExpressaoLogicaRecursiva | undefined =
+		expressaoLogica == null
+			? undefined
+			: typeof expressaoLogica === 'string'
+				? expressaoLogica
+				: 'condicoes' in expressaoLogica
+					? (expressaoLogica as ExpressaoLogicaRecursiva)
+					: {
+							operador:
+								expressaoLogica.operador === 'E' || expressaoLogica.operador === 'OU'
+									? expressaoLogica.operador
+									: 'OU',
+							condicoes: (expressaoLogica.materias ?? []).map((c) => String(c).trim().toUpperCase())
+						};
 	const codigos = expressaoLogica ? getCodigosFromExpressaoLogica(expressaoLogica) : [];
 	const primeiroCodigo = codigos[0] ?? '';
 	return {
@@ -591,7 +643,7 @@ export function createEquivalenciaModelFromJson(
 		codigoMateriaEquivalente: String(json.codigo_materia_equivalente ?? primeiroCodigo),
 		nomeMateriaEquivalente: String(json.nome_materia_equivalente ?? ''),
 		expressao: String(json.expressao ?? ''),
-		expressaoLogica: expressaoLogica ?? undefined,
+		expressaoLogica: expressaoLogicaRecursiva,
 		idCurso: json.id_curso != null ? Number(json.id_curso) : null,
 		nomeCurso: json.nome_curso != null ? String(json.nome_curso) : null,
 		matrizCurricular:
