@@ -32,8 +32,9 @@ jobs:
 
           - name: Execute Script
             run:
-              python DBA/scraping/executar_fluxo_dados_RAGFLOW.py
               python DBA/scraping/scraping_equivalencias.py
+              python DBA/scraping/scraping_turmas.py
+              python DBA/scraping/scraping_ementa.py
               
               
 
