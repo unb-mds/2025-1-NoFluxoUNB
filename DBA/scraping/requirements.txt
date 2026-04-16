@@ -22,3 +22,4 @@ lxml>=5.0.0
 pandas==1.5.3
 supabase==1.0.3
 tenacity==8.2.3
+numpy<2.0.0
