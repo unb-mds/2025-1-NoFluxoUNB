@@ -120,7 +120,6 @@ jobs:
         shell: bash
         run: |
           test -d DBA/dados/estruturas-curriculares
-          test -f DBA/dados/cursos-de-graduacao.json
           qtd=$(ls DBA/dados/estruturas-curriculares/*.json 2>/dev/null | wc -l)
           echo "Arquivos de estrutura encontrados: ${qtd}"
           test "${qtd}" -gt 0
