@@ -65,7 +65,8 @@ jobs:
 
       - name: Skip scraping in dba_only mode
         if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_mode == 'dba_only' }}
-        run: echo "Modo dba_only selecionado: scraping foi pulado."
+        run: |
+          echo "Modo dba_only selecionado: scraping foi pulado."
 
       - name: Upload scraping data
         if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.run_mode != 'dba_only' }}
