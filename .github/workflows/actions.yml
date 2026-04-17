@@ -34,12 +34,6 @@ jobs:
       - name: Create scraping log directory
         run: mkdir -p DBA/logs
 
-      - name: Execute scraping_cursos.py
-        working-directory: DBA/scraping
-        run: |
-          set -o pipefail
-          python -u scraping_cursos.py 2>&1 | tee ../logs/scraping_cursos.log
-
       - name: Execute scraping_ementa.py
         working-directory: DBA/scraping
         run: |
