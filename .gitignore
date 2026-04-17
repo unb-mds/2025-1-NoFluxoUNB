@@ -19,6 +19,14 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Dados de coleta (não versionar JSONs pesados de estruturas/matérias)
+coleta_dados/dados/
+DBA/dados/
+dados_finais_*/
+dados_temporarios/
+tmp/
+temp/
+
 # Optional npm cache directory
 .npm
 
