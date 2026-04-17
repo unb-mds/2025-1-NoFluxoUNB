@@ -54,14 +54,6 @@ dados_finais_*/
 dados_temporarios/
 tmp/
 temp/
-DBA/database/estruturas-curriculares/
-*.json
-
-DBA/dados/*
-
-# Obriga o Git a rastrear exclusivamente esses dois arquivos de leitura
-!DBA/dados/cursos-de-graduacao.json
-!DBA/dados/departamentos_ID_unb.csv
 
 # IDEs e editores
 .vscode/
