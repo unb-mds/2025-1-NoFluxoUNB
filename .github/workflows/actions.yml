@@ -2,6 +2,15 @@ name: Run web scraper
 
 on:
   workflow_dispatch:
+    inputs:
+      run_mode:
+        description: "Modo de execucao"
+        required: true
+        default: "full"
+        type: choice
+        options:
+          - full
+          - dba_only
   schedule:
     - cron: '0 0 1 * *'  # Executa no dia 1 de cada mês (00:00 UTC)
 
@@ -30,27 +39,36 @@ jobs:
           pip install --no-build-isolation -r DBA/scraping/requirements.txt
 
       - name: Create scraping log directory
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.run_mode != 'dba_only' }}
         run: mkdir -p DBA/logs
 
       - name: Execute scraping_ementa.py
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.run_mode != 'dba_only' }}
         working-directory: DBA/scraping
         run: |
           set -o pipefail
           python -u scraping_ementa.py 2>&1 | tee ../logs/scraping_ementa.log
 
       - name: Execute scraping_equivalencias.py
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.run_mode != 'dba_only' }}
         working-directory: DBA/scraping
         run: |
           set -o pipefail
           python -u scraping_equivalencias.py 2>&1 | tee ../logs/scraping_equivalencias.log
 
       - name: Execute scraping_turmas.py
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.run_mode != 'dba_only' }}
         working-directory: DBA/scraping
         run: |
           set -o pipefail
           python -u scraping_turmas.py 2>&1 | tee ../logs/scraping_turmas.log
 
+      - name: Skip scraping in dba_only mode
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_mode == 'dba_only' }}
+        run: echo "Modo dba_only selecionado: scraping foi pulado."
+
       - name: Upload scraping data
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.run_mode != 'dba_only' }}
         uses: actions/upload-artifact@v4
         with:
           name: scraping-dados
@@ -90,10 +108,21 @@ jobs:
           pip install --no-build-isolation -r DBA/scraping/requirements.txt
 
       - name: Download scraping data
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.run_mode != 'dba_only' }}
         uses: actions/download-artifact@v4
         with:
           name: scraping-dados
           path: DBA/dados
+
+      - name: Validate local data for dba_only mode
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_mode == 'dba_only' }}
+        shell: bash
+        run: |
+          test -d DBA/dados/estruturas-curriculares
+          test -f DBA/dados/cursos-de-graduacao.json
+          qtd=$(ls DBA/dados/estruturas-curriculares/*.json 2>/dev/null | wc -l)
+          echo "Arquivos de estrutura encontrados: ${qtd}"
+          test "${qtd}" -gt 0
 
       - name: Create DBA log directory
         run: mkdir -p DBA/logs
