@@ -31,10 +31,10 @@ jobs:
 
       - name: Execute Script Scraping
         run: |
+          python DBA/scraping/scraping_cursos.py 
+          python DBA/scraping/scraping_ementa.py
           python DBA/scraping/scraping_equivalencias.py
           python DBA/scraping/scraping_turmas.py
-          python DBA/scraping/scraping_ementa.py
-          python DBA/scraping/scraping_cursos.py
 
   jobDBA:
     needs: jobScraping  # <-- Garante que o banco de dados só roda depois do scraping
