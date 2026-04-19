@@ -15,7 +15,7 @@
 		'@type': 'WebSite',
 		name: 'NoFluxo UNB',
 		alternateName: ['No Fluxo UNB', 'NoFluxoUnB'],
-		url: 'https://nofluxo.unb.br'
+		url: 'https://no-fluxo.crianex.com'
 	};
 
 	const organizationJsonLd = {
@@ -23,8 +23,8 @@
 		'@type': 'Organization',
 		name: 'NoFluxo UNB',
 		alternateName: ['No Fluxo UNB', 'NoFluxoUnB'],
-		url: 'https://nofluxo.unb.br',
-		logo: 'https://nofluxo.unb.br/og-image.png'
+		url: 'https://no-fluxo.crianex.com',
+		logo: 'https://no-fluxo.crianex.com/og-image.png'
 	};
 </script>
 
