@@ -168,6 +168,7 @@
 <PageMeta
 	title="Fluxograma - {courseName}"
 	description="Visualize o fluxograma do curso {courseName} na UnB"
+	noIndex={true}
 />
 
 <GraffitiBackground />

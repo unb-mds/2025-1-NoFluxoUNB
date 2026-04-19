@@ -508,6 +508,7 @@
 <PageMeta
 	title="Darcy AI"
 	description="Converse com o assistente inteligente do NoFluxo para descobrir disciplinas"
+	noIndex={true}
 />
 
 <AnimatedBackground />

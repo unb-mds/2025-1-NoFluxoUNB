@@ -5,6 +5,7 @@
 	import { page } from '$app/stores';
 	import AuthHomeLink from '$lib/components/auth/AuthHomeLink.svelte';
 	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import { AlertTriangle, CheckCircle, Eye, EyeOff } from 'lucide-svelte';
 
 	let newPassword = $state('');
@@ -78,9 +79,7 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Redefinir Senha - NoFluxo UNB</title>
-</svelte:head>
+<PageMeta title="Redefinir senha" description="Defina uma nova senha para sua conta NoFluxo UNB." noIndex={true} />
 
 <AnimatedBackground />
 

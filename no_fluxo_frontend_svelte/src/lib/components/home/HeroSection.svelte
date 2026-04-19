@@ -28,7 +28,7 @@
 			</h1>
 
 			<p class="hero-description">
-				O NoFluxo UNB te ajuda a ver o fluxograma do seu curso e ainda permite montar um
+				O No Fluxo UNB (NoFluxo) te ajuda a ver o fluxograma do seu curso e ainda permite montar um
 				<span class="hero-card-strong">fluxograma personalizado com IA</span> quando você faz login e envia seu histórico.
 			</p>
 

@@ -141,6 +141,7 @@
 <PageMeta
 	title="Meu Fluxograma"
 	description="Visualize e gerencie seu progresso acadêmico na UnB"
+	noIndex={true}
 />
 
 <GraffitiBackground />

@@ -16,6 +16,7 @@
 <PageMeta
 	title="Importar Histórico"
 	description="Faça upload do seu histórico acadêmico em PDF para gerar seu fluxograma"
+	noIndex={true}
 />
 
 <AnimatedBackground />

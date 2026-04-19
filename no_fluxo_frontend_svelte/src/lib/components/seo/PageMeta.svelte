@@ -17,7 +17,7 @@
 		type = 'website'
 	}: Props = $props();
 
-	const siteName = 'NoFluxo UNB';
+	const siteName = 'NoFluxo UNB (No Fluxo UNB)';
 	const siteUrl = 'https://nofluxo.unb.br';
 
 	let fullTitle = $derived(title ? `${title} | ${siteName}` : siteName);
