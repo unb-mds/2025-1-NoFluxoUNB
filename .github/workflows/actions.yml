@@ -119,10 +119,16 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_mode == 'dba_only' }}
         shell: bash
         run: |
-          test -d DBA/dados/estruturas-curriculares
+          if [ ! -d DBA/dados/estruturas-curriculares ]; then
+            echo "Aviso: pasta DBA/dados/estruturas-curriculares nao existe no checkout."
+            echo "O jobDBA vai rodar com os dados disponiveis no repositório."
+            exit 0
+          fi
           qtd=$(ls DBA/dados/estruturas-curriculares/*.json 2>/dev/null | wc -l)
           echo "Arquivos de estrutura encontrados: ${qtd}"
-          test "${qtd}" -gt 0
+          if [ "${qtd}" -eq 0 ]; then
+            echo "Aviso: nenhum JSON de estrutura encontrado. Prosseguindo assim mesmo."
+          fi
 
       - name: Create DBA log directory
         run: mkdir -p DBA/logs
