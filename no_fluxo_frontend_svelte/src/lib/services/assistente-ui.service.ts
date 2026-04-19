@@ -32,6 +32,14 @@ export interface AssistenteMateriaContext {
 	ultimaAtualizacaoTurmas: string | null;
 }
 
+export interface AssistenteMateriaPreview {
+	idMateria: number;
+	departamento: string;
+	creditos: number;
+	nivel: number | null;
+	tipoNatureza: number | null;
+}
+
 type MateriaRow = {
 	id_materia: number;
 	codigo_materia: string;
@@ -124,6 +132,56 @@ class AssistenteUIService {
 
 		if (error || !data || data.length === 0) return null;
 		return Number(data[0].id_matriz);
+	}
+
+	async getMateriaPreview(
+		codigoMateria: string,
+		matrizCurricular: string
+	): Promise<AssistenteMateriaPreview | null> {
+		const codigo = (codigoMateria ?? '').trim().toUpperCase();
+		if (!codigo) return null;
+
+		const { data: materiaData, error: materiaError } = await this.supabase
+			.from('materias')
+			.select('id_materia, departamento, carga_horaria')
+			.eq('codigo_materia', codigo)
+			.limit(1);
+
+		if (materiaError || !materiaData || materiaData.length === 0) return null;
+
+		const materia = materiaData[0] as {
+			id_materia: number;
+			departamento?: string | null;
+			carga_horaria?: number | null;
+		};
+		const matrizId = await this.resolveMatrizId(matrizCurricular);
+
+		const materiaCursoQuery = this.supabase
+			.from('materias_por_curso')
+			.select('nivel, tipo_natureza, id_matriz')
+			.eq('id_materia', materia.id_materia)
+			.limit(20);
+
+		const materiaCursoResult = matrizId
+			? await materiaCursoQuery.eq('id_matriz', matrizId)
+			: await materiaCursoQuery;
+
+		const materiaCursoRows = (materiaCursoResult.data ?? []) as MateriaCursoRow[];
+		const preferencial = matrizId
+			? materiaCursoRows.find((row) => Number(row.id_matriz) === matrizId) ?? materiaCursoRows[0]
+			: materiaCursoRows[0];
+
+		return {
+			idMateria: Number(materia.id_materia),
+			departamento: String(materia.departamento ?? '').trim(),
+			creditos:
+				materia.carga_horaria != null && Number.isFinite(Number(materia.carga_horaria))
+					? Number(materia.carga_horaria) / 15
+					: 0,
+			nivel: preferencial?.nivel != null ? Number(preferencial.nivel) : null,
+			tipoNatureza:
+				preferencial?.tipo_natureza != null ? Number(preferencial.tipo_natureza) : null
+		};
 	}
 
 	async getMateriaContext(

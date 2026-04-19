@@ -72,6 +72,7 @@
 
 	const assistente = new AssistenteService();
 	const detailsCache = new Map<string, Promise<void>>();
+	const previewCache = new Map<string, Promise<void>>();
 
 	function getMatrizCurricularUsuario(): string {
 		const user = authStore.getUser();
@@ -406,6 +407,39 @@
 		await job;
 	}
 
+	async function enriquecerDisciplinaPreview(
+		msgIndex: number,
+		codigo: string,
+		matrizCurricular: string
+	) {
+		const key = `${codigo.toUpperCase()}|${matrizCurricular}`;
+		if (previewCache.has(key)) {
+			await previewCache.get(key);
+			return;
+		}
+
+		const job = (async () => {
+			try {
+				const preview = await assistenteUIService.getMateriaPreview(codigo, matrizCurricular);
+				if (!preview) return;
+
+				updateDisciplina(msgIndex, codigo, (disc) => ({
+					...disc,
+					idMateria: preview.idMateria,
+					departamento: preview.departamento,
+					creditos: preview.creditos,
+					nivel: preview.nivel,
+					tipoNatureza: preview.tipoNatureza
+				}));
+			} catch {
+				// Não bloqueia o fluxo principal do chat se falhar metadado de card.
+			}
+		})();
+
+		previewCache.set(key, job);
+		await job;
+	}
+
 	async function enviarMensagem() {
 		if (!mensagem.trim() || carregando) return;
 
@@ -458,6 +492,11 @@
 
 								historico[assistenteIndex] = { ...current, disciplinas };
 								historico = [...historico];
+								void enriquecerDisciplinaPreview(
+									assistenteIndex,
+									event.data.codigo,
+									matrizCurricular
+								);
 							}
 							break;
 						case 'done':
@@ -631,6 +670,8 @@
 															{/if}
 															{#if disc.tipoNatureza === 1}
 																<span class="tag-chip text-amber-200 border-amber-300/30">optativa</span>
+															{:else if disc.tipoNatureza === 0}
+																<span class="tag-chip text-sky-200 border-sky-300/30">obrigatória</span>
 															{/if}
 														</div>
 														<div class="flex items-baseline gap-1 text-emerald-300">
