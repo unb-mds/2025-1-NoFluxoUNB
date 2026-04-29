@@ -419,7 +419,8 @@ export function createUserModelFromJson(json: Record<string, unknown>): UserMode
 		nomeCompleto: String(json.nome_completo ?? ''),
 		dadosFluxograma,
 		cargaHorariaIntegralizada: cargaHorariaIntegralizada ?? undefined,
-		token: json.token != null ? String(json.token) : null
+		token: json.token != null ? String(json.token) : null,
+		isAdmin: Boolean(json.is_admin ?? false)
 	};
 }
 

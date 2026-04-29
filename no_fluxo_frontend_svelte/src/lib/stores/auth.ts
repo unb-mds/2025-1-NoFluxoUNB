@@ -29,7 +29,8 @@ function getInitialState(): AuthState {
 							nomeCompleto: rawUser.nome_completo ?? '',
 							token: rawUser.token ?? null,
 							dadosFluxograma: dadosFluxograma ?? rawUser.dados_fluxograma ?? null,
-							cargaHorariaIntegralizada: cargaHorariaIntegralizada ?? undefined
+							cargaHorariaIntegralizada: cargaHorariaIntegralizada ?? undefined,
+							isAdmin: Boolean(rawUser.isAdmin ?? rawUser.is_admin ?? false)
 						};
 				return {
 					user,

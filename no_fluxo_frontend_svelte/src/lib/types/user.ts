@@ -60,6 +60,8 @@ export interface UserModel {
 	/** Carga horária integralizada do histórico (obrigatória, optativa, complementar). */
 	cargaHorariaIntegralizada?: CargaHorariaIntegralizada | null;
 	token?: string | null;
+	/** Papel de admin/tech para acessar o dashboard de tickets. */
+	isAdmin?: boolean;
 }
 
 export function isMateriaCursada(dadosMateria: DadosMateria): boolean {

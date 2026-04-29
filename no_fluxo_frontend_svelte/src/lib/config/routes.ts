@@ -13,6 +13,8 @@ export const ROUTES = {
   UPLOAD_HISTORICO: '/upload-historico',
   FLUXOGRAMAS: '/fluxogramas',
   MEU_FLUXOGRAMA: '/meu-fluxograma',
+  SUPORTE: '/suporte',
+  ADMIN_TICKETS: '/admin/tickets',
 
   // Auth routes
   AUTH_CALLBACK: '/auth/callback',
@@ -41,7 +43,16 @@ export const PROTECTED_ROUTES = [
   '/upload-historico',
   '/fluxogramas',
   '/meu-fluxograma',
+  '/suporte',
+  '/admin',
 ] as const;
+
+// Routes that require is_admin = true on the logged-in user
+export const ADMIN_ROUTES = ['/admin'] as const;
+
+export function requiresAdmin(pathname: string): boolean {
+  return ADMIN_ROUTES.some((route) => pathname === route || pathname.startsWith(route + '/'));
+}
 
 // Check if route requires authentication
 export function requiresAuth(pathname: string): boolean {

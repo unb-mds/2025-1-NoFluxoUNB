@@ -3,6 +3,7 @@ import { goto } from '$app/navigation';
 import { get } from 'svelte/store';
 import { authStore } from '$lib/stores/auth';
 import { authService } from '$lib/services/auth.service';
+import { requiresAdmin } from '$lib/config/routes';
 
 const PUBLIC_ROUTES_EXACT = [
 	'/',
@@ -47,12 +48,19 @@ export async function checkAuth(path: string): Promise<boolean> {
 	if (state.isAuthenticated && state.user) {
 		// Verify session is still valid (covers expiry check previously in hooks.server.ts)
 		const isValid = await authService.isSessionValid();
-		if (isValid) return true;
+		if (!isValid) {
+			await authService.signOut();
+			await goto('/login?error=session_expired');
+			return false;
+		}
 
-		// Session expired — sign out and redirect
-		await authService.signOut();
-		await goto('/login?error=session_expired');
-		return false;
+		// Admin-only routes require is_admin = true
+		if (requiresAdmin(path) && !state.user.isAdmin) {
+			await goto('/suporte?error=access_denied');
+			return false;
+		}
+
+		return true;
 	}
 
 	// Not authenticated, redirect to login

@@ -10,6 +10,7 @@
 	import Navbar from '$lib/components/layout/Navbar.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import LoadingBar from '$lib/components/layout/LoadingBar.svelte';
+	import SuporteFab from '$lib/components/support/SuporteFab.svelte';
 	import { Toaster } from 'svelte-sonner';
 	import '../app.css';
 
@@ -124,5 +125,9 @@
 		<Footer />
 	{/if}
 </div>
+
+{#if $isAuthenticated && !$isAnonymous && showNavbar}
+	<SuporteFab />
+{/if}
 
 <Toaster richColors position="top-right" />

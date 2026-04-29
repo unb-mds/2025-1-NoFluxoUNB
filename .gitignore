@@ -82,3 +82,6 @@ debug_html/
 # Kubernetes local deployment
 .env.local
 .deploy/
+
+# Supabase migrations (gerenciadas fora do repo)
+supabase/migrations/

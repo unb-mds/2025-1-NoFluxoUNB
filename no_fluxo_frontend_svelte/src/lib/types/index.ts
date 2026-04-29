@@ -6,3 +6,4 @@ export * from './equivalencia';
 export * from './prerequisite-tree';
 export * from './api';
 export * from './guards';
+export * from './ticket';
