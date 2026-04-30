@@ -12,6 +12,7 @@
 	import ProgressToolsSection from '$lib/components/fluxograma/ProgressToolsSection.svelte';
 	import OptativasAdicionadasSection from '$lib/components/fluxograma/OptativasAdicionadasSection.svelte';
 	import PrerequisiteChainDialog from '$lib/components/fluxograma/PrerequisiteChainDialog.svelte';
+	import RequisitosMudancaCursoBanner from '$lib/components/fluxograma/RequisitosMudancaCursoBanner.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';
@@ -246,6 +247,13 @@
 				<div class="relative z-40 mt-2 shrink-0 space-y-4 border-t border-white/10 pt-4">
 					{#if userFluxograma && store.state.courseData}
 						<div class="space-y-2">
+							{#if eSimulacaoOutroCurso}
+								<RequisitosMudancaCursoBanner
+									dadosFluxograma={userFluxograma}
+									{integralizacao}
+									integralizacaoLoading={integralizacaoLoading}
+								/>
+							{/if}
 							<p class="flex items-center gap-1.5 text-xs text-white/70 sm:text-sm">
 								<ArrowRightLeft class="h-4 w-4 shrink-0 text-cyan-400" />
 								<span
@@ -268,6 +276,13 @@
 				</div>
 			{:else if userFluxograma && store.state.courseData}
 				<div class="relative z-40 mt-2 space-y-2 border-t border-white/10 pt-4">
+					{#if eSimulacaoOutroCurso}
+						<RequisitosMudancaCursoBanner
+							dadosFluxograma={userFluxograma}
+							{integralizacao}
+							integralizacaoLoading={integralizacaoLoading}
+						/>
+					{/if}
 					<p class="flex items-center gap-1.5 text-xs text-white/70">
 						<ArrowRightLeft class="h-4 w-4 shrink-0 text-cyan-400" />
 						<span

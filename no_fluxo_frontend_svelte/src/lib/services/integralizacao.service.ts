@@ -12,6 +12,30 @@ import { getCompletedSubjectCodes } from '$lib/types/user';
 import { getCompletedByEquivalenceCodes } from '$lib/types/equivalencia';
 import type { EquivalenciaModel } from '$lib/types/equivalencia';
 
+type GradeRow = {
+	codigoMateria: string;
+	cargaHoraria: number;
+	categoria: 'obrigatoria' | 'optativa' | 'complementar';
+};
+
+/**
+ * Uma única disciplina concluída não pode contar várias vezes no realizado:
+ * há matrizes em que o mesmo código+categoria aparece mais de uma vez em `materias_por_curso`
+ * (vários vínculos/linhas redundantes); sem deduplicar, as horas optativas/obrig somam acima do real.
+ */
+function dedupeGradePorCodigoENatureza(grade: GradeRow[]): GradeRow[] {
+	const map = new Map<string, GradeRow>();
+	for (const item of grade) {
+		const cod = String(item.codigoMateria ?? '').trim().toUpperCase();
+		if (!cod) continue;
+		const key = `${cod}:${item.categoria}`;
+		const ch = Math.max(0, Number(item.cargaHoraria) || 0);
+		const prev = map.get(key);
+		if (!prev || ch > prev.cargaHoraria) map.set(key, { codigoMateria: cod, cargaHoraria: ch, categoria: item.categoria });
+	}
+	return [...map.values()];
+}
+
 export interface IntegralizacaoInput {
 	/** curriculo_completo (ex: "8117/-2 - 2018.2") para buscar a matriz. */
 	curriculoCompleto: string;
@@ -48,10 +72,12 @@ export async function getIntegralizacao(input: IntegralizacaoInput): Promise<Int
 	const matriz = await supabaseDataService.getMatrizByCurriculoCompleto(cc);
 	if (!matriz) return null;
 
-	const grade = await supabaseDataService.getGradeByMatriz(matriz.idMatriz);
-	if (!grade || grade.length === 0) {
+	const gradeRaw = await supabaseDataService.getGradeByMatriz(matriz.idMatriz);
+	if (!gradeRaw || gradeRaw.length === 0) {
 		return buildResultZeroRealizado(matriz, [], []);
 	}
+
+	const grade = dedupeGradePorCodigoENatureza(gradeRaw);
 
 	const codigosObrigatorios = grade.filter((g) => g.categoria === 'obrigatoria').map((g) => g.codigoMateria);
 	const completedCodes = dadosFluxograma ? getCompletedSubjectCodes(dadosFluxograma) : new Set<string>();

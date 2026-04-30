@@ -120,6 +120,62 @@ def extract_prazos_cargas(relatorio_html):
     return out
 
 
+def extrair_dados_curriculo(texto: str) -> dict:
+    """
+    Extrai do texto raspado da mesma página da estrutura curricular:
+
+    - Prazo Para Conclusão (em semestres): Mínimo, Médio, Máximo
+    - Carga Horária Máxima de Componentes Eletivos (valor inteiro, sem sufixo h)
+
+    Normalização via remover_acentos + flexibilidade de \\s nos padrões.
+    Valores não encontrados retornam None.
+    """
+    t = remover_acentos(texto or '')
+    # NBSP / CR viram espaço para não “colar” rótulos
+    t = re.sub(r'[\xa0\r]+', ' ', t)
+
+    resultado = {
+        'conclusao': {
+            'minimo': None,
+            'medio': None,
+            'maximo': None,
+        },
+        'carga_horaria_maxima_componentes_eletivos': None,
+    }
+
+    marca = re.search(r'(?is)prazo\s+para\s+conclusao\b', t)
+    if marca:
+        janela = t[marca.start(): marca.start() + 700]
+
+        m_tudo = re.search(
+            r'(?is)min(?:imo)?\s*:\s*(\d+)\s*med(?:io)?\s*:\s*(\d+)\s*max(?:imo)?\s*:\s*(\d+)',
+            janela,
+        )
+        if m_tudo:
+            resultado['conclusao']['minimo'] = int(m_tudo.group(1))
+            resultado['conclusao']['medio'] = int(m_tudo.group(2))
+            resultado['conclusao']['maximo'] = int(m_tudo.group(3))
+        else:
+            mm = re.search(r'(?is)\bmin(?:imo)?\s*:\s*(\d+)', janela)
+            if mm:
+                resultado['conclusao']['minimo'] = int(mm.group(1))
+            mm = re.search(r'(?is)\bmed(?:io)?\s*:\s*(\d+)', janela)
+            if mm:
+                resultado['conclusao']['medio'] = int(mm.group(1))
+            mm = re.search(r'(?is)\bmax(?:imo)?\s*:\s*(\d+)', janela)
+            if mm:
+                resultado['conclusao']['maximo'] = int(mm.group(1))
+
+    m_ch = re.search(
+        r'(?is)carga\s+horaria\s+maxima\s+de\s+componentes\s+eletivos\s*:\s*(\d+)\s*h?\b',
+        t,
+    )
+    if m_ch:
+        resultado['carga_horaria_maxima_componentes_eletivos'] = int(m_ch.group(1))
+
+    return resultado
+
+
 def _extrair_natureza_da_celula(td):
     """Extrai 'Obrigatória' ou 'Optativa' da célula Natureza (segunda coluna)."""
     if not td:
@@ -396,6 +452,9 @@ def scrape_estruturas():
                 if td:
                     periodo_letivo_vigor = td.get_text(strip=True)
 
+            texto_plano_estrutura = relatorio_soup.get_text(separator='\n')
+            campos_regex_curriculo = extrair_dados_curriculo(texto_plano_estrutura)
+
             nome_arquivo = periodo_letivo_vigor if periodo_letivo_vigor else (id_arquivo if id_arquivo else f'estructura{idx+1}')
             nome_base = f"{normalize(nome_curso)} - {nome_arquivo}"
             if turno_arquivo and turno_arquivo != 'sem-turno':
@@ -403,17 +462,26 @@ def scrape_estruturas():
             # ID único do SIGAA evita sobrescrever quando mesmo curso/período/turno tem várias estruturas
             nome_base += f" - {estrutura_id}"
             output_path = os.path.join(output_dir, f"{nome_base}.json")
+
+            prazos_merged = dict(prazos_cargas)
+            prazos_merged['carga_horaria_maxima_componentes_eletivos'] = campos_regex_curriculo[
+                'carga_horaria_maxima_componentes_eletivos'
+            ]
+
+            linha_json = {
+                'estrutura_id': estrutura_id,
+                'curso': nome_curso,
+                'tipo_curso': tipo_curso,
+                'turno': turno,
+                'curriculo': curriculo,
+                'periodo_letivo_vigor': periodo_letivo_vigor,
+                'prazos_cargas': prazos_merged,
+                'conclusao': campos_regex_curriculo['conclusao'],
+                'niveis': dados_por_nivel,
+            }
+
             with open(output_path, 'w', encoding='utf-8') as f:
-                json.dump({
-                    'estrutura_id': estrutura_id,
-                    'curso': nome_curso,
-                    'tipo_curso': tipo_curso,
-                    'turno': turno,
-                    'curriculo': curriculo,
-                    'periodo_letivo_vigor': periodo_letivo_vigor,
-                    'prazos_cargas': prazos_cargas,
-                    'niveis': dados_por_nivel
-                }, f, ensure_ascii=False, indent=2)
+                json.dump(linha_json, f, ensure_ascii=False, indent=2)
             print(f"Dados organizados por nível salvos em: {output_path}")
 
     print("Scraping concluído!")
