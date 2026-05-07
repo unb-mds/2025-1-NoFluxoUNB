@@ -1,34 +1,35 @@
 import unittest
 from unittest.mock import patch, MagicMock
 import os
-import datetime
+from datetime import date as real_date
 import sys
-from coleta_dados.scraping import executar_fluxo_dados_RAGFLOW
+from DBA.scraping import executar_fluxo_dados_RAGFLOW
+
+sys.path.append('../DBA/scraping')
 
 # Adiciona o diretório pai ao sys.path para que o módulo possa ser importado
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), ".")))
 
-import coleta_dados.scraping.executar_fluxo_dados_RAGFLOW
-
 class TestExecutarFluxoDadosRAGFLOW(unittest.TestCase):
 
-    @patch("executar_fluxo_dados_RAGFLOW.datetime")
-    def test_gerar_nomes_pastas_primeiro_semestre(self, mock_datetime):
-        mock_datetime.date.today.return_value = datetime.date(2025, 3, 15) # Março, primeiro semestre
+    @patch("executar_fluxo_dados_RAGFLOW.datetime.date")
+    def test_gerar_nomes_pastas_primeiro_semestre(self, mock_date):
+        
+        mock_date.today.return_value = real_date(2025, 3, 15) # Março, primeiro semestre
 
         nomes_pastas = executar_fluxo_dados_RAGFLOW.gerar_nomes_pastas()
-        self.assertEqual(nomes_pastas["dados_finais"], "dados/dados_finais_2025_1")
-        self.assertEqual(nomes_pastas["chunks"], "dados/chunks_finais_2025_1")
-        self.assertEqual(nomes_pastas["formatados"], "dados/chunks_finais_formatados_2025_1")
+        self.assertEqual(nomes_pastas["dados_finais"], "coleta_dados/dados/dados_finais_2025_1")
+        self.assertEqual(nomes_pastas["chunks"], "coleta_dados/dados/chunks_finais_2025_1")
+        self.assertEqual(nomes_pastas["formatados"], "coleta_dados/dados/chunks_finais_formatados_2025_1")
 
-    @patch("executar_fluxo_dados_RAGFLOW.datetime")
-    def test_gerar_nomes_pastas_segundo_semestre(self, mock_datetime):
-        mock_datetime.date.today.return_value = datetime.date(2025, 9, 10) # Setembro, segundo semestre
+    @patch("executar_fluxo_dados_RAGFLOW.datetime.date")
+    def test_gerar_nomes_pastas_segundo_semestre(self, mock_date):
+        mock_date.today.return_value = real_date(2025, 9, 10) # Setembro, segundo semestre
 
         nomes_pastas = executar_fluxo_dados_RAGFLOW.gerar_nomes_pastas()
-        self.assertEqual(nomes_pastas["dados_finais"], "dados/dados_finais_2025_2")
-        self.assertEqual(nomes_pastas["chunks"], "dados/chunks_finais_2025_2")
-        self.assertEqual(nomes_pastas["formatados"], "dados/chunks_finais_formatados_2025_2")
+        self.assertEqual(nomes_pastas["dados_finais"], "coleta_dados/dados/dados_finais_2025_2")
+        self.assertEqual(nomes_pastas["chunks"], "coleta_dados/dados/chunks_finais_2025_2")
+        self.assertEqual(nomes_pastas["formatados"], "coleta_dados/dados/chunks_finais_formatados_2025_2")
 
     @patch("subprocess.run")
     def test_executar_script_sucesso(self, mock_subprocess_run):

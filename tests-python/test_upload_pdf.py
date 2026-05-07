@@ -1,6 +1,6 @@
 import unittest
 from io import BytesIO
-from coleta_dados.parse_pdf.pdf_parser_final import app  # Ajuste o caminho conforme seu projeto
+from DBA.parse_pdf.pdf_parser_final import app  # Ajuste o caminho conforme seu projeto
 
 class PdfUploadTestCase(unittest.TestCase):
 
@@ -10,7 +10,7 @@ class PdfUploadTestCase(unittest.TestCase):
 
     def test_upload_pdf_success(self):
         # Abra o arquivo PDF para o teste (coloque seu arquivo PDF na pasta tests/)
-        with open('tests/historico_unb_teste.pdf', 'rb') as pdf_file:
+        with open('historico_unb_teste.pdf', 'rb') as pdf_file:
             data = {
                 'pdf': (pdf_file, 'historico_unb_teste.pdf')
             }

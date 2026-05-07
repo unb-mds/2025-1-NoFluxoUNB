@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import patch, MagicMock, mock_open
+from unittest.mock import patch, MagicMock, mock_open, ANY
 import sys
 import os
 from bs4 import BeautifulSoup
@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 # --------------------------------------------------------------------------
 
 # Importa as funções do script que queremos testar
-from coleta_dados.scraping import extrair_turmas_sigaa as scraper
+from DBA.scraping import extrair_turmas_sigaa as scraper
 
 class TestHelperFunctions(unittest.TestCase):
     """Testa as funções auxiliares de limpeza de texto."""
@@ -62,7 +62,7 @@ class TestDataExtraction(unittest.TestCase):
         resultado = scraper.extrair_equivalencias([mock_th, cells[0]])
         self.assertEqual(resultado, "Nenhuma")
 
-    @patch('coleta_dados.scraping.extrair_turmas_sigaa.extrair_equivalencias')
+    @patch('DBA.scraping.extrair_turmas_sigaa.extrair_equivalencias')
     def test_coleta_dados(self, mock_extrair_equivalencias):
         """Testa a função 'coleta_dados' simulando uma resposta POST."""
         # Configura o mock da função de equivalências
@@ -137,7 +137,7 @@ class TestMainProcess(unittest.TestCase):
         """
 
     @patch('requests.Session')
-    @patch('coleta_dados.scraping.extrair_turmas_sigaa.coleta_dados')
+    @patch('DBA.scraping.extrair_turmas_sigaa.coleta_dados')
     def test_processar_departamento_com_sucesso(self, mock_coleta_dados, mock_Session):
         """Testa o processamento de um departamento que retorna turmas."""
         # Configura o retorno da função 'coleta_dados'
@@ -163,8 +163,8 @@ class TestMainProcess(unittest.TestCase):
         self.assertEqual(resultado['departamento_id'], 650)
         self.assertEqual(len(resultado['turmas']), 1)
         turma = resultado['turmas'][0]
-        self.assertEqual(turma['disciplina'], " ESTRUTURA DE DADOS")
-        self.assertEqual(turma['codigo'], "CIC0007 ")
+        self.assertEqual(turma['disciplina'], "ESTRUTURA DE DADOS")
+        self.assertEqual(turma['codigo'], "CIC0007")
         self.assertEqual(turma['ementa'], "Ementa da disciplina.")
 
         # Verifica se 'coleta_dados' foi chamada com os parâmetros corretos
@@ -178,7 +178,17 @@ class TestMainProcess(unittest.TestCase):
     def test_carregar_ids_departamentos(self, mock_file):
         """Testa o carregamento de IDs de um arquivo CSV simulado."""
         ids = scraper.carregar_ids_departamentos()
-        mock_file.assert_called_with('dados/departamentos_ID_unb.csv', 'r', encoding='utf-8')
+        
+        mock_file.assert_called_with(
+            ANY,
+            'r',
+            encoding='utf-8'
+        )
+
+        args, kwargs = mock_file.call_args
+        caminho = args[0]
+        assert caminho.endswith("DBA/scraping/departamentos_ID_unb.csv")
+
         self.assertEqual(ids, [650, 651])
 
     @patch("builtins.open")
@@ -195,8 +205,7 @@ class TestMainProcess(unittest.TestCase):
         # Configura o mock_join para retornar um caminho de arquivo falso
         mock_join.return_value = "fake_dir/turmas_depto_650.json"
         
-        scraper.OUTPUT_DIR = "fake_dir"
-        scraper.salvar_por_departamento(resultados)
+        scraper.salvar_por_departamento(resultados, "fake_dir")
 
         # Verifica se a criação de diretório foi chamada
         mock_mkdir.assert_called_once()
