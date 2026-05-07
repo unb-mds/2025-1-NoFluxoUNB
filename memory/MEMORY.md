@@ -1,0 +1,1 @@
+- [User role - equipe auditora/testadora do NoFluxo](user_role.md) — equipe externa que audita e escreve testes para o NoFluxo (não desenvolve o produto); relatórios em 3ª pessoa

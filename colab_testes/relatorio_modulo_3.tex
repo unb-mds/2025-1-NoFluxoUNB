@@ -1,0 +1,737 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{seqsplit}
+\usepackage{colortbl}
+
+% Helper para texto monoespacado com quebra automatica (evita overflow em tabelas).
+% Importante: escape caracteres especiais no input -- _ como \_ , < como \textless ,
+% > como \textgreater . O seqsplit quebra a string caractere a caractere.
+\newcommand{\ttwrap}[1]{{\ttfamily\seqsplit{#1}}}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    urlcolor=blue!60!black,
+    citecolor=blue!60!black,
+}
+
+% --- Configuração para listings (TypeScript / Python) ---
+\definecolor{codegreen}{rgb}{0.0,0.5,0.0}
+\definecolor{codegray}{rgb}{0.4,0.4,0.4}
+\definecolor{codeblue}{rgb}{0.13,0.29,0.53}
+\definecolor{codepurple}{rgb}{0.58,0.0,0.83}
+\definecolor{backcolour}{rgb}{0.96,0.96,0.96}
+
+\lstdefinestyle{codestyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codeblue}\bfseries,
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=6pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single,
+    rulecolor=\color{gray!40},
+    framesep=4pt,
+}
+\lstset{style=codestyle}
+
+% Linguagem TypeScript "manual" (não nativa no listings)
+\lstdefinelanguage{TypeScript}{
+  keywords={break, case, catch, class, const, continue, debugger, default,
+            delete, do, else, enum, export, extends, false, finally, for,
+            function, if, implements, import, in, instanceof, interface,
+            let, new, null, package, private, protected, public, return,
+            static, super, switch, this, throw, true, try, typeof, var,
+            void, while, with, yield, async, await, of, as, from, type,
+            describe, it, expect, jest, beforeEach, afterEach},
+  keywordstyle=\color{codeblue}\bfseries,
+  ndkeywords={Number, String, Boolean, Promise, Array, Request, Response, void},
+  ndkeywordstyle=\color{codeblue!70!black}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{codegreen}\ttfamily,
+  stringstyle=\color{codepurple}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\titleformat{\section}{\Large\bfseries\color{codeblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{codeblue!80!black}}{\thesubsection}{1em}{}
+
+% ---------- Cabeçalho institucional "UnB | FGA" estilizado ----------
+\definecolor{unbgreen}{rgb}{0.0,0.39,0.20}   % verde institucional
+\definecolor{unbblue}{rgb}{0.0,0.20,0.40}    % azul institucional
+
+\newcommand{\unbfgaheader}{%
+  \begin{center}
+    \setlength{\fboxsep}{6pt}
+    \setlength{\fboxrule}{1.2pt}
+    {\Large
+      \fcolorbox{unbgreen}{white}{\color{unbgreen}\bfseries UnB}%
+      \hspace{0.3em}%
+      \fcolorbox{unbblue}{unbblue}{\color{white}\bfseries\hspace{0.2em}FGA\hspace{0.2em}}%
+    }\\[0.3em]
+    {\small\itshape Universidade de Brasília\,\textbar\, Faculdade do Gama}\\
+    {\small\itshape Engenharia de Software}\\
+    {\small\itshape Disciplina FGA0314 -- Testes de Software}
+  \end{center}
+  \vspace{0.4em}
+  \noindent\textcolor{unbgreen}{\rule{\linewidth}{1.5pt}}
+  \vspace{0.6em}
+}
+
+\begin{document}
+
+% Cabeçalho institucional substitui o \maketitle padrão
+\unbfgaheader
+
+\begin{center}
+    {\LARGE\bfseries\color{unbblue}
+      Relatório de Auditoria de Testes -- Módulo 3}\\[0.4em]
+    {\large
+      Atividades 1, 2 e 3 -- Auditoria dos Testes de Unidade do Projeto NoFluxo UnB}\\[1.2em]
+\end{center}
+
+% ---------- Bloco de integrantes ----------
+\begin{center}
+\footnotesize
+\begin{tabularx}{0.85\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{3.5cm}|}
+\hline
+\rowcolor{backcolour}\textbf{Integrante} & \textbf{Matrícula} \\ \hline
+Enzo Lopes Ferreira                    & 232002000 \\ \hline
+Vinícius de Jesus Bessa Fernandes      & 222006490 \\ \hline
+Vitor Marconi Trancoso Albuquerque     & 222006202 \\ \hline
+\end{tabularx}
+\end{center}
+
+\begin{center}
+\small Brasília, maio de 2026
+\end{center}
+
+\vspace{1em}
+
+\section*{Contexto da auditoria}
+
+Esta equipe atua como \textbf{colaboradora externa} auditando os testes
+do projeto \textbf{NoFluxo UnB}. A equipe \emph{não} desenvolveu o
+código de produção: o trabalho aqui descrito é de \emph{análise} dos
+testes existentes (Atividades 1 e 2) e de \emph{proposta} de uma
+reescrita exemplar (Atividade 3).
+
+O projeto auditado é composto por:
+
+\begin{itemize}[leftmargin=1.5em]
+    \item Um \textbf{backend Node.js/TypeScript} (\texttt{no\_fluxo\_backend}) que expõe controllers Express e usa Supabase como banco;
+    \item Um \textbf{serviço Python} de IA (\texttt{ai\_agent}) baseado em Flask, integrado ao RAGFlow;
+    \item Scripts \textbf{Python} de scraping/coleta de dados do SIGAA;
+    \item Frontends em \textbf{Flutter} e \textbf{Svelte}.
+\end{itemize}
+
+A auditoria concentrou-se em duas áreas com testes \emph{de unidade}:
+\texttt{no\_fluxo\_backend/tests-ts/} (Jest + TypeScript) e
+\texttt{tests-python/} (Pytest + unittest). Frontends e scripts
+sem testes de unidade foram excluídos do escopo.
+
+% =====================================================================
+\section{Atividade 1 -- Anatomia dos Testes do Projeto}
+% =====================================================================
+
+O objetivo desta atividade é mapear, do ponto de vista da auditoria,
+como o projeto NoFluxo organiza seus testes de unidade. A equipe
+analisou as quatro dimensões pedidas no enunciado: convenção de nomes,
+estrutura AAA, uso de mocks/stubs e dependências externas.
+
+\subsection{Estrutura geral dos testes}
+
+\begin{center}
+\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3.4cm}|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Área} & \textbf{Framework} & \textbf{Localização} \\ \hline
+Backend TS (Express) & Jest 29.7.0 + ts-jest & \ttwrap{no\_fluxo\_backend/tests-ts/*.test.ts} \\ \hline
+Serviço Python (Flask) & Pytest + pytest-mock & \ttwrap{tests-python/test\_*.py} \\ \hline
+Scrapers Python & unittest + mock & \ttwrap{tests-python/test\_extrair\_*.py} \\ \hline
+\end{tabularx}
+\end{center}
+
+\subsection{Convenção de nomes}
+
+\textbf{No backend TypeScript} o projeto segue a convenção do Jest com
+\texttt{describe} agrupando por controller e \texttt{it} descrevendo o
+comportamento em inglês na forma \emph{``should + verbo + condição''}:
+
+\begin{lstlisting}[language=TypeScript,caption={\texttt{cursos\_controller.test.ts} -- linhas 22, 42, 74, 90}]
+// 'describe' agrupa os testes de um mesmo controller (boa pratica)
+describe('CursosController', () => {
+  // Cada 'it' descreve UM comportamento -- formato "should + acao + condicao"
+  it('should return 200 with cursos data when successful', async () => { ... });
+  it('should return 500 when cursos query fails', async () => { ... });
+  it('should return 500 when creditos_por_curso query fails', async () => { ... });
+});
+// >>> Observacao da auditoria: nomes em ingles, foco em comportamento -- OK
+\end{lstlisting}
+
+\textbf{Nos testes Python} a convenção é o prefixo \texttt{test\_}
+seguido por uma descrição em \textbf{português} usando \texttt{snake\_case}:
+
+\begin{lstlisting}[language=Python,caption={\texttt{tests-python/test\_app.py} -- linha 55}]
+# Convencao Python: prefixo test_ + descricao em portugues, snake_case
+# 'client' e 'mocker' sao fixtures injetadas pelo pytest
+def test_analisar_materia_endpoint_sucesso(client, mocker):
+    """Testa o endpoint /assistente em um cenário de sucesso..."""
+# >>> Observacao da auditoria: o nome cita o endpoint e o cenario,
+#     mas nao explicita o RESULTADO esperado (slide 24 da aula)
+\end{lstlisting}
+
+\textbf{Avaliação da auditoria:} a convenção do backend TS está
+alinhada às boas práticas (foco em comportamento). Já a Python está
+parcialmente alinhada -- os nomes descrevem comportamento, mas em
+alguns testes herdados de \texttt{unittest} usam-se nomes muito
+genéricos como \texttt{test\_remover\_acentos} ou
+\texttt{test\_coleta\_dados}, que focam em \emph{nome do método} e
+não no comportamento esperado, exatamente o problema descrito no
+slide 23 da aula.
+
+\subsection{Estrutura AAA (Arrange / Act / Assert)}
+
+A equipe identificou que os testes do backend TS seguem AAA de forma
+\textbf{implícita}: o padrão está presente, mas \emph{sem} comentários
+demarcando os blocos. Exemplo extraído do projeto:
+
+\begin{lstlisting}[language=TypeScript,caption={\texttt{cursos\_controller.test.ts} -- linhas 42--72 (AAA implícito)}]
+it('should return 200 with cursos data when successful', async () => {
+    // ===== ARRANGE =====
+    // (no projeto auditado NAO ha esses comentarios -- estamos
+    //  destacando os blocos AAA para fins didaticos)
+    const mockCursosData = [ { id_curso: 1, nome_curso: 'Administracao' }, ... ];
+
+    // Configura DUAS respostas sequenciais do banco mockado:
+    //  1a chamada -> dados de cursos
+    //  2a chamada -> dados de creditos por curso
+    (SupabaseWrapper.get().from('cursos').select as jest.Mock)
+      .mockResolvedValueOnce({ data: mockCursosData,    error: null })
+      .mockResolvedValueOnce({ data: mockCreditosData,  error: null });
+
+    // ===== ACT =====
+    // UMA unica chamada ao handler do controller -- boa pratica
+    const handler = CursosController.routes["all-cursos"].value;
+    await handler(mockRequest as Request, mockResponse as Response);
+
+    // ===== ASSERT =====
+    // Verifica status HTTP + corpo da resposta
+    expect(statusSpy).toHaveBeenCalledWith(200);
+    expect(jsonSpy).toHaveBeenCalledWith([ ... ]);
+});
+\end{lstlisting}
+
+Nos testes Python a equipe observou que o padrão AAA também aparece,
+mas é frequentemente \textbf{misturado}: o setup do cliente Flask é
+uma \emph{fixture}, mocks podem aparecer espalhados, e em alguns
+casos há vários blocos de \texttt{Act + Assert} no mesmo teste.
+
+\subsection{Uso de mocks/stubs}
+
+\textbf{Backend TS:} o projeto usa exclusivamente \emph{Jest mocks}
+(\texttt{jest.fn()}, \texttt{jest.mock()}, \texttt{jest.spyOn()}).
+A estratégia adotada é mockar o módulo \texttt{SupabaseWrapper} no
+topo de cada arquivo de teste, evitando qualquer chamada real ao
+banco:
+
+\begin{lstlisting}[language=TypeScript,caption={\texttt{cursos\_controller.test.ts} -- linhas 6--20 (mock do Supabase)}]
+// Substitui o modulo 'supabase_wrapper' inteiro por um dublê
+// (NENHUMA chamada real ao banco acontece nos testes)
+jest.mock('../src/supabase_wrapper', () => {
+  // Cada nivel da cadeia .from(...).select(...) precisa ser mockado
+  const mockSelect = jest.fn();
+  const mockFrom   = jest.fn(() => ({ select: mockSelect }));
+  const mockGet    = jest.fn(() => ({ from:   mockFrom   }));
+
+  // Retorna o objeto que substitui o modulo original
+  return { SupabaseWrapper: { get: mockGet } };
+});
+// >>> Auditoria: bom isolamento, MAS o teste fica acoplado a forma
+//     exata como o controller chama o Supabase (quebra em refactor)
+\end{lstlisting}
+
+\textbf{Python:} o projeto usa \texttt{unittest.mock} (\texttt{@patch},
+\texttt{MagicMock}, \texttt{mock\_open}) e o auxiliar
+\texttt{pytest-mock} (\texttt{mocker.patch}). Exemplo encontrado em
+\texttt{test\_app.py}:
+
+\begin{lstlisting}[language=Python,caption={\texttt{tests-python/test\_app.py} -- linhas 60--63}]
+# 'mocker.patch' substitui RagflowClient (chamada HTTP externa)
+# por um dublê controlado pelo teste
+mock_ragflow_client = mocker.patch(
+    'no_fluxo_backend.ai_agent.app.RagflowClient'
+).return_value
+
+# Define respostas estaticas para os metodos usados no fluxo
+mock_ragflow_client.start_session.return_value = "sessao_mock_123"
+mock_ragflow_client.analyze_materia.return_value = {
+    "code": 0, "data": "dados_mock"
+}
+# >>> Auditoria: dublê bem aplicado -- isola API externa do RAGFlow
+\end{lstlisting}
+
+\subsection{Dependências externas}
+
+A tabela abaixo resume as dependências externas \emph{detectadas pela
+auditoria} e como elas são tratadas nos testes existentes do projeto:
+
+\begin{center}
+\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3.5cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Dependência} & \textbf{Onde aparece} & \textbf{Tratamento nos testes} \\ \hline
+Banco Supabase & Backend TS, todos os controllers & Mockado via \ttwrap{jest.mock} \\ \hline
+\ttwrap{Request}/\ttwrap{Response} Express & Backend TS & Mock manual via \ttwrap{Partial\textless{}Request\textgreater{}} \\ \hline
+RAGFlow API (HTTP) & \ttwrap{ai\_agent/app.py} & \ttwrap{mocker.patch} \\ \hline
+SIGAA (HTTP scraping) & \ttwrap{coleta\_dados/scraping/} & \ttwrap{@patch('requests.Session')} \\ \hline
+Sistema de arquivos & Salvar/ler JSON e CSV & \ttwrap{mock\_open}, \ttwrap{patch('builtins.open')} \\ \hline
+Variáveis de ambiente & \ttwrap{config.py} & \ttwrap{monkeypatch} (pytest) \\ \hline
+Relógio/data atual & Não há testes que dependam disso & N/A \\ \hline
+\end{tabularx}
+\end{center}
+
+\textbf{Conclusão da auditoria (Atividade 1):} o projeto \emph{já
+adota parcialmente} as boas práticas vistas em aula -- nomeação por
+comportamento, AAA, e mocks para isolar dependências externas. O
+backend TS é a área mais alinhada com as recomendações; a parte
+Python apresenta mais inconsistências (nomes genéricos, AAA
+misturado) e alguns testes com setups muito longos, o que será
+explorado nas Atividades 2 e 3.
+
+% =====================================================================
+\section{Atividade 2 -- Encontrar um ``Teste Ruim''}
+% =====================================================================
+
+\subsection{Teste escolhido pela auditoria}
+
+A equipe selecionou o teste
+\texttt{``should return 200 with database test results when successful''}
+do bloco \texttt{describe('banco')}, localizado no arquivo
+\texttt{no\_fluxo\_backend/tests-ts/testes\_controller.test.ts}
+(linhas 67--130). Trata-se de um teste já presente no projeto que
+acumula vários sintomas de ``teste ruim'' descritos nos slides 22--25
+da aula.
+
+\subsection{Código original (extraído do projeto auditado)}
+
+\begin{lstlisting}[language=TypeScript,caption={\texttt{testes\_controller.test.ts} -- linhas 67--130 (teste original ``ruim'') -- comentarios da auditoria em destaque}]
+describe('banco', () => {
+    // [PROBLEMA 6] Nome generico: nao diz QUAL cenario gera o 200
+    it('should return 200 with database test results when successful', async () => {
+
+      // [PROBLEMA 5] Dados de teste excessivos -- nada disso eh
+      // verificado nos asserts; aumenta carga cognitiva
+      const mockCursosData = [
+        { nome_curso: 'Administracao' },
+        { nome_curso: 'Engenharia' }
+      ];
+
+      const mockMateriasData = [
+        {
+          nome_curso: 'Administracao',
+          materias_por_curso: [
+            {
+              id_materia: 1,
+              nivel: 1,
+              materias: {
+                id_materia: 1,
+                nome_materia: 'Matematica',
+                codigo_materia: 'MAT001'
+              }
+            },
+            {
+              id_materia: 2,
+              nivel: 2,
+              materias: {
+                id_materia: 2,
+                nome_materia: 'Portugues',
+                codigo_materia: 'PORT001'
+              }
+            }
+          ]
+        }
+      ];
+
+      // [PROBLEMA 4] Os mocks abaixo modelam a forma EXATA como o
+      // controller chama o Supabase (.from -> .select -> .limit).
+      // Qualquer refactor interno quebra o teste.
+      const mockSelectChain1 = jest.fn().mockResolvedValueOnce({
+        data: mockCursosData,
+        error: null,
+      });
+
+      const mockSelectChain2 = jest.fn().mockResolvedValueOnce({
+        data: mockMateriasData,
+        error: null,
+      });
+
+      const mockLimitChain = jest.fn().mockReturnValue({
+        select: mockSelectChain2,
+      });
+
+      // [PROBLEMA 3] Arrange gigante e sem separacao; AAA implícito
+      mockFrom.mockReturnValueOnce({
+        select: mockSelectChain1,
+      }).mockReturnValueOnce({
+        select: jest.fn().mockReturnValue({
+          limit: mockLimitChain,
+        }),
+      });
+
+      // ----- aqui acaba o Arrange e comeca Act + Assert (sem demarcacao) -----
+      const handler = TestesController.routes["banco"].value;
+      await handler(mockRequest as Request, mockResponse as Response);
+
+      // [PROBLEMA 2] TRES asserts verificando coisas distintas:
+      // status HTTP, identificador do teste, status logico.
+      // Quando falha, nao se sabe QUAL comportamento foi violado.
+      expect(statusSpy).toHaveBeenCalledWith(200);
+      const responseData = jsonSpy.mock.calls[0][0];
+      expect(responseData.teste).toBe('conexao_banco');
+      expect(responseData.status).toBe('sucesso');
+      // [PROBLEMA 7] Nao ha cobertura de valores limite (lista vazia,
+      // erro de query, 1 unico curso) -- so o caminho feliz
+    });
+});
+// [PROBLEMA 1] O teste inteiro tem ~65 linhas (>90% sao setup de mock)
+// [PROBLEMA 8] mockMateriasData se repete em describe('curso') e
+// describe('casamento') -- duplicacao indica falta de test data builder
+\end{lstlisting}
+
+\subsection{Problemas identificados pela auditoria}
+
+\begin{enumerate}[leftmargin=1.5em]
+
+\item \textbf{Difícil de entender (mais de 60 linhas).} O teste tem
+\textasciitilde{}65 linhas. A maior parte é setup de mock; o
+comportamento testado real (uma chamada e três asserts) está enterrado
+ao final.
+
+\item \textbf{Múltiplos asserts verificando coisas diferentes.}
+\texttt{expect(statusSpy).toHaveBeenCalledWith(200)},
+\texttt{expect(responseData.teste).toBe(...)} e
+\texttt{expect(responseData.status).toBe(...)} testam
+\emph{três} aspectos distintos. Quando o teste falha, não fica claro
+\emph{qual} comportamento foi violado -- o nome do teste só promete
+``return 200''.
+
+\item \textbf{Mistura Arrange/Act/Assert.} Não há separação clara entre
+os três blocos. O Arrange é gigante, sem comentários, e a inicialização
+\texttt{mockFrom.mockReturnValueOnce(...)} é encadeada com lógica de
+``primeira chamada/segunda chamada'' que esconde a regra de negócio
+testada.
+
+\item \textbf{Depende fortemente da implementação interna.} Os mocks
+modelam a forma exata como o controller chama o Supabase
+(\texttt{from -> select -> limit -> select}). Qualquer refactor
+interno que mantenha o mesmo comportamento externo \emph{quebra} o
+teste -- problema clássico discutido no slide 23 da aula
+(``foca na implementação'').
+
+\item \textbf{Dados de teste excessivos e irrelevantes.} O teste cria
+duas matérias completas (\texttt{Matematica}, \texttt{Portugues}) com
+níveis e códigos -- nada disso é verificado nos asserts. Isso
+aumenta a carga cognitiva sem agregar valor.
+
+\item \textbf{Nome genérico, não comunica o cenário.}
+\texttt{``should return 200 with database test results when successful''}
+diz \emph{o que} retorna, mas não \emph{em que cenário} (cursos
+encontrados? base vazia? quantos itens?). Pelo padrão da aula
+(slide 24), o nome deveria descrever o comportamento de forma
+inequívoca.
+
+\item \textbf{Não cobre valores limite.} Não há testes para:
+lista de cursos vazia, erro na segunda query (\texttt{materias\_por\_curso}),
+ou um único curso retornado. Apenas o caminho ``feliz'' está coberto.
+
+\item \textbf{Setup duplicado entre testes do mesmo \texttt{describe}.}
+O mesmo \texttt{mockMateriasData} aparece praticamente igual em
+\texttt{describe('curso')} e \texttt{describe('casamento')}, indicando
+falta de \emph{test data builders}.
+
+\end{enumerate}
+
+% =====================================================================
+\section{Atividade 3 -- Reescrita do Teste}
+% =====================================================================
+
+A equipe propõe, a seguir, uma reescrita do teste auditado.
+A proposta aplica AAA explícito, melhora a nomenclatura, separa o
+teste em casos focados (\emph{um act, um comportamento}) e adiciona
+casos de valores limite (lista vazia, erro de banco), conforme pedido
+no enunciado. Esta seção representa a contribuição direta da equipe
+auditora ao projeto -- e é a única do relatório escrita em primeira
+pessoa.
+
+\subsection{Test data builder e helper de mock}
+
+Primeiro, extraímos os dados e o setup repetido para um helper.
+Isso reduz o ruído nos testes propostos e remove duplicação que a
+auditoria identificou no arquivo original.
+
+\begin{lstlisting}[language=TypeScript,caption={Helpers propostos pela equipe -- reduzem setup repetido}]
+// =====================================================================
+// HELPERS DE TESTE -- declarados no topo do arquivo
+// Objetivo: tirar o ruido de mock dos casos de teste e remover
+// duplicacao identificada pela auditoria (PROBLEMA 8).
+// =====================================================================
+
+// [BUILDER] Cria um curso minimo, so com o que importa pro teste
+const aCurso = (nome: string) => ({ nome_curso: nome });
+
+// [HELPER] Encapsula o mock da 1a query (lista de cursos)
+//   data  -> resposta de sucesso
+//   error -> caso de erro de banco (default: null = sucesso)
+const stubCursosQuery = (data: any, error: any = null) => {
+    const select = jest.fn().mockResolvedValueOnce({ data, error });
+    mockFrom.mockReturnValueOnce({ select });
+};
+
+// [HELPER] Encapsula o mock da 2a query (materias_por_curso)
+// Esconde o encadeamento .from -> .select -> .limit -> .select
+// dos casos de teste -- assim, mudancas internas afetam apenas
+// este helper, nao todos os testes.
+const stubMateriasPorCursoQuery = (data: any, error: any = null) => {
+    const select = jest.fn().mockResolvedValueOnce({ data, error });
+    const limit  = jest.fn().mockReturnValue({ select });
+    mockFrom.mockReturnValueOnce({
+        select: jest.fn().mockReturnValue({ limit }),
+    });
+};
+\end{lstlisting}
+
+\subsection{Testes reescritos pela equipe auditora}
+
+Na proposta da equipe, cada teste foca em \emph{um} comportamento,
+segue AAA explícito e cobre um cenário limite distinto.
+
+\begin{lstlisting}[language=TypeScript,caption={Versão reescrita aplicando AAA, melhor nomenclatura e cobertura de valores limite}]
+// =====================================================================
+// SUITE REESCRITA PELA EQUIPE AUDITORA
+// Os 5 testes abaixo SUBSTITUEM o teste unico original (~65 linhas)
+// e cobrem caminho feliz + 4 cenarios de borda.
+// =====================================================================
+describe('TestesController.banco (teste de conexao com o banco)', () => {
+
+    // -----------------------------------------------------------------
+    // CASO 1 -- caminho feliz com varios cursos
+    // -----------------------------------------------------------------
+    it('Banco_com_cursos_e_materias_retorna_status_sucesso', async () => {
+        // Arrange -- prepara 2 cursos e 1 entrada de materias
+        stubCursosQuery([aCurso('Administracao'), aCurso('Engenharia')]);
+        stubMateriasPorCursoQuery([{
+            nome_curso: 'Administracao',
+            materias_por_curso: [],
+        }]);
+
+        // Act -- UMA unica chamada ao handler (slide 13)
+        await TestesController.routes["banco"].value(
+            mockRequest as Request,
+            mockResponse as Response,
+        );
+
+        // Assert -- objectContaining: nao quebra se a resposta ganhar
+        // novos campos no futuro (asserts focados em comportamento)
+        expect(statusSpy).toHaveBeenCalledWith(200);
+        expect(jsonSpy).toHaveBeenCalledWith(
+            expect.objectContaining({
+                teste:  'conexao_banco',
+                status: 'sucesso',
+            }),
+        );
+    });
+
+    // -----------------------------------------------------------------
+    // CASO 2 -- valor limite: ZERO cursos cadastrados
+    // -----------------------------------------------------------------
+    it('Banco_sem_cursos_cadastrados_retorna_status_sucesso_com_lista_vazia', async () => {
+        // Arrange -- limite inferior: lista vazia
+        stubCursosQuery([]);
+        stubMateriasPorCursoQuery([]);
+
+        // Act
+        await TestesController.routes["banco"].value(
+            mockRequest as Request,
+            mockResponse as Response,
+        );
+
+        // Assert -- mesmo sem cursos, conexao deve responder sucesso
+        expect(statusSpy).toHaveBeenCalledWith(200);
+        expect(jsonSpy).toHaveBeenCalledWith(
+            expect.objectContaining({
+                teste:  'conexao_banco',
+                status: 'sucesso',
+            }),
+        );
+    });
+
+    // -----------------------------------------------------------------
+    // CASO 3 -- valor limite: EXATAMENTE 1 curso
+    // -----------------------------------------------------------------
+    it('Banco_com_um_unico_curso_retorna_status_sucesso', async () => {
+        // Arrange -- limite minimo de uma colecao nao vazia
+        stubCursosQuery([aCurso('Engenharia')]);
+        stubMateriasPorCursoQuery([{
+            nome_curso: 'Engenharia',
+            materias_por_curso: [],
+        }]);
+
+        // Act
+        await TestesController.routes["banco"].value(
+            mockRequest as Request,
+            mockResponse as Response,
+        );
+
+        // Assert -- foco em: handler nao falha com colecao de 1 item
+        expect(statusSpy).toHaveBeenCalledWith(200);
+    });
+
+    // -----------------------------------------------------------------
+    // CASO 4 -- caminho de ERRO: 1a query (cursos) falha
+    // -----------------------------------------------------------------
+    it('Banco_quando_query_de_cursos_falha_retorna_500_com_mensagem_de_erro', async () => {
+        // Arrange -- simula erro retornado pelo Supabase
+        const erro = { message: 'Database error' };
+        stubCursosQuery(null, erro);
+
+        // Act
+        await TestesController.routes["banco"].value(
+            mockRequest as Request,
+            mockResponse as Response,
+        );
+
+        // Assert -- payload de erro deve conter mensagem original
+        expect(statusSpy).toHaveBeenCalledWith(500);
+        expect(jsonSpy).toHaveBeenCalledWith({
+            teste:  'conexao_banco',
+            status: 'erro',
+            erro:   erro.message,
+        });
+    });
+
+    // -----------------------------------------------------------------
+    // CASO 5 -- caminho de ERRO: 2a query (materias) falha
+    //   (este caso NAO existia no teste original)
+    // -----------------------------------------------------------------
+    it('Banco_quando_query_de_materias_falha_retorna_500_com_mensagem_de_erro', async () => {
+        // Arrange -- 1a query OK, 2a query erro
+        stubCursosQuery([aCurso('Administracao')]);
+        stubMateriasPorCursoQuery(null, { message: 'materias error' });
+
+        // Act
+        await TestesController.routes["banco"].value(
+            mockRequest as Request,
+            mockResponse as Response,
+        );
+
+        // Assert -- basta verificar status 500 + flag de erro logica
+        expect(statusSpy).toHaveBeenCalledWith(500);
+        expect(jsonSpy).toHaveBeenCalledWith(
+            expect.objectContaining({ status: 'erro' }),
+        );
+    });
+});
+\end{lstlisting}
+
+\subsection{Melhorias propostas pela equipe auditora}
+
+\begin{enumerate}[leftmargin=1.5em]
+
+\item \textbf{AAA explícito.} Cada teste proposto contém comentários
+\texttt{// Arrange}, \texttt{// Act} e \texttt{// Assert} demarcando os
+blocos -- aumenta a legibilidade (slide 18 da aula).
+
+\item \textbf{Nomes que descrevem comportamento.} Em vez de
+\texttt{should return 200 with database test results when successful},
+a equipe propõe
+\texttt{Banco\_com\_cursos\_e\_materias\_retorna\_status\_sucesso}.
+O nome descreve \emph{o cenário} (com cursos e matérias) e
+\emph{o resultado esperado} (status sucesso), seguindo a recomendação
+do slide 24 (``Use frases simples e expressivas'') e do slide 25
+(separar palavras com \emph{underscore}).
+
+\item \textbf{Cobertura de valores limite.} O teste original do
+projeto cobria apenas o caminho feliz. A versão proposta pela equipe
+adiciona:
+\begin{itemize}[leftmargin=1.5em]
+    \item Lista de cursos \emph{vazia} (zero elementos);
+    \item \emph{Um único} curso (limite mínimo de uma coleção não vazia);
+    \item Falha na primeira query;
+    \item Falha na segunda query (materias\_por\_curso).
+\end{itemize}
+
+\item \textbf{Um Act por teste.} Cada teste proposto tem exatamente
+uma chamada ao handler -- prática recomendada no slide 13 (``Um bom
+teste normalmente possui apenas UM Act'').
+
+\item \textbf{Asserts focados em comportamento, não em estrutura.}
+\texttt{expect.objectContaining(\{ status: 'sucesso' \})} verifica
+apenas o que importa para aquele teste, em vez de exigir o JSON
+completo.  Isso reduz a fragilidade quando campos auxiliares são
+adicionados/removidos da resposta.
+
+\item \textbf{Helpers reduzem ruído de setup.} A equipe introduziu
+\texttt{stubCursosQuery} e \texttt{stubMateriasPorCursoQuery} para
+encapsular a forma como os mocks são encadeados, permitindo reuso
+entre testes e mantendo o foco do caso de teste no \emph{cenário},
+não no detalhe de implementação.
+
+\item \textbf{Independência total.} Cada teste proposto prepara seus
+próprios mocks (graças ao \texttt{afterEach} com
+\texttt{jest.clearAllMocks()}) e não depende da ordem de execução --
+atende ao requisito do slide 19 (``um teste deve poder executar
+sozinho, em qualquer ordem'').
+
+\end{enumerate}
+
+% =====================================================================
+\section*{Conclusão da auditoria}
+% =====================================================================
+
+A auditoria realizada pela equipe colaboradora mostrou que o projeto
+NoFluxo já adota \emph{parcialmente} as boas práticas vistas no
+Módulo 3 -- isolamento via mocks, AAA implícito e nomes razoáveis no
+backend TypeScript. Os pontos fracos detectados foram:
+(i) testes longos com setup excessivo;
+(ii) acoplamento dos mocks à implementação interna do Supabase
+(testes que dependem do encadeamento exato \texttt{from -> select -> limit});
+(iii) ausência de testes para valores limite e caminhos de erro nos
+testes do \texttt{TestesController}; e
+(iv) nomes que descrevem o método/retorno em vez do comportamento.
+
+A reescrita proposta na Atividade 3 ilustra como aplicar diretamente
+as recomendações da aula (AAA explícito, nomes expressivos, um Act
+por teste, cobertura de limites) \emph{sem} alterar o código de
+produção do NoFluxo -- ganhando legibilidade e cobertura ao mesmo
+tempo. A equipe recomenda que essa abordagem seja estendida para os
+demais arquivos de teste do projeto em ciclos futuros de auditoria.
+
+\end{document}
