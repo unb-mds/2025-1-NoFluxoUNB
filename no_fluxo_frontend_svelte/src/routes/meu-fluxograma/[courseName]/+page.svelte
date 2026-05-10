@@ -37,14 +37,44 @@
 	let userFluxograma = $derived(store.userFluxograma);
 	let curriculoCompletoAtual = $derived(store.state.courseData?.curriculoCompleto ?? null);
 
+	function normalizarChaveMatriz(valor: string | null | undefined): string {
+		const s = (valor ?? '').trim().toUpperCase();
+		if (!s) return '';
+		const m = s.match(/^(\d+\/-?\d+)/);
+		return (m?.[1] ?? s).trim();
+	}
+
 	/** True quando está vendo outro curso (mudança de curso) — recalcular integralização por disciplinas casadas. */
 	let eSimulacaoOutroCurso = $derived.by(() => {
 		const fluxo = userFluxograma;
 		const course = store.state.courseData;
 		if (!fluxo || !course) return false;
+		const matrizOrigem = normalizarChaveMatriz(fluxo.matrizCurricular);
+		const matrizExibida = normalizarChaveMatriz(course.curriculoCompleto);
+		if (matrizOrigem && matrizExibida) return matrizOrigem !== matrizExibida;
+		// Fallback defensivo quando faltar matriz no dado do usuário.
 		const nomeUsuario = (fluxo.nomeCurso ?? '').trim().toLowerCase();
 		const nomeExibido = (course.nomeCurso ?? '').trim().toLowerCase();
 		return nomeUsuario !== nomeExibido;
+	});
+
+	let ultimaAssinaturaDebugSimulacao = $state('');
+	$effect(() => {
+		const fluxo = userFluxograma;
+		const course = store.state.courseData;
+		if (!fluxo || !course) return;
+		const matrizOrigem = normalizarChaveMatriz(fluxo.matrizCurricular);
+		const matrizExibida = normalizarChaveMatriz(course.curriculoCompleto);
+		const assinatura = `${matrizOrigem}|${matrizExibida}|${String(eSimulacaoOutroCurso)}`;
+		if (assinatura === ultimaAssinaturaDebugSimulacao) return;
+		ultimaAssinaturaDebugSimulacao = assinatura;
+		console.log('[MudancaCurso:DebugSimulacao]', {
+			matrizOrigem,
+			matrizExibida,
+			modoSimulacao: eSimulacaoOutroCurso,
+			nomeCursoOrigem: fluxo.nomeCurso ?? '',
+			nomeCursoExibido: course.nomeCurso ?? ''
+		});
 	});
 
 	// Count only completed codes that match subjects in this course's curriculum
@@ -126,10 +156,15 @@
 			integralizacaoLoading = true;
 			try {
 				const course = store.state.courseData;
-				const recalc =
-					course != null &&
-					(userFluxograma.nomeCurso ?? '').trim().toLowerCase() !==
-						(course.nomeCurso ?? '').trim().toLowerCase();
+				const recalc = course != null
+					? (() => {
+							const matrizOrigem = normalizarChaveMatriz(userFluxograma.matrizCurricular);
+							const matrizExibida = normalizarChaveMatriz(course.curriculoCompleto);
+							if (matrizOrigem && matrizExibida) return matrizOrigem !== matrizExibida;
+							return (userFluxograma.nomeCurso ?? '').trim().toLowerCase() !==
+								(course.nomeCurso ?? '').trim().toLowerCase();
+						})()
+					: false;
 				const r = await getIntegralizacao({
 					curriculoCompleto,
 					dadosFluxograma: userFluxograma,

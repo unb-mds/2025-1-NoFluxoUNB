@@ -1,32 +1,4 @@
-/**
- * pdfDataExtractor.ts — Robust PDF data extraction algorithm
- *
- * Extracts academic data from SIGAA histórico escolar text.
- *
- * Supports 4 distinct PDF text formats:
- *
- *   FORMAT A: "Name-above" — discipline name on separate line, data on next
- *     Line 1: ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES
- *     Line 2: 2019.1  * CIC0004          90    AA   92,0  MM   APR
- *     Line 3: Dr. FABRICIO ATAIDES BRAZ (90h)
- *
- *   FORMAT B: "Single-line" — code + name + data all on one line
- *     2021.1  * CIC0004ALGORITMOS E PROG...  90    AA  100,0  SS   APR
- *
- *   FORMAT C: "Prof-embedded" — professor between code and CH on data line
- *     Line 1: ALGORITMOS E PROGRAMAÇÃO DECOMPUTADORES
- *     Line 2: 2022.2  & CIC0004Dr. GIOVANNI...(90h)  90  08  --  -  TRANC
- *
- *   FORMAT D: "Detailed" — includes EMENTA, OBJETIVOS, PROGRAMA per discipline
- *     Line 1: ALGORITMOS E PROG...          90    APROVADO(A)
- *     ...many lines of ementa/objectives/programa...
- *     Hidden: 2021.1*CIC0004
- *
- *   SPECIAL: CUMP with "--" instead of period:
- *     --   * FGA0221INTELIGÊNCIA ARTIFICIAL  60  --  --  -  CUMP
- *
- * Pure text processing with regex — no PDF libraries needed.
- */
+
 
 import { REGEX_IRA_HISTORICO, iraStringParaNumero } from '$lib/utils/ira';
 

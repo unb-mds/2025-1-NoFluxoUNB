@@ -86,14 +86,16 @@ export function isMateriaCursada(dadosMateria: DadosMateria): boolean {
 export function isMateriaAprovada(dadosMateria: DadosMateria): boolean {
 	const mencao = String(dadosMateria.mencao ?? '-').trim().toUpperCase();
 	const status = String(dadosMateria.status ?? '-').trim().toUpperCase();
-	return (
-		mencao === 'SS' ||
-		mencao === 'MM' ||
-		mencao === 'MS' ||
-		status === 'APR' ||
-		status === 'CUMP' ||
-		status === 'DISP'
-	);
+
+	// Status explícito do SIGAA sempre prevalece sobre a menção.
+	// Evita falsos positivos (ex.: TRANC com menção residual no parsing).
+	if (status === 'APR' || status === 'CUMP' || status === 'DISP') return true;
+	if (status === 'TRANC' || status === 'MATR' || status === 'CANC' || status === 'REP' || status === 'REPF' || status === 'REPMF') {
+		return false;
+	}
+
+	// Fallback legado: quando status vier vazio/indefinido, usa menção.
+	return mencao === 'SS' || mencao === 'MM' || mencao === 'MS';
 }
 
 export function isMateriaCurrent(dadosMateria: DadosMateria): boolean {

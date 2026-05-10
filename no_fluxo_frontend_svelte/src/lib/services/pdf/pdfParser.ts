@@ -61,6 +61,61 @@ export interface ParsedPdfResult {
 	} | null;
 }
 
+function parseAnoPeriodo(anoPeriodo: string | null | undefined): { ano: number; periodo: number } | null {
+	const s = String(anoPeriodo ?? '').trim();
+	const m = s.match(/^(\d{4})\.(\d)$/);
+	if (!m) return null;
+	return { ano: Number(m[1]), periodo: Number(m[2]) };
+}
+
+function compararAnoPeriodo(
+	a: string | null | undefined,
+	b: string | null | undefined
+): number {
+	const pa = parseAnoPeriodo(a);
+	const pb = parseAnoPeriodo(b);
+	if (pa && pb) {
+		if (pa.ano !== pb.ano) return pa.ano - pb.ano;
+		return pa.periodo - pb.periodo;
+	}
+	if (pa && !pb) return 1;
+	if (!pa && pb) return -1;
+	return 0;
+}
+
+/**
+ * Mantém somente o último estado por código de disciplina.
+ * Regras de persistência:
+ * - sempre considerar a ocorrência mais recente (ano/período; empate: última no array);
+ * - se o estado final for TRANC, não salvar a disciplina.
+ */
+function consolidarDisciplinasRegularesParaPersistencia(
+	disciplinas: DisciplinaExtraida[]
+): DisciplinaExtraida[] {
+	type WithIndex = { item: DisciplinaExtraida; index: number };
+	const byCodigo = new Map<string, WithIndex>();
+
+	disciplinas.forEach((item, index) => {
+		const codigo = String(item.codigo ?? '')
+			.trim()
+			.toUpperCase();
+		if (!codigo) return;
+		const prev = byCodigo.get(codigo);
+		if (!prev) {
+			byCodigo.set(codigo, { item, index });
+			return;
+		}
+
+		const cmp = compararAnoPeriodo(prev.item.ano_periodo, item.ano_periodo);
+		const deveSubstituir = cmp < 0 || (cmp === 0 && index > prev.index);
+		if (deveSubstituir) byCodigo.set(codigo, { item, index });
+	});
+
+	return [...byCodigo.values()]
+		.map((v) => v.item)
+		.filter((d) => String(d.status ?? '').trim().toUpperCase() !== 'TRANC');
+}
+
 // ─── Regex-based extractors for non-discipline data ───
 
 function extrairEquivalencias(text: string): EquivalenciaExtraida[] {
@@ -206,6 +261,7 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 		disciplinas = extractDisciplinasFromPositions(positionedPages);
 		console.log(`${LOG_PREFIX} Position-based extraction — ${disciplinas.length} disciplines`);
 	}
+	disciplinas = consolidarDisciplinasRegularesParaPersistencia(disciplinas);
 	console.timeEnd(`${LOG_PREFIX} disciplineExtraction`);
 
 	// 4. Regex-based metadata extraction (these are simple single-line patterns)

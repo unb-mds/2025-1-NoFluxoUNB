@@ -508,7 +508,61 @@ export class SupabaseDataService {
 			.eq('id_matriz', idMatriz)
 			.single();
 
-		const equivalencias = (equivalenciasResult.data || []).map((eq: Record<string, unknown>) => {
+		const normCurriculo = (v: unknown): string =>
+			String(v ?? '')
+				.trim()
+				.toUpperCase();
+
+		/**
+		 * A tabela de equivalências pode conter registros de vários cursos para a mesma matéria.
+		 * Para simulação de mudança de curso, precisamos considerar apenas o contexto da matriz alvo:
+		 * 1) id_curso + curriculo exato da matriz
+		 * 2) id_curso do curso alvo (sem curriculo)
+		 * 3) global (id_curso null e curriculo null)
+		 */
+		const eqRows = (equivalenciasResult.data || []) as Record<string, unknown>[];
+		const curriculoAlvoNorm = normCurriculo(matrizRow?.curriculo_completo);
+		const eqByMateria = new Map<number, Record<string, unknown>[]>();
+		for (const row of eqRows) {
+			const idMateria = Number(row.id_materia);
+			if (!Number.isFinite(idMateria)) continue;
+			if (!eqByMateria.has(idMateria)) eqByMateria.set(idMateria, []);
+			eqByMateria.get(idMateria)!.push(row);
+		}
+
+		const equivalenciasFiltradas: Record<string, unknown>[] = [];
+		for (const [, rows] of eqByMateria) {
+			const bucket1 = rows.filter((row) => {
+				const rowIdCurso = row.id_curso == null ? null : Number(row.id_curso);
+				const rowCurriculoNorm = normCurriculo(row.curriculo);
+				return rowIdCurso === idCurso && rowCurriculoNorm !== '' && rowCurriculoNorm === curriculoAlvoNorm;
+			});
+			if (bucket1.length > 0) {
+				equivalenciasFiltradas.push(...bucket1);
+				continue;
+			}
+
+			const bucket2 = rows.filter((row) => {
+				const rowIdCurso = row.id_curso == null ? null : Number(row.id_curso);
+				const rowCurriculoNorm = normCurriculo(row.curriculo);
+				return rowIdCurso === idCurso && rowCurriculoNorm === '';
+			});
+			if (bucket2.length > 0) {
+				equivalenciasFiltradas.push(...bucket2);
+				continue;
+			}
+
+			const bucket3 = rows.filter((row) => {
+				const rowIdCurso = row.id_curso == null ? null : Number(row.id_curso);
+				const rowCurriculoNorm = normCurriculo(row.curriculo);
+				return rowIdCurso == null && rowCurriculoNorm === '';
+			});
+			if (bucket3.length > 0) {
+				equivalenciasFiltradas.push(...bucket3);
+			}
+		}
+
+		const equivalencias = equivalenciasFiltradas.map((eq: Record<string, unknown>) => {
 			const mat = eq.materias as { codigo_materia?: string; nome_materia?: string } | null;
 			const codigos = getCodigosFromExpressaoLogica(
 				eq.expressao_logica as ExpressaoLogicaRecursiva | null | undefined

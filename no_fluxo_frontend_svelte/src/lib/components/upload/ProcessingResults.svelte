@@ -16,6 +16,11 @@
 
 	let integralizacao = $state<IntegralizacaoResult | null>(null);
 
+type MateriaListItem = Record<string, unknown> & {
+	status?: string;
+	status_fluxograma?: string;
+};
+
 	// Fonte única: carga_horaria_integralizada do PDF. Calcula integralização (exigido da matriz + realizado do PDF).
 	$effect(() => {
 		const cc = data.matriz_curricular ?? extractedData?.matriz_curricular ?? '';
@@ -44,6 +49,27 @@
 		return row?.valor_texto ?? data.dados_validacao?.ira_texto ?? null;
 	});
 
+	function isStatusConcluido(item: MateriaListItem): boolean {
+		const status = String(item.status ?? '').trim().toUpperCase();
+		const fluxo = String(item.status_fluxograma ?? '').trim().toLowerCase();
+		return fluxo === 'concluida' || fluxo === 'concluida_equivalencia' || status === 'APR' || status === 'CUMP' || status === 'DISP';
+	}
+
+	function isStatusMatr(item: MateriaListItem): boolean {
+		const status = String(item.status ?? '').trim().toUpperCase();
+		const fluxo = String(item.status_fluxograma ?? '').trim().toLowerCase();
+		return fluxo === 'em_andamento' || status === 'MATR';
+	}
+
+	// Na tela de upload, optativas TRANC/REP/CANC não devem aparecer:
+	// exibimos somente concluídas e em andamento (MATR), em listas separadas.
+	let optativasConcluidas = $derived.by(
+		() => ((data.materias_optativas ?? []) as MateriaListItem[]).filter(isStatusConcluido)
+	);
+	let optativasEmAndamento = $derived.by(
+		() => ((data.materias_optativas ?? []) as MateriaListItem[]).filter(isStatusMatr)
+	);
+
 	let stats = $derived([
 		{
 			label: 'Total de Obrigatórias',
@@ -71,11 +97,11 @@
 		},
 		{
 			label: 'Optativas',
-			value: data.resumo.total_optativas,
+			value: optativasConcluidas.length + optativasEmAndamento.length,
 			icon: Star,
 			color: 'text-blue-400',
 			bg: 'bg-blue-500/10',
-			title: 'Matérias optativas (nivel = 0)'
+			title: 'Optativas exibidas nesta tela (somente concluídas + em andamento)'
 		}
 	]);
 
@@ -159,10 +185,18 @@
 			/>
 		{/if}
 
-		{#if data.materias_optativas?.length}
+		{#if optativasConcluidas.length}
 			<DisciplinaList
-				title="Disciplinas Optativas"
-				items={data.materias_optativas as any[]}
+				title="Disciplinas Optativas Concluídas"
+				items={optativasConcluidas as any[]}
+				variant="found"
+			/>
+		{/if}
+
+		{#if optativasEmAndamento.length}
+			<DisciplinaList
+				title="Disciplinas Optativas em Andamento (MATR)"
+				items={optativasEmAndamento as any[]}
 				variant="elective"
 			/>
 		{/if}
