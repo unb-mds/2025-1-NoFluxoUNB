@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>NOFLX UNB — Hero (protótipo)</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+
+		:root {
+			--bg-page: #08080f;
+			--bg-card: #0e0e1c;
+			--border: #1e1e35;
+			--accent: #7c3aed;
+			--accent-light: #a78bfa;
+			--text-primary: #ffffff;
+			--text-secondary: #9090a8;
+		}
+
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+			background: #111;
+			padding: 24px;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		/* Outer wrapper */
+		.shell {
+			position: relative;
+			max-width: 1600px;
+			margin: 0 auto;
+			border-radius: 20px;
+			border: 1px solid #1e1e35;
+			background: #08080f;
+			overflow: hidden;
+		}
+
+		.shell::before {
+			content: '';
+			position: absolute;
+			top: -100px;
+			left: -100px;
+			width: 700px;
+			height: 700px;
+			background: radial-gradient(
+				circle,
+				rgba(100, 40, 220, 0.3) 0%,
+				rgba(80, 20, 180, 0.12) 45%,
+				transparent 70%
+			);
+			pointer-events: none;
+			z-index: 0;
+		}
+
+		.shell-inner {
+			position: relative;
+			z-index: 1;
+		}
+
+		/* Navbar */
+		.navbar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px 40px;
+		}
+
+		.logo {
+			font-size: 22px;
+			font-weight: 900;
+			line-height: 1;
+			text-decoration: none;
+			color: var(--text-primary);
+			user-select: text;
+		}
+
+		.logo-white {
+			color: #ffffff;
+		}
+
+		.logo-accent {
+			color: #a78bfa;
+		}
+
+		.nav-links {
+			display: flex;
+			align-items: center;
+			gap: 32px;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.nav-links a {
+			font-size: 14px;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+			color: #ffffff;
+			text-decoration: none;
+			user-select: text;
+		}
+
+		.nav-links a:hover {
+			color: var(--accent-light);
+		}
+
+		.avatar {
+			width: 38px;
+			height: 38px;
+			border-radius: 50%;
+			background: #7c3aed;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 15px;
+			font-weight: 700;
+			color: #ffffff;
+			flex-shrink: 0;
+			user-select: text;
+		}
+
+		.nav-group {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+		}
+
+		/* Hero */
+		.hero {
+			display: grid;
+			grid-template-columns: 55fr 45fr;
+			gap: 48px;
+			padding: 80px 64px;
+			align-items: center;
+		}
+
+		.hero-left {
+			display: flex;
+			flex-direction: column;
+			gap: 28px;
+			justify-content: center;
+			user-select: text;
+		}
+
+		.badge {
+			align-self: flex-start;
+			border: 1px solid #7c3aed;
+			border-radius: 999px;
+			padding: 6px 16px;
+			color: #a78bfa;
+			font-size: 11px;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			background: transparent;
+			user-select: text;
+		}
+
+		h1 {
+			font-size: clamp(48px, 6vw, 72px);
+			font-weight: 900;
+			line-height: 1;
+			margin: 0;
+			user-select: text;
+		}
+
+		h1 .line-white {
+			color: #ffffff;
+			display: block;
+		}
+
+		h1 .line-accent {
+			color: #a78bfa;
+			display: block;
+		}
+
+		h1 .line-mixed {
+			display: block;
+		}
+
+		.hero-sub {
+			color: #9090a8;
+			font-size: 15px;
+			font-weight: 400;
+			line-height: 1.65;
+			max-width: 460px;
+			margin: 0;
+			user-select: text;
+		}
+
+		.cta {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			background: #7c3aed;
+			color: #ffffff;
+			font-family: inherit;
+			font-weight: 700;
+			font-size: 15px;
+			text-transform: uppercase;
+			padding: 18px 36px;
+			border-radius: 10px;
+			border: none;
+			cursor: pointer;
+			width: fit-content;
+			user-select: text;
+			transition:
+				background 0.2s ease,
+				transform 0.15s ease;
+		}
+
+		.cta:hover {
+			background: #6d28d9;
+		}
+
+		.cta:active {
+			transform: scale(0.97);
+		}
+
+		.hero-right {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			user-select: text;
+		}
+
+		.feature-card {
+			background: #0e0e1c;
+			border: 1px solid #1e1e35;
+			border-radius: 14px;
+			padding: 20px 24px;
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			transition:
+				transform 0.2s ease,
+				border-color 0.2s ease;
+			cursor: default;
+		}
+
+		.feature-card:hover {
+			transform: translateY(-2px);
+			border-color: #3b2070;
+		}
+
+		.feature-row {
+			display: flex;
+			flex-direction: row;
+			gap: 16px;
+			align-items: flex-start;
+		}
+
+		.feature-text-stack {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			min-width: 0;
+		}
+
+		.icon-ring {
+			width: 52px;
+			height: 52px;
+			border-radius: 50%;
+			background: #150d2a;
+			border: 2px solid #3b1f6e;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+		}
+
+		.icon-ring svg {
+			width: 22px;
+			height: 22px;
+			color: #a78bfa;
+		}
+
+		.feature-title {
+			font-size: 14px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
+			margin: 0;
+			line-height: 1.35;
+			user-select: text;
+		}
+
+		.feature-title .t-white {
+			color: #ffffff;
+		}
+
+		.feature-title .t-accent {
+			color: #a78bfa;
+		}
+
+		.feature-body {
+			font-size: 13px;
+			color: #9090a8;
+			line-height: 1.6;
+			margin: 0;
+			user-select: text;
+		}
+
+		.feature-pill {
+			align-self: flex-start;
+			display: inline-block;
+			border: 1px solid #2a1a4a;
+			border-radius: 999px;
+			padding: 5px 12px;
+			color: #a78bfa;
+			font-size: 12px;
+			font-weight: 500;
+			user-select: text;
+		}
+
+		.mobile-nav-toggle {
+			display: none;
+			width: 40px;
+			height: 40px;
+			border: 1px solid var(--border);
+			border-radius: 10px;
+			background: var(--bg-card);
+			cursor: pointer;
+			align-items: center;
+			justify-content: center;
+			color: var(--text-primary);
+		}
+
+		.mobile-nav-panel {
+			display: none;
+			flex-direction: column;
+			gap: 16px;
+			padding: 0 40px 20px;
+		}
+
+		.mobile-nav-panel.is-open {
+			display: flex;
+		}
+
+		.mobile-nav-panel a {
+			font-size: 14px;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+			color: #ffffff;
+			text-decoration: none;
+			user-select: text;
+		}
+
+		@media (max-width: 1279px) {
+			body {
+				padding: 16px;
+			}
+
+			.hero {
+				grid-template-columns: 1fr;
+				padding: 48px 32px 80px;
+				gap: 40px;
+			}
+
+			.navbar {
+				flex-wrap: wrap;
+				row-gap: 16px;
+			}
+
+			.nav-desktop {
+				display: none;
+			}
+
+			.mobile-nav-toggle {
+				display: flex;
+			}
+		}
+
+		@media (min-width: 1280px) {
+			.mobile-nav-toggle {
+				display: none !important;
+			}
+
+			.mobile-nav-panel {
+				display: none !important;
+			}
+
+			.nav-desktop {
+				display: flex !important;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="shell">
+		<div class="shell-inner">
+			<header class="navbar">
+				<a href="#" class="logo" aria-label="NOFLX UNB">
+					<span class="logo-white">NOFLX</span><span class="logo-accent">UNB</span>
+				</a>
+				<div class="nav-group nav-desktop">
+					<nav>
+						<ul class="nav-links">
+							<li><a href="#">Disciplinas</a></li>
+							<li><a href="#">Fluxogramas</a></li>
+							<li><a href="#">Sobre</a></li>
+							<li><a href="#">Entrar</a></li>
+						</ul>
+					</nav>
+					<div class="avatar" aria-hidden="true">F</div>
+				</div>
+				<button
+					type="button"
+					class="mobile-nav-toggle"
+					id="mobileNavBtn"
+					aria-expanded="false"
+					aria-controls="mobileNav"
+					aria-label="Abrir menu"
+				>
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+						<path d="M4 6h16M4 12h16M4 18h16" />
+					</svg>
+				</button>
+			</header>
+			<div class="mobile-nav-panel" id="mobileNav">
+				<a href="#">Disciplinas</a>
+				<a href="#">Fluxogramas</a>
+				<a href="#">Sobre</a>
+				<a href="#">Entrar</a>
+			</div>
+
+			<section class="hero" aria-labelledby="hero-heading">
+				<div class="hero-left">
+					<div class="badge">⚡ PLATAFORMA INTELIGENTE DA UNB</div>
+					<h1 id="hero-heading">
+						<span class="line-white">TENHA SEU</span>
+						<span class="line-accent">FLUXOGRAMA</span>
+						<span class="line-mixed"><span class="line-white">MUITO </span><span class="line-accent">RÁPIDO</span></span>
+					</h1>
+					<p class="hero-sub">
+						Visualize, monte e personalize fluxogramas de qualquer curso com o poder da IA. Mais agilidade para estudar,
+						entender e avançar.
+					</p>
+					<button type="button" class="cta">⚡ ACESSAR NOSSO SISTEMA</button>
+				</div>
+
+				<div class="hero-right">
+					<article class="feature-card">
+						<div class="feature-row">
+							<div class="icon-ring" aria-hidden="true">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+									<circle cx="12" cy="12" r="3" />
+								</svg>
+							</div>
+							<div class="feature-text-stack">
+								<h2 class="feature-title">
+									<span class="t-white">CONSULTAR COMO </span><span class="t-accent">VISITANTE</span>
+								</h2>
+								<p class="feature-body">
+									Você pode ver fluxogramas de vários cursos sem login, ideal para consulta rápida e comparação.
+								</p>
+								<span class="feature-pill">👤 Acesso livre e imediato</span>
+							</div>
+						</div>
+					</article>
+
+					<article class="feature-card">
+						<div class="feature-row">
+							<div class="icon-ring" aria-hidden="true">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+									<rect x="5" y="11" width="14" height="10" rx="2" ry="2" />
+									<path d="M7 11V7a5 5 0 0 1 10 0v4" />
+								</svg>
+							</div>
+							<div class="feature-text-stack">
+								<h2 class="feature-title">
+									<span class="t-white">RECURSOS </span><span class="t-accent">EXCLUSIVOS COM LOGIN</span>
+								</h2>
+								<p class="feature-body">
+									Faça login, envie seu histórico em PDF e use a IA como ferramenta de auxílio para sugestão de matérias. Além
+									disso, você salva progresso, marca disciplinas e aponta matérias, pré-requisitos e equivalências.
+								</p>
+								<span class="feature-pill">☆ Potencialize seus estudos</span>
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<script>
+		(function () {
+			const btn = document.getElementById('mobileNavBtn');
+			const panel = document.getElementById('mobileNav');
+			if (!btn || !panel) return;
+			btn.addEventListener('click', function () {
+				const open = panel.classList.toggle('is-open');
+				btn.setAttribute('aria-expanded', open);
+				btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+			});
+		})();
+	</script>
+</body>
+</html>

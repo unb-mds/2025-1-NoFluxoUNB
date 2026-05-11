@@ -141,37 +141,55 @@
 {/if}
 
 <style>
-	@reference 'tailwindcss';
-
 	.overlay {
-		@apply fixed inset-0 z-50 flex items-center justify-center p-4;
+		position: fixed;
+		inset: 0;
+		z-index: 50;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
 		overflow: hidden;
-		background: rgba(0, 0, 0, 0.7);
-		backdrop-filter: blur(4px);
+		background: hsl(0 0% 0% / 0.72);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
 	}
 
 	.modal {
-		@apply w-full max-w-lg rounded-2xl md:max-w-xl;
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		display: flex;
 		flex-direction: column;
+		width: 100%;
+		max-width: 36rem;
 		max-height: 90vh;
 		overflow: hidden;
-		background: rgba(30, 30, 30, 0.95);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+		border-radius: 1.125rem;
+		background: hsl(var(--card) / 0.97);
+		border: 1px solid hsl(0 0% 100% / 0.058);
+		box-shadow:
+			inset 0 1px 0 hsl(0 0% 100% / 0.052),
+			0 0 0 1px hsl(var(--primary) / 0.06),
+			0 28px 64px hsl(0 0% 0% / 0.5);
 	}
+
+	@media (min-width: 768px) {
+		.modal {
+			max-width: 42rem;
+		}
+	}
+
 	.modal-header {
 		flex-shrink: 0;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom: 1px solid hsl(0 0% 100% / 0.08);
 		padding: 1rem 1.5rem;
 	}
+
 	.modal-scroll-area {
 		flex: 1;
 		min-height: 0;
@@ -180,31 +198,66 @@
 		-webkit-overflow-scrolling: touch;
 		padding: 1.25rem 1.5rem;
 	}
+
 	.modal-footer {
 		flex-shrink: 0;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		border-top: 1px solid hsl(0 0% 100% / 0.08);
 		padding: 1rem 1.5rem;
 	}
 
 	.step-number {
-		@apply flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white;
-		background: linear-gradient(135deg, #6c63ff, #e91e63);
+		display: flex;
+		height: 2rem;
+		width: 2rem;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		font-size: 0.8125rem;
+		font-weight: 700;
+		color: hsl(var(--primary-foreground));
+		background: hsl(var(--primary));
+		box-shadow: 0 4px 16px hsl(var(--primary) / 0.25);
 	}
 
 	.step-block {
-		@apply rounded-xl border border-white/5 bg-white/3 p-4;
+		border-radius: var(--radius-lg, 14px);
+		border: 1px solid hsl(0 0% 100% / 0.06);
+		background: hsl(0 0% 100% / 0.03);
+		padding: 1rem;
+		box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.045);
 	}
 
 	.step-image {
-		@apply max-w-70 rounded-lg border border-white/10 shadow-lg md:max-w-100;
+		max-width: 17rem;
+		border-radius: 0.625rem;
+		border: 1px solid hsl(0 0% 100% / 0.1);
+		box-shadow: 0 14px 32px hsl(0 0% 0% / 0.35);
+	}
+
+	@media (min-width: 768px) {
+		.step-image {
+			max-width: 26rem;
+		}
 	}
 
 	.entendi-btn {
-		@apply w-full rounded-lg px-4 py-2.5 text-sm font-medium text-white transition-colors;
-		background: linear-gradient(135deg, rgba(108, 99, 255, 0.4), rgba(233, 30, 99, 0.4));
+		width: 100%;
+		cursor: pointer;
+		border-radius: var(--radius, 10px);
+		border: none;
+		padding: 0.625rem 1rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: hsl(var(--primary-foreground));
+		background: hsl(var(--primary));
+		box-shadow:
+			0 1px 0 hsl(0 0% 100% / 0.1) inset,
+			0 10px 32px hsl(var(--primary) / 0.2);
+		transition: filter 0.18s ease;
 	}
 
 	.entendi-btn:hover {
-		background: linear-gradient(135deg, rgba(108, 99, 255, 0.6), rgba(233, 30, 99, 0.6));
+		filter: brightness(1.05);
 	}
 </style>

@@ -1,0 +1,156 @@
+/**
+ * NoFluxo UNB — utilitários do design system (Etapa 1).
+ * Tokens HSL vivem em app.css (:root / .dark).
+ */
+
+@layer utilities {
+	/* Navbar / painéis fixos — vidro sótil */
+	/** Borda halo única (~5.5%) + filete interno superior — mesmo vocabulário no header flutuante e nos cards hero. */
+	.nf-glass-header {
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		background: linear-gradient(
+			180deg,
+			hsl(240 14% 6% / 0.78) 0%,
+			hsl(270 26% 5% / 0.74) 100%
+		);
+		border-bottom: 1px solid hsl(var(--primary) / 0.14);
+		box-shadow:
+			inset 0 1px 0 hsl(0 0% 100% / 0.06),
+			0 0 60px hsl(var(--primary) / 0.05);
+	}
+
+	/*
+	 * Navbar flutuante — mesmo “vidro violeta” que os cards (container card da home).
+	 */
+	.nf-glass-header-floating {
+		background: hsl(var(--background) / 0.78);
+		backdrop-filter: blur(20px) saturate(1.6);
+		-webkit-backdrop-filter: blur(20px) saturate(1.6);
+		border: 1px solid hsl(var(--border) / 0.95);
+		border-radius: 999px;
+		box-shadow:
+			inset 0 1px 0 hsl(0 0% 100% / 0.09),
+			0 0 0 1px hsl(var(--primary) / 0.1),
+			0 8px 32px hsl(0 0% 0% / 0.45);
+	}
+
+	/** HUD do fluxograma — mesmo tratamento que os cards em vidro. */
+	.nf-chrome-pill {
+		border: 1px solid hsl(var(--primary) / 0.28);
+		background: linear-gradient(
+			168deg,
+			hsl(0 0% 100% / 0.05) 0%,
+			hsl(267 42% 8% / 0.4) 40%,
+			hsl(240 14% 5% / 0.62) 100%
+		);
+		box-shadow:
+			inset 0 1px 0 hsl(0 0% 100% / 0.1),
+			inset 0 0 52px hsl(var(--primary) / 0.06),
+			0 0 0 1px hsl(var(--primary) / 0.1),
+			0 18px 48px hsl(0 0% 0% / 0.52),
+			0 0 72px hsl(var(--primary) / 0.1);
+		backdrop-filter: blur(22px);
+		-webkit-backdrop-filter: blur(22px);
+	}
+
+	/*
+	 * Superfície “vidro violeta”: blur + translúcido + halo roxo contido nos cantos.
+	 * Usado em cards da home, upload, formulários sobre fundo escuro.
+	 */
+	/* Estado “elevado” fixo — antes era só no hover; agora é o padrão (prints de referência). */
+	.nf-card-surface {
+		background: hsl(var(--card));
+		border: 1px solid hsl(var(--border) / 0.9);
+		border-radius: var(--radius-lg);
+		box-shadow:
+			inset 0 1px 0 hsl(0 0% 100% / 0.08),
+			inset 1px 0 0 hsl(0 0% 100% / 0.05),
+			inset 0 -1px 0 hsl(0 0% 0% / 0.25),
+			inset -1px 0 0 hsl(0 0% 0% / 0.18),
+			0 0 0 1px hsl(var(--primary) / 0.07);
+	}
+
+	/** Mantém classe por compatibilidade; sem mudança no hover — o peso visual já está no default. */
+	.nf-card-interactive {
+		transition:
+			filter 0.22s ease,
+			border-color 0.22s ease;
+	}
+
+	.nf-card-interactive:hover {
+		filter: brightness(1.02);
+		border-color: hsl(var(--primary) / 0.28);
+		box-shadow:
+			inset 0 1px 0 hsl(0 0% 100% / 0.13),
+			inset 1px 0 0 hsl(0 0% 100% / 0.08),
+			inset 0 -1px 0 hsl(0 0% 0% / 0.25),
+			inset -1px 0 0 hsl(0 0% 0% / 0.18),
+			0 0 0 1px hsl(var(--primary) / 0.18),
+			0 8px 24px hsl(var(--primary) / 0.1);
+	}
+
+	.nf-shadow-soft {
+		box-shadow:
+			0 1px 0 hsl(0 0% 100% / 0.05) inset,
+			0 12px 32px hsl(0 0% 0% / 0.32);
+	}
+
+	/**
+	 * Glow MUITO contido no botão primário hero (referência home).
+	 * Sem “neon gaming”; só profundidade.
+	 */
+	.nf-cta-glow {
+		box-shadow:
+			0 0 32px hsl(var(--primary) / 0.25),
+			0 0 8px hsl(var(--primary) / 0.15);
+	}
+
+	.nf-cta-glow-hover:hover:not(:disabled) {
+		box-shadow:
+			0 1px 0 hsl(0 0% 100% / 0.12) inset,
+			0 12px 42px hsl(var(--primary) / 0.28);
+	}
+
+	/* Chip genérico (filtros, tags) */
+	.nf-chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.25rem 0.62rem;
+		border-radius: 9999px;
+		font-size: 0.75rem;
+		font-weight: 500;
+		line-height: 1.25;
+		border: 1px solid hsl(0 0% 100% / 0.1);
+		background: hsl(var(--secondary) / 0.65);
+		color: hsl(var(--foreground) / 0.92);
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease;
+	}
+
+	.nf-chip:hover {
+		border-color: hsl(0 0% 100% / 0.14);
+		background: hsl(var(--secondary) / 0.85);
+	}
+
+	/* Chip IA / assistente — lilás contido */
+	.nf-chip-ai {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.28rem 0.65rem;
+		border-radius: 9999px;
+		font-size: 0.75rem;
+		font-weight: 600;
+		line-height: 1.25;
+		border: 1px solid hsl(var(--ai) / 0.22);
+		background: hsl(var(--ai-soft) / 0.45);
+		color: hsl(var(--ai) / 0.94);
+	}
+
+	.nf-text-ai-muted {
+		color: hsl(var(--ai) / 0.78);
+	}
+}

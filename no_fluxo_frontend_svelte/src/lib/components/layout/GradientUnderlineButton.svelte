@@ -32,7 +32,7 @@
 	class={cn(
 		'relative inline-flex items-center justify-center',
 		'px-2 py-1 bg-transparent border-none cursor-pointer',
-		'font-marker',
+		'font-sans font-semibold',
 		className
 	)}
 	style="

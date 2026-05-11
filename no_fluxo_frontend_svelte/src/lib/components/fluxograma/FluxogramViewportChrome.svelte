@@ -118,7 +118,7 @@
 			: 'hidden md:block'}"
 	>
 		<div
-			class="pointer-events-auto flex max-w-[calc(100vw-11rem)] items-center gap-1 rounded-full border border-white/20 bg-black/40 px-2 py-1 shadow-lg backdrop-blur-xl"
+			class="nf-chrome-pill pointer-events-auto flex max-w-[calc(100vw-11rem)] items-center gap-1 rounded-full px-2 py-1"
 		>
 			<div class="flex items-center gap-0.5 rounded-full bg-white/5 px-0.5 py-0.5">
 				<button
@@ -178,7 +178,7 @@
 
 	{#snippet connectionModePill()}
 		<div
-			class="pointer-events-auto flex shrink-0 flex-nowrap items-center gap-0 rounded-full border border-purple-500/45 bg-black/45 px-0.5 py-0.5 shadow-md backdrop-blur-md supports-[backdrop-filter]:bg-black/35"
+			class="nf-chrome-pill pointer-events-auto flex shrink-0 flex-nowrap items-center gap-0 rounded-full px-0.5 py-0.5"
 			role="group"
 			aria-label="Modo de conexões no fluxograma"
 		>
@@ -223,7 +223,7 @@
 				<button
 					type="button"
 					onclick={() => (fabMenuOpen = !fabMenuOpen)}
-					class="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-purple-600/90 to-indigo-700/95 text-white shadow-xl backdrop-blur-md transition-transform active:scale-95"
+					class="flex h-14 w-14 items-center justify-center rounded-full border border-primary/35 bg-primary text-primary-foreground shadow-lg shadow-primary/25 transition-transform active:scale-95"
 					aria-expanded={fabMenuOpen}
 					aria-label="Zoom do fluxograma"
 					title="Zoom"
