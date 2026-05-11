@@ -25,8 +25,7 @@
 <div
 	class={cn(
 		'flex items-center gap-3',
-		'font-marker select-none',
-		'transition-transform duration-200',
+		'select-none transition-transform duration-200',
 		'hover:scale-105',
 		className
 	)}
@@ -49,10 +48,10 @@
 		</div>
 	{/if}
 
-	<span class="leading-none">
-		NO<span class="text-pink-500">FLUXO</span>
+	<span class="leading-none font-sans font-extrabold tracking-tight">
+		NO<span class="text-primary">FLUXO</span>
 		{#if text.includes('UNB')}
-			<span class="text-white"> UNB</span>
+			<span class="text-foreground"> UNB</span>
 		{/if}
 	</span>
 </div>

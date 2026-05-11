@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { currentUser } from '$lib/stores/auth';
-
-	let isHovered = $state(false);
+	import { Zap, Sparkles, Eye, Lock, User, Star } from 'lucide-svelte';
 
 	function handleCTAClick() {
 		const user = $currentUser;
@@ -18,177 +17,189 @@
 	}
 </script>
 
-<section class="hero-section">
-	<div class="hero-content">
-		<div class="hero-text">
-			<h1 class="hero-title">
-				TENHA SEU<br />
-				FLUXOGRAMA<br />
-				MUITO <span class="text-pink-400">RÁPIDO</span>
+<section
+	class="relative z-[1] flex min-h-[min(calc(100dvh-5.5rem),960px)] items-start justify-center overflow-hidden"
+>
+	<div
+		class="relative z-10 mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-12 px-6 py-10 lg:grid-cols-[55fr_45fr] lg:px-16 lg:py-14"
+	>
+		<div class="flex flex-col items-center text-center lg:items-start lg:text-left">
+			<p
+				class="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/60 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-primary"
+			>
+				<Sparkles class="size-[0.9rem] shrink-0 text-primary" aria-hidden="true" stroke-width="2.25" />
+				<span>Plataforma inteligente da UNB</span>
+			</p>
+
+			<h1
+				class="mb-4 font-black uppercase leading-[1.0] tracking-tight text-[clamp(44px,5.5vw,68px)]"
+			>
+				<span class="block text-foreground">Tenha seu</span>
+				<span class="block text-primary">fluxograma</span>
+				<span class="block text-foreground">muito</span>
+				<span class="block text-primary">rápido</span>
 			</h1>
 
-			<p class="hero-description">
-				O No Fluxo UNB (NoFluxo) te ajuda a ver o fluxograma do seu curso e ainda permite montar um
-				<span class="hero-card-strong">fluxograma personalizado com IA</span> quando você faz login e envia seu histórico.
+			<p class="mb-7 max-w-[460px] text-[15px] leading-relaxed text-muted-foreground">
+				Visualize, monte e personalize fluxogramas de qualquer curso com o poder da IA. Mais agilidade para
+				estudar, entender e avançar.
 			</p>
 
 			<button
-				class="hero-btn"
-				onmouseenter={() => (isHovered = true)}
-				onmouseleave={() => (isHovered = false)}
+				type="button"
+				class="nf-cta-glow nf-cta-glow-hover inline-flex w-fit items-center justify-center gap-[0.65rem] rounded-xl bg-primary px-9 py-[18px] text-sm font-bold uppercase tracking-widest text-primary-foreground transition-all duration-150 hover:brightness-110 active:scale-[0.97]"
 				onclick={handleCTAClick}
-				style="transform: scale({isHovered ? 1.05 : 1});"
 			>
-				ACESSE NOSSO SISTEMA
+				<Zap class="size-5 shrink-0 opacity-95" aria-hidden="true" stroke-width="2.25" />
+				Acessar nosso sistema
 			</button>
 		</div>
 
-		<div class="hero-cards">
-			<div class="hero-card">
-				<h3 class="hero-card-title">Consultar como <span class="hero-card-accent">visitante</span></h3>
-				<p class="hero-card-text">
-					Você pode <span class="hero-card-strong">ver fluxogramas de vários cursos</span> sem login, ideal para
-					<span class="hero-card-strong">consulta rápida</span> e comparação.
+		<div class="flex flex-col gap-4" aria-label="Duas formas de usar o NoFluxo">
+			<article class="hero-info-card">
+				<div class="hero-info-card-icon" aria-hidden="true">
+					<Eye class="hero-info-card-icon-svg" stroke-width="2" />
+				</div>
+				<h2 class="hero-info-card-title">
+					<span class="text-foreground">Consultar como</span>{' '}
+					<span class="text-primary">visitante</span>
+				</h2>
+				<p class="hero-info-card-body">
+					Explore fluxogramas de qualquer curso da UnB sem fazer login — consulta rápida, sem cadastro.
 				</p>
-			</div>
-			<div class="hero-card">
-				<h3 class="hero-card-title">Recursos <span class="hero-card-accent">exclusivos</span> com login</h3>
-				<p class="hero-card-text">
-					Faça login, envie seu <span class="hero-card-strong">histórico em PDF</span> e use a IA como
-					<span class="hero-card-strong">ferramenta de auxílio para sugestão de matérias</span>. Além disso,
-					você <span class="hero-card-strong">salva progresso</span>, marca disciplinas e aponta
-					<span class="hero-card-strong" style="color: #f97316;"> matérias, pré-requisitos e equivalências, assim como co-requisitos</span>.
+				<p class="hero-info-card-pill">
+					<User class="hero-info-card-pill-icon" stroke-width="2" aria-hidden="true" />
+					<span>Acesso livre e imediato</span>
 				</p>
-			</div>
+			</article>
+
+			<article class="hero-info-card">
+				<div class="hero-info-card-icon" aria-hidden="true">
+					<Lock class="hero-info-card-icon-svg hero-info-card-icon-svg--sm" stroke-width="2" />
+				</div>
+				<h2 class="hero-info-card-title">
+					<span class="text-foreground">Recursos</span>{' '}
+					<span class="text-primary">exclusivos com login</span>
+				</h2>
+				<p class="hero-info-card-body">
+					Faça upload do histórico em PDF, ganhe sugestões com IA e salve seu progresso em um só lugar.
+				</p>
+				<p class="hero-info-card-pill">
+					<Star class="hero-info-card-pill-icon" stroke-width="2" aria-hidden="true" />
+					<span>Potencialize seus estudos</span>
+				</p>
+			</article>
 		</div>
 	</div>
 </section>
 
 <style>
-	.hero-section {
-		min-height: 100vh;
+	.hero-info-card {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		background: hsl(var(--card));
+		border: 1px solid hsl(var(--primary) / 0.28);
+		border-radius: 16px;
+		padding: 24px;
+		text-align: left;
+		box-shadow:
+			0 0 0 1px hsl(var(--primary) / 0.12),
+			0 0 12px hsl(var(--primary) / 0.14),
+			inset 0 1px 0 hsl(255 100% 100% / 0.06);
+		transition:
+			transform 0.2s ease,
+			border-color 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+
+	.hero-info-card:hover {
+		transform: translateY(-2px);
+		border-color: hsl(var(--primary) / 0.6);
+		box-shadow:
+			0 0 0 1px hsl(var(--primary) / 0.26),
+			0 0 20px hsl(var(--primary) / 0.26),
+			0 0 34px hsl(var(--primary) / 0.14),
+			inset 0 1px 0 hsl(255 100% 100% / 0.12);
+	}
+
+	.hero-info-card-icon {
+		width: 52px;
+		height: 52px;
+		border-radius: 50%;
+		flex-shrink: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: rgba(0, 0, 0, 0.3);
-		padding: 5rem 1.25rem 2.5rem;
+		background: hsl(var(--primary));
+		border: 2px solid hsl(var(--primary) / 0.55);
+		color: #ffffff;
+		box-shadow:
+			0 0 20px hsl(var(--primary) / 0.45),
+			inset 0 1px 0 hsl(0 0% 100% / 0.18);
 	}
 
-	.hero-content {
-		max-width: 1200px;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 2rem;
+	.hero-info-card-icon :global(.hero-info-card-icon-svg) {
+		width: 1.75rem;
+		height: 1.75rem;
+		flex-shrink: 0;
+		color: #ffffff;
+		stroke: #ffffff;
 	}
 
-	.hero-text {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
+	.hero-info-card-icon :global(.hero-info-card-icon-svg--sm) {
+		width: 1.5rem;
+		height: 1.5rem;
+		color: #ffffff;
+		stroke: #ffffff;
 	}
 
-	.hero-title {
-		font-family: 'Permanent Marker', cursive;
-		font-size: clamp(1.8rem, 6vw, 3.4rem);
-		color: white;
-		font-weight: bold;
-		line-height: 1.15;
-		text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-		margin-bottom: 1.25rem;
+	.hero-info-card-title {
+		margin: 0;
+		font-size: 0.875rem;
+		font-weight: 700;
+		line-height: 1.35;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
 	}
 
-	.hero-description {
-		font-family: 'Poppins', sans-serif;
-		color: rgba(255, 255, 255, 0.95);
-		font-size: clamp(0.85rem, 2.4vw, 1.1rem);
-		max-width: 640px;
-		line-height: 1.5;
-		letter-spacing: 0.4px;
-		margin-bottom: 2rem;
+	.hero-info-card-body {
+		margin: 0;
+		font-size: 13px;
+		line-height: 1.625;
+		color: hsl(var(--muted-foreground));
 	}
 
-	.hero-btn {
+	.hero-info-card-pill {
+		margin: 0;
 		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		background: linear-gradient(to right, #2296ee, #1d4ed8);
-		color: white;
-		font-family: 'Permanent Marker', cursive;
-		font-size: clamp(0.875rem, 2vw, 1.25rem);
-		padding: 0.75rem 2.5rem;
-		border-radius: 32px;
-		border: none;
-		cursor: pointer;
-		letter-spacing: 2px;
-		box-shadow: 0 4px 20px rgba(29, 78, 216, 0.3);
-		transition: transform 0.2s ease;
+		gap: 6px;
+		width: fit-content;
+		border: 1px solid hsl(var(--primary) / 0.32);
+		border-radius: 999px;
+		padding: 0.34rem 0.8rem;
+		font-size: 12px;
+		font-weight: 500;
+		letter-spacing: 0.01em;
+		color: hsl(var(--foreground));
+		background:
+			linear-gradient(
+				135deg,
+				hsl(var(--primary) / 0.2) 0%,
+				hsl(var(--primary) / 0.09) 40%,
+				hsl(var(--card) / 0.65) 100%
+			);
+		box-shadow:
+			0 0 0 1px hsl(var(--primary) / 0.1),
+			0 0 12px hsl(var(--primary) / 0.16),
+			inset 0 1px 0 hsl(0 0% 100% / 0.08);
 	}
 
-	.hero-cards {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 0.9rem;
-		width: 100%;
-		max-width: 420px;
-	}
-
-	.hero-card {
-		background: rgba(0, 0, 0, 0.5);
-		border-radius: 16px;
-		padding: 1rem 1.25rem;
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-	}
-
-	.hero-card-title {
-		font-family: 'Permanent Marker', cursive;
-		color: white;
-		font-size: 0.95rem;
-		margin-bottom: 0.35rem;
-	}
-
-	.hero-card-text {
-		font-family: 'Poppins', sans-serif;
-		color: rgba(229, 231, 235, 0.95);
-		font-size: 0.8rem;
-		line-height: 1.4;
-	}
-
-	.hero-card-accent {
-		color: #f97316;
-	}
-
-	.hero-card-strong {
-		color: #e5e7eb;
-		font-weight: 600;
-	}
-
-	@media (min-width: 1024px) {
-		.hero-content {
-			flex-direction: row;
-			align-items: flex-start;
-			gap: 3rem;
-		}
-
-		.hero-text {
-			flex: 1;
-			align-items: flex-start;
-			text-align: left;
-		}
-
-		.hero-cards {
-			max-width: 360px;
-		}
-	}
-
-	@media (min-width: 768px) {
-		.hero-text {
-			align-items: flex-start;
-			text-align: left;
-		}
+	.hero-info-card-pill :global(.hero-info-card-pill-icon) {
+		width: 1rem;
+		height: 1rem;
+		flex-shrink: 0;
+		color: hsl(var(--foreground));
 	}
 </style>

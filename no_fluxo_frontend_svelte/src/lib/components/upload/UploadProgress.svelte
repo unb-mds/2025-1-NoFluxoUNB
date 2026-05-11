@@ -9,64 +9,94 @@
 	let { progress, state }: Props = $props();
 
 	let statusText = $derived(
-		state === 'uploading'
-			? 'Enviando seu histórico...'
-			: 'Processando disciplinas...'
+		state === 'uploading' ? 'Enviando seu histórico…' : 'Processando disciplinas…'
 	);
 </script>
 
-<div class="flex flex-col items-center gap-6 py-8">
-	<div class="spinner-container">
-		<Loader2 class="h-10 w-10 animate-spin text-purple-400" />
+<div class="upload-progress">
+	<div class="spinner-ring">
+		<Loader2 class="size-9 animate-spin text-primary" stroke-width="2" />
 	</div>
 
-	<div class="text-center">
-		<h3 class="text-lg font-semibold text-white">{statusText}</h3>
-		<p class="mt-1 text-sm text-gray-400">Isso pode levar alguns segundos</p>
+	<div class="text-block">
+		<h3 class="status-title">{statusText}</h3>
+		<p class="status-sub">Isso pode levar alguns segundos.</p>
 	</div>
 
-	<div class="progress-wrapper">
-		<div class="progress-track">
-			<div
-				class="progress-bar"
-				style="width: {progress}%"
-			></div>
+	<div class="bar-row">
+		<div class="bar-track">
+			<div class="bar-fill" style:width="{progress}%"></div>
 		</div>
-		<span class="progress-text">{progress}%</span>
+		<span class="bar-label">{progress}%</span>
 	</div>
 </div>
 
 <style>
-	@reference 'tailwindcss';
-
-	.spinner-container {
-		@apply flex h-16 w-16 items-center justify-center rounded-full;
-		background: rgba(139, 92, 246, 0.1);
+	.upload-progress {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+		padding: 2rem 0.5rem;
 	}
 
-	.progress-wrapper {
-		@apply flex w-full max-w-xs items-center gap-3;
+	.spinner-ring {
+		display: flex;
+		height: 4rem;
+		width: 4rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		background: hsl(var(--primary) / 0.1);
+		border: 1px solid hsl(var(--primary) / 0.18);
 	}
 
-	.progress-track {
-		@apply h-2.5 flex-1 overflow-hidden rounded-full;
-		background: rgba(255, 255, 255, 0.1);
+	.text-block {
+		text-align: center;
 	}
 
-	.progress-bar {
-		@apply h-full rounded-full transition-all duration-300 ease-out;
-		background: linear-gradient(90deg, #6c63ff, #e91e63, #f0c419);
-		background-size: 200% 100%;
-		animation: gradient-shift 2s ease infinite;
+	.status-title {
+		font-size: 1.0625rem;
+		font-weight: 700;
+		color: hsl(var(--foreground));
+		margin: 0;
 	}
 
-	.progress-text {
-		@apply min-w-[3rem] text-right text-sm font-medium text-purple-300;
+	.status-sub {
+		margin: 0.35rem 0 0;
+		font-size: 0.8125rem;
+		color: hsl(var(--muted-foreground));
 	}
 
-	@keyframes gradient-shift {
-		0% { background-position: 0% 50%; }
-		50% { background-position: 100% 50%; }
-		100% { background-position: 0% 50%; }
+	.bar-row {
+		display: flex;
+		width: 100%;
+		max-width: 20rem;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.bar-track {
+		height: 0.5rem;
+		flex: 1;
+		overflow: hidden;
+		border-radius: 9999px;
+		background: hsl(0 0% 100% / 0.08);
+	}
+
+	.bar-fill {
+		height: 100%;
+		border-radius: 9999px;
+		background: hsl(var(--primary));
+		transition: width 0.28s ease-out;
+	}
+
+	.bar-label {
+		min-width: 2.75rem;
+		text-align: right;
+		font-size: 0.8125rem;
+		font-weight: 600;
+		font-variant-numeric: tabular-nums;
+		color: hsl(var(--muted-foreground));
 	}
 </style>

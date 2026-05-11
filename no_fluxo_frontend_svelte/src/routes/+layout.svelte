@@ -104,7 +104,16 @@
 
 <div class="flex min-h-screen flex-col overflow-x-hidden">
 	{#if showNavbar}
-		<Navbar user={$currentUser} isAuthenticated={$isAuthenticated || $isAnonymous} isAnonymous={$isAnonymous} />
+		<div class="navbar-glass sticky top-0 z-50 px-4 pt-3 md:px-6 md:pt-4">
+			<div class="mx-auto w-full max-w-[min(1180px,calc(100vw-2rem))]">
+				<Navbar
+					user={$currentUser}
+					isAuthenticated={$isAuthenticated || $isAnonymous}
+					isAnonymous={$isAnonymous}
+					variant="floating"
+				/>
+			</div>
+		</div>
 	{/if}
 
 	<main class="flex-1">

@@ -87,11 +87,9 @@
 </script>
 
 <section class="sobre-section" id="sobre-nos">
-	<h2 class="section-title">SOBRE NÓS</h2>
+	<h2 class="section-title">Sobre nós</h2>
 
-	<div
-		class="sobre-card"
-	>
+	<div class="sobre-card nf-card-surface">
 		<p class="sobre-text">
 			O NoFluxoUnB é criado na disciplina de Métodos de Desenvolvimento de Software ministrada pela
 			professora Carla Rocha, com a proposta de desenvolver um software inovador para a comunidade.
@@ -114,7 +112,7 @@
 			{#each features as feature}
 				<div class="sobre-feature">
 					<span class="check-circle">
-						<Check class="h-4 w-4 text-white" />
+						<Check class="h-4 w-4 text-primary-foreground" />
 					</span>
 					<p><strong>{feature.title}</strong> {feature.description}</p>
 				</div>
@@ -138,40 +136,31 @@
 
 <style>
 	.section-title {
-		font-family: 'Permanent Marker', cursive;
-		color: white;
-		font-size: clamp(1.5rem, 4vw, 2rem);
+		font-size: clamp(1.375rem, 3vw, 1.75rem);
+		font-weight: 800;
+		letter-spacing: -0.03em;
 		text-align: center;
-		letter-spacing: 1.5px;
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-		margin-bottom: 3rem;
+		color: hsl(var(--foreground));
+		margin-bottom: 2.75rem;
 	}
 
 	.sobre-section {
-		padding: 4rem 1.5rem;
-		background: rgba(0, 0, 0, 0.5);
+		padding: clamp(3.5rem, 8vw, 4.5rem) 1.5rem;
+		background: hsl(var(--background) / 0.9);
+		border-top: 1px solid hsl(0 0% 100% / 0.06);
 	}
 
 	.sobre-card {
-		max-width: 1200px;
+		max-width: 1120px;
 		margin: 0 auto 2rem;
 		padding: 2rem;
-		background: rgba(255, 255, 255, 0.1);
-		border: 1px solid rgba(255, 255, 255, 0.2);
-		border-radius: 24px;
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-		transition: transform 0.2s ease;
-	}
-
-	.sobre-card:hover {
-		transform: scale(1.02);
 	}
 
 	.sobre-text {
-		color: white;
-		font-size: clamp(0.8125rem, 1.5vw, 1.125rem);
+		color: hsl(var(--muted-foreground));
+		font-size: clamp(0.8125rem, 1.5vw, 1.0625rem);
 		line-height: 1.7;
-		text-align: justify;
+		text-align: left;
 		margin-bottom: 0.75rem;
 	}
 
@@ -188,26 +177,28 @@
 	}
 
 	.sobre-feature p {
-		color: white;
-		font-size: clamp(0.6875rem, 1.2vw, 0.9375rem);
+		color: hsl(var(--foreground));
+		font-size: clamp(0.75rem, 1.15vw, 0.9375rem);
+		line-height: 1.45;
 	}
 
 	.check-circle {
 		width: 28px;
 		height: 28px;
 		min-width: 28px;
-		border-radius: 50%;
-		background: linear-gradient(to right, #ec4899, #8b5cf6);
+		border-radius: 8px;
+		background: hsl(var(--primary));
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		margin-top: 2px;
 	}
 
 	.team-grid {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 1rem;
-		max-width: 1200px;
+		max-width: 1120px;
 		margin: 0 auto;
 	}
 

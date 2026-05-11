@@ -80,13 +80,21 @@ const config: Config = {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)',
-				cta: '30px'
+				cta: '30px',
+				card: '14px'
 			},
 			fontFamily: {
-				sans: ['Poppins', ...fontFamily.sans],
+				sans: ['Inter', 'Poppins', ...fontFamily.sans],
 				poppins: ['Poppins', 'sans-serif'],
-				marker: ['Permanent Marker', 'cursive'],
 				mono: ['JetBrains Mono', ...fontFamily.mono]
+			},
+			boxShadow: {
+				nofluxo:
+					'0 1px 0 hsl(0 0% 100% / 0.055) inset, 0 12px 34px hsl(0 0% 0% / 0.34)',
+				nofluxoLg: '0 16px 48px hsl(0 0% 0% / 0.42)'
+			},
+			spacing: {
+				section: 'var(--spacing-section)'
 			},
 			keyframes: {
 				'accordion-down': {

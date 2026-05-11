@@ -673,7 +673,7 @@ function courseInfoLabel(curriculo: string | null | undefined): string | null {
 
 <GraffitiBackground />
 
-<div class="relative z-10 flex h-[calc(100dvh-3.5rem)] flex-col overflow-hidden">
+<div class="relative z-10 flex h-[calc(100dvh-9.5rem)] flex-col overflow-hidden sm:h-[calc(100dvh-10.75rem)]">
 	<header class="flex h-14 shrink-0 items-center gap-3 border-b border-white/10 bg-black/55 px-4 backdrop-blur-md">
 		<div class="font-mono text-xs font-medium tracking-wider text-purple-300">DISCIPLINAS</div>
 		<div class="flex-1"></div>

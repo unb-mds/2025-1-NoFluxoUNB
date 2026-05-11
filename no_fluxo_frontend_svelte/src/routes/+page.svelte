@@ -37,9 +37,11 @@
 
 <GraffitiBackground />
 
-<!-- Navbar overlaid on top -->
-<div class="fixed top-0 left-0 right-0 z-50">
-	<Navbar user={$currentUser} isAuthenticated={$isAuthenticated} />
+<!-- Navbar em pílula alinhada ao hero (referência visual) -->
+<div class="navbar-glass sticky top-0 z-50 px-4 pt-3 md:px-6 md:pt-4">
+	<div class="mx-auto w-full max-w-[min(1180px,calc(100vw-2rem))]">
+		<Navbar user={$currentUser} isAuthenticated={$isAuthenticated} variant="floating" />
+	</div>
 </div>
 
 <main class="relative min-h-screen">

@@ -244,7 +244,7 @@
 	bind:this={containerRef}
 	data-fluxogram-scroll-root
 	class="fluxogram-container relative h-full min-h-0 w-full flex-1 select-none overflow-auto [overflow-anchor:none] {focusMode
-		? 'rounded-2xl border border-white/20 bg-white/[0.06] shadow-[0_12px_42px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.22)] backdrop-blur-xl'
+		? 'rounded-2xl border border-primary/24 bg-[hsl(var(--background)/0.93)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_0_0_1px_rgba(124,58,237,0.11),0_0_14px_rgba(124,58,237,0.12),0_16px_48px_rgba(0,0,0,0.52)] backdrop-blur-xl'
 		: 'rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm'} {useNativeTouchScroll
 		? 'overscroll-y-auto'
 		: ''}"

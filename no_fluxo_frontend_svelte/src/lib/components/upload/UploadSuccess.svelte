@@ -13,85 +13,158 @@
 	let { data, extractedData = null, onsave, onreset }: Props = $props();
 </script>
 
-<div class="flex min-w-0 flex-col items-center gap-4 sm:gap-6">
-	<!-- Success Header -->
+<div class="success-wrap">
 	<div class="success-icon">
-		<CheckCircle class="h-10 w-10 text-emerald-400 sm:h-12 sm:w-12" />
+		<CheckCircle class="size-10 text-emerald-400 sm:size-12" stroke-width="2" />
 	</div>
 
-	<div class="text-center">
-		<h3 class="text-lg font-bold text-white sm:text-xl">Processamento concluído!</h3>
-		<p class="mt-1 text-xs text-gray-400 sm:text-sm">
-			Seu histórico acadêmico foi processado com sucesso.
-		</p>
+	<div class="success-text">
+		<h3 class="success-title">Processamento concluído</h3>
+		<p class="success-sub">Seu histórico foi processado. Revise os dados abaixo antes de abrir o fluxograma.</p>
 	</div>
 
-	<!-- Results -->
-	<div class="w-full min-w-0">
+	<div class="results w-full min-w-0">
 		<ProcessingResults {data} {extractedData} />
 	</div>
 
-	<!-- Actions -->
-	<div class="flex w-full min-w-0 flex-col gap-2 sm:flex-row sm:justify-center sm:gap-3">
-		<button
-			type="button"
-			class="action-btn primary"
-			onclick={onsave}
-		>
-			<ArrowRight class="h-4 w-4" />
-			Visualizar Fluxograma
+	<div class="actions">
+		<button type="button" class="btn-primary nf-cta-glow" onclick={onsave}>
+			<ArrowRight class="size-4" />
+			Visualizar fluxograma
 		</button>
-
-		<button
-			type="button"
-			class="action-btn secondary"
-			onclick={onreset}
-		>
-			<RotateCcw class="h-4 w-4" />
+		<button type="button" class="btn-secondary" onclick={onreset}>
+			<RotateCcw class="size-4" />
 			Enviar outro PDF
 		</button>
 	</div>
 </div>
 
 <style>
-	@reference 'tailwindcss';
+	.success-wrap {
+		display: flex;
+		min-width: 0;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	@media (min-width: 640px) {
+		.success-wrap {
+			gap: 1.35rem;
+		}
+	}
 
 	.success-icon {
-		@apply flex h-16 w-16 items-center justify-center rounded-full sm:h-20 sm:w-20;
-		background: rgba(16, 185, 129, 0.1);
-		animation: success-pop 0.4s ease-out;
+		display: flex;
+		height: 4rem;
+		width: 4rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		background: hsl(152 65% 40% / 0.12);
+		border: 1px solid hsl(152 65% 45% / 0.25);
+		animation: pop 0.38s ease-out;
 	}
 
-	.action-btn {
-		@apply flex w-full items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all duration-200 sm:w-auto sm:px-6 sm:py-3;
+	@media (min-width: 640px) {
+		.success-icon {
+			height: 5rem;
+			width: 5rem;
+		}
 	}
 
-	.action-btn.primary {
-		@apply text-white;
-		background: linear-gradient(135deg, #6c63ff, #e91e63);
+	.success-text {
+		text-align: center;
 	}
 
-	.action-btn.primary:hover {
-		@apply scale-[1.02];
-		box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+	.success-title {
+		font-size: 1.125rem;
+		font-weight: 700;
+		color: hsl(var(--foreground));
+		margin: 0;
 	}
 
-	.action-btn.secondary {
-		@apply border border-white/10 text-gray-300;
-		background: rgba(255, 255, 255, 0.05);
+	@media (min-width: 640px) {
+		.success-title {
+			font-size: 1.25rem;
+		}
 	}
 
-	.action-btn.secondary:hover {
-		@apply border-white/20 bg-white/10;
+	.success-sub {
+		margin: 0.35rem 0 0;
+		font-size: 0.8125rem;
+		line-height: 1.45;
+		color: hsl(var(--muted-foreground));
+		max-width: 26rem;
 	}
 
-	@keyframes success-pop {
+	.actions {
+		display: flex;
+		width: 100%;
+		min-width: 0;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	@media (min-width: 640px) {
+		.actions {
+			flex-direction: row;
+			justify-content: center;
+			gap: 0.65rem;
+		}
+	}
+
+	.btn-primary,
+	.btn-secondary {
+		display: inline-flex;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		gap: 0.45rem;
+		padding: 0.65rem 1.25rem;
+		border-radius: 12px;
+		font-size: 0.875rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: filter 0.15s ease;
+	}
+
+	@media (min-width: 640px) {
+		.btn-primary,
+		.btn-secondary {
+			width: auto;
+			padding: 0.7rem 1.35rem;
+		}
+	}
+
+	.btn-primary {
+		border: none;
+		color: hsl(var(--primary-foreground));
+		background: hsl(var(--primary));
+	}
+
+	.btn-primary:hover {
+		filter: brightness(1.06);
+	}
+
+	.btn-secondary {
+		border: 1px solid hsl(0 0% 100% / 0.12);
+		background: hsl(var(--secondary) / 0.45);
+		color: hsl(var(--foreground));
+	}
+
+	.btn-secondary:hover {
+		background: hsl(var(--secondary) / 0.75);
+		border-color: hsl(0 0% 100% / 0.18);
+	}
+
+	@keyframes pop {
 		0% {
-			transform: scale(0.5);
+			transform: scale(0.88);
 			opacity: 0;
 		}
 		70% {
-			transform: scale(1.1);
+			transform: scale(1.04);
 		}
 		100% {
 			transform: scale(1);

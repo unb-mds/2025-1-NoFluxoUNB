@@ -214,7 +214,7 @@
 <GraffitiBackground />
 
 <div
-	class="relative z-10 container mx-auto w-full min-w-0 max-w-full px-3 py-2 sm:px-4 sm:py-3 [@media(orientation:landscape)_and_(max-height:560px)]:px-2 [@media(orientation:landscape)_and_(max-height:560px)]:py-1 [@media(orientation:landscape)_and_(max-height:560px)]:sm:px-3 [@media(orientation:landscape)_and_(max-height:560px)]:sm:py-2"
+	class="relative z-10 container mx-auto w-full min-w-0 max-w-full px-3 pb-2 sm:px-4 sm:pb-3 [@media(orientation:landscape)_and_(max-height:560px)]:px-2 [@media(orientation:landscape)_and_(max-height:560px)]:pb-1 [@media(orientation:landscape)_and_(max-height:560px)]:sm:px-3 [@media(orientation:landscape)_and_(max-height:560px)]:sm:pb-2"
 >
 	{#if store.state.loading}
 		<div class="flex flex-col items-center justify-center gap-4 py-20">

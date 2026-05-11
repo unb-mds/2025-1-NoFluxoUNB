@@ -2,16 +2,20 @@
 	import { type VariantProps, tv } from "tailwind-variants";
 
 	export const badgeVariants = tv({
-		base: "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-full border px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] [&>svg]:pointer-events-none [&>svg]:size-3",
+		base: "focus-visible:border-ring focus-visible:ring-ring/35 aria-invalid:ring-destructive/35 aria-invalid:border-destructive inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-full border px-2.5 py-0.5 text-xs font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] [&>svg]:pointer-events-none [&>svg]:size-3",
 		variants: {
 			variant: {
 				default:
-					"bg-primary text-primary-foreground [a&]:hover:bg-primary/90 border-transparent",
+					"border-transparent bg-primary text-primary-foreground [a&]:hover:brightness-110",
 				secondary:
-					"bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90 border-transparent",
+					"border-white/10 bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/85",
+				ai: "nf-chip-ai border-0 px-2.5 font-medium text-[12px]",
 				destructive:
-					"bg-destructive [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/70 border-transparent text-white",
-				outline: "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
+					"border-transparent bg-destructive text-destructive-foreground [a&]:hover:brightness-110 focus-visible:ring-destructive/30",
+				outline:
+					"border-white/12 bg-transparent text-muted-foreground [a&]:hover:bg-secondary/55 [a&]:hover:text-foreground",
+				muted:
+					"border-white/10 bg-secondary/50 text-muted-foreground [a&]:hover:border-white/14 [a&]:hover:text-foreground",
 			},
 		},
 		defaultVariants: {

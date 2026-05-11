@@ -95,10 +95,10 @@
 	class="semester-column flex min-w-[130px] max-w-[220px] flex-col gap-3 sm:min-w-[160px] sm:max-w-[240px]"
 >
 	<div
-		class="z-10 rounded-lg border border-white/10 bg-black/60 px-3 py-2 text-center backdrop-blur-md"
-		style="transform: translateY({headerOffsetY}px); position: relative;"
+		class="z-10 rounded-[10px] border border-primary/35 px-3 py-1.5 text-center"
+		style="transform: translateY({headerOffsetY}px); position: relative; background: hsl(var(--primary) / 0.18); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 0 12px hsl(var(--primary) / 0.15);"
 	>
-		<span class="text-xs font-bold uppercase tracking-wider text-white/70">
+		<span class="text-[11px] font-bold uppercase tracking-wider text-white/95">
 			Semestre {semester}
 		</span>
 	</div>
@@ -106,12 +106,12 @@
 	<!-- Badge: horas/créditos no topo (menos transparência para fácil leitura) -->
 	{#if subjects.length > 0 || optPlanned.length > 0}
 		<div
-			class="flex justify-center rounded-lg border border-cyan-400/50 bg-cyan-600/45 px-2 py-1.5 text-center shadow-sm"
+			class="flex justify-center rounded-lg border border-white/15 bg-white/[0.06] px-2 py-1.5 text-center shadow-sm backdrop-blur-sm"
 			title={displayUnit === 'creditos'
 				? `${stats.completedCredits} de ${stats.totalCredits} créditos do semestre`
 				: `${stats.completedHours} de ${stats.totalHours}h do semestre`}
 		>
-			<span class="text-xs font-semibold text-cyan-100">{badgeLabel}</span>
+			<span class="text-xs font-semibold text-white/90">{badgeLabel}</span>
 		</div>
 	{/if}
 

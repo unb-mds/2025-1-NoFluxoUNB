@@ -41,7 +41,7 @@
 <button
 	class={cn(
 		'inline-flex items-center justify-center',
-		'font-marker border-none cursor-pointer',
+		'font-sans border-none cursor-pointer font-semibold',
 		'relative overflow-hidden',
 		'shadow-lg hover:shadow-xl',
 		'active:scale-[0.98]',

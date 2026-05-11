@@ -8,27 +8,31 @@
 	let { onclick }: Props = $props();
 </script>
 
-<button
-	type="button"
-	class="help-btn"
-	{onclick}
->
-	<HelpCircle class="h-4 w-4" />
+<button type="button" class="help-btn" {onclick}>
+	<HelpCircle class="size-4 shrink-0" stroke-width="2" />
 	<span>Como obter seu histórico acadêmico?</span>
 </button>
 
 <style>
-	@reference 'tailwindcss';
-
 	.help-btn {
-		@apply flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-white transition-all duration-200;
-		background: linear-gradient(135deg, rgba(108, 99, 255, 0.3), rgba(233, 30, 99, 0.3));
-		border: 1px solid rgba(255, 255, 255, 0.1);
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.6rem 1.15rem;
+		border-radius: 9999px;
+		font-size: 0.8125rem;
+		font-weight: 600;
+		color: hsl(var(--foreground));
+		background: hsl(var(--secondary) / 0.55);
+		border: 1px solid hsl(0 0% 100% / 0.12);
+		cursor: pointer;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease;
 	}
 
 	.help-btn:hover {
-		@apply scale-[1.03];
-		background: linear-gradient(135deg, rgba(108, 99, 255, 0.5), rgba(233, 30, 99, 0.5));
-		box-shadow: 0 4px 15px rgba(108, 99, 255, 0.2);
+		background: hsl(var(--secondary) / 0.8);
+		border-color: hsl(0 0% 100% / 0.16);
 	}
 </style>
