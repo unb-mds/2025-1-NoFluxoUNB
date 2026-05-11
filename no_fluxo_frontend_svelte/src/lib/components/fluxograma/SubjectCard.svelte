@@ -279,7 +279,7 @@
 <button
 	class={cardClasses}
 	data-subject-code={materia.codigoMateria}
-	style="touch-action: none;"
+	style="touch-action: manipulation;"
 	onclick={handleClick}
 	ondblclick={handleDoubleClick}
 	oncontextmenu={handleContextMenu}
