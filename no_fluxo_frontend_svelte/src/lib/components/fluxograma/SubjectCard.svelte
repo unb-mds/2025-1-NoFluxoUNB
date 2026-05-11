@@ -106,9 +106,9 @@
 	});
 
 	const gradientMap: Record<SubjectStatusValue, string> = {
-		[SubjectStatusEnum.COMPLETED]: 'bg-[#166534]',
-		[SubjectStatusEnum.IN_PROGRESS]: 'bg-[#5b21b6]',
-		[SubjectStatusEnum.AVAILABLE]: 'bg-[#9a5a12]',
+		[SubjectStatusEnum.COMPLETED]: 'bg-[#1f7a43]',
+		[SubjectStatusEnum.IN_PROGRESS]: 'bg-[#6b2fcf]',
+		[SubjectStatusEnum.AVAILABLE]: 'bg-[#a8671a]',
 		[SubjectStatusEnum.FAILED]: 'bg-[#991b1b]',
 		[SubjectStatusEnum.LOCKED]: 'bg-[#161625]',
 		[SubjectStatusEnum.NOT_STARTED]: 'bg-[#161625]'
@@ -335,7 +335,7 @@
 
 	<!-- Prerequisite indicator badge -->
 	{#if !store.state.isAnonymous && (hasPrereqs || dependentCount > 0)}
-		<div class="absolute left-0 -bottom-1.5 flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[9px] font-bold {prereqsCompleted ? 'bg-green-500/65 text-white/95' : 'bg-amber-500/65 text-white/95'}">
+		<div class="absolute left-0 -bottom-1.5 flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[9px] font-bold {prereqsCompleted ? 'bg-green-500/72 text-white/95' : 'bg-amber-500/72 text-white/95'}">
 			{#if hasPrereqs}
 				<span>{prereqsCompleted ? '✓' : '!'}</span>
 			{/if}
@@ -350,13 +350,13 @@
 <style>
 	:global(.subject-card) {
 		box-shadow:
-			inset 0 1px 0 rgba(255, 255, 255, 0.12),
+			inset 0 1px 0 rgba(255, 255, 255, 0.14),
 			inset 1px 0 0 rgba(255, 255, 255, 0.06),
 			inset 0 -1px 0 rgba(0, 0, 0, 0.28),
-			0 2px 8px rgba(0, 0, 0, 0.35);
+			0 3px 10px rgba(0, 0, 0, 0.36);
 	}
 
 	:global(.subject-card:hover) {
-		filter: brightness(1.03);
+		filter: brightness(1.035) saturate(1.03);
 	}
 </style>
