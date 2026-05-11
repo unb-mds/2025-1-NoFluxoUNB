@@ -86,15 +86,21 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: hsl(var(--accent));
-		border: 2px solid hsl(var(--primary) / 0.35);
-		color: hsl(var(--accent-foreground));
+		background: hsl(var(--primary) / 0.85);
+		border: 2px solid hsl(var(--primary) / 0.6);
+		color: hsl(0 0% 100%);
+		box-shadow:
+			0 0 16px hsl(var(--primary) / 0.4),
+			inset 0 1px 0 hsl(0 0% 100% / 0.2);
 	}
 
 	.feature-card-icon :global(.feature-card-icon-svg) {
 		width: 1.5rem;
 		height: 1.5rem;
 		flex-shrink: 0;
+		opacity: 1;
+		color: hsl(0 0% 100%);
+		stroke: hsl(0 0% 100%);
 	}
 
 	.feature-card-content {

@@ -93,11 +93,11 @@
 		{disabled}
 	/>
 
-	<div class="icon-wrap" class:icon-wrap--active={isDragging}>
+	<div class="icon-wrap">
 		{#if isDragging}
-			<FileText class="size-11 text-primary" stroke-width="2" />
+			<FileText class="size-11" stroke-width="2" />
 		{:else}
-			<Upload class="size-11 text-muted-foreground" stroke-width="2" />
+			<Upload class="size-11" stroke-width="2" />
 		{/if}
 	</div>
 
@@ -117,7 +117,7 @@
 
 	<button
 		type="button"
-		class="select-btn nf-cta-glow"
+		class="select-btn"
 		tabindex={-1}
 		disabled={disabled}
 		onclick={handleSelectClick}
@@ -148,12 +148,12 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		min-height: 280px;
-		padding: 2.25rem 1.25rem;
-		border-radius: 16px;
+		min-height: 300px;
+		padding: 2.5rem 1.5rem;
+		border-radius: 14px;
 		cursor: pointer;
-		border: 1px dashed hsl(0 0% 100% / 0.14);
-		background: hsl(var(--secondary) / 0.35);
+		border: 1.5px dashed hsl(var(--primary) / 0.35);
+		background: hsl(var(--primary) / 0.04);
 		transition:
 			border-color 0.2s ease,
 			background 0.2s ease,
@@ -161,8 +161,9 @@
 	}
 
 	.dropzone:hover:not(.dropzone--disabled) {
-		border-color: hsl(var(--primary) / 0.45);
-		background: hsl(var(--primary) / 0.06);
+		border-color: hsl(var(--primary) / 0.6);
+		background: hsl(var(--primary) / 0.07);
+		box-shadow: 0 0 0 1px hsl(var(--primary) / 0.12);
 	}
 
 	.dropzone:focus-visible {
@@ -172,9 +173,11 @@
 
 	.dropzone--drag {
 		border-style: solid;
-		border-color: hsl(var(--primary) / 0.55);
-		background: hsl(var(--primary) / 0.08);
-		box-shadow: 0 0 0 1px hsl(var(--primary) / 0.2);
+		border-color: hsl(var(--primary) / 0.7);
+		background: hsl(var(--primary) / 0.1);
+		box-shadow:
+			0 0 0 1px hsl(var(--primary) / 0.22),
+			0 0 32px hsl(var(--primary) / 0.12);
 	}
 
 	.dropzone--disabled {
@@ -184,29 +187,34 @@
 
 	.icon-wrap {
 		display: flex;
-		height: 4.5rem;
-		width: 4.5rem;
+		height: 5rem;
+		width: 5rem;
 		align-items: center;
 		justify-content: center;
 		border-radius: 9999px;
-		background: hsl(var(--primary) / 0.12);
-		border: 1px solid hsl(var(--primary) / 0.2);
-		margin-bottom: 0.25rem;
+		background: hsl(var(--primary));
+		border: 2px solid hsl(var(--primary) / 0.55);
+		color: #ffffff;
+		margin-bottom: 0.5rem;
 		transition: transform 0.2s ease;
+		box-shadow:
+			0 0 24px hsl(var(--primary) / 0.4),
+			inset 0 1px 0 hsl(0 0% 100% / 0.18);
+	}
+
+	.icon-wrap :global(svg) {
+		color: #ffffff;
+		stroke: #ffffff;
 	}
 
 	.dropzone--drag .icon-wrap {
 		transform: scale(1.03);
 	}
 
-	.icon-wrap--active {
-		background: hsl(var(--primary) / 0.18);
-	}
-
 	.dropzone-title {
-		margin-top: 1rem;
-		font-size: 1.0625rem;
-		font-weight: 600;
+		margin-top: 1.25rem;
+		font-size: 1.125rem;
+		font-weight: 700;
 		color: hsl(var(--foreground));
 		text-align: center;
 	}
@@ -223,7 +231,7 @@
 	.divider-line {
 		height: 1px;
 		flex: 1;
-		background: hsl(0 0% 100% / 0.1);
+		background: hsl(var(--primary) / 0.3);
 	}
 
 	.divider-text {
@@ -237,19 +245,28 @@
 		align-items: center;
 		justify-content: center;
 		gap: 0.5rem;
-		padding: 0.65rem 1.35rem;
+		padding: 0.75rem 1.75rem;
 		border-radius: 12px;
 		border: none;
-		font-size: 0.875rem;
-		font-weight: 600;
+		font-size: 0.9375rem;
+		font-weight: 700;
+		letter-spacing: 0.02em;
 		color: hsl(var(--primary-foreground));
 		background: hsl(var(--primary));
 		cursor: pointer;
-		transition: filter 0.15s ease;
+		box-shadow:
+			0 0 28px hsl(var(--primary) / 0.35),
+			0 0 8px hsl(var(--primary) / 0.18);
+		transition:
+			filter 0.15s ease,
+			box-shadow 0.15s ease;
 	}
 
 	.select-btn:hover:not(:disabled) {
-		filter: brightness(1.06);
+		filter: brightness(1.08);
+		box-shadow:
+			0 0 36px hsl(var(--primary) / 0.45),
+			inset 0 1px 0 hsl(0 0% 100% / 0.12);
 	}
 
 	.select-btn:disabled {

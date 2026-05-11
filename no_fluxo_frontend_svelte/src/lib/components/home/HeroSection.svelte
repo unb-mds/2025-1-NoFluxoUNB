@@ -126,20 +126,27 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: hsl(var(--accent));
-		border: 2px solid hsl(var(--primary) / 0.35);
-		color: hsl(var(--accent-foreground));
+		background: hsl(var(--primary));
+		border: 2px solid hsl(var(--primary) / 0.55);
+		color: #ffffff;
+		box-shadow:
+			0 0 20px hsl(var(--primary) / 0.45),
+			inset 0 1px 0 hsl(0 0% 100% / 0.18);
 	}
 
 	.hero-info-card-icon :global(.hero-info-card-icon-svg) {
 		width: 1.75rem;
 		height: 1.75rem;
 		flex-shrink: 0;
+		color: #ffffff;
+		stroke: #ffffff;
 	}
 
 	.hero-info-card-icon :global(.hero-info-card-icon-svg--sm) {
 		width: 1.5rem;
 		height: 1.5rem;
+		color: #ffffff;
+		stroke: #ffffff;
 	}
 
 	.hero-info-card-title {

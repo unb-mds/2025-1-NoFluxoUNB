@@ -210,7 +210,7 @@
 <GraffitiBackground />
 
 <div
-	class="relative z-10 container mx-auto w-full min-w-0 max-w-full px-3 py-2 sm:px-4 sm:py-3 [@media(orientation:landscape)_and_(max-height:560px)]:px-2 [@media(orientation:landscape)_and_(max-height:560px)]:py-1 [@media(orientation:landscape)_and_(max-height:560px)]:sm:px-3 [@media(orientation:landscape)_and_(max-height:560px)]:sm:py-2"
+	class="relative z-10 container mx-auto w-full min-w-0 max-w-full px-3 pb-2 sm:px-4 sm:pb-3 [@media(orientation:landscape)_and_(max-height:560px)]:px-2 [@media(orientation:landscape)_and_(max-height:560px)]:pb-1 [@media(orientation:landscape)_and_(max-height:560px)]:sm:px-3 [@media(orientation:landscape)_and_(max-height:560px)]:sm:pb-2"
 >
 	{#if store.state.loading}
 		<div class="flex flex-col items-center justify-center gap-4 py-20">
@@ -242,7 +242,7 @@
 				</div>
 			{/if}
 			<div
-				class="flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden [overflow-anchor:none] sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:sm:max-h-[calc(100dvh-0.5rem)]"
+				class="flex h-[calc(100dvh-9.25rem)] max-h-[calc(100dvh-9.25rem)] min-h-0 flex-col gap-1 overflow-hidden [overflow-anchor:none] sm:h-[calc(100dvh-10.75rem)] sm:max-h-[calc(100dvh-10.75rem)] sm:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-6.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-6.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:h-[calc(100dvh-6.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:sm:max-h-[calc(100dvh-6.5rem)]"
 			>
 				<div
 					class="shrink-0 space-y-3 sm:space-y-3.5 md:space-y-4 [@media(orientation:landscape)_and_(max-height:560px)]:space-y-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:space-y-2"

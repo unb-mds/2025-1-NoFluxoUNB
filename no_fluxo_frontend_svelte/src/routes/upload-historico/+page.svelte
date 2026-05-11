@@ -22,18 +22,28 @@
 <AnimatedBackground />
 
 <main
-	class="relative z-10 flex min-h-[calc(100vh-64px)] flex-col items-center overflow-x-hidden px-3 py-6 sm:px-4 sm:py-10"
+	class="relative z-10 flex min-h-[calc(100vh-64px)] flex-col items-center overflow-hidden px-3 pb-10 sm:px-4 sm:pb-14"
 >
-	<div class="w-full min-w-0 max-w-2xl">
+	<div
+		aria-hidden="true"
+		class="pointer-events-none absolute -left-40 -top-40 h-[700px] w-[700px] rounded-full"
+		style="background: radial-gradient(circle, rgba(108,38,220,0.32) 0%, rgba(88,22,180,0.13) 42%, transparent 68%); z-index:0;"
+	></div>
+	<div
+		aria-hidden="true"
+		class="pointer-events-none absolute -bottom-20 right-0 h-[400px] w-[400px] rounded-full"
+		style="background: radial-gradient(circle, rgba(80,20,160,0.18) 0%, transparent 65%); z-index:0;"
+	></div>
+	<div class="relative z-[1] w-full min-w-0 max-w-2xl">
 		<header class="mb-6 text-center sm:mb-9">
-			<h1 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Importar histórico</h1>
-			<p class="mt-2 text-sm text-muted-foreground sm:text-base">
+			<h1 class="text-3xl font-black tracking-tight text-foreground sm:text-4xl">Importar histórico</h1>
+			<p class="mx-auto mt-2 max-w-[480px] text-[15px] text-muted-foreground sm:text-base">
 				Envie o PDF do seu histórico oficial da UnB. Os dados são usados só para montar seu fluxograma nesta
 				plataforma.
 			</p>
 		</header>
 
-		<div class="upload-shell nf-card-surface">
+		<div class="upload-shell">
 			{#if $uploadStore.state === 'initial'}
 				<FileDropzone onfileselected={(file) => uploadStore.uploadFile(file)} />
 			{:else if $uploadStore.state === 'uploading' || ($uploadStore.state === 'processing' && !$uploadStore.showCourseSelection)}
@@ -93,12 +103,21 @@
 <style>
 	.upload-shell {
 		overflow: hidden;
-		padding: 1.15rem;
+		padding: 1.5rem;
+		background: hsl(var(--card));
+		border: 1px solid hsl(var(--border) / 0.9);
+		border-radius: 20px;
+		box-shadow:
+			inset 0 1px 0 hsl(0 0% 100% / 0.07),
+			inset 1px 0 0 hsl(0 0% 100% / 0.04),
+			inset 0 -1px 0 hsl(0 0% 0% / 0.22),
+			0 0 0 1px hsl(var(--primary) / 0.08),
+			0 24px 48px hsl(0 0% 0% / 0.35);
 	}
 
 	@media (min-width: 640px) {
 		.upload-shell {
-			padding: 2rem;
+			padding: 2.25rem;
 		}
 	}
 

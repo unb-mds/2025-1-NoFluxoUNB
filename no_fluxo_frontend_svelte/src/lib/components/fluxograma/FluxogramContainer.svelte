@@ -228,7 +228,8 @@
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <div
 	bind:this={containerRef}
-	class="fluxogram-container relative h-full min-h-0 w-full flex-1 select-none overflow-auto rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm [overflow-anchor:none] {useNativeTouchScroll ? 'overscroll-y-auto' : ''}"
+	class="fluxogram-container relative h-full min-h-0 w-full flex-1 select-none overflow-auto rounded-[14px] border border-white/10 [overflow-anchor:none] {useNativeTouchScroll ? 'overscroll-y-auto' : ''}"
+	style="background: hsl(var(--background) / 0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.05), inset 1px 0 0 hsl(0 0% 100% / 0.03), 0 0 0 1px hsl(var(--primary) / 0.06);"
 	style:cursor="grab"
 	style:touch-action={useNativeTouchScroll ? 'pan-x pan-y pinch-zoom' : 'none'}
 	style:-webkit-overflow-scrolling={useNativeTouchScroll ? 'touch' : undefined}

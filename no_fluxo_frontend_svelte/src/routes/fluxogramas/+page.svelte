@@ -142,7 +142,7 @@
 
 <GraffitiBackground />
 
-<div class="relative z-10 container mx-auto min-w-0 max-w-6xl overflow-x-hidden px-3 py-6 sm:px-4 sm:py-8">
+<div class="relative z-10 container mx-auto min-w-0 max-w-6xl overflow-x-hidden px-3 pb-6 sm:px-4 sm:pb-8">
 	<!-- Header -->
 	<div class="mb-4 sm:mb-6">
 		<h1 class="text-xl font-bold text-white sm:text-2xl">Fluxogramas</h1>

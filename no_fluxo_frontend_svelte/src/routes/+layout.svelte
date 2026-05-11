@@ -104,10 +104,19 @@
 
 <div class="flex min-h-screen flex-col overflow-x-hidden">
 	{#if showNavbar}
-		<Navbar user={$currentUser} isAuthenticated={$isAuthenticated || $isAnonymous} isAnonymous={$isAnonymous} />
+		<div class="pointer-events-none fixed left-0 right-0 top-0 z-50 px-4 pt-4 md:px-6">
+			<div class="pointer-events-auto mx-auto w-full max-w-[min(1180px,calc(100vw-2rem))]">
+				<Navbar
+					user={$currentUser}
+					isAuthenticated={$isAuthenticated || $isAnonymous}
+					isAnonymous={$isAnonymous}
+					variant="floating"
+				/>
+			</div>
+		</div>
 	{/if}
 
-	<main class="flex-1">
+	<main class="flex-1 {showNavbar ? 'pt-24 sm:pt-28' : ''}">
 		{#if $isLoading && !isPublicRoute($page.url.pathname)}
 			<div class="flex min-h-[60vh] items-center justify-center">
 				<div class="text-center">
