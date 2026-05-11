@@ -17,9 +17,11 @@
 	}
 </script>
 
-<section class="relative z-[1] flex min-h-[min(100vh,960px)] items-center justify-center overflow-hidden">
+<section
+	class="relative z-[1] flex min-h-[min(calc(100dvh-5.5rem),960px)] items-start justify-center overflow-hidden"
+>
 	<div
-		class="relative z-10 mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-[55fr_45fr] lg:px-16 lg:py-24"
+		class="relative z-10 mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-12 px-6 py-10 lg:grid-cols-[55fr_45fr] lg:px-16 lg:py-14"
 	>
 		<div class="flex flex-col items-center text-center lg:items-start lg:text-left">
 			<p
