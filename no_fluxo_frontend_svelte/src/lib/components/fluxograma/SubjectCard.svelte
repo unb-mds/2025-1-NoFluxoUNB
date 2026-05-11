@@ -106,12 +106,12 @@
 	});
 
 	const gradientMap: Record<SubjectStatusValue, string> = {
-		[SubjectStatusEnum.COMPLETED]: 'bg-[#16a34a]',
-		[SubjectStatusEnum.IN_PROGRESS]: 'bg-[#7c3aed]',
-		[SubjectStatusEnum.AVAILABLE]: 'bg-[#d97706]',
-		[SubjectStatusEnum.FAILED]: 'bg-[#dc2626]',
-		[SubjectStatusEnum.LOCKED]: 'bg-[#1a1a2e]',
-		[SubjectStatusEnum.NOT_STARTED]: 'bg-[#1a1a2e]'
+		[SubjectStatusEnum.COMPLETED]: 'bg-[#166534]',
+		[SubjectStatusEnum.IN_PROGRESS]: 'bg-[#5b21b6]',
+		[SubjectStatusEnum.AVAILABLE]: 'bg-[#9a5a12]',
+		[SubjectStatusEnum.FAILED]: 'bg-[#991b1b]',
+		[SubjectStatusEnum.LOCKED]: 'bg-[#161625]',
+		[SubjectStatusEnum.NOT_STARTED]: 'bg-[#161625]'
 	};
 
 	let cardClasses = $derived.by(() => {
@@ -127,13 +127,13 @@
 		const role = highlightRole;
 		// Cores alinhadas a CHAIN_VISUAL (tailwind precisa do literal no fonte)
 		if (role === 'focus') {
-			borderExtras = 'border-[#7f9cf5] ring-2 ring-[#7f9cf5]/50 shadow-lg';
+			borderExtras = 'border-[#7f9cf5]/80 ring-2 ring-[#7f9cf5]/35 shadow-md';
 		} else if (role === 'precursor') {
-			borderExtras = 'border-[#4fd1c5] ring-2 ring-[#4fd1c5]/45 shadow-md';
+			borderExtras = 'border-[#4fd1c5]/80 ring-2 ring-[#4fd1c5]/35 shadow-md';
 		} else if (role === 'descendant') {
-			borderExtras = 'border-[#f6ad55] ring-2 ring-[#f6ad55]/45 shadow-md';
+			borderExtras = 'border-[#f6ad55]/80 ring-2 ring-[#f6ad55]/35 shadow-md';
 		} else if (role === 'corequisite') {
-			borderExtras = 'border-[#7f9cf5] ring-2 ring-[#7f9cf5]/40 shadow-md';
+			borderExtras = 'border-[#7f9cf5]/80 ring-2 ring-[#7f9cf5]/32 shadow-md';
 		}
 		const dimmed =
 			chainHighlightActive && role === null
@@ -296,7 +296,7 @@
 			{materia.codigoMateria}
 			{#if showOptBadge}
 				<span
-					class="ml-1 rounded bg-purple-500/85 px-1 py-px text-[8px] font-bold normal-case text-white"
+					class="ml-1 rounded bg-purple-500/70 px-1 py-px text-[8px] font-bold normal-case text-white"
 					title="Optativa planejada no fluxograma"
 				>(opt)</span>
 			{/if}
@@ -335,7 +335,7 @@
 
 	<!-- Prerequisite indicator badge -->
 	{#if !store.state.isAnonymous && (hasPrereqs || dependentCount > 0)}
-		<div class="absolute left-0 -bottom-1.5 flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[9px] font-bold {prereqsCompleted ? 'bg-green-500/80 text-white' : 'bg-amber-500/80 text-white'}">
+		<div class="absolute left-0 -bottom-1.5 flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[9px] font-bold {prereqsCompleted ? 'bg-green-500/65 text-white/95' : 'bg-amber-500/65 text-white/95'}">
 			{#if hasPrereqs}
 				<span>{prereqsCompleted ? '✓' : '!'}</span>
 			{/if}
@@ -357,6 +357,6 @@
 	}
 
 	:global(.subject-card:hover) {
-		filter: brightness(1.1);
+		filter: brightness(1.03);
 	}
 </style>
