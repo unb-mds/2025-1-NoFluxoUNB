@@ -226,11 +226,11 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-	class="fixed inset-0 z-[500] flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm sm:p-4"
+	class="fixed inset-0 z-[500] flex items-start justify-center bg-black/60 px-3 pb-3 pt-[calc(env(safe-area-inset-top)+4.75rem)] backdrop-blur-sm sm:items-center sm:p-4"
 	onclick={handleBackdropClick}
 >
 	<div
-		class="relative max-h-[90vh] w-full max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-gray-900/95 shadow-2xl backdrop-blur-xl"
+		class="relative max-h-[calc(100dvh-5.5rem)] w-full max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-gray-900/95 shadow-2xl backdrop-blur-xl sm:max-h-[90vh]"
 		role="dialog"
 		aria-modal="true"
 		aria-label="Cadeia de pré-requisitos"

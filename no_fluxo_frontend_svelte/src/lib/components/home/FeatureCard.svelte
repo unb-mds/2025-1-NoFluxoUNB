@@ -44,15 +44,13 @@
 		gap: 16px;
 		text-align: left;
 		background: hsl(var(--card));
-		border: 1px solid hsl(var(--border));
+		border: 1px solid hsl(var(--primary) / 0.28);
 		border-radius: 16px;
 		padding: 24px;
 		box-shadow:
-			inset 0 1px 0 hsl(255 80% 90% / 0.1),
-			inset 1px 0 0 hsl(255 80% 90% / 0.06),
-			inset 0 -1px 0 hsl(0 0% 0% / 0.3),
-			inset -1px 0 0 hsl(0 0% 0% / 0.2),
-			0 0 0 1px hsl(var(--primary) / 0.07);
+			0 0 0 1px hsl(var(--primary) / 0.12),
+			0 0 12px hsl(var(--primary) / 0.14),
+			inset 0 1px 0 hsl(255 80% 90% / 0.06);
 		transition:
 			transform 0.2s ease,
 			border-color 0.2s ease,
@@ -61,14 +59,12 @@
 
 	.feature-card:hover {
 		transform: translateY(-2px);
-		border-color: hsl(var(--primary) / 0.25);
+		border-color: hsl(var(--primary) / 0.6);
 		box-shadow:
-			inset 0 1px 0 hsl(255 80% 90% / 0.16),
-			inset 1px 0 0 hsl(255 80% 90% / 0.1),
-			inset 0 -1px 0 hsl(0 0% 0% / 0.3),
-			inset -1px 0 0 hsl(0 0% 0% / 0.2),
-			0 0 0 1px hsl(var(--primary) / 0.18),
-			0 8px 24px hsl(var(--primary) / 0.08);
+			0 0 0 1px hsl(var(--primary) / 0.26),
+			0 0 20px hsl(var(--primary) / 0.26),
+			0 0 34px hsl(var(--primary) / 0.14),
+			inset 0 1px 0 hsl(255 80% 90% / 0.12);
 	}
 
 	.feature-card-inner {

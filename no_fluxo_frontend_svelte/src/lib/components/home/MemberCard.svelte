@@ -236,7 +236,7 @@
 	}
 
 	.slide-title {
-		color: white;
+		color: hsl(var(--foreground));
 		font-size: 1rem;
 		font-weight: 700;
 		margin-bottom: 0.25rem;
@@ -252,11 +252,24 @@
 	}
 
 	.specialties-list li {
-		color: #f3f4f6;
+		color: hsl(var(--foreground));
 		font-size: 0.875rem;
-		padding: 0.25rem 0.625rem;
+		font-weight: 500;
+		letter-spacing: 0.01em;
+		padding: 0.34rem 0.8rem;
 		border-radius: 999px;
-		background: rgba(255, 255, 255, 0.12);
+		border: 1px solid hsl(var(--primary) / 0.32);
+		background:
+			linear-gradient(
+				135deg,
+				hsl(var(--primary) / 0.2) 0%,
+				hsl(var(--primary) / 0.09) 40%,
+				hsl(var(--card) / 0.65) 100%
+			);
+		box-shadow:
+			0 0 0 1px hsl(var(--primary) / 0.1),
+			0 0 12px hsl(var(--primary) / 0.16),
+			inset 0 1px 0 hsl(0 0% 100% / 0.08);
 	}
 
 	.contact-list {

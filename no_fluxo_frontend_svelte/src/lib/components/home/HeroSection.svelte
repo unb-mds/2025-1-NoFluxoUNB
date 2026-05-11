@@ -97,13 +97,14 @@
 		flex-direction: column;
 		gap: 12px;
 		background: hsl(var(--card));
-		border: 1px solid hsl(var(--border));
+		border: 1px solid hsl(var(--primary) / 0.28);
 		border-radius: 16px;
 		padding: 24px;
 		text-align: left;
 		box-shadow:
-			0 0 0 1px hsl(var(--primary) / 0.08),
-			inset 0 1px 0 hsl(255 100% 100% / 0.04);
+			0 0 0 1px hsl(var(--primary) / 0.12),
+			0 0 12px hsl(var(--primary) / 0.14),
+			inset 0 1px 0 hsl(255 100% 100% / 0.06);
 		transition:
 			transform 0.2s ease,
 			border-color 0.2s ease,
@@ -112,10 +113,12 @@
 
 	.hero-info-card:hover {
 		transform: translateY(-2px);
-		border-color: hsl(var(--primary) / 0.3);
+		border-color: hsl(var(--primary) / 0.6);
 		box-shadow:
-			0 0 0 1px hsl(var(--primary) / 0.22),
-			inset 0 1px 0 hsl(255 100% 100% / 0.06);
+			0 0 0 1px hsl(var(--primary) / 0.26),
+			0 0 20px hsl(var(--primary) / 0.26),
+			0 0 34px hsl(var(--primary) / 0.14),
+			inset 0 1px 0 hsl(255 100% 100% / 0.12);
 	}
 
 	.hero-info-card-icon {
@@ -171,18 +174,30 @@
 		align-items: center;
 		gap: 6px;
 		width: fit-content;
-		border: 1px solid hsl(var(--primary) / 0.3);
+		border: 1px solid hsl(var(--primary) / 0.32);
 		border-radius: 999px;
-		padding: 5px 14px;
+		padding: 0.34rem 0.8rem;
 		font-size: 12px;
-		color: hsl(var(--accent-foreground));
-		background: hsl(var(--accent) / 0.5);
+		font-weight: 500;
+		letter-spacing: 0.01em;
+		color: hsl(var(--foreground));
+		background:
+			linear-gradient(
+				135deg,
+				hsl(var(--primary) / 0.2) 0%,
+				hsl(var(--primary) / 0.09) 40%,
+				hsl(var(--card) / 0.65) 100%
+			);
+		box-shadow:
+			0 0 0 1px hsl(var(--primary) / 0.1),
+			0 0 12px hsl(var(--primary) / 0.16),
+			inset 0 1px 0 hsl(0 0% 100% / 0.08);
 	}
 
 	.hero-info-card-pill :global(.hero-info-card-pill-icon) {
 		width: 1rem;
 		height: 1rem;
 		flex-shrink: 0;
-		color: hsl(var(--accent-foreground));
+		color: hsl(var(--foreground));
 	}
 </style>

@@ -106,19 +106,19 @@
 	});
 
 	const gradientMap: Record<SubjectStatusValue, string> = {
-		[SubjectStatusEnum.COMPLETED]: 'from-green-500 to-green-700',
-		[SubjectStatusEnum.IN_PROGRESS]: 'from-purple-400 to-purple-600',
-		[SubjectStatusEnum.AVAILABLE]: 'from-amber-500 to-amber-700',
-		[SubjectStatusEnum.FAILED]: 'from-red-500 to-red-700',
-		[SubjectStatusEnum.LOCKED]: 'from-white/10 to-white/5',
-		[SubjectStatusEnum.NOT_STARTED]: 'from-white/10 to-white/5'
+		[SubjectStatusEnum.COMPLETED]: 'bg-[#16a34a]',
+		[SubjectStatusEnum.IN_PROGRESS]: 'bg-[#7c3aed]',
+		[SubjectStatusEnum.AVAILABLE]: 'bg-[#d97706]',
+		[SubjectStatusEnum.FAILED]: 'bg-[#dc2626]',
+		[SubjectStatusEnum.LOCKED]: 'bg-[#1a1a2e]',
+		[SubjectStatusEnum.NOT_STARTED]: 'bg-[#1a1a2e]'
 	};
 
 	let cardClasses = $derived.by(() => {
 		const gradient = gradientMap[status];
-		const base = `subject-card relative flex w-full max-w-[220px] min-w-0 flex-col text-left cursor-pointer rounded-xl border p-3 transition-[opacity,box-shadow,border-color] duration-300 sm:max-w-[240px]`;
+		const base = `subject-card relative flex w-full max-w-[220px] min-w-0 flex-col text-left cursor-pointer rounded-xl border p-2.5 transition-[opacity,box-shadow,border-color] duration-300 sm:max-w-[240px]`;
 		if (isSelected) {
-			return `${base} bg-gradient-to-br ${gradient} border-white/60 ring-2 ring-white/30 opacity-100`;
+			return `${base} ${gradient} border-white/60 ring-2 ring-white/30 opacity-100`;
 		}
 		let borderExtras = 'border-white/10';
 		if (destaqueReprovacao) {
@@ -139,12 +139,12 @@
 			chainHighlightActive && role === null
 				? 'opacity-[0.14] saturate-[0.35]'
 				: 'opacity-100';
-		return `${base} bg-gradient-to-br ${gradient} ${borderExtras} ${dimmed}`;
+		return `${base} ${gradient} ${borderExtras} ${dimmed}`;
 	});
 
 	let textColor = $derived(
 		status === SubjectStatusEnum.LOCKED || status === SubjectStatusEnum.NOT_STARTED
-			? 'text-white/60'
+			? 'text-white/80'
 			: 'text-white'
 	);
 
@@ -289,11 +289,10 @@
 	ontouchmove={handleTouchMove}
 	ontouchend={handleTouchEnd}
 	ontouchcancel={handleTouchCancel}
-	role="button"
 	tabindex="0"
 >
 	<div class="mb-1 flex shrink-0 items-center justify-between gap-1">
-		<span class="text-[10px] font-semibold uppercase tracking-wider {textColor} opacity-80">
+		<span class="text-[11px] font-semibold uppercase tracking-wider {textColor} opacity-100">
 			{materia.codigoMateria}
 			{#if showOptBadge}
 				<span
@@ -303,15 +302,15 @@
 			{/if}
 		</span>
 		<div class="flex items-center gap-1">
-			<span class="text-[10px] {textColor} opacity-60">
+			<span class="rounded-md bg-black/25 px-1.5 py-0.5 text-[10px] font-bold {textColor} opacity-90">
 				{materia.creditos}cr
 			</span>
 		</div>
 	</div>
 	<!-- Bloco do nome com altura fixa: não estica o card; nome completo no tooltip -->
-	<div class="h-[2.25rem] shrink-0 overflow-hidden">
+	<div class="h-[2.5rem] shrink-0 overflow-hidden">
 		<p
-			class="line-clamp-2 break-words text-xs font-medium leading-[1.125rem] {textColor}"
+			class="line-clamp-2 break-words text-[11px] font-semibold leading-[1.2rem] {textColor}"
 			title={materia.nomeMateria}
 		>
 			{materia.nomeMateria}
@@ -329,14 +328,14 @@
 
 	{#if concluidaPorEquivalencia}
 		<span
-			class="absolute -right-1 -bottom-1 rounded bg-purple-500/90 px-1.5 py-0.5 text-[9px] font-medium text-white"
+			class="absolute right-0 -bottom-1.5 rounded bg-purple-500/90 px-1.5 py-0.5 text-[9px] font-medium text-white"
 			title="Concluída por equivalência"
 		>equiv.</span>
 	{/if}
 
 	<!-- Prerequisite indicator badge -->
 	{#if !store.state.isAnonymous && (hasPrereqs || dependentCount > 0)}
-		<div class="absolute -left-1 -bottom-1 flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[9px] font-bold {prereqsCompleted ? 'bg-green-500/80 text-white' : 'bg-amber-500/80 text-white'}">
+		<div class="absolute left-0 -bottom-1.5 flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[9px] font-bold {prereqsCompleted ? 'bg-green-500/80 text-white' : 'bg-amber-500/80 text-white'}">
 			{#if hasPrereqs}
 				<span>{prereqsCompleted ? '✓' : '!'}</span>
 			{/if}
@@ -347,3 +346,17 @@
 	{/if}
 
 </button>
+
+<style>
+	:global(.subject-card) {
+		box-shadow:
+			inset 0 1px 0 rgba(255, 255, 255, 0.12),
+			inset 1px 0 0 rgba(255, 255, 255, 0.06),
+			inset 0 -1px 0 rgba(0, 0, 0, 0.28),
+			0 2px 8px rgba(0, 0, 0, 0.35);
+	}
+
+	:global(.subject-card:hover) {
+		filter: brightness(1.1);
+	}
+</style>

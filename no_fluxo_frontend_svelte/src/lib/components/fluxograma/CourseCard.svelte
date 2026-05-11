@@ -19,20 +19,20 @@
 </script>
 
 <button
-	class="course-card group relative mx-auto w-full min-w-0 max-w-xl overflow-hidden rounded-xl border border-white/10 bg-black/40 p-4 text-left backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-white/20 hover:bg-black/50 hover:shadow-xl hover:shadow-purple-500/10 sm:rounded-2xl sm:p-5 sm:hover:scale-[1.03]"
+	class="course-card group relative mx-auto w-full min-w-0 max-w-xl overflow-hidden rounded-xl border border-purple-500/28 bg-black/40 p-4 text-left shadow-[0_0_0_1px_rgba(168,85,247,0.12),0_0_12px_rgba(168,85,247,0.14),inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md transition-all duration-300 hover:scale-[1.01] hover:border-purple-400/60 hover:bg-black/55 hover:shadow-[0_0_0_1px_rgba(196,134,255,0.26),0_0_20px_rgba(168,85,247,0.26),0_0_34px_rgba(147,51,234,0.14),inset_0_1px_0_rgba(255,255,255,0.12)] sm:rounded-2xl sm:p-5 sm:hover:scale-[1.02]"
 	{onclick}
 >
 	<!-- Gradient accent top bar -->
 	<div
-		class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 opacity-60 transition-opacity group-hover:opacity-100"
+		class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-purple-400/90 via-fuchsia-400/70 to-transparent opacity-75 transition-opacity group-hover:opacity-90"
 	></div>
 
 	<div class="mb-3 flex items-start justify-between gap-2">
-		<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-purple-500/20">
-			<GraduationCap class="h-5 w-5 text-purple-400" />
+		<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
+			<GraduationCap class="h-5 w-5 text-primary/90" />
 		</div>
 		{#if curso.creditos}
-			<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-medium text-white/70">
+			<span class="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-xs font-medium text-white/70">
 				{curso.creditos} créditos
 			</span>
 		{/if}
@@ -46,13 +46,13 @@
 	{#if curso.tipoCurso || curso.turno}
 		<p class="mb-2 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-white/80">
 			{#if curso.tipoCurso}
-				<span class="font-medium text-cyan-300">{curso.tipoCurso}</span>
+				<span class="font-medium text-white/75">{curso.tipoCurso}</span>
 			{/if}
 			{#if curso.tipoCurso && curso.turno}
 				<span class="text-white/40">·</span>
 			{/if}
 			{#if curso.turno}
-				<span class="font-medium text-amber-300/90">{formatTurno(curso.turno)}</span>
+				<span class="font-medium text-primary/90">{formatTurno(curso.turno)}</span>
 			{/if}
 		</p>
 	{/if}
