@@ -13,19 +13,28 @@
 	import OptativasAdicionadasSection from '$lib/components/fluxograma/OptativasAdicionadasSection.svelte';
 	import PrerequisiteChainDialog from '$lib/components/fluxograma/PrerequisiteChainDialog.svelte';
 	import RequisitosMudancaCursoBanner from '$lib/components/fluxograma/RequisitosMudancaCursoBanner.svelte';
+	import MateriasConcluidasModal from '$lib/components/fluxograma/MateriasConcluidasModal.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';
 	import { supabaseDataService } from '$lib/services/supabase-data.service';
-	import { onMount } from 'svelte';
-	import { Loader2, AlertTriangle, ArrowRightLeft } from 'lucide-svelte';
+	import { onMount, tick } from 'svelte';
+	import { Loader2, AlertTriangle, ArrowRightLeft, ListChecks } from 'lucide-svelte';
 	import { isOptativa, type MateriaModel } from '$lib/types/materia';
 	import type { IntegralizacaoResult } from '$lib/types/matriz';
+import { getCompletedSubjectCodes } from '$lib/types/user';
+import { getCompletedByEquivalenceCodes } from '$lib/types/equivalencia';
+import {
+	evaluateExpressionWithTracking,
+	evaluateExpressaoLogica,
+	getMatchingCodesFromExpressao
+} from '$lib/utils/expressao-logica';
 
 	const store = fluxogramaStore;
 
 	let courseName = $derived(decodeURIComponent($page.params.courseName || ''));
 	let containerRef: HTMLElement | null = $state(null);
+	let fluxogramaViewportRef: HTMLElement | null = $state(null);
 	let selectedSubject = $state<MateriaModel | null>(null);
 	let chainDialogSubject = $state<MateriaModel | null>(null);
 	let showOptativas = $state(false);
@@ -33,6 +42,17 @@
 	let integralizacaoLoading = $state(false);
 	let matrizes = $state<Array<{ curriculoCompleto: string }>>([]);
 	let fluxogramHelpOpen = $state(false);
+	let showMateriasConcluidasModal = $state(false);
+	let fluxogramaFocusMode = $state(false);
+
+type EquivalenciaSimulacaoItem = {
+	origem: string;
+	nomeOrigem: string;
+	categoriaNaMatriz: 'obrigatoria' | 'optativa' | 'fora_da_matriz';
+	materiasQueSatisfizeram: string[];
+	viaCadeia: boolean;
+	expressao: string | null;
+};
 
 	let userFluxograma = $derived(store.userFluxograma);
 	let curriculoCompletoAtual = $derived(store.state.courseData?.curriculoCompleto ?? null);
@@ -97,6 +117,76 @@
 		if (!store.state.courseData) return [];
 		return store.state.courseData.materias.filter((m) => isOptativa(m));
 	});
+
+let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
+	const course = store.state.courseData;
+	const fluxo = userFluxograma;
+	if (!course || !fluxo) return [];
+	const equivalencias = course.equivalencias ?? [];
+	if (equivalencias.length === 0) return [];
+
+	const baseNorm = new Set(
+		[...getCompletedSubjectCodes(fluxo)]
+			.map((c) => String(c ?? '').trim().toUpperCase())
+			.filter(Boolean)
+	);
+
+	const completedByEquiv = getCompletedByEquivalenceCodes(equivalencias, baseNorm);
+	const completedByEquivNorm = new Set(
+		[...completedByEquiv]
+			.map((c) => String(c ?? '').trim().toUpperCase())
+			.filter(Boolean)
+	);
+
+	const categoriaByCode = new Map<string, 'obrigatoria' | 'optativa'>();
+	for (const m of course.materias) {
+		const cod = String(m.codigoMateria ?? '').trim().toUpperCase();
+		if (!cod) continue;
+		categoriaByCode.set(cod, isOptativa(m) ? 'optativa' : 'obrigatoria');
+	}
+
+	const workNorm = new Set(baseNorm);
+	const out = new Map<string, EquivalenciaSimulacaoItem>();
+	let changed = true;
+	let guard = 0;
+	while (changed && guard++ < 64) {
+		changed = false;
+		for (const eq of equivalencias) {
+			const origem = String(eq.codigoMateriaOrigem ?? '').trim().toUpperCase();
+			if (!origem || !completedByEquivNorm.has(origem) || workNorm.has(origem)) continue;
+			const snap = new Set(workNorm);
+			const satisfaz =
+				eq.expressaoLogica != null
+					? evaluateExpressaoLogica(eq.expressaoLogica, snap)
+					: evaluateExpressionWithTracking((eq.expressao ?? '').trim(), snap).isTrue;
+			if (!satisfaz) continue;
+
+			const matching =
+				eq.expressaoLogica != null
+					? [...getMatchingCodesFromExpressao(eq.expressaoLogica, snap)].map((c) =>
+							String(c ?? '').trim().toUpperCase()
+						)
+					: [...evaluateExpressionWithTracking((eq.expressao ?? '').trim(), snap).matchingMaterias].map(
+							(c) => String(c ?? '').trim().toUpperCase()
+						);
+			const matchingUnicos = [...new Set(matching)].filter(Boolean);
+			const viaCadeia = matchingUnicos.some((m) => !baseNorm.has(m));
+			const categoriaNaMatriz = categoriaByCode.get(origem) ?? 'fora_da_matriz';
+			out.set(origem, {
+				origem,
+				nomeOrigem: eq.nomeMateriaOrigem ?? '',
+				categoriaNaMatriz,
+				materiasQueSatisfizeram: matchingUnicos,
+				viaCadeia,
+				expressao: eq.expressao ?? null
+			});
+			workNorm.add(origem);
+			changed = true;
+		}
+	}
+
+	return [...out.values()].sort((a, b) => a.origem.localeCompare(b.origem, 'pt-BR'));
+});
 
 	// Compute integralização when course data loads (for logged-in users)
 	$effect(() => {
@@ -199,6 +289,71 @@
 	function closeChainDialog() {
 		chainDialogSubject = null;
 	}
+
+	function centerFluxogramaViewport() {
+		const viewport = fluxogramaViewportRef;
+		if (!viewport) return;
+		const scrollRoot = viewport.querySelector<HTMLElement>('[data-fluxogram-scroll-root]');
+		if (!scrollRoot) return;
+		const columns = [...scrollRoot.querySelectorAll<HTMLElement>('.semester-column')];
+		if (columns.length === 0) {
+			scrollRoot.scrollLeft = 0;
+			return;
+		}
+		const sorted = [...columns].sort((a, b) => a.offsetLeft - b.offsetLeft);
+		const primeiraColuna = sorted[0];
+		const margemEsquerda = Math.max(16, Math.round(scrollRoot.clientWidth * 0.08));
+		const targetLeft = primeiraColuna.offsetLeft - margemEsquerda;
+		scrollRoot.scrollLeft = Math.max(0, targetLeft);
+	}
+
+	function scheduleCenterFluxogramaViewport(): () => void {
+		let cancelled = false;
+		const timers: ReturnType<typeof setTimeout>[] = [];
+		const run = () => {
+			if (cancelled) return;
+			centerFluxogramaViewport();
+		};
+		requestAnimationFrame(run);
+		timers.push(setTimeout(run, 220));
+		timers.push(setTimeout(run, 520));
+		return () => {
+			cancelled = true;
+			for (const t of timers) clearTimeout(t);
+		};
+	}
+
+	$effect(() => {
+		if (fluxogramaFocusMode) {
+			const prev = document.body.style.overflow;
+			document.body.dataset.fluxogramaFocusMode = 'true';
+			document.body.style.overflow = 'hidden';
+			return () => {
+				delete document.body.dataset.fluxogramaFocusMode;
+				document.body.style.overflow = prev;
+			};
+		}
+		delete document.body.dataset.fluxogramaFocusMode;
+	});
+
+	$effect(() => {
+		if (!fluxogramaFocusMode) return;
+		void store.diagramLayoutRevision;
+		let cancel = false;
+		let cancelSchedule: (() => void) | null = null;
+		(async () => {
+			await tick();
+			if (cancel) return;
+			requestAnimationFrame(() => {
+				if (cancel) return;
+				cancelSchedule = scheduleCenterFluxogramaViewport();
+			});
+		})();
+		return () => {
+			cancel = true;
+			cancelSchedule?.();
+		};
+	});
 </script>
 
 <PageMeta
@@ -236,49 +391,70 @@
 		</div>
 	{:else if store.state.courseData}
 		<div class="flex flex-col gap-2 pb-6">
-			{#if store.precisaSalvarPerfil || store.optativasAdicionadas.length > 0}
+			{#if !fluxogramaFocusMode && (store.precisaSalvarPerfil || store.optativasAdicionadas.length > 0)}
 				<div class="relative z-50 shrink-0">
 					<OptativasAdicionadasSection />
 				</div>
 			{/if}
 			<div
-				class="flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden [overflow-anchor:none] sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:sm:max-h-[calc(100dvh-0.5rem)]"
+				class="{fluxogramaFocusMode
+					? 'fluxograma-focus-shell fixed inset-0 z-[2147483000] flex min-h-0 flex-col overflow-hidden rounded-none'
+					: 'flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden [overflow-anchor:none] sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:sm:max-h-[calc(100dvh-0.5rem)]'}"
 			>
-				<div
-					class="shrink-0 space-y-3 sm:space-y-3.5 md:space-y-4 [@media(orientation:landscape)_and_(max-height:560px)]:space-y-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:space-y-2"
-				>
-					<FluxogramaHeader
-						courseName={store.state.courseData.nomeCurso}
-						matrizCurricular={store.state.courseData.matrizCurricular}
-						tipoCurso={store.state.courseData.tipoCurso}
-						turno={store.state.courseData.turno}
-						{matrizes}
-						{curriculoCompletoAtual}
-						onMatrizChange={handleMatrizChange}
-						{containerRef}
-						showBackToMyFluxogram={eSimulacaoOutroCurso}
-						showFluxogramViewMenu={true}
-						onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
-					/>
+				{#if !fluxogramaFocusMode}
+					<div
+						class="shrink-0 space-y-3 sm:space-y-3.5 md:space-y-4 [@media(orientation:landscape)_and_(max-height:560px)]:space-y-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:space-y-2"
+					>
+						<FluxogramaHeader
+							courseName={store.state.courseData.nomeCurso}
+							matrizCurricular={store.state.courseData.matrizCurricular}
+							tipoCurso={store.state.courseData.tipoCurso}
+							turno={store.state.courseData.turno}
+							{matrizes}
+							{curriculoCompletoAtual}
+							onMatrizChange={handleMatrizChange}
+							{containerRef}
+							showBackToMyFluxogram={eSimulacaoOutroCurso}
+							showFluxogramViewMenu={true}
+							onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
+						/>
 
-					<FluxogramaLegendControls
-						onOpenOptativas={optativas.length > 0 ? () => (showOptativas = true) : undefined}
-						showFluxogramViewMenu={true}
-						onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
-					/>
-				</div>
+						<FluxogramaLegendControls
+							onOpenOptativas={optativas.length > 0 ? () => (showOptativas = true) : undefined}
+							showFluxogramViewMenu={true}
+							onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
+						/>
+						{#if userFluxograma}
+							<div class="flex items-center justify-start">
+								<button
+									type="button"
+									onclick={() => (showMateriasConcluidasModal = true)}
+									class="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/35 bg-cyan-500/10 px-3 py-1.5 text-xs font-medium text-cyan-200 transition-colors hover:bg-cyan-500/20 sm:text-sm"
+								>
+									<ListChecks class="h-4 w-4" />
+									Concluidas do historico
+								</button>
+							</div>
+						{/if}
+					</div>
+				{/if}
 
-				<div class="relative z-0 min-h-0 flex-1 basis-0 overflow-hidden">
+				<div class="relative z-0 min-h-0 flex-1 basis-0 overflow-hidden" bind:this={fluxogramaViewportRef}>
 					<FluxogramContainer
 						onSubjectClick={handleSubjectClick}
 						onSubjectOpenChain={handleSubjectOpenChain}
+						focusMode={fluxogramaFocusMode}
 						bind:bind_container={containerRef}
 					/>
-					<FluxogramViewportChrome bind:helpOpen={fluxogramHelpOpen} />
+					<FluxogramViewportChrome
+						bind:helpOpen={fluxogramHelpOpen}
+						focusMode={fluxogramaFocusMode}
+						toggleFocusMode={() => (fluxogramaFocusMode = !fluxogramaFocusMode)}
+					/>
 				</div>
 			</div>
 
-			{#if !store.state.isAnonymous}
+			{#if !fluxogramaFocusMode && !store.state.isAnonymous}
 				<div class="relative z-40 mt-2 shrink-0 space-y-4 border-t border-white/10 pt-4">
 					{#if userFluxograma && store.state.courseData}
 						<div class="space-y-2">
@@ -309,7 +485,7 @@
 					{/if}
 					<ProgressToolsSection />
 				</div>
-			{:else if userFluxograma && store.state.courseData}
+			{:else if !fluxogramaFocusMode && userFluxograma && store.state.courseData}
 				<div class="relative z-40 mt-2 space-y-2 border-t border-white/10 pt-4">
 					{#if eSimulacaoOutroCurso}
 						<RequisitosMudancaCursoBanner
@@ -360,6 +536,16 @@
 			<OptativasModal
 				{optativas}
 				onclose={() => (showOptativas = false)}
+			/>
+		{/if}
+
+		{#if showMateriasConcluidasModal && userFluxograma}
+			<MateriasConcluidasModal
+				dadosFluxograma={userFluxograma}
+				materiasCurso={store.state.courseData?.materias ?? []}
+				equivalenciasSimulacao={equivalenciasSimulacao}
+				mostrarEquivalenciasSimulacao={equivalenciasSimulacao.length > 0}
+				onclose={() => (showMateriasConcluidasModal = false)}
 			/>
 		{/if}
 	{/if}

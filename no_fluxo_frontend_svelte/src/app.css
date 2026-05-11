@@ -156,6 +156,40 @@
 	width: 100%;
 }
 
+/* Modo foco do fluxograma: oculta navbar global */
+body[data-fluxograma-focus-mode='true'] .navbar-glass {
+	display: none !important;
+}
+
+/* Shell do modo foco com glassmorphism inspirado no iOS */
+.fluxograma-focus-shell {
+	position: fixed;
+	isolation: isolate;
+	background:
+		radial-gradient(130% 95% at 14% 4%, rgba(171, 105, 255, 0.22) 0%, rgba(171, 105, 255, 0) 48%),
+		radial-gradient(120% 95% at 92% 8%, rgba(35, 190, 245, 0.2) 0%, rgba(35, 190, 245, 0) 50%),
+		linear-gradient(180deg, rgba(5, 7, 22, 0.72) 0%, rgba(6, 8, 18, 0.78) 45%, rgba(8, 7, 11, 0.82) 100%);
+	backdrop-filter: saturate(130%) blur(18px);
+	-webkit-backdrop-filter: saturate(130%) blur(18px);
+}
+
+.fluxograma-focus-shell::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: linear-gradient(
+		120deg,
+		rgba(255, 255, 255, 0.12) 0%,
+		rgba(255, 255, 255, 0.06) 26%,
+		rgba(255, 255, 255, 0.02) 54%,
+		rgba(255, 255, 255, 0.06) 80%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	mix-blend-mode: screen;
+	opacity: 0.35;
+}
+
 /* Auth form shared styles */
 .auth-card {
 	background: white;

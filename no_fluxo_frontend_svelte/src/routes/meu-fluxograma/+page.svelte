@@ -16,7 +16,7 @@
 	import { supabaseDataService } from '$lib/services/supabase-data.service';
 	import { goto } from '$app/navigation';
 	import { ROUTES } from '$lib/config/routes';
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import { Upload, Loader2, AlertTriangle } from 'lucide-svelte';
 	import { isOptativa, type MateriaModel } from '$lib/types/materia';
 	import type { IntegralizacaoResult } from '$lib/types/matriz';
@@ -24,6 +24,7 @@
 	const store = fluxogramaStore;
 
 	let containerRef: HTMLElement | null = $state(null);
+	let fluxogramaViewportRef: HTMLElement | null = $state(null);
 	let selectedSubject = $state<MateriaModel | null>(null);
 	let chainDialogSubject = $state<MateriaModel | null>(null);
 	let showOptativas = $state(false);
@@ -32,6 +33,7 @@
 	let matrizes = $state<Array<{ curriculoCompleto: string }>>([]);
 	/** Modal “Legenda e regras” (ícone ? no header) */
 	let fluxogramHelpOpen = $state(false);
+	let fluxogramaFocusMode = $state(false);
 
 	let userFluxograma = $derived(store.userFluxograma);
 	let courseName = $derived(userFluxograma?.nomeCurso ?? '');
@@ -136,6 +138,71 @@
 	function closeChainDialog() {
 		chainDialogSubject = null;
 	}
+
+	function centerFluxogramaViewport() {
+		const viewport = fluxogramaViewportRef;
+		if (!viewport) return;
+		const scrollRoot = viewport.querySelector<HTMLElement>('[data-fluxogram-scroll-root]');
+		if (!scrollRoot) return;
+		const columns = [...scrollRoot.querySelectorAll<HTMLElement>('.semester-column')];
+		if (columns.length === 0) {
+			scrollRoot.scrollLeft = 0;
+			return;
+		}
+		const sorted = [...columns].sort((a, b) => a.offsetLeft - b.offsetLeft);
+		const primeiraColuna = sorted[0];
+		const margemEsquerda = Math.max(16, Math.round(scrollRoot.clientWidth * 0.08));
+		const targetLeft = primeiraColuna.offsetLeft - margemEsquerda;
+		scrollRoot.scrollLeft = Math.max(0, targetLeft);
+	}
+
+	function scheduleCenterFluxogramaViewport(): () => void {
+		let cancelled = false;
+		const timers: ReturnType<typeof setTimeout>[] = [];
+		const run = () => {
+			if (cancelled) return;
+			centerFluxogramaViewport();
+		};
+		requestAnimationFrame(run);
+		timers.push(setTimeout(run, 220));
+		timers.push(setTimeout(run, 520));
+		return () => {
+			cancelled = true;
+			for (const t of timers) clearTimeout(t);
+		};
+	}
+
+	$effect(() => {
+		if (fluxogramaFocusMode) {
+			const prev = document.body.style.overflow;
+			document.body.dataset.fluxogramaFocusMode = 'true';
+			document.body.style.overflow = 'hidden';
+			return () => {
+				delete document.body.dataset.fluxogramaFocusMode;
+				document.body.style.overflow = prev;
+			};
+		}
+		delete document.body.dataset.fluxogramaFocusMode;
+	});
+
+	$effect(() => {
+		if (!fluxogramaFocusMode) return;
+		void store.diagramLayoutRevision;
+		let cancel = false;
+		let cancelSchedule: (() => void) | null = null;
+		(async () => {
+			await tick();
+			if (cancel) return;
+			requestAnimationFrame(() => {
+				if (cancel) return;
+				cancelSchedule = scheduleCenterFluxogramaViewport();
+			});
+		})();
+		return () => {
+			cancel = true;
+			cancelSchedule?.();
+		};
+	});
 </script>
 
 <PageMeta
@@ -200,49 +267,58 @@
 			Bloco principal: viewport — rolagem do diagrama fica dentro do fluxograma.
 		-->
 		<div class="flex flex-col gap-2 pb-6">
-			{#if store.precisaSalvarPerfil || store.optativasAdicionadas.length > 0}
+			{#if !fluxogramaFocusMode && (store.precisaSalvarPerfil || store.optativasAdicionadas.length > 0)}
 				<div class="relative z-50 shrink-0">
 					<OptativasAdicionadasSection />
 				</div>
 			{/if}
 			<div
-				class="flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden [overflow-anchor:none] sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:sm:max-h-[calc(100dvh-0.5rem)]"
+				class="{fluxogramaFocusMode
+					? 'fluxograma-focus-shell fixed inset-0 z-[2147483000] flex min-h-0 flex-col overflow-hidden rounded-none'
+					: 'flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden [overflow-anchor:none] sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:sm:max-h-[calc(100dvh-0.5rem)]'}"
 			>
-				<div
-					class="shrink-0 space-y-3 sm:space-y-3.5 md:space-y-4 [@media(orientation:landscape)_and_(max-height:560px)]:space-y-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:space-y-2"
-				>
-					<FluxogramaHeader
-						courseName={store.state.courseData.nomeCurso}
-						matrizCurricular={store.state.courseData.matrizCurricular}
-						tipoCurso={store.state.courseData.tipoCurso}
-						turno={store.state.courseData.turno}
-						{matrizes}
-						{curriculoCompletoAtual}
-						onMatrizChange={handleMatrizChange}
-						{containerRef}
-						showFluxogramViewMenu={true}
-						onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
-					/>
-					<FluxogramaLegendControls
-						onOpenOptativas={() => (showOptativas = true)}
-						showFluxogramViewMenu={true}
-						onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
-					/>
-				</div>
+				{#if !fluxogramaFocusMode}
+					<div
+						class="shrink-0 space-y-3 sm:space-y-3.5 md:space-y-4 [@media(orientation:landscape)_and_(max-height:560px)]:space-y-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:space-y-2"
+					>
+						<FluxogramaHeader
+							courseName={store.state.courseData.nomeCurso}
+							matrizCurricular={store.state.courseData.matrizCurricular}
+							tipoCurso={store.state.courseData.tipoCurso}
+							turno={store.state.courseData.turno}
+							{matrizes}
+							{curriculoCompletoAtual}
+							onMatrizChange={handleMatrizChange}
+							{containerRef}
+							showFluxogramViewMenu={true}
+							onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
+						/>
+						<FluxogramaLegendControls
+							onOpenOptativas={() => (showOptativas = true)}
+							showFluxogramViewMenu={true}
+							onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
+						/>
+					</div>
+				{/if}
 
 				<!-- z-0: diagrama na base; modais ficam em z-[500]+ e a faixa de progresso em z-40 para não ficarem sob o transform dos cards -->
-				<div class="relative z-0 min-h-0 flex-1 basis-0 overflow-hidden">
+				<div class="relative z-0 min-h-0 flex-1 basis-0 overflow-hidden" bind:this={fluxogramaViewportRef}>
 					<FluxogramContainer
 						onSubjectClick={handleSubjectClick}
 						onSubjectOpenChain={handleSubjectOpenChain}
 						onSubjectLongPress={handleSubjectLongPress}
+						focusMode={fluxogramaFocusMode}
 						bind:bind_container={containerRef}
 					/>
-					<FluxogramViewportChrome bind:helpOpen={fluxogramHelpOpen} />
+					<FluxogramViewportChrome
+						bind:helpOpen={fluxogramHelpOpen}
+						focusMode={fluxogramaFocusMode}
+						toggleFocusMode={() => (fluxogramaFocusMode = !fluxogramaFocusMode)}
+					/>
 				</div>
 			</div>
 
-			{#if !store.state.isAnonymous}
+			{#if !fluxogramaFocusMode && !store.state.isAnonymous}
 				<div class="relative z-40 shrink-0 space-y-4 border-t border-white/10 pt-4">
 					<ProgressSummarySection
 						courseData={store.state.courseData}
@@ -255,7 +331,7 @@
 					/>
 					<ProgressToolsSection />
 				</div>
-			{:else}
+			{:else if !fluxogramaFocusMode}
 				<div class="relative z-40 border-t border-white/10 pt-4">
 					<ProgressSummarySection
 						courseData={store.state.courseData}
