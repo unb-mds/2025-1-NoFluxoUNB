@@ -47,6 +47,8 @@ CHUNK_SIZE = 80
 FETCH_PAGE = 2000  # paginação ao carregar caches do banco
 # Padrão legado noturno: id_curso = codigo_base + OFFSET_LEGADO; normalizar para id_curso = codigo_base.
 OFFSET_LEGADO_CURSO = 100000
+SLOW_OP_THRESHOLD_S = 5.0
+LOG_MATERIAS_EVERY = 25
 
 # Caches carregados no início (evitam SELECT por arquivo)
 CACHE_CURSOS_BY_ID = {}  # id_curso -> {id_curso, nome_curso, tipo_curso, turno}
@@ -72,10 +74,18 @@ def reconectar():
 
 @retry(stop=stop_after_attempt(5), wait=wait_exponential(multiplier=1, min=2, max=15))
 def db(op, *args, **kwargs):
+    op_name = kwargs.pop("op_name", "db-op")
+    t0 = time.time()
     try:
-        return op(*args, **kwargs)
+        result = op(*args, **kwargs)
+        elapsed = time.time() - t0
+        if elapsed >= SLOW_OP_THRESHOLD_S:
+            print(f"[SLOW-DB] {op_name} levou {elapsed:.1f}s", flush=True)
+        return result
     except Exception as e:
         err = str(e).lower()
+        elapsed = time.time() - t0
+        print(f"[ERRO-DB] {op_name} falhou após {elapsed:.1f}s: {e}", flush=True)
         if "duplicate key" in err or "23505" in err:
             raise
         if any(k in err for k in ["connection", "timeout", "network", "socket"]):
@@ -569,8 +579,11 @@ def main():
     total_mpc = 0
     total_arquivos = len(arquivos)
     for idx, arq in enumerate(arquivos):
+        file_t0 = time.time()
         if (idx + 1) % 50 == 0 or idx == 0:
             print(f"      {idx + 1}/{total_arquivos} arquivos...", flush=True)
+        print(f"      [ARQ {idx + 1}/{total_arquivos}] Início: {arq.name}", flush=True)
+
         try:
             data = json.loads(arq.read_text(encoding="utf-8"))
         except Exception as e:
@@ -598,29 +611,62 @@ def main():
         versao, ano_vigor = build_versao_ano(curriculo_str, periodo_letivo)
         prazos = data.get("prazos_cargas") or {}
 
+        t_curso = time.time()
         id_curso = get_or_create_curso(codigo_base, nome_curso, tipo_curso, turno)
         if id_curso is None:
+            print(f"      [ARQ {idx + 1}] Ignorado: id_curso inválido.", flush=True)
             continue
+        print(f"      [ARQ {idx + 1}] Curso resolvido em {time.time() - t_curso:.1f}s (id_curso={id_curso})", flush=True)
 
+        t_matriz = time.time()
         id_matriz = get_or_create_matriz(id_curso, curriculo_completo, versao, ano_vigor, prazos)
         if id_matriz is None and not DRY_RUN:
+            print(f"      [ARQ {idx + 1}] Ignorado: matriz não resolvida.", flush=True)
             continue
         if id_matriz is not None:
             total_matrizes += 1
+        print(f"      [ARQ {idx + 1}] Matriz resolvida em {time.time() - t_matriz:.1f}s (id_matriz={id_matriz})", flush=True)
 
         linhas = []
+        materias_total_arquivo = sum(len((bloco or {}).get("materias") or []) for bloco in (data.get("niveis") or []))
+        materias_processadas = 0
+        print(f"      [ARQ {idx + 1}] Matérias previstas: {materias_total_arquivo}", flush=True)
+
         for bloco in data.get("niveis") or []:
             nivel_int = nivel_to_int(bloco.get("nivel", ""))
             for mat in bloco.get("materias") or []:
                 codigo = mat.get("codigo")
                 if not codigo:
                     continue
+                t_materia = time.time()
                 id_m = get_or_create_materia(mat, materias_detalhadas)
+                materia_elapsed = time.time() - t_materia
+                materias_processadas += 1
+                if materia_elapsed >= SLOW_OP_THRESHOLD_S:
+                    print(
+                        f"      [ARQ {idx + 1}] Matéria lenta ({materia_elapsed:.1f}s): {codigo}",
+                        flush=True,
+                    )
+                if materias_processadas % LOG_MATERIAS_EVERY == 0:
+                    print(
+                        f"      [ARQ {idx + 1}] Progresso matérias: {materias_processadas}/{materias_total_arquivo}",
+                        flush=True,
+                    )
                 tipo_nat = natureza_to_tipo(mat.get("natureza", ""))
                 linhas.append((id_m, nivel_int, tipo_nat))
         if linhas and id_matriz:
+            t_insert = time.time()
             insert_materias_por_curso_batch(linhas, id_matriz)
+            print(
+                f"      [ARQ {idx + 1}] Batch materias_por_curso concluído em {time.time() - t_insert:.1f}s "
+                f"({len(linhas)} linhas)",
+                flush=True,
+            )
             total_mpc += len(linhas)
+        print(
+            f"      [ARQ {idx + 1}/{total_arquivos}] Fim {arq.name} em {time.time() - file_t0:.1f}s",
+            flush=True,
+        )
 
     elapsed = round(time.time() - t0, 1)
     print(flush=True)

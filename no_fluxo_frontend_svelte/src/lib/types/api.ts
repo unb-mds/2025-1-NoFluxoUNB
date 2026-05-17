@@ -53,6 +53,12 @@ export interface CursosListResponse {
 
 export interface SaveFluxogramaRequest {
 	id_user: number;
+	optativas_manuais?: Array<{
+		codigo: string;
+		nivel_alocado: number;
+		status: string;
+		nome?: string | null;
+	}>;
 	fluxograma_atual: {
 		nome_curso: string;
 		ira: number;

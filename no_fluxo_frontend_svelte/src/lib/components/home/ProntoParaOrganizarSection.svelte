@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { currentUser } from '$lib/stores/auth';
-
-	let isHovered = $state(false);
+	import { Button } from '$lib/components/ui/button';
 
 	function handleClick() {
 		const user = $currentUser;
@@ -18,66 +17,39 @@
 	}
 </script>
 
-<section class="pronto-section">
-	<h2 class="section-title">PRONTO PARA ORGANIZAR SEU FLUXO?</h2>
-	<p class="pronto-desc">
-		Crie sua conta, envie seu histórico e deixe a IA montar um fluxograma claro e fácil de seguir.
+<section class="pronto-section border-t border-white/[0.06]">
+	<h2 class="section-heading">Pronto para organizar seu fluxo?</h2>
+	<p class="pronto-lead">
+		Crie sua conta, envie seu histórico e use o mesmo ecossistema visual em fluxograma, upload e assistente.
 	</p>
-	<button
-		class="hero-btn"
-		onmouseenter={() => (isHovered = true)}
-		onmouseleave={() => (isHovered = false)}
-		onclick={handleClick}
-		style="transform: scale({isHovered ? 1.05 : 1});"
-	>
-		COMEÇAR AGORA
-	</button>
+	<Button size="lg" class="nf-cta-glow nf-cta-glow-hover rounded-xl px-8 uppercase tracking-wide" onclick={handleClick}>
+		Começar agora
+	</Button>
 </section>
 
 <style>
-	.section-title {
-		font-family: 'Permanent Marker', cursive;
-		color: white;
-		font-size: clamp(1.5rem, 4vw, 2rem);
-		text-align: center;
-		letter-spacing: 1.5px;
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-		margin-bottom: 1.5rem;
-	}
-
 	.pronto-section {
-		padding: 4rem 1.5rem;
-		background: rgba(0, 0, 0, 0.3);
+		padding: clamp(3.5rem, 8vw, 4.5rem) 1.5rem;
+		background: hsl(var(--background) / 0.92);
 		text-align: center;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 
-	.pronto-desc {
-		color: #d1d5db;
-		font-size: clamp(0.875rem, 2vw, 1rem);
-		max-width: 600px;
-		margin: 0 auto 2rem;
-		line-height: 1.6;
-		letter-spacing: 1.2px;
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+	.section-heading {
+		font-size: clamp(1.375rem, 3vw, 1.75rem);
+		font-weight: 800;
+		letter-spacing: -0.03em;
+		color: hsl(var(--foreground));
+		margin: 0 0 1rem;
 	}
 
-	.hero-btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		background: linear-gradient(to right, #2296ee, #1d4ed8);
-		color: white;
-		font-family: 'Permanent Marker', cursive;
-		font-size: clamp(0.875rem, 2vw, 1.25rem);
-		padding: 0.75rem 2.5rem;
-		border-radius: 32px;
-		border: none;
-		cursor: pointer;
-		letter-spacing: 2px;
-		box-shadow: 0 4px 20px rgba(29, 78, 216, 0.3);
-		transition: transform 0.2s ease;
+	.pronto-lead {
+		color: hsl(var(--muted-foreground));
+		font-size: clamp(0.875rem, 1.5vw, 1rem);
+		max-width: 520px;
+		margin: 0 0 1.75rem;
+		line-height: 1.6;
 	}
 </style>

@@ -91,16 +91,10 @@
 
 			<!-- Footer -->
 			<div class="flex gap-3 border-t border-white/10 px-6 py-4">
+				<button type="button" class="cancel-btn flex-1" onclick={onclose}>Cancelar</button>
 				<button
 					type="button"
-					class="flex-1 rounded-lg border border-white/10 px-4 py-2.5 text-sm font-medium text-gray-300 transition-colors hover:bg-white/10"
-					onclick={onclose}
-				>
-					Cancelar
-				</button>
-				<button
-					type="button"
-					class="confirm-btn flex-1"
+					class="confirm-btn"
 					disabled={!selectedCourse}
 					onclick={handleConfirm}
 				>
@@ -112,56 +106,115 @@
 {/if}
 
 <style>
-	@reference 'tailwindcss';
-
 	.overlay {
-		@apply fixed inset-0 z-50 flex items-center justify-center p-4;
-		background: rgba(0, 0, 0, 0.7);
-		backdrop-filter: blur(4px);
+		position: fixed;
+		inset: 0;
+		z-index: 50;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+		background: hsl(0 0% 0% / 0.72);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
 	}
 
 	.modal {
-		@apply w-full max-w-md overflow-hidden rounded-2xl;
-		background: rgba(30, 30, 30, 0.95);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+		width: 100%;
+		max-width: 28rem;
+		overflow: hidden;
+		border-radius: 1.125rem;
+		background: hsl(var(--card) / 0.97);
+		border: 1px solid hsl(0 0% 100% / 0.058);
+		box-shadow:
+			inset 0 1px 0 hsl(0 0% 100% / 0.052),
+			0 0 0 1px hsl(var(--primary) / 0.06),
+			0 28px 64px hsl(0 0% 0% / 0.5);
 	}
 
 	.course-option {
-		@apply flex cursor-pointer items-center gap-3 rounded-lg border border-white/5 px-4 py-3 transition-all;
-		background: rgba(255, 255, 255, 0.03);
+		display: flex;
+		cursor: pointer;
+		align-items: center;
+		gap: 0.75rem;
+		border-radius: var(--radius, 10px);
+		border: 1px solid hsl(0 0% 100% / 0.06);
+		background: hsl(0 0% 100% / 0.03);
+		padding: 0.85rem 1rem;
+		transition:
+			border-color 0.16s ease,
+			background 0.16s ease;
 	}
 
 	.course-option:hover {
-		@apply border-purple-500/30;
-		background: rgba(139, 92, 246, 0.05);
+		border-color: hsl(var(--primary) / 0.28);
+		background: hsl(var(--primary) / 0.07);
 	}
 
 	.course-option.selected {
-		@apply border-purple-500/50;
-		background: rgba(139, 92, 246, 0.1);
+		border-color: hsl(var(--primary) / 0.42);
+		background: hsl(var(--primary) / 0.11);
 	}
 
 	.radio-dot {
-		@apply h-4 w-4 shrink-0 rounded-full border-2 border-gray-500 transition-all;
+		height: 1rem;
+		width: 1rem;
+		flex-shrink: 0;
+		border-radius: 9999px;
+		border: 2px solid hsl(var(--muted-foreground));
+		transition:
+			border-color 0.16s ease,
+			background 0.16s ease,
+			box-shadow 0.16s ease;
 	}
 
 	.radio-dot.active {
-		@apply border-purple-400;
-		background: #8b5cf6;
-		box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3);
+		border-color: hsl(var(--primary));
+		background: hsl(var(--primary));
+		box-shadow: 0 0 0 2px hsl(var(--primary) / 0.25);
+	}
+
+	.cancel-btn {
+		cursor: pointer;
+		flex: 1;
+		border-radius: var(--radius, 10px);
+		border: 1px solid hsl(0 0% 100% / 0.1);
+		padding: 0.625rem 1rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: hsl(var(--foreground) / 0.82);
+		background: transparent;
+		transition: background 0.16s ease;
+	}
+
+	.cancel-btn:hover {
+		background: hsl(0 0% 100% / 0.06);
 	}
 
 	.confirm-btn {
-		@apply rounded-lg px-4 py-2.5 text-sm font-medium text-white transition-all;
-		background: linear-gradient(135deg, #6c63ff, #e91e63);
+		flex: 1;
+		cursor: pointer;
+		border-radius: var(--radius, 10px);
+		border: none;
+		padding: 0.625rem 1rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: hsl(var(--primary-foreground));
+		background: hsl(var(--primary));
+		box-shadow:
+			0 1px 0 hsl(0 0% 100% / 0.1) inset,
+			0 10px 32px hsl(var(--primary) / 0.2);
+		transition:
+			filter 0.18s ease,
+			box-shadow 0.18s ease;
 	}
 
 	.confirm-btn:disabled {
-		@apply cursor-not-allowed opacity-40;
+		cursor: not-allowed;
+		opacity: 0.42;
 	}
 
 	.confirm-btn:not(:disabled):hover {
-		box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+		filter: brightness(1.04);
 	}
 </style>

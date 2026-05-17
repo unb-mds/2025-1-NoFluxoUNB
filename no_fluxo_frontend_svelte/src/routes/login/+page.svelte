@@ -2,6 +2,7 @@
 	import LoginForm from '$lib/components/auth/LoginForm.svelte';
 	import AuthHomeLink from '$lib/components/auth/AuthHomeLink.svelte';
 	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import { authService } from '$lib/services/auth.service';
 	import { goto } from '$app/navigation';
 	import { UserX } from 'lucide-svelte';
@@ -12,17 +13,15 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Entrar - NoFluxo UNB</title>
-</svelte:head>
+<PageMeta title="Entrar" description="Acesse sua conta do NoFluxo UNB." noIndex={true} />
 
 <AuthHomeLink />
 <AnimatedBackground />
 
 <div class="flex min-h-screen items-start justify-center overflow-x-hidden px-3 py-8 sm:px-4 sm:py-10">
 	<div class="flex w-full max-w-md flex-col items-center gap-4">
-		<a href="/" class="text-2xl font-marker font-bold tracking-wide text-white drop-shadow-sm">
-			NOFLX UNB
+		<a href="/" class="nf-wordmark nf-wordmark--hero drop-shadow-sm" aria-label="NoFluxo UNB — início">
+			<span class="nf-wordmark-noflx">NOFLX</span><span class="nf-wordmark-unb">UNB</span>
 		</a>
 		<button
 			type="button"

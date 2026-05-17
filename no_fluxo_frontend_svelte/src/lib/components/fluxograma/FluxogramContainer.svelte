@@ -12,9 +12,16 @@
 		onSubjectOpenChain?: (materia: MateriaModel) => void;
 		onSubjectLongPress?: (materia: MateriaModel) => void;
 		bind_container?: HTMLElement | null;
+		focusMode?: boolean;
 	}
 
-	let { onSubjectClick, onSubjectOpenChain, onSubjectLongPress, bind_container = $bindable(null) }: Props =
+	let {
+		onSubjectClick,
+		onSubjectOpenChain,
+		onSubjectLongPress,
+		bind_container = $bindable(null),
+		focusMode = false
+	}: Props =
 		$props();
 
 	const store = fluxogramaStore;
@@ -42,6 +49,7 @@
 	let lastTouchY = $state(0);
 	let initialPinchDistance = $state(0);
 	let initialPinchZoom = $state(0);
+	let touchMoved = $state(false);
 	/** Mobile: toque iniciou em um card — atrasa scroll para permitir tap/long-press */
 	let touchStartedOnCard = $state(false);
 
@@ -112,10 +120,6 @@
 
 	function handleMouseDown(e: MouseEvent) {
 		if (e.button !== 0 || !containerRef || !isPanStartTarget(e.target)) return;
-		// Modo "Todas": arrastar pelo fundo limpa o foco (como toque fora do card no mobile)
-		if (store.state.connectionMode === 'all') {
-			store.setHoveredSubject(null);
-		}
 		e.preventDefault();
 		isDragging = true;
 		dragStartX = e.clientX;
@@ -143,6 +147,7 @@
 		if (e.touches.length === 1) {
 			const target = e.target as HTMLElement;
 			touchStartedOnCard = !!target.closest('.subject-card');
+			touchMoved = false;
 			if (!useNativeTouchScroll) {
 				// Se toque em card, não inicia scroll — permite tap/long-press
 				isDragging = !touchStartedOnCard;
@@ -165,7 +170,14 @@
 	}
 
 	function handleTouchMove(e: TouchEvent) {
+		if (e.touches.length === 1) {
+			const dxTouch = Math.abs(e.touches[0].clientX - lastTouchX);
+			const dyTouch = Math.abs(e.touches[0].clientY - lastTouchY);
+			if (dxTouch > 6 || dyTouch > 6) touchMoved = true;
+		}
 		if (useNativeTouchScroll && e.touches.length === 1) {
+			lastTouchX = e.touches[0].clientX;
+			lastTouchY = e.touches[0].clientY;
 			return;
 		}
 		if (e.touches.length === 1) {
@@ -206,12 +218,14 @@
 	function handleTouchEnd(e: TouchEvent) {
 		isDragging = false;
 		touchStartedOnCard = false;
-
-		// Se toque terminou fora de um card, esconde conexões
 		const target = e.target as HTMLElement;
-		if (!target.closest('.subject-card')) {
+		const endedOnCard = !!target.closest('.subject-card');
+		const isBackgroundTap = !endedOnCard && !touchMoved;
+		// Só esconde conexões em "tap no vazio"; não esconder após pan/arraste.
+		if (isBackgroundTap) {
 			store.setHoveredSubject(null);
 		}
+		touchMoved = false;
 	}
 
 	// Sync bind_container
@@ -228,7 +242,12 @@
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <div
 	bind:this={containerRef}
-	class="fluxogram-container relative h-full min-h-0 w-full flex-1 select-none overflow-auto rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm [overflow-anchor:none] {useNativeTouchScroll ? 'overscroll-y-auto' : ''}"
+	data-fluxogram-scroll-root
+	class="fluxogram-container relative h-full min-h-0 w-full flex-1 select-none overflow-auto [overflow-anchor:none] {focusMode
+		? 'rounded-2xl border border-primary/24 bg-[hsl(var(--background)/0.93)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_0_0_1px_rgba(124,58,237,0.11),0_0_14px_rgba(124,58,237,0.12),0_16px_48px_rgba(0,0,0,0.52)] backdrop-blur-xl'
+		: 'rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm'} {useNativeTouchScroll
+		? 'overscroll-y-auto'
+		: ''}"
 	style:cursor="grab"
 	style:touch-action={useNativeTouchScroll ? 'pan-x pan-y pinch-zoom' : 'none'}
 	style:-webkit-overflow-scrolling={useNativeTouchScroll ? 'touch' : undefined}
@@ -244,7 +263,9 @@
 >
 	<div
 		bind:this={innerRef}
-		class="relative inline-flex p-4 pb-[5.75rem] pt-4 md:pb-14"
+		class="relative inline-flex {focusMode
+			? 'p-[max(18vh,6rem)] pb-[max(24vh,8rem)]'
+			: 'p-4 pb-[5.75rem] pt-4 md:pb-14'}"
 		style="gap: {store.state.connectionMode === 'all' ? '6rem' : '3rem'}; transform: scale({store.state.zoomLevel}); transform-origin: top left; transition: gap 0.3s ease;"
 	>
 		<!-- Prerequisite connection lines -->

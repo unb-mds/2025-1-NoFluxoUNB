@@ -1,6 +1,11 @@
 @import 'tailwindcss';
+@import './lib/styles/nofluxo-ds.css';
 @config '../tailwind.config.ts';
 
+/**
+ * Tokens NoFluxo — dark premium (preto + roxo + lilás IA).
+ * :root mantém valores para telas claras herdadas (auth legado).
+ */
 @layer base {
 	:root {
 		--background: 0 0% 100%;
@@ -9,8 +14,8 @@
 		--card-foreground: 222.2 84% 4.9%;
 		--popover: 0 0% 100%;
 		--popover-foreground: 222.2 84% 4.9%;
-		--primary: 243 96% 69.4%;
-		--primary-foreground: 210 40% 98%;
+		--primary: 262 83% 53%;
+		--primary-foreground: 0 0% 100%;
 		--secondary: 210 40% 96.1%;
 		--secondary-foreground: 222.2 47.4% 11.2%;
 		--muted: 210 40% 96.1%;
@@ -21,30 +26,37 @@
 		--destructive-foreground: 210 40% 98%;
 		--border: 214.3 31.8% 91.4%;
 		--input: 214.3 31.8% 91.4%;
-		--ring: 243 96% 69.4%;
-		--radius: 0.5rem;
+		--ring: 262 83% 58%;
+		--radius: 0.625rem;
+		--radius-lg: 14px;
+		--spacing-section: clamp(3rem, 6vw, 4.5rem);
+		/* IA — lilás (texto/accent suave), tint de fundo */
+		--ai: 267 92% 78%;
+		--ai-soft: 268 42% 18%;
 	}
 
 	.dark {
-		--background: 222.2 84% 4.9%;
-		--foreground: 210 40% 98%;
-		--card: 222.2 84% 4.9%;
-		--card-foreground: 210 40% 98%;
-		--popover: 222.2 84% 4.9%;
-		--popover-foreground: 210 40% 98%;
-		--primary: 243 96% 69.4%;
-		--primary-foreground: 222.2 47.4% 11.2%;
-		--secondary: 217.2 32.6% 17.5%;
-		--secondary-foreground: 210 40% 98%;
-		--muted: 217.2 32.6% 17.5%;
-		--muted-foreground: 215 20.2% 65.1%;
-		--accent: 217.2 32.6% 17.5%;
-		--accent-foreground: 210 40% 98%;
-		--destructive: 0 62.8% 30.6%;
-		--destructive-foreground: 210 40% 98%;
-		--border: 217.2 32.6% 17.5%;
-		--input: 217.2 32.6% 17.5%;
-		--ring: 243 96% 69.4%;
+		--background: 240 12% 2.4%;
+		--foreground: 240 6% 97%;
+		--card: 240 11% 6.8%;
+		--card-foreground: 240 6% 97%;
+		--popover: 240 11% 6.8%;
+		--popover-foreground: 240 6% 97%;
+		--primary: 270 91% 62%;
+		--primary-foreground: 0 0% 100%;
+		--secondary: 240 8% 12%;
+		--secondary-foreground: 240 6% 96%;
+		--muted: 240 7% 14%;
+		--muted-foreground: 240 5% 56%;
+		--accent: 267 42% 16%;
+		--accent-foreground: 267 92% 88%;
+		--destructive: 0 72% 51%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 240 8% 16%;
+		--input: 240 9% 15%;
+		--ring: 270 91% 62%;
+		--ai: 267 92% 78%;
+		--ai-soft: 268 45% 16%;
 	}
 }
 
@@ -55,11 +67,11 @@
 
 	html,
 	body {
-		@apply overflow-x-hidden;
+		@apply overflow-x-hidden antialiased;
 	}
 
 	body {
-		@apply bg-black font-poppins text-foreground;
+		@apply bg-background font-sans text-foreground;
 	}
 
 	h1,
@@ -68,92 +80,157 @@
 	h4,
 	h5,
 	h6 {
-		@apply font-poppins font-semibold tracking-tight;
+		@apply font-semibold tracking-tight text-foreground;
 	}
 }
 
-/* Custom utility classes */
 @layer utilities {
-	.glass {
-		backdrop-filter: blur(4px);
-		-webkit-backdrop-filter: blur(4px);
-		background: rgba(0, 0, 0, 0.3);
-	}
-
-	.glass-light {
-		backdrop-filter: blur(16px);
-		-webkit-backdrop-filter: blur(16px);
-		background: rgba(255, 255, 255, 0.1);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-	}
-
-	.gradient-text {
-		@apply bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent;
-	}
-
-	.gradient-border {
-		@apply relative rounded-lg;
-		background: linear-gradient(135deg, #6c63ff, #e91e63);
-		padding: 2px;
-	}
-
-	.gradient-border > * {
-		@apply rounded-lg bg-background;
-	}
-
-	.text-shadow {
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-	}
-
-	.text-shadow-lg {
-		text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-	}
-
-	.animate-float {
-		animation: float 3s ease-in-out infinite;
-	}
-
-	@keyframes float {
-		0%,
-		100% {
-			transform: translateY(0);
-		}
-		50% {
-			transform: translateY(-10px);
-		}
-	}
-
 	.scrollbar-hide {
 		-ms-overflow-style: none;
 		scrollbar-width: none;
 	}
-
 	.scrollbar-hide::-webkit-scrollbar {
 		display: none;
 	}
 }
 
-/* Nav link gradient underline */
+/* Navbar — underline sólido roxo (sem gradiente magenta) */
 .nav-link {
 	position: relative;
 	display: inline-block;
+	transition: color 160ms ease;
 }
 
 .nav-link::after {
 	content: '';
 	position: absolute;
-	bottom: -2px;
+	bottom: -3px;
 	left: 0;
 	width: 0;
-	height: 3px;
-	background: linear-gradient(to right, #9333ea, #e11d48);
+	height: 2px;
+	background: hsl(var(--primary));
 	border-radius: 2px;
-	transition: width 300ms ease-in-out;
+	transition: width 200ms ease;
 }
 
 .nav-link:hover::after,
 .nav-link.active::after {
 	width: 100%;
+}
+
+/* Navbar floating — ativo discreto, sem “gritar” */
+.nav-link-premium::after {
+	bottom: -2px;
+	height: 1px;
+	background: hsl(var(--primary) / 0.5);
+	transition:
+		width 200ms ease,
+		opacity 160ms ease;
+}
+
+.nav-link-premium {
+	color: hsl(0 0% 100% / 0.86);
+}
+
+.nav-link-premium:hover {
+	color: hsl(0 0% 100% / 0.98);
+}
+
+.nav-link-premium.active {
+	color: hsl(0 0% 100%);
+	font-weight: 600;
+}
+
+/*
+ * Logo NOFLX UNB — uma única familia (Permanent Marker); só muda a cor no UNB.
+ */
+.nf-wordmark {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.18em;
+	text-decoration: none;
+	line-height: 1;
+}
+
+.nf-wordmark-noflx,
+.nf-wordmark-unb {
+	font-family: 'Permanent Marker', cursive;
+	font-weight: 400;
+	font-size: 1.08rem;
+	letter-spacing: 0.015em;
+	line-height: 0.92;
+	transform: translateY(0.03em);
+}
+
+.nf-wordmark-noflx {
+	color: hsl(0 0% 100%);
+}
+
+.nf-wordmark-unb {
+	display: inline-block;
+	color: hsl(var(--primary));
+}
+
+@media (min-width: 768px) {
+	.nf-wordmark-noflx,
+	.nf-wordmark-unb {
+		font-size: 1.24rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.nf-wordmark-noflx,
+	.nf-wordmark-unb {
+		font-size: 1.34rem;
+	}
+}
+
+.nf-wordmark--hero .nf-wordmark-noflx,
+.nf-wordmark--hero .nf-wordmark-unb {
+	font-size: 1.38rem;
+}
+@media (min-width: 768px) {
+	.nf-wordmark--hero .nf-wordmark-noflx,
+	.nf-wordmark--hero .nf-wordmark-unb {
+		font-size: 1.62rem;
+	}
+}
+
+/* Modo foco do fluxograma: oculta navbar global */
+body[data-fluxograma-focus-mode='true'] .navbar-glass {
+	display: none !important;
+}
+
+/* Shell do modo foco alinhado ao visual dark premium do app */
+.fluxograma-focus-shell {
+	position: fixed;
+	isolation: isolate;
+	background:
+		radial-gradient(120% 86% at 14% 2%, hsl(var(--primary) / 0.12) 0%, transparent 54%),
+		radial-gradient(108% 82% at 88% 10%, rgba(109, 40, 217, 0.1) 0%, transparent 58%),
+		linear-gradient(180deg, rgba(4, 5, 12, 0.94) 0%, rgba(4, 5, 10, 0.96) 50%, rgba(3, 3, 6, 0.98) 100%);
+	backdrop-filter: saturate(112%) blur(12px);
+	-webkit-backdrop-filter: saturate(112%) blur(12px);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.03),
+		inset 0 0 0 1px hsl(var(--primary) / 0.08);
+}
+
+.fluxograma-focus-shell::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.045) 0%,
+		rgba(255, 255, 255, 0.018) 18%,
+		rgba(255, 255, 255, 0.01) 44%,
+		rgba(255, 255, 255, 0.018) 74%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	mix-blend-mode: screen;
+	opacity: 0.18;
 }
 
 /* Auth form shared styles */
@@ -178,15 +255,17 @@
 	border: 1px solid #d1d5db;
 	border-radius: 14px;
 	font-size: 16px;
-	font-family: 'Poppins', sans-serif;
-	transition: border-color 0.2s, box-shadow 0.2s;
+	font-family: inherit;
+	transition:
+		border-color 0.2s,
+		box-shadow 0.2s;
 	box-sizing: border-box;
 }
 
 .auth-input:focus {
 	outline: none;
-	border-color: #2563eb;
-	box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+	border-color: hsl(var(--primary));
+	box-shadow: 0 0 0 3px hsl(var(--primary) / 0.18);
 }
 
 .auth-input::placeholder {
@@ -194,31 +273,30 @@
 }
 
 .auth-input:disabled {
-	opacity: 0.7;
+	opacity: 0.65;
 	cursor: not-allowed;
 }
 
 .auth-btn {
 	width: 100%;
 	height: 52px;
-	background: #2563eb;
+	background: hsl(var(--primary));
 	color: white;
 	border: none;
 	border-radius: 14px;
 	font-size: 18px;
 	font-weight: 600;
-	font-family: 'Poppins', sans-serif;
+	font-family: inherit;
 	cursor: pointer;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	transition: background 0.2s;
+	transition: filter 0.2s;
 }
 
 .auth-btn:hover:not(:disabled) {
-	background: #1d4ed8;
+	filter: brightness(1.06);
 }
 
 .auth-btn:disabled {
-	opacity: 0.7;
+	opacity: 0.65;
 	cursor: not-allowed;
 }
 
@@ -231,7 +309,7 @@
 	border-radius: 14px;
 	font-size: 16px;
 	font-weight: 500;
-	font-family: 'Poppins', sans-serif;
+	font-family: inherit;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -247,19 +325,19 @@
 .auth-btn-visitor {
 	width: 100%;
 	height: 52px;
-	background: rgba(0, 0, 0, 0.87);
+	background: hsl(240 12% 6%);
 	color: white;
 	border: none;
 	border-radius: 14px;
 	font-size: 16px;
 	font-weight: 600;
-	font-family: 'Poppins', sans-serif;
+	font-family: inherit;
 	cursor: pointer;
 	transition: background 0.2s;
 }
 
 .auth-btn-visitor:hover:not(:disabled) {
-	background: rgba(0, 0, 0, 0.95);
+	filter: brightness(1.08);
 }
 
 .auth-error {
@@ -287,7 +365,7 @@
 }
 
 .auth-link {
-	color: #6366f1;
+	color: hsl(var(--primary));
 	text-decoration: none;
 	transition: text-decoration 0.2s;
 }

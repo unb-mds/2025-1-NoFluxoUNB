@@ -9,6 +9,9 @@ export function createSupabaseBrowserClient() {
 	return createBrowserClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
 		cookies: {
 			getAll() {
+				if (typeof document === 'undefined') {
+					return [];
+				}
 				return document.cookie
 					.split(';')
 					.map(cookie => cookie.trim())
@@ -20,12 +23,15 @@ export function createSupabaseBrowserClient() {
 					});
 			},
 			setAll(cookiesToSet) {
+				if (typeof document === 'undefined') {
+					return;
+				}
 				cookiesToSet.forEach(({ name, value, options }) => {
 					const cookieOptions = {
 						path: '/',
 						maxAge: 60 * 60 * 24 * 7, // 7 days
 						sameSite: 'lax',
-						secure: window.location.protocol === 'https:',
+						secure: typeof window !== 'undefined' && window.location.protocol === 'https:',
 						...options
 					};
 

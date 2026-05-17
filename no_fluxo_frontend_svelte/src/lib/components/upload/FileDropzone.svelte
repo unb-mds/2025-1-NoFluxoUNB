@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Upload, FileText } from 'lucide-svelte';
-	import { validatePdfFile, formatFileSize } from '$lib/utils/fileValidation';
+	import { Upload, FileText, FileType2 } from 'lucide-svelte';
+	import { validatePdfFile } from '$lib/utils/fileValidation';
 	import { toast } from 'svelte-sonner';
 
 	interface Props {
@@ -41,7 +41,6 @@
 		const target = e.target as HTMLInputElement;
 		const file = target.files?.[0];
 		if (file) processFile(file);
-		// Reset input so the same file can be selected again
 		if (target) target.value = '';
 	}
 
@@ -64,12 +63,17 @@
 			openFilePicker();
 		}
 	}
+
+	function handleSelectClick(e: MouseEvent) {
+		e.stopPropagation();
+		openFilePicker();
+	}
 </script>
 
 <div
 	class="dropzone"
-	class:dragging={isDragging}
-	class:disabled
+	class:dropzone--drag={isDragging}
+	class:dropzone--disabled={disabled}
 	role="button"
 	tabindex={disabled ? -1 : 0}
 	ondragenter={handleDragEnter}
@@ -84,28 +88,28 @@
 		bind:this={fileInput}
 		type="file"
 		accept=".pdf,application/pdf"
-		class="hidden"
+		class="sr-only"
 		onchange={handleFileSelect}
 		{disabled}
 	/>
 
-	<div class="icon-container" class:pulse={isDragging}>
+	<div class="icon-wrap">
 		{#if isDragging}
-			<FileText class="h-12 w-12 text-purple-400" />
+			<FileText class="size-11" stroke-width="2" />
 		{:else}
-			<Upload class="h-12 w-12 text-gray-400" />
+			<Upload class="size-11" stroke-width="2" />
 		{/if}
 	</div>
 
-	<p class="mt-4 text-lg font-medium text-white">
+	<p class="dropzone-title">
 		{#if isDragging}
-			Solte o arquivo aqui
+			Solte o PDF aqui
 		{:else}
 			Arraste seu histórico em PDF aqui
 		{/if}
 	</p>
 
-	<div class="divider">
+	<div class="divider" aria-hidden="true">
 		<span class="divider-line"></span>
 		<span class="divider-text">ou</span>
 		<span class="divider-line"></span>
@@ -116,84 +120,166 @@
 		class="select-btn"
 		tabindex={-1}
 		disabled={disabled}
+		onclick={handleSelectClick}
 	>
-		Selecionar Arquivo
+		<FileType2 class="size-4 shrink-0 opacity-95" aria-hidden="true" />
+		Selecionar arquivo
 	</button>
 
-	<p class="mt-3 text-sm text-gray-500">
-		Somente arquivos PDF são aceitos (máx. 10MB)
-	</p>
+	<p class="dropzone-hint">Somente PDF (máx. 10MB). O documento deve ser o histórico oficial da UnB.</p>
 </div>
 
 <style>
-	@reference 'tailwindcss';
-
-	.dropzone {
-		@apply relative flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-gray-600 p-10 transition-all duration-300 cursor-pointer;
-		background: rgba(255, 255, 255, 0.03);
-		min-height: 280px;
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
 	}
 
-	.dropzone:hover:not(.disabled) {
-		@apply border-purple-500/60;
-		background: rgba(139, 92, 246, 0.05);
+	.dropzone {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 300px;
+		padding: 2.5rem 1.5rem;
+		border-radius: 14px;
+		cursor: pointer;
+		border: 1.5px dashed hsl(var(--primary) / 0.35);
+		background: hsl(var(--primary) / 0.04);
+		transition:
+			border-color 0.2s ease,
+			background 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+
+	.dropzone:hover:not(.dropzone--disabled) {
+		border-color: hsl(var(--primary) / 0.6);
+		background: hsl(var(--primary) / 0.07);
+		box-shadow: 0 0 0 1px hsl(var(--primary) / 0.12);
 	}
 
 	.dropzone:focus-visible {
-		@apply outline-none ring-2 ring-purple-500 ring-offset-2 ring-offset-black;
+		outline: none;
+		box-shadow: 0 0 0 3px hsl(var(--ring) / 0.35);
 	}
 
-	.dropzone.dragging {
-		@apply border-purple-400 bg-purple-500/10;
-		box-shadow: 0 0 30px rgba(139, 92, 246, 0.15);
+	.dropzone--drag {
+		border-style: solid;
+		border-color: hsl(var(--primary) / 0.7);
+		background: hsl(var(--primary) / 0.1);
+		box-shadow:
+			0 0 0 1px hsl(var(--primary) / 0.22),
+			0 0 32px hsl(var(--primary) / 0.12);
 	}
 
-	.dropzone.disabled {
-		@apply cursor-not-allowed opacity-50;
+	.dropzone--disabled {
+		cursor: not-allowed;
+		opacity: 0.48;
 	}
 
-	.icon-container {
-		@apply flex h-20 w-20 items-center justify-center rounded-full transition-all duration-300;
-		background: rgba(139, 92, 246, 0.1);
+	.icon-wrap {
+		display: flex;
+		height: 5rem;
+		width: 5rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		background: hsl(var(--primary));
+		border: 2px solid hsl(var(--primary) / 0.55);
+		color: #ffffff;
+		margin-bottom: 0.5rem;
+		transition: transform 0.2s ease;
+		box-shadow:
+			0 0 24px hsl(var(--primary) / 0.4),
+			inset 0 1px 0 hsl(0 0% 100% / 0.18);
 	}
 
-	.icon-container.pulse {
-		animation: pulse-glow 1.5s ease-in-out infinite;
+	.icon-wrap :global(svg) {
+		color: #ffffff;
+		stroke: #ffffff;
+	}
+
+	.dropzone--drag .icon-wrap {
+		transform: scale(1.03);
+	}
+
+	.dropzone-title {
+		margin-top: 1.25rem;
+		font-size: 1.125rem;
+		font-weight: 700;
+		color: hsl(var(--foreground));
+		text-align: center;
 	}
 
 	.divider {
-		@apply my-4 flex w-full items-center gap-3;
-		max-width: 200px;
+		display: flex;
+		width: 100%;
+		max-width: 220px;
+		align-items: center;
+		gap: 0.75rem;
+		margin: 1.15rem 0;
 	}
 
 	.divider-line {
-		@apply h-px flex-1 bg-gray-700;
+		height: 1px;
+		flex: 1;
+		background: hsl(var(--primary) / 0.3);
 	}
 
 	.divider-text {
-		@apply text-sm text-gray-500;
+		font-size: 0.8125rem;
+		font-weight: 500;
+		color: hsl(var(--muted-foreground));
 	}
 
 	.select-btn {
-		@apply rounded-lg px-6 py-2.5 text-sm font-medium text-white transition-all duration-200;
-		background: linear-gradient(135deg, #6c63ff, #e91e63);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1.75rem;
+		border-radius: 12px;
+		border: none;
+		font-size: 0.9375rem;
+		font-weight: 700;
+		letter-spacing: 0.02em;
+		color: hsl(var(--primary-foreground));
+		background: hsl(var(--primary));
+		cursor: pointer;
+		box-shadow:
+			0 0 28px hsl(var(--primary) / 0.35),
+			0 0 8px hsl(var(--primary) / 0.18);
+		transition:
+			filter 0.15s ease,
+			box-shadow 0.15s ease;
 	}
 
 	.select-btn:hover:not(:disabled) {
-		@apply scale-105;
-		box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+		filter: brightness(1.08);
+		box-shadow:
+			0 0 36px hsl(var(--primary) / 0.45),
+			inset 0 1px 0 hsl(0 0% 100% / 0.12);
 	}
 
 	.select-btn:disabled {
-		@apply cursor-not-allowed opacity-50;
+		cursor: not-allowed;
+		opacity: 0.5;
 	}
 
-	@keyframes pulse-glow {
-		0%, 100% {
-			box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
-		}
-		50% {
-			box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
-		}
+	.dropzone-hint {
+		margin-top: 1rem;
+		max-width: 26rem;
+		text-align: center;
+		font-size: 0.8125rem;
+		line-height: 1.45;
+		color: hsl(var(--muted-foreground));
 	}
 </style>

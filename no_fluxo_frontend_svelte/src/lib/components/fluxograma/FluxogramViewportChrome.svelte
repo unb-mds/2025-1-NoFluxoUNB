@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle } from 'lucide-svelte';
+import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle, Maximize2, Minimize2, Network } from 'lucide-svelte';
 	import { browser } from '$app/environment';
 	import { fluxogramaStore, type ConnectionMode } from '$lib/stores/fluxograma.store.svelte';
 	import { portal } from '$lib/actions/portal';
@@ -8,9 +8,13 @@
 	interface Props {
 		/** Sincronizado com o botão “Legenda e regras” (?) no header */
 		helpOpen?: boolean;
+	/** Modo foco: expande apenas o container do fluxograma. */
+	focusMode?: boolean;
+	/** Callback para alternar o modo foco no container pai. */
+	toggleFocusMode?: () => void;
 	}
 
-	let { helpOpen = $bindable(false) }: Props = $props();
+let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode }: Props = $props();
 
 	const store = fluxogramaStore;
 
@@ -54,6 +58,14 @@
 	let compactTouch = $state(false);
 	/** Mobile: painel do FAB ferramentas (zoom + conexões) */
 	let fabMenuOpen = $state(false);
+	/** Mobile: menu vertical para modos de conexão (mais fácil em tela vertical). */
+	let mobileConnectionsMenuOpen = $state(false);
+
+	let connectionModeLabel = $derived.by(() => {
+		if (store.state.connectionMode === 'all') return 'Todas';
+		if (store.state.connectionMode === 'off') return 'Off';
+		return 'Diretas';
+	});
 
 	$effect(() => {
 		if (!browser) return;
@@ -74,22 +86,37 @@
 	});
 
 	$effect(() => {
-		if (!compactTouch) fabMenuOpen = false;
+		if (!compactTouch) {
+			fabMenuOpen = false;
+			mobileConnectionsMenuOpen = false;
+		}
 	});
 
 	function selectMode(mode: ConnectionMode) {
 		store.setConnectionMode(mode);
+		mobileConnectionsMenuOpen = false;
+	}
+
+	function toggleMobileConnectionsMenu() {
+		mobileConnectionsMenuOpen = !mobileConnectionsMenuOpen;
+		if (mobileConnectionsMenuOpen) fabMenuOpen = false;
+	}
+
+function handleToggleFocusMode() {
+	toggleFocusMode?.();
 	}
 
 	function handleLegendKeydown(e: KeyboardEvent) {
 		if (e.key === 'Escape') {
 			helpOpen = false;
 			fabMenuOpen = false;
+			mobileConnectionsMenuOpen = false;
+			if (focusMode) toggleFocusMode?.();
 		}
 	}
 
 	$effect(() => {
-		if (helpOpen || fabMenuOpen) {
+		if (helpOpen || fabMenuOpen || mobileConnectionsMenuOpen) {
 			const prev = document.body.style.overflow;
 			document.body.style.overflow = 'hidden';
 			return () => {
@@ -97,6 +124,7 @@
 			};
 		}
 	});
+
 </script>
 
 <svelte:window onkeydown={handleLegendKeydown} />
@@ -111,6 +139,24 @@
 	aria-hidden="false"
 	data-fluxogram-viewport-chrome
 >
+	<div
+		class="pointer-events-none absolute right-[max(0.75rem,env(safe-area-inset-right,0px))] top-[max(0.75rem,env(safe-area-inset-top,0px))] z-[46] {compactTouch ? 'hidden' : ''}"
+	>
+		<button
+			type="button"
+			onclick={handleToggleFocusMode}
+			class="pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-cyan-500/35 bg-cyan-500/15 text-cyan-100 shadow-lg backdrop-blur-md transition-colors hover:bg-cyan-500/25 hover:text-white"
+			aria-label={focusMode ? 'Sair do modo foco do fluxograma' : 'Entrar no modo foco do fluxograma'}
+			title={focusMode ? 'Sair do modo foco' : 'Modo foco'}
+		>
+			{#if focusMode}
+				<Minimize2 class="h-5 w-5" />
+			{:else}
+				<Maximize2 class="h-5 w-5" />
+			{/if}
+		</button>
+	</div>
+
 	<!-- Desktop: só zoom — canto inferior esquerdo (conexões ficam à direita) -->
 	<div
 		class="pointer-events-none absolute bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] left-[max(0.75rem,env(safe-area-inset-left,0px))] z-[30] {compactTouch
@@ -118,7 +164,7 @@
 			: 'hidden md:block'}"
 	>
 		<div
-			class="pointer-events-auto flex max-w-[calc(100vw-11rem)] items-center gap-1 rounded-full border border-white/20 bg-black/40 px-2 py-1 shadow-lg backdrop-blur-xl"
+			class="nf-chrome-pill pointer-events-auto flex max-w-[calc(100vw-11rem)] items-center gap-1 rounded-full px-2 py-1"
 		>
 			<div class="flex items-center gap-0.5 rounded-full bg-white/5 px-0.5 py-0.5">
 				<button
@@ -178,7 +224,7 @@
 
 	{#snippet connectionModePill()}
 		<div
-			class="pointer-events-auto flex shrink-0 flex-nowrap items-center gap-0 rounded-full border border-purple-500/45 bg-black/45 px-0.5 py-0.5 shadow-md backdrop-blur-md supports-[backdrop-filter]:bg-black/35"
+			class="nf-chrome-pill pointer-events-auto flex shrink-0 flex-nowrap items-center gap-0 rounded-full px-0.5 py-0.5"
 			role="group"
 			aria-label="Modo de conexões no fluxograma"
 		>
@@ -213,7 +259,7 @@
 	{/snippet}
 
 	<!--
-		Mobile / touch compacto: mesma linha inferior — "?" à esquerda, conexões coladas à direita.
+		Mobile / touch compacto: ações principais no rodapé + menu vertical de conexões.
 	-->
 	{#if compactTouch}
 		<div
@@ -223,7 +269,7 @@
 				<button
 					type="button"
 					onclick={() => (fabMenuOpen = !fabMenuOpen)}
-					class="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-purple-600/90 to-indigo-700/95 text-white shadow-xl backdrop-blur-md transition-transform active:scale-95"
+					class="flex h-14 w-14 items-center justify-center rounded-full border border-primary/35 bg-primary text-primary-foreground shadow-lg shadow-primary/25 transition-transform active:scale-95"
 					aria-expanded={fabMenuOpen}
 					aria-label="Zoom do fluxograma"
 					title="Zoom"
@@ -231,8 +277,31 @@
 					<HelpCircle class="h-6 w-6" />
 				</button>
 			</div>
-			<div class="pointer-events-auto flex min-w-0 shrink-0 justify-end pb-0.5">
-				{@render connectionModePill()}
+			<div class="pointer-events-auto flex min-w-0 shrink-0 items-center justify-end gap-2 pb-0.5">
+				<button
+					type="button"
+					onclick={toggleMobileConnectionsMenu}
+					class="inline-flex h-11 items-center gap-1.5 rounded-full border border-purple-500/45 bg-black/45 px-3 text-[11px] font-medium text-white shadow-lg backdrop-blur-md transition-colors active:scale-95"
+					aria-expanded={mobileConnectionsMenuOpen}
+					aria-label="Abrir modos de conexões"
+					title="Modos de conexões"
+				>
+					<Network class="h-4 w-4" />
+					<span>{connectionModeLabel}</span>
+				</button>
+				<button
+					type="button"
+					onclick={handleToggleFocusMode}
+					class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-cyan-500/35 bg-cyan-500/15 text-cyan-100 shadow-lg backdrop-blur-md transition-colors active:scale-95"
+					aria-label={focusMode ? 'Sair do modo foco do fluxograma' : 'Modo foco do fluxograma'}
+					title={focusMode ? 'Sair do modo foco' : 'Modo foco'}
+				>
+					{#if focusMode}
+						<Minimize2 class="h-5 w-5" />
+					{:else}
+						<Maximize2 class="h-5 w-5" />
+					{/if}
+				</button>
 			</div>
 		</div>
 	{:else}
@@ -246,6 +315,54 @@
 		</div>
 	{/if}
 </div>
+
+<!-- Mobile: menu vertical de conexões -->
+{#if mobileConnectionsMenuOpen && compactTouch}
+	<div
+		use:portal
+		class="fixed inset-0 z-[505] bg-black/35"
+		onclick={() => (mobileConnectionsMenuOpen = false)}
+		role="presentation"
+	></div>
+	<div
+		use:portal
+		class="fixed bottom-[max(5.2rem,env(safe-area-inset-bottom,0px))] right-[max(0.75rem,env(safe-area-inset-right,0px))] z-[515] w-[min(220px,88vw)] rounded-2xl border border-purple-400/35 bg-black/70 p-2.5 shadow-2xl backdrop-blur-xl"
+		role="dialog"
+		aria-modal="true"
+		aria-label="Modos de conexões"
+	>
+		<p class="mb-2 px-1 text-[10px] font-semibold uppercase tracking-wide text-white/55">Conexões</p>
+		<div class="flex flex-col gap-1.5">
+			<button
+				type="button"
+				onclick={() => selectMode('direct')}
+				class="w-full rounded-xl border px-3 py-2 text-left text-sm font-medium transition-colors {store.state.connectionMode === 'direct'
+					? 'border-purple-300/65 bg-purple-500/35 text-white'
+					: 'border-white/15 bg-white/5 text-white/80 hover:bg-white/10'}"
+			>
+				Diretas
+			</button>
+			<button
+				type="button"
+				onclick={() => selectMode('all')}
+				class="w-full rounded-xl border px-3 py-2 text-left text-sm font-medium transition-colors {store.state.connectionMode === 'all'
+					? 'border-purple-300/65 bg-purple-500/35 text-white'
+					: 'border-white/15 bg-white/5 text-white/80 hover:bg-white/10'}"
+			>
+				Todas
+			</button>
+			<button
+				type="button"
+				onclick={() => selectMode('off')}
+				class="w-full rounded-xl border px-3 py-2 text-left text-sm font-medium transition-colors {store.state.connectionMode === 'off'
+					? 'border-purple-300/65 bg-purple-500/35 text-white'
+					: 'border-white/15 bg-white/5 text-white/80 hover:bg-white/10'}"
+			>
+				Off
+			</button>
+		</div>
+	</div>
+{/if}
 
 <!-- Mobile: sheet ferramentas (portal → body: fora do stacking context z-0 do diagrama) -->
 {#if fabMenuOpen && compactTouch}
@@ -332,8 +449,9 @@
 				</div>
 			</div>
 			<p class="text-center text-[11px] text-white/50">
-				<strong class="text-purple-300/90">Diretas · Todas · Off</strong> estão no canto inferior direito do diagrama. Legenda completa: ícone de ajuda
-				<strong class="text-cyan-300/90">(?)</strong> no topo. Créditos/Horas: menu <strong class="text-white/70">⚙</strong>.
+				Use o botão <strong class="text-purple-300/90">Conexões</strong> no rodapé para alternar entre
+				<strong class="text-purple-300/90">Diretas, Todas e Off</strong>. Legenda completa: ícone
+				<strong class="text-cyan-300/90">(?)</strong> no topo.
 			</p>
 		</div>
 	</div>
@@ -392,8 +510,8 @@
 				<section class="mt-4 border-t border-white/10 pt-4">
 					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">Conexões (linhas)</h3>
 					<p class="mb-2 text-xs text-white/55">
-						O modo das linhas é alterado só no diagrama: grupo <strong class="text-white/85">Diretas · Todas · Off</strong> no
-						<strong class="text-white/85">canto inferior direito</strong> (não neste painel).
+						O modo das linhas é alterado pelo botão <strong class="text-white/85">Conexões</strong> no
+						rodapé do diagrama (abre a lista com <strong class="text-white/85">Diretas · Todas · Off</strong>).
 					</p>
 					<ul class="space-y-1.5 text-white/90">
 						<li class="flex items-center gap-2">

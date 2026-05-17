@@ -18,25 +18,23 @@
 	];
 </script>
 
-<footer class="home-footer">
+<footer class="home-footer border-t border-white/[0.07]">
 	<div class="footer-content">
 		<div class="footer-brand">
-			<p class="font-marker text-xl text-white">
-				NO<span class="text-pink-500">FLUXO</span> UNB
+			<p class="footer-logo">
+				<span class="text-foreground">NOFLX</span><span class="text-primary"> UNB</span>
 			</p>
-			<p class="footer-copyright">© {currentYear} NoFluxo UNB - Todos os direitos reservados</p>
+			<p class="footer-copyright">© {currentYear} NoFluxo UNB — todos os direitos reservados</p>
 		</div>
 
 		<nav class="footer-links">
 			{#each links as link}
-				<a href={link.href} class="footer-link">
-					{link.label}
-				</a>
+				<a href={link.href} class="footer-link">{link.label}</a>
 			{/each}
 		</nav>
 
 		<div class="footer-contact">
-			<p class="contact-label">Contact Us</p>
+			<p class="contact-label">Contato</p>
 			<a class="contact-email" href="mailto:unbnofluxo@gmail.com">unbnofluxo@gmail.com</a>
 		</div>
 
@@ -58,8 +56,7 @@
 
 <style>
 	.home-footer {
-		background: rgba(0, 0, 0, 0.7);
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		background: hsl(var(--background));
 	}
 
 	.footer-content {
@@ -90,10 +87,16 @@
 		}
 	}
 
+	.footer-logo {
+		font-weight: 800;
+		font-size: 1rem;
+		letter-spacing: -0.02em;
+		margin-bottom: 0.25rem;
+	}
+
 	.footer-copyright {
-		color: #9ca3af;
-		font-size: 0.875rem;
-		margin-top: 0.25rem;
+		color: hsl(var(--muted-foreground));
+		font-size: 0.8125rem;
 	}
 
 	.footer-links {
@@ -110,14 +113,15 @@
 	}
 
 	.footer-link {
-		color: #d1d5db;
+		color: hsl(var(--muted-foreground));
 		text-decoration: none;
 		font-size: 0.875rem;
-		transition: color 0.2s;
+		font-weight: 500;
+		transition: color 0.16s ease;
 	}
 
 	.footer-link:hover {
-		color: white;
+		color: hsl(var(--foreground));
 	}
 
 	.footer-contact {
@@ -128,21 +132,23 @@
 	}
 
 	.contact-label {
-		color: #9ca3af;
-		font-size: 0.75rem;
+		color: hsl(var(--muted-foreground));
+		font-size: 0.6875rem;
+		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
 	}
 
 	.contact-email {
-		color: #f3f4f6;
+		color: hsl(var(--foreground));
 		text-decoration: none;
 		font-size: 0.875rem;
-		transition: color 0.2s;
+		font-weight: 500;
+		transition: color 0.16s ease;
 	}
 
 	.contact-email:hover {
-		color: #ec4899;
+		color: hsl(var(--primary));
 	}
 
 	@media (min-width: 768px) {
@@ -158,12 +164,12 @@
 	}
 
 	.social-link {
-		color: #d1d5db;
-		transition: color 0.2s;
+		color: hsl(var(--muted-foreground));
 		padding: 0.5rem;
+		transition: color 0.16s ease;
 	}
 
 	.social-link:hover {
-		color: white;
+		color: hsl(var(--foreground));
 	}
 </style>

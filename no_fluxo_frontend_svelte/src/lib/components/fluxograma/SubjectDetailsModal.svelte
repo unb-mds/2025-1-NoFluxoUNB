@@ -284,11 +284,11 @@
 			{/if}
 		</div>
 
-			<!-- Planejamento de optativa: remover e persistir -->
+			<!-- Planejamento de optativa: remover localmente -->
 			{#if !store.state.isAnonymous && optativaPlanejada}
 				<div class="border-t border-white/10 px-6 py-3">
 					<p class="mb-2 text-xs text-white/50">
-						Disciplina planejada no fluxograma — remoção atualiza o perfil no servidor.
+						Disciplina planejada no fluxograma — a remoção fica local até clicar em salvar.
 					</p>
 					<button
 						type="button"
@@ -296,7 +296,7 @@
 						onclick={async () => {
 							removendoPlanejada = true;
 							try {
-								const ok = await store.removeOptativaPlanejadaESalvar(materia.codigoMateria);
+								const ok = await store.removeOptativaPlanejada(materia.codigoMateria);
 								if (ok) onclose?.();
 							} finally {
 								removendoPlanejada = false;
@@ -309,7 +309,7 @@
 							Removendo…
 						{:else}
 							<Trash2 class="h-4 w-4" />
-							Remover do fluxograma e salvar
+							Remover do fluxograma
 						{/if}
 					</button>
 				</div>
@@ -350,7 +350,7 @@
 		ondecidir={(tipo, sem) => {
 			optativaTipoOpen = false;
 			if (tipo === 'futura') store.addOptativa(materia, sem ?? 1);
-			else store.registrarOptativaConcluida(materia);
+			else store.registrarOptativaConcluida(materia, sem ?? 1);
 			onclose?.();
 		}}
 		onpular={() => (optativaTipoOpen = false)}

@@ -3,6 +3,7 @@
 	import { X, BookOpen, Save, Loader2, History } from 'lucide-svelte';
 
 	const store = fluxogramaStore;
+let temPendenciaSalvar = $derived(store.precisaSalvarPerfil);
 
 	/** Reage ao histórico local e ao curso (nomes das disciplinas). */
 	let historicoItens = $derived.by(() => {
@@ -30,23 +31,23 @@
 		}
 		removendoCodigo = codigo;
 		try {
-			await store.removeOptativaPlanejadaESalvar(codigo);
+			await store.removeOptativaPlanejada(codigo);
 		} finally {
 			removendoCodigo = null;
 		}
 	}
 </script>
 
-{#if store.precisaSalvarPerfil}
+{#if store.precisaSalvarPerfil || store.optativasAdicionadas.length > 0}
 	<div class="min-w-0 rounded-xl border border-amber-500/25 bg-black/40 p-3 backdrop-blur-md sm:p-4">
 		<div class="mb-3 flex flex-wrap items-center justify-between gap-2">
 			<div class="flex items-center gap-2">
 				<BookOpen class="h-4 w-4 text-amber-400" />
 				<h3 class="text-sm font-semibold uppercase tracking-wider text-white/80">
-					Alterações para salvar
+					{temPendenciaSalvar ? 'Alterações para salvar' : 'Optativas planejadas'}
 				</h3>
 			</div>
-			{#if !store.state.isAnonymous}
+			{#if !store.state.isAnonymous && temPendenciaSalvar}
 				<button
 					type="button"
 					disabled={saving}
@@ -64,9 +65,13 @@
 			{/if}
 		</div>
 
-		{#if !store.state.isAnonymous}
+		{#if !store.state.isAnonymous && temPendenciaSalvar}
 			<p class="mb-3 text-[11px] text-amber-200/85">
 				Há mudanças locais ainda não enviadas ao servidor.
+			</p>
+		{:else if !store.state.isAnonymous}
+			<p class="mb-3 text-[11px] text-emerald-200/85">
+				Planejamento sincronizado com o perfil.
 			</p>
 		{:else}
 			<p class="mb-3 text-[11px] text-white/45">

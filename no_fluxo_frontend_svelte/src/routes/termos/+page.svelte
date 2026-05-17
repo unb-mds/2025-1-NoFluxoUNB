@@ -1,18 +1,13 @@
 <script lang="ts">
-	import Navbar from '$lib/components/layout/Navbar.svelte';
-	import { currentUser, isAuthenticated } from '$lib/stores/auth';
+	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 </script>
 
-<svelte:head>
-	<title>Termos de Serviço - NoFluxo UNB</title>
-	<meta name="description" content="Termos de Serviço do NoFluxo UNB" />
-</svelte:head>
+<PageMeta
+	title="Termos de serviço"
+	description="Conheça os termos de serviço e uso do NoFluxo UNB."
+/>
 
-<div class="fixed top-0 left-0 right-0 z-50">
-	<Navbar user={$currentUser} isAuthenticated={$isAuthenticated} />
-</div>
-
-<main class="min-h-screen pt-20 pb-12 bg-white">
+<main class="min-h-screen bg-white pb-12">
 	<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="prose prose-sm sm:prose lg:prose-lg max-w-none">
 			<h1 class="text-3xl font-bold text-gray-900 mb-8">Termos de Uso</h1>

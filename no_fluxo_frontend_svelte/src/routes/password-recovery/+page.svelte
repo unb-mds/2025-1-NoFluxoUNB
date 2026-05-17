@@ -2,11 +2,10 @@
 	import PasswordRecovery from '$lib/components/auth/PasswordRecovery.svelte';
 	import AuthHomeLink from '$lib/components/auth/AuthHomeLink.svelte';
 	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 </script>
 
-<svelte:head>
-	<title>Recuperar Senha - NoFluxo UNB</title>
-</svelte:head>
+<PageMeta title="Recuperar senha" description="Recupere o acesso da sua conta no NoFluxo UNB." noIndex={true} />
 
 <AuthHomeLink />
 <AnimatedBackground />

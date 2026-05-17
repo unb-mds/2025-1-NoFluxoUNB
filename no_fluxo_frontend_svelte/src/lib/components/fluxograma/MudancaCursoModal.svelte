@@ -140,6 +140,21 @@
 						Selecione um curso para ver seu progresso como se estivesse nele. Suas matérias concluídas serão casadas com o currículo do curso.
 					</p>
 
+					<div
+						class="mb-4 rounded-lg border border-amber-500/25 bg-amber-500/[0.07] px-3 py-2.5 text-[11px] leading-relaxed text-amber-100/85"
+					>
+						<p class="font-medium text-amber-200/95">Ao simular mudança de curso</p>
+						<p class="mt-1 text-white/60">
+							<strong class="text-white/78">Curso de origem:</strong> você precisa ter todos os obrigatórios dos dois primeiros
+							períodos aprovados e consolidados na matriz atual (consulte o PPC oficial). Optativas e reprovações não entram.
+						</p>
+						<p class="mt-1 text-white/60">
+							<strong class="text-white/78">Curso pretendido:</strong> costuma-se exigir pelo menos <strong>360&nbsp;h</strong> em obrigatórias
+							e/ou optativas do destino, também consolidadas até a data de análise. Depois da simulação, abrimos esse indicativo
+							com seus dados daqui.
+						</p>
+					</div>
+
 					<div class="relative mb-4">
 						<Search class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
 						<input

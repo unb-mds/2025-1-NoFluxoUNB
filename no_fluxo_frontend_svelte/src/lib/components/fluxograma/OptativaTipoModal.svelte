@@ -9,22 +9,24 @@
 		defaultSemestre?: number;
 		ondecidir: (tipo: 'futura' | 'concluida', semestreFuturo?: number) => void;
 		onpular?: () => void;
+		allowConcluida?: boolean;
 	}
 
-	let { materia, defaultSemestre = 1, ondecidir, onpular }: Props = $props();
+	let { materia, defaultSemestre = 1, ondecidir, onpular, allowConcluida = true }: Props = $props();
 
 	const store = fluxogramaStore;
 	let podeMarcarConcluida = $derived(
-		prerequisitosAprovadosParaRegistrarConcluida(
+		allowConcluida &&
+			prerequisitosAprovadosParaRegistrarConcluida(
 			materia,
 			store.completedCodes,
 			store.state.courseData ?? undefined,
 			store.currentCodes,
 			store.failedCodes
-		)
+			)
 	);
 
-	let modo = $state<'escolha' | 'futura'>('escolha');
+	let modo = $state<'escolha' | 'futura' | 'concluida'>('escolha');
 	let semestre = $state(1);
 
 	$effect(() => {
@@ -78,7 +80,12 @@
 					<strong class="text-white/85">Futura</strong>: aparece no fluxograma com (opt) e entra no planejamento de carga horária.
 					<strong class="text-white/85">Concluída</strong>: entra no seu histórico como aprovada — só é permitido se os pré-requisitos já constarem como aprovados no histórico.
 				</p>
-				{#if !podeMarcarConcluida}
+				{#if !allowConcluida}
+					<p class="rounded-lg border border-blue-500/30 bg-blue-500/10 px-3 py-2 text-[11px] text-blue-200/90">
+						<strong class="text-blue-100">Observação:</strong> nesta tela só é possível adicionar como
+						<strong class="text-white/90">matéria futura</strong>. Para registrar como concluída, abra a disciplina no fluxograma.
+					</p>
+				{:else if !podeMarcarConcluida}
 					<p class="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-[11px] text-amber-200/90">
 						<strong class="text-amber-100">Atenção:</strong> os pré-requisitos desta disciplina ainda não estão cumpridos como no fluxograma. Use
 						<strong class="text-white/90">Matéria futura</strong> ou atualize o histórico.
@@ -98,7 +105,10 @@
 				<button
 					type="button"
 					disabled={!podeMarcarConcluida}
-					onclick={() => podeMarcarConcluida && ondecidir('concluida')}
+					onclick={() => {
+						if (!podeMarcarConcluida) return;
+						modo = 'concluida';
+					}}
 					title={!podeMarcarConcluida
 						? 'Cumpra os pré-requisitos (como indicado no fluxograma) antes de registrar como concluída.'
 						: undefined}
@@ -118,7 +128,9 @@
 				>
 					← Voltar
 				</button>
-				<label for="sem-opt-tipo" class="block text-xs font-medium text-white/60">Semestre no fluxograma</label>
+				<label for="sem-opt-tipo" class="block text-xs font-medium text-white/60">
+					{modo === 'concluida' ? 'Semestre em que você concluiu' : 'Semestre no fluxograma'}
+				</label>
 				<select
 					id="sem-opt-tipo"
 					bind:value={semestre}
@@ -130,10 +142,14 @@
 				</select>
 				<button
 					type="button"
-					onclick={() => ondecidir('futura', semestre)}
-					class="w-full rounded-xl bg-purple-600 py-3 text-sm font-semibold text-white hover:bg-purple-500"
+					onclick={() => ondecidir(modo === 'concluida' ? 'concluida' : 'futura', semestre)}
+					class={modo === 'concluida'
+						? 'w-full rounded-xl bg-emerald-600 py-3 text-sm font-semibold text-white hover:bg-emerald-500'
+						: 'w-full rounded-xl bg-purple-600 py-3 text-sm font-semibold text-white hover:bg-purple-500'}
 				>
-					Confirmar no {semestre}º semestre
+					{modo === 'concluida'
+						? `Registrar como concluída no ${semestre}º semestre`
+						: `Confirmar no ${semestre}º semestre`}
 				</button>
 			{/if}
 		</div>

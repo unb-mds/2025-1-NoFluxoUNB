@@ -20,6 +20,7 @@ Uso:
 import json
 import sys
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 from supabase import create_client
@@ -78,6 +79,10 @@ def txt(value):
     return s if s else None
 
 
+def utc_now_iso():
+    return datetime.now(timezone.utc).isoformat()
+
+
 def load_cache_materias():
     offset = 0
     while True:
@@ -134,6 +139,7 @@ def normalizar_linha_turma(turma):
         "vagas_ofertadas": vagas_ofertadas,
         "vagas_ocupadas": vagas_ocupadas,
         "vagas_sobrando": vagas_sobrando,
+        "last_updated_at": utc_now_iso(),
     }
     return row, None
 

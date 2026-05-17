@@ -4,7 +4,6 @@
  */
 
 import { fluxogramaService } from '$lib/services/fluxograma.service';
-import { dadosFluxogramaUserToJson } from '$lib/factories';
 import { authStore } from '$lib/stores/auth';
 import type { CursoModel } from '$lib/types/curso';
 import type { MateriaModel } from '$lib/types/materia';
@@ -20,8 +19,8 @@ import {
 	getCurrentSubjectCodes,
 	isMateriaAprovada,
 	type DadosFluxogramaUser,
-	type DadosMateria,
 	type OptativaPlanejadaRef,
+	type OptativaManual,
 	findSubjectInFluxograma
 } from '$lib/types/user';
 import { getCompletedByEquivalenceCodes } from '$lib/types/equivalencia';
@@ -54,48 +53,85 @@ const MIN_ZOOM = 0.3;
 const MAX_ZOOM = 2.0;
 const ZOOM_STEP = 0.1;
 
-function hydrateOptativasFromRefs(
-	refs: OptativaPlanejadaRef[] | undefined,
+function normalizarSemestreDestino(valor: number | undefined, fallback: number): number {
+	const n = Number(valor);
+	if (!Number.isFinite(n) || n < 1) return Math.max(1, fallback);
+	return Math.floor(n);
+}
+
+function hydrateOptativasFromManuais(
+	manuais: OptativaManual[] | undefined,
+	fluxograma: DadosFluxogramaUser | null | undefined,
 	course: CursoModel
 ): OptativaAdicionada[] {
-	if (!refs?.length) return [];
+	if (!manuais?.length) return [];
 	const byCode = new Map(course.materias.map((m) => [m.codigoMateria.trim().toUpperCase(), m]));
+	const oficiais = new Set<string>();
+	for (const sem of fluxograma?.dadosFluxograma ?? []) {
+		for (const m of sem) {
+			const c = m.codigoMateria.trim().toUpperCase();
+			if (c) oficiais.add(c);
+		}
+	}
 	const out: OptativaAdicionada[] = [];
 	const seen = new Set<string>();
-	for (const r of refs) {
-		const key = r.codigoMateria.trim().toUpperCase();
+	for (const r of manuais) {
+		const key = r.codigo.trim().toUpperCase();
 		if (!key || seen.has(key)) continue;
+		if (oficiais.has(key)) continue;
 		seen.add(key);
 		const m = byCode.get(key);
-		// Ref persistida pelo usuário: não exigir isOptativa aqui — matriz pode vir sem tipo_natureza
-		// ou com optativa em nivel>0; senão o planejamento some após recarregar.
-		if (m) {
-			const sem = Number(r.semestre);
-			out.push({ materia: m, semestre: Number.isFinite(sem) && sem >= 1 ? sem : 1 });
-		}
+		if (!m) continue;
+		const sem = Number(r.nivelAlocado);
+		out.push({ materia: m, semestre: Number.isFinite(sem) && sem >= 1 ? sem : 1 });
 	}
 	return out;
 }
 
-function refsPlanejadasIguais(
-	salvas: OptativaPlanejadaRef[] | undefined,
-	atual: OptativaAdicionada[]
-): boolean {
-	const norm = (pairs: { c: string; s: number }[]) =>
-		[...pairs].sort((x, y) => x.c.localeCompare(y.c) || x.s - y.s);
-	const a = norm(
-		(salvas ?? []).map((r) => ({
-			c: r.codigoMateria.trim().toUpperCase(),
-			s: r.semestre
-		}))
-	);
-	const b = norm(
-		atual.map((o) => ({
-			c: o.materia.codigoMateria.trim().toUpperCase(),
-			s: o.semestre
-		}))
-	);
-	return JSON.stringify(a) === JSON.stringify(b);
+function mergeFluxogramaComOptativasManuais(
+	base: DadosFluxogramaUser | null,
+	manuais: OptativaManual[] | undefined
+): DadosFluxogramaUser | null {
+	if (!base) return null;
+	if (!manuais?.length) return base;
+
+	const nextGrid = base.dadosFluxograma.map((sem) => [...sem]);
+	const oficiais = new Set<string>();
+	for (const sem of base.dadosFluxograma) {
+		for (const m of sem) {
+			const c = m.codigoMateria.trim().toUpperCase();
+			if (c) oficiais.add(c);
+		}
+	}
+
+	for (const manual of manuais) {
+		const codigo = String(manual.codigo ?? '').trim();
+		if (!codigo) continue;
+		const codeU = codigo.toUpperCase();
+		if (oficiais.has(codeU)) continue;
+		const sem = normalizarSemestreDestino(manual.nivelAlocado, 1);
+		const semIdx = sem - 1;
+		while (nextGrid.length <= semIdx) nextGrid.push([]);
+		const exists = nextGrid[semIdx].some((m) => m.codigoMateria.trim().toUpperCase() === codeU);
+		if (exists) continue;
+		nextGrid[semIdx].push({
+			codigoMateria: codigo,
+			mencao: '-',
+			professor: '-',
+			status: String(manual.status ?? 'PLANEJADO').toUpperCase(),
+			anoPeriodo: null,
+			frequencia: null,
+			tipoDado: 'inclusao_manual_optativa',
+			turma: null,
+			nomeEquivalente: null,
+			codigoEquivalente: null,
+			isManual: true,
+			nivelAlocado: sem,
+			nivelDestino: sem
+		});
+	}
+
+	return { ...base, dadosFluxograma: nextGrid };
 }
 
 function createFluxogramaStore() {
@@ -114,7 +150,7 @@ function createFluxogramaStore() {
 	});
 
 	let optativasAdicionadas = $state<OptativaAdicionada[]>([]);
-	/** Inclusão manual de optativa concluída no histórico — ainda não enviada ao Supabase. */
+	/** Alterações locais de optativas manuais ainda não enviadas ao Supabase. */
 	let historicoManualPendenteSalvar = $state(false);
 
 	// Per-semester connection density: semester → connection count
@@ -138,6 +174,30 @@ function createFluxogramaStore() {
 	authStore.subscribe((value) => {
 		authState = value;
 	});
+
+	async function persistirOptativasManuaisSilenciosamente(
+		optativas: OptativaManual[]
+	): Promise<boolean> {
+		const user = authStore.getUser();
+		if (state.isAnonymous || !user?.idUser) return false;
+		try {
+			await fluxogramaService.saveOptativasManuais(
+				user.idUser,
+				optativas.map((o) => ({
+					codigo: o.codigo.trim(),
+					nivel_alocado: normalizarSemestreDestino(o.nivelAlocado, 1),
+					status: String(o.status ?? 'PLANEJADO').toUpperCase(),
+					nome: o.nome ?? null
+				}))
+			);
+			authStore.setUser({ ...user, optativasManuais: optativas });
+			historicoManualPendenteSalvar = false;
+			return true;
+		} catch {
+			historicoManualPendenteSalvar = true;
+			return false;
+		}
+	}
 
 	const optativasBySemester = $derived.by(() => {
 		const map = new Map<number, OptativaAdicionada[]>();
@@ -174,16 +234,13 @@ function createFluxogramaStore() {
 
 	// Computed: user progress data (reactive to auth store changes)
 	const userFluxograma = $derived.by(() => {
-		return authState.user?.dadosFluxograma ?? null;
+		return mergeFluxogramaComOptativasManuais(
+			authState.user?.dadosFluxograma ?? null,
+			authState.user?.optativasManuais
+		);
 	});
 
-	const optativasPlanejamentoSalvo = $derived.by(() =>
-		refsPlanejadasIguais(userFluxograma?.optativasPlanejadas, optativasAdicionadas)
-	);
-
-	const precisaSalvarPerfil = $derived.by(
-		() => !optativasPlanejamentoSalvo || historicoManualPendenteSalvar
-	);
+	const precisaSalvarPerfil = $derived.by(() => historicoManualPendenteSalvar);
 
 	/** Disciplinas com `inclusao_manual_optativa` ainda não enviadas (exibe em “Alterações para salvar”). */
 	const historicoManualPendenteItens = $derived.by((): { codigoMateria: string; nomeMateria: string }[] => {
@@ -240,13 +297,37 @@ function createFluxogramaStore() {
 		const failed = new Set<string>();
 		for (const semester of userFluxograma.dadosFluxograma) {
 			for (const materia of semester) {
-				if (materia.status === 'REP') {
+				const st = String(materia.status ?? '').toUpperCase();
+				if (st === 'REP' || st === 'REPF' || st === 'REPMF') {
 					failed.add(materia.codigoMateria);
 				}
 			}
 		}
 		return failed;
 	});
+
+	function getOptativasManuaisAtuais(): OptativaManual[] {
+		return [...(authStore.getUser()?.optativasManuais ?? [])];
+	}
+
+	function upsertOptativaManual(
+		list: OptativaManual[],
+		entry: OptativaManual
+	): OptativaManual[] {
+		const codeU = entry.codigo.trim().toUpperCase();
+		const filtered = list.filter((o) => o.codigo.trim().toUpperCase() !== codeU);
+		return [...filtered, entry];
+	}
+
+	async function resolverNomeMateria(codigo: string, fallback: string): Promise<string> {
+		try {
+			const rows = await fluxogramaService.getMateriasByCode([codigo.trim().toUpperCase()]);
+			const found = (rows?.[0] as { nome_materia?: string } | undefined)?.nome_materia;
+			return found?.trim() ? found : fallback;
+		} catch {
+			return fallback;
+		}
+	}
 
 	return {
 		get state() {
@@ -282,9 +363,6 @@ function createFluxogramaStore() {
 		get optativasPlanejadasRefs() {
 			return optativasPlanejadasRefs;
 		},
-		get optativasPlanejamentoSalvo() {
-			return optativasPlanejamentoSalvo;
-		},
 		get historicoManualPendenteSalvar() {
 			return historicoManualPendenteSalvar;
 		},
@@ -314,11 +392,15 @@ function createFluxogramaStore() {
 			return findSubjectInFluxograma(userFluxograma, codigoMateria);
 		},
 
-		addOptativa(materia: MateriaModel, semestre: number) {
+		async addOptativa(materia: MateriaModel, semestre: number) {
 			if (!isOptativa(materia)) {
 				toast.error('Só matérias optativas da matriz entram neste planejamento.');
 				return;
 			}
+			const semestreDestino = normalizarSemestreDestino(
+				semestre,
+				Math.max(1, Number(authStore.getUser()?.dadosFluxograma?.semestreAtual ?? 1))
+			);
 			const codeU = materia.codigoMateria.trim().toUpperCase();
 			const exists = optativasAdicionadas.some(
 				(o) => o.materia.codigoMateria.trim().toUpperCase() === codeU
@@ -327,12 +409,30 @@ function createFluxogramaStore() {
 				toast.warning('Esta optativa já foi adicionada.');
 				return;
 			}
-			optativasAdicionadas = [...optativasAdicionadas, { materia, semestre }];
+			if (userFluxograma && findSubjectInFluxograma(userFluxograma, materia.codigoMateria)) {
+				toast.warning('Esta disciplina já está no histórico oficial e terá prioridade de exibição.');
+				return;
+			}
+			optativasAdicionadas = [...optativasAdicionadas, { materia, semestre: semestreDestino }];
 			bumpDiagramLayout();
-			toast.success(`${materia.nomeMateria} adicionada ao ${semestre}º semestre.`);
+			toast.success(`${materia.nomeMateria} adicionada ao ${semestreDestino}º semestre.`);
+			const user = authStore.getUser();
+			if (!state.isAnonymous && user) {
+				const nomeMateria = await resolverNomeMateria(materia.codigoMateria, materia.nomeMateria);
+				const atuais = getOptativasManuaisAtuais();
+				const next = upsertOptativaManual(atuais, {
+					codigo: materia.codigoMateria.trim(),
+					nivelAlocado: semestreDestino,
+					status: 'PLANEJADO',
+					nome: nomeMateria
+				});
+				authStore.setUser({ ...user, optativasManuais: next });
+				historicoManualPendenteSalvar = true;
+				toast.info('Alteração local salva no app. Clique em "Salvar no perfil" para persistir.');
+			}
 		},
 
-		registrarOptativaConcluida(materia: MateriaModel) {
+		async registrarOptativaConcluida(materia: MateriaModel, semestreConclusao?: number) {
 			const user = authStore.getUser();
 			if (state.isAnonymous || !user?.dadosFluxograma) {
 				toast.error('Entre na conta para registrar disciplina concluída.');
@@ -356,58 +456,29 @@ function createFluxogramaStore() {
 				return;
 			}
 			const fluxo = user.dadosFluxograma;
-			const codeU = materia.codigoMateria.trim().toUpperCase();
-
-			const nova: DadosMateria = {
-				codigoMateria: materia.codigoMateria.trim(),
-				mencao: 'MS',
-				professor: '-',
-				status: 'APR',
-				anoPeriodo: fluxo.anoAtual?.trim() ? fluxo.anoAtual : null,
-				frequencia: null,
-				tipoDado: 'inclusao_manual_optativa',
-				turma: null,
-				codigoEquivalente: null,
-				nomeEquivalente: null
-			};
-			const nextGrid = fluxo.dadosFluxograma.map((s) => [...s]);
-			if (nextGrid.length === 0) nextGrid.push([]);
-
-			let idxAtualizar: { si: number; mi: number } | null = null;
-			for (let si = 0; si < nextGrid.length; si++) {
-				for (let mi = 0; mi < nextGrid[si].length; mi++) {
-					const m = nextGrid[si][mi];
-					if (m.codigoMateria.trim().toUpperCase() !== codeU) continue;
-					if (isMateriaAprovada(m)) {
-						toast.warning('Esta disciplina já consta como concluída no histórico.');
-						return;
-					}
-					idxAtualizar = { si, mi };
-					break;
-				}
-				if (idxAtualizar) break;
-			}
-
-			if (idxAtualizar) {
-				const { si, mi } = idxAtualizar;
-				const old = nextGrid[si][mi];
-				nextGrid[si][mi] = {
-					...old,
-					...nova,
-					codigoMateria: old.codigoMateria
-				};
-			} else {
-				nextGrid[0].push(nova);
-			}
-
-			const atualizado: DadosFluxogramaUser = { ...fluxo, dadosFluxograma: nextGrid };
-			authStore.updateDadosFluxograma(atualizado);
+			const semDestino = normalizarSemestreDestino(semestreConclusao, fluxo.semestreAtual || 1);
+			const nomeMateria = await resolverNomeMateria(materia.codigoMateria, materia.nomeMateria);
+			const atuais = getOptativasManuaisAtuais();
+			const next = upsertOptativaManual(atuais, {
+				codigo: materia.codigoMateria.trim(),
+				nivelAlocado: semDestino,
+				status: 'CUMP',
+				nome: nomeMateria
+			});
+			optativasAdicionadas = [
+				...optativasAdicionadas.filter(
+					(o) => o.materia.codigoMateria.trim().toUpperCase() !== materia.codigoMateria.trim().toUpperCase()
+				),
+				{ materia, semestre: semDestino }
+			];
+			authStore.setUser({ ...user, optativasManuais: next });
 			historicoManualPendenteSalvar = true;
 			bumpDiagramLayout();
-			toast.success(`${materia.nomeMateria} registrada como concluída — salve para enviar ao servidor.`);
+			toast.success(`${materia.nomeMateria} registrada como concluída.`);
+			toast.info('Clique em "Salvar no perfil" para persistir as alterações.');
 		},
 
-		removeOptativa(codigoMateria: string) {
+		async removeOptativa(codigoMateria: string) {
 			const u = codigoMateria.trim().toUpperCase();
 			const opt = optativasAdicionadas.find(
 				(o) => o.materia.codigoMateria.trim().toUpperCase() === u
@@ -419,6 +490,14 @@ function createFluxogramaStore() {
 				bumpDiagramLayout();
 				toast.success(`${opt.materia.nomeMateria} removida.`);
 			}
+			const user = authStore.getUser();
+			if (!state.isAnonymous && user) {
+				const atuais = getOptativasManuaisAtuais();
+				const next = atuais.filter((o) => o.codigo.trim().toUpperCase() !== u);
+				authStore.setUser({ ...user, optativasManuais: next });
+				historicoManualPendenteSalvar = true;
+				toast.info('Remoção aplicada localmente. Clique em "Salvar no perfil" para persistir.');
+			}
 		},
 
 		isOptativaPlanejada(codigoMateria: string): boolean {
@@ -429,51 +508,17 @@ function createFluxogramaStore() {
 		},
 
 		/**
-		 * Remove optativa do planejamento e persiste `optativas_planejadas` no servidor (rollback se falhar).
-		 * Anônimo: só remove localmente.
+		 * Remove optativa do planejamento (persistência fica para ação explícita em "Salvar no perfil").
+		 */
+		async removeOptativaPlanejada(codigoMateria: string): Promise<boolean> {
+			await this.removeOptativa(codigoMateria);
+			return true;
+		},
+		/**
+		 * Compat: manter assinatura antiga para componentes legados.
 		 */
 		async removeOptativaPlanejadaESalvar(codigoMateria: string): Promise<boolean> {
-			const user = authStore.getUser();
-			const u = codigoMateria.trim().toUpperCase();
-			const prev = optativasAdicionadas;
-			const opt = prev.find((o) => o.materia.codigoMateria.trim().toUpperCase() === u);
-			if (!opt) return false;
-
-			if (state.isAnonymous || !user?.idUser || !user.dadosFluxograma) {
-				optativasAdicionadas = prev.filter((o) => o.materia.codigoMateria.trim().toUpperCase() !== u);
-				bumpDiagramLayout();
-				toast.success(`${opt.materia.nomeMateria} removida do planejamento (somente neste aparelho).`);
-				return true;
-			}
-
-			const next = prev.filter((o) => o.materia.codigoMateria.trim().toUpperCase() !== u);
-			optativasAdicionadas = next;
-			bumpDiagramLayout();
-
-			const refs: OptativaPlanejadaRef[] = next.map((o) => ({
-				codigoMateria: o.materia.codigoMateria.trim(),
-				semestre: o.semestre
-			}));
-			const dadosAtualizados: DadosFluxogramaUser = {
-				...user.dadosFluxograma,
-				optativasPlanejadas: refs.length ? refs : undefined
-			};
-			try {
-				await fluxogramaService.saveFluxograma(
-					user.idUser,
-					dadosFluxogramaUserToJson(dadosAtualizados),
-					user.dadosFluxograma.semestreAtual
-				);
-				authStore.updateDadosFluxograma(dadosAtualizados);
-				historicoManualPendenteSalvar = false;
-				toast.success(`${opt.materia.nomeMateria} removida e salva no perfil.`);
-				return true;
-			} catch {
-				optativasAdicionadas = prev;
-				bumpDiagramLayout();
-				toast.error('Não foi possível salvar. A optativa foi restaurada.');
-				return false;
-			}
+			return this.removeOptativaPlanejada(codigoMateria);
 		},
 
 		async saveOptativasPlanejadas() {
@@ -482,25 +527,15 @@ function createFluxogramaStore() {
 				toast.error('Entre na conta para salvar o planejamento de optativas.');
 				return;
 			}
-			const refs: OptativaPlanejadaRef[] = optativasAdicionadas.map((o) => ({
-				codigoMateria: o.materia.codigoMateria.trim(),
-				semestre: o.semestre
-			}));
-			const dadosAtualizados: DadosFluxogramaUser = {
-				...user.dadosFluxograma,
-				optativasPlanejadas: refs.length ? refs : undefined
-			};
+			const next = getOptativasManuaisAtuais();
 			try {
-				await fluxogramaService.saveFluxograma(
-					user.idUser,
-					dadosFluxogramaUserToJson(dadosAtualizados),
-					user.dadosFluxograma.semestreAtual
+				const ok = await persistirOptativasManuaisSilenciosamente(next);
+				if (ok) toast.success('Alterações salvas no seu perfil.');
+				else toast.error('Não foi possível salvar. Tente de novo.');
+			} catch (err) {
+				toast.error(
+					`Não foi possível salvar. Tente de novo.${err instanceof Error ? ` (${err.message})` : ''}`
 				);
-				authStore.updateDadosFluxograma(dadosAtualizados);
-				historicoManualPendenteSalvar = false;
-				toast.success('Alterações salvas no seu perfil.');
-			} catch {
-				toast.error('Não foi possível salvar. Tente de novo.');
 			}
 		},
 
@@ -512,8 +547,9 @@ function createFluxogramaStore() {
 			try {
 				const data = await fluxogramaService.getCourseData(courseName);
 				state.courseData = data;
-				optativasAdicionadas = hydrateOptativasFromRefs(
-					authStore.getUser()?.dadosFluxograma?.optativasPlanejadas,
+				optativasAdicionadas = hydrateOptativasFromManuais(
+					authStore.getUser()?.optativasManuais,
+					authStore.getUser()?.dadosFluxograma,
 					data
 				);
 			} catch (err) {
@@ -533,8 +569,9 @@ function createFluxogramaStore() {
 			try {
 				const data = await fluxogramaService.getCourseDataByCurriculoCompleto(curriculoCompleto);
 				state.courseData = data;
-				optativasAdicionadas = hydrateOptativasFromRefs(
-					authStore.getUser()?.dadosFluxograma?.optativasPlanejadas,
+				optativasAdicionadas = hydrateOptativasFromManuais(
+					authStore.getUser()?.optativasManuais,
+					authStore.getUser()?.dadosFluxograma,
 					data
 				);
 			} catch (err) {

@@ -19,6 +19,9 @@ tornado==6.1
 requests==2.31.0
 beautifulsoup4==4.12.2
 lxml>=5.0.0
-pandas==1.5.3
+pandas==1.5.3; python_version < "3.12"
+pandas>=2.2.3,<3.0; python_version >= "3.12"
 supabase==1.0.3
 tenacity==8.2.3
+numpy<2.0.0; python_version < "3.12"
+numpy>=2.1.0,<3.0; python_version >= "3.12"

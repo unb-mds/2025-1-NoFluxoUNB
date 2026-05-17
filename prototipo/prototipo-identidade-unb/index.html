@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipo UI/UX NoFluxo UnB</title>
+    <meta
+        name="description"
+        content="Protótipo de identidade visual do NoFluxo com foco em legibilidade, tema escuro e cores institucionais da UnB."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header class="site-header-original">
+        <nav class="site-nav">
+            <a href="#" class="site-logo">NOFLX UNB</a>
+            <div class="site-links">
+                <a href="#">FLUXOGRAMAS</a>
+                <a href="#">MEU FLUXOGRAMA</a>
+                <a href="#">ASSISTENTE</a>
+                <a href="#">DISCIPLINAS</a>
+            </div>
+            <button class="site-avatar" type="button" aria-label="Perfil">F</button>
+        </nav>
+    </header>
+
+    <div class="page-shell">
+        <main>
+            <div class="prototype-switcher" aria-label="Telas do protótipo">
+                <button class="tab-button" data-screen="home">Home</button>
+                <button class="tab-button is-active" data-screen="historico">Importar Histórico</button>
+                <button class="tab-button" data-screen="fluxograma">Fluxograma</button>
+                <button class="tab-button" data-screen="assistente">Assistente</button>
+            </div>
+
+            <section class="screen" id="screen-home" aria-label="Tela Home">
+                <div class="hero-card hero-card--apple">
+                    <p class="eyebrow">NoFluxo UnB</p>
+                    <h1>Seu fluxo acadêmico com uma experiência mais premium</h1>
+                    <p>
+                        Um visual mais limpo e sofisticado, inspirado em layouts editoriais,
+                        com cards amplos, foco em conteúdo e alto contraste para leitura.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary">Começar agora</button>
+                        <button class="btn btn-secondary">Explorar fluxogramas</button>
+                    </div>
+                </div>
+
+                <section class="showcase-grid">
+                    <article class="showcase-card showcase-card--wide">
+                        <p class="eyebrow">Paleta institucional</p>
+                        <h3>Preto + verde + azul UnB</h3>
+                        <p>Base escura com iluminação suave para valorizar conteúdo e ações.</p>
+                        <div class="swatches-row">
+                            <span class="swatch swatch-black"></span>
+                            <span class="swatch swatch-surface"></span>
+                            <span class="swatch swatch-green"></span>
+                            <span class="swatch swatch-blue"></span>
+                            <span class="swatch swatch-white"></span>
+                        </div>
+                    </article>
+                    <article class="showcase-card">
+                        <p class="eyebrow">Interface</p>
+                        <h3>Cards grandes e respirados</h3>
+                        <p>Hierarquia forte para facilitar leitura e escaneabilidade.</p>
+                    </article>
+                    <article class="showcase-card">
+                        <p class="eyebrow">UX</p>
+                        <h3>Visual consistente</h3>
+                        <p>Mesmo padrão de componentes em Upload, Fluxograma e Assistente.</p>
+                    </article>
+                </section>
+
+                <section class="grid-cards">
+                    <article class="feature-card">
+                        <h3>/upload-historico</h3>
+                        <p>Card glass com blur, dropzone tracejada e CTA gradiente azul/verde.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>/fluxogramas e /meu-fluxograma</h3>
+                        <p>Conteúdo em painéis escuros, bordas suaves e destaques azul/verde.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>/assistente</h3>
+                        <p>Chat-shell translúcido com bolhas e ações no padrão atual.</p>
+                    </article>
+                </section>
+            </section>
+
+            <section class="screen is-active historico-screen" id="screen-historico" aria-label="Tela Importar Histórico">
+                <div class="historico-stage">
+                    <div class="section-header historico-header">
+                        <h2>Importar Histórico</h2>
+                        <p>Envie seu histórico acadêmico em PDF para gerar seu fluxograma personalizado.</p>
+                    </div>
+
+                    <article class="upload-card upload-card--hero">
+                        <div class="dropzone">
+                            <div class="upload-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" role="img" aria-label="Upload">
+                                    <path d="M12 16V8" />
+                                    <path d="M8.5 11.5L12 8l3.5 3.5" />
+                                    <path d="M5 18.5h14" />
+                                </svg>
+                            </div>
+                            <h3>Arraste seu histórico em PDF aqui</h3>
+                            <p>ou</p>
+                            <button class="btn btn-gradient">Selecionar Arquivo</button>
+                            <small>Somente arquivos PDF são aceitos (máx. 10MB)</small>
+                        </div>
+                    </article>
+
+                    <button class="help-chip">
+                        <span class="help-icon" aria-hidden="true">?</span>
+                        Como obter seu histórico acadêmico?
+                    </button>
+                </div>
+            </section>
+
+            <section class="screen" id="screen-fluxograma" aria-label="Tela Fluxograma">
+                <div class="section-header">
+                    <p class="eyebrow">Visualização</p>
+                    <h2>Explore fluxogramas por curso</h2>
+                    <p>Filtros simples, cards com destaque visual e navegação direta.</p>
+                </div>
+
+                <div class="search-strip">
+                    <input type="text" value="Engenharia de Software" readonly aria-label="Busca de curso">
+                    <button class="btn btn-secondary">Todos os tipos</button>
+                    <button class="btn btn-secondary">Diurno</button>
+                </div>
+
+                <div class="semester-grid">
+                    <article class="semester-card">
+                        <h3>Engenharia de Software</h3>
+                        <p class="meta">Bacharelado · Diurno · Matriz 60810/1</p>
+                        <button class="mini-action">Ver fluxograma</button>
+                    </article>
+                    <article class="semester-card">
+                        <h3>Ciência da Computação</h3>
+                        <p class="meta">Bacharelado · Diurno · Matriz 42001/2</p>
+                        <button class="mini-action">Ver fluxograma</button>
+                    </article>
+                    <article class="semester-card">
+                        <h3>Engenharia de Computação</h3>
+                        <p class="meta">Bacharelado · Integral · Matriz 51010/3</p>
+                        <button class="mini-action">Ver fluxograma</button>
+                    </article>
+                </div>
+            </section>
+
+            <section class="screen" id="screen-assistente" aria-label="Tela Assistente">
+                <div class="section-header">
+                    <p class="eyebrow">Interação</p>
+                    <h2>Assistente inteligente para decisões de matrícula</h2>
+                    <p>Converse, compare opções e adicione disciplinas com um clique.</p>
+                </div>
+
+                <article class="assistant-card">
+                    <div class="assistant-pills">
+                        <span class="pill">Direito Constitucional</span>
+                        <span class="pill">História da África</span>
+                        <span class="pill">IA aplicada</span>
+                    </div>
+
+                    <div class="bubble bubble-user">
+                        Quero sugestões de optativas para abrir mais possibilidades no meu fluxo.
+                    </div>
+                    <div class="bubble bubble-bot">
+                        Recomendo começar por disciplinas com pré-requisitos simples e boa oferta de turmas no próximo período.
+                    </div>
+
+                    <div class="assistant-actions">
+                        <button class="btn btn-secondary">Ver turmas</button>
+                        <button class="btn btn-primary">Adicionar ao plano</button>
+                    </div>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

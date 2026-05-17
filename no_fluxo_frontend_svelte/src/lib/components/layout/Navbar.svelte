@@ -7,6 +7,7 @@
 	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
 import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, LifeBuoy, ShieldCheck } from 'lucide-svelte';
+	import { Button } from '$lib/components/ui/button';
 	import type { UserModel } from '$lib/types';
 
 	interface Props {
@@ -14,9 +15,11 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 		isAuthenticated: boolean;
 		/** Quando true, mostra Fluxogramas + Disciplinas + Assistente (sem Meu Fluxograma/Importar) e menu Visitante */
 		isAnonymous?: boolean;
+		/** `floating` — barra centrada na home (logo | links centro | conta). */
+		variant?: 'bar' | 'floating';
 	}
 
-	let { user, isAuthenticated, isAnonymous = false }: Props = $props();
+	let { user, isAuthenticated, isAnonymous = false, variant = 'bar' }: Props = $props();
 
 	let mobileMenuOpen = $state(false);
 	const supabase = createSupabaseBrowserClient();
@@ -60,122 +63,242 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 	}
 
 	let isActive = $derived((href: string) => $page.url.pathname === href || $page.url.pathname.startsWith(href + '/'));
+
+	const navDesktopClass = $derived(
+		variant === 'floating'
+			? 'nav-link nav-link-premium text-[11px] font-semibold uppercase tracking-[0.08em] text-white/92 lg:text-xs'
+			: 'nav-link text-sm font-medium text-foreground/90 lg:text-[15px]'
+	);
 </script>
 
-<header class="navbar-glass sticky top-0 z-50 w-full max-w-[100vw]">
+<header
+	class="z-50 w-full max-w-[100vw]"
+	class:nf-glass-header={variant === 'bar'}
+	class:nf-glass-header-floating={variant === 'floating'}
+	class:navbar-floating-pill={variant === 'floating'}
+	class:sticky={variant === 'bar'}
+	class:top-0={variant === 'bar'}
+>
 	<nav
-		class="mx-auto flex min-h-[3rem] max-w-full items-center justify-between gap-2 px-[max(0.75rem,env(safe-area-inset-left))] py-2 pt-[max(0.5rem,env(safe-area-inset-top))] pr-[max(0.75rem,env(safe-area-inset-right))] md:min-h-0 md:px-8 md:py-3 md:pt-3"
+		class="nf-nav-root mx-auto flex min-h-[3rem] w-full max-w-full items-center gap-3 px-[max(0.75rem,env(safe-area-inset-left))] py-2 pt-[max(0.5rem,env(safe-area-inset-top))] pr-[max(0.75rem,env(safe-area-inset-right))] md:min-h-0 md:gap-5 md:px-8 md:py-3 md:pt-3"
 	>
-		<!-- Logo -->
-		<a href="/" class="logo min-w-0 shrink-0 text-shadow">
-			NOFLX UNB
+		<!-- Logo sans forte (identidade atual — sem brush/marker). -->
+		<a
+			href="/"
+			class="nf-wordmark min-w-0 shrink-0"
+			class:nf-wordmark--floating={variant === 'floating'}
+			aria-label="NoFluxo UNB — início"
+		>
+			<span class="nf-wordmark-noflx">NOFLX</span><span class="nf-wordmark-unb">UNB</span>
 		</a>
 
-		<!-- Desktop Navigation -->
-		<div class="hidden items-center gap-6 md:flex lg:gap-8">
-			{#if isAuthenticated}
-				{#each navLinks as link}
-					<a
-						href={link.href}
-						class="nav-link font-marker text-sm font-bold text-white lg:text-base"
-						class:active={isActive(link.href)}
-					>
-						{link.label}
-					</a>
-				{/each}
-
-				<!-- User Menu (logado) ou Visitante (anônimo) -->
-				{#if isAnonymous}
-					<DropdownMenu.Root>
-						<DropdownMenu.Trigger>
-							<button class="rounded-full bg-white/10 px-4 py-2 font-marker text-sm font-bold text-white transition-colors hover:bg-white/20">
-								Visitante
-							</button>
-						</DropdownMenu.Trigger>
-						<DropdownMenu.Content class="w-56" align="end">
-							<DropdownMenu.Label class="font-normal text-muted-foreground">
-								Modo anônimo — algumas funções limitadas
-							</DropdownMenu.Label>
-							<DropdownMenu.Separator />
-							<DropdownMenu.Item onclick={() => { authStore.clear(); goto(ROUTES.LOGIN); }}>
-								<LogOut class="mr-2 h-4 w-4" />
-								Entrar / Criar conta
-							</DropdownMenu.Item>
-						</DropdownMenu.Content>
-					</DropdownMenu.Root>
+		{#if variant === 'floating'}
+			<!-- Desktop: cluster centralizado (respiro entre itens). -->
+			<div
+				class="hidden min-w-0 flex-1 items-center justify-center gap-10 md:flex lg:gap-14"
+				aria-label="Navegação principal"
+			>
+				{#if isAuthenticated}
+					{#each navLinks as link}
+						<a href={link.href} class="{navDesktopClass}" class:active={isActive(link.href)}>
+							{link.label}
+						</a>
+					{/each}
 				{:else}
-					<DropdownMenu.Root>
-						<DropdownMenu.Trigger>
-							<button class="relative flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20">
-								<Avatar.Root class="h-10 w-10">
-									<Avatar.Fallback class="bg-nofluxo-primary text-white font-bold">
-										{user?.nomeCompleto?.charAt(0).toUpperCase() || 'U'}
-									</Avatar.Fallback>
-								</Avatar.Root>
-							</button>
-						</DropdownMenu.Trigger>
-						<DropdownMenu.Content class="w-56" align="end">
-							<DropdownMenu.Label class="font-normal">
-								<div class="flex flex-col space-y-1">
-									<p class="text-sm font-medium leading-none">{user?.nomeCompleto || 'Usuário'}</p>
-									<p class="text-xs leading-none text-muted-foreground">{user?.email}</p>
-								</div>
-							</DropdownMenu.Label>
-							<DropdownMenu.Separator />
-							{#if !hasHistorico}
-								<DropdownMenu.Item onclick={() => goto(ROUTES.MEU_FLUXOGRAMA)}>
-									<LayoutDashboard class="mr-2 h-4 w-4" />
-									Meu Fluxograma
-								</DropdownMenu.Item>
-								<DropdownMenu.Separator />
-							{/if}
-							<DropdownMenu.Item onclick={handleLogout} class="text-destructive">
-								<LogOut class="mr-2 h-4 w-4" />
-								Sair
-							</DropdownMenu.Item>
-						</DropdownMenu.Content>
-					</DropdownMenu.Root>
+					<a
+						href={ROUTES.FLUXOGRAMAS}
+						class="{navDesktopClass}"
+						class:active={isActive(ROUTES.FLUXOGRAMAS)}
+					>
+						Fluxogramas
+					</a>
+					<a
+						href={ROUTES.DISCIPLINAS}
+						class="{navDesktopClass}"
+						class:active={isActive(ROUTES.DISCIPLINAS)}
+					>
+						Disciplinas
+					</a>
+					<a href={ROUTES.LOGIN} class="{navDesktopClass}">Entrar</a>
 				{/if}
-			{:else}
-				<a
-					href={ROUTES.FLUXOGRAMAS}
-					class="nav-link font-marker text-sm font-bold text-white lg:text-base"
-					class:active={isActive(ROUTES.FLUXOGRAMAS)}
-				>
-					Fluxogramas
-				</a>
-				<a
-					href={ROUTES.DISCIPLINAS}
-					class="nav-link font-marker text-sm font-bold text-white lg:text-base"
-					class:active={isActive(ROUTES.DISCIPLINAS)}
-				>
-					Disciplinas
-				</a>
-				<a href={ROUTES.LOGIN} class="nav-link font-marker text-sm font-bold text-white lg:text-base">
-					Entrar
-				</a>
-				<a
-					href={ROUTES.SIGNUP}
-					class="rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-2 font-marker text-sm font-bold text-white transition-transform hover:scale-105"
-				>
-					Criar Conta
-				</a>
-			{/if}
-		</div>
+			</div>
 
-		<!-- Mobile Menu Button -->
-		<button
-			type="button"
-			class="inline-flex shrink-0 touch-manipulation items-center justify-center rounded-lg p-1.5 text-white outline-none ring-offset-2 ring-offset-transparent focus-visible:ring-2 focus-visible:ring-white/40 md:hidden"
-			onclick={toggleMobileMenu}
-			aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-		>
-			{#if mobileMenuOpen}
-				<X class="h-7 w-7" />
-			{:else}
-				<Menu class="h-7 w-7" />
-			{/if}
-		</button>
+			<!-- Direita: conta ou visitante (+ menu mobile só no small). -->
+			<div class="flex min-w-0 flex-1 items-center justify-end md:flex-initial md:justify-end md:gap-1">
+				<div class="hidden items-center md:flex">
+					{#if isAuthenticated}
+						{#if isAnonymous}
+							<DropdownMenu.Root>
+								<DropdownMenu.Trigger>
+									<Button variant="outline" size="sm" class="rounded-full border-white/14 bg-secondary/55">
+										Visitante
+									</Button>
+								</DropdownMenu.Trigger>
+								<DropdownMenu.Content class="w-56" align="end">
+									<DropdownMenu.Label class="font-normal text-muted-foreground">
+										Modo anônimo — algumas funções limitadas
+									</DropdownMenu.Label>
+									<DropdownMenu.Separator />
+									<DropdownMenu.Item onclick={() => { authStore.clear(); goto(ROUTES.LOGIN); }}>
+										<LogOut class="mr-2 h-4 w-4" />
+										Entrar / Criar conta
+									</DropdownMenu.Item>
+								</DropdownMenu.Content>
+							</DropdownMenu.Root>
+						{:else}
+							<DropdownMenu.Root>
+								<DropdownMenu.Trigger>
+									<button
+										type="button"
+										class="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-none bg-transparent p-0 transition-opacity hover:opacity-90"
+										aria-label="Menu da conta"
+									>
+										<Avatar.Root class="h-10 w-10 shadow-[0_12px_40px_-4px_hsl(var(--primary)/0.52)] ring-2 ring-primary/35">
+											<Avatar.Fallback class="bg-primary text-sm font-bold uppercase text-primary-foreground">
+												{user?.nomeCompleto?.charAt(0).toUpperCase() || 'U'}
+											</Avatar.Fallback>
+										</Avatar.Root>
+									</button>
+								</DropdownMenu.Trigger>
+								<DropdownMenu.Content class="w-56" align="end">
+									<DropdownMenu.Label class="font-normal">
+										<div class="flex flex-col space-y-1">
+											<p class="text-sm font-medium leading-none">{user?.nomeCompleto || 'Usuário'}</p>
+											<p class="text-xs leading-none text-muted-foreground">{user?.email}</p>
+										</div>
+									</DropdownMenu.Label>
+									<DropdownMenu.Separator />
+									{#if !hasHistorico}
+										<DropdownMenu.Item onclick={() => goto(ROUTES.MEU_FLUXOGRAMA)}>
+											<LayoutDashboard class="mr-2 h-4 w-4" />
+											Meu Fluxograma
+										</DropdownMenu.Item>
+										<DropdownMenu.Separator />
+									{/if}
+									<DropdownMenu.Item onclick={handleLogout} class="text-destructive">
+										<LogOut class="mr-2 h-4 w-4" />
+										Sair
+									</DropdownMenu.Item>
+								</DropdownMenu.Content>
+							</DropdownMenu.Root>
+						{/if}
+					{:else}
+						<Button href={ROUTES.SIGNUP} size="sm" class="rounded-full px-6 font-semibold">
+							Criar conta
+						</Button>
+					{/if}
+				</div>
+				<button
+					type="button"
+					class="text-foreground/90 hover:text-foreground inline-flex shrink-0 touch-manipulation items-center justify-center rounded-lg p-1.5 outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring/40 md:hidden"
+					onclick={toggleMobileMenu}
+					aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+				>
+					{#if mobileMenuOpen}
+						<X class="h-7 w-7" />
+					{:else}
+						<Menu class="h-7 w-7" />
+					{/if}
+				</button>
+			</div>
+		{:else}
+			<!-- Demais páginas: linha única à direita. -->
+			<div class="hidden items-center md:ml-auto md:flex md:gap-6 lg:gap-8">
+				{#if isAuthenticated}
+					{#each navLinks as link}
+						<a href={link.href} class="{navDesktopClass}" class:active={isActive(link.href)}>
+							{link.label}
+						</a>
+					{/each}
+					{#if isAnonymous}
+						<DropdownMenu.Root>
+							<DropdownMenu.Trigger>
+								<Button variant="outline" size="sm" class="rounded-full border-white/14 bg-secondary/55">
+									Visitante
+								</Button>
+							</DropdownMenu.Trigger>
+							<DropdownMenu.Content class="w-56" align="end">
+								<DropdownMenu.Label class="font-normal text-muted-foreground">
+									Modo anônimo — algumas funções limitadas
+								</DropdownMenu.Label>
+								<DropdownMenu.Separator />
+								<DropdownMenu.Item onclick={() => { authStore.clear(); goto(ROUTES.LOGIN); }}>
+									<LogOut class="mr-2 h-4 w-4" />
+									Entrar / Criar conta
+								</DropdownMenu.Item>
+							</DropdownMenu.Content>
+						</DropdownMenu.Root>
+					{:else}
+						<DropdownMenu.Root>
+							<DropdownMenu.Trigger>
+								<button
+									type="button"
+									class="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-none bg-transparent p-0 transition-opacity hover:opacity-90"
+									aria-label="Menu da conta"
+								>
+									<Avatar.Root class="h-10 w-10 shadow-[0_12px_40px_-4px_hsl(var(--primary)/0.52)] ring-2 ring-primary/35">
+										<Avatar.Fallback class="bg-primary text-sm font-bold uppercase text-primary-foreground">
+											{user?.nomeCompleto?.charAt(0).toUpperCase() || 'U'}
+										</Avatar.Fallback>
+									</Avatar.Root>
+								</button>
+							</DropdownMenu.Trigger>
+							<DropdownMenu.Content class="w-56" align="end">
+								<DropdownMenu.Label class="font-normal">
+									<div class="flex flex-col space-y-1">
+										<p class="text-sm font-medium leading-none">{user?.nomeCompleto || 'Usuário'}</p>
+										<p class="text-xs leading-none text-muted-foreground">{user?.email}</p>
+									</div>
+								</DropdownMenu.Label>
+								<DropdownMenu.Separator />
+								{#if !hasHistorico}
+									<DropdownMenu.Item onclick={() => goto(ROUTES.MEU_FLUXOGRAMA)}>
+										<LayoutDashboard class="mr-2 h-4 w-4" />
+										Meu Fluxograma
+									</DropdownMenu.Item>
+									<DropdownMenu.Separator />
+								{/if}
+								<DropdownMenu.Item onclick={handleLogout} class="text-destructive">
+									<LogOut class="mr-2 h-4 w-4" />
+									Sair
+								</DropdownMenu.Item>
+							</DropdownMenu.Content>
+						</DropdownMenu.Root>
+					{/if}
+				{:else}
+					<a
+						href={ROUTES.FLUXOGRAMAS}
+						class="{navDesktopClass}"
+						class:active={isActive(ROUTES.FLUXOGRAMAS)}
+					>
+						Fluxogramas
+					</a>
+					<a
+						href={ROUTES.DISCIPLINAS}
+						class="{navDesktopClass}"
+						class:active={isActive(ROUTES.DISCIPLINAS)}
+					>
+						Disciplinas
+					</a>
+					<a href={ROUTES.LOGIN} class="{navDesktopClass}">Entrar</a>
+					<Button href={ROUTES.SIGNUP} size="sm" class="ml-1 rounded-full px-6 font-semibold">
+						Criar conta
+					</Button>
+				{/if}
+			</div>
+			<button
+				type="button"
+				class="text-foreground/90 hover:text-foreground ml-auto inline-flex shrink-0 touch-manipulation items-center justify-center rounded-lg p-1.5 outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring/40 md:hidden"
+				onclick={toggleMobileMenu}
+				aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+			>
+				{#if mobileMenuOpen}
+					<X class="h-7 w-7" />
+				{:else}
+					<Menu class="h-7 w-7" />
+				{/if}
+			</button>
+		{/if}
 	</nav>
 </header>
 
@@ -183,7 +306,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 {#if mobileMenuOpen}
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
-		class="fixed inset-0 z-[9998] bg-black/60 backdrop-blur-sm"
+		class="fixed inset-0 z-[9998] bg-black/50 backdrop-blur-[2px]"
 		onclick={closeMobileMenu}
 		onkeydown={(e) => e.key === 'Escape' && closeMobileMenu()}
 		role="button"
@@ -193,7 +316,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 	<div class="mobile-drawer-portal">
 		<div class="flex flex-col gap-1 p-4">
 			<div class="mb-2 flex items-center justify-between">
-				<span class="text-sm font-medium text-white/70">Menu</span>
+				<span class="text-sm font-medium text-muted-foreground">Menu</span>
 				<button
 					type="button"
 					class="mobile-close-btn"
@@ -207,11 +330,11 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 				<!-- User info ou Visitante -->
 				<div class="mb-4 border-b border-white/10 pb-4">
 					{#if isAnonymous}
-						<p class="font-marker text-lg text-white">Visitante</p>
-						<p class="text-sm text-white/60">Modo anônimo</p>
+						<p class="text-lg font-semibold text-foreground">Visitante</p>
+						<p class="text-sm text-muted-foreground">Modo anônimo</p>
 					{:else}
-						<p class="font-marker text-lg text-white">{user?.nomeCompleto || 'Usuário'}</p>
-						<p class="text-sm text-white/60">{user?.email}</p>
+						<p class="text-lg font-semibold text-foreground">{user?.nomeCompleto || 'Usuário'}</p>
+						<p class="text-sm text-muted-foreground">{user?.email}</p>
 					{/if}
 				</div>
 
@@ -281,45 +404,45 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 				<a href={ROUTES.LOGIN} class="mobile-nav-item" onclick={closeMobileMenu}>
 					Entrar
 				</a>
-				<a
+				<Button
 					href={ROUTES.SIGNUP}
-					class="mt-2 block rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-3 text-center font-marker font-bold text-white"
+					class="mt-2 w-full rounded-full"
 					onclick={closeMobileMenu}
 				>
-					Criar Conta
-				</a>
+					Criar conta
+				</Button>
 			{/if}
 		</div>
 
-		<div class="mt-auto border-t border-white/10 p-4 text-center text-sm text-white/40">
-			NoFluxoUNB © {new Date().getFullYear()}
+		<div class="mt-auto border-t border-white/10 p-4 text-center text-xs text-muted-foreground">
+			NoFluxo UNB © {new Date().getFullYear()}
 		</div>
 	</div>
 {/if}
 
 <style>
-	.navbar-glass {
-		backdrop-filter: blur(4px);
-		-webkit-backdrop-filter: blur(4px);
-		background: rgba(0, 0, 0, 0.3);
+	/* Floating home navbar — pílula com vidro, borda e glow */
+	header.navbar-floating-pill {
+		background: hsl(var(--background) / 0.75);
+		backdrop-filter: blur(18px) saturate(1.5);
+		-webkit-backdrop-filter: blur(18px) saturate(1.5);
+		border: 1px solid hsl(var(--border) / 0.9);
+		border-radius: 999px;
+		padding: 12px 28px;
+		box-shadow:
+			0 0 0 1px hsl(var(--primary) / 0.12),
+			0 8px 32px hsl(0 0% 0% / 0.4);
 	}
 
-	.logo {
-		font-family: 'Permanent Marker', cursive;
-		color: white;
-		font-size: 20px;
-		text-decoration: none;
+	:global(.nf-wordmark--floating .nf-wordmark-noflx),
+	:global(.nf-wordmark--floating .nf-wordmark-unb) {
+		font-size: 1.32rem;
 	}
 
 	@media (min-width: 768px) {
-		.logo {
-			font-size: 28px;
-		}
-	}
-
-	@media (min-width: 1024px) {
-		.logo {
-			font-size: 36px;
+		:global(.nf-wordmark--floating .nf-wordmark-noflx),
+		:global(.nf-wordmark--floating .nf-wordmark-unb) {
+			font-size: 1.52rem;
 		}
 	}
 
@@ -329,14 +452,16 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 		top: 0;
 		right: 0;
 		bottom: 0;
-		width: min(280px, 85vw);
+		width: min(300px, 88vw);
 		max-width: 100vw;
 		z-index: 9999;
 		display: flex;
 		flex-direction: column;
 		padding-bottom: env(safe-area-inset-bottom, 0px);
 		padding-top: env(safe-area-inset-top, 0px);
-		background: linear-gradient(180deg, #0a0a0a 0%, #1a0a2e 100%);
+		background: hsl(var(--card) / 0.97);
+		border-left: 1px solid hsl(0 0% 100% / 0.08);
+		box-shadow: -16px 0 48px hsl(0 0% 0% / 0.4);
 		animation: slideIn 200ms ease-out;
 	}
 
@@ -353,12 +478,12 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 		display: flex;
 		align-items: center;
 		gap: 12px;
-		padding: 12px 16px;
-		border-radius: 8px;
-		color: white;
+		padding: 12px 14px;
+		border-radius: 10px;
+		color: hsl(var(--foreground));
 		font-weight: 500;
 		text-decoration: none;
-		transition: background 200ms;
+		transition: background 160ms ease;
 		border: none;
 		background: none;
 		width: 100%;
@@ -368,30 +493,33 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 	}
 
 	.mobile-nav-item:hover {
-		background: rgba(255, 255, 255, 0.08);
+		background: hsl(0 0% 100% / 0.06);
 	}
 
 	.mobile-nav-item.active {
-		background: rgba(255, 255, 255, 0.08);
-		border-left: 3px solid #9333ea;
+		background: hsl(var(--secondary) / 0.85);
+		border-left: 3px solid hsl(var(--primary));
+		padding-left: 11px;
 	}
 
 	.mobile-close-btn {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		height: 32px;
-		width: 32px;
+		height: 36px;
+		width: 36px;
 		border-radius: 9999px;
 		border: none;
-		background: rgba(255, 255, 255, 0.06);
-		color: #e5e7eb;
+		background: hsl(0 0% 100% / 0.06);
+		color: hsl(var(--muted-foreground));
 		cursor: pointer;
-		transition: background 0.15s ease, transform 0.1s ease;
+		transition:
+			background 0.15s ease,
+			color 0.15s ease;
 	}
 
 	.mobile-close-btn:hover {
-		background: rgba(255, 255, 255, 0.12);
-		transform: scale(1.03);
+		background: hsl(0 0% 100% / 0.1);
+		color: hsl(var(--foreground));
 	}
 </style>

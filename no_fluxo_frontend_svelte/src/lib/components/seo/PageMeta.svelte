@@ -17,8 +17,8 @@
 		type = 'website'
 	}: Props = $props();
 
-	const siteName = 'NoFluxo UNB';
-	const siteUrl = 'https://nofluxo.unb.br';
+	const siteName = 'NoFluxo UNB (No Fluxo UNB)';
+	const siteUrl = 'https://no-fluxo.crianex.com';
 
 	let fullTitle = $derived(title ? `${title} | ${siteName}` : siteName);
 	let canonicalUrl = $derived(`${siteUrl}${$page.url.pathname}`);
