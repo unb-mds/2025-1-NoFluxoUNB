@@ -1,0 +1,275 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------------------------------------------------------------------------
+% Relatorio PTOSS-2 - Testes Caixa-Branca do fluxograma_controller
+% NoFluxoUNB - FGA0314 Testes de Software
+% Compilar com: pdflatex relatorio-ptoss2-caixa-branca.tex
+% ---------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{parskip}
+
+\hypersetup{colorlinks=true, linkcolor=violet, urlcolor=violet}
+
+\definecolor{codebg}{RGB}{245,245,248}
+\definecolor{codecomment}{RGB}{110,110,120}
+\lstset{
+  backgroundcolor=\color{codebg},
+  basicstyle=\ttfamily\small,
+  commentstyle=\color{codecomment},
+  breaklines=true, frame=single, rulecolor=\color{lightgray},
+  framesep=6pt, xleftmargin=6pt, showstringspaces=false,
+  columns=fullflexible, keepspaces=true
+}
+
+\newcommand{\V}{\textbf{V}}
+\newcommand{\Ff}{\textbf{F}}
+
+\title{\textbf{Relatório PTOSS-2 --- Testes de Caixa-Branca\\ do \texttt{fluxograma\_controller}}}
+\author{NoFluxoUNB \\ \small FGA0314 --- Testes de Software (2026.1)}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+Este relatório descreve a aplicação da técnica de \textbf{teste estrutural
+(caixa-branca)} sobre as funções auxiliares do \texttt{fluxograma\_controller},
+o módulo mais complexo do backend do NoFluxoUNB. Apresentamos a motivação, o
+projeto dos casos de teste no formato de três tabelas (Condições,
+Tabela-Verdade e Casos) com o critério \textbf{MC/DC}, e os resultados de
+cobertura obtidos. Esta entrega corresponde à \textbf{Fase 2} do nosso plano de
+testes (aumento de cobertura).
+\end{abstract}
+
+\tableofcontents
+\bigskip
+
+% ===========================================================================
+\section{Por que fizemos esses testes (e como ajudam o projeto)}
+% ===========================================================================
+
+O \texttt{fluxograma\_controller} ($\approx$1.000 linhas) é o coração do produto:
+é ele que \emph{casa} as disciplinas do histórico do aluno com as matérias do
+curso, resolve \emph{equivalências} e \emph{pré-requisitos} e calcula o que já
+foi integralizado. Se essa lógica erra, o aluno vê um fluxograma errado --- uma
+matéria aparece como concluída sem ter sido, ou como pendente quando já foi
+cumprida por equivalência. É exatamente o tipo de erro que mais prejudica a
+confiança no sistema.
+
+Por isso escolhemos a técnica de \textbf{caixa-branca}: diferente da caixa-preta
+(que olha só a especificação), aqui exercitamos os \textbf{caminhos internos do
+código} --- cada decisão, cada ramo, cada condição de uma expressão composta.
+Isso encontra classes de defeito que a caixa-preta dificilmente pega, como:
+
+\begin{itemize}[leftmargin=1.4em]
+  \item erros em \textbf{condições compostas} e \textbf{curto-circuito}
+        (ex.: \texttt{tipo\_natureza !== undefined \&\& !== null});
+  \item ramos de \textbf{fallback} raramente percorridos
+        (ex.: os 4 níveis de \texttt{findSubjectMatch});
+  \item lógica de \textbf{prioridade} na resolução de duplicatas
+        (\texttt{processMatchedDiscipline}).
+\end{itemize}
+
+\paragraph{Benefícios concretos para o projeto.}
+\begin{enumerate}[leftmargin=1.6em]
+  \item \textbf{Rede de segurança contra regressão}: os testes rodam no CI a
+        cada PR; se alguém quebrar a lógica de casamento/equivalência, o build
+        falha antes do merge.
+  \item \textbf{Documentação executável}: cada caso registra, de forma
+        verificável, qual é o comportamento esperado de cada função.
+  \item \textbf{Testes rápidos e determinísticos}: testam funções puras, sem
+        banco de dados nem rede --- ao contrário dos testes de endpoint, que
+        dependem de \emph{mocks} frágeis do Supabase.
+  \item \textbf{Cobertura mensurável}: elevamos a cobertura do módulo de
+        $\sim$10\% para $\sim$28\% (ver Seção~\ref{sec:resultados}), cumprindo a
+        Fase 2 do plano de testes.
+\end{enumerate}
+
+% ===========================================================================
+\section{Alvo dos testes}
+% ===========================================================================
+
+As funções auxiliares são internas ao módulo. Para testá-las de forma isolada
+(sem passar pelos \emph{endpoints} HTTP), nós as expusemos por meio de um export
+marcado, usado \textbf{apenas} pelos testes, sem alterar o comportamento de
+produção:
+
+\begin{lstlisting}[language=Java]
+// fluxograma_controller.ts
+export const __testing__ = {
+    isOptativa, mapPreRequisitosFromDb, extractSubjectCodes,
+    getCodigosEquivalentes, codigoContidoNaEquivalencia, getStatusPriority,
+    findSubjectMatch, processMatchedDiscipline, checkEquivalencies,
+    mapEquivalenciasFromDb,
+};
+\end{lstlisting}
+
+% ===========================================================================
+\section{Exemplo completo de MC/DC: \texttt{isOptativa}}
+% ===========================================================================
+
+Uma matéria é optativa se \texttt{tipo\_natureza == 1}; quando esse campo não
+está definido, usa-se o \emph{fallback} \texttt{nivel == 0}. O código é:
+
+\begin{lstlisting}[language=Java]
+function isOptativa(mpc): boolean {
+    if (mpc.tipo_natureza !== undefined && mpc.tipo_natureza !== null)
+        return mpc.tipo_natureza === 1;
+    return (mpc.nivel ?? 0) === 0;
+}
+\end{lstlisting}
+
+A decisão principal é $D = C_1 \land C_2$. Aplicamos MC/DC nas três tabelas no
+formato da disciplina.
+
+\subsection*{Tabela 1 --- Condições}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}cll@{}}
+\toprule
+\textbf{Id} & \textbf{Condição / Decisão} & \textbf{Descrição} \\
+\midrule
+$D$   & \texttt{D = C1 \&\& C2}            & decide se usa \texttt{tipo\_natureza} ou o fallback \\
+$C_1$ & \texttt{tipo\_natureza !== undefined} & o campo foi informado \\
+$C_2$ & \texttt{tipo\_natureza !== null}      & o campo não é nulo \\
+\bottomrule
+\end{tabular}
+\caption{Decisão e condições atômicas de \texttt{isOptativa}.}
+\end{table}
+
+\subsection*{Tabela 2 --- Tabela-Verdade e pares de independência}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}ccccl@{}}
+\toprule
+\textbf{\#} & $C_1$ & $C_2$ & $D$ & \textbf{Observação} \\
+\midrule
+1 & \V  & \V  & \V  & \texttt{tipo\_natureza} definido e não nulo \\
+2 & \V  & \Ff & \Ff & \texttt{tipo\_natureza = null} \\
+3 & \Ff & \V  & \Ff & \texttt{tipo\_natureza = undefined} (curto-circuito) \\
+4 & \Ff & \Ff & \Ff & combinação impossível na prática \\
+\bottomrule
+\end{tabular}
+\caption{Tabela-verdade de $D = C_1 \land C_2$. Pares de independência:
+\textbf{(1,3)} isola $C_1$ ($C_2$ fixo em \V, $D$ muda) e
+\textbf{(1,2)} isola $C_2$ ($C_1$ fixo em \V, $D$ muda).}
+\end{table}
+
+O conjunto MC/DC mínimo que cobre os dois pares é $\{1, 2, 3\}$. Cada linha gera
+ainda uma subdecisão (\texttt{tipo\_natureza === 1} quando $D=\V$;
+\texttt{(nivel ?? 0) === 0} quando $D=\Ff$), que também exercitamos.
+
+\subsection*{Tabela 3 --- Casos de Teste}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}clll@{}}
+\toprule
+\textbf{CT} & \textbf{Entrada} & \textbf{Cobre} & \textbf{Saída esperada} \\
+\midrule
+CT1 & \texttt{\{tipo\_natureza: 1\}}                & linha 1 ($D$\V), sub \V & \texttt{true} (optativa) \\
+CT2 & \texttt{\{tipo\_natureza: 0\}}                & linha 1 ($D$\V), sub \Ff & \texttt{false} (obrigatória) \\
+CT3 & \texttt{\{tipo\_natureza: null, nivel: 0\}}   & linha 2 ($D$\Ff), fb \V  & \texttt{true} \\
+CT4 & \texttt{\{tipo\_natureza: null, nivel: 5\}}   & linha 2 ($D$\Ff), fb \Ff & \texttt{false} \\
+CT5 & \texttt{\{tipo\_natureza: undefined, nivel: 0\}} & linha 3 ($D$\Ff), fb \V & \texttt{true} \\
+CT6 & \texttt{\{tipo\_natureza: undefined, nivel: 5\}} & linha 3 ($D$\Ff), fb \Ff & \texttt{false} \\
+CT7 & \texttt{\{\}} (sem \texttt{nivel})            & \texttt{nivel ?? 0 = 0}  & \texttt{true} \\
+\bottomrule
+\end{tabular}
+\caption{Casos de teste de \texttt{isOptativa} (fb = fallback de \texttt{nivel}).}
+\end{table}
+
+% ===========================================================================
+\section{Demais funções: cobertura de ramos e decisão}
+% ===========================================================================
+
+Para as outras funções aplicamos cobertura de \textbf{ramos/decisão} (cada
+caminho do código exercitado ao menos uma vez). A tabela resume as decisões
+cobertas e o número de casos.
+
+\begin{table}[h]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}lp{8.6cm}c@{}}
+\toprule
+\textbf{Função} & \textbf{Ramos / decisões cobertos} & \textbf{Casos} \\
+\midrule
+\texttt{extractSubjectCodes}        & 1 código, vários códigos, normalização, sem código, vazio & 5 \\
+\texttt{getCodigosEquivalentes}     & usa \texttt{expressao\_logica}; fallback p/ \texttt{expressao}; nenhum & 3 \\
+\texttt{codigoContidoNaEquivalencia}& código vazio; com/sem \texttt{expressao\_logica}; contido/não & 4 \\
+\texttt{getStatusPriority}          & 3 ramos: integralizada(3), MATR(2), demais(1) & 3 \\
+\texttt{findSubjectMatch}           & 4 níveis de fallback (código/nome $\times$ obrig/opt) + sem match & 5 \\
+\texttt{processMatchedDiscipline}   & nova; tipo optativa/obrig; duplicata prioridade maior/menor & 4 \\
+\texttt{checkEquivalencies}         & satisfeita por lógica; por fallback; não integralizada; nenhuma & 4 \\
+\texttt{mapEquivalenciasFromDb}     & mapeamento padrão; entrada nula; formato legado & 3 \\
+\texttt{mapPreRequisitosFromDb}     & vazio; expansão por lógica; ramo \texttt{id\_materia\_requisito} & 3 \\
+\bottomrule
+\end{tabular}
+\caption{Decisões cobertas pelos demais testes de unidade.}
+\end{table}
+
+% ===========================================================================
+\section{Resultados de cobertura}
+\label{sec:resultados}
+% ===========================================================================
+
+Medição com \texttt{jest --coverage} sobre
+\texttt{src/controllers/fluxograma\_controller.ts}, antes e depois da nova suíte:
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Métrica} & \textbf{Antes} & \textbf{Depois} & \textbf{Ganho} \\
+\midrule
+Statements & 10,08\% & 28,33\% & +18,3 p.p. \\
+Branches   & 3,93\%  & 31,88\% & +28,0 p.p. \\
+Functions  & 6,38\%  & 46,80\% & +40,4 p.p. \\
+Lines      & 10,58\% & 28,23\% & +17,7 p.p. \\
+\bottomrule
+\end{tabular}
+\caption{Cobertura do \texttt{fluxograma\_controller} antes/depois.}
+\end{table}
+
+A camada de funções auxiliares ficou praticamente toda coberta. O que resta sem
+cobrir são os \emph{endpoints} HTTP assíncronos (linhas $\approx$415--1027), que
+dependem fortemente do Supabase e exigem \emph{mocks} --- alvo de uma etapa
+futura. A suíte completa do backend ficou em \textbf{84 testes / 7 suítes}, todos
+passando.
+
+\subsection*{Como reproduzir}
+
+\begin{lstlisting}[language=bash]
+cd no_fluxo_backend
+npm ci
+npx jest tests-ts/fluxograma_controller.whitebox.test.ts \
+  --coverage --collectCoverageFrom='src/controllers/fluxograma_controller.ts'
+\end{lstlisting}
+
+\bigskip
+\hrule
+\bigskip
+\noindent\small
+Branch: \texttt{test/fluxograma-controller-coverage} \quad$\cdot$\quad
+Arquivos: \texttt{src/controllers/fluxograma\_controller.ts} (export
+\texttt{\_\_testing\_\_}) e \texttt{tests-ts/fluxograma\_controller.whitebox.test.ts}.
+
+\end{document}

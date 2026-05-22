@@ -86,3 +86,21 @@ debug_html/
 
 # Supabase migrations (gerenciadas fora do repo)
 supabase/migrations/
+# Cobertura / artefatos de teste Python
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.pytest_cache/
+
+# Material de estudo da disciplina de testes (mantido local, não versionado)
+docs_testes/
+
+# Relatórios LaTeX da disciplina de testes (entregáveis avulsos) e artefatos
+# de compilação. As docs .md de docs/testes continuam versionadas (site mkdocs).
+docs/testes/*.tex
+docs/testes/*.pdf
+docs/testes/*.aux
+docs/testes/*.log
+docs/testes/*.out
+docs/testes/*.toc

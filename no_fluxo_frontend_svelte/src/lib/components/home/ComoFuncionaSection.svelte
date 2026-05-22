@@ -1,37 +1,50 @@
 <script lang="ts">
 	import FeatureCard from './FeatureCard.svelte';
-	import { ClipboardList, PlusCircle, CheckCircle, Bot, ArrowRightLeft } from 'lucide-svelte';
+	import {
+		ClipboardList,
+		PlusCircle,
+		CheckCircle,
+		Bot,
+		ArrowRightLeft,
+		GitCompare
+	} from 'lucide-svelte';
 
 	const features = [
 		{
 			icon: ClipboardList,
 			title: 'Visualize sua grade',
 			description:
-				'Disciplinas por semestre e pré-requisitos no mesmo painel, com leitura rápida e hierarquia clara.'
+				'Veja todas as disciplinas do seu curso organizadas por semestre, com os pré-requisitos visíveis num só lugar.'
 		},
 		{
 			icon: PlusCircle,
 			title: 'Planeje optativas',
 			description:
-				'Inclua optativas no fluxo e alinhe seu percurso aos seus interesses mantendo o mesmo visual do produto.'
+				'Inclua optativas no seu fluxograma e visualize como elas se encaixam no seu percurso. Bom pra quem já sabe no que quer se aprofundar e pra quem ainda tá descobrindo.'
 		},
 		{
 			icon: ArrowRightLeft,
 			title: 'Simule mudança de curso',
 			description:
-				'Use seu histórico para explorar como ficaria a integralização em outro curso da UnB.'
+				'Curioso pra saber como ficaria seu histórico em outro curso? Simule a integralização e veja o que aproveita.'
 		},
 		{
 			icon: Bot,
 			title: 'Assistente de IA',
 			description:
-				'Converse com o assistente no mesmo sistema visual: lilás de apoio e componentes padronizados.'
+				'Converse com a IA pra descobrir optativas alinhadas ao que te interessa e tirar dúvidas sobre matérias do seu curso.'
 		},
 		{
 			icon: CheckCircle,
 			title: 'Acompanhe o progresso',
 			description:
-				'Status semânticos, carga horária e o que falta para concluir — com cards e legendas consistentes.'
+				'Veja exatamente quanto falta pra formar, quais matérias você já cumpriu e quais ainda precisam entrar no seu plano.'
+		},
+		{
+			icon: GitCompare,
+			title: 'Encontre equivalências',
+			description:
+				'Descubra matérias equivalentes em outras matrizes e campi da UnB sem precisar caçar no SIGAA.'
 		}
 	];
 </script>
@@ -72,16 +85,6 @@
 		.feature-cards {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 			gap: 1.1rem;
-		}
-
-		:global(.feature-cards .feature-card:nth-child(4)) {
-			grid-column: 1;
-			grid-row: 2;
-		}
-
-		:global(.feature-cards .feature-card:nth-child(5)) {
-			grid-column: 3;
-			grid-row: 2;
 		}
 	}
 </style>

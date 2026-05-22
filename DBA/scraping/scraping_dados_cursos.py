@@ -1,7 +1,7 @@
 import requests
 import json
 
-'''
+"""
 Esse arquivo tem como objetivo extrair dados dos cursos da UnB, os dados serão estruturados na forma:
 
  "id_curso": 414112,
@@ -26,7 +26,7 @@ Esse arquivo tem como objetivo extrair dados dos cursos da UnB, os dados serão 
     "convenio_academico": null
     
 
-'''
+"""
 
 
 # URL do JSON
@@ -46,16 +46,13 @@ if response.status_code == 200:
     try:
         # Carregando o conteúdo como JSON
         data = response.json()
-        
+
         # Salvando o JSON formatado
         with open(output_file, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4, ensure_ascii=False)
-        
+
         print(f"Arquivo salvo como {output_file} (formatado)")
     except json.JSONDecodeError:
         print("Erro: O conteúdo baixado não é um JSON válido.")
 else:
-    print(
-        f"Falha ao baixar o arquivo. "
-        f"Código de status: {response.status_code}"
-    )
+    print(f"Falha ao baixar o arquivo. " f"Código de status: {response.status_code}")

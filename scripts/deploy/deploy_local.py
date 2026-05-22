@@ -74,7 +74,9 @@ class DeployApiClient:
         json_body: Any | None = None,
     ) -> Any:
         url = self._url(path)
-        res = self._session.request(method, url, params=params, json=json_body, timeout=self._timeout_s)
+        res = self._session.request(
+            method, url, params=params, json=json_body, timeout=self._timeout_s
+        )
         if not res.ok:
             raise ApiError(status_code=res.status_code, url=url, body=res.text)
         if res.status_code == 204:
@@ -85,7 +87,9 @@ class DeployApiClient:
         return self._request_json("POST", "/build", json_body=payload)
 
     def wait_build(self, job_name: str, timeout_s: int = 1800) -> dict[str, Any]:
-        return self._request_json("POST", f"/build/{job_name}/wait", params={"timeout": timeout_s})
+        return self._request_json(
+            "POST", f"/build/{job_name}/wait", params={"timeout": timeout_s}
+        )
 
     def get_build(self, job_name: str) -> dict[str, Any]:
         return self._request_json("GET", f"/build/{job_name}")
@@ -96,7 +100,9 @@ class DeployApiClient:
         return logs if isinstance(logs, str) else ""
 
     def resolve_digest(self, image_name: str, tag: str) -> str:
-        result = self._request_json("GET", f"/registry/{image_name}/digest", params={"tag": tag})
+        result = self._request_json(
+            "GET", f"/registry/{image_name}/digest", params={"tag": tag}
+        )
         build_id = result.get("buildId") if isinstance(result, dict) else None
         if not build_id or not isinstance(build_id, str):
             raise RuntimeError("Unexpected response when resolving digest")
@@ -121,7 +127,9 @@ def _default_state_path(app_key: str) -> Path:
 
 def save_state(state: BuildIdState, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(state.__dict__, indent=2, sort_keys=True) + "\n", "utf-8")
+    path.write_text(
+        json.dumps(state.__dict__, indent=2, sort_keys=True) + "\n", "utf-8"
+    )
 
 
 def load_state(path: Path) -> BuildIdState:
@@ -197,25 +205,35 @@ def _ensure_buildx_builder(docker_bin: str) -> str:
     try:
         result = subprocess.run(
             [docker_bin, "buildx", "inspect", BUILDX_BUILDER_NAME],
-            capture_output=True, text=True,
+            capture_output=True,
+            text=True,
         )
         if result.returncode == 0:
             # Builder exists; make sure it's running
             subprocess.run(
                 [docker_bin, "buildx", "inspect", BUILDX_BUILDER_NAME, "--bootstrap"],
-                capture_output=True, text=True,
+                capture_output=True,
+                text=True,
             )
             return BUILDX_BUILDER_NAME
     except Exception:
         pass
 
     # Create a new builder with docker-container driver
-    print(f"Creating buildx builder '{BUILDX_BUILDER_NAME}' (docker-container driver) for multi-platform builds...")
+    print(
+        f"Creating buildx builder '{BUILDX_BUILDER_NAME}' (docker-container driver) for multi-platform builds..."
+    )
     subprocess.run(
-        [docker_bin, "buildx", "create",
-         "--name", BUILDX_BUILDER_NAME,
-         "--driver", "docker-container",
-         "--bootstrap"],
+        [
+            docker_bin,
+            "buildx",
+            "create",
+            "--name",
+            BUILDX_BUILDER_NAME,
+            "--driver",
+            "docker-container",
+            "--bootstrap",
+        ],
         check=True,
     )
     return BUILDX_BUILDER_NAME
@@ -241,16 +259,24 @@ def docker_build(
     if platforms:
         builder = _ensure_buildx_builder(docker_bin)
         cmd: list[str] = [
-            docker_bin, "buildx", "build",
-            "--builder", builder,
-            "--platform", platforms,
-            "-t", image_ref,
-            "-f", str(dockerfile),
+            docker_bin,
+            "buildx",
+            "build",
+            "--builder",
+            builder,
+            "--platform",
+            platforms,
+            "-t",
+            image_ref,
+            "-f",
+            str(dockerfile),
         ]
         if push:
             cmd.append("--push")
         else:
-            print("WARNING: Multi-platform build without --push; image won't be available locally")
+            print(
+                "WARNING: Multi-platform build without --push; image won't be available locally"
+            )
     else:
         cmd = [docker_bin, "build", "-t", image_ref, "-f", str(dockerfile)]
 
@@ -274,12 +300,15 @@ def load_dotenv_if_present(path: Path, override: bool = False) -> None:
         return
     try:
         from dotenv import load_dotenv  # type: ignore
+
         load_dotenv(path, override=override)
     except Exception:
         return
 
 
-def load_env_files(repo_root: Path, cfg: AppConfig | None, env_file: str | None) -> None:
+def load_env_files(
+    repo_root: Path, cfg: AppConfig | None, env_file: str | None
+) -> None:
     """Load environment variables from multiple sources in priority order.
 
     1. Repo root .env.local  (lowest priority)
@@ -339,7 +368,9 @@ def _collect_deploy_env(cfg: AppConfig) -> dict[str, str] | None:
 # ── Payload builder ────────────────────────────────────────────────────────
 
 
-def _deploy_payload(cfg: AppConfig, *, build_id: str, deploy_env: dict[str, str] | None) -> dict[str, Any]:
+def _deploy_payload(
+    cfg: AppConfig, *, build_id: str, deploy_env: dict[str, str] | None
+) -> dict[str, Any]:
     deploy_config: dict[str, Any] = {
         "port": int(cfg.port),
         "replicas": int(cfg.replicas),
@@ -354,7 +385,7 @@ def _deploy_payload(cfg: AppConfig, *, build_id: str, deploy_env: dict[str, str]
         deploy_config["env"] = deploy_env
 
     # Include appClass for node scheduling (business vs non-business)
-    app_class = getattr(cfg, 'app_class', 'business')
+    app_class = getattr(cfg, "app_class", "business")
     if app_class:
         deploy_config["appClass"] = app_class
 
@@ -497,7 +528,10 @@ def run_local_deploy(
     try:
         build_id = client.resolve_digest(cfg.image_name, chosen_tag)
     except ApiError as e:
-        print(f"ERROR {e.status_code} resolving digest for {cfg.image_name}:{chosen_tag}:\n{e.body}", file=sys.stderr)
+        print(
+            f"ERROR {e.status_code} resolving digest for {cfg.image_name}:{chosen_tag}:\n{e.body}",
+            file=sys.stderr,
+        )
         return 2
 
     state_path = state_file or _default_state_path(cfg.key)
@@ -532,7 +566,9 @@ def run_local_deploy(
         skipped = res.get("skipped") if isinstance(res, dict) else None
         if status == "succeeded" or success is True:
             if skipped is True:
-                print("Info: build skipped; deploy completed immediately (no jobName to wait on).")
+                print(
+                    "Info: build skipped; deploy completed immediately (no jobName to wait on)."
+                )
             else:
                 print("Info: deploy completed immediately (no jobName to wait on).")
             return 0
@@ -540,7 +576,9 @@ def run_local_deploy(
         return 0
 
     if stream_logs:
-        final_status = stream_logs_until_done(client, job_name=job_name, timeout_s=wait_timeout)
+        final_status = stream_logs_until_done(
+            client, job_name=job_name, timeout_s=wait_timeout
+        )
         st = final_status.get("status")
         if st == "failed":
             return 1
@@ -549,7 +587,10 @@ def run_local_deploy(
     try:
         wait_res = client.wait_build(job_name, timeout_s=wait_timeout)
     except ApiError as e:
-        print(f"ERROR {e.status_code} waiting for job {job_name}:\n{e.body}", file=sys.stderr)
+        print(
+            f"ERROR {e.status_code} waiting for job {job_name}:\n{e.body}",
+            file=sys.stderr,
+        )
         return 2
 
     print(json.dumps(wait_res, indent=2, sort_keys=True))
@@ -606,7 +647,9 @@ def run_redeploy(
         skipped = res.get("skipped") if isinstance(res, dict) else None
         if status == "succeeded" or success is True:
             if skipped is True:
-                print("Info: build skipped; deploy completed immediately (no jobName to wait on).")
+                print(
+                    "Info: build skipped; deploy completed immediately (no jobName to wait on)."
+                )
             else:
                 print("Info: deploy completed immediately (no jobName to wait on).")
             return 0
@@ -614,7 +657,9 @@ def run_redeploy(
         return 0
 
     if stream_logs:
-        final_status = stream_logs_until_done(client, job_name=job_name, timeout_s=wait_timeout)
+        final_status = stream_logs_until_done(
+            client, job_name=job_name, timeout_s=wait_timeout
+        )
         st = final_status.get("status")
         if st == "failed":
             return 1
@@ -623,7 +668,10 @@ def run_redeploy(
     try:
         wait_res = client.wait_build(job_name, timeout_s=wait_timeout)
     except ApiError as e:
-        print(f"ERROR {e.status_code} waiting for job {job_name}:\n{e.body}", file=sys.stderr)
+        print(
+            f"ERROR {e.status_code} waiting for job {job_name}:\n{e.body}",
+            file=sys.stderr,
+        )
         return 2
 
     print(json.dumps(wait_res, indent=2, sort_keys=True))
@@ -647,20 +695,39 @@ def build_parser() -> argparse.ArgumentParser:
         help="Which app to deploy (must match a key in deploy_config.APPS, or 'all')",
     )
 
-    parser.add_argument("--env-file", default=None, help="Path to .env file (default: repo/.env.local if present)")
+    parser.add_argument(
+        "--env-file",
+        default=None,
+        help="Path to .env file (default: repo/.env.local if present)",
+    )
 
-    parser.add_argument("--api-url", default=None, help="Deploy API base URL (or DEPLOY_API_URL env var)")
-    parser.add_argument("--api-key", default=None, help="Deploy API key (or DEPLOY_API_KEY env var)")
-    parser.add_argument("--timeout", type=float, default=None, help="HTTP timeout seconds (or DEPLOY_API_TIMEOUT)")
+    parser.add_argument(
+        "--api-url",
+        default=None,
+        help="Deploy API base URL (or DEPLOY_API_URL env var)",
+    )
+    parser.add_argument(
+        "--api-key", default=None, help="Deploy API key (or DEPLOY_API_KEY env var)"
+    )
+    parser.add_argument(
+        "--timeout",
+        type=float,
+        default=None,
+        help="HTTP timeout seconds (or DEPLOY_API_TIMEOUT)",
+    )
 
     parser.add_argument(
         "--registry",
         default=None,
         help="Registry host (or DEPLOY_REGISTRY env var; default: registry.kubernetes.crianex.com)",
     )
-    parser.add_argument("--docker", default="docker", help="Docker CLI binary (default: docker)")
+    parser.add_argument(
+        "--docker", default="docker", help="Docker CLI binary (default: docker)"
+    )
 
-    parser.add_argument("--tag", default=None, help="Image tag to push (default: local-<timestamp>)")
+    parser.add_argument(
+        "--tag", default=None, help="Image tag to push (default: local-<timestamp>)"
+    )
     parser.add_argument("--no-push", action="store_true", help="Build but do not push")
 
     parser.add_argument(
@@ -679,13 +746,21 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Skip build/push; deploy using last stored buildId for this target",
     )
-    parser.add_argument("--state-file", default=None, help="Override build-id state file path")
+    parser.add_argument(
+        "--state-file", default=None, help="Override build-id state file path"
+    )
 
-    parser.add_argument("--dry-run", action="store_true", help="Print what would happen without executing")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print what would happen without executing",
+    )
 
     parser.add_argument("--wait", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--wait-timeout", type=int, default=1800)
-    parser.add_argument("--stream-logs", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument(
+        "--stream-logs", action=argparse.BooleanOptionalAction, default=True
+    )
 
     return parser
 
@@ -699,7 +774,9 @@ def main(argv: list[str] | None = None) -> int:
     # Load repo root .env.local for deploy API credentials
     load_env_files(repo_root, cfg=None, env_file=args.env_file)
 
-    api_url = (args.api_url or os.environ.get("DEPLOY_API_URL") or "").strip().rstrip("/")
+    api_url = (
+        (args.api_url or os.environ.get("DEPLOY_API_URL") or "").strip().rstrip("/")
+    )
     api_key = (args.api_key or os.environ.get("DEPLOY_API_KEY") or "").strip()
 
     if not api_url:
@@ -712,7 +789,11 @@ def main(argv: list[str] | None = None) -> int:
     else:
         timeout_s = float(os.environ.get("DEPLOY_API_TIMEOUT") or 30.0)
 
-    registry = args.registry or os.environ.get("DEPLOY_REGISTRY") or "registry.kubernetes.crianex.com"
+    registry = (
+        args.registry
+        or os.environ.get("DEPLOY_REGISTRY")
+        or "registry.kubernetes.crianex.com"
+    )
 
     state_file = Path(args.state_file) if args.state_file else None
 
