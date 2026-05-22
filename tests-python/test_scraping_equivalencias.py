@@ -1,20 +1,22 @@
 import re
 import unicodedata
-import unittest          # <--- padrão Python vem antes
+import unittest  # <--- padrão Python vem antes
 from bs4 import BeautifulSoup  # <--- depois os pacotes externos
 
 
 def _remover_acentos(texto_com_acento):
     if not isinstance(texto_com_acento, str):
         return texto_com_acento
-    nfkd_form = unicodedata.normalize('NFKD', texto_com_acento)
+    nfkd_form = unicodedata.normalize("NFKD", texto_com_acento)
     return "".join([c for c in nfkd_form if not unicodedata.combining(c)])
+
 
 def limpar_texto(texto):
     if isinstance(texto, str):
-        texto = re.sub(r'\s+', ' ', texto)
+        texto = re.sub(r"\s+", " ", texto)
         return texto.strip()
     return texto
+
 
 def extrair_equivalencias(cells):
     equivalencias = []
@@ -23,6 +25,7 @@ def extrair_equivalencias(cells):
         descricao = ac.get("title", "").split(" - ")[-1]
         equivalencias.append(f"{codigo} ({descricao})")
     return ", ".join(equivalencias) if equivalencias else "Nenhuma"
+
 
 class TestScraperUtils(unittest.TestCase):
     def test_remover_acentos(self):
@@ -51,5 +54,6 @@ class TestScraperUtils(unittest.TestCase):
         self.assertIn("MAT123 (Matemática Básica)", resultado)
         self.assertIn("FIS456 (Física Geral)", resultado)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

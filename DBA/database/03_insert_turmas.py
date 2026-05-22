@@ -170,7 +170,10 @@ def flush_upsert(lote):
             except Exception:
                 pass
         if inseridas < len(lote):
-            print(f"    [turmas] lote parcial: {inseridas}/{len(lote)} upserts.", flush=True)
+            print(
+                f"    [turmas] lote parcial: {inseridas}/{len(lote)} upserts.",
+                flush=True,
+            )
         return inseridas
 
 
@@ -185,7 +188,10 @@ def main():
 
     print("[1/3] Carregando cache de matérias...", flush=True)
     load_cache_materias()
-    print(f"      [Cache] {len(CACHE_ID_MATERIA)} códigos de matéria mapeados.", flush=True)
+    print(
+        f"      [Cache] {len(CACHE_ID_MATERIA)} códigos de matéria mapeados.",
+        flush=True,
+    )
 
     arquivos = listar_arquivos_turmas()
     print(f"[2/3] Processando {len(arquivos)} arquivos de turmas...", flush=True)

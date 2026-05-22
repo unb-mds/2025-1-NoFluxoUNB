@@ -33,8 +33,8 @@ FETCH_PAGE = 2000  # quantos registros buscar por vez ao carregar caches
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # Chaves já existentes no banco (evita SELECT por registro)
-SET_PRE = set()   # (id_materia, expressao_original)
-SET_CO = set()    # (id_materia, expressao_original)
+SET_PRE = set()  # (id_materia, expressao_original)
+SET_CO = set()  # (id_materia, expressao_original)
 SET_EQUI = set()  # (id_materia, expressao_original, id_curso ou None, curriculo ou "")
 
 
@@ -92,7 +92,9 @@ def periodo_to_date(periodo):
 # ---------------------------------------------------------------------------
 CACHE_ID_MATERIA = {}
 CACHE_CURRICULO_ID_CURSO = {}
-SET_ID_CURSOS_VALIDOS = set()  # id_curso que existem em cursos (evita FK ao inserir equivalências)
+SET_ID_CURSOS_VALIDOS = (
+    set()
+)  # id_curso que existem em cursos (evita FK ao inserir equivalências)
 
 
 def load_cache_materias():
@@ -115,7 +117,12 @@ def load_cache_id_cursos_validos():
     """Carrega id_curso existentes em cursos (para não violar FK em equivalencias)."""
     offset = 0
     while True:
-        r = db(supabase.table("cursos").select("id_curso").range(offset, offset + FETCH_PAGE - 1).execute)
+        r = db(
+            supabase.table("cursos")
+            .select("id_curso")
+            .range(offset, offset + FETCH_PAGE - 1)
+            .execute
+        )
         for row in r.data or []:
             i = row.get("id_curso")
             if i is not None:
@@ -274,7 +281,9 @@ def listar_arquivos_turmas():
 def main():
     print("Fase 2: Pré-requisitos, Co-requisitos e Equivalências")
     print(f"Fonte: {PASTA_MATERIAS} (turmas_depto_*.json)")
-    print("Expressão lógica: parser em expressao_parser.py (port de parse-expressao.ts)")
+    print(
+        "Expressão lógica: parser em expressao_parser.py (port de parse-expressao.ts)"
+    )
     if DRY_RUN:
         print(" [DRY-RUN] Nenhuma alteração será persistida.")
     print()
@@ -282,13 +291,21 @@ def main():
     load_cache_materias()
     load_cache_curriculo_id_curso()
     load_cache_id_cursos_validos()
-    print(f"[Cache] {len(CACHE_ID_MATERIA)} matérias; {len(CACHE_CURRICULO_ID_CURSO)} matrizes; {len(SET_ID_CURSOS_VALIDOS)} cursos (id_curso válidos para FK).")
+    print(
+        f"[Cache] {len(CACHE_ID_MATERIA)} matérias; {len(CACHE_CURRICULO_ID_CURSO)} matrizes; {len(SET_ID_CURSOS_VALIDOS)} cursos (id_curso válidos para FK)."
+    )
 
-    print("Carregando pré-requisitos, co-requisitos e equivalências já existentes no banco...", flush=True)
+    print(
+        "Carregando pré-requisitos, co-requisitos e equivalências já existentes no banco...",
+        flush=True,
+    )
     load_cache_pre_requisitos()
     load_cache_co_requisitos()
     load_cache_equivalencias()
-    print(f"[Cache] existentes: pre={len(SET_PRE)}, co={len(SET_CO)}, equi={len(SET_EQUI)}.", flush=True)
+    print(
+        f"[Cache] existentes: pre={len(SET_PRE)}, co={len(SET_CO)}, equi={len(SET_EQUI)}.",
+        flush=True,
+    )
 
     arquivos = listar_arquivos_turmas()
     print(f"Arquivos: {len(arquivos)} (inserção em lotes de {CHUNK_SIZE})")
@@ -338,11 +355,13 @@ def main():
                     try:
                         expr_logica = parse_expression(expr_pr)
                         SET_PRE.add(key_pre)
-                        list_pre.append({
-                            "id_materia": id_materia,
-                            "expressao_original": expr_pr,
-                            "expressao_logica": expr_logica,
-                        })
+                        list_pre.append(
+                            {
+                                "id_materia": id_materia,
+                                "expressao_original": expr_pr,
+                                "expressao_logica": expr_logica,
+                            }
+                        )
                         if len(list_pre) >= CHUNK_SIZE:
                             total_pre += _flush_pre(list_pre)
                             list_pre = []
@@ -358,11 +377,13 @@ def main():
                     try:
                         expr_logica = parse_expression(expr_cr)
                         SET_CO.add(key_co)
-                        list_co.append({
-                            "id_materia": id_materia,
-                            "expressao_original": expr_cr,
-                            "expressao_logica": expr_logica,
-                        })
+                        list_co.append(
+                            {
+                                "id_materia": id_materia,
+                                "expressao_original": expr_cr,
+                                "expressao_logica": expr_logica,
+                            }
+                        )
                         if len(list_co) >= CHUNK_SIZE:
                             total_co += _flush_co(list_co)
                             list_co = []
@@ -378,11 +399,13 @@ def main():
                     try:
                         expr_logica = parse_expression(expr_eq)
                         SET_EQUI.add(key_equi)
-                        list_equi.append({
-                            "id_materia": id_materia,
-                            "expressao_original": expr_eq,
-                            "expressao_logica": expr_logica,
-                        })
+                        list_equi.append(
+                            {
+                                "id_materia": id_materia,
+                                "expressao_original": expr_eq,
+                                "expressao_logica": expr_logica,
+                            }
+                        )
                         if len(list_equi) >= CHUNK_SIZE:
                             total_equi += _flush_equi(list_equi)
                             list_equi = []
@@ -401,7 +424,9 @@ def main():
                 id_curso = id_curso_from_curriculo(curriculo) if curriculo else None
                 dv = esp.get("data_vigencia")
                 data_vigencia = periodo_to_date(dv) if dv else None
-                key_equi = _chave_equi(id_materia, expr_esp, id_curso, curriculo or None)
+                key_equi = _chave_equi(
+                    id_materia, expr_esp, id_curso, curriculo or None
+                )
                 if key_equi not in SET_EQUI:
                     try:
                         expr_logica = parse_expression(expr_esp)

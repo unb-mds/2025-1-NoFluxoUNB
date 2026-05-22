@@ -5,6 +5,7 @@ Port do DBA/dados/expressao_logica/parse-expressao.ts.
 Formato: string (código único) ou {"operador": "OU"|"E", "condicoes": [ExpressaoLogica, ...]}
 Ex: "( ( CCA0105 ) OU ( FUP0289 ) OU ( CCA0102 ) )" -> {"operador": "OU", "condicoes": ["CCA0105", "FUP0289", "CCA0102"]}
 """
+
 import re
 from typing import Any, List, Union
 
@@ -16,8 +17,8 @@ def normalize_input(expr: str) -> str:
     """Remove espaços especiais, parênteses unicode, normaliza espaços."""
     if not expr:
         return ""
-    s = expr.replace("\u00A0", " ")
-    s = s.replace("\uFF08", "(").replace("\uFF09", ")")
+    s = expr.replace("\u00a0", " ")
+    s = s.replace("\uff08", "(").replace("\uff09", ")")
     s = re.sub(r"\s+", " ", s)
     return s.strip()
 

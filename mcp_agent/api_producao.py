@@ -17,7 +17,13 @@ load_dotenv()
 
 # Print env vars on startup for debugging
 print("\n--- MCP Agent env vars at startup ---")
-for key in ("GOOGLE_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "MARITACA_API_KEY", "ALLOWED_ORIGINS"):
+for key in (
+    "GOOGLE_API_KEY",
+    "SUPABASE_URL",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "MARITACA_API_KEY",
+    "ALLOWED_ORIGINS",
+):
     value = os.environ.get(key)
     if value:
         preview = value[:8] + "..." if len(value) > 8 else value
@@ -28,14 +34,20 @@ print("---\n")
 
 # Clientes globais mantêm conexões persistentes
 genai.configure(api_key=os.environ.get("GOOGLE_API_KEY"))
-supabase = create_client(os.environ.get("SUPABASE_URL"), os.environ.get("SUPABASE_SERVICE_ROLE_KEY"))
-client_maritaca = OpenAI(api_key=os.environ.get("MARITACA_API_KEY"), base_url="https://chat.maritaca.ai/api")
+supabase = create_client(
+    os.environ.get("SUPABASE_URL"), os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+)
+client_maritaca = OpenAI(
+    api_key=os.environ.get("MARITACA_API_KEY"), base_url="https://chat.maritaca.ai/api"
+)
 
 # Configuração do FastAPI
 app = FastAPI(title="Darcy AI - API da UnB", version="1.0")
 
 # CORS - Configurar origens permitidas em produção
-ALLOWED_ORIGINS = os.environ.get("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000").split(",")
+ALLOWED_ORIGINS = os.environ.get(
+    "ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000"
+).split(",")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,  # Em produção, substituir por domínios reais
@@ -44,11 +56,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # Modelo de entrada de dados esperado do frontend/usuário
 # Modelo de entrada de dados esperado do frontend/usuário
 class Consulta(BaseModel):
     interesse: str
     matriz_curricular: str = ""
+
 
 # Prompt do Sistema
 SYSTEM_PROMPT = (
@@ -76,15 +90,13 @@ TOOLS = [
                 "properties": {
                     "termos_busca": {
                         "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "Lista com EXATAMENTE 4 strings obrigatórias: [termo_principal, sinônimo1, sinônimo2, termo_relacionado]. SEMPRE preencha os 4 campos, mesmo que repita termos similares."
+                        "items": {"type": "string"},
+                        "description": "Lista com EXATAMENTE 4 strings obrigatórias: [termo_principal, sinônimo1, sinônimo2, termo_relacionado]. SEMPRE preencha os 4 campos, mesmo que repita termos similares.",
                     }
                 },
-                "required": ["termos_busca"]
-            }
-        }
+                "required": ["termos_busca"],
+            },
+        },
     },
     {
         "type": "function",
@@ -96,58 +108,78 @@ TOOLS = [
                 "properties": {
                     "aviso": {
                         "type": "string",
-                        "description": "Apenas envie 'ok' para prosseguir."
+                        "description": "Apenas envie 'ok' para prosseguir.",
                     }
                 },
-                "required": ["aviso"]
-            }
-        }
-    }
+                "required": ["aviso"],
+            },
+        },
+    },
 ]
+
 
 def parse_resposta_sabia(texto: str) -> list:
     """Extrai as disciplinas do texto da IA bloqueando qualquer duplicação."""
     disciplinas = []
-    codigos_vistos = set() # O nosso rastreador de duplicatas
-    
-    linhas = texto.split('\n')
+    codigos_vistos = set()  # O nosso rastreador de duplicatas
+
+    linhas = texto.split("\n")
     for linha in linhas:
-        linha = linha.strip().lstrip('*').lstrip('-').lstrip('•').strip()
-        codigo_match = re.match(r'([A-Z]{3}\d{4})', linha)
-        if not codigo_match: continue
-            
+        linha = linha.strip().lstrip("*").lstrip("-").lstrip("•").strip()
+        codigo_match = re.match(r"([A-Z]{3}\d{4})", linha)
+        if not codigo_match:
+            continue
+
         try:
             codigo = codigo_match.group(1).upper()
-            
+
             # Se já vimos esse código pula para a próxima linha
             if codigo in codigos_vistos:
                 continue
-                
-            codigos_vistos.add(codigo) # Registra que já pegou essa matéria
-            
-            resto = linha[len(codigo):].strip().lstrip('-').strip()
-            
-            nome = resto.split('|')[0].strip() if '|' in resto else resto.split('Nota:')[0].strip() if 'Nota:' in resto else resto.strip()
-            nome = nome.strip('*').strip()
-            
+
+            codigos_vistos.add(codigo)  # Registra que já pegou essa matéria
+
+            resto = linha[len(codigo) :].strip().lstrip("-").strip()
+
+            nome = (
+                resto.split("|")[0].strip()
+                if "|" in resto
+                else (
+                    resto.split("Nota:")[0].strip()
+                    if "Nota:" in resto
+                    else resto.strip()
+                )
+            )
+            nome = nome.strip("*").strip()
+
             nota = 7
-            if 'Nota:' in linha:
-                nota_texto = re.sub(r'[^\d]', '', linha.split('Nota:')[1].split('/')[0])
-                if nota_texto: nota = int(nota_texto)
-            
+            if "Nota:" in linha:
+                nota_texto = re.sub(r"[^\d]", "", linha.split("Nota:")[1].split("/")[0])
+                if nota_texto:
+                    nota = int(nota_texto)
+
             justificativa = ""
-            if 'Motivo:' in linha:
-                justificativa = linha.split('Motivo:')[1].strip().strip('*').strip()
-            
-            disciplinas.append({"codigo": codigo, "nome": nome, "nota": nota, "justificativa": justificativa})
+            if "Motivo:" in linha:
+                justificativa = linha.split("Motivo:")[1].strip().strip("*").strip()
+
+            disciplinas.append(
+                {
+                    "codigo": codigo,
+                    "nome": nome,
+                    "nota": nota,
+                    "justificativa": justificativa,
+                }
+            )
         except Exception:
             continue
-            
+
     return disciplinas
 
-import re # Certifique-se de que o 'import re' está no topo do seu ficheiro (já deve estar)
 
-import re # Certifique-se de que o 'import re' está no topo do seu ficheiro (já deve estar)
+import re  # Certifique-se de que o 'import re' está no topo do seu ficheiro (já deve estar)
+
+import re  # Certifique-se de que o 'import re' está no topo do seu ficheiro (já deve estar)
+
 
 # --- NOVA FUNÇÃO: O FLUXO DIRETO PELA MATRIZ (COM LIMPEZA REGEX) ---
 def ferramenta_buscar_optativas(matriz_curricular: str) -> str:
@@ -156,107 +188,146 @@ def ferramenta_buscar_optativas(matriz_curricular: str) -> str:
     # Se receber "8117/-3 - 2025.1", transforma em "8117/-3"
     # Se receber "1856/3 - 2024.2", transforma em "1856/3"
     # Se já vier "8117/-3" sem o ano não altera nada.
-    matriz_limpa = re.sub(r'\s*-\s*\d{4}\.\d+$', '', matriz_curricular).strip()
-    
-    print(f"\n[DEBUG] 🎓 Frontend enviou: '{matriz_curricular}' | Buscando no BD por: '{matriz_limpa}'")
-    
+    matriz_limpa = re.sub(r"\s*-\s*\d{4}\.\d+$", "", matriz_curricular).strip()
+
+    print(
+        f"\n[DEBUG] 🎓 Frontend enviou: '{matriz_curricular}' | Buscando no BD por: '{matriz_limpa}'"
+    )
+
     if not matriz_limpa:
-        return json.dumps([{"codigo": "ERRO", "nome": "Matriz curricular não informada. Peça ao aluno para enviar o currículo ou fazer upload do histórico."}])
-        
+        return json.dumps(
+            [
+                {
+                    "codigo": "ERRO",
+                    "nome": "Matriz curricular não informada. Peça ao aluno para enviar o currículo ou fazer upload do histórico.",
+                }
+            ]
+        )
+
     try:
-        #pegar ID da matriz no banco
-        mat_id_res = supabase.table("matrizes").select("id_matriz").ilike("curriculo_completo", f"%{matriz_limpa}%").execute()
-        
-        if not mat_id_res.data: 
-            return json.dumps([{"codigo": "ERRO", "nome": f"A matriz '{matriz_limpa}' não foi encontrada na base de dados."}])
-            
-        id_matriz = mat_id_res.data[0]['id_matriz']
+        # pegar ID da matriz no banco
+        mat_id_res = (
+            supabase.table("matrizes")
+            .select("id_matriz")
+            .ilike("curriculo_completo", f"%{matriz_limpa}%")
+            .execute()
+        )
+
+        if not mat_id_res.data:
+            return json.dumps(
+                [
+                    {
+                        "codigo": "ERRO",
+                        "nome": f"A matriz '{matriz_limpa}' não foi encontrada na base de dados.",
+                    }
+                ]
+            )
+
+        id_matriz = mat_id_res.data[0]["id_matriz"]
         print(f"[DEBUG] ID da Matriz encontrada: {id_matriz}")
 
         # pegar matérias por curso onde tipo_natureza == 1 (Optativas)
-        materias_res = supabase.table("materias_por_curso").select("id_materia").eq("id_matriz", id_matriz).eq("tipo_natureza", 1).execute()
+        materias_res = (
+            supabase.table("materias_por_curso")
+            .select("id_materia")
+            .eq("id_matriz", id_matriz)
+            .eq("tipo_natureza", 1)
+            .execute()
+        )
 
         if not materias_res.data:
             print("[DEBUG] Nenhuma optativa encontrada para esta matriz.")
             return json.dumps([])
 
         ids_optativas = [item["id_materia"] for item in materias_res.data]
-        
-        detalhes_res = supabase.table("materias").select("codigo_materia, nome_materia").in_("id_materia", ids_optativas).execute()
 
+        detalhes_res = (
+            supabase.table("materias")
+            .select("codigo_materia, nome_materia")
+            .in_("id_materia", ids_optativas)
+            .execute()
+        )
 
-        #print(f"[DEBUG] ✅ Encontradas {len(materias_res.data)} optativas na matriz.")
+        # print(f"[DEBUG] ✅ Encontradas {len(materias_res.data)} optativas na matriz.")
 
-        '''
+        """
         for i in range(3):
             print(f"[DEBUG] ✅ Optativa {i+1}: {materias_res.data[i]}\n")
             materiaEncontrada= supabase.table("materias").select("nome_materia","codigo_materia").eq("id_materia", materias_res.data[i]["id_materia"])
             materiaEncontrada = materiaEncontrada.data
             time.sleep(2)
             print(f"disciplina: {materiaEncontrada}\n")
-        '''
-        #x = json.dumps(detalhes_res.data,ensure_ascii=False)
+        """
+        # x = json.dumps(detalhes_res.data,ensure_ascii=False)
 
-        
         print(f"[DEBUG] ✅ Encontradas {len(detalhes_res.data)} optativas na matriz.")
 
-       
         nomes_ignorados = ["ATIVIDADE DE EXTENSÃO", "ATIVIDADE COMPLEMENTAR"]
-        detalhes_res.data = [m for m in detalhes_res.data if m.get("nome_materia") not in nomes_ignorados]
-            #print(f"[DEBUG] ✅ Optativa {i+1}: {detalhes_res.data[i]}\n")
-
+        detalhes_res.data = [
+            m for m in detalhes_res.data if m.get("nome_materia") not in nomes_ignorados
+        ]
+        # print(f"[DEBUG] ✅ Optativa {i+1}: {detalhes_res.data[i]}\n")
 
         return json.dumps(detalhes_res.data, ensure_ascii=False)
-        
+
     except Exception as e:
         print(f"❌ Erro no fluxo de optativas: {e}")
         return json.dumps([])
+
 
 def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
     print(f"\n[DEBUG] 🧠 Termos recebidos da Maritaca: {termos_busca}")
     try:
         # Filtrar termos vazios antes de enviar para o Gemini
         termos_validos = [t.strip() for t in termos_busca if t and t.strip()]
-        
+
         if not termos_validos:
             print("⚠️ Nenhum termo válido para busca.")
             return "Nenhum termo de busca válido foi fornecido."
-        
+
         print(f"[DEBUG] ✅ Termos válidos após filtro: {termos_validos}")
-        
+
         # 1. GERAÇÃO EM LOTE (BATCH EMBEDDING): 1 única chamada para a API do Gemini
         result = genai.embed_content(
             model="models/gemini-embedding-001",
-            content=termos_validos, 
+            content=termos_validos,
             task_type="retrieval_query",
-            output_dimensionality=256
+            output_dimensionality=256,
         )
-        
-        vetores = result.get('embeddings') or result.get('embedding')
+
+        vetores = result.get("embeddings") or result.get("embedding")
         resultados_finais = {}
 
         # 2. BUSCA NO BANCO: 1 por 1 para cada palavra-chave gerada pela Maritaca
         for i, vetor in enumerate(vetores):
             termo_atual = termos_validos[i]
             print(f"[DEBUG] 🔍 Consultando Supabase para: '{termo_atual}'...")
-            
-            res = supabase.rpc("match_materias", {
-                "query_embedding": vetor,
-                "match_threshold": 0.6,
-                "match_count": 20 # Puxa as 5 melhores de cada termo
-            }).execute()
-            
-            print(f"[DEBUG] Resultados para '{termo_atual}': {len(res.data or [])} encontrados.")
-            
-            for item in (res.data or []):
+
+            res = supabase.rpc(
+                "match_materias",
+                {
+                    "query_embedding": vetor,
+                    "match_threshold": 0.6,
+                    "match_count": 20,  # Puxa as 5 melhores de cada termo
+                },
+            ).execute()
+
+            print(
+                f"[DEBUG] Resultados para '{termo_atual}': {len(res.data or [])} encontrados."
+            )
+
+            for item in res.data or []:
                 # Pega o código, remove espaços em branco nas pontas e força MAIÚSCULA
                 codigo_bruto = item.get("codigo_materia") or ""
                 cod = str(codigo_bruto).strip().upper()
                 sim = item.get("similaridade", 0)
-                
+
                 # Só adiciona se o código for válido (não vazio)
                 if cod:
-                    if cod not in resultados_finais or sim > resultados_finais[cod]["similaridade"]:
+                    if (
+                        cod not in resultados_finais
+                        or sim > resultados_finais[cod]["similaridade"]
+                    ):
                         resultados_finais[cod] = item
 
         # Formatação final
@@ -264,58 +335,62 @@ def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
             {
                 "codigo": item.get("codigo_materia"),
                 "nome": item.get("nome_materia"),
-                "similaridade": round(item.get("similaridade", 0), 2)
+                "similaridade": round(item.get("similaridade", 0), 2),
             }
             for item in resultados_finais.values()
         ]
-            
+
         # Ordena e limita a 25 para economizar tokens na resposta da Maritaca
-        lista_retorno = sorted(lista_retorno, key=lambda x: x['similaridade'], reverse=True)[:25]
+        lista_retorno = sorted(
+            lista_retorno, key=lambda x: x["similaridade"], reverse=True
+        )[:25]
 
         print(f"[DEBUG] ✅ Total de matérias únicas retornadas: {len(lista_retorno)}")
 
         return json.dumps(lista_retorno, ensure_ascii=False)
-    
+
     except Exception as e:
         print(f"❌ Erro na ferramenta de busca, tente novamente mais tarde: {e}")
         return json.dumps([])
+
 
 # 3. ENDPOINT DE HEALTH CHECK (para monitoramento)
 @app.get("/health")
 async def health_check():
     """Endpoint para verificar se a API está funcionando"""
-    return {
-        "status": "healthy",
-        "service": "Darcy AI",
-        "version": "2.0"
-    }
+    return {"status": "healthy", "service": "Darcy AI", "version": "2.0"}
+
 
 # 4. O ENDPOINT PRINCIPAL DA API
 @app.post("/recomendar")
 async def recomendar_materias(consulta: Consulta):
     if not consulta.interesse.strip():
-        raise HTTPException(status_code=400, detail="O campo 'interesse' não pode estar vazio.")
+        raise HTTPException(
+            status_code=400, detail="O campo 'interesse' não pode estar vazio."
+        )
 
-    mensagens = [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": consulta.interesse}]
+    mensagens = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": consulta.interesse},
+    ]
 
     try:
         # Passa a bola para o Sabiá analisar o interesse
         response = client_maritaca.chat.completions.create(
-            model="sabiazinho-4", 
-            messages=mensagens,
-            tools=TOOLS,
-            tool_choice="auto"
+            model="sabiazinho-4", messages=mensagens, tools=TOOLS, tool_choice="auto"
         )
 
         msg_ia = response.choices[0].message
-        
+
         # Se o Sabiá decidir buscar no banco
         if msg_ia.tool_calls:
             mensagens.append(msg_ia)
-            tool_call = msg_ia.tool_calls[0] # Usa apenas a primeira para economia extrema
+            tool_call = msg_ia.tool_calls[
+                0
+            ]  # Usa apenas a primeira para economia extrema
             args = json.loads(tool_call.function.arguments)
             nome_ferramenta = tool_call.function.name
-            
+
             # --- ROTEAMENTO ---
             if nome_ferramenta == "buscar_optativas_curso":
                 print(f"\n[DEBUG] 🎓 IA escolheu buscar optativas do curso.")
@@ -324,7 +399,7 @@ async def recomendar_materias(consulta: Consulta):
                         "success": False,
                         "error": "Envie o historico academico",
                         "disciplinas": [],
-                        "resposta_completa": "Envie o historico academico"
+                        "resposta_completa": "Envie o historico academico",
                     }
                 # Passa a string da matriz direto da consulta!
                 dados_banco = ferramenta_buscar_optativas(consulta.matriz_curricular)
@@ -334,19 +409,21 @@ async def recomendar_materias(consulta: Consulta):
                 dados_banco = ferramenta_buscar_materias_unb(termos)
             else:
                 dados_banco = "[]"
-            
-            mensagens.append({
-                "tool_call_id": tool_call.id,
-                "role": "tool",
-                "name": nome_ferramenta,
-                "content": dados_banco
-            })
+
+            mensagens.append(
+                {
+                    "tool_call_id": tool_call.id,
+                    "role": "tool",
+                    "name": nome_ferramenta,
+                    "content": dados_banco,
+                }
+            )
 
             # Resposta final do Sabiá com limite de tokens aumentado
             final_response = client_maritaca.chat.completions.create(
-                model="sabia-4", 
+                model="sabia-4",
                 messages=mensagens,
-                max_tokens=5000  # Aumentado para comportar mais disciplinas
+                max_tokens=5000,  # Aumentado para comportar mais disciplinas
             )
             resposta_texto = final_response.choices[0].message.content
             print(f"\n[DEBUG] Texto bruto da IA:\n{resposta_texto}\n")
@@ -357,7 +434,7 @@ async def recomendar_materias(consulta: Consulta):
         return {
             "success": True,
             "disciplinas": parse_resposta_sabia(resposta_texto),
-            "resposta_completa": resposta_texto
+            "resposta_completa": resposta_texto,
         }
 
     except Exception as e:
@@ -374,10 +451,15 @@ def _sse_event(stage: str, **kwargs) -> str:
 @app.post("/recomendar-stream")
 async def recomendar_materias_stream(consulta: Consulta):
     if not consulta.interesse.strip():
-        raise HTTPException(status_code=400, detail="O campo 'interesse' não pode estar vazio.")
+        raise HTTPException(
+            status_code=400, detail="O campo 'interesse' não pode estar vazio."
+        )
 
     def generate():
-        mensagens = [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": consulta.interesse}]
+        mensagens = [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": consulta.interesse},
+        ]
 
         try:
             # Stage 1: Thinking
@@ -387,7 +469,7 @@ async def recomendar_materias_stream(consulta: Consulta):
                 model="sabiazinho-4",
                 messages=mensagens,
                 tools=TOOLS,
-                tool_choice="auto"
+                tool_choice="auto",
             )
 
             msg_ia = response.choices[0].message
@@ -403,28 +485,33 @@ async def recomendar_materias_stream(consulta: Consulta):
                     if not consulta.matriz_curricular.strip():
                         yield _sse_event("error", message="Envie o historico academico")
                         return
-                    yield _sse_event("searching", message="Consultando sua matriz curricular...")
-                    dados_banco = ferramenta_buscar_optativas(consulta.matriz_curricular)
+                    yield _sse_event(
+                        "searching", message="Consultando sua matriz curricular..."
+                    )
+                    dados_banco = ferramenta_buscar_optativas(
+                        consulta.matriz_curricular
+                    )
                 else:
                     termos = args.get("termos_busca", [])
-                    yield _sse_event("searching", message="Buscando disciplinas no banco de dados...")
+                    yield _sse_event(
+                        "searching", message="Buscando disciplinas no banco de dados..."
+                    )
                     dados_banco = ferramenta_buscar_materias_unb(termos)
 
-                mensagens.append({
-                    "tool_call_id": tool_call.id,
-                    "role": "tool",
-                    "name": nome_ferramenta,
-                    "content": dados_banco
-                })
+                mensagens.append(
+                    {
+                        "tool_call_id": tool_call.id,
+                        "role": "tool",
+                        "name": nome_ferramenta,
+                        "content": dados_banco,
+                    }
+                )
 
                 # Stage 3: Generating (with streaming)
                 yield _sse_event("generating", message="Gerando recomendações...")
 
                 stream = client_maritaca.chat.completions.create(
-                    model="sabia-4",
-                    messages=mensagens,
-                    max_tokens=5000,
-                    stream=True
+                    model="sabia-4", messages=mensagens, max_tokens=5000, stream=True
                 )
 
                 resposta_texto = ""
@@ -436,7 +523,7 @@ async def recomendar_materias_stream(consulta: Consulta):
                         resposta_texto += delta.content
 
                         # Only parse complete lines to avoid emitting partial names
-                        last_newline = resposta_texto.rfind('\n')
+                        last_newline = resposta_texto.rfind("\n")
                         if last_newline == -1:
                             continue
                         complete_text = resposta_texto[:last_newline]

@@ -5,7 +5,7 @@ import pytest
 import sys
 
 # Importar o módulo config para que possamos recarregá-lo
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, project_root)
 
 
@@ -46,7 +46,7 @@ def test_config_variaveis_ausentes(clean_env, mocker):
     """
     # Esta linha impede que a função load_dotenv seja executada,
     # garantindo que o .env não seja lido do disco neste teste.
-    mocker.patch('dotenv.load_dotenv')
+    mocker.patch("dotenv.load_dotenv")
 
     # Agora, o ValueError será lançado como esperado
     with pytest.raises(ValueError) as excinfo:
