@@ -84,6 +84,8 @@ debug_html/
 .env.local
 .deploy/
 
+# Supabase migrations (gerenciadas fora do repo)
+supabase/migrations/
 # Cobertura / artefatos de teste Python
 .coverage
 .coverage.*

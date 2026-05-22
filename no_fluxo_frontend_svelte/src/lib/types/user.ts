@@ -76,6 +76,29 @@ export interface UserModel {
 	/** Carga horária integralizada do histórico (obrigatória, optativa, complementar). */
 	cargaHorariaIntegralizada?: CargaHorariaIntegralizada | null;
 	token?: string | null;
+	/** True se o usuário tem qualquer linha em public.admins. */
+	isAdmin?: boolean;
+	/** Papel global: 'admin' | 'superadmin'. Null se não for admin. */
+	adminRole?: 'admin' | 'superadmin' | null;
+	/** Áreas liberadas (ex.: ['tickets','dashboard']). superadmin = todas. */
+	adminScopes?: string[];
+}
+
+/** Retorno da RPC get_my_admin(). */
+export interface AdminInfo {
+	auth_id: string;
+	role: 'admin' | 'superadmin';
+	scopes: string[];
+	note?: string | null;
+	created_at: string;
+	created_by?: string | null;
+}
+
+/** Helper: o usuário tem acesso a um escopo? superadmin sempre tem. */
+export function hasAdminScope(user: UserModel | null | undefined, scope: string): boolean {
+	if (!user?.isAdmin) return false;
+	if (user.adminRole === 'superadmin') return true;
+	return (user.adminScopes ?? []).includes(scope);
 }
 
 export function isMateriaCursada(dadosMateria: DadosMateria): boolean {
