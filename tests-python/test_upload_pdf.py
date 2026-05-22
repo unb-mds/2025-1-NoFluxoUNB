@@ -1,5 +1,5 @@
 import unittest
-from coleta_dados.parse_pdf.pdf_parser_final import (
+from DBA.parse_pdf.pdf_parser_final import (
     app,
 )  # Ajuste o caminho conforme seu projeto
 
@@ -10,6 +10,9 @@ class PdfUploadTestCase(unittest.TestCase):
         self.app = app.test_client()
         self.app.testing = True
 
+    @unittest.skip(
+        "Fase 2/3: teste de integracao: requer servidor rodando + fixture tests/historico_unb_teste.pdf"
+    )
     def test_upload_pdf_success(self):
         # Abra o arquivo PDF para o teste (coloque seu arquivo PDF na pasta tests/)
         with open("tests/historico_unb_teste.pdf", "rb") as pdf_file:
