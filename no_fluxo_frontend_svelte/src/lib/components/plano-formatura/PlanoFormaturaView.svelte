@@ -181,7 +181,7 @@
 
 			<!-- Horizontal scroll container -->
 			<div class="flex flex-1 gap-4 overflow-x-auto pb-4">
-				{#each planoFormaturaStore.plano.plano as semestre, i (semestre.semestre)}
+				{#each planoFormaturaStore.plano.plano as semestre, i (semestre.indice)}
 					<SemestrePlanCard {semestre} index={i} />
 				{/each}
 
