@@ -54,10 +54,14 @@ class DeployApiClient:
         return self._request_json("POST", "/build", json_body=payload)
 
     def wait_build(self, job_name: str, timeout_s: int = 1800) -> dict[str, Any]:
-        return self._request_json("POST", f"/build/{job_name}/wait", params={"timeout": timeout_s})
+        return self._request_json(
+            "POST", f"/build/{job_name}/wait", params={"timeout": timeout_s}
+        )
 
     def resolve_digest(self, image_name: str, tag: str) -> str:
-        result = self._request_json("GET", f"/registry/{image_name}/digest", params={"tag": tag})
+        result = self._request_json(
+            "GET", f"/registry/{image_name}/digest", params={"tag": tag}
+        )
         build_id = result.get("buildId") if isinstance(result, dict) else None
         if not build_id or not isinstance(build_id, str):
             raise RuntimeError("Unexpected response when resolving digest")

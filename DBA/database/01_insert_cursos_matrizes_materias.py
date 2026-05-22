@@ -21,12 +21,10 @@ Uso:
 """
 
 import json
-import os
 import re
 import sys
 import time
 import unicodedata
-from pathlib import Path
 
 from supabase import create_client
 from tenacity import retry, stop_after_attempt, wait_exponential
@@ -35,7 +33,6 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 # Config
 # ---------------------------------------------------------------------------
 from config import (
-    DBA_ROOT,
     PASTA_ESTRUTURAS,
     PASTA_MATERIAS,
     SUPABASE_URL,
@@ -53,7 +50,9 @@ LOG_MATERIAS_EVERY = 25
 # Caches carregados no início (evitam SELECT por arquivo)
 CACHE_CURSOS_BY_ID = {}  # id_curso -> {id_curso, nome_curso, tipo_curso, turno}
 CACHE_CURSOS_BY_NOME = {}  # (nome_curso, turno, tipo_curso) -> id_curso
-CACHE_MATRIZ_BY_CURRICULO = {}  # curriculo_completo -> {id_matriz, curriculo_completo, id_curso, versao, ano_vigor}
+CACHE_MATRIZ_BY_CURRICULO = (
+    {}
+)  # curriculo_completo -> {id_matriz, curriculo_completo, id_curso, versao, ano_vigor}
 CACHE_MATRIZ_BY_CURSO_VERSAO_ANO = {}  # (id_curso, versao, ano_vigor) -> row
 SET_MPC = set()  # (id_matriz, id_materia) já existentes
 # Contadores para log (não alteram o processamento)
@@ -117,7 +116,9 @@ def ch_to_int(val):
 
 
 def remover_acentos(txt):
-    return "".join(c for c in unicodedata.normalize("NFD", txt) if unicodedata.category(c) != "Mn")
+    return "".join(
+        c for c in unicodedata.normalize("NFD", txt) if unicodedata.category(c) != "Mn"
+    )
 
 
 def extrair_codigo_base(curriculo_str):
@@ -228,7 +229,12 @@ def get_or_create_curso(codigo_base, nome_curso, tipo_curso, turno=None):
         if turno is not None and row.get("turno") != turno:
             updates["turno"] = turno
         if updates and not DRY_RUN:
-            db(supabase.table("cursos").update(updates).eq("id_curso", id_curso).execute)
+            db(
+                supabase.table("cursos")
+                .update(updates)
+                .eq("id_curso", id_curso)
+                .execute
+            )
         return id_curso
     # 2) Cache por (nome_curso, turno, tipo_curso)
     key_nome = (nome_curso or "", turno, tipo_curso)
@@ -239,12 +245,21 @@ def get_or_create_curso(codigo_base, nome_curso, tipo_curso, turno=None):
         return -1
     global CONTAGEM_NOVOS_CURSOS
     try:
-        insert_data = {"id_curso": id_curso, "nome_curso": nome_curso, "tipo_curso": tipo_curso or ""}
+        insert_data = {
+            "id_curso": id_curso,
+            "nome_curso": nome_curso,
+            "tipo_curso": tipo_curso or "",
+        }
         if turno:
             insert_data["turno"] = turno
         res = db(supabase.table("cursos").insert(insert_data).execute)
         new_id = res.data[0]["id_curso"]
-        row = {"id_curso": new_id, "nome_curso": nome_curso, "tipo_curso": tipo_curso, "turno": turno}
+        row = {
+            "id_curso": new_id,
+            "nome_curso": nome_curso,
+            "tipo_curso": tipo_curso,
+            "turno": turno,
+        }
         CACHE_CURSOS_BY_ID[new_id] = row
         CACHE_CURSOS_BY_NOME[key_nome] = new_id
         CONTAGEM_NOVOS_CURSOS += 1
@@ -256,7 +271,12 @@ def get_or_create_curso(codigo_base, nome_curso, tipo_curso, turno=None):
                 insert_data["turno"] = turno
             res = db(supabase.table("cursos").insert(insert_data).execute)
             new_id = res.data[0]["id_curso"]
-            row = {"id_curso": new_id, "nome_curso": nome_curso, "tipo_curso": tipo_curso, "turno": turno}
+            row = {
+                "id_curso": new_id,
+                "nome_curso": nome_curso,
+                "tipo_curso": tipo_curso,
+                "turno": turno,
+            }
             CACHE_CURSOS_BY_ID[new_id] = row
             CACHE_CURSOS_BY_NOME[key_nome] = new_id
             CONTAGEM_NOVOS_CURSOS += 1
@@ -271,11 +291,17 @@ def get_or_create_curso(codigo_base, nome_curso, tipo_curso, turno=None):
 # ---------------------------------------------------------------------------
 def normalizar_cursos_id_legado():
     """Cursos com id_curso >= OFFSET_LEGADO_CURSO são tratados como legado (ex: 108150 = 8150+100000).
-    Atualiza matrizes e equivalencias para id_curso = codigo_base; depois atualiza ou remove o curso."""
+    Atualiza matrizes e equivalencias para id_curso = codigo_base; depois atualiza ou remove o curso.
+    """
     if DRY_RUN:
         return
     try:
-        res = db(supabase.table("cursos").select("id_curso").gte("id_curso", OFFSET_LEGADO_CURSO).execute)
+        res = db(
+            supabase.table("cursos")
+            .select("id_curso")
+            .gte("id_curso", OFFSET_LEGADO_CURSO)
+            .execute
+        )
     except Exception:
         return
     if not res.data:
@@ -287,30 +313,57 @@ def normalizar_cursos_id_legado():
         codigo_base = id_legado - OFFSET_LEGADO_CURSO
         # FK em matrizes/equivalencias exige que codigo_base exista em cursos antes do UPDATE.
         # Se codigo_base não existir, criar curso a partir do legado; depois atualizar FKs e apagar legado.
-        existe_base = db(supabase.table("cursos").select("id_curso").eq("id_curso", codigo_base).execute)
+        existe_base = db(
+            supabase.table("cursos")
+            .select("id_curso")
+            .eq("id_curso", codigo_base)
+            .execute
+        )
         if not existe_base.data:
-            row_legado = db(supabase.table("cursos").select("nome_curso, tipo_curso, turno, campus").eq("id_curso", id_legado).limit(1).execute)
+            row_legado = db(
+                supabase.table("cursos")
+                .select("nome_curso, tipo_curso, turno, campus")
+                .eq("id_curso", id_legado)
+                .limit(1)
+                .execute
+            )
             if row_legado.data:
                 rl = row_legado.data[0]
                 try:
-                    db(supabase.table("cursos").insert({
-                        "id_curso": codigo_base,
-                        "nome_curso": rl.get("nome_curso"),
-                        "tipo_curso": rl.get("tipo_curso"),
-                        "turno": rl.get("turno"),
-                        "campus": rl.get("campus"),
-                    }).execute)
+                    db(
+                        supabase.table("cursos")
+                        .insert(
+                            {
+                                "id_curso": codigo_base,
+                                "nome_curso": rl.get("nome_curso"),
+                                "tipo_curso": rl.get("tipo_curso"),
+                                "turno": rl.get("turno"),
+                                "campus": rl.get("campus"),
+                            }
+                        )
+                        .execute
+                    )
                 except Exception as ins:
                     if "23505" in str(ins) or "duplicate" in str(ins).lower():
                         pass
                     else:
                         raise
         try:
-            db(supabase.table("matrizes").update({"id_curso": codigo_base}).eq("id_curso", id_legado).execute)
+            db(
+                supabase.table("matrizes")
+                .update({"id_curso": codigo_base})
+                .eq("id_curso", id_legado)
+                .execute
+            )
         except Exception:
             pass
         try:
-            db(supabase.table("equivalencias").update({"id_curso": codigo_base}).eq("id_curso", id_legado).execute)
+            db(
+                supabase.table("equivalencias")
+                .update({"id_curso": codigo_base})
+                .eq("id_curso", id_legado)
+                .execute
+            )
         except Exception:
             pass
         try:
@@ -347,7 +400,9 @@ def load_cache_matrizes():
         offset += FETCH_PAGE
 
 
-def get_or_create_matriz(id_curso, curriculo_completo, versao, ano_vigor, prazos_cargas):
+def get_or_create_matriz(
+    id_curso, curriculo_completo, versao, ano_vigor, prazos_cargas
+):
     curriculo_completo = (curriculo_completo or "").strip()
     # 1) Cache por curriculo_completo
     if curriculo_completo in CACHE_MATRIZ_BY_CURRICULO:
@@ -358,9 +413,16 @@ def get_or_create_matriz(id_curso, curriculo_completo, versao, ano_vigor, prazos
     if key in CACHE_MATRIZ_BY_CURSO_VERSAO_ANO:
         row = CACHE_MATRIZ_BY_CURSO_VERSAO_ANO[key]
         atual = (row.get("curriculo_completo") or "").strip()
-        if atual != curriculo_completo and (atual.endswith(" - DIURNO") or atual.endswith(" - NOTURNO")):
+        if atual != curriculo_completo and (
+            atual.endswith(" - DIURNO") or atual.endswith(" - NOTURNO")
+        ):
             if not DRY_RUN:
-                db(supabase.table("matrizes").update({"curriculo_completo": curriculo_completo}).eq("id_matriz", row["id_matriz"]).execute)
+                db(
+                    supabase.table("matrizes")
+                    .update({"curriculo_completo": curriculo_completo})
+                    .eq("id_matriz", row["id_matriz"])
+                    .execute
+                )
                 row["curriculo_completo"] = curriculo_completo
                 CACHE_MATRIZ_BY_CURRICULO[curriculo_completo] = row
             return row["id_matriz"]
@@ -378,13 +440,23 @@ def get_or_create_matriz(id_curso, curriculo_completo, versao, ano_vigor, prazos
         "ch_optativa_exigida": ch.get("ch_optativa_minima"),
         "ch_complementar_exigida": ch.get("ch_complementar_minima"),
     }
-    insert_data = {k: v for k, v in insert_data.items() if v is not None or k in ("curriculo_completo", "versao", "ano_vigor")}
+    insert_data = {
+        k: v
+        for k, v in insert_data.items()
+        if v is not None or k in ("curriculo_completo", "versao", "ano_vigor")
+    }
     if DRY_RUN:
         return None
     global CONTAGEM_NOVAS_MATRIZES
     res = db(supabase.table("matrizes").insert(insert_data).execute)
     new_id = res.data[0]["id_matriz"]
-    row = {"id_matriz": new_id, "curriculo_completo": curriculo_completo, "id_curso": id_curso, "versao": versao or "", "ano_vigor": ano_vigor or ""}
+    row = {
+        "id_matriz": new_id,
+        "curriculo_completo": curriculo_completo,
+        "id_curso": id_curso,
+        "versao": versao or "",
+        "ano_vigor": ano_vigor or "",
+    }
     CACHE_MATRIZ_BY_CURRICULO[curriculo_completo] = row
     CACHE_MATRIZ_BY_CURSO_VERSAO_ANO[key] = row
     CONTAGEM_NOVAS_MATRIZES += 1
@@ -407,7 +479,9 @@ def load_departamentos():
         try:
             for turma in json.loads(arq.read_text(encoding="utf-8")):
                 cod = turma.get("codigo", turma.get("codigo_materia"))
-                depto = turma.get("unidade_responsavel", turma.get("departamento", turma.get("depto")))
+                depto = turma.get(
+                    "unidade_responsavel", turma.get("departamento", turma.get("depto"))
+                )
                 if cod and depto:
                     DEPARTAMENTOS_MATERIAS[cod] = depto
         except Exception:
@@ -441,27 +515,61 @@ def get_or_create_materia(materia, materias_detalhadas):
     codigo = materia.get("codigo")
     if not codigo:
         return None
-    det = materias_detalhadas.get(codigo) or materias_detalhadas.get(codigo.upper()) or materias_detalhadas.get(codigo.lower()) or {}
+    det = (
+        materias_detalhadas.get(codigo)
+        or materias_detalhadas.get(codigo.upper())
+        or materias_detalhadas.get(codigo.lower())
+        or {}
+    )
     nome = det.get("nome", materia.get("nome", codigo))
-    ch = ch_to_int(det.get("carga_horaria", det.get("ch", materia.get("ch", materia.get("carga_horaria", 0)))))
+    ch = ch_to_int(
+        det.get(
+            "carga_horaria",
+            det.get("ch", materia.get("ch", materia.get("carga_horaria", 0))),
+        )
+    )
     ementa = det.get("ementa", materia.get("ementa", ""))
     departamento = DEPARTAMENTOS_MATERIAS.get(codigo, "")
 
     if codigo in CACHE_ID_MATERIA:
         return CACHE_ID_MATERIA[codigo]
 
-    result = db(supabase.table("materias").select("id_materia, ementa, departamento, carga_horaria").eq("codigo_materia", codigo).execute)
+    result = db(
+        supabase.table("materias")
+        .select("id_materia, ementa, departamento, carga_horaria")
+        .eq("codigo_materia", codigo)
+        .execute
+    )
     if result.data:
         row = result.data[0]
         id_m = row["id_materia"]
         CACHE_ID_MATERIA[codigo] = id_m
         if ementa and (row.get("ementa") or "") != ementa and not DRY_RUN:
-            db(supabase.table("materias").update({"ementa": ementa}).eq("id_materia", id_m).execute)
-        if departamento and (not row.get("departamento") or row.get("departamento") != departamento) and not DRY_RUN:
-            db(supabase.table("materias").update({"departamento": departamento}).eq("id_materia", id_m).execute)
+            db(
+                supabase.table("materias")
+                .update({"ementa": ementa})
+                .eq("id_materia", id_m)
+                .execute
+            )
+        if (
+            departamento
+            and (not row.get("departamento") or row.get("departamento") != departamento)
+            and not DRY_RUN
+        ):
+            db(
+                supabase.table("materias")
+                .update({"departamento": departamento})
+                .eq("id_materia", id_m)
+                .execute
+            )
         ch_atual = row.get("carga_horaria") or 0
         if ch and ch > 0 and (not ch_atual or ch_atual == 0) and not DRY_RUN:
-            db(supabase.table("materias").update({"carga_horaria": ch}).eq("id_materia", id_m).execute)
+            db(
+                supabase.table("materias")
+                .update({"carga_horaria": ch})
+                .eq("id_materia", id_m)
+                .execute
+            )
         return id_m
 
     if DRY_RUN:
@@ -501,18 +609,27 @@ def load_cache_materias_por_curso():
 
 
 def insert_materias_por_curso_batch(linhas, id_matriz):
-    if not linhas or id_matriz is None or (isinstance(id_matriz, int) and id_matriz <= 0):
+    if (
+        not linhas
+        or id_matriz is None
+        or (isinstance(id_matriz, int) and id_matriz <= 0)
+    ):
         return
     seen = set()
     to_insert = []
-    for (id_m, niv, tipo_nat) in linhas:
+    for id_m, niv, tipo_nat in linhas:
         if id_m is None or id_m <= 0:
             continue
         if (id_matriz, id_m) in SET_MPC or id_m in seen:
             continue
         seen.add(id_m)
         SET_MPC.add((id_matriz, id_m))
-        row = {"id_materia": id_m, "id_matriz": id_matriz, "nivel": niv, "tipo_natureza": tipo_nat if tipo_nat is not None else 0}
+        row = {
+            "id_materia": id_m,
+            "id_matriz": id_matriz,
+            "nivel": niv,
+            "tipo_natureza": tipo_nat if tipo_nat is not None else 0,
+        }
         to_insert.append(row)
     if DRY_RUN:
         return
@@ -547,8 +664,10 @@ def main():
     t0 = time.time()
     print("Fase 1: Cursos, Matrizes, Matérias e Materias_por_curso")
     print(f"Fonte: {PASTA_ESTRUTURAS}")
-    print(f"curriculo_completo: padrão SEM turno (ex: 8150/-4 - 2014.1)")
-    print(f"id_curso: código do currículo (ex: 8150); normalizando legado (id >= {OFFSET_LEGADO_CURSO}).")
+    print("curriculo_completo: padrão SEM turno (ex: 8150/-4 - 2014.1)")
+    print(
+        f"id_curso: código do currículo (ex: 8150); normalizando legado (id >= {OFFSET_LEGADO_CURSO})."
+    )
     if DRY_RUN:
         print(" [DRY-RUN] Nenhuma alteração será persistida.")
     print(flush=True)
@@ -561,13 +680,22 @@ def main():
     load_departamentos()
     materias_detalhadas = load_materias_detalhadas()
     load_cache_materias()
-    print(f"      [Cache] {len(CACHE_ID_MATERIA)} matérias; {len(materias_detalhadas)} detalhes em JSON.", flush=True)
+    print(
+        f"      [Cache] {len(CACHE_ID_MATERIA)} matérias; {len(materias_detalhadas)} detalhes em JSON.",
+        flush=True,
+    )
 
-    print("[3/5] Carregando cursos, matrizes e materias_por_curso já existentes...", flush=True)
+    print(
+        "[3/5] Carregando cursos, matrizes e materias_por_curso já existentes...",
+        flush=True,
+    )
     load_cache_cursos()
     load_cache_matrizes()
     load_cache_materias_por_curso()
-    print(f"      [Cache] cursos={len(CACHE_CURSOS_BY_ID)}, matrizes={len(CACHE_MATRIZ_BY_CURRICULO)}, mpc={len(SET_MPC)}.", flush=True)
+    print(
+        f"      [Cache] cursos={len(CACHE_CURSOS_BY_ID)}, matrizes={len(CACHE_MATRIZ_BY_CURRICULO)}, mpc={len(SET_MPC)}.",
+        flush=True,
+    )
 
     arquivos = listar_arquivos_estruturas()
     print(f"[4/5] Processando {len(arquivos)} arquivos de estrutura...", flush=True)
@@ -592,7 +720,9 @@ def main():
         if not isinstance(data, dict):
             continue
 
-        nome_curso = remover_acentos(data.get("curso", "")).replace("Ç", "C").upper().strip()
+        nome_curso = (
+            remover_acentos(data.get("curso", "")).replace("Ç", "C").upper().strip()
+        )
         tipo_curso = data.get("tipo_curso")
         periodo_letivo = (data.get("periodo_letivo_vigor") or "").strip()
         curriculo_str = data.get("curriculo") or ""
@@ -607,7 +737,9 @@ def main():
         if not codigo_base:
             continue
 
-        curriculo_completo = build_curriculo_completo_sem_turno(curriculo_str, periodo_letivo)
+        curriculo_completo = build_curriculo_completo_sem_turno(
+            curriculo_str, periodo_letivo
+        )
         versao, ano_vigor = build_versao_ano(curriculo_str, periodo_letivo)
         prazos = data.get("prazos_cargas") or {}
 
@@ -616,21 +748,35 @@ def main():
         if id_curso is None:
             print(f"      [ARQ {idx + 1}] Ignorado: id_curso inválido.", flush=True)
             continue
-        print(f"      [ARQ {idx + 1}] Curso resolvido em {time.time() - t_curso:.1f}s (id_curso={id_curso})", flush=True)
+        print(
+            f"      [ARQ {idx + 1}] Curso resolvido em {time.time() - t_curso:.1f}s (id_curso={id_curso})",
+            flush=True,
+        )
 
         t_matriz = time.time()
-        id_matriz = get_or_create_matriz(id_curso, curriculo_completo, versao, ano_vigor, prazos)
+        id_matriz = get_or_create_matriz(
+            id_curso, curriculo_completo, versao, ano_vigor, prazos
+        )
         if id_matriz is None and not DRY_RUN:
             print(f"      [ARQ {idx + 1}] Ignorado: matriz não resolvida.", flush=True)
             continue
         if id_matriz is not None:
             total_matrizes += 1
-        print(f"      [ARQ {idx + 1}] Matriz resolvida em {time.time() - t_matriz:.1f}s (id_matriz={id_matriz})", flush=True)
+        print(
+            f"      [ARQ {idx + 1}] Matriz resolvida em {time.time() - t_matriz:.1f}s (id_matriz={id_matriz})",
+            flush=True,
+        )
 
         linhas = []
-        materias_total_arquivo = sum(len((bloco or {}).get("materias") or []) for bloco in (data.get("niveis") or []))
+        materias_total_arquivo = sum(
+            len((bloco or {}).get("materias") or [])
+            for bloco in (data.get("niveis") or [])
+        )
         materias_processadas = 0
-        print(f"      [ARQ {idx + 1}] Matérias previstas: {materias_total_arquivo}", flush=True)
+        print(
+            f"      [ARQ {idx + 1}] Matérias previstas: {materias_total_arquivo}",
+            flush=True,
+        )
 
         for bloco in data.get("niveis") or []:
             nivel_int = nivel_to_int(bloco.get("nivel", ""))
@@ -671,9 +817,17 @@ def main():
     elapsed = round(time.time() - t0, 1)
     print(flush=True)
     print("[5/5] Concluído.", flush=True)
-    print(f"      Matrizes processadas: {total_matrizes} | Vínculos mpc (total): {total_mpc}", flush=True)
-    if not DRY_RUN and (CONTAGEM_NOVOS_CURSOS or CONTAGEM_NOVAS_MATRIZES or CONTAGEM_NOVOS_MPC):
-        print(f"      Inseridos neste run: {CONTAGEM_NOVOS_CURSOS} cursos, {CONTAGEM_NOVAS_MATRIZES} matrizes, {CONTAGEM_NOVOS_MPC} materias_por_curso.", flush=True)
+    print(
+        f"      Matrizes processadas: {total_matrizes} | Vínculos mpc (total): {total_mpc}",
+        flush=True,
+    )
+    if not DRY_RUN and (
+        CONTAGEM_NOVOS_CURSOS or CONTAGEM_NOVAS_MATRIZES or CONTAGEM_NOVOS_MPC
+    ):
+        print(
+            f"      Inseridos neste run: {CONTAGEM_NOVOS_CURSOS} cursos, {CONTAGEM_NOVAS_MATRIZES} matrizes, {CONTAGEM_NOVOS_MPC} materias_por_curso.",
+            flush=True,
+        )
     print(f"      Tempo: {elapsed}s", flush=True)
     if DRY_RUN:
         print(" [DRY-RUN] Nenhuma alteração foi persistida.", flush=True)
