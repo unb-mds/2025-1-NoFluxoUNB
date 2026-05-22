@@ -65,7 +65,7 @@
 					<span class="text-primary">visitante</span>
 				</h2>
 				<p class="hero-info-card-body">
-					Explore fluxogramas de qualquer curso da UnB sem fazer login — consulta rápida, sem cadastro.
+					Explore fluxogramas de qualquer curso da UnB sem fazer login. Faça a sua consulta rápida sem cadastro.
 				</p>
 				<p class="hero-info-card-pill">
 					<User class="hero-info-card-pill-icon" stroke-width="2" aria-hidden="true" />

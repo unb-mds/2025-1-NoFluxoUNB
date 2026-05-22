@@ -11,7 +11,9 @@ class Config:
     timeout_s: float
 
 
-def load_config(api_url: str | None, api_key: str | None, timeout_s: float | None) -> Config:
+def load_config(
+    api_url: str | None, api_key: str | None, timeout_s: float | None
+) -> Config:
     env_url = os.environ.get("DEPLOY_API_URL")
     env_key = os.environ.get("DEPLOY_API_KEY")
     env_timeout = os.environ.get("DEPLOY_API_TIMEOUT")
