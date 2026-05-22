@@ -83,3 +83,12 @@ debug_html/
 # Kubernetes local deployment
 .env.local
 .deploy/
+
+# Relatórios LaTeX da disciplina de testes (entregáveis avulsos) e artefatos
+# de compilação. As docs .md de docs/testes continuam versionadas (site mkdocs).
+docs/testes/*.tex
+docs/testes/*.pdf
+docs/testes/*.aux
+docs/testes/*.log
+docs/testes/*.out
+docs/testes/*.toc
