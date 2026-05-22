@@ -7,7 +7,7 @@ import { isDisciplinaIntegralizada } from "../utils/historico_sigaa";
 export const TestesController: EndpointController = {
     name: "testes",
     routes: {
-        "banco": new Pair(RequestType.GET, async (req: Request, res: Response) => {
+        "banco": new Pair(RequestType.GET, async (_req: Request, res: Response) => {
             try {
                 console.log("🧪 Executando teste de conexão com banco...");
                 

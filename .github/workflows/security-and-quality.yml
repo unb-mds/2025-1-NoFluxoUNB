@@ -44,7 +44,10 @@ jobs:
     - name: Run npm audit
       run: |
         cd no_fluxo_backend
-        npm audit --audit-level=moderate
+        # Audita apenas dependências de produção (--omit=dev): vulnerabilidades
+        # em ferramentas de desenvolvimento (ex.: @typescript-eslint) não vão
+        # para o bundle final. As deps de produção devem ficar sem vulns.
+        npm audit --audit-level=moderate --omit=dev
         
     - name: Run safety check for Python
       run: |
