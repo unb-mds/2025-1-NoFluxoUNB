@@ -298,14 +298,29 @@ async def recomendar_materias(consulta: Consulta):
 
     mensagens = [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": consulta.interesse}]
 
+    # Acumula uso de tokens por modelo para tracking de custo no dashboard admin.
+    usage_calls = []
+
+    def _coletar_usage(resp, modelo: str):
+        u = getattr(resp, "usage", None)
+        if u is None:
+            return
+        usage_calls.append({
+            "model": modelo,
+            "prompt_tokens": getattr(u, "prompt_tokens", 0) or 0,
+            "completion_tokens": getattr(u, "completion_tokens", 0) or 0,
+            "total_tokens": getattr(u, "total_tokens", 0) or 0,
+        })
+
     try:
         # Passa a bola para o Sabiá analisar o interesse
         response = client_maritaca.chat.completions.create(
-            model="sabiazinho-4", 
+            model="sabiazinho-4",
             messages=mensagens,
             tools=TOOLS,
             tool_choice="auto"
         )
+        _coletar_usage(response, "sabiazinho-4")
 
         msg_ia = response.choices[0].message
         
@@ -324,7 +339,8 @@ async def recomendar_materias(consulta: Consulta):
                         "success": False,
                         "error": "Envie o historico academico",
                         "disciplinas": [],
-                        "resposta_completa": "Envie o historico academico"
+                        "resposta_completa": "Envie o historico academico",
+                        "usage": usage_calls
                     }
                 # Passa a string da matriz direto da consulta!
                 dados_banco = ferramenta_buscar_optativas(consulta.matriz_curricular)
@@ -344,10 +360,11 @@ async def recomendar_materias(consulta: Consulta):
 
             # Resposta final do Sabiá com limite de tokens aumentado
             final_response = client_maritaca.chat.completions.create(
-                model="sabia-4", 
+                model="sabia-4",
                 messages=mensagens,
                 max_tokens=5000  # Aumentado para comportar mais disciplinas
             )
+            _coletar_usage(final_response, "sabia-4")
             resposta_texto = final_response.choices[0].message.content
             print(f"\n[DEBUG] Texto bruto da IA:\n{resposta_texto}\n")
         else:
@@ -357,7 +374,8 @@ async def recomendar_materias(consulta: Consulta):
         return {
             "success": True,
             "disciplinas": parse_resposta_sabia(resposta_texto),
-            "resposta_completa": resposta_texto
+            "resposta_completa": resposta_texto,
+            "usage": usage_calls
         }
 
     except Exception as e:
@@ -379,6 +397,19 @@ async def recomendar_materias_stream(consulta: Consulta):
     def generate():
         mensagens = [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": consulta.interesse}]
 
+        usage_calls = []
+
+        def _coletar_usage(resp, modelo: str):
+            u = getattr(resp, "usage", None)
+            if u is None:
+                return
+            usage_calls.append({
+                "model": modelo,
+                "prompt_tokens": getattr(u, "prompt_tokens", 0) or 0,
+                "completion_tokens": getattr(u, "completion_tokens", 0) or 0,
+                "total_tokens": getattr(u, "total_tokens", 0) or 0,
+            })
+
         try:
             # Stage 1: Thinking
             yield _sse_event("thinking", message="Analisando seu interesse...")
@@ -389,6 +420,7 @@ async def recomendar_materias_stream(consulta: Consulta):
                 tools=TOOLS,
                 tool_choice="auto"
             )
+            _coletar_usage(response, "sabiazinho-4")
 
             msg_ia = response.choices[0].message
 
@@ -424,13 +456,19 @@ async def recomendar_materias_stream(consulta: Consulta):
                     model="sabia-4",
                     messages=mensagens,
                     max_tokens=5000,
-                    stream=True
+                    stream=True,
+                    stream_options={"include_usage": True}
                 )
 
                 resposta_texto = ""
                 codigos_emitidos = set()
 
                 for chunk in stream:
+                    # Chunk final de usage (include_usage) vem sem choices.
+                    if getattr(chunk, "usage", None) is not None:
+                        _coletar_usage(chunk, "sabia-4")
+                    if not chunk.choices:
+                        continue
                     delta = chunk.choices[0].delta
                     if delta.content:
                         resposta_texto += delta.content
@@ -455,6 +493,9 @@ async def recomendar_materias_stream(consulta: Consulta):
                         yield _sse_event("disciplina", data=disc)
             else:
                 resposta_texto = msg_ia.content
+
+            # Evento de uso de tokens (para tracking de custo no dashboard)
+            yield _sse_event("usage", calls=usage_calls)
 
             # Stage 4: Done
             yield _sse_event("done", resultado=resposta_texto)

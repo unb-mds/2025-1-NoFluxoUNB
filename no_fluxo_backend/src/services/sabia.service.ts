@@ -14,11 +14,20 @@ export interface SabiaDisciplina {
     justificativa: string;
 }
 
+export interface SabiaUsage {
+    model: string;
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+}
+
 export interface SabiaResponse {
     success: boolean;
     disciplinas?: SabiaDisciplina[];
     resposta_completa?: string;
     error?: string;
+    /** Uso de tokens por chamada de modelo (vindo do FastAPI). */
+    usage?: SabiaUsage[];
 }
 
 export class SabiaService {

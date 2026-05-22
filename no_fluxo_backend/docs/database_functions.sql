@@ -1,15 +1,113 @@
 -- Database Functions Export
--- Exported at: 2026-03-20T13:54:57.594847+00:00
+-- Exported at: 2026-05-17T03:28:11.944554+00:00
 -- Source: lijmhbstgdinsukovyfl.supabase.co
--- Total functions: 153
+-- Total functions: 164
 
 -- =============================================================================
 -- FUNCTIONS
 -- =============================================================================
 
 -- -----------------------------------------------------------------------------
+-- RLS Helper Functions
+-- -----------------------------------------------------------------------------
+
+-- Function: get_my_admin
+-- Return type: jsonb
+-- Arguments: (none)
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.get_my_admin()
+ RETURNS jsonb
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+  SELECT to_jsonb(a) FROM public.admins a WHERE a.auth_id = auth.uid();
+$function$;
+
+-- Function: has_admin_scope
+-- Return type: boolean
+-- Arguments: p_scope text
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.has_admin_scope(p_scope text)
+ RETURNS boolean
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+  SELECT EXISTS (
+    SELECT 1 FROM public.admins a
+    WHERE a.auth_id = auth.uid()
+      AND (a.role = 'superadmin' OR p_scope = ANY(a.scopes))
+  );
+$function$;
+
+-- Function: is_admin
+-- Return type: boolean
+-- Arguments: (none)
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.is_admin()
+ RETURNS boolean
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+  SELECT EXISTS (SELECT 1 FROM public.admins a WHERE a.auth_id = auth.uid());
+$function$;
+
+-- Function: is_superadmin
+-- Return type: boolean
+-- Arguments: (none)
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.is_superadmin()
+ RETURNS boolean
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+  SELECT EXISTS (
+    SELECT 1 FROM public.admins a
+    WHERE a.auth_id = auth.uid() AND a.role = 'superadmin'
+  );
+$function$;
+
+-- Function: is_ticket_admin
+-- Return type: boolean
+-- Arguments: (none)
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.is_ticket_admin()
+ RETURNS boolean
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+  SELECT public.has_admin_scope('tickets');
+$function$;
+
+-- -----------------------------------------------------------------------------
 -- Other Functions
 -- -----------------------------------------------------------------------------
+
+-- Function: array_to_halfvec
+-- Return type: halfvec
+-- Arguments: integer[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_halfvec(integer[], integer, boolean)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_halfvec$function$;
 
 -- Function: array_to_halfvec
 -- Return type: halfvec
@@ -18,6 +116,18 @@
 -- Security definer: NO
 
 CREATE OR REPLACE FUNCTION public.array_to_halfvec(numeric[], integer, boolean)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_halfvec$function$;
+
+-- Function: array_to_halfvec
+-- Return type: halfvec
+-- Arguments: double precision[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_halfvec(double precision[], integer, boolean)
  RETURNS halfvec
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
@@ -35,29 +145,29 @@ CREATE OR REPLACE FUNCTION public.array_to_halfvec(real[], integer, boolean)
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$array_to_halfvec$function$;
 
--- Function: array_to_halfvec
--- Return type: halfvec
--- Arguments: integer[], integer, boolean
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.array_to_halfvec(integer[], integer, boolean)
- RETURNS halfvec
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$array_to_halfvec$function$;
-
--- Function: array_to_halfvec
--- Return type: halfvec
+-- Function: array_to_sparsevec
+-- Return type: sparsevec
 -- Arguments: double precision[], integer, boolean
 -- Volatility: IMMUTABLE
 -- Security definer: NO
 
-CREATE OR REPLACE FUNCTION public.array_to_halfvec(double precision[], integer, boolean)
- RETURNS halfvec
+CREATE OR REPLACE FUNCTION public.array_to_sparsevec(double precision[], integer, boolean)
+ RETURNS sparsevec
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$array_to_halfvec$function$;
+AS '$libdir/vector', $function$array_to_sparsevec$function$;
+
+-- Function: array_to_sparsevec
+-- Return type: sparsevec
+-- Arguments: numeric[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_sparsevec(numeric[], integer, boolean)
+ RETURNS sparsevec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_sparsevec$function$;
 
 -- Function: array_to_sparsevec
 -- Return type: sparsevec
@@ -83,37 +193,13 @@ CREATE OR REPLACE FUNCTION public.array_to_sparsevec(real[], integer, boolean)
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$array_to_sparsevec$function$;
 
--- Function: array_to_sparsevec
--- Return type: sparsevec
--- Arguments: numeric[], integer, boolean
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.array_to_sparsevec(numeric[], integer, boolean)
- RETURNS sparsevec
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$array_to_sparsevec$function$;
-
--- Function: array_to_sparsevec
--- Return type: sparsevec
+-- Function: array_to_vector
+-- Return type: vector
 -- Arguments: double precision[], integer, boolean
 -- Volatility: IMMUTABLE
 -- Security definer: NO
 
-CREATE OR REPLACE FUNCTION public.array_to_sparsevec(double precision[], integer, boolean)
- RETURNS sparsevec
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$array_to_sparsevec$function$;
-
--- Function: array_to_vector
--- Return type: vector
--- Arguments: real[], integer, boolean
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.array_to_vector(real[], integer, boolean)
+CREATE OR REPLACE FUNCTION public.array_to_vector(double precision[], integer, boolean)
  RETURNS vector
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
@@ -133,11 +219,11 @@ AS '$libdir/vector', $function$array_to_vector$function$;
 
 -- Function: array_to_vector
 -- Return type: vector
--- Arguments: integer[], integer, boolean
+-- Arguments: real[], integer, boolean
 -- Volatility: IMMUTABLE
 -- Security definer: NO
 
-CREATE OR REPLACE FUNCTION public.array_to_vector(integer[], integer, boolean)
+CREATE OR REPLACE FUNCTION public.array_to_vector(real[], integer, boolean)
  RETURNS vector
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
@@ -145,11 +231,11 @@ AS '$libdir/vector', $function$array_to_vector$function$;
 
 -- Function: array_to_vector
 -- Return type: vector
--- Arguments: double precision[], integer, boolean
+-- Arguments: integer[], integer, boolean
 -- Volatility: IMMUTABLE
 -- Security definer: NO
 
-CREATE OR REPLACE FUNCTION public.array_to_vector(double precision[], integer, boolean)
+CREATE OR REPLACE FUNCTION public.array_to_vector(integer[], integer, boolean)
  RETURNS vector
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
@@ -196,18 +282,6 @@ $function$;
 
 -- Function: binary_quantize
 -- Return type: bit
--- Arguments: vector
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.binary_quantize(vector)
- RETURNS bit
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$binary_quantize$function$;
-
--- Function: binary_quantize
--- Return type: bit
 -- Arguments: halfvec
 -- Volatility: IMMUTABLE
 -- Security definer: NO
@@ -217,6 +291,18 @@ CREATE OR REPLACE FUNCTION public.binary_quantize(halfvec)
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$halfvec_binary_quantize$function$;
+
+-- Function: binary_quantize
+-- Return type: bit
+-- Arguments: vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.binary_quantize(vector)
+ RETURNS bit
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$binary_quantize$function$;
 
 -- Function: calcular_creditos_por_curso
 -- Return type: integer
@@ -1033,18 +1119,6 @@ AS '$libdir/vector', $function$halfvec_cosine_distance$function$;
 
 -- Function: cosine_distance
 -- Return type: double precision
--- Arguments: vector, vector
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.cosine_distance(vector, vector)
- RETURNS double precision
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$cosine_distance$function$;
-
--- Function: cosine_distance
--- Return type: double precision
 -- Arguments: sparsevec, sparsevec
 -- Volatility: IMMUTABLE
 -- Security definer: NO
@@ -1054,6 +1128,18 @@ CREATE OR REPLACE FUNCTION public.cosine_distance(sparsevec, sparsevec)
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$sparsevec_cosine_distance$function$;
+
+-- Function: cosine_distance
+-- Return type: double precision
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.cosine_distance(vector, vector)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$cosine_distance$function$;
 
 -- Function: export_schema
 -- Return type: jsonb
@@ -1574,6 +1660,96 @@ AS $function$
         and m.nome_materia ilike '%'||p_nome||'%'
     )
     order by pr.id_pre_requisito;
+$function$;
+
+-- Function: get_ticket_by_id
+-- Return type: jsonb
+-- Arguments: p_id bigint
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.get_ticket_by_id(p_id bigint)
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_ticket  jsonb;
+  v_audit   jsonb;
+  v_is_admin boolean := public.is_ticket_admin();
+BEGIN
+  SELECT to_jsonb(t) || jsonb_build_object(
+           'creator_name',  u.nome_completo,
+           'creator_email', u.email
+         )
+    INTO v_ticket
+  FROM public.tickets t
+  LEFT JOIN public.users u ON u.auth_id = t.created_by
+  WHERE t.id = p_id
+    AND (v_is_admin OR t.created_by = auth.uid());
+
+  IF v_ticket IS NULL THEN
+    RAISE EXCEPTION 'ticket not found or access denied';
+  END IF;
+
+  SELECT COALESCE(jsonb_agg(to_jsonb(a) || jsonb_build_object(
+           'actor_name', au.nome_completo
+         ) ORDER BY a.created_at), '[]'::jsonb)
+    INTO v_audit
+  FROM public.ticket_audit_log a
+  LEFT JOIN public.users au ON au.auth_id = a.actor_id
+  WHERE a.ticket_id = p_id;
+
+  RETURN jsonb_build_object('ticket', v_ticket, 'audit_log', v_audit);
+END;
+$function$;
+
+-- Function: get_tickets_paginated
+-- Return type: TABLE(id bigint, title text, description text, status text, category text, priority text, created_by uuid, creator_name text, creator_email text, assigned_to uuid, created_at timestamp with time zone, updated_at timestamp with time zone, resolved_at timestamp with time zone, total_count bigint)
+-- Arguments: p_limit integer DEFAULT 50, p_offset integer DEFAULT 0, p_status text DEFAULT NULL::text, p_category text DEFAULT NULL::text, p_search text DEFAULT NULL::text
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.get_tickets_paginated(p_limit integer DEFAULT 50, p_offset integer DEFAULT 0, p_status text DEFAULT NULL::text, p_category text DEFAULT NULL::text, p_search text DEFAULT NULL::text)
+ RETURNS TABLE(id bigint, title text, description text, status text, category text, priority text, created_by uuid, creator_name text, creator_email text, assigned_to uuid, created_at timestamp with time zone, updated_at timestamp with time zone, resolved_at timestamp with time zone, total_count bigint)
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+BEGIN
+  IF NOT public.is_ticket_admin() THEN
+    RAISE EXCEPTION 'forbidden: admin role required';
+  END IF;
+
+  RETURN QUERY
+  WITH filtered AS (
+    SELECT t.*
+    FROM public.tickets t
+    WHERE (p_status   IS NULL OR t.status   = p_status)
+      AND (p_category IS NULL OR t.category = p_category)
+      AND (
+        p_search IS NULL OR
+        t.title       ILIKE '%' || p_search || '%' OR
+        t.description ILIKE '%' || p_search || '%' OR
+        t.id::text = p_search
+      )
+  )
+  SELECT
+    f.id, f.title, f.description, f.status, f.category, f.priority,
+    f.created_by,
+    u.nome_completo AS creator_name,
+    u.email         AS creator_email,
+    f.assigned_to,
+    f.created_at, f.updated_at, f.resolved_at,
+    (SELECT count(*) FROM filtered)::bigint AS total_count
+  FROM filtered f
+  LEFT JOIN public.users u ON u.auth_id = f.created_by
+  ORDER BY
+    CASE WHEN f.status = 'resolvido' THEN 1 ELSE 0 END,
+    f.created_at DESC
+  LIMIT p_limit OFFSET p_offset;
+END;
 $function$;
 
 -- Function: gin_extract_query_trgm
@@ -2126,18 +2302,6 @@ AS '$libdir/vector', $function$hnswhandler$function$;
 
 -- Function: inner_product
 -- Return type: double precision
--- Arguments: halfvec, halfvec
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.inner_product(halfvec, halfvec)
- RETURNS double precision
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$halfvec_inner_product$function$;
-
--- Function: inner_product
--- Return type: double precision
 -- Arguments: sparsevec, sparsevec
 -- Volatility: IMMUTABLE
 -- Security definer: NO
@@ -2159,6 +2323,18 @@ CREATE OR REPLACE FUNCTION public.inner_product(vector, vector)
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$inner_product$function$;
+
+-- Function: inner_product
+-- Return type: double precision
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.inner_product(halfvec, halfvec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_inner_product$function$;
 
 -- Function: ivfflat_bit_support
 -- Return type: internal
@@ -2207,15 +2383,15 @@ AS '$libdir/vector', $function$jaccard_distance$function$;
 
 -- Function: l1_distance
 -- Return type: double precision
--- Arguments: sparsevec, sparsevec
+-- Arguments: halfvec, halfvec
 -- Volatility: IMMUTABLE
 -- Security definer: NO
 
-CREATE OR REPLACE FUNCTION public.l1_distance(sparsevec, sparsevec)
+CREATE OR REPLACE FUNCTION public.l1_distance(halfvec, halfvec)
  RETURNS double precision
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$sparsevec_l1_distance$function$;
+AS '$libdir/vector', $function$halfvec_l1_distance$function$;
 
 -- Function: l1_distance
 -- Return type: double precision
@@ -2231,27 +2407,15 @@ AS '$libdir/vector', $function$l1_distance$function$;
 
 -- Function: l1_distance
 -- Return type: double precision
--- Arguments: halfvec, halfvec
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.l1_distance(halfvec, halfvec)
- RETURNS double precision
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$halfvec_l1_distance$function$;
-
--- Function: l2_distance
--- Return type: double precision
 -- Arguments: sparsevec, sparsevec
 -- Volatility: IMMUTABLE
 -- Security definer: NO
 
-CREATE OR REPLACE FUNCTION public.l2_distance(sparsevec, sparsevec)
+CREATE OR REPLACE FUNCTION public.l1_distance(sparsevec, sparsevec)
  RETURNS double precision
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$sparsevec_l2_distance$function$;
+AS '$libdir/vector', $function$sparsevec_l1_distance$function$;
 
 -- Function: l2_distance
 -- Return type: double precision
@@ -2264,6 +2428,18 @@ CREATE OR REPLACE FUNCTION public.l2_distance(halfvec, halfvec)
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$halfvec_l2_distance$function$;
+
+-- Function: l2_distance
+-- Return type: double precision
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l2_distance(sparsevec, sparsevec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_l2_distance$function$;
 
 -- Function: l2_distance
 -- Return type: double precision
@@ -2302,16 +2478,16 @@ CREATE OR REPLACE FUNCTION public.l2_norm(halfvec)
 AS '$libdir/vector', $function$halfvec_l2_norm$function$;
 
 -- Function: l2_normalize
--- Return type: sparsevec
--- Arguments: sparsevec
+-- Return type: halfvec
+-- Arguments: halfvec
 -- Volatility: IMMUTABLE
 -- Security definer: NO
 
-CREATE OR REPLACE FUNCTION public.l2_normalize(sparsevec)
- RETURNS sparsevec
+CREATE OR REPLACE FUNCTION public.l2_normalize(halfvec)
+ RETURNS halfvec
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$sparsevec_l2_normalize$function$;
+AS '$libdir/vector', $function$halfvec_l2_normalize$function$;
 
 -- Function: l2_normalize
 -- Return type: vector
@@ -2326,16 +2502,16 @@ CREATE OR REPLACE FUNCTION public.l2_normalize(vector)
 AS '$libdir/vector', $function$l2_normalize$function$;
 
 -- Function: l2_normalize
--- Return type: halfvec
--- Arguments: halfvec
+-- Return type: sparsevec
+-- Arguments: sparsevec
 -- Volatility: IMMUTABLE
 -- Security definer: NO
 
-CREATE OR REPLACE FUNCTION public.l2_normalize(halfvec)
- RETURNS halfvec
+CREATE OR REPLACE FUNCTION public.l2_normalize(sparsevec)
+ RETURNS sparsevec
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$halfvec_l2_normalize$function$;
+AS '$libdir/vector', $function$sparsevec_l2_normalize$function$;
 
 -- Function: match_materias
 -- Return type: TABLE(codigo_materia text, nome_materia text, departamento text, ementa text, similaridade double precision)
@@ -2358,6 +2534,22 @@ AS $function$
   where embedding is not null and 1 - (embedding <=> query_embedding) > match_threshold
   order by embedding <=> query_embedding
   limit match_count;
+$function$;
+
+-- Function: set_last_updated_at
+-- Return type: trigger
+-- Arguments: (none)
+-- Volatility: VOLATILE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.set_last_updated_at()
+ RETURNS trigger
+ LANGUAGE plpgsql
+AS $function$
+BEGIN
+  NEW.last_updated_at = now();
+  RETURN NEW;
+END;
 $function$;
 
 -- Function: set_limit
@@ -2720,6 +2912,125 @@ CREATE OR REPLACE FUNCTION public.subvector(halfvec, integer, integer)
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$halfvec_subvector$function$;
 
+-- Function: tickets_on_insert
+-- Return type: trigger
+-- Arguments: (none)
+-- Volatility: VOLATILE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.tickets_on_insert()
+ RETURNS trigger
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+BEGIN
+  INSERT INTO public.ticket_audit_log(ticket_id, actor_id, action, to_value, notes)
+  VALUES (NEW.id, NEW.created_by, 'created', NEW.status,
+          'Ticket criado na categoria ' || NEW.category);
+  RETURN NEW;
+END;
+$function$;
+
+-- Function: tickets_on_update
+-- Return type: trigger
+-- Arguments: (none)
+-- Volatility: VOLATILE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.tickets_on_update()
+ RETURNS trigger
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+BEGIN
+  NEW.updated_at := now();
+
+  IF NEW.status IS DISTINCT FROM OLD.status THEN
+    INSERT INTO public.ticket_audit_log(ticket_id, actor_id, action, from_value, to_value)
+    VALUES (NEW.id, auth.uid(), 'status_changed', OLD.status, NEW.status);
+
+    IF NEW.status = 'resolvido' THEN
+      NEW.resolved_at := COALESCE(NEW.resolved_at, now());
+    ELSIF OLD.status = 'resolvido' THEN
+      -- reabriu: limpar resolved_at
+      NEW.resolved_at := NULL;
+    END IF;
+  END IF;
+
+  IF NEW.assigned_to IS DISTINCT FROM OLD.assigned_to THEN
+    INSERT INTO public.ticket_audit_log(ticket_id, actor_id, action, from_value, to_value)
+    VALUES (NEW.id, auth.uid(), 'assigned',
+            OLD.assigned_to::text, NEW.assigned_to::text);
+  END IF;
+
+  IF NEW.priority IS DISTINCT FROM OLD.priority THEN
+    INSERT INTO public.ticket_audit_log(ticket_id, actor_id, action, from_value, to_value)
+    VALUES (NEW.id, auth.uid(), 'priority_changed', OLD.priority, NEW.priority);
+  END IF;
+
+  IF NEW.category IS DISTINCT FROM OLD.category THEN
+    INSERT INTO public.ticket_audit_log(ticket_id, actor_id, action, from_value, to_value)
+    VALUES (NEW.id, auth.uid(), 'category_changed', OLD.category, NEW.category);
+  END IF;
+
+  IF NEW.admin_notes IS DISTINCT FROM OLD.admin_notes THEN
+    INSERT INTO public.ticket_audit_log(ticket_id, actor_id, action, notes)
+    VALUES (NEW.id, auth.uid(), 'note_updated',
+            left(COALESCE(NEW.admin_notes, ''), 200));
+  END IF;
+
+  RETURN NEW;
+END;
+$function$;
+
+-- Function: update_ticket_status
+-- Return type: tickets
+-- Arguments: p_id bigint, p_status text, p_note text DEFAULT NULL::text
+-- Volatility: VOLATILE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.update_ticket_status(p_id bigint, p_status text, p_note text DEFAULT NULL::text)
+ RETURNS tickets
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_row public.tickets;
+BEGIN
+  IF NOT public.is_ticket_admin() THEN
+    RAISE EXCEPTION 'forbidden: admin role required';
+  END IF;
+
+  IF p_status NOT IN ('aberto','em_andamento','aguardando_info','resolvido') THEN
+    RAISE EXCEPTION 'invalid status: %', p_status;
+  END IF;
+
+  UPDATE public.tickets
+     SET status = p_status
+   WHERE id = p_id
+   RETURNING * INTO v_row;
+
+  IF v_row.id IS NULL THEN
+    RAISE EXCEPTION 'ticket not found: %', p_id;
+  END IF;
+
+  IF p_note IS NOT NULL AND length(trim(p_note)) > 0 THEN
+    UPDATE public.ticket_audit_log
+       SET notes = p_note
+     WHERE id = (
+       SELECT id FROM public.ticket_audit_log
+        WHERE ticket_id = p_id AND action = 'status_changed'
+        ORDER BY created_at DESC LIMIT 1
+     );
+  END IF;
+
+  RETURN v_row;
+END;
+$function$;
+
 -- Function: update_updated_at
 -- Return type: trigger
 -- Arguments: (none)
@@ -2822,18 +3133,6 @@ AS '$libdir/vector', $function$vector_concat$function$;
 
 -- Function: vector_dims
 -- Return type: integer
--- Arguments: vector
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.vector_dims(vector)
- RETURNS integer
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$vector_dims$function$;
-
--- Function: vector_dims
--- Return type: integer
 -- Arguments: halfvec
 -- Volatility: IMMUTABLE
 -- Security definer: NO
@@ -2843,6 +3142,18 @@ CREATE OR REPLACE FUNCTION public.vector_dims(halfvec)
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$halfvec_vector_dims$function$;
+
+-- Function: vector_dims
+-- Return type: integer
+-- Arguments: vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_dims(vector)
+ RETURNS integer
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_dims$function$;
 
 -- Function: vector_eq
 -- Return type: boolean
@@ -3145,5 +3456,5 @@ CREATE OR REPLACE FUNCTION public.word_similarity_op(text, text)
 AS '$libdir/pg_trgm', $function$word_similarity_op$function$;
 
 -- =============================================================================
--- End of functions export (153 total)
+-- End of functions export (164 total)
 -- =============================================================================

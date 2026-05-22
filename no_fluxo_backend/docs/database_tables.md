@@ -1,12 +1,23 @@
 # Database Schema
 
-> **Exported at:** 2026-03-20T13:54:57.594847+00:00
+> **Exported at:** 2026-05-17T03:28:11.944554+00:00
 > **Export method:** rpc
 > **Supabase:** lijmhbstgdinsukovyfl.supabase.co
 
 ---
 
 ## Tables
+
+### ✅ `admins`
+
+| Column | Type | PK | Foreign Key |
+|--------|------|----|-------------|
+| `auth_id` | uuid | PK |  |
+| `role` | text |  |  |
+| `scopes` | ARRAY |  |  |
+| `note` | text |  |  |
+| `created_at` | timestamp with time zone |  |  |
+| `created_by` | uuid |  |  |
 
 ### ✅ `co_requisitos`
 
@@ -30,6 +41,18 @@
 | `campus` | text |  |  |
 
 ### ✅ `dados_users`
+
+| Column | Type | PK | Foreign Key |
+|--------|------|----|-------------|
+| `id_dado_user` | bigint | PK |  |
+| `created_at` | timestamp with time zone |  |  |
+| `fluxograma_atual` | text |  |  |
+| `id_user` | bigint |  | → `users.id_user` |
+| `semestre_atual` | bigint |  |  |
+| `carga_horaria_integralizada` | jsonb |  |  |
+| `optativas_manuais` | jsonb |  |  |
+
+### ✅ `dados_users_teste`
 
 | Column | Type | PK | Foreign Key |
 |--------|------|----|-------------|
@@ -136,6 +159,55 @@
 | `expressao_original` | text |  |  |
 | `expressao_logica` | jsonb |  |  |
 
+### ✅ `ticket_audit_log`
+
+| Column | Type | PK | Foreign Key |
+|--------|------|----|-------------|
+| `id` | bigint | PK |  |
+| `ticket_id` | bigint |  | → `tickets.id` |
+| `actor_id` | uuid |  |  |
+| `action` | text |  |  |
+| `from_value` | text |  |  |
+| `to_value` | text |  |  |
+| `notes` | text |  |  |
+| `created_at` | timestamp with time zone |  |  |
+
+### ✅ `tickets`
+
+| Column | Type | PK | Foreign Key |
+|--------|------|----|-------------|
+| `id` | bigint | PK |  |
+| `created_by` | uuid |  |  |
+| `assigned_to` | uuid |  |  |
+| `title` | text |  |  |
+| `description` | text |  |  |
+| `category` | text |  |  |
+| `status` | text |  |  |
+| `priority` | text |  |  |
+| `metadata` | jsonb |  |  |
+| `attachments` | jsonb |  |  |
+| `admin_notes` | text |  |  |
+| `created_at` | timestamp with time zone |  |  |
+| `updated_at` | timestamp with time zone |  |  |
+| `resolved_at` | timestamp with time zone |  |  |
+
+### ✅ `turmas`
+
+| Column | Type | PK | Foreign Key |
+|--------|------|----|-------------|
+| `id_turmas` | bigint | PK |  |
+| `id_materia` | bigint |  | → `materias.id_materia` |
+| `created_at` | timestamp with time zone |  |  |
+| `last_updated_at` | timestamp with time zone |  |  |
+| `turma` | text |  |  |
+| `docente` | text |  |  |
+| `horario` | text |  |  |
+| `local` | text |  |  |
+| `ano_periodo` | text |  |  |
+| `vagas_ofertadas` | integer |  |  |
+| `vagas_ocupadas` | integer |  |  |
+| `vagas_sobrando` | integer |  |  |
+
 ### ✅ `users`
 
 | Column | Type | PK | Foreign Key |
@@ -175,29 +247,32 @@
 
 | Function | Return Type | Arguments |
 |----------|-------------|-----------|
-| `array_to_halfvec` | halfvec | numeric[], integer, boolean |
-| `array_to_halfvec` | halfvec | real[], integer, boolean |
 | `array_to_halfvec` | halfvec | integer[], integer, boolean |
+| `array_to_halfvec` | halfvec | numeric[], integer, boolean |
 | `array_to_halfvec` | halfvec | double precision[], integer, boolean |
+| `array_to_halfvec` | halfvec | real[], integer, boolean |
+| `array_to_sparsevec` | sparsevec | double precision[], integer, boolean |
+| `array_to_sparsevec` | sparsevec | numeric[], integer, boolean |
 | `array_to_sparsevec` | sparsevec | integer[], integer, boolean |
 | `array_to_sparsevec` | sparsevec | real[], integer, boolean |
-| `array_to_sparsevec` | sparsevec | numeric[], integer, boolean |
-| `array_to_sparsevec` | sparsevec | double precision[], integer, boolean |
-| `array_to_vector` | vector | real[], integer, boolean |
-| `array_to_vector` | vector | numeric[], integer, boolean |
-| `array_to_vector` | vector | integer[], integer, boolean |
 | `array_to_vector` | vector | double precision[], integer, boolean |
+| `array_to_vector` | vector | numeric[], integer, boolean |
+| `array_to_vector` | vector | real[], integer, boolean |
+| `array_to_vector` | vector | integer[], integer, boolean |
 | `atualizar_creditos_cursos` | void | - |
-| `binary_quantize` | bit | vector |
 | `binary_quantize` | bit | halfvec |
+| `binary_quantize` | bit | vector |
 | `calcular_creditos_por_curso` | integer | id_curso_input bigint |
 | `casar_disciplinas` | jsonb | p_dados jsonb |
 | `cosine_distance` | double precision | halfvec, halfvec |
-| `cosine_distance` | double precision | vector, vector |
 | `cosine_distance` | double precision | sparsevec, sparsevec |
+| `cosine_distance` | double precision | vector, vector |
 | `export_schema` | jsonb | - |
 | `get_equivalencias_materia` | TABLE(id_equivalencia integer, id_materia integer, codigo_materia_origem text, nome_materia_origem text, curriculo text, expressao_original text, expressao_logica jsonb) | p_codigo text DEFAULT NULL::text, p_nome text DEFAULT NULL::text |
+| `get_my_admin` | jsonb | - |
 | `get_pre_requisitos_materia` | TABLE(id_pre_requisito integer, id_materia integer, codigo_materia text, nome_materia text, expressao_original text, expressao_logica jsonb, codigo_requisito text, nome_requisito text) | p_codigo text DEFAULT NULL::text, p_nome text DEFAULT NULL::text |
+| `get_ticket_by_id` | jsonb | p_id bigint |
+| `get_tickets_paginated` | TABLE(id bigint, title text, description text, status text, category text, priority text, created_by uuid, creator_name text, creator_email text, assigned_to uuid, created_at timestamp with time zone, updated_at timestamp with time zone, resolved_at timestamp with time zone, total_count bigint) | p_limit integer DEFAULT 50, p_offset integer DEFAULT 0, p_status text DEFAULT NULL::text, p_category text DEFAULT NULL::text, p_search text DEFAULT NULL::text |
 | `gin_extract_query_trgm` | internal | text, internal, smallint, internal, internal, internal, internal |
 | `gin_extract_value_trgm` | internal | text, internal |
 | `gin_trgm_consistent` | boolean | internal, smallint, text, integer, internal, internal, internal, internal |
@@ -240,29 +315,34 @@
 | `halfvec_to_vector` | vector | halfvec, integer, boolean |
 | `halfvec_typmod_in` | integer | cstring[] |
 | `hamming_distance` | double precision | bit, bit |
+| `has_admin_scope` | boolean | p_scope text |
 | `hnsw_bit_support` | internal | internal |
 | `hnsw_halfvec_support` | internal | internal |
 | `hnsw_sparsevec_support` | internal | internal |
 | `hnswhandler` | index_am_handler | internal |
-| `inner_product` | double precision | halfvec, halfvec |
 | `inner_product` | double precision | sparsevec, sparsevec |
 | `inner_product` | double precision | vector, vector |
+| `inner_product` | double precision | halfvec, halfvec |
+| `is_admin` | boolean | - |
+| `is_superadmin` | boolean | - |
+| `is_ticket_admin` | boolean | - |
 | `ivfflat_bit_support` | internal | internal |
 | `ivfflat_halfvec_support` | internal | internal |
 | `ivfflathandler` | index_am_handler | internal |
 | `jaccard_distance` | double precision | bit, bit |
-| `l1_distance` | double precision | sparsevec, sparsevec |
-| `l1_distance` | double precision | vector, vector |
 | `l1_distance` | double precision | halfvec, halfvec |
-| `l2_distance` | double precision | sparsevec, sparsevec |
+| `l1_distance` | double precision | vector, vector |
+| `l1_distance` | double precision | sparsevec, sparsevec |
 | `l2_distance` | double precision | halfvec, halfvec |
+| `l2_distance` | double precision | sparsevec, sparsevec |
 | `l2_distance` | double precision | vector, vector |
 | `l2_norm` | double precision | sparsevec |
 | `l2_norm` | double precision | halfvec |
-| `l2_normalize` | sparsevec | sparsevec |
-| `l2_normalize` | vector | vector |
 | `l2_normalize` | halfvec | halfvec |
+| `l2_normalize` | vector | vector |
+| `l2_normalize` | sparsevec | sparsevec |
 | `match_materias` | TABLE(codigo_materia text, nome_materia text, departamento text, ementa text, similaridade double precision) | query_embedding vector, match_threshold double precision, match_count integer |
+| `set_last_updated_at` | trigger | - |
 | `set_limit` | real | real |
 | `show_limit` | real | - |
 | `show_trgm` | text[] | text |
@@ -293,6 +373,9 @@
 | `strict_word_similarity_op` | boolean | text, text |
 | `subvector` | vector | vector, integer, integer |
 | `subvector` | halfvec | halfvec, integer, integer |
+| `tickets_on_insert` | trigger | - |
+| `tickets_on_update` | trigger | - |
+| `update_ticket_status` | tickets | p_id bigint, p_status text, p_note text DEFAULT NULL::text |
 | `update_updated_at` | trigger | - |
 | `vector` | vector | vector, integer, boolean |
 | `vector_accum` | double precision[] | double precision[], vector |
@@ -301,8 +384,8 @@
 | `vector_cmp` | integer | vector, vector |
 | `vector_combine` | double precision[] | double precision[], double precision[] |
 | `vector_concat` | vector | vector, vector |
-| `vector_dims` | integer | vector |
 | `vector_dims` | integer | halfvec |
+| `vector_dims` | integer | vector |
 | `vector_eq` | boolean | vector, vector |
 | `vector_ge` | boolean | vector, vector |
 | `vector_gt` | boolean | vector, vector |
@@ -335,6 +418,10 @@
 
 | Table | Policy | Command |
 |-------|--------|---------|
+| `admins` | admins_delete_superadmin | DELETE |
+| `admins` | admins_insert_superadmin | INSERT |
+| `admins` | admins_select_self_or_superadmin | SELECT |
+| `admins` | admins_update_superadmin | UPDATE |
 | `co_requisitos` | co_requisitos_select_public | SELECT |
 | `cursos` | cursos_select_public | SELECT |
 | `dados_users` | dados_users_delete_own | DELETE |
@@ -347,6 +434,11 @@
 | `materias` | materias_select_public | SELECT |
 | `materias_por_curso` | materias_por_curso_select_public | SELECT |
 | `pre_requisitos` | pre_requisitos_select_public | SELECT |
+| `ticket_audit_log` | audit_select_own_or_admin | SELECT |
+| `tickets` | tickets_delete_admin | DELETE |
+| `tickets` | tickets_insert_own | INSERT |
+| `tickets` | tickets_select_own_or_admin | SELECT |
+| `tickets` | tickets_update_admin | UPDATE |
 | `users` | users_insert_own | INSERT |
 | `users` | users_select_own | SELECT |
 | `users` | users_update_own | UPDATE |
@@ -357,11 +449,15 @@
 
 | Index | Table |
 |-------|-------|
+| `admins_pkey` | `admins` |
+| `idx_admins_role` | `admins` |
 | `co_requisitos_pkey` | `co_requisitos` |
 | `cursos_pkey` | `cursos` |
 | `idx_cursos_turno` | `cursos` |
 | `dados_users_id_user_unique` | `dados_users` |
 | `dados_users_pkey` | `dados_users` |
+| `dados_users_teste_id_user_key` | `dados_users_teste` |
+| `dados_users_teste_pkey` | `dados_users_teste` |
 | `equivalencias_pkey` | `equivalencias` |
 | `historicos_usuarios_pkey` | `historicos_usuarios` |
 | `idx_historicos_usuarios_created_at` | `historicos_usuarios` |
@@ -376,6 +472,16 @@
 | `matrizes_curriculo_completo_key` | `matrizes` |
 | `matrizes_pkey` | `matrizes` |
 | `pre_requisitos_pkey` | `pre_requisitos` |
+| `idx_ticket_audit_ticket` | `ticket_audit_log` |
+| `ticket_audit_log_pkey` | `ticket_audit_log` |
+| `idx_tickets_category` | `tickets` |
+| `idx_tickets_created_at` | `tickets` |
+| `idx_tickets_created_by` | `tickets` |
+| `idx_tickets_metadata` | `tickets` |
+| `idx_tickets_status` | `tickets` |
+| `tickets_pkey` | `tickets` |
+| `turmas_pkey` | `turmas` |
+| `uq_turmas_oferta` | `turmas` |
 | `idx_users_auth_id` | `users` |
 | `users_auth_id_key` | `users` |
 | `users_pkey` | `users` |
@@ -386,14 +492,19 @@
 
 | Table | Estimated Rows | Size |
 |-------|----------------|------|
+| `admins` | -1 | 48 KB |
 | `co_requisitos` | 185 | 80 KB |
 | `cursos` | 154 | 96 KB |
-| `dados_users` | 236 | 656 KB |
+| `dados_users` | 925 | 1.9 MB |
+| `dados_users_teste` | -1 | 24 KB |
 | `equivalencias` | 23687 | 5.8 MB |
-| `historicos_usuarios` | 163 | 776 KB |
+| `historicos_usuarios` | 1291 | 3.2 MB |
 | `materias` | 26223 | 8.7 MB |
-| `materias_por_curso` | 149336 | 39.5 MB |
+| `materias_por_curso` | 141184 | 39.5 MB |
 | `materias_vetorizadas` | 26145 | 57.5 MB |
 | `matrizes` | 518 | 200 KB |
 | `pre_requisitos` | 15507 | 2.5 MB |
-| `users` | 373 | 184 KB |
+| `ticket_audit_log` | -1 | 48 KB |
+| `tickets` | -1 | 120 KB |
+| `turmas` | 6473 | 1.5 MB |
+| `users` | 1376 | 440 KB |
