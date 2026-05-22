@@ -6,7 +6,7 @@
 	import { createSupabaseBrowserClient } from '$lib/supabase/client';
 	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
-import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen } from 'lucide-svelte';
+import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, GraduationCap } from 'lucide-svelte';
 	import { Button } from '$lib/components/ui/button';
 	import type { UserModel } from '$lib/types';
 
@@ -38,6 +38,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen } fr
 					hasHistorico
 						? { href: ROUTES.MEU_FLUXOGRAMA, label: 'Meu Fluxograma', icon: LayoutDashboard }
 						: { href: ROUTES.UPLOAD_HISTORICO, label: 'Importar Histórico', icon: Upload },
+					{ href: ROUTES.PLANO_FORMATURA, label: 'Plano de Formatura', icon: GraduationCap },
 					{ href: ROUTES.ASSISTENTE, label: 'Assistente', icon: Bot },
 					{ href: ROUTES.DISCIPLINAS, label: 'Disciplinas', icon: BookOpen }
 				]

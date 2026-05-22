@@ -13,6 +13,7 @@ export const ROUTES = {
   UPLOAD_HISTORICO: '/upload-historico',
   FLUXOGRAMAS: '/fluxogramas',
   MEU_FLUXOGRAMA: '/meu-fluxograma',
+  PLANO_FORMATURA: '/plano-formatura',
 
   // Auth routes
   AUTH_CALLBACK: '/auth/callback',
@@ -41,6 +42,7 @@ export const PROTECTED_ROUTES = [
   '/upload-historico',
   '/fluxogramas',
   '/meu-fluxograma',
+  '/plano-formatura',
 ] as const;
 
 // Check if route requires authentication
