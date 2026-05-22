@@ -258,6 +258,74 @@ O pipeline dispara em \textbf{todo Pull Request} e em \textbf{push} para
 \end{itemize}
 
 % ===========================================================================
+\section{Branch e arquivos alterados}
+% ===========================================================================
+
+Todo o trabalho desta Fase 1 está na branch \texttt{fix/ci-pipeline}, aberta a
+partir da \texttt{main}. São \textbf{19 arquivos} (excluindo este relatório):
+6 adicionados, 6 modificados e 7 removidos. As tabelas abaixo indicam
+\emph{onde} cada alteração foi feita.
+
+\subsection{Arquivos adicionados}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{6.8cm}p{7.5cm}@{}}
+\toprule
+\textbf{Arquivo} & \textbf{O que é} \\
+\midrule
+\texttt{tests-python/conftest.py} & Coloca a raiz do repo no \texttt{sys.path} para todos os testes. \\
+\texttt{docs/testes/estrategia-de-testes.md} & Visão geral da estratégia de testes (níveis, técnicas, fases). \\
+\texttt{docs/testes/pipeline-ci.md} & Documentação detalhada do pipeline de CI. \\
+\texttt{docs/testes/relatorio-fase1-ci.tex} & Este relatório. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Arquivos modificados}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{6.8cm}p{7.5cm}@{}}
+\toprule
+\textbf{Arquivo} & \textbf{O que mudou} \\
+\midrule
+\texttt{.github/workflows/pipelineCI.yml} & Reescrito: pipeline único com 4 jobs por nível; versões fixadas; actions \texttt{v4/v5}. \\
+\texttt{.github/workflows/security-and-quality.yml} & \texttt{upload/download-artifact} de \texttt{v3} para \texttt{v4}. \\
+\texttt{.gitignore} & Ignora artefatos de cobertura e o material de estudo local (\texttt{docs\_testes/}). \\
+\texttt{mkdocs.yml} & Adiciona a seção ``Testes'' à navegação do site. \\
+\texttt{tests-python/test\_converter\_json\_para\_txt.py} & Import \texttt{coleta\_dados}\,$\rightarrow$\,\texttt{DBA}; 5 testes marcados \emph{xfail}. \\
+\texttt{tests-python/test\_executar\_fluxo\_dados\_RAGFLOW.py} & Corrige o alvo do \texttt{@patch}; 2 testes marcados \emph{xfail}. \\
+\texttt{tests-python/test\_extrair\_turmas\_sigaa.py} & Import \texttt{coleta\_dados}\,$\rightarrow$\,\texttt{DBA}; 3 testes marcados \emph{xfail}. \\
+\texttt{tests-python/test\_upload\_pdf.py} & Import remapeado; teste de integração marcado \emph{skip}. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Arquivos removidos}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{6.8cm}p{7.5cm}@{}}
+\toprule
+\textbf{Arquivo} & \textbf{Motivo} \\
+\midrule
+\texttt{.github/workflows/all-tests.yml} & Workflow redundante (consolidado no \texttt{pipelineCI.yml}). \\
+\texttt{.github/workflows/python-tests.yml} & Workflow redundante. \\
+\texttt{.github/workflows/typescript-tests.yml} & Workflow redundante. \\
+\texttt{tests-python/test\_app.py} & Testa módulo deletado (\texttt{ai\_agent.app}). \\
+\texttt{tests-python/test\_config.py} & Testa módulo deletado (\texttt{ai\_agent.config}). \\
+\texttt{tests-python/test\_ragflow\_agent\_client.py} & Testa módulo deletado (\texttt{ai\_agent}). \\
+\texttt{tests-python/test\_visualizaJsonMateriasAssociadas.py} & Testa módulo deletado (\texttt{ai\_agent}). \\
+\texttt{tests-python/test\_formatar\_para\_ragflow.py} & Testa módulo deletado (\texttt{formatar\_para\_ragflow}). \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ===========================================================================
 \section{Como rodar localmente}
 % ===========================================================================
 
