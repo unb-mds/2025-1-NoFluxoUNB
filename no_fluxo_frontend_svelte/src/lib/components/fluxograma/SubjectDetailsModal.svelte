@@ -213,7 +213,7 @@
 							<div class="rounded-lg bg-white/5 px-3 py-2.5">
 								{#if pr.expressaoOriginal}
 									<p class="text-sm font-medium text-white/90">Expressão: {pr.expressaoOriginal}</p>
-									{#if pr.expressaoLogica?.materias?.length}
+										{#if pr.expressaoLogica && typeof pr.expressaoLogica === 'object' && 'materias' in pr.expressaoLogica && pr.expressaoLogica.materias?.length}
 										<div class="mt-1.5 flex flex-wrap gap-1">
 											{#each pr.expressaoLogica.materias as cod}
 												{@const prereqMateria = prereqs.find((p) => p.codigoMateria.toUpperCase() === cod.toUpperCase())}

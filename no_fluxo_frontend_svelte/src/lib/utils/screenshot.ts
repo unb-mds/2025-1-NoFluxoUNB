@@ -29,7 +29,7 @@ export async function captureScreenshot(
 				useCORS: true,
 				logging: false,
 				allowTaint: false,
-				onclone: (_doc, clonedEl) => {
+				onclone: (_doc: Document, clonedEl: HTMLElement) => {
 					clonedEl.style.overflow = 'visible';
 					clonedEl.style.background = BG_COLOR;
 				}

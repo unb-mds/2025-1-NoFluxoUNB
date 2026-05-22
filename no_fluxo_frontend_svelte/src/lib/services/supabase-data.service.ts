@@ -775,6 +775,50 @@ export class SupabaseDataService {
 		if (error) throw new Error(`Erro ao deletar fluxograma: ${error.message}`);
 		return true;
 	}
+
+	// ─── Preferências do Plano de Formatura (Motor 2) ────────────────────────
+
+	/**
+	 * Persiste as preferências de planejamento de formatura do usuário em dados_users.
+	 * Usa a coluna JSONB `preferencias_plano` (adicionada para o Motor 2).
+	 */
+	async savePreferenciasPlano(
+		idUser: number,
+		preferencias: import('$lib/types/plano-formatura').PreferenciasPlano
+	): Promise<void> {
+		const { error } = await this.supabase
+			.from('dados_users')
+			.upsert(
+				{ id_user: idUser, preferencias_plano: preferencias },
+				{ onConflict: 'id_user' }
+			);
+
+		if (error) throw new Error(`Erro ao salvar preferências do plano: ${error.message}`);
+	}
+
+	/**
+	 * Busca as preferências de planejamento de formatura do usuário.
+	 * Retorna null se não houver preferências salvas.
+	 */
+	async getPreferenciasPlano(
+		idUser: number
+	): Promise<import('$lib/types/plano-formatura').PreferenciasPlano | null> {
+		const { data, error } = await this.supabase
+			.from('dados_users')
+			.select('preferencias_plano')
+			.eq('id_user', idUser)
+			.maybeSingle();
+
+		if (error) {
+			console.warn('[getPreferenciasPlano] Erro:', error.message);
+			return null;
+		}
+
+		const raw = (data as Record<string, unknown> | null)?.preferencias_plano;
+		if (!raw || typeof raw !== 'object') return null;
+
+		return raw as import('$lib/types/plano-formatura').PreferenciasPlano;
+	}
 }
 
 // Singleton instance

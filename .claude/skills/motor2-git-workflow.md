@@ -1,52 +1,51 @@
 ---
 name: motor2-git-workflow
-description: Git workflow for Motor 2 (commit, push, PR). Handles staging, commit messages, remote sync.
+description: Agents commit gradually. You push manually. No pushes or PRs from agents.
 ---
 
-# Motor 2 Git Workflow Skill
+# Motor 2 Git Workflow
 
-**Purpose:** Manage git operations (add, commit, push, PR creation) for Motor 2 tasks.
+**Purpose:** Track agent commits + manage YOUR push/PR.
 
-**Scope:** All 12 implementation tasks + optional PR creation.
+**Scope:** Monitor commits (agents), then push + PR (you).
 
-**Model:** Haiku 4.5 (straightforward git ops)
+## How Agents Work
 
-## Pre-Commit Checklist
+- ✅ **Can commit** — gradually, with clear messages
+- ❌ **Cannot push** — blocked in settings.json
+- ❌ **Cannot create PR** — blocked, you do this
 
-- [ ] Verify branch: `git branch --show-current` (expect: `feature/motor-planejador-formatura`)
-- [ ] Check status: `git status --short` (no untracked files except docs/)
-- [ ] Run relevant tests:
-  - Backend tasks: `cd no_fluxo_backend && npm test -- --testPathPattern="planejamento"`
-  - Frontend tasks: `cd no_fluxo_frontend_svelte && npm run check`
+## Monitor Agent Commits
 
-## Commit per Task
-
-Each task commits separately with message format:
-```
-feat: [Task N] [component] — brief description
-
-- Detailed change 1
-- Detailed change 2
-```
-
-Example:
+Watch progress in real-time:
 ```bash
-git add no_fluxo_backend/src/services/plano_formatura.service.ts no_fluxo_backend/tests-ts/planejamento.test.ts
-git commit -m "feat: Task 3 — Motor 2 algorithm service with full unit tests"
+git log --oneline -10
+# See commits as agents work
 ```
 
-## Push Protocol
+See all changes vs main:
+```bash
+git diff origin/main..HEAD
+```
 
-After each task (or batch of 3):
+## When Agents Are Done
+
+1. **Review commits** — `git log` shows all agent work
+2. **Run tests**:
+   - Backend: `cd no_fluxo_backend && npm test -- --testPathPattern=planejamento`
+   - Frontend: `cd no_fluxo_frontend_svelte && npm run check`
+3. **Apply migration** (if any): `supabase db push`
+
+## YOU Push Manually
+
+When tests pass:
 ```bash
 git push origin feature/motor-planejador-formatura
 ```
 
-**If rejected:** Run `git pull --rebase origin main` then retry.
+## YOU Create PR
 
-## PR Creation (End of Implementation)
-
-After all 12 tasks:
+After push:
 ```bash
 gh pr create \
   --title "feat: Motor 2 — Cadeia de Formatura Personalizada" \
@@ -54,4 +53,9 @@ gh pr create \
   --base main
 ```
 
-**Expected:** PR opens on GitHub with auto-linked commits.
+## Key Rules
+
+- **Agents commit gradually** (you see commits in real-time)
+- **Agents never push** (zero token waste on network I/O)
+- **Agents never create PR** (you review commits first)
+- **You control the release** (git push + gh pr create)

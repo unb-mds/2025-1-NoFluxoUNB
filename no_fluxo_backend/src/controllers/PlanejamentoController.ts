@@ -54,27 +54,38 @@ function validatePreferencias(raw: unknown): PreferenciasPlano | null {
 
 /**
  * Valida e normaliza o body do endpoint.
+ * Aceita camelCase ou snake_case e converte para camelCase.
  * Retorna `{ input }` ou `{ error }` (com 400-friendly message).
  */
 function parseBody(body: unknown): { input?: PlanoInput; error?: string } {
     if (!isObject(body)) return { error: "Body inválido" };
 
-    const curriculoCompleto = body.curriculoCompleto;
+    // Aceita camelCase ou snake_case
+    const curriculoCompleto = body.curriculoCompleto || body.curriculo_completo;
     if (typeof curriculoCompleto !== "string" || !curriculoCompleto.trim()) {
         return { error: "curriculoCompleto é obrigatório" };
     }
 
-    const completedCodes = body.completedCodes;
+    const completedCodes = body.completedCodes || body.codigos_concluidos;
     if (!Array.isArray(completedCodes) || !completedCodes.every((c) => typeof c === "string")) {
         return { error: "completedCodes deve ser array de strings" };
     }
 
-    const numeroPeriodo = Number(body.numeroPeriodo);
+    const numeroPeriodo = Number(body.numeroPeriodo || body.semestre_atual);
     if (!Number.isFinite(numeroPeriodo) || numeroPeriodo < 1) {
         return { error: "numeroPeriodo deve ser inteiro >= 1" };
     }
 
-    const preferencias = validatePreferencias(body.preferencias);
+    // Busca preferencias em camelCase ou constrói a partir de campos snake_case
+    let preferencias = body.preferencias ? validatePreferencias(body.preferencias) : null;
+    if (!preferencias && body.limite_creditos) {
+        // Constrói preferencias a partir dos campos snake_case
+        preferencias = validatePreferencias({
+            limiteCreditos: body.limite_creditos,
+            objetivo: body.objetivo || "equilibrado",
+            trabalha: body.trabalha !== undefined ? body.trabalha : false,
+        });
+    }
     if (!preferencias) {
         return {
             error:
@@ -113,12 +124,26 @@ async function resolveMatriz(
     const cc = curriculoCompleto.trim();
 
     // Tenta match exato primeiro.
-    const { data: exato } = await SupabaseWrapper.get()
-        .from("matrizes")
-        .select("id_matriz, id_curso, curriculo_completo")
-        .eq("curriculo_completo", cc)
-        .maybeSingle();
-    if (exato) return exato as MatrizRow;
+    try {
+        console.log(`[resolveMatriz] Querying matrizes for: "${cc}"`);
+        console.log(`[resolveMatriz] Supabase URL: ${process.env.SUPABASE_URL}`);
+        console.log(`[resolveMatriz] Has service role key: ${!!process.env.SUPABASE_SERVICE_ROLE_KEY}`);
+
+        const { data: exato, error } = await SupabaseWrapper.get()
+            .from("matrizes")
+            .select("id_matriz, id_curso, curriculo_completo")
+            .eq("curriculo_completo", cc)
+            .maybeSingle();
+
+        if (error) {
+            console.error(`[resolveMatriz] Query error: ${error.message} | Code: ${error.code}`);
+        }
+        console.log(`[resolveMatriz] Query result:`, exato);
+
+        if (exato) return exato as MatrizRow;
+    } catch (err) {
+        console.error(`[resolveMatriz] Exception on exact match:`, err);
+    }
 
     // Fallback: prefixo (ex: "8117/-2" -> "8117/-2 - 2018.2").
     if (cc.includes("/")) {
@@ -155,15 +180,15 @@ async function buscarMateriasFaltantes(
     matriz: MatrizRow,
     completedCodes: Set<string>
 ): Promise<MateriaInput[]> {
-    // Busca todas as materias do curso via cursos -> materias_por_curso (mesmo padrao do fluxograma_controller).
-    const { data: cursos, error } = await SupabaseWrapper.get()
-        .from("cursos")
-        .select("id_curso,materias_por_curso(id_materia,nivel,tipo_natureza,materias(id_materia,codigo_materia,nome_materia,carga_horaria))")
-        .eq("id_curso", matriz.id_curso);
+    // Busca todas as materias da matriz via matrizes -> materias_por_curso.
+    const { data, error } = await SupabaseWrapper.get()
+        .from("materias_por_curso")
+        .select("id_materia,nivel,tipo_natureza,materias(id_materia,codigo_materia,nome_materia,carga_horaria)")
+        .eq("id_matriz", matriz.id_matriz);
     if (error) throw new Error(`Erro ao buscar materias_por_curso: ${error.message}`);
-    if (!cursos || cursos.length === 0) return [];
+    if (!data || data.length === 0) return [];
 
-    const mpcRows: MateriaPorCursoRow[] = (cursos[0] as any).materias_por_curso ?? [];
+    const mpcRows: MateriaPorCursoRow[] = (data as any) ?? [];
     const idsMaterias = mpcRows
         .map((r) => r.materias?.id_materia)
         .filter((id): id is number => typeof id === "number");
@@ -226,46 +251,74 @@ async function buscarMateriasFaltantes(
 export const PlanejamentoController: EndpointController = {
     name: "planejamento",
     routes: {
+        "test-db": new Pair(
+            RequestType.GET,
+            async (req: Request, res: Response) => {
+                try {
+                    console.log("[TEST] Querying matrizes table...");
+                    const { data, error } = await SupabaseWrapper.get()
+                        .from("matrizes")
+                        .select("*")
+                        .limit(1);
+
+                    if (error) {
+                        console.error("[TEST] Error:", error);
+                        return res.status(500).json({ error: error.message, code: error.code });
+                    }
+
+                    console.log("[TEST] Success:", data);
+                    return res.status(200).json({ success: true, data });
+                } catch (err) {
+                    console.error("[TEST] Exception:", err);
+                    return res.status(500).json({ error: String(err) });
+                }
+            }
+        ),
         "gerar-plano": new Pair(
             RequestType.POST,
             async (req: Request, res: Response) => {
                 const logger = createControllerLogger("PlanejamentoController", "gerar-plano");
 
-                const parsed = parseBody(req.body);
-                if (parsed.error || !parsed.input) {
-                    logger.warn(`Body invalido: ${parsed.error}`);
-                    return res.status(400).json({ error: parsed.error });
-                }
-                const input = parsed.input;
-
-                logger.info(
-                    `Gerando plano: curriculo="${input.curriculoCompleto}", concluidas=${input.completedCodes.length}, numeroPeriodo=${input.numeroPeriodo}, limiteCreditos=${input.preferencias.limiteCreditos}`
-                );
-
-                // Se materiasFaltantes foi enviado no body, pula o DB lookup.
-                let materiasFaltantes = input.materiasFaltantes;
-                if (!materiasFaltantes) {
-                    const matriz = await resolveMatriz(input.curriculoCompleto);
-                    if (!matriz) {
-                        logger.warn(`Matriz nao encontrada: ${input.curriculoCompleto}`);
-                        return res.status(404).json({
-                            error: "Matriz não encontrada para o currículo informado",
-                            curriculoCompleto: input.curriculoCompleto,
-                        });
+                try {
+                    const parsed = parseBody(req.body);
+                    if (parsed.error || !parsed.input) {
+                        logger.warn(`Body invalido: ${parsed.error}`);
+                        return res.status(400).json({ error: parsed.error });
                     }
-                    materiasFaltantes = await buscarMateriasFaltantes(
-                        matriz,
-                        new Set(input.completedCodes)
+                    const input = parsed.input;
+
+                    logger.info(
+                        `Gerando plano: curriculo="${input.curriculoCompleto}", concluidas=${input.completedCodes.length}, numeroPeriodo=${input.numeroPeriodo}, limiteCreditos=${input.preferencias.limiteCreditos}`
                     );
-                    logger.info(`Materias faltantes do curriculo: ${materiasFaltantes.length}`);
+
+                    // Se materiasFaltantes foi enviado no body, pula o DB lookup.
+                    let materiasFaltantes = input.materiasFaltantes;
+                    if (!materiasFaltantes) {
+                        const matriz = await resolveMatriz(input.curriculoCompleto);
+                        if (!matriz) {
+                            logger.warn(`Matriz nao encontrada: ${input.curriculoCompleto}`);
+                            return res.status(404).json({
+                                error: "Matriz não encontrada para o currículo informado",
+                                curriculoCompleto: input.curriculoCompleto,
+                            });
+                        }
+                        materiasFaltantes = await buscarMateriasFaltantes(
+                            matriz,
+                            new Set(input.completedCodes)
+                        );
+                        logger.info(`Materias faltantes do curriculo: ${materiasFaltantes.length}`);
+                    }
+
+                    const plano = gerarPlano({ ...input, materiasFaltantes });
+                    logger.info(
+                        `Plano gerado: ${plano.semestresRestantes} semestres, ${plano.materiasNaoAlocadas.length} nao-alocadas`
+                    );
+
+                    return res.status(200).json(plano);
+                } catch (err) {
+                    logger.error(`Erro ao gerar plano: ${err}`);
+                    return res.status(500).json({ error: String(err) });
                 }
-
-                const plano = gerarPlano({ ...input, materiasFaltantes });
-                logger.info(
-                    `Plano gerado: ${plano.semestresRestantes} semestres, ${plano.materiasNaoAlocadas.length} nao-alocadas`
-                );
-
-                return res.status(200).json(plano);
             }
         ),
     },

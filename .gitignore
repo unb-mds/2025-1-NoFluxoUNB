@@ -83,3 +83,12 @@ debug_html/
 # Kubernetes local deployment
 .env.local
 .deploy/
+
+# Claude Code — arquivos locais (não versionar)
+.claude/settings.local.json
+.claude/skills/
+.claude/plans/
+.claude/projects/
+CLAUDE.md
+SECURITY_ISSUES.md
+docs/superpowers/
