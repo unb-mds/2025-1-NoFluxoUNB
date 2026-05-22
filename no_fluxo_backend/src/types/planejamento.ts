@@ -113,7 +113,63 @@ export interface SemestrePlano {
     materias: MateriaPlano[];
 }
 
-/** Saida completa do Motor 2. */
+/** Materia em curso (status MATR no fluxograma_atual). */
+export interface MateriaSemestreAtual {
+    codigo: string;
+    nome?: string;
+    creditos: number;
+    status: "MATR";
+}
+
+/** Slot generico para optativas (nao especifica materia). */
+export interface OptativaSlot {
+    tipo: "optativa_slot";
+    ch: number;
+    descricao: string;
+}
+
+/** Slot generico para complementares. */
+export interface ComplementarSlot {
+    tipo: "complementar_slot";
+    ch: number;
+    descricao: string;
+}
+
+/** CH integralizada por tipo. */
+export interface CargaIntegralizada {
+    total: number;
+    obrigatoria: number;
+    optativa: number;
+    complementar: number;
+}
+
+/** Saida completa do Motor 2 v2 (com semestre atual, slots genericos). */
+export interface PlanoFormaturav2 {
+    /** Semestre em andamento (materias com status MATR). */
+    semestreAtual?: {
+        tipo: "em_curso";
+        materias: MateriaSemestreAtual[];
+    };
+    /** Numero de semestres futuros estimados ate a formatura. */
+    semestresRestantes: number;
+    /**
+     * Rotulo do semestre estimado de formatura (ex: "2027.1"). Opcional —
+     * algumas configuracoes nao calculam datas absolutas.
+     */
+    formaturaEstimada?: string;
+    /** Plano semestre a semestre (futuro, apos semestre atual). */
+    plano: SemestrePlano[];
+    /** Materias que nao foram alocadas (ciclos, pre-req externo, etc). */
+    materiasNaoAlocadas: string[];
+    /** CH faltante para obrigatorias restantes. */
+    chObrigatóriaFaltante: number;
+    /** CH faltante para optativas. */
+    chOptativaFaltante: number;
+    /** CH faltante para complementares. */
+    chComplementarFaltante: number;
+}
+
+/** Saida completa do Motor 2 (versao anterior para compatibilidade). */
 export interface PlanoFormatura {
     /** Numero de semestres futuros estimados ate a formatura. */
     semestresRestantes: number;
