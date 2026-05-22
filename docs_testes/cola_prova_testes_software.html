@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>COLA — Prova FGA0314 Testes de Software</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  background: #f8f9fb;
+  color: #1a1a1a;
+  line-height: 1.5;
+  padding: 16px 12px;
+  font-size: 13px;
+}
+
+.container { max-width: 1100px; margin: 0 auto; }
+
+.header {
+  background: linear-gradient(135deg, #1a4d8f 0%, #2563eb 100%);
+  color: white;
+  padding: 20px 24px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 12px rgba(26, 77, 143, 0.2);
+}
+
+.header h1 { font-size: 22px; margin-bottom: 4px; }
+.header p { font-size: 13px; opacity: 0.95; }
+
+.alert {
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+  border-radius: 0 6px 6px 0;
+  font-size: 12.5px;
+  color: #78350f;
+}
+
+.alert strong { color: #92400e; }
+
+h2 {
+  font-size: 17px;
+  color: white;
+  background: #1a4d8f;
+  padding: 8px 14px;
+  border-radius: 6px 6px 0 0;
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 14px;
+  color: #1a4d8f;
+  margin: 14px 0 6px;
+  font-weight: 600;
+  border-bottom: 1px solid #dbeafe;
+  padding-bottom: 4px;
+}
+
+h4 {
+  font-size: 13px;
+  color: #15803d;
+  margin: 10px 0 5px;
+  font-weight: 600;
+}
+
+.section {
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.section-body { padding: 16px 18px; }
+
+p { margin-bottom: 8px; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin: 8px 0 12px;
+}
+
+th {
+  background: #1a4d8f;
+  color: white;
+  padding: 7px 9px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 11.5px;
+}
+
+td {
+  padding: 6px 9px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: top;
+}
+
+tr:nth-child(even) td { background: #f9fafb; }
+
+td.center { text-align: center; }
+
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tag-v { background: #dcfce7; color: #15803d; }
+.tag-i { background: #fee2e2; color: #b91c1c; }
+.tag-info { background: #dbeafe; color: #1e40af; }
+.tag-warn { background: #fef3c7; color: #92400e; }
+
+code {
+  background: #f3f4f6;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 11.5px;
+  font-family: "Menlo", "Monaco", monospace;
+  color: #be185d;
+}
+
+pre {
+  background: #1f2937;
+  color: #e5e7eb;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  overflow-x: auto;
+  font-family: "Menlo", "Monaco", monospace;
+  margin: 8px 0;
+  line-height: 1.5;
+  white-space: pre;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+@media (min-width: 700px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+.card {
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 10px 12px;
+  border-left: 3px solid #1a4d8f;
+}
+
+.card.green { border-left-color: #15803d; background: #f0fdf4; }
+.card.red { border-left-color: #b91c1c; background: #fef2f2; }
+.card.yellow { border-left-color: #d97706; background: #fffbeb; }
+.card.purple { border-left-color: #7c3aed; background: #faf5ff; }
+
+.card h4 { margin-top: 0; }
+.card ul, .card ol { margin-left: 16px; font-size: 12px; }
+.card li { margin-bottom: 2px; }
+
+.formula {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 2px solid #f59e0b;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+}
+
+.formula strong { color: #92400e; font-size: 14px; }
+
+.warning-box {
+  background: #fee2e2;
+  border-left: 4px solid #b91c1c;
+  padding: 8px 12px;
+  margin: 8px 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 12px;
+  color: #7f1d1d;
+}
+
+.tip-box {
+  background: #ede9fe;
+  border-left: 4px solid #7c3aed;
+  padding: 8px 12px;
+  margin: 8px 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 12px;
+  color: #5b21b6;
+}
+
+.success-box {
+  background: #dcfce7;
+  border-left: 4px solid #15803d;
+  padding: 8px 12px;
+  margin: 8px 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 12px;
+  color: #14532d;
+}
+
+.flow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #eff6ff;
+  border-radius: 6px;
+  border: 1px solid #bfdbfe;
+}
+
+.flow-num {
+  background: #1a4d8f;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-weight: 700;
+  text-align: center;
+  line-height: 28px;
+  flex-shrink: 0;
+}
+
+.flow-content { flex: 1; font-size: 12px; }
+.flow-content strong { color: #1a4d8f; display: block; margin-bottom: 2px; }
+
+.toc {
+  background: #1f2937;
+  color: white;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+
+.toc h3 { color: white; border: none; margin-bottom: 8px; }
+.toc ol { margin-left: 18px; columns: 2; }
+.toc a { color: #93c5fd; text-decoration: none; font-size: 12px; }
+.toc a:hover { color: white; }
+
+.template-table {
+  background: #faf5ff;
+  border: 1px dashed #c4b5fd;
+  padding: 8px;
+  border-radius: 6px;
+  margin: 8px 0;
+}
+
+.compact-table th, .compact-table td {
+  padding: 4px 6px;
+  font-size: 11px;
+}
+
+.diff-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+@media (min-width: 700px) {
+  .diff-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.diff-col { padding: 12px; font-size: 12px; }
+.diff-col.left { background: #eff6ff; border-right: 1px solid #e5e7eb; }
+.diff-col.right { background: #fef3c7; }
+.diff-col h4 { margin-top: 0; font-size: 13px; }
+
+@media print {
+  body { padding: 8px; font-size: 10px; background: white; }
+  .section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+  .toc, .header { page-break-after: avoid; }
+  h2 { font-size: 13px; padding: 5px 10px; }
+  h3 { font-size: 12px; }
+  table { font-size: 9.5px; }
+  pre { font-size: 9px; }
+  .grid-2, .grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>📋 COLA — Prova FGA0314 Testes de Software</h1>
+  <p>Caixa-Preta (EP+AVL) + Caixa-Branca (MC/DC) — Foco no formato exato da professora</p>
+</div>
+
+<div class="alert">
+  <strong>⚠️ COMO A PROFESSORA COBRA:</strong> Os exercícios SEMPRE pedem 3 tabelas para Caixa-Preta (Classes, AVL, Casos de Teste) ou 3 tabelas para MC/DC (Condições, Tabela Verdade, Casos). Frequentemente em Parte 1 (Unidade) + Parte 2 (Sistema). Use código Java + regras de negócio.
+</div>
+
+<div class="toc">
+  <h3>📚 Índice</h3>
+  <ol>
+    <li><a href="#fluxo">Fluxo geral — método em 5 passos</a></li>
+    <li><a href="#tipos">Os 7 tipos de variável</a></li>
+    <li><a href="#tabela1">Tabela 1 — Classes de Equivalência</a></li>
+    <li><a href="#tabela2">Tabela 2 — Análise de Valor Limite</a></li>
+    <li><a href="#tabela3-unidade">Tabela 3 — Casos UNIDADE</a></li>
+    <li><a href="#tabela3-sistema">Tabela 3 — Casos SISTEMA</a></li>
+    <li><a href="#diff-niveis">Unidade × Sistema — diferenças</a></li>
+    <li><a href="#mcdc">Caixa-Branca — MC/DC</a></li>
+    <li><a href="#exemplo-resolvido">Exemplo resolvido completo</a></li>
+    <li><a href="#armadilhas">Armadilhas comuns</a></li>
+    <li><a href="#checklist">Checklist final</a></li>
+  </ol>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section" id="fluxo">
+<h2>1️⃣ Fluxo Geral — Caixa-Preta em 5 Passos</h2>
+<div class="section-body">
+
+<div class="formula">
+<strong>📐 FÓRMULA GERAL:</strong> aplicável a qualquer exercício de EP+AVL.
+</div>
+
+<div class="flow-step">
+  <div class="flow-num">1</div>
+  <div class="flow-content">
+    <strong>LER E IDENTIFICAR VARIÁVEIS</strong>
+    Liste todas as variáveis de entrada. Para cada uma: qual o TIPO (faixa, conjunto, string, booleano, sub-regra)? Qual o DOMÍNIO? Tem sub-condição?
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="flow-num">2</div>
+  <div class="flow-content">
+    <strong>IDENTIFICAR CLASSES DE EQUIVALÊNCIA</strong>
+    Para cada variável, defina classes válidas e inválidas usando os 7 tipos. Numere C1, C2, C3... agrupando por variável.
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="flow-num">3</div>
+  <div class="flow-content">
+    <strong>APLICAR AVL EM FRONTEIRAS NUMÉRICAS</strong>
+    Para cada faixa numérica ou tamanho de string: ponto exato (válido) + vizinho (inválido). Calcule o step correto.
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="flow-num">4</div>
+  <div class="flow-content">
+    <strong>MONTAR TABELAS 1 E 2</strong>
+    Tabela 1 (#, Variável, Classe, Tipo, Repr.). Tabela 2 (Variável, Fronteira, Ponto exato, Vizinho).
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="flow-num">5</div>
+  <div class="flow-content">
+    <strong>PROJETAR CASOS DE TESTE (Tabela 3)</strong>
+    Válidos = combinações da matriz. Limites = par exato+vizinho. Inválidos = um por classe, isolado.
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section" id="tipos">
+<h2>2️⃣ Os 7 Tipos de Variável</h2>
+<div class="section-body">
+
+<table>
+<thead>
+<tr>
+  <th style="width:40px">Tipo</th>
+  <th>Quando usar</th>
+  <th>Exemplo do enunciado</th>
+  <th class="center">Classes</th>
+  <th class="center">AVL?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class="center"><strong>1</strong><br><small>Faixa</small></td>
+  <td>Variável numérica com mínimo E máximo</td>
+  <td><code>peso entre 0,1 e 50 kg</code></td>
+  <td class="center">3 (1V + 2I)</td>
+  <td class="center"><span class="tag tag-info">SIM</span></td>
+</tr>
+<tr>
+  <td class="center"><strong>2</strong><br><small>Conjunto</small></td>
+  <td>Lista FIXA de opções discretas listadas no enunciado</td>
+  <td><code>tipo: NORMAL ou EXPRESSA</code></td>
+  <td class="center">N val. + 1 inv.</td>
+  <td class="center"><span class="tag tag-warn">NÃO</span></td>
+</tr>
+<tr>
+  <td class="center"><strong>3</strong><br><small>String</small></td>
+  <td>Texto com formato/regex/tamanho obrigatório</td>
+  <td><code>CEP: 8 dígitos</code></td>
+  <td class="center">3+ (1V + 2+I)</td>
+  <td class="center"><span class="tag tag-info">PARCIAL</span></td>
+</tr>
+<tr>
+  <td class="center"><strong>4</strong><br><small>Booleano</small></td>
+  <td>Apenas dois estados (true/false)</td>
+  <td><code>vip: sim ou não</code></td>
+  <td class="center">2 (ambas V)</td>
+  <td class="center"><span class="tag tag-warn">NÃO</span></td>
+</tr>
+<tr>
+  <td class="center"><strong>5</strong><br><small>Igualdade</small></td>
+  <td>Deve ser exatamente um valor específico</td>
+  <td><code>código = 1234</code></td>
+  <td class="center">3 (1V + 2I)</td>
+  <td class="center"><span class="tag tag-info">SIM</span></td>
+</tr>
+<tr>
+  <td class="center"><strong>6</strong><br><small>Coleção</small></td>
+  <td>Lista/array de itens (carrinho, lista de produtos)</td>
+  <td><code>carrinho: 1+ itens</code></td>
+  <td class="center">3 a 4</td>
+  <td class="center"><span class="tag tag-info">SIM</span></td>
+</tr>
+<tr>
+  <td class="center"><strong>7</strong><br><small>Sub-regra</small></td>
+  <td>UMA classe válida com condição EXTRA que muda comportamento</td>
+  <td><code>CEP válido MAS inicia 7/8/9 → +R$15</code></td>
+  <td class="center">2+ válidas</td>
+  <td class="center"><span class="tag tag-info">DEPENDE</span></td>
+</tr>
+</tbody>
+</table>
+
+<div class="warning-box">
+  <strong>⚠️ Conjunto (Tipo 2) × Sub-regra (Tipo 7):</strong> Conjunto = opções FIXAS listadas no enunciado ("X ou Y ou Z"). Sub-regra = UMA classe válida que se divide porque tem uma condição EXTRA dentro dela ("se for válido E inicia com 7/8/9").
+</div>
+
+<h3>🔑 Guia rápido de identificação</h3>
+<pre>Tem mínimo E máximo numérico? ─────────→ TIPO 1 (Faixa)
+Tem lista fixa de opções discretas? ───→ TIPO 2 (Conjunto)
+Tem formato/regex/tamanho obrigatório? ─→ TIPO 3 (String)
+É verdadeiro ou falso? ─────────────────→ TIPO 4 (Booleano)
+Deve ser exatamente um valor X? ────────→ TIPO 5 (Igualdade)
+É uma lista/array de itens? ────────────→ TIPO 6 (Coleção)
+Comportamento DIFERENTE dentro da válida?→ TIPO 7 (Sub-regra)</pre>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section" id="tabela1">
+<h2>3️⃣ Tabela 1 — Classes de Equivalência</h2>
+<div class="section-body">
+
+<h3>Estrutura obrigatória (mesma para unidade e sistema)</h3>
+
+<div class="template-table">
+<table class="compact-table">
+<thead>
+<tr>
+  <th style="width:40px">#</th>
+  <th>Variável</th>
+  <th>Classe de Equivalência</th>
+  <th>Tipo</th>
+  <th>Representante</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>C1</td>
+  <td>peso</td>
+  <td>0,1 ≤ peso ≤ 50</td>
+  <td><span class="tag tag-v">Válida</span></td>
+  <td><code>10</code></td>
+</tr>
+<tr>
+  <td>C2</td>
+  <td>peso</td>
+  <td>peso < 0,1</td>
+  <td><span class="tag tag-i">Inválida</span></td>
+  <td><code>0</code></td>
+</tr>
+<tr>
+  <td>C3</td>
+  <td>peso</td>
+  <td>peso > 50</td>
+  <td><span class="tag tag-i">Inválida</span></td>
+  <td><code>51</code></td>
+</tr>
+<tr>
+  <td>C4</td>
+  <td>tipo</td>
+  <td>tipo = "NORMAL"</td>
+  <td><span class="tag tag-v">Válida</span></td>
+  <td><code>"NORMAL"</code></td>
+</tr>
+<tr>
+  <td>C5</td>
+  <td>tipo</td>
+  <td>tipo = "EXPRESSA"</td>
+  <td><span class="tag tag-v">Válida</span></td>
+  <td><code>"EXPRESSA"</code></td>
+</tr>
+<tr>
+  <td>C6</td>
+  <td>tipo</td>
+  <td>tipo fora do conjunto</td>
+  <td><span class="tag tag-i">Inválida</span></td>
+  <td><code>"SEDEX"</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="grid grid-2">
+<div class="card">
+<h4>📝 O que vai em cada coluna</h4>
+<ul>
+  <li><strong>#</strong> → C1, C2... sequencial</li>
+  <li><strong>Variável</strong> → nome da entrada</li>
+  <li><strong>Classe</strong> → CONDIÇÃO (não valor solto)</li>
+  <li><strong>Tipo</strong> → Válida ou Inválida</li>
+  <li><strong>Repr.</strong> → valor concreto, do meio da classe</li>
+</ul>
+</div>
+
+<div class="card green">
+<h4>✅ Boas práticas</h4>
+<ul>
+  <li>Agrupar por variável</li>
+  <li>Válidas antes das inválidas</li>
+  <li>Representante NÃO na fronteira</li>
+  <li>Conjunto: usar o valor exato</li>
+  <li>Inválida de conjunto: valor concreto fora dele</li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section" id="tabela2">
+<h2>4️⃣ Tabela 2 — Análise de Valor Limite (AVL)</h2>
+<div class="section-body">
+
+<h3>Estrutura</h3>
+<div class="template-table">
+<table class="compact-table">
+<thead>
+<tr>
+  <th>Variável</th>
+  <th>Fronteira</th>
+  <th>Ponto exato</th>
+  <th>Vizinho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>peso</td>
+  <td>mínimo</td>
+  <td><code>0,1</code> (válido)</td>
+  <td><code>0,05</code> ou <code>0,09</code> (inválido)</td>
+</tr>
+<tr>
+  <td>peso</td>
+  <td>máximo</td>
+  <td><code>50</code> (válido)</td>
+  <td><code>50,1</code> (inválido)</td>
+</tr>
+<tr>
+  <td>valor (R$)</td>
+  <td>mínimo</td>
+  <td><code>10,00</code> (válido)</td>
+  <td><code>9,99</code> (inválido)</td>
+</tr>
+<tr>
+  <td>nome (tamanho)</td>
+  <td>mínimo</td>
+  <td>3 chars (válido)</td>
+  <td>2 chars (inválido)</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>Como calcular o vizinho (step)</h3>
+<table>
+<thead>
+<tr><th>Tipo da variável</th><th>Step</th><th>Exemplo</th></tr>
+</thead>
+<tbody>
+<tr><td>Inteiro</td><td><code>1</code></td><td>idade mín 18 → vizinho 17</td></tr>
+<tr><td>Decimal R$ (2 casas)</td><td><code>0,01</code></td><td>R$10,00 → vizinho R$9,99</td></tr>
+<tr><td>Decimal kg (1 casa)</td><td><code>0,1</code> ou <code>0,01</code></td><td>0,1 kg → vizinho 0,0 ou 0,09</td></tr>
+<tr><td>String (tamanho)</td><td>1 caractere</td><td>8 chars → vizinho 7 chars</td></tr>
+</tbody>
+</table>
+
+<div class="warning-box">
+  <strong>⚠️ AVL NÃO se aplica em:</strong> conjuntos nominais (NORMAL/EXPRESSA), booleanos (true/false), strings sem regra de tamanho.
+</div>
+
+<div class="success-box">
+  <strong>💡 Sub-regra (Tipo 7) tem fronteira própria:</strong> CEP válido inicia 7-9 → ponto exato "70000000" (com sub-regra), vizinho "60000000" (sem sub-regra). Os dois são VÁLIDOS, o que muda é o comportamento.
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section" id="tabela3-unidade">
+<h2>5️⃣ Tabela 3 — Casos de Teste (NÍVEL UNIDADE)</h2>
+<div class="section-body">
+
+<div class="alert">
+  <strong>NÍVEL UNIDADE:</strong> testa o método isolado. Entradas = parâmetros diretos do método. Saída = valor de retorno OU exceção.
+</div>
+
+<h3>Estrutura</h3>
+<div class="template-table">
+<table class="compact-table">
+<thead>
+<tr>
+  <th style="width:50px">#</th>
+  <th>Título</th>
+  <th>Classes</th>
+  <th>Entradas</th>
+  <th>Saída esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CT01</td>
+  <td>frete_normal_nao_remoto</td>
+  <td>C1+C4+C7</td>
+  <td><code>peso=10, "NORMAL", "12345678"</code></td>
+  <td>R$ 30,00</td>
+</tr>
+<tr>
+  <td>CT02</td>
+  <td>peso_no_minimo_exato</td>
+  <td>AVL-min peso</td>
+  <td><code>peso=0.1, "NORMAL", "12345678"</code></td>
+  <td>R$ 10,20</td>
+</tr>
+<tr>
+  <td>CT03</td>
+  <td>peso_abaixo_minimo_isolado</td>
+  <td>C2 isolada</td>
+  <td><code>peso=0, "NORMAL", "12345678"</code></td>
+  <td><code>IllegalArgumentException("Peso inválido")</code></td>
+</tr>
+<tr>
+  <td>CT04</td>
+  <td>tipo_invalido</td>
+  <td>C6 isolada</td>
+  <td><code>peso=10, "SEDEX", "12345678"</code></td>
+  <td><code>IllegalArgumentException("Tipo inválido")</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="grid grid-2">
+<div class="card">
+<h4>Coluna "Entradas"</h4>
+<ul>
+  <li>Parâmetros DIRETOS do método</li>
+  <li>Ordem dos parâmetros como na assinatura</li>
+  <li>Valores concretos (não "válido" ou "inválido")</li>
+</ul>
+</div>
+
+<div class="card">
+<h4>Coluna "Saída esperada"</h4>
+<ul>
+  <li>Valor de retorno calculado (ex: R$ 30,00)</li>
+  <li>OU nome COMPLETO da exceção + mensagem</li>
+  <li>Nunca "erro" genérico</li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section" id="tabela3-sistema">
+<h2>6️⃣ Tabela 3 — Casos de Teste (NÍVEL SISTEMA)</h2>
+<div class="section-body">
+
+<div class="alert">
+  <strong>NÍVEL SISTEMA:</strong> testa o fluxo completo do usuário. Entradas = ações na UI. Saída = mensagens na tela, botões habilitados/desabilitados, telas exibidas.
+</div>
+
+<h3>Estrutura — uma coluna A MAIS!</h3>
+<div class="template-table">
+<table class="compact-table">
+<thead>
+<tr>
+  <th style="width:50px">#</th>
+  <th>Título</th>
+  <th>Classes</th>
+  <th>Contexto (estado)</th>
+  <th>Entradas (usuário)</th>
+  <th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CT01</td>
+  <td>compra_normal_nao_remoto</td>
+  <td>CEV1+CEV2+CEV3+CEV5</td>
+  <td>Carrinho com notebook 2,5kg + mouse 0,2kg. Usuário logado.</td>
+  <td>Preenche CEP "12345-678". Seleciona Entrega Normal.</td>
+  <td>Tela exibe "Frete: R$ 15,40". Botão Confirmar habilitado.</td>
+</tr>
+<tr>
+  <td>CT02</td>
+  <td>carrinho_vazio_bloqueia</td>
+  <td>CEI1 isolada</td>
+  <td>Usuário logado. Carrinho VAZIO.</td>
+  <td>Tenta acessar checkout.</td>
+  <td>Sistema bloqueia. Mensagem "Adicione ao menos um item ao carrinho".</td>
+</tr>
+<tr>
+  <td>CT03</td>
+  <td>cep_nao_informado</td>
+  <td>CEI4 isolada</td>
+  <td>Carrinho com 2 itens válidos (5 kg total).</td>
+  <td>Deixa CEP em branco. Seleciona NORMAL. Clica Confirmar.</td>
+  <td>Mensagem "Informe um CEP". Botão Confirmar desabilitado.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="grid grid-3">
+<div class="card purple">
+<h4>📍 Contexto</h4>
+<ul>
+  <li>Estado INICIAL do sistema</li>
+  <li>O que JÁ existe antes da ação</li>
+  <li>Ex: usuário logado, carrinho com itens, dados cadastrados</li>
+</ul>
+</div>
+
+<div class="card">
+<h4>👆 Entradas</h4>
+<ul>
+  <li>AÇÕES do usuário na UI</li>
+  <li>O que ele DIGITA, CLICA, SELECIONA</li>
+  <li>Sequência de interações</li>
+</ul>
+</div>
+
+<div class="card green">
+<h4>👁️ Resultado</h4>
+<ul>
+  <li>O que o usuário VÊ na tela</li>
+  <li>Mensagens, valores exibidos</li>
+  <li>Estado dos botões (habil./desab.)</li>
+  <li>Bloqueio ou avanço do fluxo</li>
+</ul>
+</div>
+</div>
+
+<div class="warning-box">
+<strong>⚠️ Pegadinha do nível sistema:</strong> aparecem CLASSES NOVAS que não existiam no método isolado. Sempre identifique:
+<ul style="margin-left:18px;margin-top:4px">
+  <li>Carrinho VAZIO (não existe no método)</li>
+  <li>Campo VAZIO/NÃO PREENCHIDO (CEP, idade, etc)</li>
+  <li>Opção NÃO SELECIONADA (radio button vazio)</li>
+  <li>Sessão expirada / usuário não logado</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section" id="diff-niveis">
+<h2>7️⃣ Diferenças UNIDADE × SISTEMA</h2>
+<div class="section-body">
+
+<div class="diff-grid">
+
+<div class="diff-col left">
+<h4>🔧 NÍVEL UNIDADE</h4>
+<p><strong>O que é:</strong> testa o MÉTODO isolado.</p>
+<p><strong>Enunciado dá:</strong> código Java do método + regras.</p>
+<p><strong>Variáveis:</strong> parâmetros diretos.</p>
+<p><strong>Saída:</strong> valor de retorno ou exceção Java.</p>
+<p><strong>Tabela 3:</strong> 5 colunas (#, Título, Classes, Entradas, Saída).</p>
+<p><strong>Exemplo de entrada:</strong></p>
+<pre>peso=10, tipo="NORMAL", cep="12345678"</pre>
+<p><strong>Exemplo de saída:</strong></p>
+<pre>R$ 30,00
+ou
+IllegalArgumentException("Peso inválido")</pre>
+</div>
+
+<div class="diff-col right">
+<h4>🌐 NÍVEL SISTEMA</h4>
+<p><strong>O que é:</strong> testa o FLUXO completo na UI.</p>
+<p><strong>Enunciado dá:</strong> descrição do fluxo + mockup da tela + regras.</p>
+<p><strong>Variáveis:</strong> ações do usuário.</p>
+<p><strong>Saída:</strong> mensagens na tela, estado da UI.</p>
+<p><strong>Tabela 3:</strong> 6 colunas (#, Título, Classes, Contexto, Entradas, Resultado).</p>
+<p><strong>Exemplo de contexto:</strong></p>
+<pre>Carrinho com notebook 2,5kg + mouse 0,2kg
+Usuário logado</pre>
+<p><strong>Exemplo de resultado:</strong></p>
+<pre>Tela exibe "Frete: R$ 15,40"
+Botão Confirmar habilitado</pre>
+</div>
+
+</div>
+
+<h3>Comparação de classes — exercício do frete</h3>
+<table>
+<thead>
+<tr>
+  <th>Classe</th>
+  <th>Descrição</th>
+  <th class="center">Unidade</th>
+  <th class="center">Sistema</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>C1/CEV2</td><td>Peso válido (0,1-50)</td><td class="center">✓</td><td class="center">✓</td></tr>
+<tr><td>C2/CEI2</td><td>Peso < 0,1</td><td class="center">✓</td><td class="center">✓</td></tr>
+<tr><td>C3/CEI3</td><td>Peso > 50</td><td class="center">✓</td><td class="center">✓</td></tr>
+<tr><td>C4/CEV5</td><td>Tipo NORMAL</td><td class="center">✓</td><td class="center">✓</td></tr>
+<tr><td>C5/CEV6</td><td>Tipo EXPRESSA</td><td class="center">✓</td><td class="center">✓</td></tr>
+<tr><td>C6/CEI6</td><td>Tipo inválido / não selecionado</td><td class="center">✓</td><td class="center">✓</td></tr>
+<tr><td>C7/CEV3</td><td>CEP válido normal</td><td class="center">✓</td><td class="center">✓</td></tr>
+<tr><td>C8/CEV4</td><td>CEP válido remoto</td><td class="center">✓</td><td class="center">✓</td></tr>
+<tr><td>C9/CEI5</td><td>CEP formato inválido</td><td class="center">✓</td><td class="center">✓</td></tr>
+<tr style="background:#fef3c7"><td><strong>CEI1</strong></td><td><strong>Carrinho VAZIO</strong></td><td class="center">✗</td><td class="center">✓ NOVA</td></tr>
+<tr style="background:#fef3c7"><td><strong>CEI4</strong></td><td><strong>CEP NÃO informado (campo vazio)</strong></td><td class="center">✗</td><td class="center">✓ NOVA</td></tr>
+<tr style="background:#fef3c7"><td><strong>CEI6'</strong></td><td><strong>Tipo NÃO selecionado (radio vazio)</strong></td><td class="center">✗</td><td class="center">✓ NOVA</td></tr>
+</tbody>
+</table>
+
+<div class="tip-box">
+<strong>💡 Como descobrir as classes novas no sistema:</strong> pergunte para cada campo da UI: "o que pode dar errado se o usuário NÃO interagir com isso?" → carrinho vazio, campo em branco, opção não selecionada.
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section" id="mcdc">
+<h2>8️⃣ Caixa-Branca — MC/DC</h2>
+<div class="section-body">
+
+<div class="alert">
+  <strong>MC/DC (Modified Condition/Decision Coverage):</strong> cada condição deve afetar INDEPENDENTEMENTE o resultado da decisão. Para N condições, geralmente N+1 testes.
+</div>
+
+<h3>📐 FÓRMULA GERAL — MC/DC em 6 passos</h3>
+
+<div class="flow-step">
+  <div class="flow-num">1</div>
+  <div class="flow-content">
+    <strong>IDENTIFICAR DECISÕES</strong>
+    Cada <code>if</code>, <code>while</code>, <code>for</code> é uma decisão. Liste todas como D1, D2, D3...
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="flow-num">2</div>
+  <div class="flow-content">
+    <strong>LISTAR CONDIÇÕES ATÔMICAS</strong>
+    Cada sub-expressão booleana é uma condição. Ex: <code>peso < 0.1 || peso > 50</code> tem C1=(peso&lt;0.1) e C2=(peso&gt;50).
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="flow-num">3</div>
+  <div class="flow-content">
+    <strong>DEFINIR T/F PARA CADA CONDIÇÃO</strong>
+    Para cada condição: qual valor de entrada faz ela ser TRUE? E FALSE? Esta é a Tabela 1 do MC/DC.
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="flow-num">4</div>
+  <div class="flow-content">
+    <strong>MONTAR TABELA VERDADE</strong>
+    Para decisões com 2+ condições. 2 condições = 4 linhas (TT, TF, FT, FF). 3 condições = 8 linhas.
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="flow-num">5</div>
+  <div class="flow-content">
+    <strong>IDENTIFICAR PARES DE INDEPENDÊNCIA</strong>
+    Pergunta-chave: "Consigo mudar o resultado da decisão alterando APENAS UMA condição?" Para cada Ci: encontre 2 testes onde só Ci muda E o resultado muda.
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="flow-num">6</div>
+  <div class="flow-content">
+    <strong>MENOR CONJUNTO DE TESTES</strong>
+    Selecione o menor conjunto que cobre todos os pares. Testes podem ser COMPARTILHADOS entre condições. Meta: N+1 testes para N condições.
+  </div>
+</div>
+
+<h3>Exemplo concreto — Decisão D1: <code>peso &lt; 0.1 || peso &gt; 50</code></h3>
+
+<table class="compact-table">
+<thead>
+<tr>
+  <th>Linha</th>
+  <th>C1 (peso&lt;0.1)</th>
+  <th>C2 (peso&gt;50)</th>
+  <th>D1</th>
+  <th>Par de independência</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>R1</td><td><strong>T</strong></td><td>F</td><td><strong>T</strong></td><td>C1: par (R1, R2)</td></tr>
+<tr><td>R2</td><td>F</td><td>F</td><td>F</td><td>C1: par (R1, R2) ✓<br>C2: par (R3, R2) ✓</td></tr>
+<tr><td>R3</td><td>F</td><td><strong>T</strong></td><td><strong>T</strong></td><td>C2: par (R3, R2)</td></tr>
+<tr><td>R4</td><td>T</td><td>T</td><td>T</td><td>(redundante)</td></tr>
+</tbody>
+</table>
+
+<p style="font-size:12px;margin-top:8px"><strong>Pares de independência:</strong></p>
+<ul style="font-size:12px;margin-left:20px">
+  <li><strong>C1 afeta:</strong> R1 (T,F→T) vs R2 (F,F→F) — só C1 muda, D1 muda</li>
+  <li><strong>C2 afeta:</strong> R3 (F,T→T) vs R2 (F,F→F) — só C2 muda, D1 muda</li>
+</ul>
+
+<p style="font-size:12px;margin-top:8px"><strong>Conjunto mínimo:</strong> 3 testes (R1, R2, R3) cobrem 100% MC/DC desta decisão.</p>
+
+<h3>Estruturas das tabelas para MC/DC</h3>
+
+<h4>Tabela 1 (MC/DC) — Identificação das condições</h4>
+<table class="compact-table">
+<thead>
+<tr><th>Decisão</th><th>Condição</th><th>Nome</th><th>Quando TRUE</th><th>Quando FALSE</th></tr>
+</thead>
+<tbody>
+<tr><td>D1</td><td>C1</td><td>peso < 0,1</td><td>peso = 0,05</td><td>peso = 10</td></tr>
+<tr><td>D1</td><td>C2</td><td>peso > 50</td><td>peso = 51</td><td>peso = 10</td></tr>
+</tbody>
+</table>
+
+<h4>Tabela 2 (MC/DC) — Tabela verdade + pares de independência</h4>
+<table class="compact-table">
+<thead>
+<tr><th>Linha</th><th>C1</th><th>C2</th><th>...</th><th>Decisão</th><th>Pares</th></tr>
+</thead>
+<tbody>
+<tr><td>R1</td><td>T</td><td>F</td><td>...</td><td>T</td><td>C1: (R1,R2)</td></tr>
+</tbody>
+</table>
+
+<h4>Tabela 3 (MC/DC) — Casos de teste</h4>
+<table class="compact-table">
+<thead>
+<tr><th>#</th><th>Título</th><th>Combinações</th><th>Entradas</th><th>Saída esperada</th></tr>
+</thead>
+<tbody>
+<tr><td>MC01</td><td>peso_abaixo_minimo</td><td>D1: R1 (C1=T,C2=F)</td><td>peso=0.05, NORMAL, 12345678</td><td>Exceção "Peso inválido"</td></tr>
+</tbody>
+</table>
+
+<div class="tip-box">
+<strong>💡 Atalho para MC/DC:</strong>
+<ul style="margin-left:20px;margin-top:4px">
+  <li>Operador OR: decisão F só quando TODAS são F. Use a linha "todas F" como pivô.</li>
+  <li>Operador AND: decisão T só quando TODAS são T. Use a linha "todas T" como pivô.</li>
+  <li>Para cada condição, varie ela mantendo outras fixas para mudar o resultado.</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section" id="exemplo-resolvido">
+<h2>9️⃣ Exemplo Resolvido — Frete (estilo professora)</h2>
+<div class="section-body">
+
+<h3>Enunciado simplificado</h3>
+<p>Sistema de e-commerce calcula frete com peso, tipo de entrega e CEP. Peso entre 0,1 e 50 kg. Tipos: NORMAL (R$10 + R$2/kg) ou EXPRESSA (R$20 + R$5/kg). CEP 8 dígitos. CEP iniciando 7/8/9 → +R$15.</p>
+
+<h3>PARTE 1 — UNIDADE</h3>
+
+<h4>Tabela 1 (Classes)</h4>
+<table class="compact-table">
+<thead>
+<tr><th>#</th><th>Var</th><th>Classe</th><th>Tipo</th><th>Repr.</th></tr>
+</thead>
+<tbody>
+<tr><td>C1</td><td>peso</td><td>0,1 ≤ peso ≤ 50</td><td><span class="tag tag-v">V</span></td><td>10</td></tr>
+<tr><td>C2</td><td>peso</td><td>peso < 0,1</td><td><span class="tag tag-i">I</span></td><td>0</td></tr>
+<tr><td>C3</td><td>peso</td><td>peso > 50</td><td><span class="tag tag-i">I</span></td><td>51</td></tr>
+<tr><td>C4</td><td>tipo</td><td>NORMAL</td><td><span class="tag tag-v">V</span></td><td>"NORMAL"</td></tr>
+<tr><td>C5</td><td>tipo</td><td>EXPRESSA</td><td><span class="tag tag-v">V</span></td><td>"EXPRESSA"</td></tr>
+<tr><td>C6</td><td>tipo</td><td>fora do conjunto</td><td><span class="tag tag-i">I</span></td><td>"SEDEX"</td></tr>
+<tr><td>C7</td><td>cep</td><td>8 dígitos, inicia 0-6</td><td><span class="tag tag-v">V</span></td><td>"12345678"</td></tr>
+<tr><td>C8</td><td>cep</td><td>8 dígitos, inicia 7-9</td><td><span class="tag tag-v">V</span></td><td>"80000000"</td></tr>
+<tr><td>C9</td><td>cep</td><td>formato errado/null</td><td><span class="tag tag-i">I</span></td><td>"1234"</td></tr>
+</tbody>
+</table>
+
+<h4>Tabela 2 (AVL)</h4>
+<table class="compact-table">
+<thead>
+<tr><th>Var</th><th>Front.</th><th>Ponto exato</th><th>Vizinho</th></tr>
+</thead>
+<tbody>
+<tr><td>peso</td><td>mín</td><td>0,1 (V)</td><td>0,05 (I)</td></tr>
+<tr><td>peso</td><td>máx</td><td>50 (V)</td><td>50,1 (I)</td></tr>
+<tr><td>cep</td><td>dig 7</td><td>"70000000" (+R$15)</td><td>"60000000" (sem)</td></tr>
+</tbody>
+</table>
+
+<h4>Tabela 3 (Casos)</h4>
+<table class="compact-table">
+<thead>
+<tr><th>#</th><th>Título</th><th>Classes</th><th>Entradas</th><th>Saída</th></tr>
+</thead>
+<tbody>
+<tr><td>CT01</td><td>frete_normal_nao_remoto</td><td>C1+C4+C7</td><td>10, "NORMAL", "12345678"</td><td>R$ 30,00</td></tr>
+<tr><td>CT02</td><td>frete_expressa_nao_remoto</td><td>C1+C5+C7</td><td>10, "EXPRESSA", "12345678"</td><td>R$ 70,00</td></tr>
+<tr><td>CT03</td><td>frete_normal_remoto</td><td>C1+C4+C8</td><td>10, "NORMAL", "80000000"</td><td>R$ 45,00</td></tr>
+<tr><td>CT04</td><td>frete_expressa_remoto</td><td>C1+C5+C8</td><td>5, "EXPRESSA", "70000001"</td><td>R$ 60,00</td></tr>
+<tr><td>CT05</td><td>peso_minimo_exato</td><td>AVL-min</td><td>0.1, "NORMAL", "12345678"</td><td>R$ 10,20</td></tr>
+<tr><td>CT06</td><td>peso_abaixo_minimo</td><td>AVL-min viz</td><td>0.05, "NORMAL", "12345678"</td><td>Exceção peso</td></tr>
+<tr><td>CT07</td><td>peso_maximo_exato</td><td>AVL-max</td><td>50, "NORMAL", "12345678"</td><td>R$ 110,00</td></tr>
+<tr><td>CT08</td><td>peso_acima_maximo</td><td>AVL-max viz</td><td>50.1, "NORMAL", "12345678"</td><td>Exceção peso</td></tr>
+<tr><td>CT09</td><td>cep_digito_6</td><td>AVL CEP</td><td>10, "NORMAL", "60000000"</td><td>R$ 30,00 (sem +R$15)</td></tr>
+<tr><td>CT10</td><td>cep_digito_7</td><td>AVL CEP</td><td>10, "NORMAL", "70000000"</td><td>R$ 45,00 (+R$15)</td></tr>
+<tr><td>CT11</td><td>peso_zero_invalido</td><td>C2 isolada</td><td>0, "NORMAL", "12345678"</td><td>IllegalArgEx("Peso inv")</td></tr>
+<tr><td>CT12</td><td>peso_acima_max_invalido</td><td>C3 isolada</td><td>51, "NORMAL", "12345678"</td><td>IllegalArgEx("Peso inv")</td></tr>
+<tr><td>CT13</td><td>tipo_invalido</td><td>C6 isolada</td><td>10, "SEDEX", "12345678"</td><td>IllegalArgEx("Tipo inv")</td></tr>
+<tr><td>CT14</td><td>cep_invalido</td><td>C9 isolada</td><td>10, "NORMAL", "1234"</td><td>IllegalArgEx("CEP inv")</td></tr>
+</tbody>
+</table>
+
+<p style="font-size:12px;margin-top:6px"><strong>Total: 14 casos</strong> = 4 válidos + 6 limites + 4 inválidos.</p>
+
+<h3>PARTE 2 — SISTEMA</h3>
+
+<h4>Classes EXTRAS no nível sistema</h4>
+<ul style="font-size:12px;margin-left:20px">
+  <li><strong>CEI1</strong>: Carrinho vazio (não existe no método)</li>
+  <li><strong>CEI4</strong>: CEP não informado (campo em branco)</li>
+  <li><strong>CEI6'</strong>: Tipo de entrega não selecionado (radio vazio)</li>
+</ul>
+
+<h4>Tabela 3 — Sistema (exemplo de casos novos)</h4>
+<table class="compact-table">
+<thead>
+<tr><th>#</th><th>Título</th><th>Contexto</th><th>Entradas usuário</th><th>Resultado</th></tr>
+</thead>
+<tbody>
+<tr><td>CT01</td><td>compra_normal_sucesso</td><td>Carrinho com NB 2,5kg + Mouse 0,2kg, logado</td><td>CEP "12345-678", seleciona NORMAL</td><td>Tela exibe "Frete R$ 15,40", botão habilitado</td></tr>
+<tr><td>CT11</td><td>carrinho_vazio_bloqueia</td><td>Usuário logado, carrinho vazio</td><td>Tenta acessar checkout</td><td>Bloqueio + mensagem "Adicione um item"</td></tr>
+<tr><td>CT12</td><td>cep_nao_informado</td><td>Carrinho válido (5kg)</td><td>Não preenche CEP, seleciona NORMAL</td><td>Mensagem "Informe um CEP", botão desabilitado</td></tr>
+<tr><td>CT13</td><td>tipo_nao_selecionado</td><td>Carrinho válido + CEP preenchido</td><td>Não seleciona tipo, clica Confirmar</td><td>Mensagem "Selecione tipo de entrega"</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section" id="armadilhas">
+<h2>🔟 Armadilhas Comuns — O que a Professora Mais Cobra</h2>
+<div class="section-body">
+
+<div class="grid grid-2">
+
+<div class="card red">
+<h4>🪤 1. Confundir Conjunto com Sub-regra</h4>
+<p><strong>Conjunto:</strong> opções FIXAS listadas (NORMAL ou EXPRESSA).<br>
+<strong>Sub-regra:</strong> UMA classe válida com condição EXTRA (CEP válido MAS inicia 7-9).</p>
+</div>
+
+<div class="card red">
+<h4>🪤 2. Esquecer inválida do conjunto</h4>
+<p>Toda variável SEMPRE tem ao menos uma classe inválida. Inválida do conjunto = "qualquer valor fora das opções listadas".</p>
+</div>
+
+<div class="card red">
+<h4>🪤 3. Combinar inválidas</h4>
+<p>Inválido sempre ISOLADO. Outras entradas devem ser válidas. Senão a primeira exceção mascara a segunda.</p>
+</div>
+
+<div class="card red">
+<h4>🪤 4. Esquecer fronteiras de tamanho</h4>
+<p>Strings com tamanho mín/máx (senha 8-20 chars) TÊM AVL — sobre o tamanho.</p>
+</div>
+
+<div class="card red">
+<h4>🪤 5. Saída esperada genérica</h4>
+<p>Nunca "erro" sozinho. Sempre <code>IllegalArgumentException("Peso inválido")</code> ou valor calculado.</p>
+</div>
+
+<div class="card red">
+<h4>🪤 6. Representante na fronteira</h4>
+<p>Use o ponto interno (10, não 0,1). A fronteira é para a Tabela 2.</p>
+</div>
+
+<div class="card red">
+<h4>🪤 7. Esquecer classes do nível sistema</h4>
+<p>No sistema SEMPRE adicionar: carrinho vazio, campos não preenchidos, opções não selecionadas.</p>
+</div>
+
+<div class="card red">
+<h4>🪤 8. MC/DC — par de independência errado</h4>
+<p>Pares devem ter SÓ a condição alvo mudando E o resultado mudando. Se mais de uma condição muda, não é par válido.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section" id="checklist">
+<h2>1️⃣1️⃣ Checklist Final — Antes de Entregar</h2>
+<div class="section-body">
+
+<h3>📋 Tabela 1 — Classes</h3>
+<ul>
+  <li>☐ Toda variável de entrada está na tabela?</li>
+  <li>☐ Cada variável tem pelo menos UMA classe inválida?</li>
+  <li>☐ Faixas geraram exatamente 3 classes?</li>
+  <li>☐ Conjuntos: N válidas + 1 inválida?</li>
+  <li>☐ Sub-regras: classes válidas SEPARADAS?</li>
+  <li>☐ Coluna "Classe" tem CONDIÇÃO (não valor solto)?</li>
+  <li>☐ Representantes são valores concretos do meio da classe?</li>
+</ul>
+
+<h3>📋 Tabela 2 — AVL</h3>
+<ul>
+  <li>☐ Toda fronteira numérica tem ponto exato + vizinho?</li>
+  <li>☐ Step calculado corretamente (1 int, 0,01 R$, 0,1 kg)?</li>
+  <li>☐ Indicado se cada ponto é V ou I?</li>
+  <li>☐ Strings com tamanho mín/máx incluídas?</li>
+  <li>☐ Conjuntos NÃO entraram na Tabela 2?</li>
+</ul>
+
+<h3>📋 Tabela 3 — Casos UNIDADE</h3>
+<ul>
+  <li>☐ 5 colunas (#, Título, Classes, Entradas, Saída)?</li>
+  <li>☐ Casos válidos primeiro, depois limites, depois inválidos?</li>
+  <li>☐ Cada classe inválida tem 1 CT isolado?</li>
+  <li>☐ Saída específica (valor ou exceção nomeada)?</li>
+</ul>
+
+<h3>📋 Tabela 3 — Casos SISTEMA</h3>
+<ul>
+  <li>☐ 6 colunas (#, Título, Classes, Contexto, Entradas, Resultado)?</li>
+  <li>☐ Classes NOVAS do sistema incluídas (carrinho vazio, etc)?</li>
+  <li>☐ Contexto descreve estado inicial?</li>
+  <li>☐ Entradas são ações do usuário?</li>
+  <li>☐ Resultado descreve o que usuário vê?</li>
+</ul>
+
+<h3>📋 MC/DC (Caixa-Branca)</h3>
+<ul>
+  <li>☐ Tabela 1: todas as decisões e condições atômicas?</li>
+  <li>☐ Tabela 1: cada condição com valor T e F?</li>
+  <li>☐ Tabela 2: tabela verdade completa para decisões com 2+ condições?</li>
+  <li>☐ Tabela 2: pares de independência identificados (Ci muda → D muda)?</li>
+  <li>☐ Tabela 3: menor conjunto de testes que cobre todos os pares?</li>
+  <li>☐ Tabela 3: testes compartilhados entre decisões?</li>
+</ul>
+
+<div class="success-box">
+<strong>🎯 Última verificação:</strong> a quantidade de casos faz sentido?
+<ul style="margin-left:20px">
+  <li>Caixa-Preta unidade: ~12-18 casos</li>
+  <li>Caixa-Preta sistema: ~14-20 casos (3-4 a mais)</li>
+  <li>MC/DC: ~6-15 casos dependendo do número de decisões</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="alert" style="margin-top:24px">
+  <strong>🚀 BOA PROVA!</strong> Lembre: <strong>1)</strong> identifique tipo de cada variável → <strong>2)</strong> classes válidas e inválidas → <strong>3)</strong> AVL nas fronteiras numéricas → <strong>4)</strong> tabela 1 e 2 → <strong>5)</strong> casos: válidos combinados + limites em par + inválidos isolados.
+</div>
+
+</div>
+</body>
+</html>
