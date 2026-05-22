@@ -21,7 +21,6 @@ import json
 import sys
 import time
 from datetime import datetime, timezone
-from pathlib import Path
 
 from supabase import create_client
 from tenacity import retry, stop_after_attempt, wait_exponential

@@ -1,5 +1,4 @@
 import unittest
-from io import BytesIO
 from coleta_dados.parse_pdf.pdf_parser_final import (
     app,
 )  # Ajuste o caminho conforme seu projeto

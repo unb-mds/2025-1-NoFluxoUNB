@@ -4,7 +4,6 @@ from supabase import create_client, Client
 import time
 from tenacity import retry, stop_after_attempt, wait_exponential
 import re
-from datetime import datetime
 import unicodedata
 
 print("Iniciando script...")
@@ -869,7 +868,7 @@ def processar_matrizes():
                             )
                             curriculo_raw = eqesp.get("curriculo", "").strip()
                             match = re.search(r"(\d{4}\.\d)", curriculo_raw)
-                            periodo_letivo_esp = match.group(1) if match else ""
+                            match.group(1) if match else ""
                             id_curso_esp = None
                             codigo_base_esp = extrair_codigo_base(curriculo_raw)
                             if codigo_base_esp:
@@ -1303,7 +1302,7 @@ def processar_uma_matriz(arquivo_path):
                     )
                     curriculo_raw = eqesp.get("curriculo", "").strip()
                     match = re.search(r"(\d{4}\.\d)", curriculo_raw)
-                    periodo_letivo_esp = match.group(1) if match else ""
+                    match.group(1) if match else ""
                     id_curso_esp = None
                     codigo_base_esp = extrair_codigo_base(curriculo_raw)
                     if codigo_base_esp:

@@ -111,7 +111,7 @@ def extract_dados_por_nivel(relatorio_html):
             codigo_materia, nome_materia, carga_horaria = match.groups()
 
             # Extrai natureza (obrigatória/optativa)
-            natureza = comp.find("i").text.strip() if comp.find("i") else "Obrigatória"
+            comp.find("i").text.strip() if comp.find("i") else "Obrigatória"
 
             materias.append(
                 {

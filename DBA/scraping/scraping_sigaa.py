@@ -223,9 +223,6 @@ def get_all_disciplines():
 
             # Salvamento parcial após cada unidade
             script_dir = os.path.dirname(os.path.abspath(__file__))
-            json_path = os.path.join(
-                script_dir, "..", "dados", "cursos-de-graduacao.json"
-            )
             output_dir = os.path.join(
                 script_dir, "..", "dados", "estruturas-curriculares"
             )
@@ -249,10 +246,10 @@ def main():
 
     # Salvando em um arquivo JSON
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(script_dir, "..", "dados", "cursos-de-graduacao.json")
+    os.path.join(script_dir, "..", "dados", "cursos-de-graduacao.json")
     output_dir = os.path.join(script_dir, "..", "dados", "estruturas-curriculares")
     os.makedirs(output_dir, exist_ok=True)
-    output_path = os.path.join(output_dir, f"CIÊNCIA DA COMPUTAÇÃO.json")
+    output_path = os.path.join(output_dir, "CIÊNCIA DA COMPUTAÇÃO.json")
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(disciplines, f, ensure_ascii=False, indent=4)
 

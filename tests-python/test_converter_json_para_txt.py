@@ -1,5 +1,4 @@
 import unittest
-import json
 from unittest.mock import patch, mock_open
 
 # Adiciona o diretório raiz ao path para que a importação funcione

@@ -5,10 +5,8 @@ import time
 import logging
 import argparse
 from pathlib import Path
-import urllib.parse
 from dotenv import load_dotenv
 import threading
-import queue
 import gc
 import psutil
 from logging.handlers import RotatingFileHandler
@@ -120,7 +118,7 @@ def save_git_config(repo_path):
             )
             if result.returncode == 0:
                 config_backup["credential.helper"] = result.stdout.strip()
-        except:
+        except Exception:
             pass
 
         # Save any credential.* configurations
@@ -135,7 +133,7 @@ def save_git_config(repo_path):
                     if line:
                         key, value = line.split(" ", 1)
                         config_backup[key] = value
-        except:
+        except Exception:
             pass
 
         os.chdir(original_dir)
@@ -209,7 +207,7 @@ def restore_git_config(repo_path, config_backup):
                             stdout=subprocess.DEVNULL,
                             stderr=subprocess.DEVNULL,
                         )
-        except:
+        except Exception:
             pass
 
         # Restore original configuration
@@ -467,7 +465,7 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
 
         # Fetch latest changes from fork's origin with full error output
         try:
-            fetch_result = subprocess.run(
+            subprocess.run(
                 ["git", "fetch", "origin"], capture_output=True, text=True, check=True
             )
             log_message("Python: Successfully fetched from fork's origin")
@@ -482,7 +480,7 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
             subprocess.run(
                 ["git", "checkout", "main"], check=True, capture_output=True, text=True
             )
-        except subprocess.CalledProcessError as e:
+        except subprocess.CalledProcessError:
             # If main branch doesn't exist, create it
             log_message("Python: Main branch not found, creating it")
             subprocess.run(["git", "checkout", "-b", "main"], check=True)
@@ -594,7 +592,7 @@ def print_logs_in_real_time(process):
         finally:
             try:
                 stream.close()
-            except:
+            except Exception:
                 pass
 
     # Create threads for stdout and stderr with proper management

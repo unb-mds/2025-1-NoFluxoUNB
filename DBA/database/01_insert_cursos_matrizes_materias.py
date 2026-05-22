@@ -21,12 +21,10 @@ Uso:
 """
 
 import json
-import os
 import re
 import sys
 import time
 import unicodedata
-from pathlib import Path
 
 from supabase import create_client
 from tenacity import retry, stop_after_attempt, wait_exponential
@@ -35,7 +33,6 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 # Config
 # ---------------------------------------------------------------------------
 from config import (
-    DBA_ROOT,
     PASTA_ESTRUTURAS,
     PASTA_MATERIAS,
     SUPABASE_URL,
@@ -667,7 +664,7 @@ def main():
     t0 = time.time()
     print("Fase 1: Cursos, Matrizes, Matérias e Materias_por_curso")
     print(f"Fonte: {PASTA_ESTRUTURAS}")
-    print(f"curriculo_completo: padrão SEM turno (ex: 8150/-4 - 2014.1)")
+    print("curriculo_completo: padrão SEM turno (ex: 8150/-4 - 2014.1)")
     print(
         f"id_curso: código do currículo (ex: 8150); normalizando legado (id >= {OFFSET_LEGADO_CURSO})."
     )

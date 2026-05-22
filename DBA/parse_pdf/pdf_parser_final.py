@@ -1,14 +1,10 @@
 import PyPDF2
 import re
-import json
 import io
-import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from PIL import Image  # Importar a biblioteca Pillow (PIL)
 from pdf2image import convert_from_bytes  # Para converter PDF para imagem
 import pytesseract  # Para o OCR
-from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 CORS(app)

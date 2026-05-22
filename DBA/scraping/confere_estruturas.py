@@ -4,7 +4,6 @@ from supabase import create_client, Client
 import time
 from tenacity import retry, stop_after_attempt, wait_exponential
 import re
-from datetime import datetime
 
 print("Iniciando verificação de estruturas curriculares...")
 
@@ -157,7 +156,7 @@ def determinar_nivel(nivel_nome):
         # Extrai o número do nível (1° NIVEL -> 1)
         try:
             return int(nivel_nome.split("°")[0])
-        except:
+        except Exception:
             return 0
 
 
@@ -237,7 +236,7 @@ def verificar_estrutura_curricular(arquivo_json):
                 else:
                     print(f"    ❌ {codigo}: {materia['nome']} - Erro ao inserir")
 
-    print(f"\n  RESUMO:")
+    print("\n  RESUMO:")
     print(f"    Matérias processadas: {materias_processadas}")
     print(f"    Matérias inseridas: {materias_inseridas}")
     print(f"    Matérias ignoradas (já existiam): {materias_ignoradas}")
@@ -278,7 +277,7 @@ def main():
             continue
 
     print(f"\n{'='*80}")
-    print(f"VERIFICAÇÃO CONCLUÍDA")
+    print("VERIFICAÇÃO CONCLUÍDA")
     print(f"{'='*80}")
     print(f"Total de arquivos processados: {len(arquivos_json)}")
     print(f"Total de matérias processadas: {total_processadas}")

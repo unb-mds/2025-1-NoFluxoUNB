@@ -43,19 +43,6 @@ def _remover_acentos(texto_com_acento):
     return texto_sem_acento
 
 
-def limpar_texto(texto):
-    if isinstance(texto, str):
-        # 1. Limpeza de espaços múltiplos e das extremidades (como no seu código original)
-        texto_processado = re.sub(r"\s+", " ", texto)  # Remove múltiplos espaços
-        texto_processado = texto_processado.strip()  # Remove espaços das pontas
-
-        # 2. Remoção de acentos do texto já processado
-        texto_final_sem_acento = _remover_acentos(texto_processado)
-
-        return texto_final_sem_acento
-    return texto  # Retorna o valor original se não for string (ex: None, int, etc.)
-
-
 # Configurações
 MAX_WORKERS = 6  # Reduzido para evitar bloqueios
 REQUEST_DELAY = (2, 5)  # Intervalo maior entre requisições
@@ -562,7 +549,6 @@ def main():
     if not ids:
         return
 
-    todos_dados = []
     # para salvamento por depto
     todos_dados_por_depto = []
     total_departamentos = len(ids)
@@ -576,7 +562,6 @@ def main():
         print(
             f"\n▶ Processando lote {lote_num} (Departamentos {i+1}-{min(i+lote_size, total_departamentos)})"
         )
-        dados_lote = []
 
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
             futures = [executor.submit(processar_departamento, id) for id in lote]

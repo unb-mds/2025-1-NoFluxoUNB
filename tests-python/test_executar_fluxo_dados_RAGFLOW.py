@@ -8,8 +8,6 @@ from coleta_dados.scraping import executar_fluxo_dados_RAGFLOW
 # Adiciona o diretório pai ao sys.path para que o módulo possa ser importado
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), ".")))
 
-import coleta_dados.scraping.executar_fluxo_dados_RAGFLOW
-
 
 class TestExecutarFluxoDadosRAGFLOW(unittest.TestCase):
 

@@ -375,7 +375,7 @@ def scrape_estruturas():
     os.makedirs(output_dir, exist_ok=True)
 
     with open(json_path, "r", encoding="utf-8") as f:
-        cursos = json.load(f)
+        json.load(f)
 
     base_url = (
         "https://sigaa.unb.br/sigaa/public/curso/lista.jsf?nivel=G&aba=p-graduacao"
@@ -387,7 +387,7 @@ def scrape_estruturas():
 
     resp = request_with_retry(session, "get", base_url)
     soup = BeautifulSoup(resp.text, "html.parser")
-    viewstate = get_viewstate(soup)
+    get_viewstate(soup)
 
     tabela = soup.find("table", {"class": "listagem"})
     if not tabela:

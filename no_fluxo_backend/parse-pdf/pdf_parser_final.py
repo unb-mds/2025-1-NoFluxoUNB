@@ -1,15 +1,9 @@
 import fitz  # PyMuPDF
 import re
-import json
-import io
-import os
 import logging
 import sys
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from PIL import Image  # Importar a biblioteca Pillow (PIL)
-from pdf2image import convert_from_bytes  # Para converter PDF para imagem
-from werkzeug.utils import secure_filename
 import unicodedata
 from datetime import datetime
 
@@ -475,7 +469,7 @@ def calcular_numero_semestre(disciplinas):
             ):
                 try:
                     semestres_cursados.add(ano_periodo)
-                except:
+                except Exception:
                     continue
 
     # Debug: mostrar os semestres encontrados

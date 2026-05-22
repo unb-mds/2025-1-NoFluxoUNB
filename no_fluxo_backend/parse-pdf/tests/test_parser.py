@@ -20,7 +20,6 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 try:
     from pdf_parser_final import extrair_dados_academicos
     import PyPDF2
-    import io
 
     LOCAL_IMPORT_AVAILABLE = True
 except ImportError as e:
@@ -287,7 +286,7 @@ class TestePDFParser:
         falhas = total_testes - sucessos
 
         print(f"\n{'='*60}")
-        print(f"RELATÓRIO FINAL DOS TESTES")
+        print("RELATÓRIO FINAL DOS TESTES")
         print(f"{'='*60}")
         print(f"📊 Total de testes: {total_testes}")
         print(f"✅ Sucessos: {sucessos}")
@@ -309,7 +308,7 @@ class TestePDFParser:
                 q["equivalencias_encontradas"] for q in qualidades
             )
 
-            print(f"\n📋 QUALIDADE DA EXTRAÇÃO:")
+            print("\n📋 QUALIDADE DA EXTRAÇÃO:")
             print(
                 f"  📚 Curso extraído: {curso_ok}/{sucessos} ({(curso_ok/sucessos)*100:.1f}%)"
             )

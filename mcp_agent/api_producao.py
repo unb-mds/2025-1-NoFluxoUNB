@@ -10,7 +10,6 @@ import google.generativeai as genai
 from supabase import create_client
 from dotenv import load_dotenv
 
-import time
 
 # 1. INICIALIZAÇÃO GLOBAL (Roda apenas quando o servidor liga)
 load_dotenv()
@@ -174,11 +173,6 @@ def parse_resposta_sabia(texto: str) -> list:
             continue
 
     return disciplinas
-
-
-import re  # Certifique-se de que o 'import re' está no topo do seu ficheiro (já deve estar)
-
-import re  # Certifique-se de que o 'import re' está no topo do seu ficheiro (já deve estar)
 
 
 # --- NOVA FUNÇÃO: O FLUXO DIRETO PELA MATRIZ (COM LIMPEZA REGEX) ---
@@ -393,7 +387,7 @@ async def recomendar_materias(consulta: Consulta):
 
             # --- ROTEAMENTO ---
             if nome_ferramenta == "buscar_optativas_curso":
-                print(f"\n[DEBUG] 🎓 IA escolheu buscar optativas do curso.")
+                print("\n[DEBUG] 🎓 IA escolheu buscar optativas do curso.")
                 if not consulta.matriz_curricular.strip():
                     return {
                         "success": False,

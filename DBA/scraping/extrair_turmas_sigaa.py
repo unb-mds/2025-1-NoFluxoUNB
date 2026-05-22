@@ -302,7 +302,7 @@ def carregar_ids_departamentos():
         print(f"\nCarregados {len(ids)} departamentos")
         return ids
     except FileNotFoundError:
-        print(f"\n[ERRO CRÍTICO] Arquivo 'departamentos_ID_unb.csv' não encontrado.")
+        print("\n[ERRO CRÍTICO] Arquivo 'departamentos_ID_unb.csv' não encontrado.")
         return []
     except Exception as e:
         print(f"\n[ERRO CRÍTICO] Falha ao carregar IDs: {str(e)}")

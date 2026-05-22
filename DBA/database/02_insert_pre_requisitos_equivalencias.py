@@ -18,7 +18,6 @@ import re
 import sys
 import time
 from datetime import date
-from pathlib import Path
 
 from supabase import create_client
 from tenacity import retry, stop_after_attempt, wait_exponential

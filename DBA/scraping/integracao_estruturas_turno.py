@@ -520,7 +520,7 @@ def processar_um_arquivo(caminho_arquivo):
     turno = get_turno_do_arquivo(arquivo, matriz)
     codigo_base = extrair_codigo_base(curriculo_str)
     if not codigo_base:
-        print(f"  [AVISO] curriculo inválido, pulando.")
+        print("  [AVISO] curriculo inválido, pulando.")
         return None, 0
     dados_mat = build_dados_matriz(curriculo_str, periodo_letivo, turno)
     existe, _ = matriz_existe(dados_mat["curriculo_completo"])
@@ -587,7 +587,7 @@ def processar():
         dados_mat = build_dados_matriz(curriculo_str, periodo_letivo, turno)
         existe, _ = matriz_existe(dados_mat["curriculo_completo"])
         if existe:
-            print(f"  → Matriz já existe (curriculo + turno), pulando.")
+            print("  → Matriz já existe (curriculo + turno), pulando.")
             pulados += 1
             continue
         id_curso = get_or_create_curso(codigo_base, nome_curso, tipo_curso, turno)

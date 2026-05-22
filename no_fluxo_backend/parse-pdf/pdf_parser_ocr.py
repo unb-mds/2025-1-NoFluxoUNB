@@ -1,6 +1,5 @@
 import fitz  # PyMuPDF
 import re
-import json
 import io
 import os
 import logging
@@ -9,16 +8,8 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from PIL import Image
 import pytesseract
-from werkzeug.utils import secure_filename
 import unicodedata
 from datetime import datetime
-import tempfile
-import urllib.request
-import zipfile
-import tarfile
-import shutil
-import subprocess
-import platform
 
 # Configurar encoding UTF-8 para o console
 if sys.platform.startswith("win"):
@@ -60,7 +51,7 @@ try:
     # Teste rápido para verificar se funciona
     pytesseract.get_tesseract_version()
     logger.info("Using tesseract from PATH")
-except:
+except Exception:
     # Se não funcionar, tenta caminhos específicos do Windows
     possible_paths = [
         "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
@@ -79,7 +70,7 @@ except:
                 logger.info(f"Using Tesseract at: {path}")
                 tesseract_found = True
                 break
-            except:
+            except Exception:
                 continue
 
     if not tesseract_found:
@@ -371,7 +362,7 @@ def calcular_numero_semestre(disciplinas):
             ):
                 try:
                     semestres_cursados.add(ano_periodo)
-                except:
+                except Exception:
                     continue
 
     # Debug: mostrar os semestres encontrados
