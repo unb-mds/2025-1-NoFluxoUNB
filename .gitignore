@@ -83,3 +83,13 @@ debug_html/
 # Kubernetes local deployment
 .env.local
 .deploy/
+
+# Cobertura / artefatos de teste Python
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.pytest_cache/
+
+# Material de estudo da disciplina de testes (mantido local, não versionado)
+docs_testes/
