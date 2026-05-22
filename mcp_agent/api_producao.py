@@ -375,20 +375,19 @@ async def recomendar_materias(consulta: Consulta):
         u = getattr(resp, "usage", None)
         if u is None:
             return
-        usage_calls.append({
-            "model": modelo,
-            "prompt_tokens": getattr(u, "prompt_tokens", 0) or 0,
-            "completion_tokens": getattr(u, "completion_tokens", 0) or 0,
-            "total_tokens": getattr(u, "total_tokens", 0) or 0,
-        })
+        usage_calls.append(
+            {
+                "model": modelo,
+                "prompt_tokens": getattr(u, "prompt_tokens", 0) or 0,
+                "completion_tokens": getattr(u, "completion_tokens", 0) or 0,
+                "total_tokens": getattr(u, "total_tokens", 0) or 0,
+            }
+        )
 
     try:
         # Passa a bola para o Sabiá analisar o interesse
         response = client_maritaca.chat.completions.create(
-            model="sabiazinho-4",
-            messages=mensagens,
-            tools=TOOLS,
-            tool_choice="auto"
+            model="sabiazinho-4", messages=mensagens, tools=TOOLS, tool_choice="auto"
         )
         _coletar_usage(response, "sabiazinho-4")
 
@@ -412,7 +411,7 @@ async def recomendar_materias(consulta: Consulta):
                         "error": "Envie o historico academico",
                         "disciplinas": [],
                         "resposta_completa": "Envie o historico academico",
-                        "usage": usage_calls
+                        "usage": usage_calls,
                     }
                 # Passa a string da matriz direto da consulta!
                 dados_banco = ferramenta_buscar_optativas(consulta.matriz_curricular)
@@ -449,7 +448,7 @@ async def recomendar_materias(consulta: Consulta):
             "success": True,
             "disciplinas": parse_resposta_sabia(resposta_texto),
             "resposta_completa": resposta_texto,
-            "usage": usage_calls
+            "usage": usage_calls,
         }
 
     except Exception as e:
@@ -482,12 +481,14 @@ async def recomendar_materias_stream(consulta: Consulta):
             u = getattr(resp, "usage", None)
             if u is None:
                 return
-            usage_calls.append({
-                "model": modelo,
-                "prompt_tokens": getattr(u, "prompt_tokens", 0) or 0,
-                "completion_tokens": getattr(u, "completion_tokens", 0) or 0,
-                "total_tokens": getattr(u, "total_tokens", 0) or 0,
-            })
+            usage_calls.append(
+                {
+                    "model": modelo,
+                    "prompt_tokens": getattr(u, "prompt_tokens", 0) or 0,
+                    "completion_tokens": getattr(u, "completion_tokens", 0) or 0,
+                    "total_tokens": getattr(u, "total_tokens", 0) or 0,
+                }
+            )
 
         try:
             # Stage 1: Thinking
