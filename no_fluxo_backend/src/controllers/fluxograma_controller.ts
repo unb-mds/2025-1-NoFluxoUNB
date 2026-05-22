@@ -301,6 +301,23 @@ function checkEquivalencies(
     return false;
 }
 
+/**
+ * Funções auxiliares internas expostas apenas para testes de unidade
+ * (caixa-branca). Não devem ser usadas pelo código de produção.
+ */
+export const __testing__ = {
+    isOptativa,
+    mapPreRequisitosFromDb,
+    extractSubjectCodes,
+    getCodigosEquivalentes,
+    codigoContidoNaEquivalencia,
+    getStatusPriority,
+    findSubjectMatch,
+    processMatchedDiscipline,
+    checkEquivalencies,
+    mapEquivalenciasFromDb,
+};
+
 export const FluxogramaController: EndpointController = {
     name: "fluxograma",
     routes: {
