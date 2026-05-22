@@ -13,6 +13,7 @@ import { Utils } from './utils';
 import { EndpointController, RequestType } from './interfaces';
 import bodyParser from 'body-parser';
 import cors from "cors";
+import helmet from 'helmet';
 import { FluxogramaController } from './controllers/fluxograma_controller';
 import { TestesController } from './controllers/testes_controller';
 import logger from './logger';
@@ -20,6 +21,7 @@ import { UsersController } from './controllers/users_controller';
 import { CursosController } from './controllers/cursos_controller';
 import { MateriasController } from './controllers/materias_controller';
 import { AssistenteController } from './controllers/assistente_controller';
+import { PlanejamentoController } from './controllers/PlanejamentoController';
 
 // Log loaded environment variables (for debugging)
 logger.info('Environment variables loaded:');
@@ -62,6 +64,7 @@ const controllers: EndpointController[] = [
     CursosController,
     MateriasController,
     AssistenteController,
+    PlanejamentoController,
 ];
 router.get('/', (req: Request, res: Response) => {
     logger.info(`\b[GET][/]`);
@@ -166,6 +169,9 @@ controllers.forEach(controller => {
 const app: Express = express();
 
 //expressws(app);
+
+// Security headers — aplicar helmet antes das demais middlewares (CLAUDE.md).
+app.use(helmet());
 
 // Configure CORS properly (allow prod and local origins) and ensure preflight succeeds
 const allowedOrigins = new Set<string>([
