@@ -3,6 +3,7 @@
 	import { goto } from '$app/navigation';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import AdminNav from '$lib/components/admin/AdminNav.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
 	import { ticketService } from '$lib/services/ticket.service';
@@ -19,6 +20,7 @@
 		type TicketListItem,
 		type TicketStatus
 	} from '$lib/types/ticket';
+	import { hasAdminScope } from '$lib/types/user';
 	import {
 		AlertTriangle,
 		ChevronLeft,
@@ -64,7 +66,7 @@
 			goto(`${ROUTES.LOGIN}?redirect=${encodeURIComponent('/admin/tickets')}`);
 			return;
 		}
-		if (!state.user.isAdmin) {
+		if (!hasAdminScope(state.user, 'tickets')) {
 			goto(`${ROUTES.SUPORTE}?error=access_denied`);
 			return;
 		}
@@ -201,6 +203,9 @@
 <AnimatedBackground />
 
 <main class="admin-tickets-main relative z-10">
+	<div class="admin-topbar">
+		<AdminNav />
+	</div>
 	<div class="layout">
 		<!-- Lista à esquerda -->
 		<aside class="list-pane">
@@ -470,13 +475,17 @@
 		min-height: calc(100vh - 64px);
 		padding: 16px;
 	}
+	.admin-topbar {
+		max-width: 1400px;
+		margin: 0 auto 12px;
+	}
 	.layout {
 		display: grid;
 		grid-template-columns: minmax(320px, 2fr) 3fr;
 		gap: 16px;
 		max-width: 1400px;
 		margin: 0 auto;
-		height: calc(100vh - 96px);
+		height: calc(100vh - 150px);
 	}
 	@media (max-width: 900px) {
 		.layout {

@@ -134,13 +134,13 @@
 <main class="relative z-10 flex min-h-[calc(100vh-64px)] flex-col items-center px-3 py-6 sm:px-4 sm:py-10">
 	<div class="w-full max-w-3xl">
 		<div class="mb-6 text-center sm:mb-8">
-			<h1 class="text-2xl font-bold text-white sm:text-3xl">Suporte</h1>
-			<p class="mt-1.5 text-sm text-gray-400 sm:text-base">
+			<h1 class="text-2xl font-bold text-foreground sm:text-3xl">Suporte</h1>
+			<p class="mt-1.5 text-sm text-muted-foreground sm:text-base">
 				Relate um bug, envie uma sugestão ou tire uma dúvida. Nosso time técnico vai analisar.
 			</p>
 		</div>
 
-		<div class="mb-5 flex gap-2 border-b border-white/10">
+		<div class="mb-5 flex gap-2 border-b border-foreground/10">
 			<button
 				type="button"
 				class="tab-btn"
@@ -323,17 +323,17 @@
 		background: transparent;
 		border: none;
 		border-bottom: 2px solid transparent;
-		color: rgba(255, 255, 255, 0.6);
+		color: hsl(var(--foreground) / 0.6);
 		font-weight: 500;
 		cursor: pointer;
 		transition: color 150ms, border-color 150ms;
 		font-size: 14px;
 	}
 	.tab-btn:hover {
-		color: white;
+		color: hsl(var(--foreground));
 	}
 	.tab-btn.active {
-		color: white;
+		color: hsl(var(--foreground));
 		border-bottom-color: #9333ea;
 	}
 	.badge-count {
@@ -349,9 +349,9 @@
 		display: flex;
 		flex-direction: column;
 		gap: 18px;
-		background: rgba(255, 255, 255, 0.03);
+		background: hsl(var(--card));
 		backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.08);
+		border: 1px solid hsl(var(--border));
 		border-radius: 12px;
 		padding: 22px;
 	}
@@ -360,7 +360,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 10px;
-		color: rgba(255, 255, 255, 0.7);
+		color: hsl(var(--muted-foreground));
 		min-height: 140px;
 	}
 
@@ -372,24 +372,28 @@
 	.label {
 		font-size: 13px;
 		font-weight: 600;
-		color: rgba(255, 255, 255, 0.85);
+		color: hsl(var(--foreground) / 0.85);
 	}
 	.label-hint {
 		font-weight: 400;
-		color: rgba(255, 255, 255, 0.5);
+		color: hsl(var(--muted-foreground));
 	}
 
 	.input,
 	.textarea {
-		background: rgba(255, 255, 255, 0.05);
-		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: hsl(var(--input));
+		border: 1px solid hsl(var(--border));
 		border-radius: 8px;
-		color: white;
+		color: hsl(var(--foreground));
 		padding: 10px 12px;
 		font-size: 14px;
 		font-family: inherit;
 		transition: border-color 150ms;
 		width: 100%;
+	}
+	.input::placeholder,
+	.textarea::placeholder {
+		color: hsl(var(--muted-foreground));
 	}
 	.input:focus,
 	.textarea:focus {
@@ -409,15 +413,15 @@
 	.cat-chip {
 		padding: 8px 14px;
 		border-radius: 999px;
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		background: rgba(255, 255, 255, 0.04);
-		color: rgba(255, 255, 255, 0.8);
+		border: 1px solid hsl(var(--border));
+		background: hsl(var(--muted) / 0.5);
+		color: hsl(var(--foreground) / 0.8);
 		font-size: 13px;
 		cursor: pointer;
 		transition: all 150ms;
 	}
 	.cat-chip:hover {
-		background: rgba(255, 255, 255, 0.08);
+		background: hsl(var(--muted));
 	}
 	.cat-chip.active {
 		background: rgba(147, 51, 234, 0.25);
@@ -431,16 +435,16 @@
 		gap: 8px;
 		padding: 8px 14px;
 		border-radius: 8px;
-		border: 1px dashed rgba(255, 255, 255, 0.25);
-		background: rgba(255, 255, 255, 0.03);
-		color: rgba(255, 255, 255, 0.75);
+		border: 1px dashed hsl(var(--border));
+		background: hsl(var(--muted) / 0.4);
+		color: hsl(var(--foreground) / 0.75);
 		font-size: 13px;
 		cursor: pointer;
 		width: fit-content;
 	}
 	.upload-trigger:hover {
-		background: rgba(255, 255, 255, 0.06);
-		color: white;
+		background: hsl(var(--muted) / 0.7);
+		color: hsl(var(--foreground));
 	}
 	.hidden {
 		display: none;
@@ -459,19 +463,19 @@
 		align-items: center;
 		gap: 8px;
 		padding: 6px 10px;
-		background: rgba(255, 255, 255, 0.04);
+		background: hsl(var(--muted) / 0.5);
 		border-radius: 6px;
 		font-size: 12px;
-		color: rgba(255, 255, 255, 0.8);
+		color: hsl(var(--foreground) / 0.8);
 	}
 	.file-size {
 		margin-left: auto;
-		color: rgba(255, 255, 255, 0.5);
+		color: hsl(var(--muted-foreground));
 	}
 	.file-remove {
 		background: none;
 		border: none;
-		color: rgba(255, 255, 255, 0.6);
+		color: hsl(var(--foreground) / 0.6);
 		cursor: pointer;
 		padding: 2px;
 		border-radius: 4px;
@@ -535,9 +539,9 @@
 	}
 
 	.ticket-card {
-		background: rgba(255, 255, 255, 0.03);
+		background: hsl(var(--card));
 		backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.08);
+		border: 1px solid hsl(var(--border));
 		border-radius: 10px;
 		padding: 16px 18px;
 	}
@@ -550,7 +554,7 @@
 	}
 	.ticket-id {
 		font-family: 'JetBrains Mono', monospace;
-		color: rgba(255, 255, 255, 0.55);
+		color: hsl(var(--muted-foreground));
 		font-size: 12px;
 	}
 	.chip {
@@ -564,16 +568,16 @@
 	.ticket-date {
 		margin-left: auto;
 		font-size: 11px;
-		color: rgba(255, 255, 255, 0.45);
+		color: hsl(var(--muted-foreground));
 	}
 	.ticket-title {
-		color: white;
+		color: hsl(var(--foreground));
 		font-size: 15px;
 		font-weight: 600;
 		margin: 0 0 4px;
 	}
 	.ticket-desc {
-		color: rgba(255, 255, 255, 0.65);
+		color: hsl(var(--foreground) / 0.65);
 		font-size: 13px;
 		margin: 0;
 		display: -webkit-box;
@@ -588,6 +592,6 @@
 		gap: 4px;
 		margin-top: 8px;
 		font-size: 11px;
-		color: rgba(255, 255, 255, 0.5);
+		color: hsl(var(--muted-foreground));
 	}
 </style>

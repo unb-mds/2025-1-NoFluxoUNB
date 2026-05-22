@@ -3,7 +3,8 @@ import { goto } from '$app/navigation';
 import { get } from 'svelte/store';
 import { authStore } from '$lib/stores/auth';
 import { authService } from '$lib/services/auth.service';
-import { requiresAdmin } from '$lib/config/routes';
+import { requiresAdmin, requiredAdminScope } from '$lib/config/routes';
+import { hasAdminScope } from '$lib/types/user';
 
 const PUBLIC_ROUTES_EXACT = [
 	'/',
@@ -54,10 +55,13 @@ export async function checkAuth(path: string): Promise<boolean> {
 			return false;
 		}
 
-		// Admin-only routes require is_admin = true
-		if (requiresAdmin(path) && !state.user.isAdmin) {
-			await goto('/suporte?error=access_denied');
-			return false;
+		// Rotas admin: exige o escopo correspondente (superadmin passa sempre)
+		if (requiresAdmin(path)) {
+			const scope = requiredAdminScope(path);
+			if (!scope || !hasAdminScope(state.user, scope)) {
+				await goto('/suporte?error=access_denied');
+				return false;
+			}
 		}
 
 		return true;

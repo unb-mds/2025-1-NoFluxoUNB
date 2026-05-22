@@ -452,7 +452,10 @@ export function createUserModelFromJson(json: Record<string, unknown>): UserMode
 		optativasManuais: parseOptativasManuais(dadosUserRow?.optativas_manuais),
 		cargaHorariaIntegralizada: cargaHorariaIntegralizada ?? undefined,
 		token: json.token != null ? String(json.token) : null,
-		isAdmin: Boolean(json.is_admin ?? false)
+		// admin info vem de public.admins via RPC get_my_admin (preenchido no auth.service)
+		isAdmin: false,
+		adminRole: null,
+		adminScopes: []
 	};
 }
 

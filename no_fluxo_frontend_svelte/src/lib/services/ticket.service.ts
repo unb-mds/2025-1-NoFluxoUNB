@@ -27,18 +27,17 @@ export class TicketService {
 	}
 
 	private async uploadAttachments(
-		ticketId: number,
+		authId: string,
 		files: File[]
 	): Promise<TicketAttachment[]> {
-		const { data: authData } = await this.supabase.auth.getUser();
-		const authId = authData.user?.id;
-		if (!authId) throw new Error('Usuário não autenticado.');
-
 		const results: TicketAttachment[] = [];
 		for (const file of files) {
 			const safeName = file.name.replace(/[^\w.-]+/g, '_');
 			const stamp = Date.now();
-			const path = `${authId}/${ticketId}/${stamp}_${safeName}`;
+			const rand = Math.random().toString(36).slice(2, 8);
+			// path independente de ticket_id pra permitir upload antes do INSERT
+			// (RLS de storage exige apenas que o primeiro segmento seja auth.uid())
+			const path = `${authId}/${stamp}_${rand}_${safeName}`;
 			const { error } = await this.supabase.storage
 				.from(BUCKET)
 				.upload(path, file, { upsert: false, contentType: file.type || 'application/octet-stream' });
@@ -53,6 +52,13 @@ export class TicketService {
 		const authId = authData.user?.id;
 		if (!authId) throw new Error('Usuário não autenticado.');
 
+		// 1. upload primeiro (path não depende do ticket_id)
+		const uploaded =
+			input.attachments && input.attachments.length > 0
+				? await this.uploadAttachments(authId, input.attachments)
+				: [];
+
+		// 2. único INSERT já com attachments populado — sem UPDATE (que a RLS bloqueia)
 		const { data: inserted, error: insertError } = await this.supabase
 			.from('tickets')
 			.insert({
@@ -62,30 +68,20 @@ export class TicketService {
 				category: input.category,
 				status: 'aberto',
 				metadata: this.collectMetadata(),
-				attachments: []
+				attachments: uploaded
 			})
 			.select('*')
 			.single();
 
 		if (insertError || !inserted) {
+			// limpa anexos órfãos se o INSERT falhou
+			if (uploaded.length > 0) {
+				await this.supabase.storage.from(BUCKET).remove(uploaded.map((a) => a.path));
+			}
 			throw new Error(insertError?.message || 'Erro ao criar ticket.');
 		}
 
-		const ticket = inserted as Ticket;
-
-		if (input.attachments && input.attachments.length > 0) {
-			const uploaded = await this.uploadAttachments(ticket.id, input.attachments);
-			const { data: updated, error: updateError } = await this.supabase
-				.from('tickets')
-				.update({ attachments: uploaded })
-				.eq('id', ticket.id)
-				.select('*')
-				.single();
-			if (updateError) throw new Error(updateError.message);
-			return updated as Ticket;
-		}
-
-		return ticket;
+		return inserted as Ticket;
 	}
 
 	async listMyTickets(): Promise<Ticket[]> {
