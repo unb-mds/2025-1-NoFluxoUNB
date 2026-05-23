@@ -670,18 +670,28 @@ export function gerarPlanoCompletov2(
     // Calcula CH faltante real = Exigida - Feita - Em Curso
     const chFaltante = {
         total: Math.max(0, exigidaMatriz.total - cargaHorariaIntegralizada.total),
-        obrigatoria: Math.max(0, exigidaMatriz.obrigatoria - cargaHorariaIntegralizada.obrigatoria),
+        obrigatoria: Math.max(0,
+            exigidaMatriz.obrigatoria
+            - cargaHorariaIntegralizada.obrigatoria
+            - horasSemestreAtual.obrigatoria  // B2: abater CH obrigatória em andamento
+        ),
         optativa: Math.max(0, exigidaMatriz.optativa - cargaHorariaIntegralizada.optativa - horasSemestreAtual.optativa),
         complementar: Math.max(0, exigidaMatriz.complementar - cargaHorariaIntegralizada.complementar)
     };
 
-    const materiasFaltantes = materias.filter((m) => !completed.has(norm(m.codigo)));
+    // B1: Criar completedPlusMatr que inclui matérias concluídas E em andamento (MATR)
+    const completedPlusMatr = new Set(completed);
+    for (const m of currentSemester) {
+        completedPlusMatr.add(norm(m.codigo));
+    }
+
+    const materiasFaltantes = materias.filter((m) => !completedPlusMatr.has(norm(m.codigo)));
 
     const obrigatorias = materiasFaltantes.filter((m) => m.obrigatoria);
 
     const { semestres, naoAlocadas } = distribuirObrigatorias(
         obrigatorias,
-        completed,
+        completedPlusMatr,  // B1: usar completedPlusMatr em vez de completed
         prefs,
         semestreAtual
     );
