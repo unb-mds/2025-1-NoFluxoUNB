@@ -33,11 +33,13 @@
 		const scrollTop = scrollContainer.scrollTop;
 
 		const cardEls = Array.from(contentWrapper.querySelectorAll<HTMLElement>('[data-subject-code]'));
+		console.log(`[PlannerPrerequisiteConnections] Found ${cardEls.length} cards with data-subject-code`);
 		const cardMap = new Map<string, HTMLElement>();
 		for (const card of cardEls) {
 			const code = normalizeCode(card.dataset.subjectCode ?? '');
 			if (code) cardMap.set(code, card);
 		}
+		console.log(`[PlannerPrerequisiteConnections] Card map has ${cardMap.size} entries`);
 
 		const width = Math.max(contentWrapper.scrollWidth, contentWrapper.clientWidth);
 		const height = Math.max(contentWrapper.scrollHeight, contentWrapper.clientHeight);
@@ -86,6 +88,7 @@
 			}
 		}
 
+		console.log(`[PlannerPrerequisiteConnections] Drew ${newLines.length} prerequisite arrows`);
 		lines = newLines;
 	}
 
