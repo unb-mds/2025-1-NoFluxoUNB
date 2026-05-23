@@ -609,44 +609,45 @@ function distribuirObrigatorias(
         }
     }
 
-    // Novo loop de alocação com garantia de ordem e posicionamento
-    for (const materia of estagioTCCOrdenado) {
+    // Novo loop de alocação com garantia RÍGIDA nos últimos semestres absolutos
+    // Regra: TCC 1 → penúltimo semestre; TCC 2/Estágio → último semestre
+    for (let idx = 0; idx < estagioTCCOrdenado.length; idx++) {
+        const materia = estagioTCCOrdenado[idx];
         const cod = norm(materia.codigo);
 
         if (!estagioTCCRestantes.has(cod)) continue;
         if (!isDesbloqueada(materia, cumulados)) continue;
 
-        // Determinar qual semestre usar:
-        // - Se é o ÚLTIMO item: sempre no semestre final
-        // - Senão: nos últimos 3 semestres (como era antes)
-        const isLast = estagioTCCOrdenado.indexOf(materia) === estagioTCCOrdenado.length - 1;
-        const targetIdx = isLast
-            ? semestres.length - 1
-            : Math.max(0, semestres.length - 3);
+        // Determinar semestre rígido:
+        // - Se é o penúltimo ou anterior: ir para semestre[semestres.length - 2] (penúltimo)
+        // - Se é o último: ir para semestre[semestres.length - 1] (último)
+        const isLastInList = idx === estagioTCCOrdenado.length - 1;
+        const targetIdx = isLastInList
+            ? semestres.length - 1  // Último semestre
+            : semestres.length - 2; // Penúltimo semestre
 
-        // Tentar alocar do targetIdx até o final
-        for (let i = targetIdx; i < semestres.length; i++) {
-            const mPlano: MateriaPlano = {
-                codigo: cod,
-                nome: materia.nome,
-                creditos: getCreditosSafely(materia),
-                critica: true,
-                desbloqueiaDireto: 0,
-                desbloqueiaIndireto: 0,
-                score: 100,
-                motivo: "obrigatória, deve estar ao final do curso",
-            };
+        // Garantir que targetIdx é válido
+        if (targetIdx < 0) continue;
 
-            (semestres[i].materias as any[]).push(mPlano);
-            semestres[i].creditos += getCreditosSafely(materia);
-            const horasMateria = getHorasSafely(materia);
-            if ((semestres[i] as any)._horasInternas != null) {
-                (semestres[i] as any)._horasInternas += horasMateria;  // Manter _horasInternas sincronizado
-            }
-            estagioTCCRestantes.delete(cod);
-            cumulados.add(cod);
-            break;  // Alocado, sair do loop
+        const mPlano: MateriaPlano = {
+            codigo: cod,
+            nome: materia.nome,
+            creditos: getCreditosSafely(materia),
+            critica: true,
+            desbloqueiaDireto: 0,
+            desbloqueiaIndireto: 0,
+            score: 100,
+            motivo: "obrigatória, deve estar ao final do curso",
+        };
+
+        (semestres[targetIdx].materias as any[]).push(mPlano);
+        semestres[targetIdx].creditos += getCreditosSafely(materia);
+        const horasMateria = getHorasSafely(materia);
+        if ((semestres[targetIdx] as any)._horasInternas != null) {
+            (semestres[targetIdx] as any)._horasInternas += horasMateria;  // Manter _horasInternas sincronizado
         }
+        estagioTCCRestantes.delete(cod);
+        cumulados.add(cod);
     }
 
     const naoAlocadas = Array.from(estagioTCCRestantes).sort();

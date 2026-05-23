@@ -254,7 +254,7 @@
 				{/if}
 
 				{#each planoFormaturaStore.plano.plano as semestre, i (semestre.indice)}
-					<SemestrePlanCard {semestre} index={i} {displayUnit} />
+					<SemestrePlanCard {semestre} index={i} {displayUnit} {semestreAtual} />
 				{/each}
 
 				{#if planoFormaturaStore.plano.plano.length === 0 && materiasMATR.length === 0}

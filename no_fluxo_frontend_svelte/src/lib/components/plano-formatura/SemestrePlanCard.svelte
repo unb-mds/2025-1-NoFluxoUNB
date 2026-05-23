@@ -10,12 +10,22 @@
 		index: number;
 		/** Unidade de exibição: 'creditos' ou 'horas'. */
 		displayUnit?: 'creditos' | 'horas';
+		/** Semestre atual do aluno (para calcular N+1, N+2, etc). */
+		semestreAtual?: number;
 	}
 
-	let { semestre, index, displayUnit = 'creditos' }: Props = $props();
+	let { semestre, index, displayUnit = 'creditos', semestreAtual = 1 }: Props = $props();
 
 	const isFirst = $derived(index === 0);
 	const isRecomendado = $derived(semestre.tipo === 'recomendado');
+
+	/** Número do semestre: semestreAtual + index + 1 (pois começa depois do atual) */
+	const numeroSemestre = $derived(semestreAtual + index + 1);
+
+	/** Label do header: "Semestre [N+X] (Recomendado)" ou "Semestre [N+X] (Estimado)" */
+	const headerLabel = $derived(
+		`Semestre ${numeroSemestre} (${isRecomendado ? 'Recomendado' : 'Estimado'})`
+	);
 
 	/** Calcula a carga horária usando _horasInternas se disponível, senão converte créditos. */
 	const totalHoras = $derived(
@@ -62,13 +72,15 @@
 			<div class="flex items-center gap-2">
 				<CalendarDays class="h-4 w-4 {isFirst ? 'text-blue-400' : 'text-white/35'}" />
 				<span class="text-sm font-semibold {isFirst ? 'text-white' : 'text-white/70'}">
-					{semestre.semestre}
+					{headerLabel}
 				</span>
 			</div>
-			<span class="rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider {tagClass}">
-				{isRecomendado ? 'Próximo' : 'Estimado'}
-			</span>
 		</div>
+		{#if semestre.semestre}
+			<div class="mt-1.5 text-[11px] text-white/35">
+				{semestre.semestre}
+			</div>
+		{/if}
 
 		<!-- Stats row -->
 		<div class="mt-2.5 flex items-center gap-3">
