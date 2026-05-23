@@ -472,7 +472,14 @@ function parseFluxograma(fluxograma_atual_str: string | null | undefined): {
 
 function isEstagioOuTCC(materia: MateriaInput): boolean {
     const nomeLower = (materia.nome || "").toLowerCase();
-    return nomeLower.includes("estágio") || nomeLower.includes("tcc") || nomeLower.includes("trabalho de conclusão");
+    return (
+        nomeLower.includes("estág") ||
+        nomeLower.includes("tcc") ||
+        nomeLower.includes("trabalho de conclus") ||
+        nomeLower.includes("trabalho de graduação") ||
+        nomeLower.includes("projeto final") ||
+        nomeLower.includes("monografia")
+    );
 }
 
 /**
@@ -555,11 +562,26 @@ function distribuirObrigatorias(
         numeroPeriodo
     );
 
+    // Se há estágio/TCC mas nenhum semestre foi criado, criar semestre vazio receptor
+    if (estagioTCC.length > 0 && semestres.length === 0) {
+        semestres.push({
+            indice: 0,
+            tipo: "estimado",
+            creditos: 0,
+            materias: [],
+        });
+    }
+
+    // Ordenar estágio/TCC por nome para garantir TCC 1 antes de TCC 2
+    const estagioTCCOrdenado = [...estagioTCC].sort((a, b) =>
+        (a.nome || "").localeCompare(b.nome || "")
+    );
+
     const estagioTCCRestantes = new Set<string>(
-        estagioTCC.map((m) => norm(m.codigo))
+        estagioTCCOrdenado.map((m) => norm(m.codigo))
     );
     const cumulados = new Set<string>(completedCodes);
-    
+
     for (const s of semestres) {
         for (const m of s.materias) {
             if (typeof m === "object" && "codigo" in m) {
@@ -568,29 +590,39 @@ function distribuirObrigatorias(
         }
     }
 
-    const startIdxEstagioTCC = Math.max(0, semestres.length - 3);
-    for (let i = startIdxEstagioTCC; i < semestres.length; i++) {
-        for (const materia of estagioTCC) {
-            const cod = norm(materia.codigo);
-            if (
-                estagioTCCRestantes.has(cod) &&
-                isDesbloqueada(materia, cumulados)
-            ) {
-                const mPlano: MateriaPlano = {
-                    codigo: cod,
-                    nome: materia.nome,
-                    creditos: getCreditosSafely(materia),
-                    critica: true,
-                    desbloqueiaDireto: 0,
-                    desbloqueiaIndireto: 0,
-                    score: 100,
-                    motivo: "obrigatória, deve estar ao final do curso",
-                };
-                (semestres[i].materias as any[]).push(mPlano);
-                semestres[i].creditos += getCreditosSafely(materia);
-                estagioTCCRestantes.delete(cod);
-                cumulados.add(cod);
-            }
+    // Novo loop de alocação com garantia de ordem e posicionamento
+    for (const materia of estagioTCCOrdenado) {
+        const cod = norm(materia.codigo);
+
+        if (!estagioTCCRestantes.has(cod)) continue;
+        if (!isDesbloqueada(materia, cumulados)) continue;
+
+        // Determinar qual semestre usar:
+        // - Se é o ÚLTIMO item: sempre no semestre final
+        // - Senão: nos últimos 3 semestres (como era antes)
+        const isLast = estagioTCCOrdenado.indexOf(materia) === estagioTCCOrdenado.length - 1;
+        const targetIdx = isLast
+            ? semestres.length - 1
+            : Math.max(0, semestres.length - 3);
+
+        // Tentar alocar do targetIdx até o final
+        for (let i = targetIdx; i < semestres.length; i++) {
+            const mPlano: MateriaPlano = {
+                codigo: cod,
+                nome: materia.nome,
+                creditos: getCreditosSafely(materia),
+                critica: true,
+                desbloqueiaDireto: 0,
+                desbloqueiaIndireto: 0,
+                score: 100,
+                motivo: "obrigatória, deve estar ao final do curso",
+            };
+
+            (semestres[i].materias as any[]).push(mPlano);
+            semestres[i].creditos += getCreditosSafely(materia);
+            estagioTCCRestantes.delete(cod);
+            cumulados.add(cod);
+            break;  // Alocado, sair do loop
         }
     }
 
