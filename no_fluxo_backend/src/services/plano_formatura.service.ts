@@ -145,13 +145,28 @@ export function calcularScore(
     materia: MateriaInput,
     desbloqueiaDireto: number,
     desbloqueiaIndireto: number,
-    semestreAtual: number
+    semestreAtual: number,
+    codigosComOferta?: Set<string>
 ): number {
     let score = 0;
     if (materia.obrigatoria) score += SCORE_OBRIGATORIA;
     score += SCORE_PESO_DIRETO * desbloqueiaDireto;
     score += SCORE_PESO_INDIRETO * desbloqueiaIndireto;
     if (isAtrasada(materia, semestreAtual)) score += SCORE_ATRASADA;
+
+    // Bônus/Penalidade para optativas com base em oferta real
+    const isOptativa = materia.tipo_natureza === 1;
+    if (isOptativa && codigosComOferta) {
+        const temOferta = codigosComOferta.has(norm(materia.codigo));
+        if (temOferta) {
+            // Bônus alto para optativas com oferta confirmada
+            score += 5;
+        } else {
+            // Penalidade para optativas sem oferta (reduz drasticamente a prioridade)
+            score = Math.max(0, score - 10);
+        }
+    }
+
     return score;
 }
 
@@ -183,7 +198,8 @@ interface MateriaComScore {
 
 function precomputarScores(
     materias: MateriaInput[],
-    semestreAtual: number
+    semestreAtual: number,
+    codigosComOferta?: Set<string>
 ): Map<string, MateriaComScore> {
     const graph = buildReverseDependencyGraph(materias);
     const out = new Map<string, MateriaComScore>();
@@ -191,7 +207,7 @@ function precomputarScores(
         const cod = norm(m.codigo);
         const diretos = (graph.get(cod) ?? new Set()).size;
         const indiretos = Math.max(0, computeTransitiveDependents(cod, graph) - diretos);
-        const score = calcularScore(m, diretos, indiretos, semestreAtual);
+        const score = calcularScore(m, diretos, indiretos, semestreAtual, codigosComOferta);
         out.set(cod, {
             materia: m,
             score,
@@ -206,11 +222,12 @@ export function distribuirPorSemestres(
     materias: MateriaInput[],
     completedCodes: Set<string>,
     preferencias: PreferenciasPlano,
-    numeroPeriodo: number
+    numeroPeriodo: number,
+    codigosComOferta?: Set<string>
 ): SemestrePlano[] {
     if (materias.length === 0) return [];
 
-    const scores = precomputarScores(materias, numeroPeriodo);
+    const scores = precomputarScores(materias, numeroPeriodo, codigosComOferta);
     const restantes = new Set<string>(materias.map((m) => norm(m.codigo)));
     const cumulados = new Set<string>();
     for (const c of completedCodes) cumulados.add(norm(c));
@@ -594,7 +611,8 @@ function distribuirObrigatorias(
     obrigatorias: MateriaInput[],
     completedCodes: Set<string>,
     preferencias: PreferenciasPlano,
-    numeroPeriodo: number
+    numeroPeriodo: number,
+    codigosComOferta?: Set<string>
 ): {
     semestres: SemestrePlano[];
     naoAlocadas: string[];
@@ -606,7 +624,8 @@ function distribuirObrigatorias(
         regular,
         completedCodes,
         preferencias,
-        numeroPeriodo
+        numeroPeriodo,
+        codigosComOferta
     );
 
     // Se há estágio/TCC mas nenhum semestre foi criado, criar semestre vazio receptor
@@ -690,14 +709,23 @@ export function gerarPlanoCompletov2(
     exigidaMatriz: CargaIntegralizada,
     fluxogramaAtualJson: string | null | undefined,
     materias: MateriaInput[],
-    preferencias?: PreferenciasPlano
+    preferencias?: PreferenciasPlano,
+    codigosComOferta?: Set<string>
 ): PlanoFormaturav2 {
     
     const prefs: PreferenciasPlano = preferencias ?? {
-        limiteCreditos: 24, 
+        limiteCreditos: 24,
         objetivo: "equilibrado",
         trabalha: false,
     };
+
+    // Log informações sobre optativas com oferta real
+    if (codigosComOferta && codigosComOferta.size > 0) {
+        const optativasComOferta = materias.filter(m => m.tipo_natureza === 1 && codigosComOferta.has(norm(m.codigo)));
+        const optativasSemOferta = materias.filter(m => m.tipo_natureza === 1 && !codigosComOferta.has(norm(m.codigo)));
+        console.log(`\n[Motor2 v2] Optativas com oferta real: ${optativasComOferta.length} (${optativasComOferta.map(m => m.codigo).join(', ')})`);
+        console.log(`[Motor2 v2] Optativas SEM oferta real: ${optativasSemOferta.length} (${optativasSemOferta.map(m => m.codigo).join(', ')})\n`);
+    }
 
     const { completed, currentSemester } = parseFluxograma(fluxogramaAtualJson);
 
@@ -745,7 +773,8 @@ export function gerarPlanoCompletov2(
         obrigatorias,
         completedPlusMatr,  // B1: usar completedPlusMatr em vez de completed
         prefs,
-        semestreAtual
+        semestreAtual,
+        codigosComOferta
     );
 
     const { semestres: semestresComSlots, optativaAlocada, complementarAlocado } = distribuirSlots(

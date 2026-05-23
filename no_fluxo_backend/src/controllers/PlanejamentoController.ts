@@ -385,6 +385,34 @@ export const PlanejamentoController: EndpointController = {
 
                     logger.info(`${materiasPorCurso.length} matérias da matriz carregadas`);
 
+                    // 3.5. Busca materias com oferta real em turmas (para evitar "optativas fantasmas")
+                    const { data: turmasData, error: erroTurmas } = await SupabaseWrapper.get()
+                        .from("turmas")
+                        .select("id_materia");
+
+                    if (erroTurmas) {
+                        logger.warn(`Aviso ao buscar turmas com oferta: ${erroTurmas.message}. Continuando sem validação de oferta.`);
+                    }
+
+                    // Mapear materias que possuem oferta real (distinct id_materia)
+                    const materiasComOferta = new Set<number>();
+                    if (turmasData && Array.isArray(turmasData)) {
+                        for (const turma of turmasData) {
+                            if (turma.id_materia) materiasComOferta.add(turma.id_materia);
+                        }
+                    }
+
+                    const codigosComOferta = new Set<string>();
+                    for (const mpc of materiasPorCurso as any[]) {
+                        const idMateria = mpc.materias?.id_materia;
+                        const codigoMateria = mpc.materias?.codigo_materia;
+                        if (idMateria && codigoMateria && materiasComOferta.has(idMateria)) {
+                            codigosComOferta.add((codigoMateria || "").trim().toUpperCase());
+                        }
+                    }
+
+                    logger.info(`${codigosComOferta.size} materias com oferta real encontradas (turmas cadastradas)`);
+
                     // 4. Busca pre_requisitos e co_requisitos para as materias da matriz
                     const idsMaterias = (materiasPorCurso as any[])
                         .map((r: any) => r.materias?.id_materia)
@@ -440,7 +468,8 @@ export const PlanejamentoController: EndpointController = {
                         exigidaMatriz,
                         usuarioData.fluxograma_atual as string | null | undefined,
                         materiasMapeadas,
-                        preferencias
+                        preferencias,
+                        codigosComOferta
                     );
 
                     logger.info(`Plano gerado: ${plano.semestresRestantes} semestres, ${plano.materiasNaoAlocadas.length} não-alocadas`);
