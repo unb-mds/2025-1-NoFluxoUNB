@@ -754,6 +754,20 @@ export function gerarPlanoCompletov2(
         }
     }
 
+    // ========== DEBUG: Verify hours calculation ==========
+    console.log('[Motor2] Hours Calculation Verification:');
+    console.log(`  Exigida (Total): ${exigidaMatriz.total}h`);
+    console.log(`  Exigida (Obrigatória): ${exigidaMatriz.obrigatoria}h`);
+    console.log(`  Exigida (Optativa): ${exigidaMatriz.optativa}h`);
+    console.log(`  Exigida (Complementar): ${exigidaMatriz.complementar}h`);
+    console.log(`  Integralizada: ${cargaHorariaIntegralizada.obrigatoria}h obr + ${cargaHorariaIntegralizada.optativa}h opt + ${cargaHorariaIntegralizada.complementar}h comp`);
+    console.log(`  Em Curso (MATR): ${horasSemestreAtual.obrigatoria}h obr + ${horasSemestreAtual.optativa}h opt`);
+    console.log(`  Faltante (calculated): ${chFaltante.obrigatoria}h obr + ${chFaltante.optativa}h opt + ${chFaltante.complementar}h comp`);
+    console.log(`  Alocada no plano: ${chObrigatoriaAlocada}h obr + ${optativaAlocada}h opt + ${complementarAlocado}h comp`);
+    console.log(`  Restante: ${chFaltante.obrigatoria - chObrigatoriaAlocada}h obr + ${chOptativaRestante}h opt + ${chComplementarRestante}h comp`);
+    console.log(`  MATR disciplines (${currentSemester.length}): ${currentSemester.map(m => m.codigo).join(', ')}`);
+    console.log(`  Semestres gerados: ${semestresComSlots.length}`);
+
     const resultado: PlanoFormaturav2 = {
         semestreAtual: currentSemester.length > 0 ? {
             tipo: "em_curso",

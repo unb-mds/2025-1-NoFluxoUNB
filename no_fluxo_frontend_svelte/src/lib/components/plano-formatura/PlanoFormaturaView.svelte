@@ -5,6 +5,7 @@
 	import { authStore } from '$lib/stores/auth';
 	import SemesterColumn from '../fluxograma/SemesterColumn.svelte';
 	import SemestrePlanCard from './SemestrePlanCard.svelte';
+	import SemestreAtualColumn from './SemestreAtualColumn.svelte';
 	import PlannerPrerequisiteConnections from './PlannerPrerequisiteConnections.svelte';
 	import { GraduationCap, Loader2, RefreshCw, Settings, AlertTriangle, BookOpenCheck } from 'lucide-svelte';
 	import { fade } from 'svelte/transition';
@@ -52,33 +53,32 @@
 	/** Semestre atual do aluno (ex: 3, 4, etc). */
 	const semestreAtual = $derived(authState.user?.dadosFluxograma?.semestreAtual ?? 1);
 
-	/** Matérias MATR (em curso) — lista de MateriaModel para renderizar na primeira coluna. */
+	/** Matérias MATR (em curso) — dados já enriquecidos do backend. */
 	const materiasMATR = $derived.by(() => {
 		if (!planoFormaturaStore.plano) {
+			console.log('[PlanoFormaturaView] No plano in store');
 			return [];
 		}
 
 		// Type guard: verificar se é PlanoFormaturav2 (tem semestreAtual)
 		const planoV2 = planoFormaturaStore.plano as any;
-		if (!('semestreAtual' in planoV2) || !planoV2.semestreAtual) {
+		if (!('semestreAtual' in planoV2)) {
+			console.log('[PlanoFormaturaView] Plano is not v2 (no semestreAtual)');
 			return [];
 		}
 
-		const semestreAtualData = planoV2.semestreAtual;
-		if (!semestreAtualData.materias) {
+		if (!planoV2.semestreAtual) {
+			console.log('[PlanoFormaturaView] semestreAtual is null/undefined');
 			return [];
 		}
 
-		// Mapa de códigos das MATR para lookup rápido
-		const codigosMatr = new Set(
-			semestreAtualData.materias.map((m) => m.codigo.trim().toUpperCase())
-		);
+		if (!planoV2.semestreAtual.materias) {
+			console.log('[PlanoFormaturaView] semestreAtual.materias is null/undefined');
+			return [];
+		}
 
-		// Busca as MateriaModel correspondentes no fluxogramaStore
-		const subjectsAtSemestre = fluxogramaStore.subjectsBySemester.get(semestreAtual) ?? [];
-		return subjectsAtSemestre.filter((m) =>
-			codigosMatr.has(m.codigoMateria.trim().toUpperCase())
-		);
+		console.log(`[PlanoFormaturaView] Found ${planoV2.semestreAtual.materias.length} MATR disciplines`, planoV2.semestreAtual.materias);
+		return planoV2.semestreAtual.materias;
 	});
 </script>
 
@@ -251,10 +251,9 @@
 			<PlannerPrerequisiteConnections plano={planoFormaturaStore.plano} curso={fluxogramaStore.state.courseData}>
 				<!-- Coluna do semestre atual (MATR) como primeira coluna -->
 				{#if materiasMATR.length > 0}
-					<SemesterColumn
-						semester={semestreAtual}
-						subjects={materiasMATR}
-						headerLabel={`Semestre Atual - ${semestreAtual}`}
+					<SemestreAtualColumn
+						materias={materiasMATR}
+						{semestreAtual}
 					/>
 				{/if}
 
