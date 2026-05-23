@@ -94,7 +94,11 @@ export interface MateriaSemestreAtual {
 
 // ─── Plano de formatura completo ──────────────────────────────────────────────
 
-export interface PlanoFormatura {
+/**
+ * Legacy PlanoFormatura v1 interface (snake_case fields).
+ * Kept for backwards compatibility.
+ */
+export interface PlanoFormaturav1 {
 	/** Número de semestres restantes até a formatura. */
 	semestres_restantes: number;
 	/** Semestre estimado de formatura (ex: "2027.1"). */
@@ -102,6 +106,37 @@ export interface PlanoFormatura {
 	/** Sequência de semestres com matérias planejadas. */
 	plano: SemestrePlano[];
 }
+
+/**
+ * PlanoFormatura v2 interface (camelCase fields).
+ * Matches the backend PlanoFormaturav2 response from Motor 2.
+ */
+export interface PlanoFormaturav2 {
+	/** Número de semestres restantes até a formatura. */
+	semestresRestantes: number;
+	/** Semestre estimado de formatura (ex: "2027.1"). */
+	formaturaEstimada?: string;
+	/** Semestre atual com matérias em curso (opcional). */
+	semestreAtual?: {
+		tipo: 'em_curso';
+		materias: MateriaSemestreAtual[];
+	};
+	/** Sequência de semestres com matérias planejadas. */
+	plano: SemestrePlano[];
+	/** Matérias não alocadas no plano. */
+	materiasNaoAlocadas: string[];
+	/** Créditos obrigatórios faltando. */
+	chObrigatoriaFaltante: number;
+	/** Créditos optativos faltando. */
+	chOptativaFaltante: number;
+	/** Créditos complementares faltando. */
+	chComplementarFaltante: number;
+}
+
+/**
+ * Tipo compatível com ambas as versões.
+ */
+export type PlanoFormatura = PlanoFormaturav1 | PlanoFormaturav2;
 
 // ─── Utilitários ─────────────────────────────────────────────────────────────
 

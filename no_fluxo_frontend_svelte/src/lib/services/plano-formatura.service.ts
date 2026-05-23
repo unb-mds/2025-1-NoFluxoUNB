@@ -4,7 +4,7 @@
  * Also handles loading/saving user preferences via supabaseDataService.
  */
 
-import type { PlanoFormatura, PreferenciasPlano } from '$lib/types/plano-formatura';
+import type { PlanoFormatura, PlanoFormaturav2, PreferenciasPlano } from '$lib/types/plano-formatura';
 import { DEFAULT_PREFERENCIAS } from '$lib/types/plano-formatura';
 import { supabaseDataService } from './supabase-data.service';
 import { apiRequest } from '$lib/utils/api';
@@ -28,10 +28,11 @@ export interface GerarPlanoError {
 class PlanoFormaturaService {
 	/**
 	 * Chama o backend (Motor 2) para gerar o plano de formatura personalizado.
+	 * Retorna PlanoFormaturav2 conforme resposta do backend.
 	 * Retorna null se o backend não estiver disponível — a UI deve mostrar estado de erro.
 	 */
-	async gerarPlano(payload: GerarPlanoPayload): Promise<PlanoFormatura | null> {
-		const { data, error, status } = await apiRequest<PlanoFormatura>('/planejamento/gerar-plano', {
+	async gerarPlano(payload: GerarPlanoPayload): Promise<PlanoFormaturav2 | null> {
+		const { data, error, status } = await apiRequest<PlanoFormaturav2>('/planejamento/gerar-plano', {
 			method: 'POST',
 			body: {
 				curriculo_completo: payload.curriculoCompleto,
