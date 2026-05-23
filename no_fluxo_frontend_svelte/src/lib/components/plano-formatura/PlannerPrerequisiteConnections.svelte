@@ -23,20 +23,6 @@
 	}
 
 	function updateLines() {
-		if (!browser) {
-			console.log('[PlannerPrerequisiteConnections] Not in browser');
-			lines = [];
-			return;
-		}
-		if (!scrollContainer) console.log('[PlannerPrerequisiteConnections] No scrollContainer');
-		if (!contentWrapper) console.log('[PlannerPrerequisiteConnections] No contentWrapper');
-		if (!curso) {
-			console.log('[PlannerPrerequisiteConnections] No curso data');
-		} else {
-			console.log('[PlannerPrerequisiteConnections] curso loaded:', { materias: curso.materias.length, preRequisitos: curso.preRequisitos?.length || 0 });
-		}
-		if (!plano?.plano?.length) console.log('[PlannerPrerequisiteConnections] No plano data', { planoExists: !!plano, planoPlano: !!plano?.plano, length: plano?.plano?.length });
-
 		if (!browser || !scrollContainer || !contentWrapper || !curso || !plano?.plano?.length) {
 			lines = [];
 			return;
@@ -47,17 +33,11 @@
 		const scrollTop = scrollContainer.scrollTop;
 
 		const cardEls = Array.from(contentWrapper.querySelectorAll<HTMLElement>('[data-subject-code]'));
-		console.log(`[PlannerPrerequisiteConnections] Found ${cardEls.length} cards with data-subject-code`);
 		const cardMap = new Map<string, HTMLElement>();
 		for (const card of cardEls) {
-			const rawCode = card.dataset.subjectCode ?? '';
-			const code = normalizeCode(rawCode);
-			if (code) {
-				cardMap.set(code, card);
-				console.log(`[PlannerPrerequisiteConnections] Card: ${rawCode} → ${code}`);
-			}
+			const code = normalizeCode(card.dataset.subjectCode ?? '');
+			if (code) cardMap.set(code, card);
 		}
-		console.log(`[PlannerPrerequisiteConnections] Card map has ${cardMap.size} entries: ${Array.from(cardMap.keys()).join(', ')}`);
 
 		const width = Math.max(contentWrapper.scrollWidth, contentWrapper.clientWidth);
 		const height = Math.max(contentWrapper.scrollHeight, contentWrapper.clientHeight);
@@ -78,20 +58,10 @@
 				}
 
 				const prereqs = getDirectPrerequisites(curso, subjectCode);
-				console.log(`[PlannerPrerequisiteConnections] Looking up ${subjectCode} in curso.materias...`);
-				const materiaInCurso = curso.materias.find(m => normalizeCode(m.codigoMateria) === subjectCode);
-				console.log(`[PlannerPrerequisiteConnections] ${subjectCode}: found in curso = ${!!materiaInCurso}, prerequisitos = ${prereqs.length}`);
-				if (prereqs.length > 0) {
-					console.log(`[PlannerPrerequisiteConnections] ${subjectCode} has ${prereqs.length} prerequisites`, prereqs.map(p => `${p.codigoMateria}(${p.idMateria})`));
-				}
 				for (const prereq of prereqs) {
 					const sourceCode = normalizeCode(prereq.codigoMateria);
 					const sourceEl = cardMap.get(sourceCode);
-					if (!sourceEl) {
-						console.log(`[PlannerPrerequisiteConnections] Prerequisite ${prereq.codigoMateria} (normalized: ${sourceCode}) not in cardMap`);
-						continue;
-					}
-					console.log(`[PlannerPrerequisiteConnections] Drawing arrow: ${sourceCode} → ${subjectCode}`);
+					if (!sourceEl) continue;
 
 					const key = `${sourceCode}->${subjectCode}`;
 					if (seen.has(key)) continue;
@@ -119,7 +89,6 @@
 			}
 		}
 
-		console.log(`[PlannerPrerequisiteConnections] Drew ${newLines.length} prerequisite arrows`);
 		lines = newLines;
 	}
 
