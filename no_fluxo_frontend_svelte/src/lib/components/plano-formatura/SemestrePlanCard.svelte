@@ -1,18 +1,32 @@
 <script lang="ts">
 	import type { SemestrePlano } from '$lib/types/plano-formatura';
 	import MateriaPlanCard from './MateriaPlanCard.svelte';
+	import SlotCard from './SlotCard.svelte';
 	import { CalendarDays, BookOpen } from 'lucide-svelte';
 
 	interface Props {
 		semestre: SemestrePlano;
 		/** Índice 0-based para determinar se é o próximo semestre (index === 0). */
 		index: number;
+		/** Unidade de exibição: 'creditos' ou 'horas'. */
+		displayUnit?: 'creditos' | 'horas';
 	}
 
-	let { semestre, index }: Props = $props();
+	let { semestre, index, displayUnit = 'creditos' }: Props = $props();
 
 	const isFirst = $derived(index === 0);
 	const isRecomendado = $derived(semestre.tipo === 'recomendado');
+
+	/** Calcula a carga horária usando _horasInternas se disponível, senão converte créditos. */
+	const totalHoras = $derived(
+		semestre._horasInternas ?? Math.ceil(semestre.creditos * 15)
+	);
+
+	/** Exibição de carga — usa horas se selecionado, senão créditos. */
+	const displayValue = $derived(
+		displayUnit === 'horas' ? totalHoras : semestre.creditos
+	);
+	const displayLabel = $derived(displayUnit === 'horas' ? 'h' : 'créditos');
 
 	const containerClass = $derived(
 		isFirst
@@ -60,7 +74,7 @@
 		<div class="mt-2.5 flex items-center gap-3">
 			<div class="flex items-center gap-1.5">
 				<span class="rounded-full px-2.5 py-0.5 text-[11px] font-semibold {creditBadgeClass}">
-					{semestre.creditos} créditos
+					{displayValue} {displayLabel}
 				</span>
 			</div>
 			<div class="flex items-center gap-1 text-[11px] text-white/35">
@@ -79,8 +93,12 @@
 				</p>
 			</div>
 		{:else}
-			{#each semestre.materias as materia (materia.codigo)}
-				<MateriaPlanCard {materia} tipoSemestre={semestre.tipo} />
+			{#each semestre.materias as item, idx ('codigo' in item ? item.codigo : `slot-${item.tipo}-${idx}`)}
+				{#if 'codigo' in item}
+					<MateriaPlanCard materia={item} tipoSemestre={semestre.tipo} />
+				{:else}
+					<SlotCard slot={item} />
+				{/if}
 			{/each}
 		{/if}
 	</div>

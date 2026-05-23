@@ -1,6 +1,9 @@
 <script lang="ts">
+	import type { MateriaModel } from '$lib/types/materia';
 	import { planoFormaturaStore } from '$lib/stores/plano-formatura.store.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
+	import { authStore } from '$lib/stores/auth';
+	import SemesterColumn from '../fluxograma/SemesterColumn.svelte';
 	import SemestrePlanCard from './SemestrePlanCard.svelte';
 	import PlannerPrerequisiteConnections from './PlannerPrerequisiteConnections.svelte';
 	import { GraduationCap, Loader2, RefreshCw, Settings, AlertTriangle, BookOpenCheck } from 'lucide-svelte';
@@ -9,6 +12,11 @@
 	const CREDIT_OPTIONS = [16, 24, 32] as const;
 
 	let isChangingCredits = $state(false);
+	let displayUnit = $state<'creditos' | 'horas'>('creditos');
+	let authState = $state({ user: null, isAuthenticated: false, isAnonymous: false, isLoading: true, error: null });
+	authStore.subscribe((value) => {
+		authState = value;
+	});
 
 	async function handleCreditChange(limite: 16 | 24 | 32) {
 		if (isChangingCredits) return;
@@ -40,6 +48,33 @@
 	const hasOptativasPendentes = $derived(
 		planoFormaturaStore.status === 'success' && planoFormaturaStore.plano !== null
 	);
+
+	/** Semestre atual do aluno (ex: 3, 4, etc). */
+	const semestreAtual = $derived(authState.user?.dadosFluxograma?.semestreAtual ?? 1);
+
+	/** Matérias MATR (em curso) — lista de MateriaModel para renderizar na primeira coluna. */
+	const materiasMATR = $derived.by(() => {
+		if (!planoFormaturaStore.plano || !('semestreAtual' in planoFormaturaStore.plano)) {
+			return [];
+		}
+
+		const semestreAtualData = planoFormaturaStore.plano.semestreAtual;
+		if (!semestreAtualData || !semestreAtualData.materias) {
+			return [];
+		}
+
+		// Mapa de códigos das MATR para lookup rápido
+		const codigosMatr = new Set(
+			semestreAtualData.materias.map((m) => m.codigo.trim().toUpperCase())
+		);
+
+		// Busca as MateriaModel correspondentes no fluxogramaStore
+		// Procura em subjectsBySemester[semestreAtual]
+		const subjectsAtSemestre = fluxogramaStore.subjectsBySemester.get(semestreAtual) ?? [];
+		return subjectsAtSemestre.filter((m) =>
+			codigosMatr.has(m.codigoMateria.trim().toUpperCase())
+		);
+	});
 </script>
 
 <div class="flex h-full flex-col gap-5 bg-[#090c12] px-6 py-6 text-white">
@@ -107,22 +142,48 @@
 	{/if}
 
 	<!-- ─── Credit limit toggle ───────────────────────────────────────────── -->
-	<div class="flex items-center gap-3">
-		<span class="shrink-0 text-xs font-medium text-white/40">Créditos / semestre:</span>
-		<div class="flex gap-1.5">
-			{#each CREDIT_OPTIONS as limite}
-				<button
-					type="button"
-					onclick={() => handleCreditChange(limite)}
-					disabled={isChangingCredits}
-					class="min-w-[52px] rounded-lg border px-3 py-1.5 text-xs font-semibold transition-all duration-150 disabled:opacity-50
-						{planoFormaturaStore.preferencias.limiteCreditos === limite
-							? 'border-blue-500/60 bg-blue-600/20 text-blue-200 ring-1 ring-blue-500/30'
-							: 'border-white/10 bg-white/4 text-white/50 hover:border-white/20 hover:bg-white/7 hover:text-white/75'}"
-				>
-					{limite}
-				</button>
-			{/each}
+	<div class="flex flex-wrap items-center justify-between gap-4">
+		<div class="flex items-center gap-3">
+			<span class="shrink-0 text-xs font-medium text-white/40">Créditos / semestre:</span>
+			<div class="flex gap-1.5">
+				{#each CREDIT_OPTIONS as limite}
+					<button
+						type="button"
+						onclick={() => handleCreditChange(limite)}
+						disabled={isChangingCredits}
+						class="min-w-[52px] rounded-lg border px-3 py-1.5 text-xs font-semibold transition-all duration-150 disabled:opacity-50
+							{planoFormaturaStore.preferencias.limiteCreditos === limite
+								? 'border-blue-500/60 bg-blue-600/20 text-blue-200 ring-1 ring-blue-500/30'
+								: 'border-white/10 bg-white/4 text-white/50 hover:border-white/20 hover:bg-white/7 hover:text-white/75'}"
+					>
+						{limite}
+					</button>
+				{/each}
+			</div>
+		</div>
+
+		<!-- Display unit toggle -->
+		<div class="flex items-center gap-2">
+			<button
+				type="button"
+				onclick={() => { displayUnit = 'creditos'; }}
+				class="rounded-lg px-3 py-1.5 text-xs font-semibold transition-all
+					{displayUnit === 'creditos'
+						? 'border border-blue-500/60 bg-blue-600/20 text-blue-200 ring-1 ring-blue-500/30'
+						: 'border border-white/10 bg-white/4 text-white/50 hover:border-white/20 hover:bg-white/7 hover:text-white/75'}"
+			>
+				Créditos
+			</button>
+			<button
+				type="button"
+				onclick={() => { displayUnit = 'horas'; }}
+				class="rounded-lg px-3 py-1.5 text-xs font-semibold transition-all
+					{displayUnit === 'horas'
+						? 'border border-blue-500/60 bg-blue-600/20 text-blue-200 ring-1 ring-blue-500/30'
+						: 'border border-white/10 bg-white/4 text-white/50 hover:border-white/20 hover:bg-white/7 hover:text-white/75'}"
+			>
+				Horas
+			</button>
 		</div>
 	</div>
 
@@ -183,11 +244,20 @@
 
 			<!-- Horizontal scroll container -->
 			<PlannerPrerequisiteConnections plano={planoFormaturaStore.plano} curso={fluxogramaStore.state.courseData}>
+				<!-- Coluna do semestre atual (MATR) como primeira coluna -->
+				{#if materiasMATR.length > 0}
+					<SemesterColumn
+						semester={semestreAtual}
+						subjects={materiasMATR}
+						headerLabel={`Semestre Atual - ${semestreAtual}`}
+					/>
+				{/if}
+
 				{#each planoFormaturaStore.plano.plano as semestre, i (semestre.indice)}
-					<SemestrePlanCard {semestre} index={i} />
+					<SemestrePlanCard {semestre} index={i} {displayUnit} />
 				{/each}
 
-				{#if planoFormaturaStore.plano.plano.length === 0}
+				{#if planoFormaturaStore.plano.plano.length === 0 && materiasMATR.length === 0}
 					<div class="flex flex-1 flex-col items-center justify-center gap-3 py-12 text-center">
 						<GraduationCap class="h-10 w-10 text-white/20" />
 						<p class="text-sm text-white/40">

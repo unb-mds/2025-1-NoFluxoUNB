@@ -32,10 +32,10 @@
 		const scrollLeft = scrollContainer.scrollLeft;
 		const scrollTop = scrollContainer.scrollTop;
 
-		const cardEls = Array.from(contentWrapper.querySelectorAll<HTMLElement>('[data-planner-code]'));
+		const cardEls = Array.from(contentWrapper.querySelectorAll<HTMLElement>('[data-subject-code]'));
 		const cardMap = new Map<string, HTMLElement>();
 		for (const card of cardEls) {
-			const code = normalizeCode(card.dataset.plannerCode ?? '');
+			const code = normalizeCode(card.dataset.subjectCode ?? '');
 			if (code) cardMap.set(code, card);
 		}
 
