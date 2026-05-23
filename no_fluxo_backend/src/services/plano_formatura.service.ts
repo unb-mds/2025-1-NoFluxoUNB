@@ -757,12 +757,15 @@ export function gerarPlanoCompletov2(
     const resultado: PlanoFormaturav2 = {
         semestreAtual: currentSemester.length > 0 ? {
             tipo: "em_curso",
-            materias: currentSemester.map((m) => ({
-                codigo: m.codigo,
-                nome: m.nome || "Disciplina em Curso",
-                creditos: m.creditos || 0,
-                status: "MATR",
-            })),
+            materias: currentSemester.map((m) => {
+                const matInfo = materias.find(x => norm(x.codigo) === norm(m.codigo));
+                return {
+                    codigo: m.codigo,
+                    nome: matInfo?.nome || m.nome || m.codigo,
+                    creditos: getCreditosSafely(matInfo ?? { creditos: 4 }),
+                    status: "MATR",
+                };
+            }),
         } : undefined,
         semestresRestantes: semestresComSlots.length,
         formaturaEstimada: undefined,
