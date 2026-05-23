@@ -75,6 +75,12 @@ export interface SemestrePlano {
 	tipo: TipoSemestre;
 	/** Total de créditos neste semestre. */
 	creditos: number;
+	/**
+	 * INTERNO: Valor exato em horas para evitar arredondamento duplo.
+	 * Evita perda de ~3-14h por semestre causada por conversão horas→creditos→horas.
+	 * Preenchido pelo backend em distribuirPorSemestres; consumido em distribuirSlots.
+	 */
+	_horasInternas?: number;
 	/** Lista de matérias planejadas ou slots genéricos para este semestre. */
 	materias: ItemSemestre[];
 }
