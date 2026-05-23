@@ -224,6 +224,7 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 
 	onMount(() => {
 		if (courseName) {
+			store.setConnectionMode('all');
 			const user = authStore.getUser();
 			const anonymous = !user?.dadosFluxograma;
 			// If a specific matriz was requested via query param, load it directly

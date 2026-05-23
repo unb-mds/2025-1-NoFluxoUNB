@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { planoFormaturaStore } from '$lib/stores/plano-formatura.store.svelte';
+	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import SemestrePlanCard from './SemestrePlanCard.svelte';
+	import PlannerPrerequisiteConnections from './PlannerPrerequisiteConnections.svelte';
 	import { GraduationCap, Loader2, RefreshCw, Settings, AlertTriangle, BookOpenCheck } from 'lucide-svelte';
 	import { fade } from 'svelte/transition';
 
@@ -29,7 +31,7 @@
 	/** Total de matérias críticas em todos os semestres. */
 	const totalCriticas = $derived(
 		planoFormaturaStore.plano?.plano.reduce(
-			(acc, sem) => acc + sem.materias.filter((m) => m.critica).length,
+			(acc, sem) => acc + sem.materias.filter((m) => 'codigo' in m && m.critica).length,
 			0
 		) ?? 0
 	);
@@ -180,7 +182,7 @@
 			{/if}
 
 			<!-- Horizontal scroll container -->
-			<div class="flex flex-1 gap-4 overflow-x-auto pb-4">
+			<PlannerPrerequisiteConnections plano={planoFormaturaStore.plano} curso={fluxogramaStore.state.courseData}>
 				{#each planoFormaturaStore.plano.plano as semestre, i (semestre.indice)}
 					<SemestrePlanCard {semestre} index={i} />
 				{/each}
@@ -193,24 +195,23 @@
 						</p>
 					</div>
 				{/if}
-			</div>
+			</PlannerPrerequisiteConnections>
 		</div>
 	{/if}
 </div>
 
 <style>
-	/* Custom scrollbar for horizontal semester scroll */
-	.overflow-x-auto::-webkit-scrollbar {
+	:global(.overflow-x-auto::-webkit-scrollbar) {
 		height: 4px;
 	}
-	.overflow-x-auto::-webkit-scrollbar-track {
+	:global(.overflow-x-auto::-webkit-scrollbar-track) {
 		background: transparent;
 	}
-	.overflow-x-auto::-webkit-scrollbar-thumb {
+	:global(.overflow-x-auto::-webkit-scrollbar-thumb) {
 		background: hsl(0 0% 100% / 0.12);
 		border-radius: 999px;
 	}
-	.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+	:global(.overflow-x-auto::-webkit-scrollbar-thumb:hover) {
 		background: hsl(0 0% 100% / 0.2);
 	}
 </style>

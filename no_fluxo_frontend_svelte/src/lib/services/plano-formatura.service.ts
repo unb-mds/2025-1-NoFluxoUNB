@@ -4,10 +4,10 @@
  * Also handles loading/saving user preferences via supabaseDataService.
  */
 
-import { config } from '$lib/config';
 import type { PlanoFormatura, PreferenciasPlano } from '$lib/types/plano-formatura';
 import { DEFAULT_PREFERENCIAS } from '$lib/types/plano-formatura';
 import { supabaseDataService } from './supabase-data.service';
+import { apiRequest } from '$lib/utils/api';
 
 export interface GerarPlanoPayload {
 	/** Código completo do currículo (curriculo_completo). */
@@ -31,27 +31,20 @@ class PlanoFormaturaService {
 	 * Retorna null se o backend não estiver disponível — a UI deve mostrar estado de erro.
 	 */
 	async gerarPlano(payload: GerarPlanoPayload): Promise<PlanoFormatura | null> {
-		const url = `${config.apiUrl}/planejamento/gerar-plano`;
-
-		const response = await fetch(url, {
+		const { data, error, status } = await apiRequest<PlanoFormatura>('/planejamento/gerar-plano', {
 			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
+			body: {
 				curriculo_completo: payload.curriculoCompleto,
 				codigos_concluidos: payload.codigosConcluidos,
 				semestre_atual: payload.semestreAtual,
 				limite_creditos: payload.limiteCreditos
-			})
+			}
 		});
 
-		if (!response.ok) {
-			const text = await response.text().catch(() => '');
-			throw new Error(
-				`Erro ${response.status} ao gerar plano: ${text || response.statusText}`
-			);
+		if (error || !data) {
+			throw new Error(`Erro ${status} ao gerar plano: ${error ?? 'Resposta inválida'}`);
 		}
 
-		const data = (await response.json()) as PlanoFormatura;
 		return data;
 	}
 

@@ -19,15 +19,17 @@
  */
 
 import { EndpointController, RequestType } from "../interfaces";
-import { Pair } from "../utils";
+import { Pair, Utils } from "../utils";
 import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
 import { createControllerLogger } from "../utils/controller_logger";
-import { gerarPlano } from "../services/plano_formatura.service";
+import { gerarPlano, gerarPlanoCompletov2 } from "../services/plano_formatura.service";
 import type {
     MateriaInput,
     PlanoInput,
     PreferenciasPlano,
+    PlanoFormaturav2,
+    CargaIntegralizada
 } from "../types/planejamento";
 
 // =============================================================
@@ -116,6 +118,10 @@ interface MatrizRow {
     id_matriz: number;
     id_curso: number;
     curriculo_completo: string;
+    ch_total_exigida?: number | null;
+    ch_obrigatoria_exigida?: number | null;
+    ch_optativa_exigida?: number | null;
+    ch_complementar_exigida?: number | null;
 }
 
 async function resolveMatriz(
@@ -131,7 +137,9 @@ async function resolveMatriz(
 
         const { data: exato, error } = await SupabaseWrapper.get()
             .from("matrizes")
-            .select("id_matriz, id_curso, curriculo_completo")
+            .select(
+                "id_matriz, id_curso, curriculo_completo, ch_total_exigida, ch_obrigatoria_exigida, ch_optativa_exigida, ch_complementar_exigida"
+            )
             .eq("curriculo_completo", cc)
             .maybeSingle();
 
@@ -150,7 +158,9 @@ async function resolveMatriz(
         const prefix = cc.split(" - ")[0]?.trim() ?? cc;
         const { data: rows } = await SupabaseWrapper.get()
             .from("matrizes")
-            .select("id_matriz, id_curso, curriculo_completo")
+            .select(
+                "id_matriz, id_curso, curriculo_completo, ch_total_exigida, ch_obrigatoria_exigida, ch_optativa_exigida, ch_complementar_exigida"
+            )
             .like("curriculo_completo", prefix + "%")
             .order("curriculo_completo")
             .limit(1);
@@ -237,6 +247,8 @@ async function buscarMateriasFaltantes(
             creditos,
             nivel: row.nivel ?? 0,
             obrigatoria: (row.tipo_natureza ?? 0) === 0,
+            tipo_natureza: row.tipo_natureza ?? undefined,
+            carga_horaria: mat.carga_horaria ?? 60,
             preRequisitos: preByMateria.get(mat.id_materia) ?? null,
             coRequisitos: coByMateria.get(mat.id_materia) ?? null,
         });
@@ -280,44 +292,160 @@ export const PlanejamentoController: EndpointController = {
                 const logger = createControllerLogger("PlanejamentoController", "gerar-plano");
 
                 try {
-                    const parsed = parseBody(req.body);
-                    if (parsed.error || !parsed.input) {
-                        logger.warn(`Body invalido: ${parsed.error}`);
-                        return res.status(400).json({ error: parsed.error });
-                    }
-                    const input = parsed.input;
-
-                    logger.info(
-                        `Gerando plano: curriculo="${input.curriculoCompleto}", concluidas=${input.completedCodes.length}, numeroPeriodo=${input.numeroPeriodo}, limiteCreditos=${input.preferencias.limiteCreditos}`
-                    );
-
-                    // Se materiasFaltantes foi enviado no body, pula o DB lookup.
-                    let materiasFaltantes = input.materiasFaltantes;
-                    if (!materiasFaltantes) {
-                        const matriz = await resolveMatriz(input.curriculoCompleto);
-                        if (!matriz) {
-                            logger.warn(`Matriz nao encontrada: ${input.curriculoCompleto}`);
-                            return res.status(404).json({
-                                error: "Matriz não encontrada para o currículo informado",
-                                curriculoCompleto: input.curriculoCompleto,
-                            });
-                        }
-                        materiasFaltantes = await buscarMateriasFaltantes(
-                            matriz,
-                            new Set(input.completedCodes)
-                        );
-                        logger.info(`Materias faltantes do curriculo: ${materiasFaltantes.length}`);
+                    // ========== JWT AUTHENTICATION ==========
+                    if (!await Utils.checkAuthorization(req as Request)) {
+                        logger.warn("Autorização falhou");
+                        return res.status(401).json({ error: "Usuário não autorizado" });
                     }
 
-                    const plano = gerarPlano({ ...input, materiasFaltantes });
-                    logger.info(
-                        `Plano gerado: ${plano.semestresRestantes} semestres, ${plano.materiasNaoAlocadas.length} nao-alocadas`
+                    const id_user = req.headers["user-id"] || req.headers["User-ID"];
+                    if (!id_user) {
+                        logger.warn("User-ID header não encontrado");
+                        return res.status(401).json({ error: "User-ID não informado" });
+                    }
+
+                    logger.info(`Gerando plano para usuário: ${id_user}`);
+
+                    // ========== QUERY DATABASE ==========
+                    // 1. Busca dados do usuário e preferências no dados_users.
+                    const { data: usuarioData, error: erroUsuario } = await SupabaseWrapper.get()
+                        .from("dados_users")
+                        .select("id_user, semestre_atual, carga_horaria_integralizada, fluxograma_atual, preferencias_plano")
+                        .eq("id_user", id_user)
+                        .maybeSingle();
+
+                    if (erroUsuario) {
+                        logger.error(`Erro ao buscar dados_users: ${erroUsuario.message}`);
+                        throw erroUsuario;
+                    }
+
+                    if (!usuarioData) {
+                        logger.warn(`Usuário não encontrado em dados_users: ${id_user}`);
+                        return res.status(404).json({ error: "Dados do usuário não encontrados" });
+                    }
+
+                    const { input, error: bodyError } = parseBody(req.body);
+                    if (bodyError) {
+                        logger.warn(`Body inválido: ${bodyError}`);
+                        return res.status(400).json({ error: bodyError });
+                    }
+
+                    const { curriculoCompleto, completedCodes, numeroPeriodo, preferencias: bodyPreferencias } = input!;
+                    const matriz = await resolveMatriz(curriculoCompleto);
+                    if (!matriz) {
+                        logger.warn(`Matriz curricular não encontrada para curriculoCompleto: ${curriculoCompleto}`);
+                        return res.status(404).json({ error: "Matriz curricular não encontrada" });
+                    }
+
+                    logger.info(`Dados do usuário carregados. Currículo: ${curriculoCompleto}, Matriz: ${matriz.curriculo_completo}, Semestre: ${usuarioData.semestre_atual}`);
+
+                    // Monta CargaIntegralizada Exigida
+                    const exigidaMatriz: CargaIntegralizada = {
+                        total: matriz.ch_total_exigida || 0,
+                        obrigatoria: matriz.ch_obrigatoria_exigida || 0,
+                        optativa: matriz.ch_optativa_exigida || 0,
+                        complementar: matriz.ch_complementar_exigida || 0
+                    };
+
+                    // Monta CargaIntegralizada Feita pelo Aluno
+                    const chFeita = usuarioData.carga_horaria_integralizada as Record<string, any> || {};
+                    const cargaHorariaIntegralizada: CargaIntegralizada = {
+                        total: Number(chFeita.total) || 0,
+                        obrigatoria: Number(chFeita.obrigatoria) || 0,
+                        optativa: Number(chFeita.optativa) || 0,
+                        complementar: Number(chFeita.complementar) || 0
+                    };
+
+                    // Monta Preferências usando body ou preferências salvas do usuário.
+                    const prefs = usuarioData.preferencias_plano as Record<string, any> || {};
+                    const preferencias: PreferenciasPlano = bodyPreferencias ?? {
+                        limiteCreditos: Number(prefs.limiteCreditos) || 24,
+                        objetivo: prefs.objetivo === "velocidade" ? "velocidade" : "equilibrado",
+                        trabalha: Boolean(prefs.trabalha)
+                    };
+
+                    // 3. Busca materias_por_curso
+                    const { data: materiasPorCurso, error: erroMPC } = await SupabaseWrapper.get()
+                        .from("materias_por_curso")
+                        .select("id_materia, nivel, tipo_natureza, materias(id_materia, codigo_materia, nome_materia, carga_horaria)")
+                        .eq("id_matriz", matriz.id_matriz);
+
+                    if (erroMPC) {
+                        logger.error(`Erro ao buscar materias_por_curso: ${erroMPC.message}`);
+                        throw erroMPC;
+                    }
+
+                    if (!materiasPorCurso || materiasPorCurso.length === 0) {
+                        logger.warn(`Nenhuma matéria encontrada para matriz: ${matriz.id_matriz}`);
+                        return res.status(404).json({ error: "Nenhuma matéria encontrada para a matriz curricular" });
+                    }
+
+                    logger.info(`${materiasPorCurso.length} matérias da matriz carregadas`);
+
+                    // 4. Busca pre_requisitos e co_requisitos para as materias da matriz
+                    const idsMaterias = (materiasPorCurso as any[])
+                        .map((r: any) => r.materias?.id_materia)
+                        .filter((id): id is number => typeof id === "number");
+
+                    let preByMateria = new Map<number, unknown>();
+                    let coByMateria = new Map<number, unknown>();
+
+                    if (idsMaterias.length > 0) {
+                        const [{ data: preRows, error: erroPreReq }, { data: coRows, error: erroCoReq }] = await Promise.all([
+                            SupabaseWrapper.get()
+                                .from("pre_requisitos")
+                                .select("id_materia, expressao_logica")
+                                .in("id_materia", idsMaterias),
+                            SupabaseWrapper.get()
+                                .from("co_requisitos")
+                                .select("id_materia, expressao_logica")
+                                .in("id_materia", idsMaterias),
+                        ]);
+
+                        if (erroPreReq) throw erroPreReq;
+                        if (erroCoReq) throw erroCoReq;
+
+                        if (preRows) preRows.forEach((r: any) => preByMateria.set(r.id_materia, r.expressao_logica));
+                        if (coRows) coRows.forEach((r: any) => coByMateria.set(r.id_materia, r.expressao_logica));
+                    }
+
+                    logger.info(`Pré-requisitos e co-requisitos mapeados com sucesso.`);
+
+                    // 5. MAP MATERIAS PARA O FORMATO DO MOTOR 2
+                    const materiasMapeadas: MateriaInput[] = (materiasPorCurso as any[]).map(row => {
+                        const mat = row.materias;
+                        const cargaHr = mat.carga_horaria || 60; 
+                        return {
+                            codigo: mat.codigo_materia.trim().toUpperCase(),
+                            nome: mat.nome_materia || mat.codigo_materia,
+                            creditos: Math.ceil(cargaHr / 15),
+                            nivel: row.nivel || 0,
+                            obrigatoria: row.tipo_natureza === 0,
+                            tipo_natureza: row.tipo_natureza,
+                            carga_horaria: cargaHr,
+                            preRequisitos: preByMateria.get(mat.id_materia) || null,
+                            coRequisitos: coByMateria.get(mat.id_materia) || null,
+                        };
+                    });
+
+                    // ========== CALL V2 ALGORITHM ==========
+                    const plano: PlanoFormaturav2 = gerarPlanoCompletov2(
+                        id_user as string,
+                        String(matriz.id_curso),
+                        numeroPeriodo,
+                        cargaHorariaIntegralizada,
+                        exigidaMatriz,
+                        usuarioData.fluxograma_atual as string | null | undefined,
+                        materiasMapeadas,
+                        preferencias
                     );
+
+                    logger.info(`Plano gerado: ${plano.semestresRestantes} semestres, ${plano.materiasNaoAlocadas.length} não-alocadas`);
 
                     return res.status(200).json(plano);
-                } catch (err) {
-                    logger.error(`Erro ao gerar plano: ${err}`);
-                    return res.status(500).json({ error: String(err) });
+                } catch (err: any) {
+                    logger.error(`Erro ao gerar plano: ${err?.message || String(err)}`);
+                    return res.status(500).json({ error: err?.message || "Erro ao gerar plano" });
                 }
             }
         ),

@@ -48,6 +48,7 @@
 </script>
 
 <div
+	data-planner-code={materia.codigo}
 	class="group relative flex flex-col gap-2 rounded-lg border border-l-2 px-3.5 py-3 transition-all duration-150 hover:brightness-110 {cardClass}"
 >
 	<!-- Top row: code + credits badge -->

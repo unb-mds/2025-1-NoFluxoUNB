@@ -45,8 +45,15 @@ export interface MateriaInput {
     creditos: number;
     /** Semestre esperado no fluxo padrao (materias_por_curso.nivel). 0 = optativa. */
     nivel: number;
-    /** Se a materia eh obrigatoria (tipo_natureza = 0). */
+    /** Se a materia eh obrigatoria (uso legado, prefira tipo_natureza). */
     obrigatoria: boolean;
+    
+    // === NOVOS CAMPOS ADICIONADOS PARA SUPORTE REAL DO BANCO (UNB) ===
+    /** Natureza da matéria extraída de materias_por_curso (0 = Obrigatória). */
+    tipo_natureza?: number;
+    /** Carga horária total da matéria em horas (ex: 60) */
+    carga_horaria?: number;
+
     /** Codigos diretos dos pre-requisitos (suporta AND/OR via expressao_logica). */
     preRequisitos?: unknown;
     /** Codigos diretos dos co-requisitos. */
@@ -99,28 +106,6 @@ export interface MateriaPlano {
     motivo: string;
 }
 
-/** Um semestre do plano (proximo = recomendado; demais = estimado). */
-export interface SemestrePlano {
-    /** Rotulo do semestre (ex: "2025.2"). Pode ser opcional se o caller nao quiser calcular datas. */
-    semestre?: string;
-    /** Indice (0-based) do semestre dentro do plano. */
-    indice: number;
-    /** Tipo: o proximo semestre eh "recomendado"; os demais sao "estimado". */
-    tipo: TipoSemestre;
-    /** Soma de creditos do semestre. */
-    creditos: number;
-    /** Materias daquele semestre. */
-    materias: MateriaPlano[];
-}
-
-/** Materia em curso (status MATR no fluxograma_atual). */
-export interface MateriaSemestreAtual {
-    codigo: string;
-    nome?: string;
-    creditos: number;
-    status: "MATR";
-}
-
 /** Slot generico para optativas (nao especifica materia). */
 export interface OptativaSlot {
     tipo: "optativa_slot";
@@ -133,6 +118,28 @@ export interface ComplementarSlot {
     tipo: "complementar_slot";
     ch: number;
     descricao: string;
+}
+
+/** Um semestre do plano (proximo = recomendado; demais = estimado). */
+export interface SemestrePlano {
+    /** Rotulo do semestre (ex: "2025.2"). Pode ser opcional se o caller nao quiser calcular datas. */
+    semestre?: string;
+    /** Indice (0-based) do semestre dentro do plano. */
+    indice: number;
+    /** Tipo: o proximo semestre eh "recomendado"; os demais sao "estimado". */
+    tipo: TipoSemestre;
+    /** Soma de creditos do semestre. */
+    creditos: number;
+    /** Materias daquele semestre. Agora aceita Slots Genéricos também! */
+    materias: (MateriaPlano | OptativaSlot | ComplementarSlot)[];
+}
+
+/** Materia em curso (status MATR no fluxograma_atual). */
+export interface MateriaSemestreAtual {
+    codigo: string;
+    nome?: string;
+    creditos: number;
+    status: "MATR";
 }
 
 /** CH integralizada por tipo. */
@@ -161,8 +168,8 @@ export interface PlanoFormaturav2 {
     plano: SemestrePlano[];
     /** Materias que nao foram alocadas (ciclos, pre-req externo, etc). */
     materiasNaoAlocadas: string[];
-    /** CH faltante para obrigatorias restantes. */
-    chObrigatóriaFaltante: number;
+    /** CH faltante para obrigatorias restantes. (Sem acento) */
+    chObrigatoriaFaltante: number;
     /** CH faltante para optativas. */
     chOptativaFaltante: number;
     /** CH faltante para complementares. */

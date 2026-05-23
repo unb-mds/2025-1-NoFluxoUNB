@@ -46,19 +46,50 @@ export interface MateriaPlano {
 	motivo: string;
 }
 
+// ─── Slots genéricos para créditos ────────────────────────────────────────────
+
+export interface OptativaSlot {
+	tipo: 'optativa_slot';
+	ch: number;
+	descricao: string;
+}
+
+export interface ComplementarSlot {
+	tipo: 'complementar_slot';
+	ch: number;
+	descricao: string;
+}
+
 // ─── Semestre no plano ────────────────────────────────────────────────────────
 
-export type TipoSemestre = 'recomendado' | 'estimado';
+export type TipoSemestre = 'recomendado' | 'estimado' | 'em_curso';
+
+export type ItemSemestre = MateriaPlano | OptativaSlot | ComplementarSlot;
 
 export interface SemestrePlano {
 	/** Identificador do semestre (ex: "2025.2"). */
-	semestre: string;
-	/** Tipo: "recomendado" (próximo semestre) ou "estimado" (futuros). */
+	semestre?: string;
+	/** Índice 0-based do semestre dentro do plano. */
+	indice: number;
+	/** Tipo: "em_curso" (semestre atual), "recomendado" (próximo), ou "estimado" (futuros). */
 	tipo: TipoSemestre;
 	/** Total de créditos neste semestre. */
 	creditos: number;
-	/** Lista de matérias planejadas para este semestre. */
-	materias: MateriaPlano[];
+	/** Lista de matérias planejadas ou slots genéricos para este semestre. */
+	materias: ItemSemestre[];
+}
+
+// ─── Matéria em curso (semestre atual) ────────────────────────────────────────
+
+export interface MateriaSemestreAtual {
+	/** Código da disciplina. */
+	codigo: string;
+	/** Nome da disciplina (opcional). */
+	nome?: string;
+	/** Créditos. */
+	creditos: number;
+	/** Status fixo. */
+	status: 'MATR';
 }
 
 // ─── Plano de formatura completo ──────────────────────────────────────────────
