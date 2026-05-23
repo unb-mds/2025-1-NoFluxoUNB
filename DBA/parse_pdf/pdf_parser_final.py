@@ -1,4 +1,4 @@
-import PyPDF2
+import pypdf
 import re
 import io
 from flask import Flask, request, jsonify
@@ -90,7 +90,7 @@ def limpar_nome_disciplina(nome):
     nome_limpo = re.sub(r"^—\s*", "", nome_limpo)
 
     # Remove apenas caracteres especiais do início e fim, preservando letras, números e espaços
-    nome_limpo = re.sub(r"^[^\w\s]+|[^\w\s]+$", "", nome_limpo)
+    nome_limpo = re.sub(r"^[^\w\s()]+|[^\w\s()]+$", "", nome_limpo)
 
     # Remove espaços extras
     nome_limpo = re.sub(r"\s+", " ", nome_limpo).strip()
@@ -102,11 +102,194 @@ def limpar_nome_disciplina(nome):
     return nome_limpo
 
 
+def extrair_dados_academicos(texto_total):
+    """
+    Extrai IRA, currículo, pendências e dados de disciplinas do texto.
+    """
+    # Extrair curso do texto
+    curso_extraido = extrair_curso(texto_total)
+
+    disciplinas = []  # Lista para armazenar os dados extraídos das disciplinas
+    lines = texto_total.splitlines()
+
+    for i, linha in enumerate(lines):
+        linha = linha.strip()
+        if not linha:  # Pula linhas vazias
+            continue
+
+        # print(f"Processando linha {i+1}: '{linha}'") # Descomente para depuração linha a linha
+
+        # 1. Encontrar o IRA
+        match_ira = padrao_ira.search(linha)
+        if match_ira:
+            ira = match_ira.group(1)
+            disciplinas.append({"IRA": "IRA", "valor": ira})
+            print(f"  -> IRA encontrado: {ira}")
+
+        # 2. Encontrar o Currículo
+        if "Currículo" in linha or "Ano/Período de Integralização" in linha:
+            match_curriculo = re.search(padrao_curriculo, linha)
+            if not match_curriculo and i + 1 < len(lines):
+                proxima_linha = lines[i + 1].replace("\xa0", " ").strip()
+                proxima_linha = re.sub(r"\s+", " ", proxima_linha)
+                match_curriculo = re.search(padrao_curriculo, proxima_linha)
+            if match_curriculo:
+                curriculo = match_curriculo.group(1)
+                disciplinas.append({"tipo_dado": "Curriculo", "valor": curriculo})
+                print(f"  -> Currículo encontrado: {curriculo}")
+
+        # 3. Encontrar pendências (geralmente uma lista de status em uma linha)
+        match_pend = padrao_pend.findall(linha)
+        if match_pend:
+            disciplinas.append({"tipo_dado": "Pendencias", "valores": match_pend})
+            print(f"  -> Pendências encontradas: {match_pend}")
+
+        # 4. Processar linhas com prefixos de professor ou padrões de disciplina
+        is_professor_line = (
+            linha.startswith("Dr.")
+            or linha.startswith("MSc.")
+            or linha.startswith("Dra.")
+        )
+
+        if is_professor_line:
+            # Tenta extrair da linha atual
+            match_status = padrao_status.search(linha)
+            match_mencao = padrao_mencao.findall(linha)
+            match_codigo = padrao_codigo.search(linha)
+            match_horas = padrao_horas.search(
+                linha
+            )  # Usar search para pegar o primeiro match
+            match_natureza = padrao_natureza.findall(linha)
+
+            if match_status and match_codigo and match_horas:
+                status = match_status.group(1)
+                mencao = match_mencao[-1] if match_mencao else "-"
+                codigo = match_codigo.group()
+                carga_horaria = int(match_horas.group(1))
+                creditos = int(carga_horaria / 15)
+                natureza = match_natureza[-1] if match_natureza else " "
+
+                nome_disciplina = "Nome da Disciplina N/A"
+                if i - 1 >= 0:
+                    prev_line = lines[i - 1].strip()
+                    # Regex melhorada para capturar o nome da disciplina incluindo números
+                    # Captura tudo até encontrar status no final da linha
+                    name_match = re.search(
+                        r"^(?:\d{4}\.\d\s+)?([\wÀ-Ÿ\s.&,()\-\d]+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—))?$",
+                        prev_line,
+                        re.IGNORECASE,
+                    )
+                    if name_match:
+                        nome_disciplina = name_match.group(1).strip()
+                        # Aplica a função de limpeza para remover períodos e outros elementos
+                        nome_disciplina = limpar_nome_disciplina(nome_disciplina)
+                    else:
+                        # Fallback se o padrão mais específico não funcionar
+                        fallback_name_match = re.search(
+                            r"^(?:\d{4}\.\d\s+)?(.+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—))?$",
+                            prev_line,
+                            re.IGNORECASE,
+                        )
+                        if fallback_name_match:
+                            nome_disciplina = fallback_name_match.group(1).strip()
+                            # Aplica a função de limpeza para remover períodos e outros elementos
+                            nome_disciplina = limpar_nome_disciplina(
+                                nome_disciplina
+                            )
+                        else:
+                            nome_disciplina = prev_line  # Último recurso: usa a linha anterior inteira
+                            # Aplica a função de limpeza mesmo no fallback
+                            nome_disciplina = limpar_nome_disciplina(
+                                nome_disciplina
+                            )
+
+                disciplinas.append(
+                    {
+                        "tipo_dado": "Disciplina Regular",
+                        "nome": nome_disciplina,
+                        "status": status,
+                        "mencao": mencao,
+                        "creditos": creditos,
+                        "codigo": codigo,
+                        "carga_horaria": carga_horaria,
+                        "natureza": natureza,
+                    }
+                )
+                print(
+                    f"  -> Disciplina Regular encontrada: '{nome_disciplina}' (Status: {status})"
+                )
+
+                # Debug: verificar se a disciplina contém números
+                if re.search(r"\d", nome_disciplina):
+                    print(f"    📊 Disciplina com números: '{nome_disciplina}'")
+            # else:
+            # print(f"  -> Linha de professor, mas dados insuficientes para disciplina regular. Status: {match_status}, Codigo: {match_codigo}, Horas: {match_horas}")
+
+        # 5. Processar disciplinas com status 'CUMP'
+        elif padrao_cump.search(linha):
+            match_padrao_horas_cump = padrao_horas_cump.search(linha)
+            match_codigo = padrao_codigo.search(linha)
+
+            nome_materia_cump = "Nome da Disciplina CUMP N/A"
+            carga_horaria = 0
+            codigo = "Código CUMP N/A"
+            creditos_cump = 0
+
+            # Nova regex para capturar o nome da matéria CUMP
+            # Lida com '-- NOME -- CUMP' ou 'ANO.PERÍODO NOME -- CUMP'
+            cump_name_match = re.search(
+                r"^(?:--\s*|\d{4}\.\d\s*)(.*?)(?:\s+--|\s+—)\s*CUMP",
+                linha,
+                re.IGNORECASE,
+            )
+            if cump_name_match:
+                nome_materia_cump = cump_name_match.group(1).strip()
+                # Aplica a função de limpeza para remover períodos e outros elementos
+                nome_materia_cump = limpar_nome_disciplina(nome_materia_cump)
+
+            if match_padrao_horas_cump:
+                try:
+                    carga_horaria = int(match_padrao_horas_cump.group(1))
+                    creditos_cump = int(carga_horaria / 15)
+                except ValueError:
+                    print(
+                        f"  -> Aviso: Carga horária CUMP inválida na linha: {linha}"
+                    )
+
+            if match_codigo:
+                codigo = match_codigo.group()
+
+            if (
+                nome_materia_cump != "Nome da Disciplina CUMP N/A"
+                or codigo != "Código CUMP N/A"
+            ):
+                disciplinas.append(
+                    {
+                        "tipo_dado": "Disciplina CUMP",
+                        "nome": nome_materia_cump,
+                        "status": "CUMP",
+                        "mencao": "-",
+                        "creditos": creditos_cump,
+                        "codigo": codigo,
+                        "carga_horaria": carga_horaria,
+                    }
+                )
+                print(
+                    f"  -> Disciplina CUMP encontrada: '{nome_materia_cump}' (Carga Horária: {carga_horaria})"
+                )
+            # else:
+            # print(f"  -> Linha CUMP, mas nome ou código não encontrados: '{linha}'")
+
+    print("\n--- Fim do processamento de linhas ---")
+    print(f"Total de itens extraídos: {len(disciplinas)}")
+    return curso_extraido, disciplinas
+
+
 @app.route("/upload-pdf", methods=["POST"])
 def upload_pdf():
     """
     Rota para receber e processar o arquivo PDF.
-    Tenta extrair texto com PyPDF2, se falhar, usa OCR.
+    Tenta extrair texto com pypdf, se falhar, usa OCR.
     Extrai IRA, currículo, pendências e dados de disciplinas do texto.
     """
     if "pdf" not in request.files:
@@ -128,11 +311,11 @@ def upload_pdf():
 
     texto_total = ""
     try:
-        # Tentar extração de texto normal com PyPDF2 primeiro
+        # Tentar extração de texto normal com pypdf primeiro
         pdf_content_stream = io.BytesIO(pdf_file.read())
         # IMPORTANTE: Resetar o ponteiro do arquivo para o início para o OCR, se necessário
         pdf_file.seek(0)
-        leitor = PyPDF2.PdfReader(pdf_content_stream)
+        leitor = pypdf.PdfReader(pdf_content_stream)
 
         # Tenta extrair texto de todas as páginas
         for i, pagina in enumerate(leitor.pages):
@@ -141,8 +324,8 @@ def upload_pdf():
                 texto_total += pagina_texto + "\n"
 
         if not texto_total.strip():
-            print("PyPDF2 não encontrou texto. Tentando OCR...")
-            # Se PyPDF2 não extraiu nada, tenta OCR
+            print("pypdf não encontrou texto. Tentando OCR...")
+            # Se pypdf não extraiu nada, tenta OCR
             images = convert_from_bytes(
                 pdf_file.read(), dpi=300
             )  # Converte PDF para imagens (300 DPI para melhor OCR)
@@ -158,194 +341,19 @@ def upload_pdf():
                 return (
                     jsonify(
                         {
-                            "error": "Nenhuma informação textual pôde ser extraída do PDF via PyPDF2 ou OCR. O PDF pode ser uma imagem de baixa qualidade, estar vazio ou corrompido."
+                            "error": "Nenhuma informação textual pôde ser extraída do PDF via pypdf ou OCR. O PDF pode ser uma imagem de baixa qualidade, estar vazio ou corrompido."
                         }
                     ),
                     422,
                 )
         else:
-            print("Texto extraído com sucesso usando PyPDF2.")
+            print("Texto extraído com sucesso usando pypdf.")
 
         print("\n--- Texto Completo Extraído (Primeiras 500 chars) ---")
         print(texto_total[:500] + "..." if len(texto_total) > 500 else texto_total)
         print("----------------------------------------------------\n")
 
-        # Extrair curso do texto
-        curso_extraido = extrair_curso(texto_total)
-
-        disciplinas = []  # Lista para armazenar os dados extraídos das disciplinas
-        lines = texto_total.splitlines()
-
-        for i, linha in enumerate(lines):
-            linha = linha.strip()
-            if not linha:  # Pula linhas vazias
-                continue
-
-            # print(f"Processando linha {i+1}: '{linha}'") # Descomente para depuração linha a linha
-
-            # 1. Encontrar o IRA
-            match_ira = padrao_ira.search(linha)
-            if match_ira:
-                ira = match_ira.group(1)
-                disciplinas.append({"IRA": "IRA", "valor": ira})
-                print(f"  -> IRA encontrado: {ira}")
-
-            # 2. Encontrar o Currículo
-            if "Currículo" in linha or "Ano/Período de Integralização" in linha:
-                match_curriculo = re.search(padrao_curriculo, linha)
-                if not match_curriculo and i + 1 < len(lines):
-                    proxima_linha = lines[i + 1].replace("\xa0", " ").strip()
-                    proxima_linha = re.sub(r"\s+", " ", proxima_linha)
-                    match_curriculo = re.search(padrao_curriculo, proxima_linha)
-                if match_curriculo:
-                    curriculo = match_curriculo.group(1)
-                    disciplinas.append({"tipo_dado": "Curriculo", "valor": curriculo})
-                    print(f"  -> Currículo encontrado: {curriculo}")
-
-            # 3. Encontrar pendências (geralmente uma lista de status em uma linha)
-            match_pend = padrao_pend.findall(linha)
-            if match_pend:
-                disciplinas.append({"tipo_dado": "Pendencias", "valores": match_pend})
-                print(f"  -> Pendências encontradas: {match_pend}")
-
-            # 4. Processar linhas com prefixos de professor ou padrões de disciplina
-            is_professor_line = (
-                linha.startswith("Dr.")
-                or linha.startswith("MSc.")
-                or linha.startswith("Dra.")
-            )
-
-            if is_professor_line:
-                # Tenta extrair da linha atual
-                match_status = padrao_status.search(linha)
-                match_mencao = padrao_mencao.findall(linha)
-                match_codigo = padrao_codigo.search(linha)
-                match_horas = padrao_horas.search(
-                    linha
-                )  # Usar search para pegar o primeiro match
-                match_natureza = padrao_natureza.findall(linha)
-
-                if match_status and match_codigo and match_horas:
-                    status = match_status.group(1)
-                    mencao = match_mencao[-1] if match_mencao else "-"
-                    codigo = match_codigo.group()
-                    carga_horaria = int(match_horas.group(1))
-                    creditos = int(carga_horaria / 15)
-                    natureza = match_natureza[-1] if match_natureza else " "
-
-                    nome_disciplina = "Nome da Disciplina N/A"
-                    if i - 1 >= 0:
-                        prev_line = lines[i - 1].strip()
-                        # Regex melhorada para capturar o nome da disciplina incluindo números
-                        # Captura tudo até encontrar status no final da linha
-                        name_match = re.search(
-                            r"^(?:\d{4}\.\d\s+)?([\wÀ-Ÿ\s.&,()\-\d]+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—))?$",
-                            prev_line,
-                            re.IGNORECASE,
-                        )
-                        if name_match:
-                            nome_disciplina = name_match.group(1).strip()
-                            # Aplica a função de limpeza para remover períodos e outros elementos
-                            nome_disciplina = limpar_nome_disciplina(nome_disciplina)
-                        else:
-                            # Fallback se o padrão mais específico não funcionar
-                            fallback_name_match = re.search(
-                                r"^(?:\d{4}\.\d\s+)?(.+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—))?$",
-                                prev_line,
-                                re.IGNORECASE,
-                            )
-                            if fallback_name_match:
-                                nome_disciplina = fallback_name_match.group(1).strip()
-                                # Aplica a função de limpeza para remover períodos e outros elementos
-                                nome_disciplina = limpar_nome_disciplina(
-                                    nome_disciplina
-                                )
-                            else:
-                                nome_disciplina = prev_line  # Último recurso: usa a linha anterior inteira
-                                # Aplica a função de limpeza mesmo no fallback
-                                nome_disciplina = limpar_nome_disciplina(
-                                    nome_disciplina
-                                )
-
-                    disciplinas.append(
-                        {
-                            "tipo_dado": "Disciplina Regular",
-                            "nome": nome_disciplina,
-                            "status": status,
-                            "mencao": mencao,
-                            "creditos": creditos,
-                            "codigo": codigo,
-                            "carga_horaria": carga_horaria,
-                            "natureza": natureza,
-                        }
-                    )
-                    print(
-                        f"  -> Disciplina Regular encontrada: '{nome_disciplina}' (Status: {status})"
-                    )
-
-                    # Debug: verificar se a disciplina contém números
-                    if re.search(r"\d", nome_disciplina):
-                        print(f"    📊 Disciplina com números: '{nome_disciplina}'")
-                # else:
-                # print(f"  -> Linha de professor, mas dados insuficientes para disciplina regular. Status: {match_status}, Codigo: {match_codigo}, Horas: {match_horas}")
-
-            # 5. Processar disciplinas com status 'CUMP'
-            elif padrao_cump.search(linha):
-                match_padrao_horas_cump = padrao_horas_cump.search(linha)
-                match_codigo = padrao_codigo.search(linha)
-
-                nome_materia_cump = "Nome da Disciplina CUMP N/A"
-                carga_horaria = 0
-                codigo = "Código CUMP N/A"
-                creditos_cump = 0
-
-                # Nova regex para capturar o nome da matéria CUMP
-                # Lida com '-- NOME -- CUMP' ou 'ANO.PERÍODO NOME -- CUMP'
-                cump_name_match = re.search(
-                    r"^(?:--\s*|\d{4}\.\d\s*)(.*?)(?:\s+--|\s+—)\s*CUMP",
-                    linha,
-                    re.IGNORECASE,
-                )
-                if cump_name_match:
-                    nome_materia_cump = cump_name_match.group(1).strip()
-                    # Aplica a função de limpeza para remover períodos e outros elementos
-                    nome_materia_cump = limpar_nome_disciplina(nome_materia_cump)
-
-                if match_padrao_horas_cump:
-                    try:
-                        carga_horaria = int(match_padrao_horas_cump.group(1))
-                        creditos_cump = int(carga_horaria / 15)
-                    except ValueError:
-                        print(
-                            f"  -> Aviso: Carga horária CUMP inválida na linha: {linha}"
-                        )
-
-                if match_codigo:
-                    codigo = match_codigo.group()
-
-                if (
-                    nome_materia_cump != "Nome da Disciplina CUMP N/A"
-                    or codigo != "Código CUMP N/A"
-                ):
-                    disciplinas.append(
-                        {
-                            "tipo_dado": "Disciplina CUMP",
-                            "nome": nome_materia_cump,
-                            "status": "CUMP",
-                            "mencao": "-",
-                            "creditos": creditos_cump,
-                            "codigo": codigo,
-                            "carga_horaria": carga_horaria,
-                        }
-                    )
-                    print(
-                        f"  -> Disciplina CUMP encontrada: '{nome_materia_cump}' (Carga Horária: {carga_horaria})"
-                    )
-                # else:
-                # print(f"  -> Linha CUMP, mas nome ou código não encontrados: '{linha}'")
-
-        print("\n--- Fim do processamento de linhas ---")
-        print(f"Total de itens extraídos: {len(disciplinas)}")
+        curso_extraido, disciplinas = extrair_dados_academicos(texto_total)
 
         # Retorna os dados extraídos em formato JSON
         return jsonify(
@@ -372,8 +380,8 @@ def upload_pdf():
             ),
             500,
         )
-    except PyPDF2.errors.PdfReadError as e:
-        print(f"Erro ao ler o PDF (PyPDF2): {str(e)}")
+    except pypdf.errors.PdfReadError as e:
+        print(f"Erro ao ler o PDF (pypdf): {str(e)}")
         return (
             jsonify(
                 {

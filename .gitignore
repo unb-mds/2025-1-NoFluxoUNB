@@ -20,7 +20,6 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Dados de coleta (não versionar JSONs pesados de estruturas/matérias)
-coleta_dados/dados/
 DBA/dados/**
 !DBA/dados/cursos-de-graduacao.json
 dados_finais_*/

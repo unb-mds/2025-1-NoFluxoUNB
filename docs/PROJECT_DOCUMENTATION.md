@@ -7,7 +7,7 @@
 3. [Backend (`no_fluxo_backend/`)](#3-backend)
 4. [Frontend (`no_fluxo_frontend_svelte/`)](#4-frontend)
 5. [Database](#5-database)
-6. [Data Collection (`coleta_dados/`)](#6-data-collection)
+6. [Data Collection (`DBA/`)](#6-data-collection)
 7. [Infrastructure & Deployment](#7-infrastructure--deployment)
 8. [CI/CD & Testing](#8-cicd--testing)
 9. [API Reference](#9-api-reference)
@@ -54,7 +54,7 @@
 2025-1-NoFluxoUNB/
 ├── no_fluxo_backend/              # TypeScript/Express backend + Python PDF parsing
 ├── no_fluxo_frontend_svelte/      # SvelteKit frontend application
-├── coleta_dados/                  # Data collection/scraping scripts (Python)
+├── DBA/                  # Data collection/scraping scripts (Python)
 ├── documentacao/                  # Project documentation (Portuguese)
 ├── kubernetes_docs/               # Kubernetes deployment docs & templates
 ├── plans/                         # Planning and strategy documents
@@ -432,7 +432,7 @@ All tables have RLS enabled. Policies:
 
 ## 6. Data Collection
 
-**Location:** `coleta_dados/`
+**Location:** `DBA/`
 
 ### 6.1 Scraping Scripts
 
@@ -671,4 +671,4 @@ The AI returns a ranked list of recommended disciplines with:
 
 ### 11.4 Data Pipeline for AI
 
-Course data is formatted and uploaded to RAGFlow via `coleta_dados/scraping/formatar_para_ragflow.py`, which structures syllabus and curriculum data for the AI knowledge base.
+Course data is formatted and uploaded to RAGFlow via `DBA/scraping/formatar_para_ragflow.py`, which structures syllabus and curriculum data for the AI knowledge base.

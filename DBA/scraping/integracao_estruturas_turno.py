@@ -11,7 +11,7 @@ Baseado em integracao_banco.py e schema do banco (cursos, matrizes, materias, ma
 - Usa materias_detalhadas e DEPARTAMENTOS_MATERIAS como integracao_banco
 
 Uso:
-  cd coleta_dados/scraping
+  cd DBA/scraping
   python integracao_estruturas_turno.py
 """
 

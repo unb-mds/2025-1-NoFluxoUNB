@@ -8,7 +8,7 @@ importers:
 
   .: {}
 
-  coleta_dados:
+  DBA:
     dependencies:
       '@supabase/supabase-js':
         specifier: ^2.50.2

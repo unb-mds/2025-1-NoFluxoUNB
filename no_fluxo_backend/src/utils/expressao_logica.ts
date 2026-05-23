@@ -1,7 +1,7 @@
 /**
  * Utilitário para expressao_logica (JSONB) recursivo.
  * Formato: string | { operador: "OU"|"E", condicoes: ExpressaoLogicaRecursiva[] }
- * Alinhado ao output do script coleta_dados/dados/expressao_logica/parse-expressao.ts
+ * Alinhado ao output do script DBA/dados/expressao_logica/parse-expressao.ts
  */
 
 export type ExpressaoLogicaRecursiva =

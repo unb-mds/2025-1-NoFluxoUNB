@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
 
 class TestExecutarFluxoDadosRAGFLOW(unittest.TestCase):
 
-    @unittest.expectedFailure  # Fase 2: modulo ainda usa caminho legado 'coleta_dados/dados'
+
     @patch("DBA.scraping.executar_fluxo_dados_RAGFLOW.datetime")
     def test_gerar_nomes_pastas_primeiro_semestre(self, mock_datetime):
         mock_datetime.date.today.return_value = datetime.date(
@@ -19,13 +19,13 @@ class TestExecutarFluxoDadosRAGFLOW(unittest.TestCase):
         )  # Março, primeiro semestre
 
         nomes_pastas = executar_fluxo_dados_RAGFLOW.gerar_nomes_pastas()
-        self.assertEqual(nomes_pastas["dados_finais"], "dados/dados_finais_2025_1")
-        self.assertEqual(nomes_pastas["chunks"], "dados/chunks_finais_2025_1")
+        self.assertEqual(nomes_pastas["dados_finais"], "DBA/dados/dados_finais_2025_1")
+        self.assertEqual(nomes_pastas["chunks"], "DBA/dados/chunks_finais_2025_1")
         self.assertEqual(
-            nomes_pastas["formatados"], "dados/chunks_finais_formatados_2025_1"
+            nomes_pastas["formatados"], "DBA/dados/chunks_finais_formatados_2025_1"
         )
 
-    @unittest.expectedFailure  # Fase 2: modulo ainda usa caminho legado 'coleta_dados/dados'
+
     @patch("DBA.scraping.executar_fluxo_dados_RAGFLOW.datetime")
     def test_gerar_nomes_pastas_segundo_semestre(self, mock_datetime):
         mock_datetime.date.today.return_value = datetime.date(
@@ -33,10 +33,10 @@ class TestExecutarFluxoDadosRAGFLOW(unittest.TestCase):
         )  # Setembro, segundo semestre
 
         nomes_pastas = executar_fluxo_dados_RAGFLOW.gerar_nomes_pastas()
-        self.assertEqual(nomes_pastas["dados_finais"], "dados/dados_finais_2025_2")
-        self.assertEqual(nomes_pastas["chunks"], "dados/chunks_finais_2025_2")
+        self.assertEqual(nomes_pastas["dados_finais"], "DBA/dados/dados_finais_2025_2")
+        self.assertEqual(nomes_pastas["chunks"], "DBA/dados/chunks_finais_2025_2")
         self.assertEqual(
-            nomes_pastas["formatados"], "dados/chunks_finais_formatados_2025_2"
+            nomes_pastas["formatados"], "DBA/dados/chunks_finais_formatados_2025_2"
         )
 
     @patch("subprocess.run")
