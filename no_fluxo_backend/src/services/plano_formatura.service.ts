@@ -223,7 +223,8 @@ export function distribuirPorSemestres(
     completedCodes: Set<string>,
     preferencias: PreferenciasPlano,
     numeroPeriodo: number,
-    codigosComOferta?: Set<string>
+    codigosComOferta?: Set<string>,
+    chOptativaFaltante?: number
 ): SemestrePlano[] {
     if (materias.length === 0) return [];
 
@@ -234,6 +235,14 @@ export function distribuirPorSemestres(
 
     const semestres: SemestrePlano[] = [];
     let indiceSemestre = 0;
+
+    // Se há optativas faltantes, reservar espaço proporcional por semestre
+    // Isso garante que haja espaço livre em distribuirSlots
+    const limiteHorasPorSemestre = preferencias.limiteCreditos * 15;
+    const horasReservadaParaOptativa = chOptativaFaltante && chOptativaFaltante > 0
+        ? Math.min(60, Math.ceil(chOptativaFaltante / 5))  // Reservar ~1/5 do faltante por semestre, máx 60h
+        : 0;
+    const limiteEfetivo = Math.max(120, limiteHorasPorSemestre - horasReservadaParaOptativa);
 
     while (restantes.size > 0 && indiceSemestre < MAX_SEMESTRES) {
         const candidatas: MateriaComScore[] = [];
@@ -254,7 +263,10 @@ export function distribuirPorSemestres(
 
         const escolhidas: MateriaComScore[] = [];
         let horasUsadas = 0;
-        const limiteHoras = Math.min(preferencias.limiteCreditos * 15, 480);
+        // Usar limiteEfetivo para reservar espaço para optativas, ou usar limite normal
+        const limiteHoras = horasReservadaParaOptativa > 0
+            ? Math.min(limiteEfetivo, 480)
+            : Math.min(preferencias.limiteCreditos * 15, 480);
 
         // B4: Mapa para lookup rápido de matérias por código
         const materiasPorCodigo = new Map<string, MateriaInput>();
@@ -612,7 +624,8 @@ function distribuirObrigatorias(
     completedCodes: Set<string>,
     preferencias: PreferenciasPlano,
     numeroPeriodo: number,
-    codigosComOferta?: Set<string>
+    codigosComOferta?: Set<string>,
+    chOptativaFaltante?: number
 ): {
     semestres: SemestrePlano[];
     naoAlocadas: string[];
@@ -625,7 +638,8 @@ function distribuirObrigatorias(
         completedCodes,
         preferencias,
         numeroPeriodo,
-        codigosComOferta
+        codigosComOferta,
+        chOptativaFaltante
     );
 
     // Se há estágio/TCC mas nenhum semestre foi criado, criar semestre vazio receptor
@@ -724,7 +738,7 @@ export function gerarPlanoCompletov2(
         const optativasComOferta = materias.filter(m => m.tipo_natureza === 1 && codigosComOferta.has(norm(m.codigo)));
         const optativasSemOferta = materias.filter(m => m.tipo_natureza === 1 && !codigosComOferta.has(norm(m.codigo)));
         console.log(`\n[Motor2 v2] Optativas com oferta real: ${optativasComOferta.length} (${optativasComOferta.map(m => m.codigo).join(', ')})`);
-        console.log(`[Motor2 v2] Optativas SEM oferta real: ${optativasSemOferta.length} (${optativasSemOferta.map(m => m.codigo).join(', ')})\n`);
+        console.log(`[Motor2 v2] Optativas SEM oferta real: ${optativasSemOferta.length} (${optativasSemOferta.map(m => m.codigo).join(', ')})`);
     }
 
     const { completed, currentSemester } = parseFluxograma(fluxogramaAtualJson);
@@ -759,6 +773,14 @@ export function gerarPlanoCompletov2(
         complementar: Math.max(0, exigidaMatriz.complementar - cargaHorariaIntegralizada.complementar)
     };
 
+    // Log estratégia de alocação com espaço reservado
+    console.log(`\n[Motor2 v2] Estratégia de alocação: Reservando espaço para ${chFaltante.optativa}h de optativas`);
+    const horasReservadaPorSemestre = chFaltante.optativa > 0
+        ? Math.min(60, Math.ceil(chFaltante.optativa / 5))
+        : 0;
+    console.log(`[Motor2 v2] Espaço reservado por semestre: ~${horasReservadaPorSemestre}h`);
+    console.log(`[Motor2 v2] Limite efetivo para obrigatórias: ${prefs.limiteCreditos * 15 - horasReservadaPorSemestre}h/semestre\n`);
+
     // B1: Criar completedPlusMatr que inclui matérias concluídas E em andamento (MATR)
     const completedPlusMatr = new Set(completed);
     for (const m of currentSemester) {
@@ -774,7 +796,8 @@ export function gerarPlanoCompletov2(
         completedPlusMatr,  // B1: usar completedPlusMatr em vez de completed
         prefs,
         semestreAtual,
-        codigosComOferta
+        codigosComOferta,
+        chFaltante.optativa  // Passar horas faltantes de optativas para reservar espaço
     );
 
     const { semestres: semestresComSlots, optativaAlocada, complementarAlocado } = distribuirSlots(
