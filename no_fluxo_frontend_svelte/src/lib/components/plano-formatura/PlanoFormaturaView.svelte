@@ -14,10 +14,7 @@
 
 	let isChangingCredits = $state(false);
 	let displayUnit = $state<'creditos' | 'horas'>('creditos');
-	let authState = $state({ user: null, isAuthenticated: false, isAnonymous: false, isLoading: true, error: null });
-	authStore.subscribe((value) => {
-		authState = value;
-	});
+	let authState = $derived($authStore);
 
 	async function handleCreditChange(limite: 16 | 24 | 32) {
 		if (isChangingCredits) return;

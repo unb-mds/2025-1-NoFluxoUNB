@@ -23,6 +23,16 @@
 	}
 
 	function updateLines() {
+		if (!browser) {
+			console.log('[PlannerPrerequisiteConnections] Not in browser');
+			lines = [];
+			return;
+		}
+		if (!scrollContainer) console.log('[PlannerPrerequisiteConnections] No scrollContainer');
+		if (!contentWrapper) console.log('[PlannerPrerequisiteConnections] No contentWrapper');
+		if (!curso) console.log('[PlannerPrerequisiteConnections] No curso data');
+		if (!plano?.plano?.length) console.log('[PlannerPrerequisiteConnections] No plano data', { planoExists: !!plano, planoPlano: !!plano?.plano, length: plano?.plano?.length });
+
 		if (!browser || !scrollContainer || !contentWrapper || !curso || !plano?.plano?.length) {
 			lines = [];
 			return;
@@ -54,9 +64,15 @@
 				if (!('codigo' in item)) continue;
 				const subjectCode = normalizeCode(item.codigo);
 				const targetEl = cardMap.get(subjectCode);
-				if (!targetEl) continue;
+				if (!targetEl) {
+					console.log(`[PlannerPrerequisiteConnections] Card not found for ${subjectCode}`);
+					continue;
+				}
 
 				const prereqs = getDirectPrerequisites(curso, subjectCode);
+				if (prereqs.length > 0) {
+					console.log(`[PlannerPrerequisiteConnections] ${subjectCode} has ${prereqs.length} prerequisites`, prereqs.map(p => p.codigoMateria));
+				}
 				for (const prereq of prereqs) {
 					const sourceCode = normalizeCode(prereq.codigoMateria);
 					const sourceEl = cardMap.get(sourceCode);

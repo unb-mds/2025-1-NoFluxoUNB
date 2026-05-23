@@ -672,6 +672,7 @@ function distribuirObrigatorias(
 
     // Novo loop de alocação com garantia RÍGIDA nos últimos semestres absolutos
     // Regra: TCC 1 → penúltimo semestre; TCC 2/Estágio → último semestre
+    // BUG FIX 1: Respeitar limiteCreditos — se estourar, criar novo semestre
     for (let idx = 0; idx < estagioTCCOrdenado.length; idx++) {
         const materia = estagioTCCOrdenado[idx];
         const cod = norm(materia.codigo);
@@ -679,30 +680,47 @@ function distribuirObrigatorias(
         if (!estagioTCCRestantes.has(cod)) continue;
         if (!isDesbloqueada(materia, cumulados)) continue;
 
+        const creditosMateria = getCreditosSafely(materia);
+
         // Determinar semestre rígido:
         // - Se é o penúltimo ou anterior: ir para semestre[semestres.length - 2] (penúltimo)
         // - Se é o último: ir para semestre[semestres.length - 1] (último)
-        const isLastInList = idx === estagioTCCOrdenado.length - 1;
-        const targetIdx = isLastInList
+        let isLastInList = idx === estagioTCCOrdenado.length - 1;
+        let targetIdx = isLastInList
             ? semestres.length - 1  // Último semestre
             : semestres.length - 2; // Penúltimo semestre
 
         // Garantir que targetIdx é válido
         if (targetIdx < 0) continue;
 
+        // BUG FIX 1: Se adicionar TCC/Estágio ultrapassa limiteCreditos, criar novo semestre
+        if (semestres[targetIdx].creditos + creditosMateria > preferencias.limiteCreditos) {
+            console.log(`  [TCC/Estágio] Semestre ${targetIdx} atingiria ${semestres[targetIdx].creditos + creditosMateria} cr (limite: ${preferencias.limiteCreditos}), criando novo semestre`);
+
+            // Criar novo semestre como último
+            const novoSemestre: SemestrePlano = {
+                indice: semestres.length,
+                tipo: "estimado",
+                creditos: 0,
+                materias: [],
+            };
+            semestres.push(novoSemestre);
+            targetIdx = semestres.length - 1;  // Apontar para o novo semestre
+        }
+
         const mPlano: MateriaPlano = {
             codigo: cod,
             nome: materia.nome,
-            creditos: getCreditosSafely(materia),
+            creditos: creditosMateria,
             critica: true,
             desbloqueiaDireto: 0,
             desbloqueiaIndireto: 0,
             score: 100,
-            motivo: "obrigatória, deve estar ao final do curso",
+            motivo: montarMotivo({ codigo: cod, nome: materia.nome, creditos: creditosMateria, critica: true, desbloqueiaDireto: 0, desbloqueiaIndireto: 0, score: 100, motivo: "" } as MateriaPlano, false),
         };
 
         (semestres[targetIdx].materias as any[]).push(mPlano);
-        semestres[targetIdx].creditos += getCreditosSafely(materia);
+        semestres[targetIdx].creditos += creditosMateria;
         const horasMateria = getHorasSafely(materia);
         if ((semestres[targetIdx] as any)._horasInternas != null) {
             (semestres[targetIdx] as any)._horasInternas += horasMateria;  // Manter _horasInternas sincronizado
