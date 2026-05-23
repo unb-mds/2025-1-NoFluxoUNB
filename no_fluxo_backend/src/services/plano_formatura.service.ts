@@ -289,6 +289,12 @@ export function distribuirPorSemestres(
                     }
                 }
             }
+            // FALLBACK: Tentar alocar candidata SOLO se co-requisitos não cabem
+            else if (horasUsadas + horas <= limiteHoras) {
+                escolhidas.push(c);
+                horasUsadas += horas;
+                // Co-requisitos ficarão em restantes para próximo semestre
+            }
         }
 
         if (escolhidas.length === 0) {
