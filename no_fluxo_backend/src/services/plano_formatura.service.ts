@@ -303,16 +303,27 @@ export function distribuirPorSemestres(
             horasUsadas = getHorasSafely(menor.materia);
         }
 
-        const materiasPlano: MateriaPlano[] = escolhidas.map((e) => ({
-            codigo: norm(e.materia.codigo),
-            nome: e.materia.nome,
-            creditos: getCreditosSafely(e.materia),
-            critica: false,
-            desbloqueiaDireto: e.desbloqueiaDireto,
-            desbloqueiaIndireto: e.desbloqueiaIndireto,
-            score: e.score,
-            motivo: "",
-        }));
+        // Calcular threshold de crítica: top 30% do score máximo
+        const maxScore = Math.max(...escolhidas.map((e) => e.score), 0);
+        const scoreThreshold = maxScore * 0.7; // Top 30% = score >= 70% do máximo
+
+        const materiasPlano: MateriaPlano[] = escolhidas.map((e) => {
+            // Matéria é crítica se:
+            // 1. Score >= threshold (top 30%), OU
+            // 2. Está atrasada (nivel < semestre_atual)
+            const isCritica = e.score >= scoreThreshold || (e.materia.nivel > 0 && e.materia.nivel < numeroPeriodo);
+
+            return {
+                codigo: norm(e.materia.codigo),
+                nome: e.materia.nome,
+                creditos: getCreditosSafely(e.materia),
+                critica: isCritica,
+                desbloqueiaDireto: e.desbloqueiaDireto,
+                desbloqueiaIndireto: e.desbloqueiaIndireto,
+                score: e.score,
+                motivo: isCritica ? (e.materia.nivel < numeroPeriodo ? "reprovada, está atrasada" : "alta prioridade") : "",
+            };
+        });
 
         semestres.push({
             indice: indiceSemestre,
