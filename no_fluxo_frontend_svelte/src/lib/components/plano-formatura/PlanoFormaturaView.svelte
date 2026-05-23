@@ -54,12 +54,18 @@
 
 	/** Matérias MATR (em curso) — lista de MateriaModel para renderizar na primeira coluna. */
 	const materiasMATR = $derived.by(() => {
-		if (!planoFormaturaStore.plano || !('semestreAtual' in planoFormaturaStore.plano)) {
+		if (!planoFormaturaStore.plano) {
 			return [];
 		}
 
-		const semestreAtualData = planoFormaturaStore.plano.semestreAtual;
-		if (!semestreAtualData || !semestreAtualData.materias) {
+		// Type guard: verificar se é PlanoFormaturav2 (tem semestreAtual)
+		const planoV2 = planoFormaturaStore.plano as any;
+		if (!('semestreAtual' in planoV2) || !planoV2.semestreAtual) {
+			return [];
+		}
+
+		const semestreAtualData = planoV2.semestreAtual;
+		if (!semestreAtualData.materias) {
 			return [];
 		}
 
@@ -69,7 +75,6 @@
 		);
 
 		// Busca as MateriaModel correspondentes no fluxogramaStore
-		// Procura em subjectsBySemester[semestreAtual]
 		const subjectsAtSemestre = fluxogramaStore.subjectsBySemester.get(semestreAtual) ?? [];
 		return subjectsAtSemestre.filter((m) =>
 			codigosMatr.has(m.codigoMateria.trim().toUpperCase())
