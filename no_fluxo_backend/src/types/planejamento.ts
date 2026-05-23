@@ -130,6 +130,12 @@ export interface SemestrePlano {
     tipo: TipoSemestre;
     /** Soma de creditos do semestre. */
     creditos: number;
+    /**
+     * INTERNO: Valor exato em horas para evitar arredondamento duplo.
+     * Evita perda de ~3-14h por semestre causada por conversão horas→creditos→horas.
+     * Preenchido em distribuirPorSemestres; consumido em distribuirSlots.
+     */
+    _horasInternas?: number;
     /** Materias daquele semestre. Agora aceita Slots Genéricos também! */
     materias: (MateriaPlano | OptativaSlot | ComplementarSlot)[];
 }

@@ -318,6 +318,7 @@ export function distribuirPorSemestres(
             indice: indiceSemestre,
             tipo: indiceSemestre === 0 ? "recomendado" : "estimado",
             creditos: Math.ceil(horasUsadas / 15),
+            _horasInternas: horasUsadas,  // NOVO: guardar valor exato em horas para evitar perda de precisão
             materias: materiasPlano,
         });
 
@@ -492,6 +493,11 @@ function isEstagioOuTCC(materia: MateriaInput): boolean {
  * Distribui slots de optativa e complementar nos semestres futuros.
  * Trabalha com a matemática convertendo o espaço do semestre para Horas para
  * evitar estourar o limite de créditos do plano.
+ *
+ * NOTA CRÍTICA: Usa _horasInternas (valor exato em horas) quando disponível para
+ * evitar arredondamento duplo (horas→creditos→horas). Sem isso, cada semestre perde
+ * ~3-14h de espaço due ao Math.ceil repetido. Fallback para creditosParaHoras()
+ * mantém compatibilidade com dados legados.
  */
 function distribuirSlots(
     semestres: SemestrePlano[],
@@ -508,7 +514,8 @@ function distribuirSlots(
     const limiteHorasMax = Math.min(limiteCreditosMax * 15, 480); 
 
     for (const semestre of semestres) {
-        let horasUsadasNoSemestre = creditosParaHoras(semestre.creditos);
+        // Usar _horasInternas se disponível para evitar reconversão que causa perda de precisão
+        let horasUsadasNoSemestre = (semestre as any)._horasInternas ?? creditosParaHoras(semestre.creditos);
         let espacoDisponivelHoras = limiteHorasMax - horasUsadasNoSemestre;
 
         if (espacoDisponivelHoras <= 0) continue;
@@ -524,7 +531,10 @@ function distribuirSlots(
                 };
                 (semestre.materias as any[]).push(slot);
                 horasUsadasNoSemestre += chParaAlocar;
-                semestre.creditos += Math.ceil(chParaAlocar / 15); 
+                semestre.creditos += Math.ceil(chParaAlocar / 15);
+                if ((semestre as any)._horasInternas) {
+                    (semestre as any)._horasInternas += chParaAlocar;  // Manter _horasInternas sincronizado
+                }
                 optativaAlocada += chParaAlocar;
             }
         }
@@ -541,6 +551,9 @@ function distribuirSlots(
                 };
                 (semestre.materias as any[]).push(slot);
                 semestre.creditos += Math.ceil(chParaAlocarComp / 15);
+                if ((semestre as any)._horasInternas) {
+                    (semestre as any)._horasInternas += chParaAlocarComp;  // Manter _horasInternas sincronizado
+                }
                 complementarAlocado += chParaAlocarComp;
             }
         }
@@ -626,6 +639,10 @@ function distribuirObrigatorias(
 
             (semestres[i].materias as any[]).push(mPlano);
             semestres[i].creditos += getCreditosSafely(materia);
+            const horasMateria = getHorasSafely(materia);
+            if ((semestres[i] as any)._horasInternas != null) {
+                (semestres[i] as any)._horasInternas += horasMateria;  // Manter _horasInternas sincronizado
+            }
             estagioTCCRestantes.delete(cod);
             cumulados.add(cod);
             break;  // Alocado, sair do loop
