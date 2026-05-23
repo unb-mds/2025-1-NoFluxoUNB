@@ -522,18 +522,27 @@ function distribuirSlots(
 } {
     let optativaAlocada = 0;
     let complementarAlocado = 0;
-    const limiteHorasMax = Math.min(limiteCreditosMax * 15, 480); 
+    const limiteHorasMax = Math.min(limiteCreditosMax * 15, 480);
 
-    for (const semestre of semestres) {
+    console.log(`\n[distribuirSlots] Starting with ${semestres.length} semesters, need ${chOptativaFaltante}h optativas, ${chComplementarFaltante}h complementar, limit=${limiteHorasMax}h/semestre`);
+
+    for (let semIdx = 0; semIdx < semestres.length; semIdx++) {
+        const semestre = semestres[semIdx];
         // Usar _horasInternas se disponível para evitar reconversão que causa perda de precisão
         let horasUsadasNoSemestre = (semestre as any)._horasInternas ?? creditosParaHoras(semestre.creditos);
         let espacoDisponivelHoras = limiteHorasMax - horasUsadasNoSemestre;
 
-        if (espacoDisponivelHoras <= 0) continue;
+        console.log(`  [Semestre ${semIdx}] Horas usadas: ${horasUsadasNoSemestre}h, espaço disponível: ${espacoDisponivelHoras}h`);
+
+        if (espacoDisponivelHoras <= 0) {
+            console.log(`    → Sem espaço, pulando`);
+            continue;
+        }
 
         // 1) Aloca slots de Optativas
         if (optativaAlocada < chOptativaFaltante) {
             const chParaAlocar = Math.min(chOptativaFaltante - optativaAlocada, espacoDisponivelHoras);
+            console.log(`    → Optativa: faltam ${chOptativaFaltante - optativaAlocada}h, espaço ${espacoDisponivelHoras}h, vou alocar ${chParaAlocar}h`);
             if (chParaAlocar > 0) {
                 const slot: OptativaSlot = {
                     tipo: "optativa_slot",
@@ -547,13 +556,17 @@ function distribuirSlots(
                     (semestre as any)._horasInternas += chParaAlocar;  // Manter _horasInternas sincronizado
                 }
                 optativaAlocada += chParaAlocar;
+                console.log(`      ✓ Alocado ${chParaAlocar}h optativa (total acumulado: ${optativaAlocada}h)`);
             }
+        } else {
+            console.log(`    → Todas optativas já alocadas (${optativaAlocada}h)`);
         }
 
         // 2) Aloca slots de Atividades Complementares
         let espacoRestanteHoras = limiteHorasMax - horasUsadasNoSemestre;
-        if (espacoRestanteHoras > 0 && complementarAlocado < chComplementarFaltante) {
+        if (complementarAlocado < chComplementarFaltante) {
             const chParaAlocarComp = Math.min(chComplementarFaltante - complementarAlocado, espacoRestanteHoras);
+            console.log(`    → Complementar: faltam ${chComplementarFaltante - complementarAlocado}h, espaço ${espacoRestanteHoras}h, vou alocar ${chParaAlocarComp}h`);
             if (chParaAlocarComp > 0) {
                 const slot: ComplementarSlot = {
                     tipo: "complementar_slot",
@@ -566,10 +579,14 @@ function distribuirSlots(
                     (semestre as any)._horasInternas += chParaAlocarComp;  // Manter _horasInternas sincronizado
                 }
                 complementarAlocado += chParaAlocarComp;
+                console.log(`      ✓ Alocado ${chParaAlocarComp}h complementar (total acumulado: ${complementarAlocado}h)`);
             }
+        } else if (chComplementarFaltante > 0) {
+            console.log(`    → Todas complementares já alocadas (${complementarAlocado}h)`);
         }
     }
 
+    console.log(`[distribuirSlots] Final: optativaAlocada=${optativaAlocada}h, complementarAlocado=${complementarAlocado}h\n`);
     return { semestres, optativaAlocada, complementarAlocado };
 }
 
