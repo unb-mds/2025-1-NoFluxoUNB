@@ -356,6 +356,9 @@ export const PlanejamentoController: EndpointController = {
                         complementar: Number(chFeita.complementar) || 0
                     };
 
+                    logger.info(`[AUDIT] Carga Horária Integralizada do usuário: ${JSON.stringify(cargaHorariaIntegralizada)}`);
+                    logger.info(`[AUDIT] Carga Horária Exigida pela Matriz: ${JSON.stringify({total: matriz.ch_total_exigida, obrigatoria: matriz.ch_obrigatoria_exigida, optativa: matriz.ch_optativa_exigida, complementar: matriz.ch_complementar_exigida})}`);
+
                     // Monta Preferências usando body ou preferências salvas do usuário.
                     const prefs = usuarioData.preferencias_plano as Record<string, any> || {};
                     const preferencias: PreferenciasPlano = bodyPreferencias ?? {

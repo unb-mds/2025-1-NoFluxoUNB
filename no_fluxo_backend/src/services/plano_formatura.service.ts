@@ -755,18 +755,37 @@ export function gerarPlanoCompletov2(
     }
 
     // ========== DEBUG: Verify hours calculation ==========
-    console.log('[Motor2] Hours Calculation Verification:');
-    console.log(`  Exigida (Total): ${exigidaMatriz.total}h`);
-    console.log(`  Exigida (Obrigatória): ${exigidaMatriz.obrigatoria}h`);
-    console.log(`  Exigida (Optativa): ${exigidaMatriz.optativa}h`);
-    console.log(`  Exigida (Complementar): ${exigidaMatriz.complementar}h`);
-    console.log(`  Integralizada: ${cargaHorariaIntegralizada.obrigatoria}h obr + ${cargaHorariaIntegralizada.optativa}h opt + ${cargaHorariaIntegralizada.complementar}h comp`);
-    console.log(`  Em Curso (MATR): ${horasSemestreAtual.obrigatoria}h obr + ${horasSemestreAtual.optativa}h opt`);
-    console.log(`  Faltante (calculated): ${chFaltante.obrigatoria}h obr + ${chFaltante.optativa}h opt + ${chFaltante.complementar}h comp`);
-    console.log(`  Alocada no plano: ${chObrigatoriaAlocada}h obr + ${optativaAlocada}h opt + ${complementarAlocado}h comp`);
-    console.log(`  Restante: ${chFaltante.obrigatoria - chObrigatoriaAlocada}h obr + ${chOptativaRestante}h opt + ${chComplementarRestante}h comp`);
-    console.log(`  MATR disciplines (${currentSemester.length}): ${currentSemester.map(m => m.codigo).join(', ')}`);
-    console.log(`  Semestres gerados: ${semestresComSlots.length}`);
+    console.log('\n========== [Motor2] HOURS CALCULATION AUDIT ==========');
+    console.log('REQUIRED vs COMPLETED:');
+    console.log(`  Total:        ${cargaHorariaIntegralizada.total}/${exigidaMatriz.total}h`);
+    console.log(`  Obrigatória:  ${cargaHorariaIntegralizada.obrigatoria}/${exigidaMatriz.obrigatoria}h`);
+    console.log(`  Optativa:     ${cargaHorariaIntegralizada.optativa}/${exigidaMatriz.optativa}h`);
+    console.log(`  Complementar: ${cargaHorariaIntegralizada.complementar}/${exigidaMatriz.complementar}h`);
+
+    console.log('\nIN-PROGRESS (MATR):');
+    console.log(`  Obrigatória (MATR): ${horasSemestreAtual.obrigatoria}h`);
+    console.log(`  Optativa (MATR):    ${horasSemestreAtual.optativa}h`);
+    console.log(`  MATR subjects (${currentSemester.length}): ${currentSemester.map(m => `${m.codigo}(${m.creditos || 4}cr)`).join(', ')}`);
+
+    console.log('\nCALCULATED SHORTAGE (Required - Completed - In-Progress):');
+    console.log(`  Obrigatória faltante: ${exigidaMatriz.obrigatoria} - ${cargaHorariaIntegralizada.obrigatoria} - ${horasSemestreAtual.obrigatoria} = ${chFaltante.obrigatoria}h`);
+    console.log(`  Optativa faltante:    ${exigidaMatriz.optativa} - ${cargaHorariaIntegralizada.optativa} - ${horasSemestreAtual.optativa} = ${chFaltante.optativa}h`);
+    console.log(`  Complementar faltante: ${exigidaMatriz.complementar} - ${cargaHorariaIntegralizada.complementar} - 0 = ${chFaltante.complementar}h`);
+
+    console.log('\nALLOCATED IN PLAN:');
+    console.log(`  Obrigatória alocada: ${chObrigatoriaAlocada}h`);
+    console.log(`  Optativa alocada:    ${optativaAlocada}h`);
+    console.log(`  Complementar alocado: ${complementarAlocado}h`);
+
+    console.log('\nREMAINING AFTER PLAN:');
+    console.log(`  Obrigatória restante: ${chFaltante.obrigatoria - chObrigatoriaAlocada}h`);
+    console.log(`  Optativa restante:    ${chOptativaRestante}h`);
+    console.log(`  Complementar restante: ${chComplementarRestante}h`);
+
+    console.log('\nPLAN SUMMARY:');
+    console.log(`  Semesters generated: ${semestresComSlots.length}`);
+    console.log(`  Total non-allocated: ${naoAlocadas.length} subjects (${naoAlocadas.join(', ')})`);
+    console.log('=====================================================\n');
 
     const resultado: PlanoFormaturav2 = {
         semestreAtual: currentSemester.length > 0 ? {
