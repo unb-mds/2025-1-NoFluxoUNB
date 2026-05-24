@@ -16,8 +16,8 @@ export interface GerarPlanoPayload {
 	codigosConcluidos: string[];
 	/** Semestre atual do aluno (número ordinal). */
 	semestreAtual: number;
-	/** Limite de créditos por semestre escolhido no onboarding. */
-	limiteCreditos: 16 | 24 | 32;
+	/** Limite de créditos por semestre escolhido no onboarding (8–32). */
+	limiteCreditos: number;
 }
 
 export interface GerarPlanoError {

@@ -16,7 +16,7 @@
 	const TOTAL_STEPS = 3;
 
 	let trabalha = $state(DEFAULT_PREFERENCIAS.trabalha);
-	let limiteCreditos = $state<16 | 24 | 32>(DEFAULT_PREFERENCIAS.limiteCreditos);
+	let limiteCreditos = $state<number>(DEFAULT_PREFERENCIAS.limiteCreditos);
 	let objetivo = $state<'velocidade' | 'equilibrio'>(DEFAULT_PREFERENCIAS.objetivo);
 
 	function next() {

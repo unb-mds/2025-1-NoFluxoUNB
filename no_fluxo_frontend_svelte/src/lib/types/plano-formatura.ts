@@ -8,8 +8,8 @@
 export type ObjetivoPlano = 'velocidade' | 'equilibrio';
 
 export interface PreferenciasPlano {
-	/** Limite de créditos por semestre escolhido pelo aluno. */
-	limiteCreditos: 16 | 24 | 32;
+	/** Limite de créditos por semestre — slider de 8 a 32 (valor em créditos). */
+	limiteCreditos: number;
 	/** Objetivo de formatura: velocidade máxima ou equilíbrio. */
 	objetivo: ObjetivoPlano;
 	/** Indica se o aluno trabalha ou estagia. */

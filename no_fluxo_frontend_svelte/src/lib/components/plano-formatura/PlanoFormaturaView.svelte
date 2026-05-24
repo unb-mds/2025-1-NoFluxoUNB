@@ -10,13 +10,18 @@
 	import { GraduationCap, Loader2, RefreshCw, Settings, AlertTriangle, BookOpenCheck } from 'lucide-svelte';
 	import { fade } from 'svelte/transition';
 
-	const CREDIT_OPTIONS = [16, 24, 32] as const;
-
 	let isChangingCredits = $state(false);
 	let displayUnit = $state<'creditos' | 'horas'>('creditos');
 	let authState = $derived($authStore);
 
-	async function handleCreditChange(limite: 16 | 24 | 32) {
+	// Debounce para o slider de créditos — evita chamar API a cada tick
+	let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+	function debouncedLimiteChange(value: number) {
+		if (debounceTimer) clearTimeout(debounceTimer);
+		debounceTimer = setTimeout(() => handleCreditChange(value), 400);
+	}
+
+	async function handleCreditChange(limite: number) {
 		if (isChangingCredits) return;
 		isChangingCredits = true;
 		try {
@@ -125,6 +130,7 @@
 				<p class="mt-1 text-xl font-bold text-blue-200">
 					{planoFormaturaStore.formaturaEstimada ?? '—'}
 				</p>
+				<p class="mt-0.5 text-[10px] text-blue-400/45">semestre previsto</p>
 			</div>
 
 			<!-- Semestres restantes -->
@@ -133,12 +139,14 @@
 				<p class="mt-1 text-xl font-bold text-white/85">
 					{planoFormaturaStore.semestresRestantes ?? '—'}
 				</p>
+				<p class="mt-0.5 text-[10px] text-white/30">restantes até formatura</p>
 			</div>
 
 			<!-- Matérias críticas -->
 			<div class="rounded-xl border border-orange-500/20 bg-orange-600/8 px-4 py-3.5">
 				<p class="text-[11px] font-medium uppercase tracking-wider text-orange-400/70">Críticas</p>
 				<p class="mt-1 text-xl font-bold text-orange-200">{totalCriticas}</p>
+				<p class="mt-0.5 text-[10px] text-orange-400/45">matérias estratégicas</p>
 			</div>
 		</div>
 	{/if}
@@ -147,21 +155,20 @@
 	<div class="flex flex-wrap items-center justify-between gap-4">
 		<div class="flex items-center gap-3">
 			<span class="shrink-0 text-xs font-medium text-white/40">Créditos / semestre:</span>
-			<div class="flex gap-1.5">
-				{#each CREDIT_OPTIONS as limite}
-					<button
-						type="button"
-						onclick={() => handleCreditChange(limite)}
-						disabled={isChangingCredits}
-						class="min-w-[52px] rounded-lg border px-3 py-1.5 text-xs font-semibold transition-all duration-150 disabled:opacity-50
-							{planoFormaturaStore.preferencias.limiteCreditos === limite
-								? 'border-blue-500/60 bg-blue-600/20 text-blue-200 ring-1 ring-blue-500/30'
-								: 'border-white/10 bg-white/4 text-white/50 hover:border-white/20 hover:bg-white/7 hover:text-white/75'}"
-					>
-						{limite}
-					</button>
-				{/each}
-			</div>
+			<input
+				type="range"
+				min={8}
+				max={32}
+				step={1}
+				disabled={isChangingCredits}
+				value={planoFormaturaStore.preferencias.limiteCreditos}
+				oninput={(e) => debouncedLimiteChange(Number((e.target as HTMLInputElement).value))}
+				class="w-36 accent-blue-500 disabled:opacity-40"
+			/>
+			<span class="w-20 text-xs font-semibold tabular-nums text-white/70">
+				{planoFormaturaStore.preferencias.limiteCreditos} cr
+				<span class="text-white/35">({planoFormaturaStore.preferencias.limiteCreditos * 15}h)</span>
+			</span>
 		</div>
 
 		<!-- Display unit toggle -->

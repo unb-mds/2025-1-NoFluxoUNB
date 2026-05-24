@@ -39,6 +39,32 @@ const SCORE_ATRASADA = 2;
 // Top 30% dos scores -> critica (alem do criterio de atrasada).
 const PERC_CRITICA = 0.3;
 
+// =============================================================
+// Projeção Temporal — Semestres e Datas
+// =============================================================
+
+/** Calcula o semestre atual com base na data do sistema ("2026.1" ou "2026.2"). */
+function calcularSemestreAtualStr(): string {
+    const now = new Date();
+    const mes = now.getMonth() + 1; // 1-12
+    return `${now.getFullYear()}.${mes <= 6 ? 1 : 2}`;
+}
+
+/**
+ * Avança N semestres a partir de uma string base.
+ * Ex: avancarSemestres("2026.1", 1) → "2026.2"
+ *     avancarSemestres("2026.2", 1) → "2027.1"
+ */
+function avancarSemestres(base: string, n: number): string {
+    const parts = base.split('.');
+    let ano = Number(parts[0]);
+    let per = Number(parts[1]);
+    for (let i = 0; i < n; i++) {
+        if (per === 1) { per = 2; } else { per = 1; ano += 1; }
+    }
+    return `${ano}.${per}`;
+}
+
 // Guard-rail contra loops infinitos no greedy.
 const MAX_SEMESTRES = 40;
 
@@ -224,7 +250,8 @@ export function distribuirPorSemestres(
     preferencias: PreferenciasPlano,
     numeroPeriodo: number,
     codigosComOferta?: Set<string>,
-    chOptativaFaltante?: number
+    chOptativaFaltante?: number,
+    semestreBaseStr?: string  // ex: "2026.1" — usado para preencher labelSemestre de cada coluna
 ): SemestrePlano[] {
     if (materias.length === 0) return [];
 
@@ -357,6 +384,8 @@ export function distribuirPorSemestres(
         semestres.push({
             indice: indiceSemestre,
             tipo: indiceSemestre === 0 ? "recomendado" : "estimado",
+            // +1 porque o primeiro semestre do plano é o PRÓXIMO (não o atual)
+            semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, indiceSemestre + 1) : undefined,
             creditos: Math.ceil(horasUsadas / 15),
             _horasInternas: horasUsadas,  // NOVO: guardar valor exato em horas para evitar perda de precisão
             materias: materiasPlano,
@@ -625,7 +654,8 @@ function distribuirObrigatorias(
     preferencias: PreferenciasPlano,
     numeroPeriodo: number,
     codigosComOferta?: Set<string>,
-    chOptativaFaltante?: number
+    chOptativaFaltante?: number,
+    semestreBaseStr?: string  // propagado para distribuirPorSemestres para preencher labelSemestre
 ): {
     semestres: SemestrePlano[];
     naoAlocadas: string[];
@@ -639,7 +669,8 @@ function distribuirObrigatorias(
         preferencias,
         numeroPeriodo,
         codigosComOferta,
-        chOptativaFaltante
+        chOptativaFaltante,
+        semestreBaseStr  // propagar para preencher semestre em cada SemestrePlano
     );
 
     // Se há estágio/TCC mas nenhum semestre foi criado, criar semestre vazio receptor
@@ -647,6 +678,7 @@ function distribuirObrigatorias(
         semestres.push({
             indice: 0,
             tipo: "estimado",
+            semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, 1) : undefined,
             creditos: 0,
             materias: [],
         });
@@ -697,10 +729,11 @@ function distribuirObrigatorias(
         if (semestres[targetIdx].creditos + creditosMateria > preferencias.limiteCreditos) {
             console.log(`  [TCC/Estágio] Semestre ${targetIdx} atingiria ${semestres[targetIdx].creditos + creditosMateria} cr (limite: ${preferencias.limiteCreditos}), criando novo semestre`);
 
-            // Criar novo semestre como último
+            const novoIndice = semestres.length;
             const novoSemestre: SemestrePlano = {
-                indice: semestres.length,
+                indice: novoIndice,
                 tipo: "estimado",
+                semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, novoIndice + 1) : undefined,
                 creditos: 0,
                 materias: [],
             };
@@ -809,13 +842,17 @@ export function gerarPlanoCompletov2(
 
     const obrigatorias = materiasFaltantes.filter((m) => m.obrigatoria);
 
+    // Calcular semestre atual como string "2026.1" para preencher labels das colunas
+    const semestreBaseStr = calcularSemestreAtualStr();
+
     const { semestres, naoAlocadas } = distribuirObrigatorias(
         obrigatorias,
         completedPlusMatr,  // B1: usar completedPlusMatr em vez de completed
         prefs,
         semestreAtual,
         codigosComOferta,
-        chFaltante.optativa  // Passar horas faltantes de optativas para reservar espaço
+        chFaltante.optativa,  // Passar horas faltantes de optativas para reservar espaço
+        semestreBaseStr       // Projeção temporal: preencher SemestrePlano.semestre
     );
 
     const { semestres: semestresComSlots, optativaAlocada, complementarAlocado } = distribuirSlots(
@@ -888,7 +925,9 @@ export function gerarPlanoCompletov2(
             }),
         } : undefined,
         semestresRestantes: semestresComSlots.length,
-        formaturaEstimada: undefined,
+        formaturaEstimada: semestresComSlots.length > 0
+            ? semestresComSlots[semestresComSlots.length - 1].semestre
+            : undefined,
         plano: semestresComSlots,
         materiasNaoAlocadas: naoAlocadas,
         chObrigatoriaFaltante: Math.max(0, chFaltante.obrigatoria - chObrigatoriaAlocada),

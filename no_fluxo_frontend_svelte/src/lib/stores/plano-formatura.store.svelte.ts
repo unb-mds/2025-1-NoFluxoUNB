@@ -47,11 +47,15 @@ function createPlanoFormaturaStore() {
 
 	// ─── Derived ──────────────────────────────────────────────────────────────
 
-	/** Semestres restantes conforme o plano atual. */
-	const semestresRestantes = $derived(plano?.semestres_restantes ?? null);
+	/** Semestres restantes — compatível com v1 (snake_case) e v2 (camelCase). */
+	const semestresRestantes = $derived(
+		(plano as any)?.semestresRestantes ?? (plano as any)?.semestres_restantes ?? null
+	);
 
-	/** Formatura estimada conforme o plano atual. */
-	const formaturaEstimada = $derived(plano?.formatura_estimada ?? null);
+	/** Formatura estimada — compatível com v1 e v2. */
+	const formaturaEstimada = $derived(
+		(plano as any)?.formaturaEstimada ?? (plano as any)?.formatura_estimada ?? null
+	);
 
 	/** true quando o usuário ainda não concluiu o onboarding. */
 	const needsOnboarding = $derived(!preferencias.onboardingConcluido);
@@ -166,9 +170,9 @@ function createPlanoFormaturaStore() {
 
 		/**
 		 * Atualiza apenas o limite de créditos e regenera o plano imediatamente.
-		 * Usado pelos botões 16/24/32 créditos na PlanoFormaturaView.
+		 * Usado pelo slider de carga (8–32 créditos) na PlanoFormaturaView.
 		 */
-		async setLimiteCreditos(limite: 16 | 24 | 32): Promise<void> {
+		async setLimiteCreditos(limite: number): Promise<void> {
 			if (preferencias.limiteCreditos === limite) return;
 			preferencias = { ...preferencias, limiteCreditos: limite };
 
