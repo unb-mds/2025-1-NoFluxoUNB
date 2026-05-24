@@ -19,9 +19,9 @@
 	let lines: { path: string; key: string }[] = [];
 	let resizeObserver: ResizeObserver | null = null;
 
-	/** Linhas filtradas que devem ser exibidas (apenas as que envolvem hoveredCode, ou todas se nenhum hover). */
+	/** Linhas filtradas que devem ser exibidas (apenas as que envolvem hoveredCode). */
 	const visibleLines = $derived.by(() => {
-		if (!hoveredCode) return lines;
+		if (!hoveredCode) return [];
 		return lines.filter(line => {
 			const from = line.key.split('->')[0];
 			const to = line.key.split('->')[1];
