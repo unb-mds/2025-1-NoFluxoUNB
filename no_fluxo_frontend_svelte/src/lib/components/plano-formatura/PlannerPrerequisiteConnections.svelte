@@ -7,9 +7,10 @@
 	export interface Props {
 		plano: PlanoFormatura;
 		curso: CursoModel | null;
+		hoveredCode?: string | null;
 	}
 
-	let { plano, curso }: Props = $props();
+	let { plano, curso, hoveredCode }: Props = $props();
 
 	let scrollContainer: HTMLElement | null = null;
 	let contentWrapper: HTMLElement | null = null;
@@ -17,6 +18,16 @@
 	let svgHeight = 0;
 	let lines: { path: string; key: string }[] = [];
 	let resizeObserver: ResizeObserver | null = null;
+
+	/** Linhas filtradas que devem ser exibidas (apenas as que envolvem hoveredCode, ou todas se nenhum hover). */
+	const visibleLines = $derived.by(() => {
+		if (!hoveredCode) return lines;
+		return lines.filter(line => {
+			const from = line.key.split('->')[0];
+			const to = line.key.split('->')[1];
+			return from === hoveredCode || to === hoveredCode;
+		});
+	});
 
 	function normalizeCode(code: string) {
 		return code?.trim().toUpperCase() ?? '';
@@ -159,7 +170,7 @@
 					<path d="M 0 0 L 8 4 L 0 8 Z" fill="rgba(96, 165, 250, 0.95)" />
 				</marker>
 			</defs>
-			{#each lines as line}
+			{#each visibleLines as line}
 				<path d={line.path} fill="none" stroke="rgba(96, 165, 250, 0.95)" stroke-width="2" marker-end="url(#planner-arrowhead)" />
 			{/each}
 		</svg>

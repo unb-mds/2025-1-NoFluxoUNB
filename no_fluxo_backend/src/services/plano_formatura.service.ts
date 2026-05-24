@@ -377,7 +377,7 @@ export function distribuirPorSemestres(
                 desbloqueiaDireto: e.desbloqueiaDireto,
                 desbloqueiaIndireto: e.desbloqueiaIndireto,
                 score: e.score,
-                motivo: isCritica ? (e.materia.nivel < numeroPeriodo ? "reprovada, está atrasada" : "alta prioridade") : "",
+                motivo: isCritica ? (e.materia.nivel < numeroPeriodo ? "pendente há tempo, alta prioridade" : "alta prioridade") : "",
             };
         });
 

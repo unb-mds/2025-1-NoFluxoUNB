@@ -6,9 +6,11 @@
 		materia: MateriaPlano;
 		/** Tipo do semestre pai — para estilo de destaque do próximo semestre. */
 		tipoSemestre?: 'recomendado' | 'estimado';
+		/** Código da matéria sendo hovereada para destacar setas de pré-requisito. */
+		hoveredCode?: string | null;
 	}
 
-	let { materia, tipoSemestre = 'estimado' }: Props = $props();
+	let { materia, tipoSemestre = 'estimado', hoveredCode = $bindable() }: Props = $props();
 
 	const isRecomendado = $derived(tipoSemestre === 'recomendado');
 
@@ -16,11 +18,21 @@
 	const borderClass = $derived(
 		isRecomendado ? 'border-l-[#185FA5]' : 'border-l-slate-600'
 	);
+
+	function handleMouseEnter() {
+		hoveredCode = materia.codigo;
+	}
+
+	function handleMouseLeave() {
+		hoveredCode = null;
+	}
 </script>
 
 <div
 	data-subject-code={materia.codigo}
 	class="group relative flex flex-col gap-2.5 rounded-lg border border-l-4 bg-[#161625] px-3.5 py-3 transition-all duration-150 hover:brightness-110 {borderClass}"
+	onmouseenter={handleMouseEnter}
+	onmouseleave={handleMouseLeave}
 >
 	<!-- Header: código + créditos -->
 	<div class="flex items-center justify-between gap-2">

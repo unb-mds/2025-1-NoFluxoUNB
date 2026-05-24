@@ -12,9 +12,11 @@
 		displayUnit?: 'creditos' | 'horas';
 		/** Semestre atual do aluno (para calcular N+1, N+2, etc). */
 		semestreAtual?: number;
+		/** Código da matéria sendo hovereada para destacar setas de pré-requisito. */
+		hoveredCode?: string | null;
 	}
 
-	let { semestre, index, displayUnit = 'creditos', semestreAtual = 1 }: Props = $props();
+	let { semestre, index, displayUnit = 'creditos', semestreAtual = 1, hoveredCode = $bindable() }: Props = $props();
 
 	const isFirst = $derived(index === 0);
 	const isRecomendado = $derived(semestre.tipo === 'recomendado');
@@ -107,7 +109,7 @@
 		{:else}
 			{#each semestre.materias as item, idx ('codigo' in item ? item.codigo : `slot-${item.tipo}-${idx}`)}
 				{#if 'codigo' in item}
-					<MateriaPlanCard materia={item} tipoSemestre={semestre.tipo} />
+					<MateriaPlanCard materia={item} tipoSemestre={semestre.tipo} bind:hoveredCode />
 				{:else}
 					<SlotCard slot={item} />
 				{/if}

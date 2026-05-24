@@ -12,6 +12,7 @@
 
 	let isChangingCredits = $state(false);
 	let displayUnit = $state<'creditos' | 'horas'>('creditos');
+	let hoveredCode = $state<string | null>(null);
 	let authState = $derived($authStore);
 
 	// Debounce para o slider de créditos — evita chamar API a cada tick
@@ -252,7 +253,7 @@
 			{/if}
 
 			<!-- Horizontal scroll container -->
-			<PlannerPrerequisiteConnections plano={planoFormaturaStore.plano} curso={fluxogramaStore.state.courseData}>
+			<PlannerPrerequisiteConnections plano={planoFormaturaStore.plano} curso={fluxogramaStore.state.courseData} {hoveredCode}>
 				<!-- Coluna do semestre atual (MATR) como primeira coluna -->
 				{#if materiasMATR.length > 0}
 					<SemestreAtualColumn
@@ -262,7 +263,7 @@
 				{/if}
 
 				{#each planoFormaturaStore.plano.plano as semestre, i (semestre.indice)}
-					<SemestrePlanCard {semestre} index={i} {displayUnit} {semestreAtual} />
+					<SemestrePlanCard {semestre} index={i} {displayUnit} {semestreAtual} bind:hoveredCode />
 				{/each}
 
 				{#if planoFormaturaStore.plano.plano.length === 0 && materiasMATR.length === 0}
