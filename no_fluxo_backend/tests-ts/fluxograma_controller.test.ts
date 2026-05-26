@@ -52,7 +52,7 @@ describe('FluxogramaController', () => {
     };
     statusSpy = jest.spyOn(mockResponse, 'status');
     jsonSpy = jest.spyOn(mockResponse, 'json');
-    
+
     // Pega os mocks
     mockFrom = (SupabaseWrapper.get() as any).from;
   });
@@ -135,4 +135,4 @@ describe('FluxogramaController', () => {
       expect(jsonSpy).toHaveBeenCalledWith({ error: mockError.message });
     });
   });
-}); 
+});
