@@ -1,9 +1,3 @@
-/**
- * Utilitário para expressao_logica (JSONB) recursivo.
- * Formato: string | { operador: "OU"|"E", condicoes: ExpressaoLogicaRecursiva[] }
- * Alinhado ao output do script coleta_dados/dados/expressao_logica/parse-expressao.ts
- */
-
 export type ExpressaoLogicaRecursiva =
     | string
     | { operador: "OU" | "E"; condicoes: ExpressaoLogicaRecursiva[] };
@@ -63,14 +57,19 @@ export function satisfazExpressaoLogica(
 
     if (expr && typeof expr === "object" && Array.isArray(expr.condicoes)) {
         if (expr.condicoes.length === 0) return false;
-        const op = (expr.operador || "OU").toUpperCase();
+        
+        const op = expr.operador?.toUpperCase();
+        
+        // Rejeita qualquer operador que não seja estritamente E ou OU (Fail-Fast)
+        if (op !== "E" && op !== "OU") {
+            return false;
+        }
+
         const resultados = expr.condicoes.map((c) =>
             satisfazExpressaoLogica(c, completedCodes)
         );
-        if (op === "E") {
-            return resultados.every(Boolean);
-        }
-        return resultados.some(Boolean);
+        
+        return op === "E" ? resultados.every(Boolean) : resultados.some(Boolean);
     }
 
     return false;
