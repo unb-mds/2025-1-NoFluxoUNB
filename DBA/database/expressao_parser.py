@@ -107,14 +107,19 @@ def parse_expression(input_expr: str) -> Union[str, dict]:
 
     idx = [0]
 
+    def consume(expected: str) -> None:
+        """Consome um token esperado ou levanta erro de balanceamento."""
+        if idx[0] >= len(tokens) or tokens[idx[0]] != expected:
+            raise ValueError(f"Parêntese não-balanceado: '{expected}' esperado")
+        idx[0] += 1
+
     def factor() -> Any:
         if idx[0] >= len(tokens):
             raise ValueError(f"Token inesperado na posição {idx[0]}: EOF")
         if tokens[idx[0]] == "(":
             idx[0] += 1
             result = expr()
-            if idx[0] < len(tokens) and tokens[idx[0]] == ")":
-                idx[0] += 1
+            consume(")")
             return result
         if CODIGO_MATERIA_REGEX.match(tokens[idx[0]]):
             t = tokens[idx[0]].upper()
