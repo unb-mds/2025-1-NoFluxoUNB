@@ -632,6 +632,41 @@ describe('AssistenteController', () => {
       expect(body.erro).toContain('Erro interno:');
       expect(body.erro).toContain('DB indisponível');
     });
+
+    it('mapeia campos null com fallback vazio e ultimaAtualizacaoTurmas null quando todas as datas são null', async () => {
+      // Caixa-branca: cobre ramos ?? '' de row.turma/docente/horario/local,
+      // ?? null de row.last_updated_at ?? row.updated_at ?? null (ambos null),
+      // e ?? null de ultimaAtualizacaoTurmas quando filter remove todos os valores
+      req.query = { codigo: 'MAT0026' };
+      mockFrom.mockImplementationOnce(() => makeChain({ data: [{ id_materia: 1 }], error: null }));
+      mockFrom.mockImplementationOnce(() =>
+        makeChain({
+          data: [
+            {
+              turma: null,
+              ano_periodo: null,
+              docente: null,
+              horario: null,
+              local: null,
+              vagas_ofertadas: null,
+              vagas_ocupadas: null,
+              vagas_sobrando: null,
+              last_updated_at: null,
+              updated_at: null,
+            },
+          ],
+          error: null,
+        })
+      );
+
+      await handler()(req as Request, res as Response);
+
+      const body = (res.json as jest.Mock).mock.calls[0][0];
+      expect(body.turmas[0].turma).toBe('');
+      expect(body.turmas[0].docente).toBe('');
+      expect(body.turmas[0].lastUpdatedAt).toBeNull();
+      expect(body.ultimaAtualizacaoTurmas).toBeNull();
+    });
   });
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -726,6 +761,126 @@ describe('AssistenteController', () => {
       await handler()(req as Request, res as Response);
 
       expect(res.json).toHaveBeenCalledWith({ prerequisitos: mockPreReqs });
+    });
+
+    it('retorna 500 com String(error) quando exceção não é instância de Error (caixa-branca: ramo não-Error do catch)', async () => {
+      // Caixa-branca TDD — RED: ramo String(error) em prerequisitos-by-codigo não coberto.
+      // GREEN: lançar exceção primitiva força o caminho String(error) na linha 323.
+      req.query = { codigo: 'MAT0026' };
+      mockFrom.mockImplementationOnce(() => { throw 'erro primitivo sem stack'; });
+
+      await handler()(req as Request, res as Response);
+
+      expect(res.status).toHaveBeenCalledWith(500);
+      const body = (res.json as jest.Mock).mock.calls[0][0];
+      expect(body.erro).toContain('Erro interno:');
+      expect(body.erro).toContain('erro primitivo sem stack');
+    });
+  });
+
+  // ───────────────────────────────────────────────────────────────────────────
+  // logAiUsage — ramos da função fire-and-forget (TDD caixa-branca)
+  // ───────────────────────────────────────────────────────────────────────────
+  // RED: cobertura isolada mostrava linha 50 descoberta (98,62% stmts / 84,94% branch).
+  // GREEN: testes abaixo exercitam os ramos if(error) e params.usage via analyze-sabia.
+  // REFACTOR: flush de microtasks com setImmediate garante que o IIFE void complete.
+  describe('logAiUsage (caixa-branca: ramos da função fire-and-forget)', () => {
+    it('registra erro no console quando insert em ai_usage_log retorna erro (linha 50 — ramo if(error) true)', async () => {
+      req.body = { materia: 'Machine Learning' };
+      sabia.isAvailable.mockReturnValue(true);
+      sabia.analyzarInteresse.mockResolvedValue({ success: true, disciplinas: [] });
+      sabia.formatAsMarkdown.mockReturnValue('');
+
+      mockFrom.mockImplementationOnce(() => ({
+        insert: jest.fn().mockResolvedValue({ data: null, error: { message: 'falha simulada' } }),
+      }));
+
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      await AssistenteController.routes['analyze-sabia'].value(req as Request, res as Response);
+      // Flush da fila de microtasks: logAiUsage é void (async () => {...})() — fire-and-forget
+      await new Promise<void>((resolve) => setImmediate(resolve));
+
+      expect(consoleSpy).toHaveBeenCalledWith('[logAiUsage] insert falhou:', 'falha simulada');
+      consoleSpy.mockRestore();
+    });
+
+    it('usa modelo da usage quando params.usage está presente e não vazio (ramo true da guarda usage)', async () => {
+      // Caixa-preta: endpoint retorna 200 com agente sabia.
+      // Caixa-branca: ramo params.usage && params.usage.length > 0 → true, usa model da usage.
+      req.body = { materia: 'Machine Learning' };
+      sabia.isAvailable.mockReturnValue(true);
+      sabia.analyzarInteresse.mockResolvedValue({
+        success: true,
+        disciplinas: [],
+        usage: [{ model: 'sabia-3', prompt_tokens: 10, completion_tokens: 20, total_tokens: 30 }],
+      });
+      sabia.formatAsMarkdown.mockReturnValue('# OK');
+
+      mockFrom.mockImplementationOnce(() => ({
+        insert: jest.fn().mockResolvedValue({ data: null, error: null }),
+      }));
+
+      await AssistenteController.routes['analyze-sabia'].value(req as Request, res as Response);
+      await new Promise<void>((resolve) => setImmediate(resolve));
+
+      expect(res.json).toHaveBeenCalledWith(expect.objectContaining({ agente: 'sabia' }));
+    });
+
+    it('usa ?? 0 para tokens null na usage (caixa-branca: ramos ?? 0 de prompt/completion/total_tokens)', async () => {
+      // Caixa-branca: u.prompt_tokens ?? 0, u.completion_tokens ?? 0, u.total_tokens ?? 0
+      // São cobertos quando usage traz tokens null/undefined.
+      req.body = { materia: 'Machine Learning' };
+      sabia.isAvailable.mockReturnValue(true);
+      sabia.analyzarInteresse.mockResolvedValue({
+        success: true,
+        disciplinas: [],
+        usage: [{ model: 'sabia-3', prompt_tokens: null, completion_tokens: null, total_tokens: null }],
+      });
+      sabia.formatAsMarkdown.mockReturnValue('');
+
+      mockFrom.mockImplementationOnce(() => ({
+        insert: jest.fn().mockResolvedValue({ data: null, error: null }),
+      }));
+
+      await AssistenteController.routes['analyze-sabia'].value(req as Request, res as Response);
+      await new Promise<void>((resolve) => setImmediate(resolve));
+
+      expect(res.json).toHaveBeenCalledWith(expect.objectContaining({ agente: 'sabia' }));
+    });
+  });
+
+  // ───────────────────────────────────────────────────────────────────────────
+  // Ramos residuais turmas-by-codigo (caixa-branca complementar)
+  // ───────────────────────────────────────────────────────────────────────────
+  describe('turmas-by-codigo (ramos residuais caixa-branca)', () => {
+    const handler = () => AssistenteController.routes['turmas-by-codigo'].value;
+
+    it('retorna turmas vazias quando banco retorna null para turmas sem erro (ramo turmasRows ?? [])', async () => {
+      // Caixa-branca: cobre o ramo ?? [] da linha 260 quando data é null e error é null.
+      req.query = { codigo: 'MAT0026' };
+      mockFrom.mockImplementationOnce(() => makeChain({ data: [{ id_materia: 1 }], error: null }));
+      mockFrom.mockImplementationOnce(() => makeChain({ data: null, error: null }));
+
+      await handler()(req as Request, res as Response);
+
+      const body = (res.json as jest.Mock).mock.calls[0][0];
+      expect(body.turmas).toEqual([]);
+      expect(body.ultimaAtualizacaoTurmas).toBeNull();
+    });
+
+    it('retorna 500 com String(error) quando exceção não é instância de Error (caixa-branca: ramo não-Error do catch turmas)', async () => {
+      // Caixa-branca TDD — RED: ramo String(error) em turmas-by-codigo não coberto.
+      // GREEN: lançar exceção primitiva força path String(error) na linha 280.
+      req.query = { codigo: 'MAT0026' };
+      mockFrom.mockImplementationOnce(() => { throw 'falha primitiva turmas'; });
+
+      await handler()(req as Request, res as Response);
+
+      expect(res.status).toHaveBeenCalledWith(500);
+      const body = (res.json as jest.Mock).mock.calls[0][0];
+      expect(body.erro).toContain('Erro interno:');
+      expect(body.erro).toContain('falha primitiva turmas');
     });
   });
 });
