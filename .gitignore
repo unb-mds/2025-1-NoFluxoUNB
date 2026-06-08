@@ -92,3 +92,13 @@ docs/testes/*.aux
 docs/testes/*.log
 docs/testes/*.out
 docs/testes/*.toc
+
+# Relatórios de cobertura gerados (Jest/Istanbul, pytest-cov) — nunca versionar
+no_fluxo_backend/coverage/
+**/coverage/
+.coverage
+tests-python/.coverage
+
+# Material de estudo/aula e rascunhos da disciplina (não é entregável do projeto;
+# os relatórios oficiais ficam em docs/testes/). Pasta legada com underscore.
+docs_testes/
