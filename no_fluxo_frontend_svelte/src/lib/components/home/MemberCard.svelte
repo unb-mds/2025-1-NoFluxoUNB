@@ -8,6 +8,7 @@
 		instagram?: string;
 		linkedin?: string;
 		email?: string;
+		role?: string;
 	}
 
 	let {
@@ -16,7 +17,8 @@
 		specialties = [],
 		instagram = '',
 		linkedin = '',
-		email = ''
+		email = '',
+		role = 'Desenvolvedor'
 	}: Props = $props();
 	let imageError = $state(false);
 	let currentSlide = $state(0);
@@ -85,7 +87,7 @@
 			</div>
 
 			<h4 class="team-name">{name}</h4>
-			<span class="team-role">Desenvolvedor</span>
+			<span class="team-role">{role}</span>
 		</div>
 	{:else if currentSlide === 1}
 		<div class="member-slide">

@@ -2,6 +2,10 @@
 @import './lib/styles/nofluxo-ds.css';
 @config '../tailwind.config.ts';
 
+html {
+	scroll-behavior: smooth;
+}
+
 /**
  * Tokens NoFluxo — dark premium (preto + roxo + lilás IA).
  * :root mantém valores para telas claras herdadas (auth legado).

@@ -12,6 +12,7 @@
 	import LoadingBar from '$lib/components/layout/LoadingBar.svelte';
 	import SuporteFab from '$lib/components/support/SuporteFab.svelte';
 	import { Toaster } from 'svelte-sonner';
+	import CustomCursor from '$lib/components/ui/CustomCursor.svelte';
 	import '../app.css';
 
 	let { children } = $props();
@@ -140,3 +141,4 @@
 {/if}
 
 <Toaster richColors position="top-right" />
+<CustomCursor />

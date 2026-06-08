@@ -1,5 +1,6 @@
 <script lang="ts">
 	import FeatureCard from './FeatureCard.svelte';
+	import { scrollReveal } from '$lib/actions/scrollReveal';
 	import {
 		ClipboardList,
 		PlusCircle,
@@ -50,10 +51,16 @@
 </script>
 
 <section class="como-section border-t border-white/[0.06]">
-	<h2 class="section-heading">Como funciona</h2>
+	<div class="section-header" use:scrollReveal={{ delay: 0 }}>
+		<span class="nf-eyebrow">Funcionalidades</span>
+		<h2 class="section-heading">Como funciona</h2>
+		<p class="section-sub">
+			Tudo que você precisa pra planejar sua jornada acadêmica em um só lugar.
+		</p>
+	</div>
 	<div class="feature-cards">
-		{#each features as feature}
-			<FeatureCard icon={feature.icon} title={feature.title} description={feature.description} />
+		{#each features as feature, i}
+			<FeatureCard icon={feature.icon} title={feature.title} description={feature.description} index={i} />
 		{/each}
 	</div>
 </section>
@@ -64,13 +71,30 @@
 		background: hsl(var(--background) / 0.85);
 	}
 
+	.section-header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.625rem;
+		margin-bottom: 2.75rem;
+	}
+
 	.section-heading {
 		font-size: clamp(1.375rem, 3vw, 1.75rem);
 		font-weight: 800;
 		letter-spacing: -0.03em;
 		text-align: center;
 		color: hsl(var(--foreground));
-		margin: 0 0 2.75rem;
+		margin: 0;
+	}
+
+	.section-sub {
+		font-size: clamp(0.8125rem, 1.4vw, 0.9375rem);
+		color: hsl(var(--muted-foreground));
+		text-align: center;
+		max-width: 480px;
+		margin: 0;
+		line-height: 1.6;
 	}
 
 	.feature-cards {
