@@ -6,7 +6,7 @@
 	import { createSupabaseBrowserClient } from '$lib/supabase/client';
 	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
-import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, LifeBuoy, ShieldCheck } from 'lucide-svelte';
+import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, LifeBuoy, ShieldCheck, Settings } from 'lucide-svelte';
 	import { Button } from '$lib/components/ui/button';
 	import type { UserModel } from '$lib/types';
 
@@ -100,7 +100,12 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 			>
 				{#if isAuthenticated}
 					{#each navLinks as link}
-						<a href={link.href} class="{navDesktopClass}" class:active={isActive(link.href)}>
+						<a
+							href={link.href}
+							class="{navDesktopClass}"
+							class:active={isActive(link.href)}
+							aria-current={isActive(link.href) ? 'page' : undefined}
+						>
 							{link.label}
 						</a>
 					{/each}
@@ -109,6 +114,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 						href={ROUTES.FLUXOGRAMAS}
 						class="{navDesktopClass}"
 						class:active={isActive(ROUTES.FLUXOGRAMAS)}
+						aria-current={isActive(ROUTES.FLUXOGRAMAS) ? 'page' : undefined}
 					>
 						Fluxogramas
 					</a>
@@ -116,6 +122,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 						href={ROUTES.DISCIPLINAS}
 						class="{navDesktopClass}"
 						class:active={isActive(ROUTES.DISCIPLINAS)}
+						aria-current={isActive(ROUTES.DISCIPLINAS) ? 'page' : undefined}
 					>
 						Disciplinas
 					</a>
@@ -175,6 +182,11 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 										</DropdownMenu.Item>
 										<DropdownMenu.Separator />
 									{/if}
+									<DropdownMenu.Item onclick={() => goto('/configuracoes')}>
+										<Settings class="mr-2 h-4 w-4" />
+										Configurações
+									</DropdownMenu.Item>
+									<DropdownMenu.Separator />
 									<DropdownMenu.Item onclick={handleLogout} class="text-destructive">
 										<LogOut class="mr-2 h-4 w-4" />
 										Sair
@@ -206,7 +218,12 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 			<div class="hidden items-center md:ml-auto md:flex md:gap-6 lg:gap-8">
 				{#if isAuthenticated}
 					{#each navLinks as link}
-						<a href={link.href} class="{navDesktopClass}" class:active={isActive(link.href)}>
+						<a
+							href={link.href}
+							class="{navDesktopClass}"
+							class:active={isActive(link.href)}
+							aria-current={isActive(link.href) ? 'page' : undefined}
+						>
 							{link.label}
 						</a>
 					{/each}
@@ -258,6 +275,11 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 									</DropdownMenu.Item>
 									<DropdownMenu.Separator />
 								{/if}
+								<DropdownMenu.Item onclick={() => goto('/configuracoes')}>
+									<Settings class="mr-2 h-4 w-4" />
+									Configurações
+								</DropdownMenu.Item>
+								<DropdownMenu.Separator />
 								<DropdownMenu.Item onclick={handleLogout} class="text-destructive">
 									<LogOut class="mr-2 h-4 w-4" />
 									Sair
@@ -270,6 +292,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 						href={ROUTES.FLUXOGRAMAS}
 						class="{navDesktopClass}"
 						class:active={isActive(ROUTES.FLUXOGRAMAS)}
+						aria-current={isActive(ROUTES.FLUXOGRAMAS) ? 'page' : undefined}
 					>
 						Fluxogramas
 					</a>
@@ -277,6 +300,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 						href={ROUTES.DISCIPLINAS}
 						class="{navDesktopClass}"
 						class:active={isActive(ROUTES.DISCIPLINAS)}
+						aria-current={isActive(ROUTES.DISCIPLINAS) ? 'page' : undefined}
 					>
 						Disciplinas
 					</a>
@@ -344,6 +368,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 						href={link.href}
 						class="mobile-nav-item"
 						class:active={isActive(link.href)}
+						aria-current={isActive(link.href) ? 'page' : undefined}
 						onclick={closeMobileMenu}
 					>
 						<Icon class="h-5 w-5" />
@@ -386,6 +411,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 					href={ROUTES.FLUXOGRAMAS}
 					class="mobile-nav-item"
 					class:active={isActive(ROUTES.FLUXOGRAMAS)}
+					aria-current={isActive(ROUTES.FLUXOGRAMAS) ? 'page' : undefined}
 					onclick={closeMobileMenu}
 				>
 					<GitBranch class="h-5 w-5" />
@@ -395,6 +421,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Lif
 					href={ROUTES.DISCIPLINAS}
 					class="mobile-nav-item"
 					class:active={isActive(ROUTES.DISCIPLINAS)}
+					aria-current={isActive(ROUTES.DISCIPLINAS) ? 'page' : undefined}
 					onclick={closeMobileMenu}
 				>
 					<BookOpen class="h-5 w-5" />

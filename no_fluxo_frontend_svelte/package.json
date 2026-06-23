@@ -17,7 +17,9 @@
     "test": "vitest",
     "test:unit": "vitest run",
     "test:integration": "playwright test",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "test:a11y": "vitest run tests/a11y",
+    "test:e2e:a11y": "playwright test tests/e2e/a11y.spec.ts"
   },
   "keywords": [
     "sveltekit",
@@ -30,7 +32,9 @@
   "license": "GPL-3.0-only",
   "packageManager": "pnpm@10.12.1",
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
     "@internationalized/date": "^3.11.0",
+    "@testing-library/svelte": "^5.2.0",
     "@lucide/svelte": "^0.561.0",
     "@playwright/test": "^1.58.2",
     "@sveltejs/adapter-static": "^3.0.10",
@@ -47,7 +51,9 @@
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-svelte": "^3.15.0",
+    "axe-core": "^4.10.0",
     "globals": "^17.3.0",
+    "jsdom": "^25.0.0",
     "postcss": "^8.5.6",
     "prettier": "^3.8.1",
     "prettier-plugin-svelte": "^3.4.1",

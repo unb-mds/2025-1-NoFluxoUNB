@@ -67,6 +67,8 @@
 			{disabled}
 			{required}
 			{autocomplete}
+			aria-invalid={!!error}
+			aria-describedby={error ? `${name}-error` : undefined}
 			class={cn(
 				'w-full px-4 py-3 rounded-xl',
 				'bg-white/10 border border-white/20',
@@ -91,7 +93,12 @@
 	</div>
 
 	{#if error}
-		<p class="mt-1.5 text-sm text-red-400 flex items-center gap-1">
+		<p
+			id={`${name}-error`}
+			role="alert"
+			aria-live="polite"
+			class="mt-1.5 text-sm text-red-400 flex items-center gap-1"
+		>
 			{error}
 		</p>
 	{/if}

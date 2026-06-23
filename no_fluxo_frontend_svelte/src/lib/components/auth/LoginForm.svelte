@@ -127,9 +127,12 @@
 			onblur={() => (emailTouched = true)}
 			placeholder="seu@email.com"
 			disabled={submitting}
+			autocomplete="email"
+			aria-invalid={!!emailError}
+			aria-describedby={emailError ? 'login-email-error' : undefined}
 		/>
 		{#if emailTouched && emailError}
-			<p class="mt-1 text-xs text-red-500">{emailError}</p>
+			<p class="mt-1 text-xs text-red-500" id="login-email-error" role="alert" aria-live="polite">{emailError}</p>
 		{/if}
 	</div>
 
@@ -145,12 +148,14 @@
 				onblur={() => (passwordTouched = true)}
 				placeholder="••••••••"
 				disabled={submitting}
+				autocomplete="current-password"
+				aria-invalid={!!passwordError}
+				aria-describedby={passwordError ? 'login-password-error' : undefined}
 			/>
 			<button
 				type="button"
 				class="absolute right-3.5 top-1/2 -translate-y-1/2 border-none bg-transparent p-1 cursor-pointer"
 				onclick={() => (showPassword = !showPassword)}
-				tabindex={-1}
 				aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
 			>
 				{#if showPassword}
@@ -160,6 +165,9 @@
 				{/if}
 			</button>
 		</div>
+		{#if passwordError}
+			<p class="text-sm text-red-400 mt-1" id="login-password-error" role="alert" aria-live="polite">{passwordError}</p>
+		{/if}
 	</div>
 
 	<!-- Remember me + Forgot password row -->

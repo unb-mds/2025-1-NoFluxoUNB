@@ -373,3 +373,113 @@ body[data-fluxograma-focus-mode='true'] .navbar-glass {
 .auth-link:hover {
 	text-decoration: underline;
 }
+
+/* ===== Acessibilidade (a11y) ===== */
+/* Utilitarios e overrides para skip-link, alto contraste, texto grande,
+   fonte para dislexia, foco reforcado e reducao de movimento. */
+@layer utilities {
+	.skip-link {
+		position: absolute;
+		top: -3rem;
+		left: 0.5rem;
+		z-index: 100;
+		background-color: #000;
+		color: #fff;
+		border: 2px solid #fde047; /* yellow-300 */
+		padding: 0.5rem 1rem;
+		border-radius: 0.25rem;
+		font-weight: 700;
+		transition: transform 0.2s ease;
+	}
+	.skip-link:focus {
+		transform: translateY(3.5rem);
+		outline: none;
+	}
+
+	/* sr-only por padrao; visivel ao receber foco (para links/botoes ocultos). */
+	.sr-only-focusable {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+	.sr-only-focusable:focus,
+	.sr-only-focusable:focus-within {
+		position: static;
+		width: auto;
+		height: auto;
+		padding: initial;
+		margin: initial;
+		overflow: visible;
+		clip: auto;
+		white-space: normal;
+	}
+
+	/* Alto contraste: sobrescreve tokens HSL do tema + overrides diretos. */
+	:root.a11y-high-contrast {
+		--background: 0 0% 0%;
+		--foreground: 0 0% 100%;
+		--primary: 60 100% 50%;
+		--border: 0 0% 100%;
+		--ring: 60 100% 50%;
+	}
+	:root.a11y-high-contrast body {
+		background: #000 !important;
+		color: #fff !important;
+	}
+	:root.a11y-high-contrast a {
+		color: #ffd600 !important;
+		text-decoration: underline !important;
+	}
+	:root.a11y-high-contrast button,
+	:root.a11y-high-contrast .btn {
+		border: 2px solid #fff !important;
+	}
+
+	/* Texto maior global (~18px base) com line-height confortavel. */
+	:root.a11y-large-text {
+		font-size: 112.5% !important;
+		line-height: 1.65 !important;
+	}
+
+	/* Fonte para leitores com dislexia; fallback para Atkinson Hyperlegible/Comic Sans. */
+	:root.a11y-dyslexic,
+	:root.a11y-dyslexic * {
+		font-family: 'OpenDyslexic', 'Atkinson Hyperlegible', 'Comic Sans MS', sans-serif !important;
+		letter-spacing: 0.04em !important;
+		word-spacing: 0.12em !important;
+	}
+
+	/* Foco reforcado (amarelo + halo) para navegacao por teclado. */
+	:root.a11y-focus-bold :focus-visible {
+		outline: 3px solid #ffd600 !important;
+		outline-offset: 3px !important;
+		box-shadow: 0 0 0 6px rgba(255, 214, 0, 0.25) !important;
+		border-radius: 4px;
+	}
+
+	/* Respeita preferencia do SO de reduzir movimento. */
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.001ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.001ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
+
+	/* Reducao de movimento via toggle manual (independente do SO). */
+	:root.a11y-reduced-motion *,
+	:root.a11y-reduced-motion *::before,
+	:root.a11y-reduced-motion *::after {
+		animation: none !important;
+		transition: none !important;
+	}
+}

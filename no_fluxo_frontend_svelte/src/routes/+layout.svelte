@@ -2,7 +2,8 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { browser } from '$app/environment';
-	import { goto } from '$app/navigation';
+	import { goto, afterNavigate } from '$app/navigation';
+	import { a11ySettings, applyA11yClasses } from '$lib/stores/a11y';
 	import { authStore, isLoading, currentUser, isAuthenticated, isAnonymous } from '$lib/stores/auth';
 	import { authService } from '$lib/services/auth.service';
 	import { checkAuth, isPublicRoute } from '$lib/guards/authGuard';
@@ -55,7 +56,18 @@
 		}
 	});
 
+	// Mover foco para o conteudo principal a cada navegacao SPA (acessibilidade).
+	afterNavigate(() => {
+		requestAnimationFrame(() => document.getElementById('main-content')?.focus());
+	});
+
 	onMount(() => {
+		// Aplica classes de acessibilidade no <html> e mantem sincronizado com o store.
+		let unsubA11y: (() => void) | undefined;
+		const currentA11y = $a11ySettings;
+		applyA11yClasses(currentA11y);
+		unsubA11y = a11ySettings.subscribe(applyA11yClasses);
+
 		// Set up auth state listener
 		const {
 			data: { subscription }
@@ -93,6 +105,7 @@
 
 		return () => {
 			subscription.unsubscribe();
+			unsubA11y?.();
 		};
 	});
 </script>
@@ -104,6 +117,7 @@
 <LoadingBar />
 
 <div class="flex min-h-screen flex-col overflow-x-hidden">
+	<a href="#main-content" class="skip-link">Pular para o conteudo principal</a>
 	{#if showNavbar}
 		<div class="navbar-glass sticky top-0 z-50 px-4 pt-3 md:px-6 md:pt-4">
 			<div class="mx-auto w-full max-w-[min(1180px,calc(100vw-2rem))]">
@@ -117,7 +131,7 @@
 		</div>
 	{/if}
 
-	<main class="flex-1">
+	<main id="main-content" tabindex="-1" class="flex-1 outline-none">
 		{#if $isLoading && !isPublicRoute($page.url.pathname)}
 			<div class="flex min-h-[60vh] items-center justify-center">
 				<div class="text-center">

@@ -9,6 +9,7 @@
 	import { satisfazPreRequisitos } from '$lib/types/curso';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { getSubjectChain } from '$lib/utils/curriculum-graph';
+	import { CheckCircle2, Loader, Circle, Lock, XCircle } from 'lucide-svelte';
 
 	interface Props {
 		materia: MateriaModel;
@@ -113,6 +114,28 @@
 		[SubjectStatusEnum.LOCKED]: 'bg-[#161625]',
 		[SubjectStatusEnum.NOT_STARTED]: 'bg-[#161625]'
 	};
+
+	// WCAG 1.4.1: status nao deve depender so de cor — ícone + texto sr-only complementam.
+	const statusIconMap = {
+		[SubjectStatusEnum.COMPLETED]: CheckCircle2,
+		[SubjectStatusEnum.IN_PROGRESS]: Loader,
+		[SubjectStatusEnum.AVAILABLE]: Circle,
+		[SubjectStatusEnum.FAILED]: XCircle,
+		[SubjectStatusEnum.LOCKED]: Lock,
+		[SubjectStatusEnum.NOT_STARTED]: Lock
+	} as const;
+
+	const statusLabelMap: Record<SubjectStatusValue, string> = {
+		[SubjectStatusEnum.COMPLETED]: 'Concluída',
+		[SubjectStatusEnum.IN_PROGRESS]: 'Em curso',
+		[SubjectStatusEnum.AVAILABLE]: 'Disponível',
+		[SubjectStatusEnum.FAILED]: 'Reprovada',
+		[SubjectStatusEnum.LOCKED]: 'Bloqueada',
+		[SubjectStatusEnum.NOT_STARTED]: 'Não iniciada'
+	};
+
+	let StatusIcon = $derived(statusIconMap[status]);
+	let statusLabel = $derived(statusLabelMap[status]);
 
 	let cardClasses = $derived.by(() => {
 		const gradient = gradientMap[status];
@@ -290,6 +313,7 @@
 	ontouchend={handleTouchEnd}
 	ontouchcancel={handleTouchCancel}
 	tabindex="0"
+	aria-label={`Disciplina ${materia.codigoMateria} ${materia.nomeMateria}: status ${statusLabel}`}
 >
 	<div class="mb-1 flex shrink-0 items-center justify-between gap-1">
 		<span class="text-[11px] font-semibold uppercase tracking-wider {textColor} opacity-100">
@@ -305,6 +329,13 @@
 			<span class="rounded-md bg-black/25 px-1.5 py-0.5 text-[10px] font-bold {textColor} opacity-90">
 				{materia.creditos}cr
 			</span>
+			<!-- WCAG 1.4.1: ícone redundante à cor; texto do status fica em sr-only e no aria-label do botão. -->
+			<StatusIcon
+				class="h-3.5 w-3.5 {textColor} opacity-95"
+				aria-hidden="true"
+				focusable="false"
+			/>
+			<span class="sr-only">Status: {statusLabel}</span>
 		</div>
 	</div>
 	<!-- Bloco do nome com altura fixa: não estica o card; nome completo no tooltip -->

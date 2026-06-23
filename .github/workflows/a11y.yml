@@ -1,0 +1,23 @@
+name: Acessibilidade
+on:
+  pull_request:
+    paths:
+      - 'no_fluxo_frontend_svelte/**'
+      - '.github/workflows/a11y.yml'
+jobs:
+  axe-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: no_fluxo_frontend_svelte
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - run: npm install --no-audit --no-fund
+      # `|| true` mantem o job nao-bloqueante enquanto as violacoes sao saneadas
+      - run: npx vitest run tests/a11y || true
+      - run: npx playwright install --with-deps chromium
+      - run: npx vite build
+      - run: npx playwright test tests/e2e/a11y.spec.ts || true
