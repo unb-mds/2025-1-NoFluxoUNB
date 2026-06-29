@@ -188,10 +188,13 @@ export function getCodigosFromExpressaoLogica(
 ): string[] {
 	if (!expr) return [];
 	if (typeof expr === 'string') {
-		const c = norm(expr);
+		const trimmed = expr.trim();
+		if (!trimmed) return [];
+		if (trimmed.length > 64) return [];
+		const c = norm(trimmed);
 		if (!c) return [];
 		if (CODIGO_MATERIA_REGEX.test(c)) return [c];
-		return extractSubjectCodesFromExpression(expr);
+		return extractSubjectCodesFromExpression(trimmed);
 	}
 	if (expr && typeof expr === 'object') {
 		if ('condicoes' in expr && Array.isArray(expr.condicoes)) {
