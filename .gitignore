@@ -104,3 +104,8 @@ docs/testes/*.aux
 docs/testes/*.log
 docs/testes/*.out
 docs/testes/*.toc
+
+# Fixtures grandes do teste exploratório (geradas por make-fixtures.sh).
+# Os PDFs pequenos ficam versionados; os de 10 MB são reconstruídos sob demanda.
+docs/testes/fixtures/size_10mb_exact.pdf
+docs/testes/fixtures/size_10mb_plus1.pdf
