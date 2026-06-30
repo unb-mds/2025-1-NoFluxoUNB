@@ -5,6 +5,8 @@ import { normalizeDadosFluxogramaFromStored } from '$lib/factories';
 
 const STORAGE_KEY = 'nofluxo_user';
 const ANON_KEY = 'nofluxo_anonimo';
+/** DEV-ONLY: marca que o usuário atual foi impersonado via /dev/impersonar. */
+const DEV_IMPERSONATE_KEY = 'nofluxo_dev_impersonate';
 
 // Initialize state from localStorage if available
 function getInitialState(): AuthState {
@@ -169,6 +171,7 @@ function createAuthStore() {
 			if (browser) {
 				localStorage.removeItem(STORAGE_KEY);
 				localStorage.removeItem(ANON_KEY);
+				localStorage.removeItem(DEV_IMPERSONATE_KEY);
 				// Remove anonymous cookie
 				document.cookie = 'nofluxo_anonimo=; path=/; max-age=0';
 			}

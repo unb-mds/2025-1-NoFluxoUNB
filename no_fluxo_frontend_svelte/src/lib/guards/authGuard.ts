@@ -59,14 +59,22 @@ export async function checkAuth(path: string): Promise<boolean> {
 	const settled = get(authStore);
 	if (settled.isAnonymous) return true;
 
-	// Check if authenticated
+	// Check if authenticated (lê o estado já estabilizado após o wait de isLoading — D9/D10)
 	if (settled.isAuthenticated && settled.user) {
-		// Verify session is still valid (covers expiry check previously in hooks.server.ts)
-		const isValid = await authService.isSessionValid();
-		if (!isValid) {
-			await authService.signOut();
-			await goto('/login?error=session_expired');
-			return false;
+		// DEV-ONLY: usuários impersonados localmente não têm sessão Supabase real,
+		// então pulamos a checagem de validade (que faria signOut imediato).
+		const isDevImpersonate =
+			typeof localStorage !== 'undefined' &&
+			localStorage.getItem('nofluxo_dev_impersonate') === 'true';
+
+		if (!isDevImpersonate) {
+			// Verify session is still valid (covers expiry check previously in hooks.server.ts)
+			const isValid = await authService.isSessionValid();
+			if (!isValid) {
+				await authService.signOut();
+				await goto('/login?error=session_expired');
+				return false;
+			}
 		}
 
 		// Rotas admin: exige o escopo correspondente (superadmin passa sempre)

@@ -1,0 +1,10 @@
+{
+  "analyzeSabia": {
+    "status": 503,
+    "body": "{\"erro\":\"Serviço Sabiá indisponível. Configure MARITACA_API_KEY, SUPABASE_URL e SUPABASE_KEY.\"}"
+  },
+  "turmasByCodigo": {
+    "status": 200,
+    "bodyExcerpt": "{\"turmas\":[{\"turma\":\"01\",\"anoPeriodo\":\"2026.1\",\"docente\":\"CAMILO CHANG DOREA\",\"horario\":\"3N12 4N34\",\"local\":\"BSA N A1 22/4\",\"vagasOfertadas\":32,\"vagasOcupadas\":20,\"vagasSobrando\":12,\"lastUpdatedAt\":\"2"
+  }
+}
