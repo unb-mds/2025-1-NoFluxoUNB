@@ -20,6 +20,36 @@ export const Utils = {
 
     checkAuthorization: async (req: Request) => {
         const headers = req.headers;
+
+        // DEV-ONLY: bypass de autorização para impersonação local.
+        // Gated por NODE_ENV !== 'production'. Header X-Dev-Impersonate carrega o
+        // email do usuário a impersonar; o User-ID continua sendo lido normalmente.
+        // Útil para Playwright e debug manual sem precisar logar via Supabase.
+        if (process.env.NODE_ENV !== "production") {
+            const devImpersonate = headers["x-dev-impersonate"];
+            if (devImpersonate && typeof devImpersonate === "string") {
+                const userId = headers["user-id"];
+                if (!userId) {
+                    utilsLogger.error("[DEV-IMPERSONATE] User-ID header obrigatório mesmo com X-Dev-Impersonate");
+                    return false;
+                }
+                const { data: user, error: userError } = await SupabaseWrapper.get()
+                    .from("users")
+                    .select("*")
+                    .eq("id_user", userId);
+                if (userError || !user || user.length === 0) {
+                    utilsLogger.error(`[DEV-IMPERSONATE] usuário ${userId} não encontrado`);
+                    return false;
+                }
+                if (user[0].email !== devImpersonate) {
+                    utilsLogger.error(`[DEV-IMPERSONATE] email ${devImpersonate} não bate com idUser ${userId}`);
+                    return false;
+                }
+                utilsLogger.info(`[DEV-IMPERSONATE] autorizando ${devImpersonate} (idUser=${userId})`);
+                return true;
+            }
+        }
+
         const authorization = headers["authorization"];
         utilsLogger.info(`Authorization header: ${authorization}`);
         if (!authorization) {
