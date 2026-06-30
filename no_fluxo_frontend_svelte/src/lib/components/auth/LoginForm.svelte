@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { authService } from '$lib/services/auth.service';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
 	import { ROUTES } from '$lib/config/routes';
 	import { isLoading, authError, authStore } from '$lib/stores/auth';
 	import { browser } from '$app/environment';
@@ -10,6 +11,34 @@
 	import { loginSchema } from '$lib/schemas/auth';
 
 	const REMEMBER_KEY = 'nofluxo_remember_email';
+
+	// D5 Vini (Médio): exibe a mensagem de sessão expirada quando o authGuard
+	// redirecionou com ?error=session_expired. Antes, o param chegava na URL e
+	// morria silenciosamente porque o LoginForm não lia $page.url.searchParams.
+	let queryError = $derived.by(() => {
+		const code = page.url?.searchParams?.get('error');
+		switch (code) {
+			case 'session_expired':
+				return 'Sua sessão expirou. Faça login novamente.';
+			case 'access_denied':
+				return 'Você não tem permissão para acessar essa página.';
+			default:
+				return '';
+		}
+	});
+
+	// D7 Vini (Médio): honra ?redirect= depois do login bem-sucedido em vez de
+	// mandar todo mundo cego para /upload-historico. Whitelist defensiva: aceita
+	// apenas paths internos (começando com '/' e sem '//' para evitar redirect
+	// para origem externa).
+	function getSafeRedirect(): string {
+		const candidate = page.url?.searchParams?.get('redirect') ?? '';
+		const decoded = candidate ? decodeURIComponent(candidate) : '';
+		if (decoded.startsWith('/') && !decoded.startsWith('//') && !decoded.includes('://')) {
+			return decoded;
+		}
+		return ROUTES.UPLOAD_HISTORICO;
+	}
 
 	let email = $state('');
 	let password = $state('');
@@ -82,7 +111,7 @@
 		const result = await authService.signIn(email, password);
 
 		if (result.success) {
-			await goto(ROUTES.UPLOAD_HISTORICO);
+			await goto(getSafeRedirect());
 		} else {
 			localError = result.error;
 		}
@@ -107,11 +136,11 @@
 	<!-- Title -->
 	
 
-	<!-- Error banner -->
-	{#if localError || $authError}
-		<div class="auth-error">
+	<!-- Error banner (inclui mensagem vinda do ?error= na URL — D5 Vini) -->
+	{#if localError || $authError || queryError}
+		<div class="auth-error" data-testid="login-error">
 			<AlertTriangle class="h-5 w-5 shrink-0 text-amber-600" />
-			<span>{localError || $authError}</span>
+			<span>{localError || $authError || queryError}</span>
 		</div>
 	{/if}
 

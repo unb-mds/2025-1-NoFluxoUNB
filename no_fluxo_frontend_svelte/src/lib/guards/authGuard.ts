@@ -42,11 +42,25 @@ export async function checkAuth(path: string): Promise<boolean> {
 	// Allow anonymous users
 	if (state.isAnonymous) return true;
 
-	// Still loading auth state — let the layout spinner handle it
-	if (state.isLoading) return true;
+	// D9/D10 (Alto, transversal): antes, qualquer rota privada acessada antes do
+	// bootstrap (state.isLoading=true) era liberada implicitamente, expondo a tela
+	// por alguns segundos enquanto a sessão era buscada. Agora aguardamos o boot
+	// terminar antes de decidir — bloquear é o default seguro.
+	if (state.isLoading) {
+		const start = Date.now();
+		while (Date.now() - start < 3000) {
+			const s = get(authStore);
+			if (!s.isLoading) break;
+			await new Promise((r) => setTimeout(r, 50));
+		}
+	}
 
-	// Check if authenticated
-	if (state.isAuthenticated && state.user) {
+	// Re-leitura do estado após o wait
+	const settled = get(authStore);
+	if (settled.isAnonymous) return true;
+
+	// Check if authenticated (lê o estado já estabilizado após o wait de isLoading — D9/D10)
+	if (settled.isAuthenticated && settled.user) {
 		// DEV-ONLY: usuários impersonados localmente não têm sessão Supabase real,
 		// então pulamos a checagem de validade (que faria signOut imediato).
 		const isDevImpersonate =
@@ -66,7 +80,7 @@ export async function checkAuth(path: string): Promise<boolean> {
 		// Rotas admin: exige o escopo correspondente (superadmin passa sempre)
 		if (requiresAdmin(path)) {
 			const scope = requiredAdminScope(path);
-			if (!scope || !hasAdminScope(state.user, scope)) {
+			if (!scope || !hasAdminScope(settled.user, scope)) {
 				await goto('/suporte?error=access_denied');
 				return false;
 			}

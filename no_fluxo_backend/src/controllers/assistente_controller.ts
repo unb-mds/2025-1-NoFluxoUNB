@@ -106,11 +106,14 @@ export const AssistenteController: EndpointController = {
         }),
 
         health: new Pair(RequestType.GET, async (_req: Request, res: Response) => {
+            // D-Sec-1: o /health era usado por monitoring externo, mas vazava quais
+            // provedores estavam configurados (ragflowConfigured / sabiaConfigured)
+            // para qualquer um sem autenticação. Resposta resumida agora:
+            // só 'healthy' | 'degraded' | 'down' — sem revelar a infra interna.
+            const anyUp = ragflow.isAvailable() || sabia.isAvailable();
             return res.json({
-                status: ragflow.isAvailable() || sabia.isAvailable() ? 'healthy' : 'degraded',
+                status: anyUp ? 'healthy' : 'degraded',
                 service: 'AI Assistant',
-                ragflowConfigured: ragflow.isAvailable(),
-                sabiaConfigured: sabia.isAvailable(),
                 timestamp: new Date().toISOString(),
             });
         }),
