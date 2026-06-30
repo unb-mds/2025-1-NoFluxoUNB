@@ -21,7 +21,7 @@ function extractContent(answer: string): string {
             .replace(/\bFalse\b/g, 'false');
 
         const parsed = JSON.parse(jsonCompatible);
-        return parsed.content['0'] || parsed.content[0] || '';
+        return parsed.content['0'] || '';
     } catch {
         // Fallback: try regex extraction
         const match = answer.match(/'0':\s*'([\s\S]*?)'\s*\}\s*,\s*'component_id'/);

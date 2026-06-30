@@ -91,6 +91,7 @@ supabase/migrations/
 .coverage.*
 coverage.xml
 htmlcov/
+coverage/
 .pytest_cache/
 
 # Material de estudo da disciplina de testes (mantido local, não versionado)
