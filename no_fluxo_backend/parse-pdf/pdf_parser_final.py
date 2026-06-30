@@ -23,7 +23,21 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
+# D4: limite explícito de upload para não consumir RAM inteira em PDF gigante.
+# 10MB cobre histórico SIGAA completo (~500 disciplinas) com folga.
+app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024
 CORS(app)
+
+
+@app.errorhandler(413)
+def too_large(_e):
+    return (
+        jsonify({
+            "error": "Arquivo muito grande. O limite é 10MB.",
+            "limit_mb": 10,
+        }),
+        413,
+    )
 
 
 # Request logging middleware
@@ -83,7 +97,10 @@ padrao_situacao = re.compile(
 )
 
 # Captura menção
-padrao_mencao = re.compile(r"^(SS|MS|MM|MI|II|SR|\-)$", re.MULTILINE)
+# D1: aceita hífen ASCII (-), en-dash (–, U+2013) e em-dash (—, U+2014).
+# PDFs do SIGAA gerados com auto-correção de hífens trocam o ASCII por unicode,
+# o que antes fazia o parser perder a disciplina inteira silenciosamente.
+padrao_mencao = re.compile(r"^(SS|MS|MM|MI|II|SR|[\-–—])$", re.MULTILINE)
 
 # Captura turma (letras e números)
 padrao_turma = re.compile(r"^([A-Z0-9]{1,3})$", re.MULTILINE)
@@ -971,7 +988,9 @@ def upload_pdf():
             return (
                 jsonify(
                     {
-                        "error": "Nenhuma informação textual pôde ser extraída do PDF via PyMuPDF. O PDF pode ser uma imagem de baixa qualidade, estar vazio ou corrompido."
+                        "error": "Nenhuma informação textual pôde ser extraída do PDF via PyMuPDF. O PDF pode ser uma imagem de baixa qualidade, estar vazio ou corrompido. Se for um PDF escaneado, use a variante OCR (pdf_parser_ocr.py) que executa Tesseract sobre as páginas.",
+                        "hint": "ocr_fallback_available",
+                        "ocr_endpoint": "pdf_parser_ocr.py"
                     }
                 ),
                 422,
@@ -1008,31 +1027,40 @@ def upload_pdf():
         )
         return jsonify(response_data)
 
-    except Exception as pdf_error:
-        # Handle PyMuPDF specific errors
-        if "fitz" in str(type(pdf_error)) or "mupdf" in str(pdf_error).lower():
-            error_msg = f"PDF read error: {str(pdf_error)}"
-            logger.error(error_msg)
-            return (
-                jsonify(
-                    {
-                        "error": f"Erro ao ler o PDF. Certifique-se de que é um PDF válido e não está corrompido: {str(pdf_error)}"
-                    }
-                ),
-                400,
-            )
     except Exception as e:
-        error_msg = f"Unexpected error: {str(e)}"
-        logger.error(error_msg)
+        # D13 (Crítico): handler único que SEMPRE retorna response — antes, o segundo
+        # `except Exception` era código morto e o primeiro só retornava no `if`,
+        # fazendo a view devolver None e o Werkzeug servir a página de debug com
+        # stack trace + paths absolutos. Agora separa erros conhecidos do PyMuPDF
+        # (400 — PDF inválido) dos demais (500 — mensagem genérica, stack só no log).
         import traceback
 
+        is_pdf_error = "fitz" in str(type(e)) or "mupdf" in str(e).lower()
+        if is_pdf_error:
+            logger.error(f"PDF read error: {e}")
+            return (
+                jsonify({
+                    "error": "Erro ao ler o PDF. Certifique-se de que o arquivo é um PDF válido e não está corrompido.",
+                    "detail": str(e),
+                }),
+                400,
+            )
+
+        logger.error(f"Unexpected error processing PDF: {e}")
         logger.error(traceback.format_exc())
         return (
-            jsonify({"error": f"Ocorreu um erro interno ao processar o PDF: {str(e)}"}),
+            jsonify({
+                "error": "Ocorreu um erro interno ao processar o PDF. A equipe foi notificada.",
+            }),
             500,
         )
 
 
 if __name__ == "__main__":
-    logger.info("Starting PDF parser service on port 3001")
-    app.run(debug=True, port=3001)
+    # D13: nunca rodar com debug=True por default — o reloader/console do Werkzeug
+    # expõe execução remota de código quando alguém alcança a porta. Para debug
+    # local, exporte FLASK_DEBUG=1 explicitamente.
+    import os as _os
+    debug_mode = _os.environ.get("FLASK_DEBUG", "0") == "1"
+    logger.info(f"Starting PDF parser service on port 3001 (debug={debug_mode})")
+    app.run(debug=debug_mode, port=3001)
