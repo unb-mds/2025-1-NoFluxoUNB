@@ -1,0 +1,42 @@
+{
+  "url": "http://127.0.0.1:3001/upload-pdf",
+  "status_code": 200,
+  "headers": {
+    "Server": "Werkzeug/3.1.8 Python/3.14.6",
+    "Date": "Tue, 30 Jun 2026 20:55:56 GMT",
+    "Content-Type": "application/json",
+    "Content-Length": "690",
+    "Access-Control-Allow-Origin": "*",
+    "Connection": "close"
+  },
+  "body": {
+    "curso_extraido": "ENGENHARIA DE SOFTWARE",
+    "equivalencias_pdf": [],
+    "extracted_data": [
+      {
+        "IRA": "IRA",
+        "valor": 4.5,
+        "valor_texto": "4,5"
+      },
+      {
+        "tipo_dado": "Pendencias",
+        "valores": {
+          "APR": 1
+        }
+      }
+    ],
+    "filename": "123_endash.pdf",
+    "frequencia_geral": null,
+    "full_text": "Curso: ENGENHARIA DE SOFTWARE\nCurrículo: 6360/2\nIRA: 4,5\nMP: 4,5\n2024.1\nCALCULO 1\nA\nAPR\nMAT0025\n90\n100,0\nMM · APROVADO\n",
+    "matricula": "endash",
+    "matriz_curricular": "6360.2",
+    "media_ponderada": 4.5,
+    "message": "PDF processado com sucesso!",
+    "numero_semestre": 1,
+    "semestre_atual": null,
+    "suspensoes": []
+  },
+  "extra": {
+    "endash_no_texto_extraido": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "url": "http://127.0.0.1:3001/upload-pdf",
+  "status_code": 500,
+  "headers": {
+    "Server": "Werkzeug/3.1.8 Python/3.14.6",
+    "Date": "Tue, 30 Jun 2026 20:55:56 GMT",
+    "Content-Type": "text/html; charset=utf-8",
+    "Content-Length": "16422",
+    "Connection": "close"
+  },
+  "body": {
+    "_raw_text": "<!doctype html>\n<html lang=en>\n  <head>\n    <title>TypeError: The view function for &#39;upload_pdf&#39; did not return a valid response. The function either returned None or ended without a return statement.\n // Werkzeug Debugger</title>\n    <link rel=\"stylesheet\" href=\"?__debugger__=yes&amp;cmd=resource&amp;f=style.css\">\n    <link rel=\"shortcut icon\"\n        href=\"?__debugger__=yes&amp;cmd=resource&amp;f=console.png\">\n    <script src=\"?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js\"></script>\n    <script>\n      var CONSOLE_MODE = false,\n          EVALEX = true,\n          EVALEX_TRUSTED = false,\n          SECRET = \"WSBnpEkQIPsJJpWFjIMh\";\n    </script>\n  </head>\n  <body style=\"background-color: #fff\">\n    <div class=\"debugger\">\n<h1>TypeError</h1>\n<div class=\"detail\">\n  <p class=\"errormsg\">TypeError: The view function for &#39;upload_pdf&#39; did not return a valid response. The function either returned None or ended without a return statement.\n</p>\n</div>\n<h2 class=\"traceback\">Traceback <em>(most recent call last)</em></h2>\n<div class=\"traceback\">\n  <h3></h3>\n  <ul><li><div class=\"frame\" id=\"frame-4507029312\">\n  <h4>File <cite class=\"filename\">\"/Users/vitormarconi/Documents/GitHub/2025-1-NoFluxoUNB/2025-1-NoFluxoUNB/no_fluxo_backend/parse-pdf/.venv/lib/python3.14/site-packages/flask/app.py\"</cite>,\n      line <em class=\"line\">1536</em>,\n      in <code class=\"function\">__call__</code></h4>\n  <div class=\"source \"><pre class=\"line before\"><span class=\"ws\">    </span>) -&gt; cabc.Iterable[bytes]:</pre>\n<pre class=\"line before\"><span class=\"ws\">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>\n<pre class=\"line before\"><span class=\"ws\">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>\n<pre class=\"line before\"><span class=\"ws\">        </span>wrapped to apply middleware.</pre>\n<pre class=\"line before\"><span class=\"ws\">        </span>&#34;&#34;&#34;</pre>\n<pre class=\"line current\"><span class=\"ws"
+  },
+  "extra": {
+    "payload_bytes": 5242880
+  }
+}

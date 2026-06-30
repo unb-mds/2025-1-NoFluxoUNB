@@ -1,0 +1,19 @@
+{
+  "url": "http://127.0.0.1:3001/upload-pdf",
+  "status_code": 200,
+  "headers": {
+    "Server": "Werkzeug/3.1.8 Python/3.14.6",
+    "Date": "Tue, 30 Jun 2026 20:55:56 GMT",
+    "Content-Type": "text/html; charset=utf-8",
+    "Allow": "OPTIONS, POST",
+    "Access-Control-Allow-Origin": "https://evil.example.com",
+    "Access-Control-Allow-Headers": "content-type",
+    "Access-Control-Allow-Methods": "DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT",
+    "Vary": "Origin",
+    "Content-Length": "0",
+    "Connection": "close"
+  },
+  "body": {
+    "_raw_text": ""
+  }
+}
