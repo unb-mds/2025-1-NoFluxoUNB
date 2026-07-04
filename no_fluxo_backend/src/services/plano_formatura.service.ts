@@ -269,13 +269,18 @@ export function distribuirPorSemestres(
 
     // Se há optativas faltantes, reservar espaço proporcional por semestre
     // Isso garante que haja espaço livre em distribuirSlots
-    const limiteHorasPorSemestre = preferencias.limiteCreditos * 15;
     const horasReservadaParaOptativa = chOptativaFaltante && chOptativaFaltante > 0
         ? Math.min(60, Math.ceil(chOptativaFaltante / 5))  // Reservar ~1/5 do faltante por semestre, máx 60h
         : 0;
-    const limiteEfetivo = Math.max(120, limiteHorasPorSemestre - horasReservadaParaOptativa);
 
     while (restantes.size > 0 && indiceSemestre < MAX_SEMESTRES) {
+        // Verificar se há limite personalizado para este semestre
+        const customLimit = preferencias.restricoes?.limitesPersonalizados?.[indiceSemestre];
+        const creditosBase = customLimit !== undefined ? customLimit : preferencias.limiteCreditos;
+
+        const limiteHorasPorSemestre = creditosBase * 15;
+        const limiteEfetivoSemestre = Math.max(120, limiteHorasPorSemestre - horasReservadaParaOptativa);
+
         const candidatas: MateriaComScore[] = [];
         for (const cod of restantes) {
             const info = scores.get(cod)!;
@@ -316,10 +321,13 @@ export function distribuirPorSemestres(
 
         const escolhidas: MateriaComScore[] = [];
         let horasUsadas = 0;
+        let dificuldadeUsada = 0;
+        const LIMITE_DIFICULDADE = 35; // Teto de dificuldade por semestre
+
         // Usar limiteEfetivo para reservar espaço para optativas, ou usar limite normal
         const limiteHoras = horasReservadaParaOptativa > 0
-            ? Math.min(limiteEfetivo, 480)
-            : Math.min(preferencias.limiteCreditos * 15, 480);
+            ? Math.min(limiteEfetivoSemestre, 480)
+            : Math.min(limiteHorasPorSemestre, 480);
 
         // B4: Mapa para lookup rápido de matérias por código
         const materiasPorCodigo = new Map<string, MateriaInput>();
@@ -340,27 +348,33 @@ export function distribuirPorSemestres(
                 coReqCodigos = getCodigosFromExpressaoLogica(coReqExpr).map(norm);
             }
 
-            // B4: Calcular horas totais necessárias (candidata + todos os co-requisitos)
+            // B4: Calcular horas e dificuldade totais necessárias (candidata + todos os co-requisitos)
             let horasNeeded = horas;
-            const coReqsDisponiveis: { codigo: string; materia: MateriaInput; horas: number }[] = [];
+            let diffNeeded = c.materia.dificuldadeEstimada || 4;
+            const coReqsDisponiveis: { codigo: string; materia: MateriaInput; horas: number, diff: number }[] = [];
 
             for (const coReqCod of coReqCodigos) {
-                // Só considerar co-requisitos que ainda estão em restantes
                 if (restantes.has(coReqCod)) {
                     const coReqMateria = materiasPorCodigo.get(coReqCod);
                     if (coReqMateria) {
                         const horasCoReq = getHorasSafely(coReqMateria);
-                        coReqsDisponiveis.push({ codigo: coReqCod, materia: coReqMateria, horas: horasCoReq });
+                        const diffCoReq = coReqMateria.dificuldadeEstimada || 4;
+                        coReqsDisponiveis.push({ codigo: coReqCod, materia: coReqMateria, horas: horasCoReq, diff: diffCoReq });
                         horasNeeded += horasCoReq;
+                        diffNeeded += diffCoReq;
                     }
                 }
             }
 
+            const isPriorizada = priorizarSet.has(norm(c.materia.codigo));
+            const budgetDificuldadePermite = isPriorizada || (dificuldadeUsada + diffNeeded <= LIMITE_DIFICULDADE) || escolhidas.length === 0;
+
             // B4: Tentar alocar candidata + todos os co-requisitos juntos
-            if (horasUsadas + horasNeeded <= limiteHoras) {
+            if (horasUsadas + horasNeeded <= limiteHoras && budgetDificuldadePermite) {
                 // Adicionar candidata
                 escolhidas.push(c);
                 horasUsadas += horas;
+                dificuldadeUsada += (c.materia.dificuldadeEstimada || 4);
 
                 // Adicionar todos os co-requisitos
                 for (const coReq of coReqsDisponiveis) {
@@ -368,13 +382,15 @@ export function distribuirPorSemestres(
                     if (coReqScore) {
                         escolhidas.push(coReqScore);
                         horasUsadas += coReq.horas;
+                        dificuldadeUsada += coReq.diff;
                     }
                 }
             }
             // FALLBACK: Tentar alocar candidata SOLO se co-requisitos não cabem
-            else if (horasUsadas + horas <= limiteHoras) {
+            else if (horasUsadas + horas <= limiteHoras && (isPriorizada || dificuldadeUsada + (c.materia.dificuldadeEstimada || 4) <= LIMITE_DIFICULDADE || escolhidas.length === 0)) {
                 escolhidas.push(c);
                 horasUsadas += horas;
+                dificuldadeUsada += (c.materia.dificuldadeEstimada || 4);
                 // Co-requisitos ficarão em restantes para próximo semestre
             }
         }
@@ -404,6 +420,8 @@ export function distribuirPorSemestres(
                 desbloqueiaIndireto: e.desbloqueiaIndireto,
                 score: e.score,
                 motivo: isCritica ? (e.materia.nivel < numeroPeriodo ? "pendente há tempo, alta prioridade" : "alta prioridade") : "",
+                dificuldadeEstimada: e.materia.dificuldadeEstimada,
+                motivoDificuldade: e.materia.motivoDificuldade
             };
         });
 
@@ -598,7 +616,8 @@ function distribuirSlots(
     semestres: SemestrePlano[],
     chOptativaFaltante: number,
     chComplementarFaltante: number,
-    limiteCreditosMax: number
+    limiteCreditosMax: number,
+    limitesPersonalizados?: Record<number, number>
 ): {
     semestres: SemestrePlano[];
     optativaAlocada: number;
@@ -606,12 +625,17 @@ function distribuirSlots(
 } {
     let optativaAlocada = 0;
     let complementarAlocado = 0;
-    const limiteHorasMax = Math.min(limiteCreditosMax * 15, 480);
 
-    console.log(`\n[distribuirSlots] Starting with ${semestres.length} semesters, need ${chOptativaFaltante}h optativas, ${chComplementarFaltante}h complementar, limit=${limiteHorasMax}h/semestre`);
+    console.log(`\n[distribuirSlots] Starting with ${semestres.length} semesters, need ${chOptativaFaltante}h optativas, ${chComplementarFaltante}h complementar`);
 
     for (let semIdx = 0; semIdx < semestres.length; semIdx++) {
         const semestre = semestres[semIdx];
+        
+        // Verificar se há limite personalizado para este semestre
+        const customLimit = limitesPersonalizados?.[semIdx];
+        const creditosBase = customLimit !== undefined ? customLimit : limiteCreditosMax;
+        const limiteHorasMax = Math.min(creditosBase * 15, 480);
+
         // Usar _horasInternas se disponível para evitar reconversão que causa perda de precisão
         let horasUsadasNoSemestre = (semestre as any)._horasInternas ?? creditosParaHoras(semestre.creditos);
         let espacoDisponivelHoras = limiteHorasMax - horasUsadasNoSemestre;
@@ -674,6 +698,34 @@ function distribuirSlots(
     return { semestres, optativaAlocada, complementarAlocado };
 }
 
+function getEarliestValidSemester(
+    materia: MateriaInput,
+    semestres: SemestrePlano[],
+    completedCodes: Set<string>
+): number {
+    const expr = parseExprOrNull(materia.preRequisitos);
+    if (!expr) return 0;
+
+    const currentCumulados = new Set<string>();
+    for (const c of completedCodes) currentCumulados.add(norm(c));
+
+    for (let k = 0; k < semestres.length; k++) {
+        if (satisfazExpressaoLogica(expr, currentCumulados)) {
+            return k;
+        }
+        for (const m of semestres[k].materias) {
+            if (typeof m === 'object' && 'codigo' in m) {
+                currentCumulados.add(norm(m.codigo));
+            }
+        }
+    }
+
+    if (satisfazExpressaoLogica(expr, currentCumulados)) {
+        return semestres.length;
+    }
+    return semestres.length; // Fallback
+}
+
 function distribuirObrigatorias(
     obrigatorias: MateriaInput[],
     completedCodes: Set<string>,
@@ -710,7 +762,7 @@ function distribuirObrigatorias(
         });
     }
 
-    // Ordenar estágio/TCC por nome para garantir TCC 1 antes de TCC 2
+    // Ordenar estágio/TCC por nome para tentar garantir TCC 1 antes de TCC 2 (se nomes ajudarem)
     const estagioTCCOrdenado = [...estagioTCC].sort((a, b) =>
         (a.nome || "").localeCompare(b.nome || "")
     );
@@ -718,53 +770,52 @@ function distribuirObrigatorias(
     const estagioTCCRestantes = new Set<string>(
         estagioTCCOrdenado.map((m) => norm(m.codigo))
     );
-    const cumulados = new Set<string>(completedCodes);
 
-    for (const s of semestres) {
-        for (const m of s.materias) {
-            if (typeof m === "object" && "codigo" in m) {
-                cumulados.add(norm((m as any).codigo));
-            }
-        }
-    }
-
-    // Novo loop de alocação com garantia RÍGIDA nos últimos semestres absolutos
-    // Regra: TCC 1 → penúltimo semestre; TCC 2/Estágio → último semestre
-    // BUG FIX 1: Respeitar limiteCreditos — se estourar, criar novo semestre
+    // Novo loop de alocação garantindo respeito aos pré-requisitos!
+    // Regra: Tentar alocar nos últimos semestres absolutos, mas NUNCA antes do earliestValid
     for (let idx = 0; idx < estagioTCCOrdenado.length; idx++) {
         const materia = estagioTCCOrdenado[idx];
         const cod = norm(materia.codigo);
 
         if (!estagioTCCRestantes.has(cod)) continue;
-        if (!isDesbloqueada(materia, cumulados)) continue;
 
+        // Descobrimos qual é o primeiro semestre em que essa matéria está desbloqueada
+        const earliestValid = getEarliestValidSemester(materia, semestres, completedCodes);
         const creditosMateria = getCreditosSafely(materia);
 
-        // Determinar semestre rígido:
-        // - Se é o penúltimo ou anterior: ir para semestre[semestres.length - 2] (penúltimo)
-        // - Se é o último: ir para semestre[semestres.length - 1] (último)
-        let isLastInList = idx === estagioTCCOrdenado.length - 1;
-        let targetIdx = isLastInList
-            ? semestres.length - 1  // Último semestre
-            : semestres.length - 2; // Penúltimo semestre
+        // Queremos empurrar para os últimos semestres (ex: penúltimo), mas não antes do que é permitido!
+        let targetIdx = Math.max(semestres.length - 2, earliestValid);
 
-        // Garantir que targetIdx é válido
-        if (targetIdx < 0) continue;
-
-        // BUG FIX 1: Se adicionar TCC/Estágio ultrapassa limiteCreditos, criar novo semestre
-        if (semestres[targetIdx].creditos + creditosMateria > preferencias.limiteCreditos) {
-            console.log(`  [TCC/Estágio] Semestre ${targetIdx} atingiria ${semestres[targetIdx].creditos + creditosMateria} cr (limite: ${preferencias.limiteCreditos}), criando novo semestre`);
-
+        // Garantir que targetIdx é válido e semestres existem até lá
+        while (targetIdx >= semestres.length) {
             const novoIndice = semestres.length;
-            const novoSemestre: SemestrePlano = {
+            semestres.push({
                 indice: novoIndice,
                 tipo: "estimado",
                 semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, novoIndice + 1) : undefined,
                 creditos: 0,
+                _horasInternas: 0,
                 materias: [],
-            };
-            semestres.push(novoSemestre);
-            targetIdx = semestres.length - 1;  // Apontar para o novo semestre
+            });
+        }
+
+        // BUG FIX 1: Se adicionar TCC/Estágio ultrapassa limiteCreditos, criar novo semestre e mover pra ele
+        // Mas APENAS se o semestre alvo já tiver matérias (para não criar semestres infinitos vazios se a matéria for gigante)
+        if (semestres[targetIdx].creditos + creditosMateria > preferencias.limiteCreditos && semestres[targetIdx].materias.length > 0) {
+            console.log(`  [TCC/Estágio] Semestre ${targetIdx} atingiria ${semestres[targetIdx].creditos + creditosMateria} cr (limite: ${preferencias.limiteCreditos}), movendo para o próximo`);
+
+            targetIdx++;
+            if (targetIdx >= semestres.length) {
+                const novoIndice = semestres.length;
+                semestres.push({
+                    indice: novoIndice,
+                    tipo: "estimado",
+                    semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, novoIndice + 1) : undefined,
+                    creditos: 0,
+                    _horasInternas: 0,
+                    materias: [],
+                });
+            }
         }
 
         const mPlano: MateriaPlano = {
@@ -776,16 +827,17 @@ function distribuirObrigatorias(
             desbloqueiaIndireto: 0,
             score: 100,
             motivo: montarMotivo({ codigo: cod, nome: materia.nome, creditos: creditosMateria, critica: true, desbloqueiaDireto: 0, desbloqueiaIndireto: 0, score: 100, motivo: "" } as MateriaPlano, false),
+            dificuldadeEstimada: materia.dificuldadeEstimada,
+            motivoDificuldade: materia.motivoDificuldade
         };
 
         (semestres[targetIdx].materias as any[]).push(mPlano);
         semestres[targetIdx].creditos += creditosMateria;
         const horasMateria = getHorasSafely(materia);
         if ((semestres[targetIdx] as any)._horasInternas != null) {
-            (semestres[targetIdx] as any)._horasInternas += horasMateria;  // Manter _horasInternas sincronizado
+            (semestres[targetIdx] as any)._horasInternas += horasMateria;
         }
         estagioTCCRestantes.delete(cod);
-        cumulados.add(cod);
     }
 
     const naoAlocadas = Array.from(estagioTCCRestantes).sort();
@@ -885,7 +937,8 @@ export function gerarPlanoCompletov2(
         semestres,
         chFaltante.optativa,
         chFaltante.complementar,
-        prefs.limiteCreditos
+        prefs.limiteCreditos,
+        prefs.restricoes?.limitesPersonalizados
     );
 
     const chOptativaRestante = Math.max(0, chFaltante.optativa - optativaAlocada);

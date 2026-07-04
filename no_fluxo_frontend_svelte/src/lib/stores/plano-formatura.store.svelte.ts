@@ -118,6 +118,10 @@ function createPlanoFormaturaStore() {
 			try {
 				const prefs = await planoFormaturaService.loadPreferencias(idUser);
 				preferencias = prefs;
+				
+				if (prefs.restricoes) {
+					restricoes = prefs.restricoes;
+				}
 
 				if (!prefs.onboardingConcluido) {
 					showOnboarding = true;

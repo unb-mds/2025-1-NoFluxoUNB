@@ -25,6 +25,8 @@ export interface RestricoesPlano {
     adiar: string[];
     /** Codigos forcados para o semestre mais cedo possivel (respeitando pre-requisitos). */
     priorizar: string[];
+    /** Limite de creditos customizado por indice de semestre (0 = próximo). Chave: indice, Valor: creditos. */
+    limitesPersonalizados?: Record<number, number>;
 }
 
 /**
@@ -64,6 +66,14 @@ export interface MateriaInput {
     // === NOVOS CAMPOS ADICIONADOS PARA SUPORTE REAL DO BANCO (UNB) ===
     /** Natureza da matéria extraída de materias_por_curso (0 = Obrigatória). */
     tipo_natureza?: number;
+    /** Nível original onde a matéria está no fluxo. */
+    nivel_original?: number;
+    /** Código do departamento (ex: MAT, CIC) para contexto da IA. */
+    departamento?: string;
+    /** Dificuldade estimada pela IA (1 a 10). */
+    dificuldadeEstimada?: number;
+    /** Justificativa da IA para a dificuldade. */
+    motivoDificuldade?: string;
     /** Carga horária total da matéria em horas (ex: 60) */
     carga_horaria?: number;
 
@@ -117,6 +127,10 @@ export interface MateriaPlano {
     score: number;
     /** Motivo textual da recomendacao (ex: "desbloqueia 3 materias e esta atrasada"). */
     motivo: string;
+    /** Dificuldade estimada (1-10) da materia. */
+    dificuldadeEstimada?: number;
+    /** Motivo textual da avaliacao de dificuldade (geralmente provido pela IA). */
+    motivoDificuldade?: string;
 }
 
 /** Slot generico para optativas (nao especifica materia). */

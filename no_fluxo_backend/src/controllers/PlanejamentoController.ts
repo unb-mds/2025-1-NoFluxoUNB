@@ -25,6 +25,7 @@ import { SupabaseWrapper } from "../supabase_wrapper";
 import { createControllerLogger } from "../utils/controller_logger";
 import { gerarPlano, gerarPlanoCompletov2 } from "../services/plano_formatura.service";
 import { PlanejadorAgenteService, type MensagemChat, type AgenteContexto, type RestricoesPlanoInternas } from "../services/planejador_agente.service";
+import { DificuldadeAgenteService } from "../services/dificuldade_agente.service";
 import type {
     MateriaInput,
     PlanoInput,
@@ -201,7 +202,7 @@ async function montarDadosPlano(
         // 2. Busca materias_por_curso
         const { data: materiasPorCurso, error: erroMPC } = await SupabaseWrapper.get()
             .from("materias_por_curso")
-            .select("id_materia, nivel, tipo_natureza, materias(id_materia, codigo_materia, nome_materia, carga_horaria)")
+            .select("id_materia, nivel, tipo_natureza, materias(id_materia, codigo_materia, nome_materia, carga_horaria, departamento, dificuldade_estimada, motivo_dificuldade)")
             .eq("id_matriz", matriz.id_matriz);
 
         if (erroMPC) {
@@ -273,10 +274,24 @@ async function montarDadosPlano(
                 obrigatoria: row.tipo_natureza === 0,
                 tipo_natureza: row.tipo_natureza,
                 carga_horaria: cargaHr,
+                departamento: mat.departamento || undefined,
+                dificuldadeEstimada: mat.dificuldade_estimada || undefined,
+                motivoDificuldade: mat.motivo_dificuldade || undefined,
                 preRequisitos: preByMateria.get(mat.id_materia) || null,
                 coRequisitos: coByMateria.get(mat.id_materia) || null,
             };
         });
+
+        // 6. LAZY LOADING DA DIFICULDADE
+        const materiasSemDificuldade = materiasMapeadas.filter(m => m.dificuldadeEstimada == null);
+        if (materiasSemDificuldade.length > 0) {
+            try {
+                await DificuldadeAgenteService.avaliarESalvarDificuldades(materiasSemDificuldade);
+            } catch (err) {
+                console.error(`Erro ao tentar fazer lazy load da dificuldade: ${err}`);
+            }
+        }
+
 
         return {
             dados: {
@@ -595,6 +610,7 @@ export const PlanejamentoController: EndpointController = {
                     const restricoes: RestricoesPlano = {
                         adiar: Array.isArray((bodyRestr as any)?.adiar) ? (bodyRestr as any).adiar : [],
                         priorizar: Array.isArray((bodyRestr as any)?.priorizar) ? (bodyRestr as any).priorizar : [],
+                        limitesPersonalizados: typeof (bodyRestr as any)?.limitesPersonalizados === 'object' && (bodyRestr as any).limitesPersonalizados !== null ? (bodyRestr as any).limitesPersonalizados : undefined,
                     };
 
                     // ========== MONTAR DADOS DO PLANO ==========
@@ -626,6 +642,7 @@ export const PlanejamentoController: EndpointController = {
                         restricoes: {
                             adiar: restricoes.adiar,
                             priorizar: restricoes.priorizar,
+                            limitesPersonalizados: restricoes.limitesPersonalizados || {},
                         },
                         codigosComOferta: dados.codigosComOferta,
                     };

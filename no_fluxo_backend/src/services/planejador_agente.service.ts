@@ -38,6 +38,7 @@ export interface MensagemChat {
 export interface RestricoesPlanoInternas {
     adiar: string[];
     priorizar: string[];
+    limitesPersonalizados: Record<number, number>;
 }
 
 /**
@@ -73,7 +74,8 @@ export interface LlmMessage {
 
 export type ChamarLlmFn = (
     messages: any[],
-    tools: any[]
+    tools: any[],
+    useWebSearch?: boolean
 ) => Promise<LlmMessage>;
 
 // =========================================================
@@ -92,7 +94,7 @@ function norm(codigo: string): string {
 // Executores de Tools
 // =========================================================
 
-function resumoDoPlano(plano: PlanoFormaturav2): Record<string, any> {
+function resumoDoPlano(plano: PlanoFormaturav2, ctx: AgenteContexto): Record<string, any> {
     const criticas = plano.plano
         .flatMap((s) => s.materias)
         .filter((m) => "critica" in m && (m as MateriaPlano).critica)
@@ -105,6 +107,12 @@ function resumoDoPlano(plano: PlanoFormaturav2): Record<string, any> {
         materiasNaoAlocadas: plano.materiasNaoAlocadas,
         chOptativaFaltante: plano.chOptativaFaltante,
         chComplementarFaltante: plano.chComplementarFaltante,
+        cargaPorSemestre: plano.plano.map(s => ({
+            indice: s.indice,
+            numeroSemestre: ctx.numeroPeriodo + s.indice + 1,
+            semestreLabel: s.semestre,
+            creditos: s.creditos
+        })),
     };
 }
 
@@ -122,6 +130,7 @@ function gerarPlanoDoContexto(ctx: AgenteContexto): PlanoFormaturav2 {
             restricoes: {
                 adiar: ctx.restricoes.adiar,
                 priorizar: ctx.restricoes.priorizar,
+                limitesPersonalizados: ctx.restricoes.limitesPersonalizados,
             },
         },
         ctx.codigosComOferta
@@ -135,7 +144,7 @@ function consultarPlano(
     const plano = gerarPlanoDoContexto(ctx);
     const codigo = typeof args.codigo === "string" ? norm(args.codigo) : null;
 
-    if (!codigo) return JSON.stringify(resumoDoPlano(plano));
+    if (!codigo) return JSON.stringify(resumoDoPlano(plano, ctx));
 
     for (const s of plano.plano) {
         for (const m of s.materias) {
@@ -165,7 +174,7 @@ function simularCenario(
     args: Record<string, unknown>,
     ctx: AgenteContexto
 ): string {
-    const antes = resumoDoPlano(gerarPlanoDoContexto(ctx));
+    const antes = resumoDoPlano(gerarPlanoDoContexto(ctx), ctx);
 
     const simCtx: AgenteContexto = {
         ...ctx,
@@ -173,6 +182,7 @@ function simularCenario(
         restricoes: {
             adiar: [...ctx.restricoes.adiar],
             priorizar: [...ctx.restricoes.priorizar],
+            limitesPersonalizados: { ...ctx.restricoes.limitesPersonalizados },
         },
     };
 
@@ -187,7 +197,7 @@ function simularCenario(
         for (const c of args.priorizar) if (typeof c === "string") simCtx.restricoes.priorizar.push(norm(c));
     }
 
-    const depois = resumoDoPlano(gerarPlanoDoContexto(simCtx));
+    const depois = resumoDoPlano(gerarPlanoDoContexto(simCtx), simCtx);
     return JSON.stringify({
         antes,
         depois,
@@ -212,8 +222,33 @@ function ajustarCarga(
         ctx.preferencias.objetivo = args.objetivo;
     }
     const plano = gerarPlanoDoContexto(ctx);
-    return { resultado: JSON.stringify(resumoDoPlano(plano)), planoAtualizado: plano };
+    return { resultado: JSON.stringify(resumoDoPlano(plano, ctx)), planoAtualizado: plano };
 }
+
+function ajustarCargaSemestre(
+    args: Record<string, unknown>,
+    ctx: AgenteContexto
+): { resultado: string; planoAtualizado?: PlanoFormaturav2 } {
+    const indice = Number(args.semestreIndice);
+    const limite = Number(args.limiteCreditos);
+    
+    if (!Number.isFinite(indice) || indice < 0) {
+        return { resultado: JSON.stringify({ erro: "semestreIndice deve ser um inteiro positivo." }) };
+    }
+    if (!Number.isFinite(limite) || limite < 0 || limite > 40) {
+        return { resultado: JSON.stringify({ erro: "limiteCreditos deve ser um inteiro entre 0 e 40." }) };
+    }
+
+    if (!ctx.restricoes.limitesPersonalizados) {
+        ctx.restricoes.limitesPersonalizados = {};
+    }
+    
+    ctx.restricoes.limitesPersonalizados[Math.floor(indice)] = Math.floor(limite);
+    
+    const plano = gerarPlanoDoContexto(ctx);
+    return { resultado: JSON.stringify(resumoDoPlano(plano, ctx)), planoAtualizado: plano };
+}
+
 
 function moverMateria(
     args: Record<string, unknown>,
@@ -247,10 +282,8 @@ function moverMateria(
     const plano = gerarPlanoDoContexto(ctx);
     return {
         resultado: JSON.stringify({
-            acao,
-            codigo,
-            restricoes: ctx.restricoes,
-            ...resumoDoPlano(plano),
+            mensagem: `Matéria ${codigo} tratada como ${acao}.`,
+            planoAtualizado: resumoDoPlano(plano, ctx),
         }),
         planoAtualizado: plano,
     };
@@ -274,19 +307,58 @@ async function consultarInformacoesMateria(
             return JSON.stringify({ erro: `Matéria ${codigo} não encontrada no banco de dados oficial.` });
         }
 
-        const query = `grau de dificuldade da disciplina ${data.nome_materia} na faculdade curso`;
-        const webResults = await searchInternet(query);
-
         return JSON.stringify({
             codigo,
             nome_materia: data.nome_materia,
             departamento: data.departamento,
             carga_horaria: data.carga_horaria,
             ementa: data.ementa || "Não cadastrada.",
-            contexto_internet_opinioes: webResults
+            aviso: "Lembre-se de usar sua pesquisa web nativa (Sabiá) se o usuário perguntou sobre a dificuldade ou opiniões."
         });
     } catch (e) {
         return JSON.stringify({ erro: `Falha ao consultar informações da matéria ${codigo}.` });
+    }
+}
+
+async function consultarTurmasMateria(args: Record<string, unknown>): Promise<string> {
+    const codigo = typeof args.codigo === "string" ? norm(args.codigo) : "";
+    if (!codigo) return JSON.stringify({ erro: "Código da matéria não fornecido." });
+
+    try {
+        const supabase = SupabaseWrapper.get();
+        const { data: materiaData, error: materiaError } = await supabase
+            .from("materias")
+            .select("id_materia, nome_materia")
+            .eq("codigo_materia", codigo)
+            .single();
+
+        if (materiaError || !materiaData) {
+            return JSON.stringify({ erro: `Matéria ${codigo} não encontrada.` });
+        }
+
+        const { data: turmasRows, error: turmasError } = await supabase
+            .from('turmas')
+            .select('turma, docente, horario, local, vagas_ofertadas, vagas_ocupadas')
+            .eq('id_materia', materiaData.id_materia)
+            .order('ano_periodo', { ascending: false })
+            .limit(10); // Trazer no máximo 10 turmas recentes
+
+        if (turmasError || !turmasRows || turmasRows.length === 0) {
+            return JSON.stringify({ erro: `Nenhuma turma encontrada para ${codigo} - ${materiaData.nome_materia}.` });
+        }
+
+        const turmasFormatadas = turmasRows.map(t => (
+            `[TURMA|${t.turma || '?'}|${t.docente || 'A definir'}|${t.horario || '?'}|${t.local || '?'}|${t.vagas_ocupadas ?? '?'}/${t.vagas_ofertadas ?? '?'}]`
+        ));
+
+        return JSON.stringify({
+            codigo,
+            nome_materia: materiaData.nome_materia,
+            instrucao_llm: "Para exibir as turmas, COPIE E COLE EXATAMENTE o formato gerado abaixo ([TURMA|...]). Não altere nada dentro dos colchetes, pois o frontend usa isso para desenhar a interface.",
+            turmas_recentes: turmasFormatadas
+        });
+    } catch (e) {
+        return JSON.stringify({ erro: `Falha ao consultar turmas da matéria ${codigo}.` });
     }
 }
 
@@ -297,16 +369,18 @@ export async function executarTool(
 ): Promise<{ resultado: string; planoAtualizado?: PlanoFormaturav2 }> {
     try {
         switch (nome) {
-            case "pesquisar_na_web":
-                return { resultado: await searchInternet(typeof args.query === "string" ? args.query : "") };
             case "consultar_informacoes_materia":
                 return { resultado: await consultarInformacoesMateria(args) };
+            case "consultar_turmas_materia":
+                return { resultado: await consultarTurmasMateria(args) };
             case "consultar_plano":
                 return { resultado: consultarPlano(args, ctx) };
             case "simular_cenario":
                 return { resultado: simularCenario(args, ctx) };
             case "ajustar_carga":
                 return ajustarCarga(args, ctx);
+            case "ajustar_carga_semestre":
+                return ajustarCargaSemestre(args, ctx);
             case "mover_materia":
                 return moverMateria(args, ctx);
             default:
@@ -340,9 +414,23 @@ export class PlanejadorAgenteService {
         return !!process.env.MARITACA_API_KEY;
     }
 
+	private shouldUseWebSearch(prompt: string): boolean {
+		const p = prompt.toLowerCase();
+		const dynamicSignals = [
+			'hoje', 'agora', 'atual', 'atualmente', 'últimas', 'ultimas',
+			'notícias', 'noticias', 'preço', 'precos', 'preço atual',
+			'cotação', 'cotacao', 'lançamento', 'lancamento', 'mudou',
+			'mudança', 'mudanca', 'site oficial', 'documentação',
+			'documentacao', 'versão', 'versao', 'api', 'release', 'roadmap',
+			'dificuldade', 'opinião', 'opiniao', 'fofoca', 'dizem'
+		];
+		return dynamicSignals.some(term => p.includes(term));
+	}
+
     private async chamarLlmMaritaca(
         messages: any[],
-        tools: any[]
+        tools: any[],
+        useWebSearch: boolean = false
     ): Promise<LlmMessage> {
         const apiKey = process.env.MARITACA_API_KEY;
         if (!apiKey) throw new Error("MARITACA_API_KEY não configurada");
@@ -358,6 +446,7 @@ export class PlanejadorAgenteService {
                 messages,
                 tools,
                 tool_choice: "auto",
+                web_search: useWebSearch
             }),
         });
 
@@ -382,26 +471,34 @@ export class PlanejadorAgenteService {
         // Truncar histórico nas últimas MAX_HISTORICO mensagens
         const historicoTruncado = historico.slice(-MAX_HISTORICO);
 
+        const planoInicial = gerarPlanoDoContexto(ctx);
+        const resumoInicialStr = JSON.stringify(resumoDoPlano(planoInicial, ctx));
+
         // System prompt — contexto completo para o agente
         const systemPrompt = `Você é o assistente inteligente de planejamento de formatura da plataforma NoFluxo (Universidade de Brasília — UnB).
 Seu papel é ajudar alunos a entender, iterar e otimizar seu plano de formatura personalizado.
 
 ## Contexto do aluno
 - Período atual: ${ctx.numeroPeriodo}
-- Limite de créditos/semestre: ${ctx.preferencias.limiteCreditos}
+- Limite de créditos global: ${ctx.preferencias.limiteCreditos}
+- Limites personalizados por semestre: ${JSON.stringify(ctx.restricoes.limitesPersonalizados || {})}
 - Objetivo: ${ctx.preferencias.objetivo} (velocidade = formar rápido; equilibrado = carga balanceada)
 - Trabalha/estagia: ${ctx.preferencias.trabalha ? "sim" : "não"}
 - Matérias faltantes: ${ctx.materias.length}
 - Restrições ativas: adiar=[${ctx.restricoes.adiar.join(", ")}], priorizar=[${ctx.restricoes.priorizar.join(", ")}]
 
+## Resumo do Plano Atual
+${resumoInicialStr}
+
 ## Suas ferramentas (tools)
-Você tem 5 ferramentas disponíveis que pode chamar diretamente:
+Você tem ferramentas disponíveis que pode chamar diretamente:
 1. **consultar_plano** — Consulta detalhes do plano (resumo geral ou matéria específica por código)
 2. **simular_cenario** — Simula cenário alternativo SEM alterar o plano (mostra impacto de mudanças de carga, adiamentos, priorizações)
-3. **ajustar_carga** — ALTERA o plano: muda limite de créditos e/ou objetivo e regenera
-4. **mover_materia** — ALTERA o plano: adia, prioriza ou remove restrição de uma matéria específica
-5. **consultar_informacoes_materia** — Busca a ementa e pesquisa na internet (dificuldade/opiniões) sobre uma matéria específica
-6. **pesquisar_na_web** — Ferramenta de uso geral para pesquisar na internet sobre dúvidas gerais do usuário que não sejam de uma matéria (ex: carreiras, mercado, regras da faculdade)
+3. **ajustar_carga** — ALTERA o plano GLOBALMENTE: muda limite de créditos de todos os semestres
+4. **ajustar_carga_semestre** — ALTERA o plano PONTUALMENTE: reduz a carga de um ÚNICO semestre específico sem alterar o ritmo global
+5. **mover_materia** — ALTERA o plano: adia, prioriza ou remove restrição de uma matéria específica
+6. **consultar_informacoes_materia** — Busca a ementa oficial da matéria no banco de dados.
+7. **consultar_turmas_materia** — Busca professores, horários, locais e vagas das turmas de uma matéria.
 
 ## Rotas da API (referência — você NÃO chama diretamente, mas pode mencionar ao aluno)
 
@@ -444,45 +541,55 @@ Você tem 5 ferramentas disponíveis que pode chamar diretamente:
 ## Regras de comportamento
 1. Sempre responda em português brasileiro.
 2. Seja conciso e direto. Evite respostas longas.
-3. Use as tools para obter dados reais antes de responder — não invente informações sobre matérias ou plano.
+3. Use as tools para obter dados reais antes de responder — não invente informações sobre matérias, turmas ou plano.
 4. Ao recomendar que o aluno "adie" ou "priorize" uma matéria, USE a tool mover_materia para aplicar a mudança.
 5. Ao simular cenários, use simular_cenario (read-only) ANTES de aplicar com ajustar_carga.
-6. Se o aluno perguntar sobre turmas, horários ou pré-requisitos, mencione que a plataforma tem essas funcionalidades nas rotas /assistente/turmas-by-codigo e /assistente/prerequisitos-by-codigo.
+6. Se o aluno perguntar sobre turmas, use a tool 'consultar_turmas_materia'. Você ESTÁ PROIBIDO de alterar ou formatar os dados da turma. Você DEVE obrigatoriamente COPIAR E COLAR exatamente os blocos [TURMA|...] devolvidos pela tool, inserindo um por linha. O frontend depende desse formato exato para renderizar a interface visual.
 7. Códigos de matéria seguem padrão "DEP0000" (ex: MAT0026, CIC0004, EST0001). Sempre normalize para UPPERCASE.
-8. Se não souber responder, diga que não tem essa informação e sugira consultar o coordenador do curso.`;
+8. Se não souber responder, diga que não tem essa informação e sugira consultar o coordenador do curso.
+9. Ao remanejar ou reduzir carga (ex: aluno diz que um semestre está pesado), PERGUNTE SOBRE TRADE-OFFS. Ofereça explicitamente a opção de reduzir a carga apenas DAQUELE semestre (usando ajustar_carga_semestre) e pergunte se ele aceita o possível atraso na formatura.
+10. INTERAÇÃO VISUAL: Sempre que fizer uma pergunta de "Sim/Não" ou apresentar opções de trade-offs, forneça botões interativos usando a sintaxe [BOTAO|Label|Mensagem enviada ao clicar]. Exemplos:
+[BOTAO|Sim|Sim, pode reduzir a carga e atrasar a formatura.]
+[BOTAO|Não|Não, prefiro manter o ritmo atual.]
+
+## Regras de Busca na Web (Sabiá Native)
+- Você possui capacidade nativa de buscar na web quando ativada pelo sistema.
+- Se houver conflito entre fontes na web, informe a divergência com clareza.
+- Não copie trechos longos de páginas; resuma com objetividade.
+- Priorize fontes oficiais, documentação, páginas institucionais e veículos confiáveis (fóruns/reddit para opiniões).
+- Quando a pergunta pedir opinião pública, reviews ou dificuldade prática de uma disciplina, considere a diversidade de fontes.`;
 
         // Definição das tools
         const tools = [
             {
                 type: "function",
                 function: {
-                    name: "pesquisar_na_web",
-                    description:
-                        "Pesquisa qualquer assunto de forma genérica na internet usando o Google e retorna os resultados. Use para dúvidas abertas sobre carreira, mercado de trabalho, regras, etc.",
-                    parameters: {
-                        type: "object",
-                        properties: {
-                            query: {
-                                type: "string",
-                                description: "O texto exato da pesquisa que seria digitado no Google.",
-                            },
-                        },
-                        required: ["query"],
-                    },
-                },
-            },
-            {
-                type: "function",
-                function: {
                     name: "consultar_informacoes_materia",
                     description:
-                        "Busca a ementa oficial da matéria no banco de dados e consulta a internet para obter o nível de dificuldade, opiniões e contexto atualizado.",
+                        "Busca a ementa oficial da matéria no banco de dados. (Para nível de dificuldade ou opiniões, você pesquisará nativamente na internet).",
                     parameters: {
                         type: "object",
                         properties: {
                             codigo: {
                                 type: "string",
                                 description: "Código da matéria (ex: FGA0211). Obrigatório.",
+                            },
+                        },
+                        required: ["codigo"],
+                    },
+                },
+            },
+            {
+                type: "function",
+                function: {
+                    name: "consultar_turmas_materia",
+                    description: "Busca as turmas ofertadas de uma matéria: Professores, horários, locais e vagas.",
+                    parameters: {
+                        type: "object",
+                        properties: {
+                            codigo: {
+                                type: "string",
+                                description: "Código da matéria (ex: MAT0026). Obrigatório.",
                             },
                         },
                         required: ["codigo"],
@@ -542,14 +649,14 @@ Você tem 5 ferramentas disponíveis que pode chamar diretamente:
                 function: {
                     name: "ajustar_carga",
                     description:
-                        "Ajusta a carga semestral e/ou objetivo do aluno e regenera o plano.",
+                        "Ajusta a carga semestral GLOBAL e/ou objetivo do aluno e regenera o plano.",
                     parameters: {
                         type: "object",
                         properties: {
                             limiteCreditos: {
                                 type: "number",
                                 description:
-                                    "Novos créditos por semestre (8-32). Obrigatório.",
+                                    "Novos créditos globais por semestre (8-32). Obrigatório.",
                             },
                             objetivo: {
                                 type: "string",
@@ -559,6 +666,28 @@ Você tem 5 ferramentas disponíveis que pode chamar diretamente:
                             },
                         },
                         required: ["limiteCreditos"],
+                    },
+                },
+            },
+            {
+                type: "function",
+                function: {
+                    name: "ajustar_carga_semestre",
+                    description:
+                        "Ajusta o limite de créditos de UM semestre ESPECÍFICO (usando o índice numérico dele, onde 0 é o primeiro) e regenera o plano para redistribuir a carga.",
+                    parameters: {
+                        type: "object",
+                        properties: {
+                            semestreIndice: {
+                                type: "number",
+                                description: "Índice interno do semestre (0, 1, 2...). Você deve mapear o número do semestre pedido pelo usuário (ex: 'Semestre 13') para o 'indice' correspondente verificando a propriedade 'numeroSemestre' no resumo do plano.",
+                            },
+                            limiteCreditos: {
+                                type: "number",
+                                description: "Novo limite máximo de créditos para ESTE semestre específico (0-40).",
+                            },
+                        },
+                        required: ["semestreIndice", "limiteCreditos"],
                     },
                 },
             },
@@ -604,12 +733,16 @@ Você tem 5 ferramentas disponíveis que pode chamar diretamente:
         while (iteracao < MAX_ITERACOES) {
             iteracao++;
 
+            // Avalia a última mensagem do usuário (ou a mais recente)
+            const lastUserMsg = historicoTruncado.slice().reverse().find(m => m.role === "user");
+            const useWebSearch = lastUserMsg ? this.shouldUseWebSearch(lastUserMsg.content) : false;
+
             logger.info(
-                `[Iteração ${iteracao}] Chamando LLM com ${mensagensLlm.length} mensagens`
+                `[Iteração ${iteracao}] Chamando LLM com ${mensagensLlm.length} mensagens | web_search=${useWebSearch}`
             );
 
             // Chamar LLM
-            const resposta = await this.chamarLlm(mensagensLlm, tools);
+            const resposta = await this.chamarLlm(mensagensLlm, tools, useWebSearch);
 
             // Se conteúdo direto, não há tool call — retornar resposta
             if (resposta.content && !resposta.tool_calls) {

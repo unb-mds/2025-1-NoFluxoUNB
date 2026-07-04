@@ -68,6 +68,10 @@ export interface MateriaPlano {
 	desbloqueia_indireto: number;
 	/** Motivo pelo qual a matéria está neste semestre. */
 	motivo: string;
+	/** Dificuldade estimada pela IA (1 a 10). */
+	dificuldadeEstimada?: number;
+	/** Justificativa da IA para a dificuldade calculada. */
+	motivoDificuldade?: string;
 }
 
 // ─── Slots genéricos para créditos ────────────────────────────────────────────

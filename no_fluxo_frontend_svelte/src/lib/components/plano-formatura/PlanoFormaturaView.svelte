@@ -180,10 +180,20 @@
 				oninput={(e) => debouncedLimiteChange(Number((e.target as HTMLInputElement).value))}
 				class="w-36 accent-blue-500 disabled:opacity-40"
 			/>
-			<span class="w-20 text-xs font-semibold tabular-nums text-white/70">
-				{planoFormaturaStore.preferencias.limiteCreditos} cr
-				<span class="text-white/35">({planoFormaturaStore.preferencias.limiteCreditos * 15}h)</span>
-			</span>
+			<div class="flex items-center gap-1">
+				<input
+					type="number"
+					min={8}
+					max={40}
+					disabled={isChangingCredits}
+					value={planoFormaturaStore.preferencias.limiteCreditos}
+					onchange={(e) => debouncedLimiteChange(Number((e.target as HTMLInputElement).value))}
+					class="w-12 bg-[#161625] border border-white/10 rounded px-1.5 py-0.5 text-xs font-semibold text-white/90 text-right focus:outline-none focus:ring-1 focus:ring-blue-500/50 disabled:opacity-40 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+				/>
+				<span class="text-xs font-semibold tabular-nums text-white/70">
+					cr <span class="text-white/35">({planoFormaturaStore.preferencias.limiteCreditos * 15}h)</span>
+				</span>
+			</div>
 		</div>
 
 		<!-- Display unit toggle -->

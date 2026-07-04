@@ -30,7 +30,7 @@
 	const COLUMN_WIDTH = 400; // Aumentado para dar mais respiro horizontal
 	const ROW_HEIGHT = 160;   // Aumentado para dar respiro vertical entre os cards
 	const START_X = 50;
-	const START_Y = 80;
+	const START_Y = 120;
 
 	$effect(() => {
 		if (!plano || !plano.plano) return;
@@ -48,7 +48,7 @@
 			newNodes.push({
 				id: 'header-matr',
 				type: 'header',
-				position: { x: xPos, y: START_Y - 50 },
+				position: { x: xPos, y: START_Y - 70 },
 				data: { label: `Semestre ${semestreAtual} (Em Curso)` },
 				draggable: false,
 				selectable: false
@@ -79,11 +79,12 @@
 			const numeroSemestre = semestreAtual + index + 1;
 			
 			// Renderiza um cabeçalho pro semestre
+			const semestreStr = semestre.semestre ? ` (${semestre.semestre})` : '';
 			newNodes.push({
 				id: `header-${semestre.indice}`,
 				type: 'header',
-				position: { x: xPos, y: START_Y - 50 },
-				data: { label: `Semestre ${numeroSemestre} (${semestre.tipo === 'recomendado' ? 'Recomendado' : 'Estimado'})` },
+				position: { x: xPos, y: START_Y - 70 },
+				data: { label: `Semestre ${numeroSemestre}${semestreStr} — ${semestre.tipo === 'recomendado' ? 'Recomendado' : 'Estimado'}` },
 				draggable: false,
 				selectable: false
 			});
@@ -147,11 +148,11 @@
 		{nodes} 
 		{edges} 
 		{nodeTypes} 
-		fitView 
-		minZoom={0.2}
+		minZoom={0.1}
 		maxZoom={1.5}
 		defaultEdgeOptions={{ type: 'smoothstep' }}
 		colorMode="dark"
+		initialViewport={{ x: 20, y: 20, zoom: 0.8 }}
 	>
 		<Background bgColor="#090c12" />
 		<Controls />
