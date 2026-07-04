@@ -97,8 +97,7 @@ no_fluxo_backend/
 │   │   ├── users_controller.ts        # User registration
 │   │   ├── cursos_controller.ts       # Course listing
 │   │   ├── materias_controller.ts     # Discipline lookup
-│   │   ├── assistente_controller.ts   # AI assistant proxy
-│   │   └── testes_controller.ts       # Debug/test endpoints
+│   │   └── assistente_controller.ts   # AI assistant proxy
 │   ├── services/
 │   │   ├── ragflow.service.ts         # RAGFlow API client
 │   │   └── ragflow.types.ts           # RAGFlow type definitions
@@ -146,7 +145,6 @@ no_fluxo_backend/
 | `cursos_controller.ts`      | `/cursos`       | Course catalog listing                                |
 | `materias_controller.ts`    | `/materias`     | Discipline lookup by code/name                        |
 | `assistente_controller.ts`  | `/assistente`   | AI assistant proxy to RAGFlow                         |
-| `testes_controller.ts`      | `/testes`       | Debug/testing endpoints                               |
 
 ### 3.4 Core Business Logic: Discipline Matching
 
