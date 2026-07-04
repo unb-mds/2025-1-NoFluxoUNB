@@ -15,7 +15,6 @@ import bodyParser from 'body-parser';
 import cors from "cors";
 import helmet from 'helmet';
 import { FluxogramaController } from './controllers/fluxograma_controller';
-import { TestesController } from './controllers/testes_controller';
 import logger from './logger';
 import { UsersController } from './controllers/users_controller';
 import { CursosController } from './controllers/cursos_controller';
@@ -59,7 +58,6 @@ const router = express.Router();
 
 const controllers: EndpointController[] = [
     FluxogramaController,
-    TestesController,
     UsersController,
     CursosController,
     MateriasController,

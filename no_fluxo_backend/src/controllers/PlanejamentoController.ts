@@ -24,12 +24,14 @@ import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
 import { createControllerLogger } from "../utils/controller_logger";
 import { gerarPlano, gerarPlanoCompletov2 } from "../services/plano_formatura.service";
+import { PlanejadorAgenteService, type MensagemChat, type AgenteContexto, type RestricoesPlanoInternas } from "../services/planejador_agente.service";
 import type {
     MateriaInput,
     PlanoInput,
     PreferenciasPlano,
     PlanoFormaturav2,
-    CargaIntegralizada
+    CargaIntegralizada,
+    RestricoesPlano
 } from "../types/planejamento";
 
 // =============================================================
@@ -95,6 +97,17 @@ function parseBody(body: unknown): { input?: PlanoInput; error?: string } {
         };
     }
 
+    // Restrições opcionais (adiar/priorizar) — normaliza códigos.
+    const rawRestricoes = body.restricoes;
+    if (isObject(rawRestricoes)) {
+        const normList = (v: unknown): string[] =>
+            Array.isArray(v) ? v.filter((c): c is string => typeof c === "string").map((c) => c.trim().toUpperCase()) : [];
+        const restricoes = { adiar: normList(rawRestricoes.adiar), priorizar: normList(rawRestricoes.priorizar) };
+        if (restricoes.adiar.length > 0 || restricoes.priorizar.length > 0) {
+            if (preferencias) preferencias.restricoes = restricoes;
+        }
+    }
+
     let materiasFaltantes: MateriaInput[] | undefined;
     if (body.materiasFaltantes !== undefined) {
         if (!Array.isArray(body.materiasFaltantes)) {
@@ -112,6 +125,175 @@ function parseBody(body: unknown): { input?: PlanoInput; error?: string } {
             materiasFaltantes,
         },
     };
+}
+
+// =============================================================
+// Interface para dados montados
+// =============================================================
+
+interface DadosPlano {
+    idUser: string;
+    idCurso: string;
+    numeroPeriodo: number;
+    preferencias: PreferenciasPlano;
+    cargaHorariaIntegralizada: CargaIntegralizada;
+    exigidaMatriz: CargaIntegralizada;
+    fluxogramaAtual: string | null | undefined;
+    materiasMapeadas: MateriaInput[];
+    codigosComOferta: Set<string>;
+}
+
+/**
+ * Monta todos os dados necessários para gerar o plano (busca em banco + processamento).
+ * Retorna { dados } se sucesso ou { status, error } se erro.
+ */
+async function montarDadosPlano(
+    idUser: string,
+    input: PlanoInput
+): Promise<{ dados?: DadosPlano; status?: number; error?: string }> {
+    try {
+        // 1. Busca dados do usuário e preferências no dados_users.
+        const { data: usuarioData, error: erroUsuario } = await SupabaseWrapper.get()
+            .from("dados_users")
+            .select("id_user, semestre_atual, carga_horaria_integralizada, fluxograma_atual, preferencias_plano")
+            .eq("id_user", idUser)
+            .maybeSingle();
+
+        if (erroUsuario) {
+            return { status: 500, error: `Erro ao buscar dados_users: ${erroUsuario.message}` };
+        }
+
+        if (!usuarioData) {
+            return { status: 404, error: "Dados do usuário não encontrados" };
+        }
+
+        const { curriculoCompleto, completedCodes, numeroPeriodo, preferencias: bodyPreferencias } = input;
+        const matriz = await resolveMatriz(curriculoCompleto);
+        if (!matriz) {
+            return { status: 404, error: "Matriz curricular não encontrada" };
+        }
+
+        // Monta CargaIntegralizada Exigida
+        const exigidaMatriz: CargaIntegralizada = {
+            total: matriz.ch_total_exigida || 0,
+            obrigatoria: matriz.ch_obrigatoria_exigida || 0,
+            optativa: matriz.ch_optativa_exigida || 0,
+            complementar: matriz.ch_complementar_exigida || 0
+        };
+
+        // Monta CargaIntegralizada Feita pelo Aluno
+        const chFeita = usuarioData.carga_horaria_integralizada as Record<string, any> || {};
+        const cargaHorariaIntegralizada: CargaIntegralizada = {
+            total: Number(chFeita.total) || 0,
+            obrigatoria: Number(chFeita.obrigatoria) || 0,
+            optativa: Number(chFeita.optativa) || 0,
+            complementar: Number(chFeita.complementar) || 0
+        };
+
+        // Monta Preferências usando body ou preferências salvas do usuário.
+        const prefs = usuarioData.preferencias_plano as Record<string, any> || {};
+        const preferencias: PreferenciasPlano = bodyPreferencias ?? {
+            limiteCreditos: Number(prefs.limiteCreditos) || 24,
+            objetivo: prefs.objetivo === "velocidade" ? "velocidade" : "equilibrado",
+            trabalha: Boolean(prefs.trabalha)
+        };
+
+        // 2. Busca materias_por_curso
+        const { data: materiasPorCurso, error: erroMPC } = await SupabaseWrapper.get()
+            .from("materias_por_curso")
+            .select("id_materia, nivel, tipo_natureza, materias(id_materia, codigo_materia, nome_materia, carga_horaria)")
+            .eq("id_matriz", matriz.id_matriz);
+
+        if (erroMPC) {
+            return { status: 500, error: `Erro ao buscar materias_por_curso: ${erroMPC.message}` };
+        }
+
+        if (!materiasPorCurso || materiasPorCurso.length === 0) {
+            return { status: 404, error: "Nenhuma matéria encontrada para a matriz curricular" };
+        }
+
+        // 3. Busca materias com oferta real em turmas (para evitar "optativas fantasmas")
+        const { data: turmasData, error: erroTurmas } = await SupabaseWrapper.get()
+            .from("turmas")
+            .select("id_materia");
+
+        // Mapear materias que possuem oferta real (distinct id_materia)
+        const materiasComOferta = new Set<number>();
+        if (!erroTurmas && turmasData && Array.isArray(turmasData)) {
+            for (const turma of turmasData) {
+                if (turma.id_materia) materiasComOferta.add(turma.id_materia);
+            }
+        }
+
+        const codigosComOferta = new Set<string>();
+        for (const mpc of materiasPorCurso as any[]) {
+            const idMateria = mpc.materias?.id_materia;
+            const codigoMateria = mpc.materias?.codigo_materia;
+            if (idMateria && codigoMateria && materiasComOferta.has(idMateria)) {
+                codigosComOferta.add((codigoMateria || "").trim().toUpperCase());
+            }
+        }
+
+        // 4. Busca pre_requisitos e co_requisitos para as materias da matriz
+        const idsMaterias = (materiasPorCurso as any[])
+            .map((r: any) => r.materias?.id_materia)
+            .filter((id): id is number => typeof id === "number");
+
+        let preByMateria = new Map<number, unknown>();
+        let coByMateria = new Map<number, unknown>();
+
+        if (idsMaterias.length > 0) {
+            const [{ data: preRows, error: erroPreReq }, { data: coRows, error: erroCoReq }] = await Promise.all([
+                SupabaseWrapper.get()
+                    .from("pre_requisitos")
+                    .select("id_materia, expressao_logica")
+                    .in("id_materia", idsMaterias),
+                SupabaseWrapper.get()
+                    .from("co_requisitos")
+                    .select("id_materia, expressao_logica")
+                    .in("id_materia", idsMaterias),
+            ]);
+
+            if (erroPreReq) return { status: 500, error: `Erro ao buscar pré-requisitos: ${erroPreReq.message}` };
+            if (erroCoReq) return { status: 500, error: `Erro ao buscar co-requisitos: ${erroCoReq.message}` };
+
+            if (preRows) preRows.forEach((r: any) => preByMateria.set(r.id_materia, r.expressao_logica));
+            if (coRows) coRows.forEach((r: any) => coByMateria.set(r.id_materia, r.expressao_logica));
+        }
+
+        // 5. MAP MATERIAS PARA O FORMATO DO MOTOR 2
+        const materiasMapeadas: MateriaInput[] = (materiasPorCurso as any[]).map(row => {
+            const mat = row.materias;
+            const cargaHr = mat.carga_horaria || 60; 
+            return {
+                codigo: mat.codigo_materia.trim().toUpperCase(),
+                nome: mat.nome_materia || mat.codigo_materia,
+                creditos: Math.ceil(cargaHr / 15),
+                nivel: row.nivel || 0,
+                obrigatoria: row.tipo_natureza === 0,
+                tipo_natureza: row.tipo_natureza,
+                carga_horaria: cargaHr,
+                preRequisitos: preByMateria.get(mat.id_materia) || null,
+                coRequisitos: coByMateria.get(mat.id_materia) || null,
+            };
+        });
+
+        return {
+            dados: {
+                idUser,
+                idCurso: String(matriz.id_curso),
+                numeroPeriodo,
+                preferencias,
+                cargaHorariaIntegralizada,
+                exigidaMatriz,
+                fluxogramaAtual: usuarioData.fluxograma_atual as string | null | undefined,
+                materiasMapeadas,
+                codigosComOferta,
+            }
+        };
+    } catch (err: any) {
+        return { status: 500, error: err?.message || "Erro ao montar dados do plano" };
+    }
 }
 
 interface MatrizRow {
@@ -306,170 +488,37 @@ export const PlanejamentoController: EndpointController = {
 
                     logger.info(`Gerando plano para usuário: ${id_user}`);
 
-                    // ========== QUERY DATABASE ==========
-                    // 1. Busca dados do usuário e preferências no dados_users.
-                    const { data: usuarioData, error: erroUsuario } = await SupabaseWrapper.get()
-                        .from("dados_users")
-                        .select("id_user, semestre_atual, carga_horaria_integralizada, fluxograma_atual, preferencias_plano")
-                        .eq("id_user", id_user)
-                        .maybeSingle();
-
-                    if (erroUsuario) {
-                        logger.error(`Erro ao buscar dados_users: ${erroUsuario.message}`);
-                        throw erroUsuario;
-                    }
-
-                    if (!usuarioData) {
-                        logger.warn(`Usuário não encontrado em dados_users: ${id_user}`);
-                        return res.status(404).json({ error: "Dados do usuário não encontrados" });
-                    }
-
+                    // ========== PARSE BODY ==========
                     const { input, error: bodyError } = parseBody(req.body);
                     if (bodyError) {
                         logger.warn(`Body inválido: ${bodyError}`);
                         return res.status(400).json({ error: bodyError });
                     }
 
-                    const { curriculoCompleto, completedCodes, numeroPeriodo, preferencias: bodyPreferencias } = input!;
-                    const matriz = await resolveMatriz(curriculoCompleto);
-                    if (!matriz) {
-                        logger.warn(`Matriz curricular não encontrada para curriculoCompleto: ${curriculoCompleto}`);
-                        return res.status(404).json({ error: "Matriz curricular não encontrada" });
+                    // ========== MONTAR DADOS DO PLANO ==========
+                    const { dados, status, error } = await montarDadosPlano(id_user as string, input!);
+                    if (error) {
+                        logger.warn(`Erro ao montar dados: ${error}`);
+                        return res.status(status || 500).json({ error });
+                    }
+                    if (!dados) {
+                        logger.error("Dados do plano não retornados");
+                        return res.status(500).json({ error: "Erro interno ao montar dados" });
                     }
 
-                    logger.info(`Dados do usuário carregados. Currículo: ${curriculoCompleto}, Matriz: ${matriz.curriculo_completo}, Semestre: ${usuarioData.semestre_atual}`);
-
-                    // Monta CargaIntegralizada Exigida
-                    const exigidaMatriz: CargaIntegralizada = {
-                        total: matriz.ch_total_exigida || 0,
-                        obrigatoria: matriz.ch_obrigatoria_exigida || 0,
-                        optativa: matriz.ch_optativa_exigida || 0,
-                        complementar: matriz.ch_complementar_exigida || 0
-                    };
-
-                    // Monta CargaIntegralizada Feita pelo Aluno
-                    const chFeita = usuarioData.carga_horaria_integralizada as Record<string, any> || {};
-                    const cargaHorariaIntegralizada: CargaIntegralizada = {
-                        total: Number(chFeita.total) || 0,
-                        obrigatoria: Number(chFeita.obrigatoria) || 0,
-                        optativa: Number(chFeita.optativa) || 0,
-                        complementar: Number(chFeita.complementar) || 0
-                    };
-
-                    logger.info(`[AUDIT] Carga Horária Integralizada do usuário: ${JSON.stringify(cargaHorariaIntegralizada)}`);
-                    logger.info(`[AUDIT] Carga Horária Exigida pela Matriz: ${JSON.stringify({total: matriz.ch_total_exigida, obrigatoria: matriz.ch_obrigatoria_exigida, optativa: matriz.ch_optativa_exigida, complementar: matriz.ch_complementar_exigida})}`);
-
-                    // Monta Preferências usando body ou preferências salvas do usuário.
-                    const prefs = usuarioData.preferencias_plano as Record<string, any> || {};
-                    const preferencias: PreferenciasPlano = bodyPreferencias ?? {
-                        limiteCreditos: Number(prefs.limiteCreditos) || 24,
-                        objetivo: prefs.objetivo === "velocidade" ? "velocidade" : "equilibrado",
-                        trabalha: Boolean(prefs.trabalha)
-                    };
-
-                    // 3. Busca materias_por_curso
-                    const { data: materiasPorCurso, error: erroMPC } = await SupabaseWrapper.get()
-                        .from("materias_por_curso")
-                        .select("id_materia, nivel, tipo_natureza, materias(id_materia, codigo_materia, nome_materia, carga_horaria)")
-                        .eq("id_matriz", matriz.id_matriz);
-
-                    if (erroMPC) {
-                        logger.error(`Erro ao buscar materias_por_curso: ${erroMPC.message}`);
-                        throw erroMPC;
-                    }
-
-                    if (!materiasPorCurso || materiasPorCurso.length === 0) {
-                        logger.warn(`Nenhuma matéria encontrada para matriz: ${matriz.id_matriz}`);
-                        return res.status(404).json({ error: "Nenhuma matéria encontrada para a matriz curricular" });
-                    }
-
-                    logger.info(`${materiasPorCurso.length} matérias da matriz carregadas`);
-
-                    // 3.5. Busca materias com oferta real em turmas (para evitar "optativas fantasmas")
-                    const { data: turmasData, error: erroTurmas } = await SupabaseWrapper.get()
-                        .from("turmas")
-                        .select("id_materia");
-
-                    if (erroTurmas) {
-                        logger.warn(`Aviso ao buscar turmas com oferta: ${erroTurmas.message}. Continuando sem validação de oferta.`);
-                    }
-
-                    // Mapear materias que possuem oferta real (distinct id_materia)
-                    const materiasComOferta = new Set<number>();
-                    if (turmasData && Array.isArray(turmasData)) {
-                        for (const turma of turmasData) {
-                            if (turma.id_materia) materiasComOferta.add(turma.id_materia);
-                        }
-                    }
-
-                    const codigosComOferta = new Set<string>();
-                    for (const mpc of materiasPorCurso as any[]) {
-                        const idMateria = mpc.materias?.id_materia;
-                        const codigoMateria = mpc.materias?.codigo_materia;
-                        if (idMateria && codigoMateria && materiasComOferta.has(idMateria)) {
-                            codigosComOferta.add((codigoMateria || "").trim().toUpperCase());
-                        }
-                    }
-
-                    logger.info(`${codigosComOferta.size} materias com oferta real encontradas (turmas cadastradas)`);
-
-                    // 4. Busca pre_requisitos e co_requisitos para as materias da matriz
-                    const idsMaterias = (materiasPorCurso as any[])
-                        .map((r: any) => r.materias?.id_materia)
-                        .filter((id): id is number => typeof id === "number");
-
-                    let preByMateria = new Map<number, unknown>();
-                    let coByMateria = new Map<number, unknown>();
-
-                    if (idsMaterias.length > 0) {
-                        const [{ data: preRows, error: erroPreReq }, { data: coRows, error: erroCoReq }] = await Promise.all([
-                            SupabaseWrapper.get()
-                                .from("pre_requisitos")
-                                .select("id_materia, expressao_logica")
-                                .in("id_materia", idsMaterias),
-                            SupabaseWrapper.get()
-                                .from("co_requisitos")
-                                .select("id_materia, expressao_logica")
-                                .in("id_materia", idsMaterias),
-                        ]);
-
-                        if (erroPreReq) throw erroPreReq;
-                        if (erroCoReq) throw erroCoReq;
-
-                        if (preRows) preRows.forEach((r: any) => preByMateria.set(r.id_materia, r.expressao_logica));
-                        if (coRows) coRows.forEach((r: any) => coByMateria.set(r.id_materia, r.expressao_logica));
-                    }
-
-                    logger.info(`Pré-requisitos e co-requisitos mapeados com sucesso.`);
-
-                    // 5. MAP MATERIAS PARA O FORMATO DO MOTOR 2
-                    const materiasMapeadas: MateriaInput[] = (materiasPorCurso as any[]).map(row => {
-                        const mat = row.materias;
-                        const cargaHr = mat.carga_horaria || 60; 
-                        return {
-                            codigo: mat.codigo_materia.trim().toUpperCase(),
-                            nome: mat.nome_materia || mat.codigo_materia,
-                            creditos: Math.ceil(cargaHr / 15),
-                            nivel: row.nivel || 0,
-                            obrigatoria: row.tipo_natureza === 0,
-                            tipo_natureza: row.tipo_natureza,
-                            carga_horaria: cargaHr,
-                            preRequisitos: preByMateria.get(mat.id_materia) || null,
-                            coRequisitos: coByMateria.get(mat.id_materia) || null,
-                        };
-                    });
+                    logger.info(`Dados do plano montados: ${dados.idCurso}, semestre ${dados.numeroPeriodo}, ${dados.materiasMapeadas.length} matérias`);
 
                     // ========== CALL V2 ALGORITHM ==========
                     const plano: PlanoFormaturav2 = gerarPlanoCompletov2(
-                        id_user as string,
-                        String(matriz.id_curso),
-                        numeroPeriodo,
-                        cargaHorariaIntegralizada,
-                        exigidaMatriz,
-                        usuarioData.fluxograma_atual as string | null | undefined,
-                        materiasMapeadas,
-                        preferencias,
-                        codigosComOferta
+                        dados.idUser,
+                        dados.idCurso,
+                        dados.numeroPeriodo,
+                        dados.cargaHorariaIntegralizada,
+                        dados.exigidaMatriz,
+                        dados.fluxogramaAtual,
+                        dados.materiasMapeadas,
+                        dados.preferencias,
+                        dados.codigosComOferta
                     );
 
                     logger.info(`Plano gerado: ${plano.semestresRestantes} semestres, ${plano.materiasNaoAlocadas.length} não-alocadas`);
@@ -478,6 +527,127 @@ export const PlanejamentoController: EndpointController = {
                 } catch (err: any) {
                     logger.error(`Erro ao gerar plano: ${err?.message || String(err)}`);
                     return res.status(500).json({ error: err?.message || "Erro ao gerar plano" });
+                }
+            }
+        ),
+        "chat": new Pair(
+            RequestType.POST,
+            async (req: Request, res: Response) => {
+                const logger = createControllerLogger("PlanejamentoController", "chat");
+
+                try {
+                    // ========== JWT AUTHENTICATION ==========
+                    if (!await Utils.checkAuthorization(req as Request)) {
+                        logger.warn("Autorização falhou");
+                        return res.status(401).json({ error: "Usuário não autorizado" });
+                    }
+
+                    const id_user = req.headers["user-id"] || req.headers["User-ID"];
+                    if (!id_user) {
+                        logger.warn("User-ID header não encontrado");
+                        return res.status(401).json({ error: "User-ID não informado" });
+                    }
+
+                    logger.info(`Chat agente planejador para usuário: ${id_user}`);
+
+                    // ========== VERIFICAR DISPONIBILIDADE DO MARITACA ==========
+                    const svc = new PlanejadorAgenteService();
+                    if (!svc.isAvailable()) {
+                        logger.warn("Maritaca API não disponível");
+                        return res.status(503).json({
+                            error: "Serviço de agente temporariamente indisponível",
+                        });
+                    }
+
+                    // ========== PARSE BODY ==========
+                    const body = req.body;
+                    if (!isObject(body)) {
+                        return res.status(400).json({ error: "Body inválido" });
+                    }
+
+                    // Mensagens do chat
+                    const messages = Array.isArray(body.messages) ? body.messages : [];
+                    if (
+                        !messages.every(
+                            (m) =>
+                                isObject(m) &&
+                                (m.role === "user" || m.role === "assistant") &&
+                                typeof m.content === "string"
+                        )
+                    ) {
+                        return res.status(400).json({
+                            error: "messages deve ser array de { role, content }",
+                        });
+                    }
+
+                    const historico: MensagemChat[] = messages.map(
+                        (m: any) => ({ role: m.role, content: m.content })
+                    );
+
+                    // Dados do plano (mesmo formato do gerar-plano)
+                    const { input, error: inputError } = parseBody(body.planoInput);
+                    if (inputError) {
+                        return res.status(400).json({ error: inputError });
+                    }
+
+                    // Restrições (validação)
+                    const bodyRestr = body.restricoes;
+                    const restricoes: RestricoesPlano = {
+                        adiar: Array.isArray((bodyRestr as any)?.adiar) ? (bodyRestr as any).adiar : [],
+                        priorizar: Array.isArray((bodyRestr as any)?.priorizar) ? (bodyRestr as any).priorizar : [],
+                    };
+
+                    // ========== MONTAR DADOS DO PLANO ==========
+                    const { dados, status: statusErr, error: erroMontagem } = await montarDadosPlano(
+                        id_user as string,
+                        input!
+                    );
+                    if (erroMontagem) {
+                        logger.warn(`Erro ao montar dados: ${erroMontagem}`);
+                        return res.status(statusErr || 500).json({ error: erroMontagem });
+                    }
+                    if (!dados) {
+                        logger.error("Dados do plano não retornados");
+                        return res.status(500).json({
+                            error: "Erro interno ao montar dados",
+                        });
+                    }
+
+                    // ========== MONTAR CONTEXTO DO AGENTE ==========
+                    const ctx: AgenteContexto = {
+                        materias: dados.materiasMapeadas,
+                        cargaHorariaIntegralizada: dados.cargaHorariaIntegralizada,
+                        exigidaMatriz: dados.exigidaMatriz,
+                        fluxogramaAtual: dados.fluxogramaAtual,
+                        idUser: dados.idUser,
+                        idCurso: dados.idCurso,
+                        numeroPeriodo: dados.numeroPeriodo,
+                        preferencias: dados.preferencias,
+                        restricoes: {
+                            adiar: restricoes.adiar,
+                            priorizar: restricoes.priorizar,
+                        },
+                        codigosComOferta: dados.codigosComOferta,
+                    };
+
+                    // ========== CONVERSAR COM AGENTE ==========
+                    logger.info(`Iniciando conversa com agente. Histórico: ${historico.length} mensagens`);
+                    const resultado = await svc.conversar(historico, ctx);
+
+                    logger.info(`Conversa concluída. Resposta: ${resultado.reply.slice(0, 50)}...`);
+
+                    return res.status(200).json({
+                        reply: resultado.reply,
+                        plano: resultado.plano ?? undefined,
+                        restricoes: resultado.restricoes,
+                    });
+                } catch (err: any) {
+                    logger.error(
+                        `Erro ao processar chat: ${err?.message || String(err)}`
+                    );
+                    return res.status(500).json({
+                        error: err?.message || "Erro ao processar mensagem do chat",
+                    });
                 }
             }
         ),

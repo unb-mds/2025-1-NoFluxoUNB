@@ -17,6 +17,17 @@ export type ObjetivoPlano = "velocidade" | "equilibrado";
 export type TipoSemestre = "recomendado" | "estimado";
 
 /**
+ * Restricoes opcionais impostas pelo aluno no planejamento.
+ * Codigos sempre normalizados (trim + uppercase) antes do uso.
+ */
+export interface RestricoesPlano {
+    /** Codigos que NAO podem entrar no proximo semestre (indice 0 do plano). */
+    adiar: string[];
+    /** Codigos forcados para o semestre mais cedo possivel (respeitando pre-requisitos). */
+    priorizar: string[];
+}
+
+/**
  * Preferencias do aluno (coletadas no onboarding e persistidas em
  * dados_users.preferencias_plano).
  */
@@ -27,6 +38,8 @@ export interface PreferenciasPlano {
     objetivo: ObjetivoPlano;
     /** Se o aluno trabalha/estagia (impacta carga sugerida). */
     trabalha: boolean;
+    /** Restricoes de alocacao impostas pelo aluno. Opcional — ausente = sem restricoes. */
+    restricoes?: RestricoesPlano;
 }
 
 /**

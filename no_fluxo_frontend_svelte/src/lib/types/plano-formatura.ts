@@ -3,6 +3,30 @@
  * Mirrors the backend response shape from POST /planejamento/gerar-plano.
  */
 
+// ─── Restrições de alocação ──────────────────────────────────────────────────
+
+export interface RestricoesPlano {
+	/** Códigos que não entram no próximo semestre. */
+	adiar: string[];
+	/** Códigos priorizados para entrar no semestre mais cedo. */
+	priorizar: string[];
+}
+
+// ─── Mensagens de chat ───────────────────────────────────────────────────────
+
+export type PlannerChatRole = 'user' | 'assistant';
+
+export interface PlannerChatMessage {
+	role: PlannerChatRole;
+	content: string;
+}
+
+export interface PlannerChatResponse {
+	reply: string;
+	plano?: PlanoFormaturav2;
+	restricoes: RestricoesPlano;
+}
+
 // ─── Preferências do usuário (onboarding) ───────────────────────────────────
 
 export type ObjetivoPlano = 'velocidade' | 'equilibrio';

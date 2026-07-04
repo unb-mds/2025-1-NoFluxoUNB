@@ -23,7 +23,15 @@
     "coleta:migrate": "pnpm --filter coleta-dados run migrate:tipo-natureza",
     "test:historicos": "pnpm --filter test-historicos run all"
   },
-  "keywords": ["nofluxo", "unb", "fluxograma", "academico"],
+  "keywords": [
+    "nofluxo",
+    "unb",
+    "fluxograma",
+    "academico"
+  ],
   "author": "NoFluxo Team",
-  "license": "GPL-3.0-only"
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "googlethis": "^1.8.0"
+  }
 }

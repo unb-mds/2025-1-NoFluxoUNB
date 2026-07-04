@@ -29,6 +29,7 @@
 </script>
 
 <div
+	role="group"
 	data-subject-code={materia.codigo}
 	class="group relative flex flex-col gap-2.5 rounded-lg border border-l-4 bg-[#161625] px-3.5 py-3 transition-all duration-150 hover:brightness-110 {borderClass}"
 	onmouseenter={handleMouseEnter}

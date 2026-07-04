@@ -3,16 +3,28 @@
 	import { planoFormaturaStore } from '$lib/stores/plano-formatura.store.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { authStore } from '$lib/stores/auth';
+	import PlannerSvelteFlow from './PlannerSvelteFlow.svelte';
 	import SemesterColumn from '../fluxograma/SemesterColumn.svelte';
 	import SemestrePlanCard from './SemestrePlanCard.svelte';
 	import SemestreAtualColumn from './SemestreAtualColumn.svelte';
+	import PlannerChatPanel from './PlannerChatPanel.svelte';
 	import PlannerPrerequisiteConnections from './PlannerPrerequisiteConnections.svelte';
-	import { GraduationCap, Loader2, RefreshCw, Settings, AlertTriangle, BookOpenCheck } from 'lucide-svelte';
 	import { fade } from 'svelte/transition';
+	import {
+		GraduationCap,
+		Settings,
+		RefreshCw,
+		Loader2,
+		AlertTriangle,
+		BookOpenCheck,
+		X,
+		Sparkles
+	} from 'lucide-svelte';
 
 	let isChangingCredits = $state(false);
 	let displayUnit = $state<'creditos' | 'horas'>('creditos');
 	let hoveredCode = $state<string | null>(null);
+	let isChatOpen = $state(false);
 	let authState = $derived($authStore);
 
 	// Debounce para o slider de créditos — evita chamar API a cada tick
@@ -85,7 +97,9 @@
 	});
 </script>
 
-<div class="flex h-full flex-col gap-5 bg-[#090c12] px-6 py-6 text-white">
+<div class="flex h-full gap-0 bg-[#090c12] text-white">
+	<!-- Main content (plano scroll area) -->
+	<div class="flex-1 flex flex-col gap-5 px-6 py-6 overflow-hidden">
 
 	<!-- ─── Page header ──────────────────────────────────────────────────── -->
 	<div class="flex flex-wrap items-start justify-between gap-4">
@@ -252,30 +266,53 @@
 				</div>
 			{/if}
 
-			<!-- Horizontal scroll container -->
-			<PlannerPrerequisiteConnections plano={planoFormaturaStore.plano} curso={fluxogramaStore.state.courseData} {hoveredCode}>
-				<!-- Coluna do semestre atual (MATR) como primeira coluna -->
-				{#if materiasMATR.length > 0}
-					<SemestreAtualColumn
-						materias={materiasMATR}
-						{semestreAtual}
-					/>
-				{/if}
+			<!-- Fluxo interativo Svelte Flow (Substitui scroll horizontal antigo) -->
+			<PlannerSvelteFlow 
+				plano={planoFormaturaStore.plano} 
+				curso={fluxogramaStore.state.courseData} 
+				{materiasMATR}
+				{semestreAtual}
+			/>
 
-				{#each planoFormaturaStore.plano.plano as semestre, i (semestre.indice)}
-					<SemestrePlanCard {semestre} index={i} {displayUnit} {semestreAtual} bind:hoveredCode />
-				{/each}
-
-				{#if planoFormaturaStore.plano.plano.length === 0 && materiasMATR.length === 0}
-					<div class="flex flex-1 flex-col items-center justify-center gap-3 py-12 text-center">
-						<GraduationCap class="h-10 w-10 text-white/20" />
-						<p class="text-sm text-white/40">
+			{#if planoFormaturaStore.plano.plano.length === 0 && materiasMATR.length === 0}
+				<div class="flex flex-1 flex-col items-center justify-center gap-3 py-12 text-center">
+					<GraduationCap class="h-10 w-10 text-white/20" />
+					<p class="text-sm text-white/40">
 							Nenhum semestre no plano — você pode estar prestes a se formar!
 						</p>
 					</div>
 				{/if}
-			</PlannerPrerequisiteConnections>
 		</div>
+	{/if}
+	</div>
+
+	<!-- Chat panel (floating fixed) -->
+	{#if isChatOpen}
+		<div class="fixed bottom-6 right-6 z-50 w-96 h-[550px] shadow-[0_8px_30px_rgb(0,0,0,0.5)] flex flex-col bg-[#090c12]/60 backdrop-blur-2xl rounded-2xl overflow-hidden border border-white/10" transition:fade={{ duration: 150 }}>
+			<div class="absolute top-4 right-4 z-50">
+				<button 
+					type="button" 
+					onclick={() => isChatOpen = false} 
+					class="p-1 rounded-md text-white/40 hover:text-white/80 hover:bg-white/5 transition-colors cursor-pointer"
+					aria-label="Fechar chat"
+				>
+					<X class="h-4 w-4" />
+				</button>
+			</div>
+			<PlannerChatPanel />
+		</div>
+	{/if}
+
+	<!-- Floating Toggle Button -->
+	{#if !isChatOpen}
+		<button
+			type="button"
+			onclick={() => isChatOpen = true}
+			class="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-xl bg-[#1e1e24]/80 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all duration-300 hover:bg-[#2a2a32] hover:scale-105 active:scale-95 cursor-pointer border border-white/10"
+			aria-label="Toggle IA"
+		>
+			<Sparkles class="h-5 w-5 text-white/90" />
+		</button>
 	{/if}
 </div>
 

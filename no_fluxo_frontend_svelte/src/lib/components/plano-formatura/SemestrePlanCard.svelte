@@ -66,6 +66,7 @@
 </script>
 
 <div
+	data-semester-column
 	class="flex h-full w-72 shrink-0 flex-col overflow-hidden rounded-2xl border {containerClass}"
 >
 	<!-- Header -->

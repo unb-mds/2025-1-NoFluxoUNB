@@ -598,20 +598,10 @@
 	/**
 	 * Mesmo semestre / mesma coluna: “U” à direita dos cards para não sobrepor o texto e manter a seta visível.
 	 */
+	/** U-bend suave usando uma única cúbica (mesma coluna / mesma semestre). */
 	function buildSameColumnStackPath(x1: number, y1: number, x2: number, y2: number): string {
-		const outward = 36;
-		const midX = Math.max(x1, x2) + outward;
-		const r = 14;
-		const dir = y2 >= y1 ? 1 : -1;
-		// Desce (ou sobe) pelo corredor vertical à direita da coluna
-		return [
-			`M ${x1} ${y1}`,
-			`L ${midX - r} ${y1}`,
-			`Q ${midX} ${y1} ${midX} ${y1 + r * dir}`,
-			`L ${midX} ${y2 - r * dir}`,
-			`Q ${midX} ${y2} ${midX - r} ${y2}`,
-			`L ${x2} ${y2}`
-		].join(' ');
+		const midX = Math.max(x1, x2) + 36;
+		return `M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}`;
 	}
 
 	function getPath(line: ConnectionLine): string {
@@ -619,14 +609,17 @@
 		if (sameColumnStack) {
 			return buildSameColumnStackPath(x1, y1, x2, y2);
 		}
-		// Bézier: pontos de controle devem ir “em direção” ao outro extremo. Com optativa em
-		// semestre à esquerda do pré-requisito, x2 < x1; offsets fixos para a direita quebram a curva.
-		const dx = Math.abs(x2 - x1);
-		const controlOffset = Math.max(dx * 0.4, 40);
-		if (x2 >= x1) {
-			return `M ${x1} ${y1} C ${x1 + controlOffset} ${y1}, ${x2 - controlOffset} ${y2}, ${x2} ${y2}`;
-		}
-		return `M ${x1} ${y1} C ${x1 - controlOffset} ${y1}, ${x2 + controlOffset} ${y2}, ${x2} ${y2}`;
+		// Arco fluido: cp1 sai em diagonal (vertSwing), cp2 chega horizontal (y2),
+		// L final garante seta →. cp1.x = cp2.x = midX → sem self-intersection.
+		const HORIZ_ENTRY = 36;
+		const adxFull = x2 - x1;
+		const safeHoriz = Math.max(8, Math.min(HORIZ_ENTRY, adxFull * 0.45));
+		const bx2 = x2 - safeHoriz;
+		const ady = Math.abs(y2 - y1);
+		const sgnY = y2 >= y1 ? 1 : -1;
+		const midX = (x1 + bx2) / 2;
+		const vertSwing = ady * 0.35;
+		return `M ${x1} ${y1} C ${midX} ${y1 + sgnY * vertSwing}, ${midX} ${y2}, ${bx2} ${y2} L ${x2} ${y2}`;
 	}
 
 	/** Usa o mesmo traçado dinâmico (bezier) das conexões individuais em todos os modos. */

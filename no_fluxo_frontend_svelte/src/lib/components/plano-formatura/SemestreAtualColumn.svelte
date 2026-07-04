@@ -14,7 +14,10 @@
 	const totalHoras = $derived(Math.ceil(totalCreditos * 15));
 </script>
 
-<div class="flex h-full w-72 shrink-0 flex-col overflow-hidden rounded-2xl border border-purple-500/30 bg-purple-600/10 shadow-[0_0_0_1px_hsl(270_80%_50%/0.2),0_4px_24px_hsl(270_80%_40%/0.1)]">
+<div
+	data-semester-column
+	class="flex h-full w-72 shrink-0 flex-col overflow-hidden rounded-2xl border border-purple-500/30 bg-purple-600/10 shadow-[0_0_0_1px_hsl(270_80%_50%/0.2),0_4px_24px_hsl(270_80%_40%/0.1)]"
+>
 	<!-- Header -->
 	<div class="bg-purple-600/15 border-b border-purple-500/20 px-4 py-3.5">
 		<div class="flex items-center justify-between gap-2">

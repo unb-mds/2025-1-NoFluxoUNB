@@ -260,6 +260,10 @@ export function distribuirPorSemestres(
     const cumulados = new Set<string>();
     for (const c of completedCodes) cumulados.add(norm(c));
 
+    // Restrições: codigos normalizados (trim + uppercase)
+    const adiarSet = new Set((preferencias.restricoes?.adiar ?? []).map(norm));
+    const priorizarSet = new Set((preferencias.restricoes?.priorizar ?? []).map(norm));
+
     const semestres: SemestrePlano[] = [];
     let indiceSemestre = 0;
 
@@ -275,14 +279,36 @@ export function distribuirPorSemestres(
         const candidatas: MateriaComScore[] = [];
         for (const cod of restantes) {
             const info = scores.get(cod)!;
+            // Restrição: adiar tira matéria APENAS do semestre 0
+            if (indiceSemestre === 0 && adiarSet.has(cod)) continue;
             if (isDesbloqueada(info.materia, cumulados)) {
                 candidatas.push(info);
             }
         }
 
-        if (candidatas.length === 0) break;
+        if (candidatas.length === 0) {
+            // Se só não há candidatas porque tudo foi adiado no semestre 0,
+            // criar semestre vazio e seguir — as adiadas voltam no índice 1.
+            if (indiceSemestre === 0 && adiarSet.size > 0) {
+                semestres.push({
+                    indice: 0,
+                    tipo: "recomendado",
+                    semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, 1) : undefined,
+                    creditos: 0,
+                    _horasInternas: 0,
+                    materias: [],
+                });
+                indiceSemestre++;
+                continue;
+            }
+            break;
+        }
 
         candidatas.sort((a, b) => {
+            // Restrição: priorizar força pro topo (antes de score)
+            const aPri = priorizarSet.has(norm(a.materia.codigo)) ? 1 : 0;
+            const bPri = priorizarSet.has(norm(b.materia.codigo)) ? 1 : 0;
+            if (aPri !== bPri) return bPri - aPri;
             if (b.score !== a.score) return b.score - a.score;
             if (a.materia.nivel !== b.materia.nivel) return a.materia.nivel - b.materia.nivel;
             return a.materia.codigo.localeCompare(b.materia.codigo);
