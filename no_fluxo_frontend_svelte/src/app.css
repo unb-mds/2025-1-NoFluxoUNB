@@ -98,6 +98,7 @@
 .nav-link {
 	position: relative;
 	display: inline-block;
+	white-space: nowrap;
 	transition: color 160ms ease;
 }
 

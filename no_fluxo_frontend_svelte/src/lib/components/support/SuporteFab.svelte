@@ -2,7 +2,6 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import * as Dialog from '$lib/components/ui/dialog';
-	import { ChevronRight } from 'lucide-svelte';
 	import { ROUTES } from '$lib/config/routes';
 	import { ticketService } from '$lib/services/ticket.service';
 	import { authStore } from '$lib/stores/auth';
@@ -12,7 +11,7 @@
 	} from '$lib/types/ticket';
 	import {
 		AlertTriangle,
-		Bug,
+		LifeBuoy,
 		CheckCircle2,
 		Loader2,
 		Paperclip,
@@ -101,18 +100,17 @@
 	async function onSubmit(e: Event) {
 		e.preventDefault();
 		submitError = null;
-		if (title.trim().length < 4) {
-			submitError = 'O título precisa ter ao menos 4 caracteres.';
-			return;
-		}
 		if (description.trim().length < 10) {
-			submitError = 'A descrição precisa ter ao menos 10 caracteres.';
+			submitError = 'Conte um pouco mais: descreva em ao menos 10 caracteres.';
 			return;
 		}
+		// Título é opcional — se vazio, usa o começo da descrição como resumo.
+		const resolvedTitle =
+			title.trim() || description.trim().slice(0, 60) + (description.trim().length > 60 ? '…' : '');
 		submitting = true;
 		try {
 			const created = await ticketService.createTicket({
-				title,
+				title: resolvedTitle,
 				description,
 				category,
 				attachments: files
@@ -126,36 +124,36 @@
 	}
 </script>
 
-<!-- FAB -->
+<!-- FAB de ajuda (canto inferior esquerdo — longe do chat de IA, com rótulo claro) -->
 {#if minimized}
 	<button
 		type="button"
 		class="suporte-tab"
-		aria-label="Mostrar botão de suporte"
-		title="Mostrar suporte"
+		aria-label="Mostrar botão de ajuda"
+		title="Ajuda"
 		onclick={() => setMinimized(false)}
 	>
-		<Bug class="h-4 w-4" />
+		<LifeBuoy class="h-4 w-4" />
 	</button>
 {:else}
 	<div class="suporte-fab-wrap">
 		<button
 			type="button"
 			class="suporte-fab"
-			aria-label="Suporte"
+			aria-label="Ajuda e suporte"
 			onclick={() => onOpenChange(true)}
 		>
-			<Bug class="h-6 w-6" />
-			<span class="fab-tooltip">Suporte</span>
+			<LifeBuoy class="h-5 w-5" />
+			<span class="fab-label">Ajuda</span>
 		</button>
 		<button
 			type="button"
 			class="fab-minimize"
-			aria-label="Minimizar botão de suporte"
+			aria-label="Minimizar botão de ajuda"
 			title="Minimizar"
 			onclick={() => setMinimized(true)}
 		>
-			<ChevronRight class="h-3 w-3" />
+			<X class="h-3 w-3" />
 		</button>
 	</div>
 {/if}
@@ -167,22 +165,22 @@
 	>
 		<Dialog.Header>
 			<Dialog.Title class="flex items-center gap-2 text-foreground">
-				<Bug class="h-5 w-5 text-pink-600 dark:text-pink-400" />
-				<span>Abrir ticket de suporte</span>
+				<LifeBuoy class="h-5 w-5 text-pink-600 dark:text-pink-400" />
+				<span>Precisa de ajuda?</span>
 			</Dialog.Title>
 			<Dialog.Description class="text-muted-foreground">
-				Relate um bug, envie uma sugestão ou tire uma dúvida.
+				Relate um problema, envie uma sugestão ou tire uma dúvida — nosso time acompanha.
 			</Dialog.Description>
 		</Dialog.Header>
 
 		{#if createdId !== null}
 			<div class="success-state">
 				<CheckCircle2 class="h-10 w-10 text-emerald-600 dark:text-emerald-400" />
-				<h3>Ticket #{createdId} enviado</h3>
-				<p>Nosso time vai analisar. Você pode acompanhar o status em "Meus tickets".</p>
+				<h3>Recebemos seu chamado #{createdId}</h3>
+				<p>Nosso time vai analisar. Você pode acompanhar o andamento em "Meus chamados".</p>
 				<div class="success-actions">
 					<button type="button" class="btn-secondary" onclick={() => (createdId = null, resetForm())}>
-						Abrir outro
+						Enviar outro
 					</button>
 					<button
 						type="button"
@@ -192,7 +190,7 @@
 							goto(ROUTES.SUPORTE);
 						}}
 					>
-						Ver meus tickets
+						Acompanhar
 					</button>
 				</div>
 			</div>
@@ -215,7 +213,9 @@
 				</div>
 
 				<div class="field">
-					<label for="fab-ticket-title" class="label">Título</label>
+					<label for="fab-ticket-title" class="label">
+						Título <span class="label-hint">(opcional)</span>
+					</label>
 					<input
 						id="fab-ticket-title"
 						type="text"
@@ -227,7 +227,7 @@
 				</div>
 
 				<div class="field">
-					<label for="fab-ticket-description" class="label">Descrição</label>
+					<label for="fab-ticket-description" class="label">O que aconteceu?</label>
 					<textarea
 						id="fab-ticket-description"
 						class="textarea"
@@ -312,23 +312,38 @@
 <style>
 	.suporte-fab-wrap {
 		position: fixed;
-		right: 20px;
+		left: 20px;
 		bottom: 20px;
 		z-index: 40;
 	}
+	/* Pílula rotulada no canto INFERIOR ESQUERDO — deixa claro que é ajuda,
+	   sem se confundir com o chat de IA (que vive no canto inferior direito). */
 	.suporte-fab {
 		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		width: 52px;
-		height: 52px;
-		border-radius: 50%;
+		gap: 8px;
+		height: 44px;
+		padding: 0 16px;
+		border-radius: 999px;
 		border: 1px solid rgba(255, 255, 255, 0.15);
 		background: linear-gradient(135deg, #9333ea, #ec4899);
 		color: white;
 		cursor: pointer;
+		font-size: 14px;
+		font-weight: 600;
 		box-shadow: 0 8px 20px rgba(147, 51, 234, 0.35);
 		transition: transform 150ms ease, box-shadow 150ms ease;
+	}
+	.fab-label {
+		white-space: nowrap;
+	}
+	.suporte-fab:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 12px 28px rgba(236, 72, 153, 0.45);
+	}
+	.suporte-fab:focus-visible {
+		outline: 2px solid #c4b5fd;
+		outline-offset: 3px;
 	}
 	.fab-minimize {
 		position: absolute;
@@ -337,8 +352,8 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 22px;
-		height: 22px;
+		width: 20px;
+		height: 20px;
 		border-radius: 50%;
 		border: 1px solid hsl(var(--border));
 		background: hsl(var(--muted));
@@ -357,10 +372,10 @@
 		background: hsl(var(--accent));
 		color: hsl(var(--accent-foreground));
 	}
-	/* Aba lateral discreta exibida quando minimizado */
+	/* Aba lateral discreta exibida quando minimizado (lado esquerdo) */
 	.suporte-tab {
 		position: fixed;
-		right: 0;
+		left: 0;
 		bottom: 90px;
 		z-index: 40;
 		display: inline-flex;
@@ -369,8 +384,8 @@
 		width: 26px;
 		height: 44px;
 		border: 1px solid rgba(255, 255, 255, 0.15);
-		border-right: none;
-		border-radius: 8px 0 0 8px;
+		border-left: none;
+		border-radius: 0 8px 8px 0;
 		background: linear-gradient(135deg, #9333ea, #ec4899);
 		color: white;
 		cursor: pointer;
@@ -384,53 +399,15 @@
 		width: 32px;
 		outline: none;
 	}
-	.suporte-fab:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 12px 28px rgba(236, 72, 153, 0.45);
-	}
-	.suporte-fab:focus-visible {
-		outline: 2px solid #c4b5fd;
-		outline-offset: 3px;
-	}
-	.fab-tooltip {
-		position: absolute;
-		right: calc(100% + 10px);
-		top: 50%;
-		transform: translateY(-50%);
-		background: hsl(var(--card) / 0.95);
-		color: hsl(var(--foreground));
-		font-size: 12px;
-		font-weight: 600;
-		padding: 6px 10px;
-		border-radius: 6px;
-		border: 1px solid hsl(var(--border));
-		white-space: nowrap;
-		pointer-events: none;
-		opacity: 0;
-		transform: translate(8px, -50%);
-		transition: opacity 150ms ease, transform 150ms ease;
-	}
-	.suporte-fab:hover .fab-tooltip,
-	.suporte-fab:focus-visible .fab-tooltip {
-		opacity: 1;
-		transform: translate(0, -50%);
-	}
 
 	@media (max-width: 640px) {
 		.suporte-fab-wrap {
-			right: 16px;
+			left: 16px;
 			bottom: 16px;
-		}
-		.suporte-fab {
-			width: 48px;
-			height: 48px;
 		}
 		.fab-minimize {
 			opacity: 1;
 			transform: scale(1);
-		}
-		.fab-tooltip {
-			display: none;
 		}
 	}
 

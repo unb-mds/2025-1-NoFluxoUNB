@@ -148,7 +148,7 @@
 				onclick={() => (activeTab = 'novo')}
 			>
 				<Plus class="h-4 w-4" />
-				<span>Novo ticket</span>
+				<span>Novo chamado</span>
 			</button>
 			<button
 				type="button"
@@ -159,7 +159,7 @@
 					void loadMyTickets();
 				}}
 			>
-				<span>Meus tickets</span>
+				<span>Meus chamados</span>
 				{#if myTickets.length > 0}
 					<span class="badge-count">{myTickets.length}</span>
 				{/if}
@@ -258,7 +258,7 @@
 				{#if justCreatedId}
 					<div class="alert alert-success">
 						<CheckCircle2 class="h-4 w-4 shrink-0" />
-						<span>Ticket #{justCreatedId} enviado. Acompanhe em "Meus tickets".</span>
+						<span>Chamado #{justCreatedId} enviado. Acompanhe em "Meus chamados".</span>
 					</div>
 				{/if}
 
@@ -268,7 +268,7 @@
 						<span>Enviando…</span>
 					{:else}
 						<Send class="h-4 w-4" />
-						<span>Enviar ticket</span>
+						<span>Enviar chamado</span>
 					{/if}
 				</button>
 			</form>
@@ -286,7 +286,7 @@
 					</div>
 				{:else if myTickets.length === 0}
 					<div class="card empty">
-						<p>Você ainda não abriu nenhum ticket.</p>
+						<p>Você ainda não abriu nenhum chamado.</p>
 						<button class="link-btn" onclick={() => (activeTab = 'novo')}>Abrir o primeiro →</button>
 					</div>
 				{:else}

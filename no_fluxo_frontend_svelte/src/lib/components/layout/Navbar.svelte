@@ -96,7 +96,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Gra
 		{#if variant === 'floating'}
 			<!-- Desktop: cluster centralizado (respiro entre itens). -->
 			<div
-				class="hidden min-w-0 flex-1 items-center justify-center gap-10 md:flex lg:gap-14"
+				class="hidden min-w-0 flex-1 items-center justify-center gap-5 md:flex lg:gap-7 xl:gap-9"
 				aria-label="Navegação principal"
 			>
 				{#if isAuthenticated}

@@ -106,7 +106,7 @@
 <div class="flex min-h-screen flex-col overflow-x-hidden">
 	{#if showNavbar}
 		<div class="navbar-glass sticky top-0 z-50 px-4 pt-3 md:px-6 md:pt-4">
-			<div class="mx-auto w-full max-w-[min(1180px,calc(100vw-2rem))]">
+			<div class="mx-auto w-full">
 				<Navbar
 					user={$currentUser}
 					isAuthenticated={$isAuthenticated || $isAnonymous}
