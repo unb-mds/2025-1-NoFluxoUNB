@@ -11,9 +11,11 @@
 		hoveredCode?: string | null;
 		/** Callback para enviar ação diretamente ao chat (botões rápidos). */
 		onChatAction?: (msg: string) => void;
+		/** Unidade de exibição dos créditos. */
+		displayUnit?: 'creditos' | 'horas';
 	}
 
-	let { materia, tipoSemestre = 'estimado', hoveredCode = $bindable(), onChatAction }: Props = $props();
+	let { materia, tipoSemestre = 'estimado', hoveredCode = $bindable(), onChatAction, displayUnit = 'creditos' }: Props = $props();
 
 	const isRecomendado = $derived(tipoSemestre === 'recomendado');
 
@@ -44,7 +46,7 @@
 			{materia.codigo}
 		</span>
 		<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-bold text-white">
-			{materia.creditos} cr
+			{displayUnit === 'horas' ? `${materia.creditos * 15}h` : `${materia.creditos} cr`}
 		</span>
 	</div>
 

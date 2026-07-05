@@ -6,6 +6,7 @@
 	import PlannerSvelteFlow from './PlannerSvelteFlow.svelte';
 	import SemesterColumn from '../fluxograma/SemesterColumn.svelte';
 	import SemestrePlanCard from './SemestrePlanCard.svelte';
+	import RestricoesChips from './RestricoesChips.svelte';
 	import SemestreAtualColumn from './SemestreAtualColumn.svelte';
 	import PlannerChatPanel from './PlannerChatPanel.svelte';
 	import PlannerPrerequisiteConnections from './PlannerPrerequisiteConnections.svelte';
@@ -312,6 +313,14 @@
 		</div>
 	</div>
 
+	<!-- Restrições ativas -->
+	{#if planoFormaturaStore.restricoes.adiar.length > 0 || planoFormaturaStore.restricoes.priorizar.length > 0}
+		<div class="rounded-xl border border-white/5 bg-black/20 backdrop-blur-xl px-4 py-3 shadow-inner">
+			<p class="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-2">Restrições ativas</p>
+			<RestricoesChips />
+		</div>
+	{/if}
+
 	<!-- ─── Loading state ────────────────────────────────────────────────── -->
 	{#if planoFormaturaStore.status === 'loading'}
 		<div class="flex flex-1 flex-col items-center justify-center gap-3 py-16" transition:fade={{ duration: 150 }}>
@@ -374,6 +383,7 @@
 				{materiasMATR}
 				{semestreAtual}
 				onChatAction={handleChatAction}
+				{displayUnit}
 			/>
 
 			{#if planoFormaturaStore.plano.plano.length === 0 && materiasMATR.length === 0}

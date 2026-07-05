@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { planoFormaturaStore } from '$lib/stores/plano-formatura.store.svelte';
 	import { Sparkles, SendHorizontal, Bot } from 'lucide-svelte';
-	import RestricoesChips from './RestricoesChips.svelte';
 	import { formatHorarioSigaa, compactarFaixasHorarias, formatLocalSigaa } from '$lib/utils/sigaa';
 	import ChatWrapper from '$lib/components/chat/ChatWrapper.svelte';
 	import ChatBubble from '$lib/components/chat/ChatBubble.svelte';
@@ -165,7 +164,7 @@
 		const msgs = planoFormaturaStore.chatMessages.length;
 		const loading = planoFormaturaStore.chatLoading;
 		
-		if (msgs >= 0 || loading) {
+		if (msgs > 0 || loading) {
 			setTimeout(() => {
 				if (chatViewport) {
 					chatViewport.scrollTop = chatViewport.scrollHeight;
@@ -203,18 +202,18 @@
 							Dica: Eu posso <span class="font-bold text-indigo-200 drop-shadow-[0_0_6px_rgba(129,140,248,0.8)]">adiar</span>, <span class="font-bold text-indigo-200 drop-shadow-[0_0_6px_rgba(129,140,248,0.8)]">antecipar</span> ou <span class="font-bold text-indigo-200 drop-shadow-[0_0_6px_rgba(129,140,248,0.8)]">remanejar</span> qualquer disciplina do seu plano. Pode pedir!
 						</p>
 						
-						<div class="mt-6 flex flex-col gap-3 w-full max-w-[280px]">
+						<div class="mt-6 flex flex-wrap justify-center gap-2 w-full max-w-[340px]">
 							{#each promptStarters as starter}
 								<button 
 									type="button" 
 									onclick={() => { messageInput = starter.message; enviarMensagem(); }}
-									class="group flex items-center text-left px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-indigo-500/40 backdrop-blur-md rounded-2xl text-[13px] font-medium text-white/80 transition-all cursor-pointer shadow-sm hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] hover:text-white shrink-0"
+									class="group flex items-center px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-indigo-500/40 backdrop-blur-md rounded-full text-[12px] font-medium text-white/80 transition-all cursor-pointer shadow-sm hover:shadow-[0_0_15px_rgba(99,102,241,0.15)] hover:text-white shrink-0"
 								>
-								<Sparkles class="w-4 h-4 mr-3 text-white/30 group-hover:text-indigo-400 transition-colors shrink-0" />
-								<div class="flex-1 leading-snug truncate">
+								<Sparkles class="w-3 h-3 mr-1.5 text-white/30 group-hover:text-indigo-400 transition-colors shrink-0" />
+								<div class="flex-1 leading-snug">
 									{starter.prefix} 
 									{#if starter.badge}
-										<span class="inline-flex items-center rounded-md bg-white/5 border border-white/20 px-1.5 py-0.5 text-[11px] font-mono font-bold tracking-wide text-white mx-1 transition-all duration-300 group-hover:bg-indigo-500/20 group-hover:text-indigo-200 group-hover:border-indigo-400/80 group-hover:shadow-[0_0_12px_rgba(129,140,248,0.5),inset_0_0_8px_rgba(129,140,248,0.3)]">{starter.badge}</span>
+										<span class="inline-flex items-center rounded-full bg-white/5 border border-white/20 px-1.5 py-px text-[10px] font-mono font-bold tracking-wide text-white mx-1 transition-all duration-300 group-hover:bg-indigo-500/20 group-hover:text-indigo-200 group-hover:border-indigo-400/80 group-hover:shadow-[0_0_12px_rgba(129,140,248,0.5),inset_0_0_8px_rgba(129,140,248,0.3)]">{starter.badge}</span>
 									{/if}
 									{starter.suffix}
 								</div>
@@ -310,13 +309,6 @@
 			{/if}
 		</div>
 
-		<!-- Restrições ativas -->
-		{#if planoFormaturaStore.restricoes.adiar.length > 0 || planoFormaturaStore.restricoes.priorizar.length > 0}
-			<div class="px-5 py-3 border-t border-white/5 bg-black/20 backdrop-blur-xl relative z-10">
-				<p class="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-2">Restrições ativas</p>
-				<RestricoesChips />
-			</div>
-		{/if}
 
 		<!-- Input -->
 		<div class="p-5 pt-3 bg-transparent relative z-10 pb-6">
