@@ -89,6 +89,7 @@ function createPlanoFormaturaStore() {
 
 	// ─── Public API ───────────────────────────────────────────────────────────
 
+
 	return {
 		// Expose reactive state as getters
 		get status() { return status; },
@@ -102,6 +103,7 @@ function createPlanoFormaturaStore() {
 		get chatMessages() { return chatMessages; },
 		get restricoes() { return restricoes; },
 		get chatLoading() { return chatLoading; },
+
 
 		/**
 		 * Carrega preferências do usuário a partir do Supabase.
@@ -302,6 +304,11 @@ function createPlanoFormaturaStore() {
 			chatMessages = [];
 			restricoes = { adiar: [], priorizar: [] };
 			chatLoading = false;
+
+			const idUser = getIdUser();
+			if (idUser) {
+				planoFormaturaService.savePreferencias(idUser, preferencias).catch(() => {});
+			}
 		}
 	};
 }

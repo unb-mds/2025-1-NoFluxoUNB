@@ -186,6 +186,11 @@
 		{/if}
 	</button>
 
+	<!-- Register -->
+	<a href="/signup" class="auth-btn-google no-underline" data-sveltekit-preload-data>
+		Cadastrar
+	</a>
+
 	<!-- Divider -->
 	<div class="divider">
 		<span>ou</span>
@@ -202,11 +207,6 @@
 		Continuar com Google
 	</button>
 
-	<!-- Links -->
-	<p class="mt-6 text-center text-sm text-gray-500">
-		Não tem uma conta?
-		<a href="/signup" class="auth-link font-medium">Cadastre-se</a>
-	</p>
 </form>
 
 <style>

@@ -256,6 +256,7 @@ body[data-fluxograma-focus-mode='true'] .navbar-glass {
 	border-radius: 14px;
 	font-size: 16px;
 	font-family: inherit;
+	color: #111827;
 	transition:
 		border-color 0.2s,
 		box-shadow 0.2s;

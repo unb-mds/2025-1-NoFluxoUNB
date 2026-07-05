@@ -577,7 +577,8 @@
 							<Bot class="h-8 w-8 text-pink-400 opacity-80" />
 						</div>
 						<h2 class="mb-2 text-lg font-bold tracking-tight text-white/95">Como posso ajudar?</h2>
-						
+						<p class="max-w-md text-sm text-white/60">Diga seus interesses que eu recomendo optativas pra você — ou pergunte sobre uma matéria pra eu explicar o conteúdo.</p>
+
 						<div class="mt-4 grid max-w-2xl grid-cols-2 gap-2 sm:grid-cols-3 sm:auto-rows-fr sm:gap-3">
 							<button
 								on:click={() => { mensagem = 'Direito Constitucional e Teoria da Constituição'; enviarMensagem(); }}
@@ -594,17 +595,17 @@
 							</button>
 
 							<button
-								on:click={() => { mensagem = 'Inteligência Artificial: Aprendizado de Máquina e Redes Neurais'; enviarMensagem(); }}
+								on:click={() => { mensagem = 'Quero optativas sobre Inteligência Artificial, Aprendizado de Máquina e Redes Neurais'; enviarMensagem(); }}
 								class="chat-suggestion h-full rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-left text-[12px] font-medium text-white/80 transition-all hover:bg-white/10 hover:shadow-md hover:text-white sm:text-xs backdrop-blur-md"
 							>
-								🤖 Inteligência Artificial
+								🤖 Optativas de Inteligência Artificial
 							</button>
 
 							<button
-								on:click={() => { mensagem = 'Bioética e Saúde Coletiva no Sistema Único de Saúde'; enviarMensagem(); }}
+								on:click={() => { mensagem = 'Sobre o que é Microbiologia? Explique o conteúdo da matéria.'; enviarMensagem(); }}
 								class="chat-suggestion h-full rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-left text-[12px] font-medium text-white/80 transition-all hover:bg-white/10 hover:shadow-md hover:text-white sm:text-xs backdrop-blur-md"
 							>
-								🦠 Microbiologia
+								🦠 Sobre o que é Microbiologia?
 							</button>
 
 							<button
@@ -624,7 +625,7 @@
 					</div>
 				{:else}
 					{#each historico as msg, msgIndex}
-						<ChatBubble role={msg.tipo} name={msg.tipo === 'usuario' ? 'Você' : 'Darcy AI'}>
+						<ChatBubble role={msg.tipo === 'usuario' ? 'user' : 'assistant'} name={msg.tipo === 'usuario' ? 'Você' : 'Darcy AI'}>
 							{#if !msg.disciplinas || msg.disciplinas.length === 0}
 								<p class="whitespace-pre-wrap text-sm leading-relaxed text-white">{msg.texto}</p>
 							{/if}
@@ -812,7 +813,7 @@
 						type="text"
 						bind:value={mensagem}
 						on:keypress={handleKeyPress}
-						placeholder="Só tópicos de interesse (ex: IA aplicada a saúde)..."
+						placeholder="Diga seus interesses (ex: IA na saúde) ou pergunte sobre uma matéria..."
 						disabled={carregando}
 						class="w-full bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full pl-5 pr-[110px] py-4 text-[14.5px] text-white placeholder:text-white/40 focus:outline-none focus:border-white/30 focus:bg-white/15 transition-all shadow-inner disabled:opacity-50"
 					/>

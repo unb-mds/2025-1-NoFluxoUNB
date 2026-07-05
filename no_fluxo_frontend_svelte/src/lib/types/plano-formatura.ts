@@ -40,6 +40,8 @@ export interface PreferenciasPlano {
 	trabalha: boolean;
 	/** Indica se o onboarding já foi concluído pelo aluno. */
 	onboardingConcluido: boolean;
+	/** Restrições ativas (adiar/priorizar). */
+	restricoes?: RestricoesPlano;
 }
 
 export const DEFAULT_PREFERENCIAS: PreferenciasPlano = {

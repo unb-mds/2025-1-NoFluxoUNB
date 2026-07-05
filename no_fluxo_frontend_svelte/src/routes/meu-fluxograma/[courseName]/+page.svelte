@@ -9,7 +9,8 @@
 	import SubjectDetailsModal from '$lib/components/fluxograma/SubjectDetailsModal.svelte';
 	import OptativasModal from '$lib/components/fluxograma/OptativasModal.svelte';
 	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
-	import ProgressToolsSection from '$lib/components/fluxograma/ProgressToolsSection.svelte';
+	import ProgressSummaryBar from '$lib/components/fluxograma/ProgressSummaryBar.svelte';
+	import MudancaCursoLauncher from '$lib/components/fluxograma/MudancaCursoLauncher.svelte';
 	import OptativasAdicionadasSection from '$lib/components/fluxograma/OptativasAdicionadasSection.svelte';
 	import PrerequisiteChainDialog from '$lib/components/fluxograma/PrerequisiteChainDialog.svelte';
 	import RequisitosMudancaCursoBanner from '$lib/components/fluxograma/RequisitosMudancaCursoBanner.svelte';
@@ -19,7 +20,7 @@
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';
 	import { supabaseDataService } from '$lib/services/supabase-data.service';
 	import { onMount, tick } from 'svelte';
-	import { Loader2, AlertTriangle, ArrowRightLeft, ListChecks } from 'lucide-svelte';
+	import { Loader2, AlertTriangle, ArrowRightLeft, ListChecks, ChevronDown } from 'lucide-svelte';
 	import { isOptativa, type MateriaModel } from '$lib/types/materia';
 	import type { IntegralizacaoResult } from '$lib/types/matriz';
 import { getCompletedSubjectCodes } from '$lib/types/user';
@@ -44,6 +45,11 @@ import {
 	let fluxogramHelpOpen = $state(false);
 	let showMateriasConcluidasModal = $state(false);
 	let fluxogramaFocusMode = $state(false);
+	let progressSummaryRef: HTMLElement | null = $state(null);
+
+	function scrollToSummary() {
+		progressSummaryRef?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}
 
 type EquivalenciaSimulacaoItem = {
 	origem: string;
@@ -425,8 +431,8 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 							showFluxogramViewMenu={true}
 							onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
 						/>
-						{#if userFluxograma}
-							<div class="flex items-center justify-start">
+						<div class="flex flex-wrap items-center justify-start gap-2">
+							{#if userFluxograma}
 								<button
 									type="button"
 									onclick={() => (showMateriasConcluidasModal = true)}
@@ -435,8 +441,20 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 									<ListChecks class="h-4 w-4" />
 									Concluidas do historico
 								</button>
-							</div>
-						{/if}
+							{/if}
+							<MudancaCursoLauncher />
+						</div>
+					</div>
+				{/if}
+
+				{#if !store.state.isAnonymous && userFluxograma}
+					<div class="shrink-0 {fluxogramaFocusMode ? 'px-2 pt-2' : ''}">
+						<ProgressSummaryBar
+							courseData={store.state.courseData}
+							{userFluxograma}
+							{integralizacao}
+							integralizacaoLoading={integralizacaoLoading}
+						/>
 					</div>
 				{/if}
 
@@ -452,11 +470,22 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 						focusMode={fluxogramaFocusMode}
 						toggleFocusMode={() => (fluxogramaFocusMode = !fluxogramaFocusMode)}
 					/>
+					{#if !fluxogramaFocusMode && !store.state.isAnonymous && userFluxograma}
+						<button
+							type="button"
+							onclick={scrollToSummary}
+							class="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1 rounded-full border border-white/10 bg-black/60 px-3 py-1.5 text-xs font-medium text-white/70 backdrop-blur-md transition-colors hover:bg-black/80 hover:text-white"
+							aria-label="Ver resumo de progresso abaixo"
+						>
+							<span class="hidden sm:inline">Ver progresso</span>
+							<ChevronDown class="h-4 w-4 animate-bounce" />
+						</button>
+					{/if}
 				</div>
 			</div>
 
 			{#if !fluxogramaFocusMode && !store.state.isAnonymous}
-				<div class="relative z-40 mt-2 shrink-0 space-y-4 border-t border-white/10 pt-4">
+				<div class="relative z-40 mt-2 shrink-0 space-y-4 border-t border-white/10 pt-4" bind:this={progressSummaryRef}>
 					{#if userFluxograma && store.state.courseData}
 						<div class="space-y-2">
 							{#if eSimulacaoOutroCurso}
@@ -484,7 +513,6 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 							/>
 						</div>
 					{/if}
-					<ProgressToolsSection />
 				</div>
 			{:else if !fluxogramaFocusMode && userFluxograma && store.state.courseData}
 				<div class="relative z-40 mt-2 space-y-2 border-t border-white/10 pt-4">
