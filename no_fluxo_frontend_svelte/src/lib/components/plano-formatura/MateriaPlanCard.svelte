@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { MateriaPlano } from '$lib/types/plano-formatura';
-	import { Flame, ArrowUpRight, BrainCircuit } from 'lucide-svelte';
+	import { Flame, ArrowUpRight, BrainCircuit, Sparkles } from 'lucide-svelte';
 	import * as Tooltip from '$lib/components/ui/tooltip';
 
 	interface Props {
@@ -9,9 +9,11 @@
 		tipoSemestre?: 'recomendado' | 'estimado';
 		/** Código da matéria sendo hovereada para destacar setas de pré-requisito. */
 		hoveredCode?: string | null;
+		/** Callback para enviar ação diretamente ao chat (botões rápidos). */
+		onChatAction?: (msg: string) => void;
 	}
 
-	let { materia, tipoSemestre = 'estimado', hoveredCode = $bindable() }: Props = $props();
+	let { materia, tipoSemestre = 'estimado', hoveredCode = $bindable(), onChatAction }: Props = $props();
 
 	const isRecomendado = $derived(tipoSemestre === 'recomendado');
 
@@ -94,4 +96,24 @@
 			{/if}
 		</div>
 	</div>
+
+	<!-- Hover Quick Actions -->
+	{#if onChatAction}
+		<div class="hidden group-hover:flex absolute -bottom-3 left-1/2 -translate-x-1/2 shadow-[0_4px_20px_rgba(0,0,0,0.5)] bg-[#1e1e2d] border border-slate-600 rounded-full overflow-hidden z-[100]">
+			<button 
+				type="button"
+				onclick={(e) => { e.stopPropagation(); onChatAction?.(`/turmas ${materia.codigo}`); }}
+				class="px-3 py-1.5 text-[10px] font-bold text-white/80 hover:bg-white/10 hover:text-white transition-colors border-r border-slate-600 flex items-center gap-1 cursor-pointer"
+			>
+				<Sparkles class="w-3 h-3 text-indigo-400" /> Turmas
+			</button>
+			<button 
+				type="button"
+				onclick={(e) => { e.stopPropagation(); onChatAction?.(`Adie a matéria ${materia.codigo}`); }}
+				class="px-3 py-1.5 text-[10px] font-bold text-white/80 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
+			>
+				Adiar
+			</button>
+		</div>
+	{/if}
 </div>

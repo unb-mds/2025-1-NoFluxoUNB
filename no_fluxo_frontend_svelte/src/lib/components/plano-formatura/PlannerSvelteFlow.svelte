@@ -13,9 +13,10 @@
 		curso: CursoModel | null;
 		materiasMATR?: MateriaPlano[];
 		semestreAtual?: number;
+		onChatAction?: (msg: string) => void;
 	}
 
-	let { plano, curso, materiasMATR = [], semestreAtual = 1 }: Props = $props();
+	let { plano, curso, materiasMATR = [], semestreAtual = 1, onChatAction }: Props = $props();
 
 	// Registra o custom node
 	const nodeTypes = {
@@ -64,7 +65,7 @@
 						id: nodeId,
 						type: 'materia',
 						position: { x: xPos, y: yPos },
-						data: { materia: item, tipoSemestre: 'estimado' }
+						data: { materia: item, tipoSemestre: 'estimado', onChatAction }
 					});
 				}
 			});
@@ -99,7 +100,7 @@
 						id: nodeId,
 						type: 'materia',
 						position: { x: xPos, y: yPos },
-						data: { materia: item, tipoSemestre: semestre.tipo }
+						data: { materia: item, tipoSemestre: semestre.tipo, onChatAction }
 					});
 				}
 			});
@@ -148,11 +149,14 @@
 		{nodes} 
 		{edges} 
 		{nodeTypes} 
-		minZoom={0.1}
-		maxZoom={1.5}
+		minZoom={0.3}
+		maxZoom={2}
+		initialViewport={{ x: 20, y: 20, zoom: 0.8 }}
+		panOnScroll={true}
+		selectionOnDrag={false}
+		zoomOnDoubleClick={false}
 		defaultEdgeOptions={{ type: 'smoothstep' }}
 		colorMode="dark"
-		initialViewport={{ x: 20, y: 20, zoom: 0.8 }}
 	>
 		<Background bgColor="#090c12" />
 		<Controls />

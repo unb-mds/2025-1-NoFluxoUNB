@@ -6,9 +6,74 @@
 	import ChatWrapper from '$lib/components/chat/ChatWrapper.svelte';
 	import ChatBubble from '$lib/components/chat/ChatBubble.svelte';
 	import ChatLoader from '$lib/components/chat/ChatLoader.svelte';
+	import { authStore } from '$lib/stores/auth';
 
 	let messageInput = $state('');
 	let inputRef: HTMLInputElement;
+
+	let authState = $derived($authStore);
+	const semestreAtual = $derived(authState.user?.dadosFluxograma?.semestreAtual ?? 1);
+
+	const promptStarters = $derived.by(() => {
+		const starters = [];
+		const plano = planoFormaturaStore.plano;
+		
+		if (!plano || !plano.plano || plano.plano.length === 0) {
+			// Fallbacks
+			starters.push({ prefix: 'Como', badge: 'antecipar', suffix: 'minha formatura?', message: 'Como posso antecipar minha formatura?' });
+			starters.push({ prefix: 'Quais as turmas', badge: 'disponíveis?', suffix: '', message: 'Mostre as turmas ofertadas esse semestre' });
+			return starters;
+		}
+
+		// 1. Semestre mais pesado
+		const heaviest = plano.plano.reduce((prev, curr) => (prev.creditos > curr.creditos ? prev : curr));
+		if (heaviest && heaviest.creditos >= 20) {
+			const num = semestreAtual + heaviest.indice + 1;
+			starters.push({ 
+				prefix: 'Semestre', 
+				badge: `${num}`,
+				suffix: 'tá muito pesado',
+				message: `O Semestre ${num} tá muito pesado, tem como dar uma aliviada?` 
+			});
+		} else {
+			starters.push({ prefix: 'Como', badge: 'antecipar', suffix: 'minha formatura?', message: 'Como posso antecipar minha formatura?' });
+		}
+
+		// 2. Turmas de uma matéria crítica
+		const criticas = plano.plano.flatMap(s => s.materias).filter(m => 'critica' in m && m.critica);
+		if (criticas.length > 0) {
+			const m = criticas[0] as any;
+			starters.push({
+				prefix: 'Ver turmas de',
+				badge: m.codigo,
+				suffix: '',
+				message: `/turmas ${m.codigo}`
+			});
+		} else {
+			starters.push({ prefix: 'Buscar', badge: 'turmas disponíveis', suffix: '', message: 'Mostre turmas com vagas sobrando' });
+		}
+
+		// 3. Adiar matéria próxima
+		const primeiraMat = plano.plano[0].materias.find(m => 'codigo' in m);
+		if (primeiraMat) {
+			const m = primeiraMat as any;
+			starters.push({
+				prefix: 'Adiar a matéria',
+				badge: m.codigo,
+				suffix: '',
+				message: `Adie a matéria ${m.codigo} para o próximo semestre`
+			});
+		}
+
+		// 4. Perguntas Gerais Fixas
+		starters.push({ prefix: 'Como posso', badge: 'adiantar', suffix: 'o curso?', message: 'Como posso antecipar minha formatura?' });
+		starters.push({ prefix: 'Tem como', badge: 'reduzir', suffix: 'a carga global?', message: 'Tem como reduzir a carga de créditos do meu plano?' });
+
+		// Remover duplicatas caso tenham sido adicionadas nos fallbacks acima (ex: heaviest == false)
+		const uniqueStarters = Array.from(new Map(starters.map(item => [item.message, item])).values());
+
+		return uniqueStarters.slice(0, 4);
+	});
 
 	function parseMessage(text: string) {
 		const regex = /(\b[A-Z]{3,4}\d{4}\b)|(\[TURMA\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^\]]+)\])|(\[BOTAO\|([^|]+)\|([^\]]+)\])/g;
@@ -112,8 +177,8 @@
 
 <ChatWrapper>
 	<!-- Header -->
-	<div class="relative z-10 px-5 py-4 border-b border-white/5 flex items-center justify-between shrink-0 bg-black/20 backdrop-blur-xl">
-		<div class="flex items-center gap-3">
+	<div class="chat-drag-handle relative z-10 px-5 py-4 border-b border-white/5 flex items-center justify-between shrink-0 bg-black/20 backdrop-blur-xl cursor-move select-none">
+		<div class="flex items-center gap-3 pointer-events-none">
 			<div class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 shadow-inner border border-white/10">
 				<Bot class="h-4 w-4 text-white" />
 			</div>
@@ -128,29 +193,36 @@
 			bind:this={chatViewport}
 		>
 			{#if planoFormaturaStore.chatMessages.length === 0}
-				<div class="flex flex-col items-center justify-center h-full text-center px-6 mt-12 mb-12 relative z-10">
-					<div class="w-16 h-16 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 shadow-2xl backdrop-blur-md">
-						<Sparkles class="h-8 w-8 text-white/70" />
-					</div>
-					<h3 class="text-xl font-semibold text-white tracking-tight">Pergunte à nossa IA</h3>
-					
-					<div class="mt-10 flex flex-col gap-3 w-full max-w-[280px]">
-						<button 
-							type="button" 
-							onclick={() => { messageInput = 'Como posso antecipar minha formatura?'; enviarMensagem(); }}
-							class="text-left px-5 py-3.5 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md rounded-2xl text-[14px] font-medium text-white/80 transition-all cursor-pointer shadow-sm hover:shadow-md hover:text-white"
-						>
-							Como antecipar minha formatura?
-						</button>
-						<button 
-							type="button" 
-							onclick={() => { messageInput = 'Quais são as turmas de Redes (FGA0211) pra esse semestre?'; enviarMensagem(); }}
-							class="text-left px-5 py-3.5 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md rounded-2xl text-[14px] font-medium text-white/80 transition-all cursor-pointer shadow-sm hover:shadow-md hover:text-white"
-						>
-							Quais as turmas de FGA0211?
-						</button>
+				<div class="flex flex-col items-center text-center px-2 sm:px-6 relative z-10 w-full pt-8 pb-4">
+					<div class="flex flex-col items-center w-full">
+						<div class="w-16 h-16 rounded-3xl bg-pink-500/10 border border-pink-500/50 flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(236,72,153,0.15)] backdrop-blur-md shrink-0">
+							<Bot class="h-8 w-8 text-pink-400" />
+						</div>
+						<h3 class="text-xl font-semibold text-white tracking-tight">Pergunte à nossa IA</h3>
+						<p class="text-[12px] text-white/50 mt-2 max-w-[280px] leading-relaxed">
+							Dica: Eu posso <span class="font-bold text-indigo-200 drop-shadow-[0_0_6px_rgba(129,140,248,0.8)]">adiar</span>, <span class="font-bold text-indigo-200 drop-shadow-[0_0_6px_rgba(129,140,248,0.8)]">antecipar</span> ou <span class="font-bold text-indigo-200 drop-shadow-[0_0_6px_rgba(129,140,248,0.8)]">remanejar</span> qualquer disciplina do seu plano. Pode pedir!
+						</p>
+						
+						<div class="mt-6 flex flex-col gap-3 w-full max-w-[280px]">
+							{#each promptStarters as starter}
+								<button 
+									type="button" 
+									onclick={() => { messageInput = starter.message; enviarMensagem(); }}
+									class="group flex items-center text-left px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-indigo-500/40 backdrop-blur-md rounded-2xl text-[13px] font-medium text-white/80 transition-all cursor-pointer shadow-sm hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] hover:text-white shrink-0"
+								>
+								<Sparkles class="w-4 h-4 mr-3 text-white/30 group-hover:text-indigo-400 transition-colors shrink-0" />
+								<div class="flex-1 leading-snug truncate">
+									{starter.prefix} 
+									{#if starter.badge}
+										<span class="inline-flex items-center rounded-md bg-white/5 border border-white/20 px-1.5 py-0.5 text-[11px] font-mono font-bold tracking-wide text-white mx-1 transition-all duration-300 group-hover:bg-indigo-500/20 group-hover:text-indigo-200 group-hover:border-indigo-400/80 group-hover:shadow-[0_0_12px_rgba(129,140,248,0.5),inset_0_0_8px_rgba(129,140,248,0.3)]">{starter.badge}</span>
+									{/if}
+									{starter.suffix}
+								</div>
+							</button>
+						{/each}
 					</div>
 				</div>
+			</div>
 			{:else}
 				{#each planoFormaturaStore.chatMessages as msg (msg)}
 					{#each parseMessage(msg.content) as block, i}
@@ -253,7 +325,7 @@
 					type="text"
 					bind:value={messageInput}
 					bind:this={inputRef}
-					placeholder="Pergunte qualquer coisa..."
+					placeholder="Ex: Adie Física 1 para o próximo semestre..."
 					disabled={planoFormaturaStore.chatLoading}
 					onkeydown={handleKeydown}
 					class="w-full bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full pl-5 pr-12 py-3.5 text-[14.5px] text-white placeholder:text-white/50 focus:outline-none focus:border-white/30 focus:bg-white/15 transition-all shadow-inner disabled:opacity-50"

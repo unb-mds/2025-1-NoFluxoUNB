@@ -9,7 +9,8 @@
 	import SemestreAtualColumn from './SemestreAtualColumn.svelte';
 	import PlannerChatPanel from './PlannerChatPanel.svelte';
 	import PlannerPrerequisiteConnections from './PlannerPrerequisiteConnections.svelte';
-	import { fade } from 'svelte/transition';
+	import { fade, scale } from 'svelte/transition';
+	import { backOut, cubicOut } from 'svelte/easing';
 	import {
 		GraduationCap,
 		Settings,
@@ -18,7 +19,7 @@
 		AlertTriangle,
 		BookOpenCheck,
 		X,
-		Sparkles
+		Bot
 	} from 'lucide-svelte';
 
 	let isChangingCredits = $state(false);
@@ -26,6 +27,89 @@
 	let hoveredCode = $state<string | null>(null);
 	let isChatOpen = $state(false);
 	let authState = $derived($authStore);
+
+	let chatW = $state(384);
+	let chatH = $state(550);
+	let chatX = $state(0);
+	let chatY = $state(0);
+	let chatPositioned = $state(false);
+	let isMobile = $state(false);
+
+	$effect(() => {
+		if (typeof window !== 'undefined') {
+			const checkMobile = () => isMobile = window.innerWidth < 768;
+			checkMobile();
+			window.addEventListener('resize', checkMobile);
+			return () => window.removeEventListener('resize', checkMobile);
+		}
+	});
+
+	function resetChat() {
+		chatW = 384;
+		chatH = 550;
+		chatX = window.innerWidth - chatW - 24;
+		chatY = window.innerHeight - chatH - 24;
+	}
+
+	$effect(() => {
+		if (isChatOpen && !chatPositioned && typeof window !== 'undefined') {
+			resetChat();
+			chatPositioned = true;
+		}
+	});
+
+	function draggable(node: HTMLElement) {
+		let x = 0;
+		let y = 0;
+
+		function handleMousedown(e: MouseEvent) {
+			if (isMobile) return;
+			
+			const target = e.target as HTMLElement;
+			// Only drag if clicking the header with class 'chat-drag-handle'
+			if (!target.closest('.chat-drag-handle')) return;
+
+			x = e.clientX;
+			y = e.clientY;
+			
+			window.addEventListener('mousemove', handleMousemove);
+			window.addEventListener('mouseup', handleMouseup);
+		}
+
+		function handleMousemove(e: MouseEvent) {
+			const dx = e.clientX - x;
+			const dy = e.clientY - y;
+			x = e.clientX;
+			y = e.clientY;
+			chatX += dx;
+			chatY += dy;
+		}
+
+		function handleMouseup() {
+			window.removeEventListener('mousemove', handleMousemove);
+			window.removeEventListener('mouseup', handleMouseup);
+		}
+
+		node.addEventListener('mousedown', handleMousedown);
+
+		// Observer para manter o tamanho sincronizado com o resize: both nativo
+		const ro = new ResizeObserver((entries) => {
+			for (const entry of entries) {
+				if (entry.target === node) {
+					chatW = (entry.target as HTMLElement).offsetWidth;
+					chatH = (entry.target as HTMLElement).offsetHeight;
+				}
+			}
+		});
+		ro.observe(node);
+
+		return {
+			destroy() {
+				node.removeEventListener('mousedown', handleMousedown);
+				ro.disconnect();
+			}
+		};
+	}
 
 	// Debounce para o slider de créditos — evita chamar API a cada tick
 	let debounceTimer: ReturnType<typeof setTimeout> | null = null;
@@ -50,6 +134,13 @@
 
 	function handleAjustar() {
 		planoFormaturaStore.openOnboarding();
+	}
+
+	function handleChatAction(msg: string) {
+		isChatOpen = true;
+		setTimeout(() => {
+			planoFormaturaStore.enviarMensagem(msg);
+		}, 100);
 	}
 
 	/** Total de matérias críticas em todos os semestres. */
@@ -282,6 +373,7 @@
 				curso={fluxogramaStore.state.courseData} 
 				{materiasMATR}
 				{semestreAtual}
+				onChatAction={handleChatAction}
 			/>
 
 			{#if planoFormaturaStore.plano.plano.length === 0 && materiasMATR.length === 0}
@@ -298,8 +390,26 @@
 
 	<!-- Chat panel (floating fixed) -->
 	{#if isChatOpen}
-		<div class="fixed bottom-6 right-6 z-50 w-96 h-[550px] shadow-[0_8px_30px_rgb(0,0,0,0.5)] flex flex-col bg-[#090c12]/60 backdrop-blur-2xl rounded-2xl overflow-hidden border border-white/10" transition:fade={{ duration: 150 }}>
-			<div class="absolute top-4 right-4 z-50">
+		<div 
+			class="fixed z-[100] flex flex-col bg-[#090c12]/90 sm:bg-[#090c12]/60 backdrop-blur-3xl overflow-hidden border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.5)] origin-bottom-right
+				{isMobile ? 'bottom-0 left-0 right-0 w-full h-[85vh] rounded-t-3xl rounded-b-none' : 'rounded-2xl'}" 
+			style={isMobile ? '' : `left: ${chatX}px; top: ${chatY}px; width: ${chatW}px; height: ${chatH}px; resize: both;`}
+			use:draggable
+			in:scale={{ start: 0.6, duration: 400, easing: backOut }}
+			out:scale={{ start: 0.8, duration: 200, easing: cubicOut }}
+		>
+			<div class="absolute top-4 right-4 z-50 flex items-center gap-1">
+				{#if !isMobile}
+					<button 
+						type="button" 
+						onclick={resetChat} 
+						class="p-1 rounded-md text-white/40 hover:text-white/80 hover:bg-white/5 transition-colors cursor-pointer"
+						aria-label="Restaurar tamanho e posição"
+						title="Restaurar tamanho e posição"
+					>
+						<RefreshCw class="h-4 w-4" />
+					</button>
+				{/if}
 				<button 
 					type="button" 
 					onclick={() => isChatOpen = false} 
@@ -318,10 +428,13 @@
 		<button
 			type="button"
 			onclick={() => isChatOpen = true}
-			class="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-xl bg-[#1e1e24]/80 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all duration-300 hover:bg-[#2a2a32] hover:scale-105 active:scale-95 cursor-pointer border border-white/10"
+			class="fixed z-[90] flex items-center justify-center bg-[#1e1e24]/80 backdrop-blur-md shadow-[0_8px_30px_rgba(236,72,153,0.3)] transition-all duration-300 hover:bg-[#2a2a32] hover:scale-105 active:scale-95 cursor-pointer border border-pink-500/50 hover:border-pink-400
+				{isMobile ? 'bottom-4 right-4 h-14 w-14 rounded-full' : 'bottom-6 right-6 h-12 w-12 rounded-xl'}"
 			aria-label="Toggle IA"
+			in:scale={{ start: 0.5, duration: 400, easing: backOut, delay: 100 }}
+			out:scale={{ start: 0.5, duration: 200, easing: cubicOut }}
 		>
-			<Sparkles class="h-5 w-5 text-white/90" />
+			<Bot class="{isMobile ? 'h-7 w-7' : 'h-6 w-6'} text-pink-400" />
 		</button>
 	{/if}
 </div>

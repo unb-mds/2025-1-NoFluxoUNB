@@ -471,6 +471,27 @@ export class PlanejadorAgenteService {
         // Truncar histórico nas últimas MAX_HISTORICO mensagens
         const historicoTruncado = historico.slice(-MAX_HISTORICO);
 
+        // Interceptar comandos diretos (Bypass do LLM)
+        const lastUserMsg = historicoTruncado.slice().reverse().find(m => m.role === "user");
+        if (lastUserMsg && lastUserMsg.content.trim().toLowerCase().startsWith('/turmas ')) {
+            const codigo = lastUserMsg.content.trim().substring(8).trim().toUpperCase();
+            const turmasJson = await consultarTurmasMateria({ codigo });
+            const turmasData = JSON.parse(turmasJson);
+            
+            if (turmasData.erro) {
+                return {
+                    reply: turmasData.erro,
+                    restricoes: ctx.restricoes
+                };
+            }
+            
+            const reply = `Aqui estão as turmas que encontrei para **${turmasData.codigo} - ${turmasData.nome_materia}**:\n\n` + turmasData.turmas_recentes.join('\n');
+            return {
+                reply,
+                restricoes: ctx.restricoes
+            };
+        }
+
         const planoInicial = gerarPlanoDoContexto(ctx);
         const resumoInicialStr = JSON.stringify(resumoDoPlano(planoInicial, ctx));
 

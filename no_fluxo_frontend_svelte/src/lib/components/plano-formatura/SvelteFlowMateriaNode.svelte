@@ -8,6 +8,7 @@
 	
 	const materia = $derived(data.materia as MateriaPlano);
 	const tipoSemestre = $derived(data.tipoSemestre as 'recomendado' | 'estimado');
+	const onChatAction = $derived(data.onChatAction as ((msg: string) => void) | undefined);
 	let hoveredCode = $state<string | null>(null);
 </script>
 
@@ -24,6 +25,7 @@
 		{materia}
 		{tipoSemestre}
 		bind:hoveredCode={hoveredCode}
+		{onChatAction}
 	/>
 
 	<!-- Source handle (saída para direita) -->
