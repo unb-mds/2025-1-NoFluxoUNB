@@ -2,6 +2,7 @@
 Configuração centralizada para scripts de integração com o banco (Supabase).
 Use os scripts nesta pasta para inserir/atualizar cursos, matrizes, matérias, etc.
 """
+
 import os
 from pathlib import Path
 
@@ -14,6 +15,7 @@ PASTA_MATERIAS = DBA_ROOT / "dados" / "materias"
 # .env: backend, raiz do repo, diretório atual
 try:
     from dotenv import load_dotenv
+
     for p in [
         DBA_ROOT.parent / "no_fluxo_backend" / ".env",
         DBA_ROOT.parent / ".env",

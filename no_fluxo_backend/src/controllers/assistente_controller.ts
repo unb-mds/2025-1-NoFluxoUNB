@@ -20,6 +20,40 @@ import { SupabaseWrapper } from '../supabase_wrapper';
 const ragflow = new RagflowService();
 const sabia = new SabiaService();
 
+/**
+ * Registra uso de IA em ai_usage_log (custo no dashboard admin).
+ * Fire-and-forget: nunca lança nem bloqueia a resposta ao usuário.
+ */
+function logAiUsage(params: {
+    endpoint: string;
+    durationMs: number;
+    success: boolean;
+    requestExcerpt: string;
+    usage?: { model: string; prompt_tokens: number; completion_tokens: number; total_tokens: number }[];
+}): void {
+    void (async () => {
+        try {
+            const calls = params.usage && params.usage.length > 0
+                ? params.usage
+                : [{ model: 'desconhecido', prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 }];
+            const rows = calls.map((u) => ({
+                endpoint: params.endpoint,
+                model: u.model,
+                prompt_tokens: u.prompt_tokens ?? 0,
+                completion_tokens: u.completion_tokens ?? 0,
+                total_tokens: u.total_tokens ?? 0,
+                duration_ms: params.durationMs,
+                success: params.success,
+                request_excerpt: params.requestExcerpt.slice(0, 120)
+            }));
+            const { error } = await SupabaseWrapper.get().from('ai_usage_log').insert(rows);
+            if (error) console.error('[logAiUsage] insert falhou:', error.message);
+        } catch (e) {
+            console.error('[logAiUsage] erro inesperado:', e);
+        }
+    })();
+}
+
 export const AssistenteController: EndpointController = {
     name: 'assistente',
     routes: {
@@ -72,17 +106,21 @@ export const AssistenteController: EndpointController = {
         }),
 
         health: new Pair(RequestType.GET, async (_req: Request, res: Response) => {
+            // D-Sec-1: o /health era usado por monitoring externo, mas vazava quais
+            // provedores estavam configurados (ragflowConfigured / sabiaConfigured)
+            // para qualquer um sem autenticação. Resposta resumida agora:
+            // só 'healthy' | 'degraded' | 'down' — sem revelar a infra interna.
+            const anyUp = ragflow.isAvailable() || sabia.isAvailable();
             return res.json({
-                status: ragflow.isAvailable() || sabia.isAvailable() ? 'healthy' : 'degraded',
+                status: anyUp ? 'healthy' : 'degraded',
                 service: 'AI Assistant',
-                ragflowConfigured: ragflow.isAvailable(),
-                sabiaConfigured: sabia.isAvailable(),
                 timestamp: new Date().toISOString(),
             });
         }),
 
         'analyze-sabia-stream': new Pair(RequestType.POST, async (req: Request, res: Response) => {
             const logger = createControllerLogger('AssistenteController', 'analyze-sabia-stream');
+            const startTime = Date.now();
 
             const { materia, matriz_curricular } = req.body;
             if (!materia || typeof materia !== 'string' || !materia.trim()) {
@@ -107,6 +145,16 @@ export const AssistenteController: EndpointController = {
             try {
                 logger.info(`Streaming with Sabiá: "${materia}"`);
                 await sabia.analyzarInteresseStream(materia, matrizCurricular, res);
+                // Fallback: o stream pipa SSE direto; tokens não são capturados aqui.
+                // Loga a requisição (duração/contagem) sem tokens — custo real vem
+                // do fluxo não-stream. Ver nota no plano.
+                logAiUsage({
+                    endpoint: 'analyze-sabia-stream',
+                    durationMs: Date.now() - startTime,
+                    success: true,
+                    requestExcerpt: materia,
+                    usage: [{ model: 'sabia-4', prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 }]
+                });
                 return;
             } catch (error) {
                 const msg = error instanceof Error ? error.message : String(error);
@@ -154,7 +202,15 @@ export const AssistenteController: EndpointController = {
                 const duration = Date.now() - startTime;
                 logger.info(`Sabiá request completed in ${duration}ms — ${result.disciplinas?.length || 0} disciplinas`);
 
-                return res.json({ 
+                logAiUsage({
+                    endpoint: 'analyze-sabia',
+                    durationMs: duration,
+                    success: true,
+                    requestExcerpt: materia,
+                    usage: result.usage
+                });
+
+                return res.json({
                     resultado: formatted,
                     disciplinas: result.disciplinas,
                     agente: 'sabia'

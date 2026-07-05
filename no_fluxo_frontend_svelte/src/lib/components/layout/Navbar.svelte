@@ -6,7 +6,7 @@
 	import { createSupabaseBrowserClient } from '$lib/supabase/client';
 	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
-import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, GraduationCap } from 'lucide-svelte';
+import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, GraduationCap, LifeBuoy, ShieldCheck } from 'lucide-svelte';
 	import { Button } from '$lib/components/ui/button';
 	import type { UserModel } from '$lib/types';
 
@@ -25,6 +25,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Gra
 	const supabase = createSupabaseBrowserClient();
 
 	const hasHistorico = $derived(!!user?.dadosFluxograma);
+	const isAdmin = $derived(!!user?.isAdmin);
 
 	/** Links do menu: anônimo só vê Fluxogramas e Disciplinas (sem Assistente) */
 	const navLinks = $derived(
@@ -40,7 +41,11 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Gra
 						: { href: ROUTES.UPLOAD_HISTORICO, label: 'Importar Histórico', icon: Upload },
 					{ href: ROUTES.PLANO_FORMATURA, label: 'Plano de Formatura', icon: GraduationCap },
 					{ href: ROUTES.ASSISTENTE, label: 'Assistente', icon: Bot },
-					{ href: ROUTES.DISCIPLINAS, label: 'Disciplinas', icon: BookOpen }
+					{ href: ROUTES.DISCIPLINAS, label: 'Disciplinas', icon: BookOpen },
+					{ href: ROUTES.SUPORTE, label: 'Suporte', icon: LifeBuoy },
+					...(isAdmin
+						? [{ href: ROUTES.ADMIN_TICKETS, label: 'Admin', icon: ShieldCheck }]
+						: [])
 				]
 	);
 

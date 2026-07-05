@@ -1,9 +1,7 @@
 import { EndpointController, RequestType } from "../interfaces";
-import { Pair, Utils } from "../utils";
+import { Pair } from "../utils";
 import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
-import axios from 'axios';
-import FormData from 'form-data';
 import { createControllerLogger } from '../utils/controller_logger';
 
 

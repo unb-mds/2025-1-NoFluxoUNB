@@ -19,22 +19,24 @@ from typing import Mapping, Sequence
 class AppConfig:
     """Configuration for a single deployable application."""
 
-    key: str                # Short identifier used as CLI target (e.g. "frontend")
-    app_name: str           # Kubernetes deployment name
-    namespace: str          # Kubernetes namespace (e.g. "apps")
-    image_name: str         # Image name in the registry (no registry prefix)
-    dockerfile: str         # Path to Dockerfile relative to repo root
-    build_context: str      # Docker build context relative to repo root
-    port: int               # Container port
-    replicas: int           # Number of pod replicas
-    health_path: str        # Health-check endpoint (e.g. "/health")
+    key: str  # Short identifier used as CLI target (e.g. "frontend")
+    app_name: str  # Kubernetes deployment name
+    namespace: str  # Kubernetes namespace (e.g. "apps")
+    image_name: str  # Image name in the registry (no registry prefix)
+    dockerfile: str  # Path to Dockerfile relative to repo root
+    build_context: str  # Docker build context relative to repo root
+    port: int  # Container port
+    replicas: int  # Number of pod replicas
+    health_path: str  # Health-check endpoint (e.g. "/health")
 
     # --- Domain routing (pick one) ---
-    domain: str | None = None               # Single domain
-    domains: Sequence[str] | None = None    # Multiple domains (including wildcards)
+    domain: str | None = None  # Single domain
+    domains: Sequence[str] | None = None  # Multiple domains (including wildcards)
 
     # --- Environment file loading ---
-    env_folder: str | None = None  # Folder to load .env from (defaults to build_context)
+    env_folder: str | None = (
+        None  # Folder to load .env from (defaults to build_context)
+    )
 
     # --- Build-time args ---
     # Keys to read from the environment and pass as --build-arg to Docker

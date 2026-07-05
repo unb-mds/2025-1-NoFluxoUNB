@@ -150,7 +150,10 @@ def cmd_build(args: argparse.Namespace) -> int:
     try:
         wait_res = client.wait_build(job_name, timeout_s=args.wait_timeout)
     except ApiError as e:
-        print(f"ERROR {e.status_code} waiting for build {job_name}:\n{e.body}", file=sys.stderr)
+        print(
+            f"ERROR {e.status_code} waiting for build {job_name}:\n{e.body}",
+            file=sys.stderr,
+        )
         return 2
 
     print(json.dumps(wait_res, indent=2, sort_keys=True))
@@ -175,7 +178,10 @@ def cmd_build(args: argparse.Namespace) -> int:
     try:
         build_id = client.resolve_digest(image_name, image_tag)
     except ApiError as e:
-        print(f"ERROR {e.status_code} resolving digest for {image_name}:{image_tag}:\n{e.body}", file=sys.stderr)
+        print(
+            f"ERROR {e.status_code} resolving digest for {image_name}:{image_tag}:\n{e.body}",
+            file=sys.stderr,
+        )
         return 2
 
     state = BuildIdState(
@@ -272,7 +278,10 @@ def cmd_local_deploy(args: argparse.Namespace) -> int:
     try:
         build_id = client.resolve_digest(image_name, tag)
     except ApiError as e:
-        print(f"ERROR {e.status_code} resolving digest for {image_name}:{tag}:\n{e.body}", file=sys.stderr)
+        print(
+            f"ERROR {e.status_code} resolving digest for {image_name}:{tag}:\n{e.body}",
+            file=sys.stderr,
+        )
         return 2
 
     state = BuildIdState(
@@ -308,11 +317,24 @@ def cmd_local_deploy(args: argparse.Namespace) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(prog="deploy_client", description="Deploy API helper (buildId reuse)")
-    parser.add_argument("--api-url", default=None, help="Deploy API base URL (or DEPLOY_API_URL)")
-    parser.add_argument("--api-key", default=None, help="Deploy API key (or DEPLOY_API_KEY)")
-    parser.add_argument("--timeout", type=float, default=None, help="HTTP timeout seconds (or DEPLOY_API_TIMEOUT)")
-    parser.add_argument("--state-file", default=None, help=f"State file path (default: {DEFAULT_PATH})")
+    parser = argparse.ArgumentParser(
+        prog="deploy_client", description="Deploy API helper (buildId reuse)"
+    )
+    parser.add_argument(
+        "--api-url", default=None, help="Deploy API base URL (or DEPLOY_API_URL)"
+    )
+    parser.add_argument(
+        "--api-key", default=None, help="Deploy API key (or DEPLOY_API_KEY)"
+    )
+    parser.add_argument(
+        "--timeout",
+        type=float,
+        default=None,
+        help="HTTP timeout seconds (or DEPLOY_API_TIMEOUT)",
+    )
+    parser.add_argument(
+        "--state-file", default=None, help=f"State file path (default: {DEFAULT_PATH})"
+    )
 
     sub = parser.add_subparsers(dest="command", required=True)
 
@@ -327,13 +349,19 @@ def main(argv: list[str] | None = None) -> int:
     p_build.add_argument("--image-name", default=None)
     p_build.add_argument("--image-tag", default=None)
     p_build.add_argument("--no-cache", action="store_true")
-    p_build.add_argument("--app-class", default="business", choices=["business", "non-business"],
-                         help="Workload class: business (default) or non-business")
+    p_build.add_argument(
+        "--app-class",
+        default="business",
+        choices=["business", "non-business"],
+        help="Workload class: business (default) or non-business",
+    )
     p_build.add_argument("--wait", action=argparse.BooleanOptionalAction, default=True)
     p_build.add_argument("--wait-timeout", type=int, default=1800)
     p_build.set_defaults(func=cmd_build)
 
-    p_reuse = sub.add_parser("reuse-deploy", help="Deploy using an existing buildId (skip Kaniko)")
+    p_reuse = sub.add_parser(
+        "reuse-deploy", help="Deploy using an existing buildId (skip Kaniko)"
+    )
     p_reuse.add_argument("--app", default=None)
     p_reuse.add_argument("--namespace", default=None)
     p_reuse.add_argument("--image-name", default=None)
@@ -344,12 +372,20 @@ def main(argv: list[str] | None = None) -> int:
     p_reuse.add_argument("--domains", default=None, help="Comma-separated list")
     p_reuse.add_argument("--health-path", default="/health")
     p_reuse.add_argument("--no-tls", action="store_true")
-    p_reuse.add_argument("--app-class", default="business", choices=["business", "non-business"],
-                         help="Workload class: business (default) or non-business")
-    p_reuse.add_argument("--env", action="append", default=None, help="Repeatable KEY=VALUE")
+    p_reuse.add_argument(
+        "--app-class",
+        default="business",
+        choices=["business", "non-business"],
+        help="Workload class: business (default) or non-business",
+    )
+    p_reuse.add_argument(
+        "--env", action="append", default=None, help="Repeatable KEY=VALUE"
+    )
     p_reuse.set_defaults(func=cmd_reuse_deploy)
 
-    p_local = sub.add_parser("local-deploy", help="Build locally, push to registry, then deploy via buildId")
+    p_local = sub.add_parser(
+        "local-deploy", help="Build locally, push to registry, then deploy via buildId"
+    )
     p_local.add_argument("--app", required=True)
     p_local.add_argument("--namespace", default="default")
     p_local.add_argument(
@@ -357,12 +393,28 @@ def main(argv: list[str] | None = None) -> int:
         default=None,
         help="Registry host (or DEPLOY_REGISTRY; default registry.kubernetes.crianex.com)",
     )
-    p_local.add_argument("--docker", default="docker", help="Docker CLI binary (default: docker)")
-    p_local.add_argument("--context", default=".", help="Build context directory (default: .)")
-    p_local.add_argument("--dockerfile", default="Dockerfile", help="Dockerfile path (default: Dockerfile)")
-    p_local.add_argument("--build-arg", action="append", default=None, help="Repeatable KEY=VALUE")
-    p_local.add_argument("--image-name", default=None, help="Image name in registry (default: app)")
-    p_local.add_argument("--image-tag", default=None, help="Image tag to push (default: local-<timestamp>)")
+    p_local.add_argument(
+        "--docker", default="docker", help="Docker CLI binary (default: docker)"
+    )
+    p_local.add_argument(
+        "--context", default=".", help="Build context directory (default: .)"
+    )
+    p_local.add_argument(
+        "--dockerfile",
+        default="Dockerfile",
+        help="Dockerfile path (default: Dockerfile)",
+    )
+    p_local.add_argument(
+        "--build-arg", action="append", default=None, help="Repeatable KEY=VALUE"
+    )
+    p_local.add_argument(
+        "--image-name", default=None, help="Image name in registry (default: app)"
+    )
+    p_local.add_argument(
+        "--image-tag",
+        default=None,
+        help="Image tag to push (default: local-<timestamp>)",
+    )
     p_local.add_argument("--no-push", action="store_true", help="Build but do not push")
     p_local.add_argument("--port", type=int, required=False)
     p_local.add_argument("--replicas", type=int, default=1)
@@ -370,16 +422,27 @@ def main(argv: list[str] | None = None) -> int:
     p_local.add_argument("--domains", default=None, help="Comma-separated list")
     p_local.add_argument("--health-path", default="/health")
     p_local.add_argument("--no-tls", action="store_true")
-    p_local.add_argument("--app-class", default="business", choices=["business", "non-business"],
-                         help="Workload class: business (default) or non-business")
-    p_local.add_argument("--env", action="append", default=None, help="Repeatable KEY=VALUE")
+    p_local.add_argument(
+        "--app-class",
+        default="business",
+        choices=["business", "non-business"],
+        help="Workload class: business (default) or non-business",
+    )
+    p_local.add_argument(
+        "--env", action="append", default=None, help="Repeatable KEY=VALUE"
+    )
     p_local.set_defaults(func=cmd_local_deploy)
 
     args = parser.parse_args(argv)
-    if getattr(args, "registry", None) is None and getattr(args, "command", None) == "local-deploy":
+    if (
+        getattr(args, "registry", None) is None
+        and getattr(args, "command", None) == "local-deploy"
+    ):
         import os
 
-        args.registry = os.environ.get("DEPLOY_REGISTRY") or "registry.kubernetes.crianex.com"
+        args.registry = (
+            os.environ.get("DEPLOY_REGISTRY") or "registry.kubernetes.crianex.com"
+        )
     return int(args.func(args))
 
 

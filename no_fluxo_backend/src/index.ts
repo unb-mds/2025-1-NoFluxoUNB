@@ -6,10 +6,8 @@ const envPath = path.join(__dirname, '..', '.env');
 dotenv.config({ path: envPath });
 
 // Now import everything else (services will have env vars available)
-import { createClient } from '@supabase/supabase-js'
 import { SupabaseWrapper } from './supabase_wrapper'
 import express, { Express, Request, Response } from 'express';
-import { Utils } from './utils';
 import { EndpointController, RequestType } from './interfaces';
 import bodyParser from 'body-parser';
 import cors from "cors";
@@ -95,7 +93,7 @@ router.get('/', (req: Request, res: Response) => {
 });
 
 // Health check endpoint for Kubernetes probes
-router.get('/health', (req: Request, res: Response) => {
+router.get('/health', (_req: Request, res: Response) => {
     res.status(200).json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
 

@@ -33,5 +33,8 @@
   "license": "GPL-3.0-only",
   "dependencies": {
     "googlethis": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0"
   }
 }

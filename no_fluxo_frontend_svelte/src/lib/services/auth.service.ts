@@ -12,6 +12,30 @@ export class AuthService {
 	 * Search for user in database — DIRECT SUPABASE QUERY
 	 * REPLACES: GET /users/get-user-by-email
 	 */
+	/**
+	 * Busca o papel global do usuário em public.admins via RPC get_my_admin.
+	 * Preenche isAdmin/adminRole/adminScopes no UserModel. Falha = não-admin.
+	 */
+	private async enrichWithAdmin(user: UserModel): Promise<void> {
+		try {
+			const { data, error } = await this.supabase.rpc('get_my_admin');
+			if (error || !data) {
+				user.isAdmin = false;
+				user.adminRole = null;
+				user.adminScopes = [];
+				return;
+			}
+			const admin = data as { role: 'admin' | 'superadmin'; scopes: string[] };
+			user.isAdmin = true;
+			user.adminRole = admin.role;
+			user.adminScopes = admin.scopes ?? [];
+		} catch {
+			user.isAdmin = false;
+			user.adminRole = null;
+			user.adminScopes = [];
+		}
+	}
+
 	async databaseSearchUser(): Promise<
 		{ success: true; user: UserModel } | { success: false; error: string }
 	> {
@@ -33,6 +57,7 @@ export class AuthService {
 
 			const user = createUserModelFromJson(data as Record<string, unknown>);
 			user.token = (await this.supabase.auth.getSession()).data.session?.access_token ?? null;
+			await this.enrichWithAdmin(user);
 			return { success: true, user };
 		} catch (error) {
 			console.error('databaseSearchUser error:', error);
@@ -392,6 +417,18 @@ export class AuthService {
 	 * Get headers for authorized API requests
 	 */
 	async getAuthHeaders(): Promise<Record<string, string>> {
+		// DEV-ONLY: se a flag de impersonação dev estiver setada, pula refreshSession
+		// (que falharia sem sessão Supabase real) e manda o header X-Dev-Impersonate
+		// pro backend bypassar a verificação JWT.
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('nofluxo_dev_impersonate') === 'true') {
+			const user = authStore.getUser();
+			return {
+				'X-Dev-Impersonate': user?.email || '',
+				'User-ID': user?.idUser?.toString() || '',
+				'Content-Type': 'application/json'
+			};
+		}
+
 		const session = await this.refreshSession();
 		const user = authStore.getUser();
 

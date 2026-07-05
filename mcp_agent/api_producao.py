@@ -11,14 +11,19 @@ from supabase import create_client
 from dotenv import load_dotenv
 from tool_call_utils import extrair_tool_call_texto, termo_materia
 
-import time
 
 # 1. INICIALIZAÇÃO GLOBAL (Roda apenas quando o servidor liga)
 load_dotenv()
 
 # Print env vars on startup for debugging
 print("\n--- MCP Agent env vars at startup ---")
-for key in ("GOOGLE_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "MARITACA_API_KEY", "ALLOWED_ORIGINS"):
+for key in (
+    "GOOGLE_API_KEY",
+    "SUPABASE_URL",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "MARITACA_API_KEY",
+    "ALLOWED_ORIGINS",
+):
     value = os.environ.get(key)
     if value:
         preview = value[:8] + "..." if len(value) > 8 else value
@@ -29,14 +34,20 @@ print("---\n")
 
 # Clientes globais mantêm conexões persistentes
 genai.configure(api_key=os.environ.get("GOOGLE_API_KEY"))
-supabase = create_client(os.environ.get("SUPABASE_URL"), os.environ.get("SUPABASE_SERVICE_ROLE_KEY"))
-client_maritaca = OpenAI(api_key=os.environ.get("MARITACA_API_KEY"), base_url="https://chat.maritaca.ai/api")
+supabase = create_client(
+    os.environ.get("SUPABASE_URL"), os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+)
+client_maritaca = OpenAI(
+    api_key=os.environ.get("MARITACA_API_KEY"), base_url="https://chat.maritaca.ai/api"
+)
 
 # Configuração do FastAPI
 app = FastAPI(title="Darcy AI - API da UnB", version="1.0")
 
 # CORS - Configurar origens permitidas em produção
-ALLOWED_ORIGINS = os.environ.get("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000").split(",")
+ALLOWED_ORIGINS = os.environ.get(
+    "ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000"
+).split(",")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,  # Em produção, substituir por domínios reais
@@ -44,6 +55,7 @@ app.add_middleware(
     allow_methods=["POST", "GET"],
     allow_headers=["*"],
 )
+
 
 # Modelo de entrada de dados esperado do frontend/usuário
 # Modelo de entrada de dados esperado do frontend/usuário
@@ -98,15 +110,13 @@ TOOLS = [
                 "properties": {
                     "termos_busca": {
                         "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "Lista com EXATAMENTE 4 strings obrigatórias: [termo_principal, sinônimo1, sinônimo2, termo_relacionado]. SEMPRE preencha os 4 campos, mesmo que repita termos similares."
+                        "items": {"type": "string"},
+                        "description": "Lista com EXATAMENTE 4 strings obrigatórias: [termo_principal, sinônimo1, sinônimo2, termo_relacionado]. SEMPRE preencha os 4 campos, mesmo que repita termos similares.",
                     }
                 },
-                "required": ["termos_busca"]
-            }
-        }
+                "required": ["termos_busca"],
+            },
+        },
     },
     {
         "type": "function",
@@ -118,12 +128,12 @@ TOOLS = [
                 "properties": {
                     "aviso": {
                         "type": "string",
-                        "description": "Apenas envie 'ok' para prosseguir."
+                        "description": "Apenas envie 'ok' para prosseguir.",
                     }
                 },
-                "required": ["aviso"]
-            }
-        }
+                "required": ["aviso"],
+            },
+        },
     },
     {
         "type": "function",
@@ -135,58 +145,73 @@ TOOLS = [
                 "properties": {
                     "materia": {
                         "type": "string",
-                        "description": "Nome ou código da disciplina que o usuário quer entender."
+                        "description": "Nome ou código da disciplina que o usuário quer entender.",
                     }
                 },
-                "required": ["materia"]
-            }
-        }
-    }
+                "required": ["materia"],
+            },
+        },
+    },
 ]
+
 
 def parse_resposta_sabia(texto: str) -> list:
     """Extrai as disciplinas do texto da IA bloqueando qualquer duplicação."""
     disciplinas = []
-    codigos_vistos = set() # O nosso rastreador de duplicatas
-    
-    linhas = texto.split('\n')
+    codigos_vistos = set()  # O nosso rastreador de duplicatas
+
+    linhas = texto.split("\n")
     for linha in linhas:
-        linha = linha.strip().lstrip('*').lstrip('-').lstrip('•').strip()
-        codigo_match = re.match(r'([A-Z]{3}\d{4})', linha)
-        if not codigo_match: continue
-            
+        linha = linha.strip().lstrip("*").lstrip("-").lstrip("•").strip()
+        codigo_match = re.match(r"([A-Z]{3}\d{4})", linha)
+        if not codigo_match:
+            continue
+
         try:
             codigo = codigo_match.group(1).upper()
-            
+
             # Se já vimos esse código pula para a próxima linha
             if codigo in codigos_vistos:
                 continue
-                
-            codigos_vistos.add(codigo) # Registra que já pegou essa matéria
-            
-            resto = linha[len(codigo):].strip().lstrip('-').strip()
-            
-            nome = resto.split('|')[0].strip() if '|' in resto else resto.split('Nota:')[0].strip() if 'Nota:' in resto else resto.strip()
-            nome = nome.strip('*').strip()
-            
+
+            codigos_vistos.add(codigo)  # Registra que já pegou essa matéria
+
+            resto = linha[len(codigo) :].strip().lstrip("-").strip()
+
+            nome = (
+                resto.split("|")[0].strip()
+                if "|" in resto
+                else (
+                    resto.split("Nota:")[0].strip()
+                    if "Nota:" in resto
+                    else resto.strip()
+                )
+            )
+            nome = nome.strip("*").strip()
+
             nota = 7
-            if 'Nota:' in linha:
-                nota_texto = re.sub(r'[^\d]', '', linha.split('Nota:')[1].split('/')[0])
-                if nota_texto: nota = int(nota_texto)
-            
+            if "Nota:" in linha:
+                nota_texto = re.sub(r"[^\d]", "", linha.split("Nota:")[1].split("/")[0])
+                if nota_texto:
+                    nota = int(nota_texto)
+
             justificativa = ""
-            if 'Motivo:' in linha:
-                justificativa = linha.split('Motivo:')[1].strip().strip('*').strip()
-            
-            disciplinas.append({"codigo": codigo, "nome": nome, "nota": nota, "justificativa": justificativa})
+            if "Motivo:" in linha:
+                justificativa = linha.split("Motivo:")[1].strip().strip("*").strip()
+
+            disciplinas.append(
+                {
+                    "codigo": codigo,
+                    "nome": nome,
+                    "nota": nota,
+                    "justificativa": justificativa,
+                }
+            )
         except Exception:
             continue
-            
+
     return disciplinas
 
-import re # Certifique-se de que o 'import re' está no topo do seu ficheiro (já deve estar)
-
-import re # Certifique-se de que o 'import re' está no topo do seu ficheiro (já deve estar)
 
 # --- NOVA FUNÇÃO: O FLUXO DIRETO PELA MATRIZ (COM LIMPEZA REGEX) ---
 def ferramenta_buscar_optativas(matriz_curricular: str) -> str:
@@ -195,107 +220,146 @@ def ferramenta_buscar_optativas(matriz_curricular: str) -> str:
     # Se receber "8117/-3 - 2025.1", transforma em "8117/-3"
     # Se receber "1856/3 - 2024.2", transforma em "1856/3"
     # Se já vier "8117/-3" sem o ano não altera nada.
-    matriz_limpa = re.sub(r'\s*-\s*\d{4}\.\d+$', '', matriz_curricular).strip()
-    
-    print(f"\n[DEBUG] 🎓 Frontend enviou: '{matriz_curricular}' | Buscando no BD por: '{matriz_limpa}'")
-    
+    matriz_limpa = re.sub(r"\s*-\s*\d{4}\.\d+$", "", matriz_curricular).strip()
+
+    print(
+        f"\n[DEBUG] 🎓 Frontend enviou: '{matriz_curricular}' | Buscando no BD por: '{matriz_limpa}'"
+    )
+
     if not matriz_limpa:
-        return json.dumps([{"codigo": "ERRO", "nome": "Matriz curricular não informada. Peça ao aluno para enviar o currículo ou fazer upload do histórico."}])
-        
+        return json.dumps(
+            [
+                {
+                    "codigo": "ERRO",
+                    "nome": "Matriz curricular não informada. Peça ao aluno para enviar o currículo ou fazer upload do histórico.",
+                }
+            ]
+        )
+
     try:
-        #pegar ID da matriz no banco
-        mat_id_res = supabase.table("matrizes").select("id_matriz").ilike("curriculo_completo", f"%{matriz_limpa}%").execute()
-        
-        if not mat_id_res.data: 
-            return json.dumps([{"codigo": "ERRO", "nome": f"A matriz '{matriz_limpa}' não foi encontrada na base de dados."}])
-            
-        id_matriz = mat_id_res.data[0]['id_matriz']
+        # pegar ID da matriz no banco
+        mat_id_res = (
+            supabase.table("matrizes")
+            .select("id_matriz")
+            .ilike("curriculo_completo", f"%{matriz_limpa}%")
+            .execute()
+        )
+
+        if not mat_id_res.data:
+            return json.dumps(
+                [
+                    {
+                        "codigo": "ERRO",
+                        "nome": f"A matriz '{matriz_limpa}' não foi encontrada na base de dados.",
+                    }
+                ]
+            )
+
+        id_matriz = mat_id_res.data[0]["id_matriz"]
         print(f"[DEBUG] ID da Matriz encontrada: {id_matriz}")
 
         # pegar matérias por curso onde tipo_natureza == 1 (Optativas)
-        materias_res = supabase.table("materias_por_curso").select("id_materia").eq("id_matriz", id_matriz).eq("tipo_natureza", 1).execute()
+        materias_res = (
+            supabase.table("materias_por_curso")
+            .select("id_materia")
+            .eq("id_matriz", id_matriz)
+            .eq("tipo_natureza", 1)
+            .execute()
+        )
 
         if not materias_res.data:
             print("[DEBUG] Nenhuma optativa encontrada para esta matriz.")
             return json.dumps([])
 
         ids_optativas = [item["id_materia"] for item in materias_res.data]
-        
-        detalhes_res = supabase.table("materias").select("codigo_materia, nome_materia").in_("id_materia", ids_optativas).execute()
 
+        detalhes_res = (
+            supabase.table("materias")
+            .select("codigo_materia, nome_materia")
+            .in_("id_materia", ids_optativas)
+            .execute()
+        )
 
-        #print(f"[DEBUG] ✅ Encontradas {len(materias_res.data)} optativas na matriz.")
+        # print(f"[DEBUG] ✅ Encontradas {len(materias_res.data)} optativas na matriz.")
 
-        '''
+        """
         for i in range(3):
             print(f"[DEBUG] ✅ Optativa {i+1}: {materias_res.data[i]}\n")
             materiaEncontrada= supabase.table("materias").select("nome_materia","codigo_materia").eq("id_materia", materias_res.data[i]["id_materia"])
             materiaEncontrada = materiaEncontrada.data
             time.sleep(2)
             print(f"disciplina: {materiaEncontrada}\n")
-        '''
-        #x = json.dumps(detalhes_res.data,ensure_ascii=False)
+        """
+        # x = json.dumps(detalhes_res.data,ensure_ascii=False)
 
-        
         print(f"[DEBUG] ✅ Encontradas {len(detalhes_res.data)} optativas na matriz.")
 
-       
         nomes_ignorados = ["ATIVIDADE DE EXTENSÃO", "ATIVIDADE COMPLEMENTAR"]
-        detalhes_res.data = [m for m in detalhes_res.data if m.get("nome_materia") not in nomes_ignorados]
-            #print(f"[DEBUG] ✅ Optativa {i+1}: {detalhes_res.data[i]}\n")
-
+        detalhes_res.data = [
+            m for m in detalhes_res.data if m.get("nome_materia") not in nomes_ignorados
+        ]
+        # print(f"[DEBUG] ✅ Optativa {i+1}: {detalhes_res.data[i]}\n")
 
         return json.dumps(detalhes_res.data, ensure_ascii=False)
-        
+
     except Exception as e:
         print(f"❌ Erro no fluxo de optativas: {e}")
         return json.dumps([])
+
 
 def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
     print(f"\n[DEBUG] 🧠 Termos recebidos da Maritaca: {termos_busca}")
     try:
         # Filtrar termos vazios antes de enviar para o Gemini
         termos_validos = [t.strip() for t in termos_busca if t and t.strip()]
-        
+
         if not termos_validos:
             print("⚠️ Nenhum termo válido para busca.")
             return "Nenhum termo de busca válido foi fornecido."
-        
+
         print(f"[DEBUG] ✅ Termos válidos após filtro: {termos_validos}")
-        
+
         # 1. GERAÇÃO EM LOTE (BATCH EMBEDDING): 1 única chamada para a API do Gemini
         result = genai.embed_content(
             model="models/gemini-embedding-001",
-            content=termos_validos, 
+            content=termos_validos,
             task_type="retrieval_query",
-            output_dimensionality=256
+            output_dimensionality=256,
         )
-        
-        vetores = result.get('embeddings') or result.get('embedding')
+
+        vetores = result.get("embeddings") or result.get("embedding")
         resultados_finais = {}
 
         # 2. BUSCA NO BANCO: 1 por 1 para cada palavra-chave gerada pela Maritaca
         for i, vetor in enumerate(vetores):
             termo_atual = termos_validos[i]
             print(f"[DEBUG] 🔍 Consultando Supabase para: '{termo_atual}'...")
-            
-            res = supabase.rpc("match_materias", {
-                "query_embedding": vetor,
-                "match_threshold": 0.6,
-                "match_count": 20 # Puxa as 5 melhores de cada termo
-            }).execute()
-            
-            print(f"[DEBUG] Resultados para '{termo_atual}': {len(res.data or [])} encontrados.")
-            
-            for item in (res.data or []):
+
+            res = supabase.rpc(
+                "match_materias",
+                {
+                    "query_embedding": vetor,
+                    "match_threshold": 0.6,
+                    "match_count": 20,  # Puxa as 5 melhores de cada termo
+                },
+            ).execute()
+
+            print(
+                f"[DEBUG] Resultados para '{termo_atual}': {len(res.data or [])} encontrados."
+            )
+
+            for item in res.data or []:
                 # Pega o código, remove espaços em branco nas pontas e força MAIÚSCULA
                 codigo_bruto = item.get("codigo_materia") or ""
                 cod = str(codigo_bruto).strip().upper()
                 sim = item.get("similaridade", 0)
-                
+
                 # Só adiciona se o código for válido (não vazio)
                 if cod:
-                    if cod not in resultados_finais or sim > resultados_finais[cod]["similaridade"]:
+                    if (
+                        cod not in resultados_finais
+                        or sim > resultados_finais[cod]["similaridade"]
+                    ):
                         resultados_finais[cod] = item
 
         # Formatação final
@@ -303,13 +367,15 @@ def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
             {
                 "codigo": item.get("codigo_materia"),
                 "nome": item.get("nome_materia"),
-                "similaridade": round(item.get("similaridade", 0), 2)
+                "similaridade": round(item.get("similaridade", 0), 2),
             }
             for item in resultados_finais.values()
         ]
-            
+
         # Ordena e limita a 25 para economizar tokens na resposta da Maritaca
-        lista_retorno = sorted(lista_retorno, key=lambda x: x['similaridade'], reverse=True)[:25]
+        lista_retorno = sorted(
+            lista_retorno, key=lambda x: x["similaridade"], reverse=True
+        )[:25]
 
         print(f"[DEBUG] ✅ Total de matérias únicas retornadas: {len(lista_retorno)}")
 
@@ -386,17 +452,32 @@ def resolver_tool_call(msg_ia):
 @app.get("/health")
 async def health_check():
     """Endpoint para verificar se a API está funcionando"""
-    return {
-        "status": "healthy",
-        "service": "Darcy AI",
-        "version": "2.0"
-    }
+    return {"status": "healthy", "service": "Darcy AI", "version": "2.0"}
+
 
 # 4. O ENDPOINT PRINCIPAL DA API
 @app.post("/recomendar")
 async def recomendar_materias(consulta: Consulta):
     if not consulta.interesse.strip():
-        raise HTTPException(status_code=400, detail="O campo 'interesse' não pode estar vazio.")
+        raise HTTPException(
+            status_code=400, detail="O campo 'interesse' não pode estar vazio."
+        )
+
+    # Acumula uso de tokens por modelo para tracking de custo no dashboard admin.
+    usage_calls = []
+
+    def _coletar_usage(resp, modelo: str):
+        u = getattr(resp, "usage", None)
+        if u is None:
+            return
+        usage_calls.append(
+            {
+                "model": modelo,
+                "prompt_tokens": getattr(u, "prompt_tokens", 0) or 0,
+                "completion_tokens": getattr(u, "completion_tokens", 0) or 0,
+                "total_tokens": getattr(u, "total_tokens", 0) or 0,
+            }
+        )
 
     try:
         # 1ª chamada: só para o modelo ESCOLHER a ferramenta (roteamento).
@@ -407,8 +488,9 @@ async def recomendar_materias(consulta: Consulta):
                 {"role": "user", "content": consulta.interesse},
             ],
             tools=TOOLS,
-            tool_choice="auto"
+            tool_choice="auto",
         )
+        _coletar_usage(response, "sabiazinho-4")
 
         msg_ia = response.choices[0].message
         nome_ferramenta, args = resolver_tool_call(msg_ia)
@@ -419,7 +501,8 @@ async def recomendar_materias(consulta: Consulta):
             return {
                 "success": True,
                 "disciplinas": parse_resposta_sabia(resposta_texto),
-                "resposta_completa": resposta_texto
+                "resposta_completa": resposta_texto,
+                "usage": usage_calls,
             }
 
         # --- ROTEAMENTO / EXECUÇÃO DA FERRAMENTA ---
@@ -430,7 +513,8 @@ async def recomendar_materias(consulta: Consulta):
                     "success": False,
                     "error": "Envie o historico academico",
                     "disciplinas": [],
-                    "resposta_completa": "Envie o historico academico"
+                    "resposta_completa": "Envie o historico academico",
+                    "usage": usage_calls,
                 }
             dados_banco = ferramenta_buscar_optativas(consulta.matriz_curricular)
             modo = "lista"
@@ -457,8 +541,9 @@ async def recomendar_materias(consulta: Consulta):
                 {"role": "user", "content": consulta.interesse},
                 {"role": "system", "content": f"DADOS DO BANCO (baseie-se SOMENTE nestes dados):\n{dados_banco}"},
             ],
-            max_tokens=5000  # Aumentado para comportar mais disciplinas
+            max_tokens=5000,  # Aumentado para comportar mais disciplinas
         )
+        _coletar_usage(final_response, "sabia-4")
         resposta_texto = final_response.choices[0].message.content or ""
         print(f"\n[DEBUG] Texto bruto da IA:\n{resposta_texto}\n")
 
@@ -467,7 +552,8 @@ async def recomendar_materias(consulta: Consulta):
         return {
             "success": True,
             "disciplinas": disciplinas,
-            "resposta_completa": resposta_texto
+            "resposta_completa": resposta_texto,
+            "usage": usage_calls,
         }
 
     except Exception as e:
@@ -484,9 +570,26 @@ def _sse_event(stage: str, **kwargs) -> str:
 @app.post("/recomendar-stream")
 async def recomendar_materias_stream(consulta: Consulta):
     if not consulta.interesse.strip():
-        raise HTTPException(status_code=400, detail="O campo 'interesse' não pode estar vazio.")
+        raise HTTPException(
+            status_code=400, detail="O campo 'interesse' não pode estar vazio."
+        )
 
     def generate():
+        usage_calls = []
+
+        def _coletar_usage(resp, modelo: str):
+            u = getattr(resp, "usage", None)
+            if u is None:
+                return
+            usage_calls.append(
+                {
+                    "model": modelo,
+                    "prompt_tokens": getattr(u, "prompt_tokens", 0) or 0,
+                    "completion_tokens": getattr(u, "completion_tokens", 0) or 0,
+                    "total_tokens": getattr(u, "total_tokens", 0) or 0,
+                }
+            )
+
         try:
             # Stage 1: Thinking
             yield _sse_event("thinking", message="Analisando seu interesse...")
@@ -499,8 +602,9 @@ async def recomendar_materias_stream(consulta: Consulta):
                     {"role": "user", "content": consulta.interesse},
                 ],
                 tools=TOOLS,
-                tool_choice="auto"
+                tool_choice="auto",
             )
+            _coletar_usage(response, "sabiazinho-4")
 
             msg_ia = response.choices[0].message
             nome_ferramenta, args = resolver_tool_call(msg_ia)
@@ -545,13 +649,18 @@ async def recomendar_materias_stream(consulta: Consulta):
                     {"role": "system", "content": f"DADOS DO BANCO (baseie-se SOMENTE nestes dados):\n{dados_banco}"},
                 ],
                 max_tokens=5000,
-                stream=True
+                stream=True,
             )
 
             resposta_texto = ""
             codigos_emitidos = set()
 
             for chunk in stream:
+                # Chunk final de usage (include_usage) vem sem choices.
+                if getattr(chunk, "usage", None) is not None:
+                    _coletar_usage(chunk, "sabia-4")
+                if not chunk.choices:
+                    continue
                 delta = chunk.choices[0].delta
                 if delta.content:
                     resposta_texto += delta.content
@@ -579,6 +688,9 @@ async def recomendar_materias_stream(consulta: Consulta):
                     if disc["codigo"] not in codigos_emitidos:
                         codigos_emitidos.add(disc["codigo"])
                         yield _sse_event("disciplina", data=disc)
+
+            # Evento de uso de tokens (para tracking de custo no dashboard)
+            yield _sse_event("usage", calls=usage_calls)
 
             # Stage 4: Done
             yield _sse_event("done", resultado=resposta_texto)

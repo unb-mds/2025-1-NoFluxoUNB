@@ -14,6 +14,9 @@ export const ROUTES = {
   FLUXOGRAMAS: '/fluxogramas',
   MEU_FLUXOGRAMA: '/meu-fluxograma',
   PLANO_FORMATURA: '/plano-formatura',
+  SUPORTE: '/suporte',
+  ADMIN_DASHBOARD: '/admin/dashboard',
+  ADMIN_TICKETS: '/admin/tickets',
 
   // Auth routes
   AUTH_CALLBACK: '/auth/callback',
@@ -43,7 +46,29 @@ export const PROTECTED_ROUTES = [
   '/fluxogramas',
   '/meu-fluxograma',
   '/plano-formatura',
+  '/suporte',
+  '/admin',
 ] as const;
+
+// Rotas admin → escopo exigido em public.admins.scopes (superadmin ignora).
+const ADMIN_SCOPE_BY_PREFIX: ReadonlyArray<readonly [string, string]> = [
+  ['/admin/tickets', 'tickets'],
+  ['/admin', 'dashboard'] // fallback p/ qualquer outra área admin
+];
+
+export const ADMIN_ROUTES = ['/admin'] as const;
+
+export function requiresAdmin(pathname: string): boolean {
+  return ADMIN_ROUTES.some((route) => pathname === route || pathname.startsWith(route + '/'));
+}
+
+/** Escopo necessário para a rota admin, ou null se não for rota admin. */
+export function requiredAdminScope(pathname: string): string | null {
+  for (const [prefix, scope] of ADMIN_SCOPE_BY_PREFIX) {
+    if (pathname === prefix || pathname.startsWith(prefix + '/')) return scope;
+  }
+  return null;
+}
 
 // Check if route requires authentication
 export function requiresAuth(pathname: string): boolean {

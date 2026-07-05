@@ -2,14 +2,14 @@ import json
 import os
 import sys
 
-'''
+"""
 Este arquivo visa converter o .json obtido do arquivo '01_extrair_turmas_sigaa.py', para .txt
-'''
+"""
 
 
 # Caminho onde estão seus arquivos .json
-#entrada = "dados_finais"
-#saida = "chunks_finais2"
+# entrada = "dados_finais"
+# saida = "chunks_finais2"
 
 # Só executa se for chamado diretamente
 if __name__ == "__main__":
@@ -27,12 +27,8 @@ else:
 os.makedirs(saida, exist_ok=True)
 
 # Campos que você quer extrair (edite conforme necessário)
-campos = [
-    "disciplina",
-    "codigo",
-    "unidade_responsavel",
-    "ementa"
-]
+campos = ["disciplina", "codigo", "unidade_responsavel", "ementa"]
+
 
 def formatar_turma(turma):
     """Formata os dados de uma única turma em uma string."""
@@ -42,6 +38,7 @@ def formatar_turma(turma):
         if valor:
             linhas.append(f"{campo.replace('_', ' ').capitalize()}: {valor}")
     return "\n".join(linhas)
+
 
 def converter_json_para_txt(pasta_entrada, pasta_saida):
     """
@@ -56,7 +53,7 @@ def converter_json_para_txt(pasta_entrada, pasta_saida):
             caminho_arquivo_entrada = os.path.join(pasta_entrada, nome_arquivo)
             with open(caminho_arquivo_entrada, "r", encoding="utf-8") as f:
                 dados = json.load(f)
-            
+
             chunks = []
             for turma in dados:
                 # Gera o texto da turma formatado
@@ -69,6 +66,7 @@ def converter_json_para_txt(pasta_entrada, pasta_saida):
             with open(caminho_arquivo_saida, "w", encoding="utf-8") as out:
                 out.write("\n\n\n".join(chunks))
 
+
 # --- Bloco de Execução Principal ---
 # O código abaixo só será executado quando você rodar:
 # python seu_script.py pasta_entrada pasta_saida
@@ -78,7 +76,7 @@ if __name__ == "__main__":
         print("Erro: Forneça os nomes das pastas de entrada e saída como argumentos.")
         print("Uso: python script_json_para_txt.py <pasta_de_entrada> <pasta_de_saida>")
         sys.exit(1)
-        
+
     # 2. Pega os argumentos
     entrada = sys.argv[1]
     saida = sys.argv[2]

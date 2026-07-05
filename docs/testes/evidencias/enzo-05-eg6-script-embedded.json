@@ -1,0 +1,5 @@
+{
+  "payload": "Cálculo 1 <script>alert(1)</script> e mais",
+  "status": 503,
+  "body": "{\"erro\":\"Serviço Sabiá indisponível. Configure MARITACA_API_KEY, SUPABASE_URL e SUPABASE_KEY.\"}"
+}

@@ -5,6 +5,8 @@ import { normalizeDadosFluxogramaFromStored } from '$lib/factories';
 
 const STORAGE_KEY = 'nofluxo_user';
 const ANON_KEY = 'nofluxo_anonimo';
+/** DEV-ONLY: marca que o usuário atual foi impersonado via /dev/impersonar. */
+const DEV_IMPERSONATE_KEY = 'nofluxo_dev_impersonate';
 
 // Initialize state from localStorage if available
 function getInitialState(): AuthState {
@@ -15,6 +17,20 @@ function getInitialState(): AuthState {
 		if (storedUser && storedUser !== 'null') {
 			try {
 				const rawUser = JSON.parse(storedUser);
+				// D4 Vini (Médio): antes, qualquer JSON com `email` virava UserModel com
+				// idUser=0 e isAuthenticated=true — permitindo que um atacante injetasse
+				// um usuário fantasma só com addInitScript. Agora exigimos um idUser real
+				// (camelCase ou snake_case) E email válido antes de hidratar a sessão.
+				const idUserCandidate = rawUser.idUser ?? rawUser.id_user;
+				const emailCandidate = String(rawUser.email ?? '').trim();
+				const hasValidIdUser =
+					typeof idUserCandidate === 'number' && Number.isFinite(idUserCandidate) && idUserCandidate > 0;
+				const hasValidEmail = emailCandidate.length > 0 && emailCandidate.includes('@');
+				if (!hasValidIdUser || !hasValidEmail) {
+					localStorage.removeItem(STORAGE_KEY);
+					throw new Error('storedUser inválido: idUser/email ausentes ou malformados');
+				}
+
 				// Normalize fluxograma so codigoMateria/status/mencao are always in the expected shape
 				const dadosFluxograma = normalizeDadosFluxogramaFromStored(
 					rawUser.dadosFluxograma ?? rawUser.dados_fluxograma ?? null
@@ -24,12 +40,13 @@ function getInitialState(): AuthState {
 				const user: UserModel = rawUser.idUser !== undefined
 					? { ...rawUser, dadosFluxograma: dadosFluxograma ?? rawUser.dadosFluxograma ?? null, cargaHorariaIntegralizada: cargaHorariaIntegralizada ?? undefined }
 					: {
-							idUser: rawUser.id_user ?? 0,
-							email: rawUser.email ?? '',
+							idUser: idUserCandidate,
+							email: emailCandidate,
 							nomeCompleto: rawUser.nome_completo ?? '',
 							token: rawUser.token ?? null,
 							dadosFluxograma: dadosFluxograma ?? rawUser.dados_fluxograma ?? null,
-							cargaHorariaIntegralizada: cargaHorariaIntegralizada ?? undefined
+							cargaHorariaIntegralizada: cargaHorariaIntegralizada ?? undefined,
+							isAdmin: Boolean(rawUser.isAdmin ?? rawUser.is_admin ?? false)
 						};
 				return {
 					user,
@@ -154,6 +171,7 @@ function createAuthStore() {
 			if (browser) {
 				localStorage.removeItem(STORAGE_KEY);
 				localStorage.removeItem(ANON_KEY);
+				localStorage.removeItem(DEV_IMPERSONATE_KEY);
 				// Remove anonymous cookie
 				document.cookie = 'nofluxo_anonimo=; path=/; max-age=0';
 			}

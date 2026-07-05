@@ -1,0 +1,27 @@
+{
+  "url": "http://127.0.0.1:3001/upload-pdf",
+  "status_code": 200,
+  "headers": {
+    "Server": "Werkzeug/3.1.8 Python/3.14.6",
+    "Date": "Tue, 30 Jun 2026 20:55:56 GMT",
+    "Content-Type": "application/json",
+    "Content-Length": "416",
+    "Access-Control-Allow-Origin": "*",
+    "Connection": "close"
+  },
+  "body": {
+    "curso_extraido": null,
+    "equivalencias_pdf": [],
+    "extracted_data": [],
+    "filename": "123_456789.pdf",
+    "frequencia_geral": null,
+    "full_text": "PDF para testes\n2 páginas :)\nSegunda página -\n",
+    "matricula": "456789",
+    "matriz_curricular": null,
+    "media_ponderada": null,
+    "message": "PDF processado com sucesso!",
+    "numero_semestre": null,
+    "semestre_atual": null,
+    "suspensoes": []
+  }
+}

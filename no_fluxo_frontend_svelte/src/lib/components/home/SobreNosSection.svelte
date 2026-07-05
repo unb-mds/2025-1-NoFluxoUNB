@@ -69,20 +69,9 @@
 	];
 
 	const features = [
-		{
-			title: 'UX moderna:',
-			linkedin: '',
-			description: 'Interface visual clara, responsiva e fácil de navegar.'
-		},
-		{
-			title: 'Inteligência Artificial:',
-			description: 'Sugestão de disciplinas alinhadas aos interesses do estudante.'
-		},
-		{
-			title: 'Personalização:',
-			description:
-				'Planejamento acadêmico inteligente e eficiente, adaptado ao perfil do aluno.'
-		}
+		{ description: 'Feito por estudantes, pra estudantes da UnB.' },
+		{ description: 'Pensado pra quem tem vida além da faculdade.' },
+		{ description: 'Gratuito e construído com a comunidade em mente.' }
 	];
 </script>
 
@@ -90,14 +79,37 @@
 	<h2 class="section-title">Sobre nós</h2>
 
 	<div class="sobre-card nf-card-surface">
-		<p class="sobre-text">
-			O NoFluxoUnB é criado na disciplina de Métodos de Desenvolvimento de Software ministrada pela
-			professora Carla Rocha, com a proposta de desenvolver um software inovador para a comunidade.
-			Nossa proposta foi desenvolver um software que facilita o planejamento acadêmico dos
-			estudantes da UnB, oferecendo um fluxograma interativo, intuitivo e de fácil uso. Visualize
-			matérias equivalentes, selecione disciplinas futuras e receba recomendações personalizadas com
-			inteligência artificial.
-		</p>
+		<div class="sobre-body">
+			<p class="sobre-lead">
+				Tudo começou com um fluxograma impresso e uma caneta marca-texto.
+			</p>
+
+			<p class="sobre-text">
+				Se você já chegou no fim do semestre tentando entender quais matérias liberar pro próximo,
+				imprimindo o fluxograma de novo, riscando o que já passou, fazendo conta de cabeça pra
+				projetar quando vai formar, você já sabe do que a gente tá falando.
+			</p>
+
+			<p class="sobre-text">
+				O No Fluxo nasceu dessa dor. A vida do universitário não cabe num fluxograma "ideal": tem
+				estágio, tem trabalho, tem projetos próprios, tem o semestre que não fechou o horário, a
+				matéria equivalente que existe mas ninguém te contou. A UnB tem um monte de regra que o
+				SIGAA não explica, e no fim quem se vira pra organizar tudo isso é você, geralmente
+				sozinho, no Excel ou no papel.
+			</p>
+
+			<p class="sobre-text">
+				Aí a gente fez uma pesquisa e percebeu que não era só com a gente. A maioria dos cursos da
+				UnB nem tem um fluxograma visual decente, e os que têm ainda obrigam o aluno a grifar à mão
+				toda vez que vai se matricular. Deu pra ver que dava pra fazer melhor.
+			</p>
+
+			<p class="sobre-text">
+				O No Fluxo é um projeto da disciplina de Métodos de Desenvolvimento de Software, ministrada
+				pela professora Dr Carla Rocha na FCTE/UnB. A ideia era construir um software que resolvesse um
+				problema real da comunidade, e a gente escolheu resolver um que vivia toda semana.
+			</p>
+		</div>
 
 		<!--
 		<div class="sobre-note">
@@ -114,7 +126,7 @@
 					<span class="check-circle">
 						<Check class="h-4 w-4 text-primary-foreground" />
 					</span>
-					<p><strong>{feature.title}</strong> {feature.description}</p>
+					<p>{feature.description}</p>
 				</div>
 			{/each}
 		</div>
@@ -156,12 +168,27 @@
 		padding: 2rem;
 	}
 
+	.sobre-body {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		margin-bottom: 1.75rem;
+	}
+
+	.sobre-lead {
+		color: hsl(var(--foreground));
+		font-size: clamp(1.0625rem, 2.2vw, 1.375rem);
+		font-weight: 700;
+		line-height: 1.4;
+		letter-spacing: -0.01em;
+		text-align: left;
+	}
+
 	.sobre-text {
 		color: hsl(var(--muted-foreground));
 		font-size: clamp(0.8125rem, 1.5vw, 1.0625rem);
 		line-height: 1.7;
 		text-align: left;
-		margin-bottom: 0.75rem;
 	}
 
 	.sobre-features {
