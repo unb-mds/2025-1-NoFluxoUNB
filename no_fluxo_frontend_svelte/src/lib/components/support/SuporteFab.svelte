@@ -325,21 +325,24 @@
 		height: 44px;
 		padding: 0 16px;
 		border-radius: 999px;
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		background: linear-gradient(135deg, #9333ea, #ec4899);
-		color: white;
+		border: 1px solid hsl(var(--border) / 0.5);
+		background: hsl(var(--background) / 0.5);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		color: hsl(var(--foreground) / 0.9);
 		cursor: pointer;
 		font-size: 14px;
 		font-weight: 600;
-		box-shadow: 0 8px 20px rgba(147, 51, 234, 0.35);
-		transition: transform 150ms ease, box-shadow 150ms ease;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+		transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
 	}
 	.fab-label {
 		white-space: nowrap;
 	}
 	.suporte-fab:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 12px 28px rgba(236, 72, 153, 0.45);
+		background: hsl(var(--muted) / 0.8);
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 	}
 	.suporte-fab:focus-visible {
 		outline: 2px solid #c4b5fd;
@@ -383,21 +386,24 @@
 		justify-content: center;
 		width: 26px;
 		height: 44px;
-		border: 1px solid rgba(255, 255, 255, 0.15);
+		border: 1px solid hsl(var(--border) / 0.5);
 		border-left: none;
 		border-radius: 0 8px 8px 0;
-		background: linear-gradient(135deg, #9333ea, #ec4899);
-		color: white;
+		background: hsl(var(--background) / 0.5);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		color: hsl(var(--foreground) / 0.9);
 		cursor: pointer;
-		opacity: 0.55;
-		box-shadow: 0 6px 16px rgba(147, 51, 234, 0.3);
-		transition: opacity 150ms ease, width 150ms ease;
+		opacity: 0.7;
+		box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+		transition: opacity 150ms ease, width 150ms ease, background 150ms ease;
 	}
 	.suporte-tab:hover,
 	.suporte-tab:focus-visible {
 		opacity: 1;
 		width: 32px;
 		outline: none;
+		background: hsl(var(--muted) / 0.8);
 	}
 
 	@media (max-width: 640px) {

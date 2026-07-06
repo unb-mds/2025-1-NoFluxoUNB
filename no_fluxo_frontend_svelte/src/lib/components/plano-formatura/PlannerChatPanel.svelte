@@ -24,9 +24,12 @@
 			return starters;
 		}
 
-		// 1. Semestre mais pesado
-		const heaviest = plano.plano.reduce((prev, curr) => (prev.creditos > curr.creditos ? prev : curr));
-		if (heaviest && heaviest.creditos >= 20) {
+		// 1. Semestre mais pesado (misturando créditos + dificuldades)
+		const calcPeso = (s: any) => {
+			return s.creditos + s.materias.reduce((acc: number, m: any) => acc + (m.dificuldadeEstimada || 5), 0);
+		};
+		const heaviest = plano.plano.reduce((prev, curr) => (calcPeso(prev) > calcPeso(curr) ? prev : curr));
+		if (heaviest && (calcPeso(heaviest) >= 30 || heaviest.creditos >= 20)) {
 			const num = semestreAtual + heaviest.indice + 1;
 			starters.push({ 
 				prefix: 'Semestre', 
@@ -75,7 +78,7 @@
 	});
 
 	function parseMessage(text: string) {
-		const regex = /(\b[A-Z]{3,4}\d{4}\b)|(\[TURMA\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^\]]+)\])|(\[BOTAO\|([^|]+)\|([^\]]+)\])/g;
+		const regex = /(\b[A-Z]{3,4}\d{4}\b)|(\[TURMA\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^\]]+)\])|(\[BOTAO\|([^|\]]+)(?:\|([^\]]+))?\])/g;
 		const blocks: any[] = [];
 		let currentBubble: any[] = [];
 		let lastIndex = 0;
@@ -114,8 +117,8 @@
 				flushBubble();
 				blocks.push({
 					type: 'button',
-					label: match[9].trim(),
-					message: match[10].trim()
+					label: match[9].trim().replace(/([a-z])([A-Z])/g, '$1 $2'),
+					message: match[9].trim() // Ignorando match[10] para evitar alucinações da IA
 				});
 			}
 			lastIndex = regex.lastIndex;

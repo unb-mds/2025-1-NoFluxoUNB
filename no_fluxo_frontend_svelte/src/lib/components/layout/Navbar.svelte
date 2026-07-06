@@ -94,9 +94,10 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Gra
 		</a>
 
 		{#if variant === 'floating'}
-			<!-- Desktop: cluster centralizado (respiro entre itens). -->
+			<!-- Desktop: cluster centralizado (respiro entre itens). Só a partir de xl (1280px) —
+			     com 6 links, larguras menores (md/lg) causam overlap; usa o menu hambúrguer até lá. -->
 			<div
-				class="hidden min-w-0 flex-1 items-center justify-center gap-5 md:flex lg:gap-7 xl:gap-9"
+				class="hidden min-w-0 flex-1 items-center justify-center gap-5 xl:flex xl:gap-9"
 				aria-label="Navegação principal"
 			>
 				{#if isAuthenticated}
@@ -124,9 +125,9 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Gra
 				{/if}
 			</div>
 
-			<!-- Direita: conta ou visitante (+ menu mobile só no small). -->
-			<div class="flex min-w-0 flex-1 items-center justify-end md:flex-initial md:justify-end md:gap-1">
-				<div class="hidden items-center md:flex">
+			<!-- Direita: conta ou visitante (+ menu mobile até xl). -->
+			<div class="flex min-w-0 flex-1 items-center justify-end xl:flex-initial xl:justify-end xl:gap-1">
+				<div class="hidden items-center xl:flex">
 					{#if isAuthenticated}
 						{#if isAnonymous}
 							<DropdownMenu.Root>
@@ -191,7 +192,7 @@ import { Menu, X, LogOut, LayoutDashboard, Bot, Upload, GitBranch, BookOpen, Gra
 				</div>
 				<button
 					type="button"
-					class="text-foreground/90 hover:text-foreground inline-flex shrink-0 touch-manipulation items-center justify-center rounded-lg p-1.5 outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring/40 md:hidden"
+					class="text-foreground/90 hover:text-foreground inline-flex shrink-0 touch-manipulation items-center justify-center rounded-lg p-1.5 outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring/40 xl:hidden"
 					onclick={toggleMobileMenu}
 					aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
 				>

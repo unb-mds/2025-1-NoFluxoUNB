@@ -282,23 +282,27 @@ export function distribuirPorSemestres(
         const limiteEfetivoSemestre = Math.max(120, limiteHorasPorSemestre - horasReservadaParaOptativa);
 
         const candidatas: MateriaComScore[] = [];
+        let adiadasNesteSemestre = 0;
         for (const cod of restantes) {
             const info = scores.get(cod)!;
-            // Restrição: adiar tira matéria APENAS do semestre 0
-            if (indiceSemestre === 0 && adiarSet.has(cod)) continue;
             if (isDesbloqueada(info.materia, cumulados)) {
+                if (adiarSet.has(cod)) {
+                    adiarSet.delete(cod);
+                    adiadasNesteSemestre++;
+                    continue;
+                }
                 candidatas.push(info);
             }
         }
 
         if (candidatas.length === 0) {
-            // Se só não há candidatas porque tudo foi adiado no semestre 0,
-            // criar semestre vazio e seguir — as adiadas voltam no índice 1.
-            if (indiceSemestre === 0 && adiarSet.size > 0) {
+            // Se só não há candidatas porque matérias foram adiadas neste semestre,
+            // criar semestre vazio e seguir — as adiadas voltam no próximo índice.
+            if (adiadasNesteSemestre > 0) {
                 semestres.push({
-                    indice: 0,
-                    tipo: "recomendado",
-                    semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, 1) : undefined,
+                    indice: indiceSemestre,
+                    tipo: indiceSemestre === 0 ? "recomendado" : "estimado",
+                    semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, indiceSemestre + 1) : undefined,
                     creditos: 0,
                     _horasInternas: 0,
                     materias: [],
