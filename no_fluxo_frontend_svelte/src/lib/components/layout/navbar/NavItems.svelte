@@ -23,15 +23,17 @@
 	{:else}
 		<DropdownMenu.Root>
 			<DropdownMenu.Trigger
-				class="{linkClass} inline-flex cursor-pointer items-center gap-1 border-none bg-transparent {isEntryActive(
+				class="{linkClass} cursor-pointer border-none bg-transparent p-0 {isEntryActive(
 					entry,
 					pathname
 				)
 					? 'active'
 					: ''}"
 			>
-				{entry.label}
-				<ChevronDown class="h-3.5 w-3.5" />
+				<span class="inline-flex items-center gap-1">
+					{entry.label}
+					<ChevronDown class="h-3.5 w-3.5 shrink-0" />
+				</span>
 			</DropdownMenu.Trigger>
 			<DropdownMenu.Content class="w-52" align="center">
 				{#each entry.children as child}
