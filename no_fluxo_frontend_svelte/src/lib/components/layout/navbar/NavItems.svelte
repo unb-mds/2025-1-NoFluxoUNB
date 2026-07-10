@@ -22,15 +22,16 @@
 		</a>
 	{:else}
 		<DropdownMenu.Root>
-			<DropdownMenu.Trigger>
-				<button
-					type="button"
-					class="{linkClass} inline-flex cursor-pointer items-center gap-1 border-none bg-transparent"
-					class:active={isEntryActive(entry, pathname)}
-				>
-					{entry.label}
-					<ChevronDown class="h-3.5 w-3.5" />
-				</button>
+			<DropdownMenu.Trigger
+				class="{linkClass} inline-flex cursor-pointer items-center gap-1 border-none bg-transparent {isEntryActive(
+					entry,
+					pathname
+				)
+					? 'active'
+					: ''}"
+			>
+				{entry.label}
+				<ChevronDown class="h-3.5 w-3.5" />
 			</DropdownMenu.Trigger>
 			<DropdownMenu.Content class="w-52" align="center">
 				{#each entry.children as child}

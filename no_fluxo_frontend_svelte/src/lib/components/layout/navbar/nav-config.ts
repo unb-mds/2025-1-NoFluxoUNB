@@ -13,7 +13,7 @@ export interface NavChild {
 
 export type NavEntry =
 	| { kind: 'link'; href: string; label: string; icon: NavIcon }
-	| { kind: 'group'; label: string; icon: NavIcon; children: NavChild[] };
+	| { kind: 'group'; label: string; children: NavChild[] };
 
 /**
  * Monta a lista de navegação para usuário autenticado.
@@ -38,7 +38,6 @@ export function buildNavEntries(args: { isAnonymous: boolean; hasHistorico: bool
 		{
 			kind: 'group',
 			label: 'Planejamento',
-			icon: GraduationCap,
 			children: [
 				{ href: ROUTES.PLANO_FORMATURA, label: 'Plano de Formatura', icon: GraduationCap },
 				{ href: ROUTES.ASSISTENTE, label: 'Assistente IA', icon: Bot }
