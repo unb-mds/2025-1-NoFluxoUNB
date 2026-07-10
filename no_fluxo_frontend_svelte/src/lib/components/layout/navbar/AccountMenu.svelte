@@ -2,7 +2,8 @@
 	import { goto } from '$app/navigation';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import * as Avatar from '$lib/components/ui/avatar';
-	import { Button } from '$lib/components/ui/button';
+	import { buttonVariants } from '$lib/components/ui/button';
+	import { cn } from '$lib/utils';
 	import { createSupabaseBrowserClient } from '$lib/supabase/client';
 	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
@@ -28,10 +29,13 @@
 
 {#if isAnonymous}
 	<DropdownMenu.Root>
-		<DropdownMenu.Trigger>
-			<Button variant="outline" size="sm" class="rounded-full border-white/14 bg-secondary/55">
-				Visitante
-			</Button>
+		<DropdownMenu.Trigger
+			class={cn(
+				buttonVariants({ variant: 'outline', size: 'sm' }),
+				'rounded-full border-white/14 bg-secondary/55'
+			)}
+		>
+			Visitante
 		</DropdownMenu.Trigger>
 		<DropdownMenu.Content class="w-56" align="end">
 			<DropdownMenu.Label class="font-normal text-muted-foreground">
@@ -46,18 +50,15 @@
 	</DropdownMenu.Root>
 {:else}
 	<DropdownMenu.Root>
-		<DropdownMenu.Trigger>
-			<button
-				type="button"
-				class="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-none bg-transparent p-0 transition-opacity hover:opacity-90"
-				aria-label="Menu da conta"
-			>
-				<Avatar.Root class="h-10 w-10 shadow-[0_12px_40px_-4px_hsl(var(--primary)/0.52)] ring-2 ring-primary/35">
-					<Avatar.Fallback class="bg-primary text-sm font-bold uppercase text-primary-foreground">
-						{user?.nomeCompleto?.charAt(0).toUpperCase() || 'U'}
-					</Avatar.Fallback>
-				</Avatar.Root>
-			</button>
+		<DropdownMenu.Trigger
+			class="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-none bg-transparent p-0 transition-opacity hover:opacity-90"
+			aria-label="Menu da conta"
+		>
+			<Avatar.Root class="h-10 w-10 shadow-[0_12px_40px_-4px_hsl(var(--primary)/0.52)] ring-2 ring-primary/35">
+				<Avatar.Fallback class="bg-primary text-sm font-bold uppercase text-primary-foreground">
+					{user?.nomeCompleto?.charAt(0).toUpperCase() || 'U'}
+				</Avatar.Fallback>
+			</Avatar.Root>
 		</DropdownMenu.Trigger>
 		<DropdownMenu.Content class="w-56" align="end">
 			<DropdownMenu.Label class="font-normal">

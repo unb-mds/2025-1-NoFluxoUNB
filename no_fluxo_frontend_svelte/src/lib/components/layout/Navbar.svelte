@@ -124,6 +124,7 @@
 				</button>
 			</div>
 		{:else}
+			<!-- Variante bar: não usada por nenhuma rota hoje (todas passam variant="floating"); verificada só por typecheck, não em browser. -->
 			<!-- Variante bar: linha única à direita (desktop ≥ lg). -->
 			<div class="hidden items-center lg:ml-auto lg:flex lg:gap-8">
 				{#if isAuthenticated}

@@ -21,14 +21,22 @@
 
 	let { open, entries, pathname, isAuthenticated, isAnonymous, user, onClose, onLogout }: Props =
 		$props();
+
+	// Backdrop is not keyboard-focusable (tabindex="-1") and nothing auto-focuses it, so
+	// Escape is handled at the window level instead, guarded to only act while open.
+	function handleWindowKeydown(e: KeyboardEvent) {
+		if (open && e.key === 'Escape') onClose();
+	}
 </script>
+
+<svelte:window onkeydown={handleWindowKeydown} />
 
 {#if open}
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<div
 		class="fixed inset-0 z-[9998] bg-black/50 backdrop-blur-[2px]"
 		onclick={onClose}
-		onkeydown={(e) => e.key === 'Escape' && onClose()}
 		role="button"
 		tabindex="-1"
 		aria-label="Fechar menu"
