@@ -14,9 +14,14 @@
 	}
 
 	/** Evita falha de querySelector por casing ou caracteres especiais no código. */
-	function findCardBySubjectCode(containerEl: HTMLElement, code: string): HTMLElement | null {
+	function findCardBySubjectCode(containerEl: HTMLElement, code: string, cache?: Map<string, HTMLElement>): HTMLElement | null {
 		const needle = normSubjectCode(code);
 		if (!needle) return null;
+		
+		if (cache) {
+			return cache.get(needle) || null;
+		}
+
 		for (const el of containerEl.querySelectorAll('[data-subject-code]')) {
 			const attr = el.getAttribute('data-subject-code');
 			if (attr != null && normSubjectCode(attr) === needle) return el as HTMLElement;
@@ -306,6 +311,18 @@
 			columnRects = [];
 		}
 
+		// Cache DOM elements and their bounding rects to prevent layout thrashing and slow querySelectorAll
+		const cardCache = new Map<string, HTMLElement>();
+		const rectCache = new Map<HTMLElement, DOMRect>();
+		const allCards = container.querySelectorAll('[data-subject-code]');
+		for (let i = 0; i < allCards.length; i++) {
+			const el = allCards[i] as HTMLElement;
+			const attr = el.getAttribute('data-subject-code');
+			if (attr) {
+				cardCache.set(normSubjectCode(attr), el);
+			}
+		}
+
 		const newLines: ConnectionLine[] = [];
 
 		if (hoveredCode && connectionMode === 'direct') {
@@ -337,7 +354,9 @@
 						container,
 						containerRect,
 						stroke === 'desc' ? 'dependent' : 'prerequisite',
-						false
+						false,
+						cardCache,
+						rectCache
 					);
 					if (line) {
 						line.chainStroke = stroke;
@@ -366,7 +385,9 @@
 						container,
 						containerRect,
 						'corequisite',
-						false
+						false,
+						cardCache,
+						rectCache
 					);
 					if (line) {
 						line.chainStroke = 'core';
@@ -380,7 +401,7 @@
 					for (const prereq of materia.preRequisitos) {
 						const line = getLineBetweenCards(
 							prereq.codigoMateria, materia.codigoMateria,
-							container, containerRect, 'prerequisite', true
+							container, containerRect, 'prerequisite', true, cardCache, rectCache
 						);
 						if (line) newLines.push(line);
 					}
@@ -398,7 +419,7 @@
 					drawnPairs.add(pairKey);
 					const line = getLineBetweenCards(
 						fromMateria.codigoMateria, coReq.codigoMateriaCoRequisito,
-						container, containerRect, 'corequisite', true
+						container, containerRect, 'corequisite', true, cardCache, rectCache
 					);
 					if (line) newLines.push(line);
 				}
@@ -570,15 +591,31 @@
 		containerEl: HTMLElement,
 		containerRect: DOMRect,
 		type: 'prerequisite' | 'dependent' | 'corequisite',
-		isAllMode: boolean = false
+		isAllMode: boolean = false,
+		cardCache?: Map<string, HTMLElement>,
+		rectCache?: Map<HTMLElement, DOMRect>
 	): ConnectionLine | null {
-		const fromCard = findCardBySubjectCode(containerEl, fromCode);
-		const toCard = findCardBySubjectCode(containerEl, toCode);
+		const fromCard = findCardBySubjectCode(containerEl, fromCode, cardCache);
+		const toCard = findCardBySubjectCode(containerEl, toCode, cardCache);
 
 		if (!fromCard || !toCard) return null;
 
-		const fromRect = fromCard.getBoundingClientRect();
-		const toRect = toCard.getBoundingClientRect();
+		let fromRect: DOMRect;
+		if (rectCache && rectCache.has(fromCard)) {
+			fromRect = rectCache.get(fromCard)!;
+		} else {
+			fromRect = fromCard.getBoundingClientRect();
+			if (rectCache) rectCache.set(fromCard, fromRect);
+		}
+
+		let toRect: DOMRect;
+		if (rectCache && rectCache.has(toCard)) {
+			toRect = rectCache.get(toCard)!;
+		} else {
+			toRect = toCard.getBoundingClientRect();
+			if (rectCache) rectCache.set(toCard, toRect);
+		}
+
 		const zoom = store.state.zoomLevel || 1;
 
 		const x1 = (fromRect.right - containerRect.left) / zoom;
@@ -959,7 +996,7 @@
 				stroke-opacity={isDimmed ? '0.2' : isAllMode ? '0.5' : '0.85'}
 				stroke-dasharray={line.type === 'corequisite' ? '8,5' : 'none'}
 				marker-end={markerUrl}
-				style="transition: stroke-opacity 0.2s, stroke-width 0.2s;"
+				style="transition: stroke-opacity 0.2s ease, stroke-width 0.2s ease; will-change: stroke-opacity, stroke-width;"
 			/>
 		{/each}
 	</svg>

@@ -64,14 +64,14 @@
 		disciplinas?: DisciplinaUI[];
 	};
 
-	let mensagem = '';
-	let carregando = false;
-	let etapaAtual = '';
-	let historico: ChatMessage[] = [];
-	let materiaModal: MateriaModel | null = null;
-	let permitirConcluidaNoModal = false;
-	let salvandoOptativas = false;
-	let turmasModalDisciplina: DisciplinaUI | null = null;
+	let mensagem = $state('');
+	let carregando = $state(false);
+	let etapaAtual = $state('');
+	let historico: ChatMessage[] = $state([]);
+	let materiaModal: MateriaModel | null = $state(null);
+	let permitirConcluidaNoModal = $state(false);
+	let salvandoOptativas = $state(false);
+	let turmasModalDisciplina: DisciplinaUI | null = $state(null);
 
 	const assistente = new AssistenteService();
 	const detailsCache = new Map<string, Promise<void>>();

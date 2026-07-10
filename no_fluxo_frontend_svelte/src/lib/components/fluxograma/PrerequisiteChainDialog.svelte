@@ -16,6 +16,7 @@
 		ArrowLeftRight,
 		Map as MapIcon
 	} from 'lucide-svelte';
+	import { portal } from '$lib/actions/portal';
 
 	interface Props {
 		materia: MateriaModel;
@@ -226,7 +227,8 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-	class="fixed inset-0 z-[500] flex items-start justify-center bg-black/60 px-3 pb-3 pt-[calc(env(safe-area-inset-top)+4.75rem)] backdrop-blur-sm sm:items-center sm:p-4"
+	use:portal
+	class="fixed inset-0 z-[2147483647] flex items-start justify-center bg-black/60 px-3 pb-3 pt-[calc(env(safe-area-inset-top)+4.75rem)] backdrop-blur-sm sm:items-center sm:p-4"
 	onclick={handleBackdropClick}
 >
 	<div

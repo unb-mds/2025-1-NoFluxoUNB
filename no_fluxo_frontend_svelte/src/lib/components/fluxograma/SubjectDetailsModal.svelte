@@ -7,6 +7,8 @@
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { X, BookOpen, GitBranch, Repeat2, Loader2, Trash2 } from 'lucide-svelte';
 	import OptativaTipoModal from './OptativaTipoModal.svelte';
+	import { portal } from '$lib/actions/portal';
+	import { getCodigosFromExpressaoLogica, getLogicalCodeGroups } from '$lib/utils/expressao-logica';
 
 	interface Props {
 		materia: MateriaModel;
@@ -81,7 +83,8 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-	class="fixed inset-0 z-[500] flex items-center justify-center bg-black/60 p-2 backdrop-blur-sm sm:p-4"
+	use:portal
+	class="fixed inset-0 z-[2147483647] flex items-center justify-center bg-black/60 p-2 backdrop-blur-sm sm:p-4"
 	onclick={handleBackdropClick}
 >
 	<div
@@ -133,12 +136,27 @@
 						</div>
 					{/if}
 					<div class="flex flex-wrap gap-2">
+						{#if userData.status && userData.status !== '-'}
+							<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-medium text-white/80">
+								Status (SIGAA): {userData.status}
+							</span>
+						{/if}
+						{#if userData.anoPeriodo && userData.anoPeriodo !== '-'}
+							<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-medium text-white/80">
+								Semestre cursado: {userData.anoPeriodo}
+							</span>
+						{/if}
 						{#if userData.mencao && userData.mencao !== '-'}
 							<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-medium text-white/80">
 								Menção: {userData.mencao}
 							</span>
 						{/if}
-						{#if userData.professor}
+						{#if userData.frequencia != null && userData.frequencia > 0}
+							<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-medium text-white/80">
+								Frequência: {userData.frequencia}%
+							</span>
+						{/if}
+						{#if userData.professor && userData.professor !== '-'}
 							<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-medium text-white/80">
 								Prof: {userData.professor}
 							</span>
@@ -212,38 +230,59 @@
 						{#each prereqModels as pr}
 							<div class="rounded-lg bg-white/5 px-3 py-2.5">
 								{#if pr.expressaoOriginal}
-									<p class="text-sm font-medium text-white/90">Expressão: {pr.expressaoOriginal}</p>
-										{#if pr.expressaoLogica && typeof pr.expressaoLogica === 'object' && 'materias' in pr.expressaoLogica && pr.expressaoLogica.materias?.length}
-										<div class="mt-1.5 flex flex-wrap gap-1">
-											{#each pr.expressaoLogica.materias as cod}
-												{@const prereqMateria = prereqs.find((p) => p.codigoMateria.toUpperCase() === cod.toUpperCase())}
-												{#if prereqMateria}
-													{@const prereqStatus = store.getSubjectStatus(prereqMateria)}
-													<span class="inline-flex items-center gap-1 rounded bg-white/10 px-2 py-0.5 text-xs">
-														<span class="h-1.5 w-1.5 rounded-full {statusDotColor[prereqStatus]}"></span>
-														{cod} · {getStatusLabel(prereqStatus)}
-													</span>
-												{:else}
-													<span class="rounded bg-white/10 px-2 py-0.5 text-xs text-white/80">{cod}</span>
-												{/if}
-											{/each}
+									{@const logicGroups = getLogicalCodeGroups(pr.expressaoLogica, pr.expressaoOriginal)}
+									{#if logicGroups.length > 0}
+										<div class="space-y-3">
+											{#if logicGroups.length > 1}
+												<p class="text-xs text-white/70">Você precisa cumprir <strong class="font-semibold text-white/95">uma das opções</strong> abaixo:</p>
+											{:else}
+												<p class="text-xs text-white/70">Você precisa cumprir todas as matérias desta regra:</p>
+											{/if}
+											<div class="flex flex-col gap-2">
+												{#each logicGroups as group, i}
+													<div class="rounded-xl border border-white/10 bg-black/20 p-2.5">
+														{#if logicGroups.length > 1}
+															<p class="mb-2 text-[10px] font-bold uppercase tracking-wider text-white/40">Opção {i + 1}</p>
+														{/if}
+														<div class="flex flex-wrap gap-2">
+															{#each group as cod}
+																{@const prereqMateria = courseData.materias.find((p) => p.codigoMateria.toUpperCase() === cod.toUpperCase())}
+																{#if prereqMateria}
+																	{@const prereqStatus = store.getSubjectStatus(prereqMateria)}
+																	<div class="inline-flex items-center gap-1.5 rounded-lg border border-[#7f9cf5]/35 bg-[#7f9cf5]/10 px-2.5 py-1 text-xs text-[#b8adff]">
+																		<span class="h-1.5 w-1.5 shrink-0 rounded-full {statusDotColor[prereqStatus]}"></span>
+																		<span class="font-mono font-medium">{cod}</span>
+																		<span class="hidden sm:inline text-white/60">· {prereqMateria.nomeMateria}</span>
+																		<span class="text-white/50">· {getStatusLabel(prereqStatus)}</span>
+																	</div>
+																{:else}
+																	<div class="inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/5 px-2.5 py-1 text-xs text-white/80">
+																		<span class="font-mono font-medium">{cod}</span>
+																	</div>
+																{/if}
+															{/each}
+														</div>
+													</div>
+												{/each}
+											</div>
 										</div>
 									{/if}
 								{:else}
 									{@const prereq = prereqs.find((p) => p.codigoMateria.toUpperCase() === (pr.codigoMateriaRequisito || '').toUpperCase())}
 									{#if prereq}
 										{@const prereqStatus = store.getSubjectStatus(prereq)}
-										<div class="flex items-center gap-3">
+										<div class="flex items-center gap-2 rounded-lg border border-[#7f9cf5]/35 bg-[#7f9cf5]/10 px-3 py-2 text-xs text-[#b8adff]">
 											<div class="h-2.5 w-2.5 shrink-0 rounded-full {statusDotColor[prereqStatus]}"></div>
 											<div class="flex-1">
-												<p class="text-sm font-medium text-white/90">{prereq.nomeMateria}</p>
-												<p class="text-xs text-white/50">
-													{prereq.codigoMateria} · {prereq.creditos} créditos · {getStatusLabel(prereqStatus)}
-												</p>
+												<span class="font-mono font-medium">{prereq.codigoMateria}</span>
+												<span class="text-white/60"> · {prereq.nomeMateria}</span>
+												<span class="ml-1 text-white/50">· {getStatusLabel(prereqStatus)}</span>
 											</div>
 										</div>
 									{:else}
-										<p class="text-sm text-white/80">{pr.codigoMateriaRequisito}</p>
+										<div class="inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/5 px-2.5 py-1 text-xs text-white/80">
+											<span class="font-mono font-medium">{pr.codigoMateriaRequisito}</span>
+										</div>
 									{/if}
 								{/if}
 							</div>
