@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
-	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import AdminNav from '$lib/components/admin/AdminNav.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
@@ -200,7 +200,7 @@
 
 <PageMeta title="Tickets — Admin" description="Dashboard de tickets (admin)." />
 
-<AnimatedBackground />
+<PageBackground />
 
 <main class="admin-tickets-main relative z-10">
 	<div class="admin-topbar">

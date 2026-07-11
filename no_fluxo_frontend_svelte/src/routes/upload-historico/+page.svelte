@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
-	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import FileDropzone from '$lib/components/upload/FileDropzone.svelte';
 	import UploadProgress from '$lib/components/upload/UploadProgress.svelte';
 	import UploadSuccess from '$lib/components/upload/UploadSuccess.svelte';
@@ -19,7 +19,7 @@
 	noIndex={true}
 />
 
-<AnimatedBackground />
+<PageBackground />
 
 <main
 	class="relative z-10 flex min-h-[calc(100vh-64px)] flex-col items-center overflow-hidden px-3 pb-10 sm:px-4 sm:pb-14"
