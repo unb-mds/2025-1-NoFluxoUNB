@@ -14,7 +14,7 @@ Lista de tarefas (to-do) com as melhorias sugeridas para o projeto e seus status
   _(Nota: também foram enriquecidas a interface do Fluxograma com dados do usuário e os cards de pré-requisitos.)_
 
 - [x] **Inconsistência visual entre abas**
-  Unificado em um único componente `PageBackground.svelte` (`$lib/components/effects/`), substituindo `GraffitiBackground` e `AnimatedBackground`. Usado em todas as páginas que precisam de fundo, incluindo `assistente` (que tinha import morto) e `plano-formatura` (que não tinha fundo nenhum).
+  Unificado em um único componente `PageBackground.svelte` (`$lib/components/effects/`), substituindo `GraffitiBackground` e `AnimatedBackground`. Usado em todas as páginas que precisam de fundo, incluindo `assistente` (que tinha import morto). `plano-formatura` também tinha esse problema (nenhum fundo), mas essa página só existe na branch do Motor 2 (`feature/motor-planejador-formatura`) — ainda pendente de aplicar lá quando ela for mergeada.
 
 ### 🚧 Em andamento
 
