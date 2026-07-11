@@ -1,11 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { goto } from '$app/navigation';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import AdminNav from '$lib/components/admin/AdminNav.svelte';
-	import { authStore } from '$lib/stores/auth';
-	import { ROUTES } from '$lib/config/routes';
 	import { ticketService } from '$lib/services/ticket.service';
 	import {
 		CATEGORY_COLORS,
@@ -20,7 +17,6 @@
 		type TicketListItem,
 		type TicketStatus
 	} from '$lib/types/ticket';
-	import { hasAdminScope } from '$lib/types/user';
 	import {
 		AlertTriangle,
 		ChevronLeft,
@@ -61,15 +57,6 @@
 	const totalPages = $derived(Math.max(1, Math.ceil(totalItems / PAGE_SIZE)));
 
 	onMount(() => {
-		const state = $authStore;
-		if (!state.isAuthenticated || !state.user) {
-			goto(`${ROUTES.LOGIN}?redirect=${encodeURIComponent('/admin/tickets')}`);
-			return;
-		}
-		if (!hasAdminScope(state.user, 'tickets')) {
-			goto(`${ROUTES.SUPORTE}?error=access_denied`);
-			return;
-		}
 		void loadPage(0);
 	});
 

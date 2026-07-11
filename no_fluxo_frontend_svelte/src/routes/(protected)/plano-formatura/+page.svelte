@@ -11,17 +11,9 @@
 	import type { PreferenciasPlano } from '$lib/types/plano-formatura';
 
 	onMount(async () => {
-		const authState = authStore.getUser();
-
-		// Redireciona para login se não autenticado
-		if (!authState) {
-			goto(ROUTES.LOGIN);
-			return;
-		}
-
 		// Garante que dados do curso estão carregados (necessário para o Motor 2)
 		if (!fluxogramaStore.state.courseData) {
-			const curriculoCompleto = authState.dadosFluxograma?.matrizCurricular ?? null;
+			const curriculoCompleto = authStore.getUser()?.dadosFluxograma?.matrizCurricular ?? null;
 			if (curriculoCompleto) {
 				await fluxogramaStore.loadCourseDataByCurriculoCompleto(curriculoCompleto);
 			} else {

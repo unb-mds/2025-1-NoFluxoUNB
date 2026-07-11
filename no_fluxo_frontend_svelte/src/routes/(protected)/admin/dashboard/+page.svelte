@@ -1,12 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { goto } from '$app/navigation';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import AdminNav from '$lib/components/admin/AdminNav.svelte';
-	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
-	import { hasAdminScope } from '$lib/types/user';
 	import { dashboardService } from '$lib/services/dashboard.service';
 	import {
 		CATEGORY_LABELS,
@@ -58,15 +55,6 @@
 	);
 
 	onMount(() => {
-		const state = $authStore;
-		if (!state.isAuthenticated || !state.user) {
-			goto(`${ROUTES.LOGIN}?redirect=${encodeURIComponent('/admin/dashboard')}`);
-			return;
-		}
-		if (!hasAdminScope(state.user, 'dashboard')) {
-			goto(`${ROUTES.SUPORTE}?error=access_denied`);
-			return;
-		}
 		void loadAll();
 	});
 

@@ -2,9 +2,6 @@
 	import { onMount } from 'svelte';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import PageBackground from '$lib/components/effects/PageBackground.svelte';
-	import { authStore } from '$lib/stores/auth';
-	import { goto } from '$app/navigation';
-	import { ROUTES } from '$lib/config/routes';
 	import { ticketService } from '$lib/services/ticket.service';
 	import {
 		CATEGORY_COLORS,
@@ -37,11 +34,6 @@
 	const CATEGORIES: TicketCategory[] = ['bug', 'sugestao', 'duvida'];
 
 	onMount(() => {
-		const state = $authStore;
-		if (!state.isAuthenticated || !state.user) {
-			goto(`${ROUTES.LOGIN}?redirect=${encodeURIComponent('/suporte')}`);
-			return;
-		}
 		void loadMyTickets();
 	});
 
