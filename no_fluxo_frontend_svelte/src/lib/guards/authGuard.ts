@@ -1,10 +1,12 @@
 import { browser } from '$app/environment';
 import { goto } from '$app/navigation';
 import { get } from 'svelte/store';
+import { redirect } from '@sveltejs/kit';
 import { authStore } from '$lib/stores/auth';
 import { authService } from '$lib/services/auth.service';
 import { requiresAdmin, requiredAdminScope } from '$lib/config/routes';
 import { hasAdminScope } from '$lib/types/user';
+import type { AuthState } from '$lib/types/auth';
 
 const PUBLIC_ROUTES_EXACT = [
 	'/',
@@ -109,4 +111,71 @@ export async function checkAlreadyAuthenticated(redirectTo = '/upload-historico'
 	}
 
 	return false;
+}
+
+/** Prefixos de rota que exigem conta real — login anônimo não é suficiente. */
+const REQUIRES_REAL_AUTH_PREFIXES = ['/plano-formatura', '/suporte', '/admin'];
+
+function requiresRealAuth(pathname: string): boolean {
+	return REQUIRES_REAL_AUTH_PREFIXES.some(
+		(prefix) => pathname === prefix || pathname.startsWith(prefix + '/')
+	);
+}
+
+export type ProtectedRouteDecision = { action: 'allow' } | { action: 'redirect'; to: string };
+
+/**
+ * Decisão pura do guard de rota protegida, dado o estado de auth já resolvido.
+ * Sem I/O — reaproveitada pelos testes e por guardProtectedRoute.
+ */
+export function decideProtectedRouteAccess(
+	pathname: string,
+	state: Pick<AuthState, 'isAuthenticated' | 'isAnonymous' | 'user'>
+): ProtectedRouteDecision {
+	if (!state.isAuthenticated && !state.isAnonymous) {
+		return { action: 'redirect', to: `/login?redirect=${encodeURIComponent(pathname)}` };
+	}
+
+	if (requiresRealAuth(pathname) && (!state.isAuthenticated || !state.user)) {
+		return { action: 'redirect', to: `/login?redirect=${encodeURIComponent(pathname)}` };
+	}
+
+	if (state.isAuthenticated && state.user && requiresAdmin(pathname)) {
+		const scope = requiredAdminScope(pathname);
+		if (!scope || !hasAdminScope(state.user, scope)) {
+			return { action: 'redirect', to: '/suporte?error=access_denied' };
+		}
+	}
+
+	return { action: 'allow' };
+}
+
+/**
+ * Guard para o route group (protected): roda no load() de +layout.ts, antes do
+ * componente da rota montar — bloqueia o mount lançando redirect() em vez de
+ * fazer goto() depois do primeiro frame (o que causava o flash de conteúdo).
+ */
+export async function guardProtectedRoute(url: URL): Promise<void> {
+	if (!browser) return;
+
+	await authService.ensureSessionBootstrapped();
+
+	if (get(authStore).isAuthenticated && get(authStore).user) {
+		const isDevImpersonate =
+			typeof localStorage !== 'undefined' &&
+			localStorage.getItem('nofluxo_dev_impersonate') === 'true';
+
+		if (!isDevImpersonate) {
+			const isValid = await authService.isSessionValid();
+			if (!isValid) {
+				await authService.signOut();
+				throw redirect(303, '/login?error=session_expired');
+			}
+		}
+	}
+
+	const decision = decideProtectedRouteAccess(url.pathname, get(authStore));
+	if (decision.action === 'redirect') {
+		throw redirect(303, decision.to);
+	}
 }
