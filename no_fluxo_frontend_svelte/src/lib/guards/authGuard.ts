@@ -31,6 +31,27 @@ export function isPublicRoute(path: string): boolean {
 }
 
 /**
+ * Verifica se a sessão do usuário autenticado ainda é válida (usuários
+ * dev-impersonados pulam a checagem). Se inválida, já faz signOut() como
+ * efeito colateral. Compartilhado entre checkAuth() e guardProtectedRoute()
+ * para não duplicar a mesma lógica de expiração de sessão.
+ */
+async function checkSessionStillValid(): Promise<boolean> {
+	const isDevImpersonate =
+		typeof localStorage !== 'undefined' &&
+		localStorage.getItem('nofluxo_dev_impersonate') === 'true';
+
+	if (isDevImpersonate) return true;
+
+	const isValid = await authService.isSessionValid();
+	if (!isValid) {
+		await authService.signOut();
+		return false;
+	}
+	return true;
+}
+
+/**
  * Check if user should be redirected.
  * This is the sole auth guard — no server-side hooks.server.ts.
  */
@@ -63,20 +84,10 @@ export async function checkAuth(path: string): Promise<boolean> {
 
 	// Check if authenticated (lê o estado já estabilizado após o wait de isLoading — D9/D10)
 	if (settled.isAuthenticated && settled.user) {
-		// DEV-ONLY: usuários impersonados localmente não têm sessão Supabase real,
-		// então pulamos a checagem de validade (que faria signOut imediato).
-		const isDevImpersonate =
-			typeof localStorage !== 'undefined' &&
-			localStorage.getItem('nofluxo_dev_impersonate') === 'true';
-
-		if (!isDevImpersonate) {
-			// Verify session is still valid (covers expiry check previously in hooks.server.ts)
-			const isValid = await authService.isSessionValid();
-			if (!isValid) {
-				await authService.signOut();
-				await goto('/login?error=session_expired');
-				return false;
-			}
+		// Verify session is still valid (covers expiry check previously in hooks.server.ts)
+		if (!(await checkSessionStillValid())) {
+			await goto('/login?error=session_expired');
+			return false;
 		}
 
 		// Rotas admin: exige o escopo correspondente (superadmin passa sempre)
@@ -161,16 +172,8 @@ export async function guardProtectedRoute(url: URL): Promise<void> {
 	await authService.ensureSessionBootstrapped();
 
 	if (get(authStore).isAuthenticated && get(authStore).user) {
-		const isDevImpersonate =
-			typeof localStorage !== 'undefined' &&
-			localStorage.getItem('nofluxo_dev_impersonate') === 'true';
-
-		if (!isDevImpersonate) {
-			const isValid = await authService.isSessionValid();
-			if (!isValid) {
-				await authService.signOut();
-				throw redirect(303, '/login?error=session_expired');
-			}
+		if (!(await checkSessionStillValid())) {
+			throw redirect(303, '/login?error=session_expired');
 		}
 	}
 
