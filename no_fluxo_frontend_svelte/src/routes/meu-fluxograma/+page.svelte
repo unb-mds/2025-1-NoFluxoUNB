@@ -80,10 +80,6 @@
 	});
 
 	onMount(() => {
-		if (!userFluxograma) {
-			goto(ROUTES.UPLOAD_HISTORICO);
-			return;
-		}
 		// Mesma regra do casamento: priorizar curriculo (codigo/versao) para achar a matriz correta
 		if (matrizCurricular?.trim()) {
 			store.loadCourseDataByCurriculoCompleto(matrizCurricular.trim(), false);
