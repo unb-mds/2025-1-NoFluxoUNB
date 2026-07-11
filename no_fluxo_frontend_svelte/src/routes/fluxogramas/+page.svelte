@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
-	import GraffitiBackground from '$lib/components/effects/GraffitiBackground.svelte';
+	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import CourseCard from '$lib/components/fluxograma/CourseCard.svelte';
 	import { fluxogramaService } from '$lib/services/fluxograma.service';
 	import { ROUTES } from '$lib/config/routes';
@@ -140,7 +140,7 @@
 	description="Explore os fluxogramas de cursos disponíveis na UnB"
 />
 
-<GraffitiBackground />
+<PageBackground />
 
 <div
 	class="relative z-10 container mx-auto min-w-0 max-w-6xl overflow-x-hidden px-3 pb-6 pt-3 sm:px-4 sm:pb-8 sm:pt-4"

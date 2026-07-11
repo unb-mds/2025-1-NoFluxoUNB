@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
-	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import {
 		Bot,
 		SendHorizontal,
@@ -553,7 +553,7 @@
 	noIndex={true}
 />
 
-
+<PageBackground />
 
 <div class="relative z-10 mx-auto flex h-[calc(100dvh-5.75rem)] min-h-0 w-full max-w-none flex-col px-2 pb-2 sm:h-[calc(100dvh-6.5rem)] sm:px-3 sm:pb-3 lg:px-6">
 	<div class="relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl bg-[#09090b] shadow-2xl border border-white/5">

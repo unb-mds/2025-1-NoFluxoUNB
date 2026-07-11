@@ -1,5 +1,6 @@
 <!--
-  Fundo área logada — mesma linguagem que a home (malha + halos), sem animações multicolor.
+  Fundo padrão NOFLX: base escura, malha técnica sutil, glows roxos via --primary.
+  Componente único usado em todas as páginas (substitui GraffitiBackground e AnimatedBackground).
 -->
 <div class="nofluxo-bg" aria-hidden="true">
 	<div class="nofluxo-bg-mesh"></div>
@@ -13,21 +14,26 @@
 		inset: 0;
 		z-index: -1;
 		overflow: hidden;
+		pointer-events: none;
 		background: #050505;
 	}
 
 	.nofluxo-bg-mesh {
 		position: absolute;
 		inset: 0;
-		opacity: 0.85;
+		opacity: 0.05;
 		background-image:
-			linear-gradient(hsl(0 0% 100% / 0.016) 1px, transparent 1px),
-			linear-gradient(90deg, hsl(0 0% 100% / 0.016) 1px, transparent 1px);
+			linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 		background-size: 56px 56px;
-		mask-image: radial-gradient(ellipse 85% 70% at 50% 45%, hsl(0 0% 0% / 0.5), transparent 100%);
+		mask-image: radial-gradient(
+			ellipse 85% 70% at 50% 45%,
+			rgba(0, 0, 0, 0.55),
+			transparent 100%
+		);
 		-webkit-mask-image: radial-gradient(
 			ellipse 85% 70% at 50% 45%,
-			hsl(0 0% 0% / 0.5),
+			rgba(0, 0, 0, 0.55),
 			transparent 100%
 		);
 	}
