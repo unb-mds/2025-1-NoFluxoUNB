@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
-	import GraffitiBackground from '$lib/components/effects/GraffitiBackground.svelte';
+	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import FluxogramaHeader from '$lib/components/fluxograma/FluxogramaHeader.svelte';
 	import FluxogramaLegendControls from '$lib/components/fluxograma/FluxogramaLegendControls.svelte';
 	import FluxogramViewportChrome from '$lib/components/fluxograma/FluxogramViewportChrome.svelte';
@@ -362,7 +362,7 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 	noIndex={true}
 />
 
-<GraffitiBackground />
+<PageBackground />
 
 <div
 	class="relative z-10 container mx-auto w-full min-w-0 max-w-full px-3 pb-2 sm:px-4 sm:pb-3 [@media(orientation:landscape)_and_(max-height:560px)]:px-2 [@media(orientation:landscape)_and_(max-height:560px)]:pb-1 [@media(orientation:landscape)_and_(max-height:560px)]:sm:px-3 [@media(orientation:landscape)_and_(max-height:560px)]:sm:pb-2"

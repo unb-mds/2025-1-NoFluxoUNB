@@ -1,5 +1,5 @@
 <script lang="ts">
-	import GraffitiBackground from '$lib/components/effects/GraffitiBackground.svelte';
+	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import Navbar from '$lib/components/layout/Navbar.svelte';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import JsonLd from '$lib/components/seo/JsonLd.svelte';
@@ -35,7 +35,7 @@
 <JsonLd data={websiteJsonLd} />
 <JsonLd data={organizationJsonLd} />
 
-<GraffitiBackground />
+<PageBackground />
 
 <!-- Navbar em pílula alinhada ao hero (referência visual) -->
 <div class="navbar-glass sticky top-0 z-50 px-4 pt-3 md:px-6 md:pt-4">

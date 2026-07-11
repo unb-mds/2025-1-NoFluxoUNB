@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
-	import GraffitiBackground from '$lib/components/effects/GraffitiBackground.svelte';
+	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import SubjectChainView from '$lib/components/disciplinas/SubjectChainView.svelte';
 	import { createSupabaseBrowserClient } from '$lib/supabase/client';
 	import { fluxogramaService } from '$lib/services/fluxograma.service';
@@ -671,7 +671,7 @@ function courseInfoLabel(curriculo: string | null | undefined): string | null {
 	description="Busque disciplinas na matriz curricular e visualize a cadeia de pré-requisitos no contexto do curso."
 />
 
-<GraffitiBackground />
+<PageBackground />
 
 <div class="relative z-10 flex h-[calc(100dvh-9.5rem)] flex-col overflow-hidden sm:h-[calc(100dvh-10.75rem)]">
 	<header class="flex h-14 shrink-0 items-center gap-3 border-b border-white/10 bg-black/55 px-4 backdrop-blur-md">
