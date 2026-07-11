@@ -75,19 +75,8 @@
 			}
 		});
 
-		// Initial session check
-		authService.getSession().then(async (session) => {
-			if (session?.user?.email) {
-				const result = await authService.databaseSearchUser();
-				if (result.success) {
-					authStore.setUser(result.user);
-				} else {
-					authStore.setLoading(false);
-				}
-			} else {
-				authStore.setLoading(false);
-			}
-		});
+		// Initial session check (memoizado — o guard de rota protegida pode já ter disparado isso)
+		authService.ensureSessionBootstrapped();
 
 		return () => {
 			subscription.unsubscribe();
