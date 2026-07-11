@@ -3,12 +3,13 @@
 	import { authService } from '$lib/services/auth.service';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import { ROUTES } from '$lib/config/routes';
 	import { isLoading, authError, authStore } from '$lib/stores/auth';
 	import { browser } from '$app/environment';
 	import { AlertTriangle, Eye, EyeOff, Loader2 } from 'lucide-svelte';
 	import GoogleIcon from '$lib/components/icons/GoogleIcon.svelte';
 	import { loginSchema } from '$lib/schemas/auth';
+	import { hasFluxogramaData } from '$lib/types/guards';
+	import { resolvePostLoginRedirect } from '$lib/utils/post-login-redirect';
 
 	const REMEMBER_KEY = 'nofluxo_remember_email';
 
@@ -31,13 +32,10 @@
 	// mandar todo mundo cego para /upload-historico. Whitelist defensiva: aceita
 	// apenas paths internos (começando com '/' e sem '//' para evitar redirect
 	// para origem externa).
-	function getSafeRedirect(): string {
+	function getSafeRedirect(hasFluxograma: boolean): string {
 		const candidate = page.url?.searchParams?.get('redirect') ?? '';
 		const decoded = candidate ? decodeURIComponent(candidate) : '';
-		if (decoded.startsWith('/') && !decoded.startsWith('//') && !decoded.includes('://')) {
-			return decoded;
-		}
-		return ROUTES.UPLOAD_HISTORICO;
+		return resolvePostLoginRedirect(decoded, hasFluxograma);
 	}
 
 	let email = $state('');
@@ -111,7 +109,7 @@
 		const result = await authService.signIn(email, password);
 
 		if (result.success) {
-			await goto(getSafeRedirect());
+			await goto(getSafeRedirect(hasFluxogramaData(result.user)));
 		} else {
 			localError = result.error;
 		}

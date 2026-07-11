@@ -49,5 +49,5 @@ Lista de tarefas (to-do) com as melhorias sugeridas para o projeto e seus status
 - [ ] **4. Comparar currículos/matrizes**
   Já existe `MudancaCursoModal` e o conceito de mudança de curso; uma view de comparação lado a lado (o que aproveita, o que falta) ajudaria quem troca de matriz.
 
-- [ ] **5. PWA / offline**
+- [x] **5. PWA / offline**
   O código tem tratamento mobile pesadíssimo (safe-area, landscape, focus-mode no fluxograma). É claramente usado no celular. Transformar em PWA instalável com cache do fluxograma dá um salto de UX com pouco esforço.

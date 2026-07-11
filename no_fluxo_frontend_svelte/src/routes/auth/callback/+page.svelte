@@ -3,13 +3,15 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { authService } from '$lib/services/auth.service';
+	import { hasFluxogramaData } from '$lib/types/guards';
+	import { resolvePostLoginRedirect } from '$lib/utils/post-login-redirect';
 
 	let status = $state('Processando autenticação...');
 	let error = $state('');
 
 	onMount(async () => {
 		const code = $page.url.searchParams.get('code');
-		const next = $page.url.searchParams.get('next') || '/upload-historico';
+		const explicitNext = $page.url.searchParams.get('next') ?? '';
 		const errorParam = $page.url.searchParams.get('error');
 
 		if (errorParam) {
@@ -24,7 +26,7 @@
 
 				if (result.success) {
 					status = 'Login realizado com sucesso!';
-					goto(next);
+					goto(resolvePostLoginRedirect(explicitNext, hasFluxogramaData(result.user)));
 				} else {
 					error = result.error;
 				}
@@ -45,7 +47,7 @@
 
 				if (result.success) {
 					status = 'Login realizado com sucesso!';
-					goto(next);
+					goto(resolvePostLoginRedirect(explicitNext, hasFluxogramaData(result.user)));
 				} else {
 					error = result.error;
 				}
