@@ -4,7 +4,7 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import AuthHomeLink from '$lib/components/auth/AuthHomeLink.svelte';
-	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import { AlertTriangle, CheckCircle, Eye, EyeOff } from 'lucide-svelte';
 
@@ -81,7 +81,7 @@
 
 <PageMeta title="Redefinir senha" description="Defina uma nova senha para sua conta NoFluxo UNB." noIndex={true} />
 
-<AnimatedBackground />
+<PageBackground />
 
 <div class="relative z-10 flex min-h-screen items-center justify-center px-4">
 	<AuthHomeLink />

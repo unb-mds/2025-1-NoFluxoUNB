@@ -1,7 +1,7 @@
 <script lang="ts">
 	import LoginForm from '$lib/components/auth/LoginForm.svelte';
 	import AuthHomeLink from '$lib/components/auth/AuthHomeLink.svelte';
-	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import { authService } from '$lib/services/auth.service';
 	import { goto } from '$app/navigation';
@@ -16,7 +16,7 @@
 <PageMeta title="Entrar" description="Acesse sua conta do NoFluxo UNB." noIndex={true} />
 
 <AuthHomeLink />
-<AnimatedBackground />
+<PageBackground />
 
 <div class="flex min-h-screen items-start justify-center overflow-x-hidden px-3 py-8 sm:px-4 sm:py-10">
 	<div class="flex w-full max-w-md flex-col items-center gap-4">

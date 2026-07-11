@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
-	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import { goto } from '$app/navigation';
 	import { ROUTES } from '$lib/config/routes';
@@ -129,7 +129,7 @@
 	description="Relate bugs, envie sugestões ou tire dúvidas sobre o NoFluxoUNB."
 />
 
-<AnimatedBackground />
+<PageBackground />
 
 <main class="relative z-10 flex min-h-[calc(100vh-64px)] flex-col items-center px-3 py-6 sm:px-4 sm:py-10">
 	<div class="w-full max-w-3xl">

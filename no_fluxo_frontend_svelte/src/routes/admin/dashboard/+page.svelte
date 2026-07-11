@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
-	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import AdminNav from '$lib/components/admin/AdminNav.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
@@ -108,7 +108,7 @@
 
 <PageMeta title="Dashboard — Admin" description="Métricas do NoFluxoUNB." />
 
-<AnimatedBackground />
+<PageBackground />
 
 <main class="relative z-10 mx-auto w-full max-w-6xl px-4 py-6 sm:py-8">
 	<div class="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

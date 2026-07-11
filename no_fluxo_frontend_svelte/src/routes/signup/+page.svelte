@@ -1,14 +1,14 @@
 <script lang="ts">
 	import SignupForm from '$lib/components/auth/SignupForm.svelte';
 	import AuthHomeLink from '$lib/components/auth/AuthHomeLink.svelte';
-	import AnimatedBackground from '$lib/components/effects/AnimatedBackground.svelte';
+	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 </script>
 
 <PageMeta title="Criar conta" description="Crie sua conta no NoFluxo UNB." noIndex={true} />
 
 <AuthHomeLink />
-<AnimatedBackground />
+<PageBackground />
 
 <div class="flex min-h-screen items-center justify-center px-4">
 	<div class="flex w-full max-w-md flex-col items-center gap-4">
