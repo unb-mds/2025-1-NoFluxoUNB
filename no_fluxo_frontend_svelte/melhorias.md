@@ -16,16 +16,16 @@ Lista de tarefas (to-do) com as melhorias sugeridas para o projeto e seus status
 - [x] **Inconsistência visual entre abas**
   Unificado em um único componente `PageBackground.svelte` (`$lib/components/effects/`), substituindo `GraffitiBackground` e `AnimatedBackground`. Usado em todas as páginas que precisam de fundo, incluindo `assistente` (que tinha import morto). `plano-formatura` também tinha esse problema (nenhum fundo), mas essa página só existe na branch do Motor 2 (`feature/motor-planejador-formatura`) — ainda pendente de aplicar lá quando ela for mergeada.
 
+- [x] **Footer morto e duplicação no Navbar**
+  - O código inativo do Footer foi limpo do layout.
+  - O menu de conta duplicado foi centralizado no componente `<AccountMenu />`.
+
 ### 🚧 Em andamento
 
 - [ ] **Débito técnico: assistente ainda não migrou para runes** *(Sendo feito pelo Claude / Antigravity)*
   `assistente/+page.svelte:67-70` usa Svelte 4 legacy (`let mensagem = ''`, `let historico = []`) enquanto todo o resto usa runes (`$state`). Roda em modo legacy por compatibilidade, mas é o maior arquivo da app (1098 linhas) fora do padrão. Migrar reduz surpresas de reatividade.
 
 ### ⏳ Pendente
-
-- [ ] **Footer morto e duplicação no Navbar**
-  - `+layout.svelte:49` — `showFooter` está hardcoded `false`. O componente Footer é importado e nunca renderizado.
-  - `Navbar.svelte` — o bloco de dropdown de conta/visitante está duplicado quase idêntico entre as variantes floating (linhas 131-191) e bar (209-269). ~130 linhas repetidas. Extrair um `<AccountMenu>` limpa isso.
 
 - [ ] **Auth só client-side → flash de conteúdo**
   Os guards são todos `onMount(() => goto(...))` (ex.: meu-fluxograma:82-86, plano-formatura:13-40). Sem `load`/`hooks.server`, o usuário vê a tela por um instante antes do redirect. Migrar para load functions elimina o flash e melhora SEO/perf.

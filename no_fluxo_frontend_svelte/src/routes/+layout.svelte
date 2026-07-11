@@ -8,7 +8,6 @@
 	import { checkAuth, isPublicRoute } from '$lib/guards/authGuard';
 	import { isAuthRoute } from '$lib/config/routes';
 	import Navbar from '$lib/components/layout/Navbar.svelte';
-	import Footer from '$lib/components/layout/Footer.svelte';
 	import LoadingBar from '$lib/components/layout/LoadingBar.svelte';
 	import SuporteFab from '$lib/components/support/SuporteFab.svelte';
 	import { Toaster } from 'svelte-sonner';
@@ -46,7 +45,6 @@
 	let showNavbar = $derived(
 		!isAuthRoute($page.url.pathname) && $page.url.pathname !== '/'
 	);
-	let showFooter = $derived(false);
 
 	// Watch for route changes and verify auth
 	$effect(() => {
@@ -129,10 +127,6 @@
 			{@render children()}
 		{/if}
 	</main>
-
-	{#if showFooter}
-		<Footer />
-	{/if}
 </div>
 
 {#if $isAuthenticated && !$isAnonymous && showNavbar}
