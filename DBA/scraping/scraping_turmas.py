@@ -597,8 +597,7 @@ def main(output_dir=None, ano=None, periodo=None, ids_file=None):
 
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
             futures = [
-                executor.submit(processar_departamento, id, ano, periodo)
-                for id in lote
+                executor.submit(processar_departamento, id, ano, periodo) for id in lote
             ]
 
             resultados_lote = []
@@ -656,7 +655,9 @@ def _parse_args():
     )
     parser.add_argument("--ano", default=None, help="Ano da busca (default: ano atual)")
     parser.add_argument(
-        "--periodo", default=None, help="Período 1 ou 2 (default: calculado pela data atual)"
+        "--periodo",
+        default=None,
+        help="Período 1 ou 2 (default: calculado pela data atual)",
     )
     parser.add_argument(
         "--output-dir",
