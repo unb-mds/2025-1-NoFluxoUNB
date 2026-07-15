@@ -36,7 +36,7 @@
 	let acaoEmAndamento = $state<string | null>(null);
 	let erroAcao = $state<string | null>(null);
 
-	let anoPeriodoMaisRecente = $derived(turmas[0]?.ano_periodo ?? null);
+	let periodoAtual = $state<string | null>(null);
 
 	function assinaturaKey(turma: string | null, anoPeriodo: string): string {
 		return `${turma ?? '__toda__'}::${anoPeriodo}`;
@@ -58,13 +58,22 @@
 		carregandoTurmas = true;
 		erroTurmas = null;
 		try {
+			const { data: periodoData, error: periodoError } =
+				await supabase.rpc('periodo_letivo_atual');
+			if (periodoError) {
+				erroTurmas = periodoError.message;
+				turmas = [];
+				return;
+			}
+			periodoAtual = periodoData as string;
+
 			const { data, error } = await supabase
 				.from('turmas')
 				.select(
 					'id_turmas, turma, docente, horario, local, ano_periodo, vagas_ofertadas, vagas_ocupadas, vagas_sobrando'
 				)
 				.eq('id_materia', idMateria)
-				.order('ano_periodo', { ascending: false })
+				.eq('ano_periodo', periodoAtual)
 				.order('turma');
 			if (error) {
 				erroTurmas = error.message;
@@ -123,27 +132,32 @@
 	<div class="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2">
 		<p class="text-xs font-semibold uppercase tracking-[0.12em] text-white/80">
 			Turmas e vagas{#if codigoMateria} · <span class="font-mono text-purple-300">{codigoMateria}</span>{/if}
+			{#if periodoAtual}
+				<span class="ml-1 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] normal-case tracking-normal text-white/50">
+					{periodoAtual}
+				</span>
+			{/if}
 		</p>
-		{#if !carregandoTurmas && !erroTurmas && turmas.length > 0 && anoPeriodoMaisRecente}
+		{#if !carregandoTurmas && !erroTurmas && turmas.length > 0 && periodoAtual}
 			<button
 				type="button"
-				disabled={acaoEmAndamento === assinaturaKey(null, anoPeriodoMaisRecente)}
-				onclick={() => alternarSeguir(null, anoPeriodoMaisRecente!)}
+				disabled={acaoEmAndamento === assinaturaKey(null, periodoAtual)}
+				onclick={() => alternarSeguir(null, periodoAtual!)}
 				class="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-medium transition-colors disabled:opacity-50 {encontrarAssinatura(
 					null,
-					anoPeriodoMaisRecente
+					periodoAtual
 				)
 					? 'border-purple-300/45 bg-purple-500/18 text-purple-100 hover:bg-purple-500/25'
 					: 'border-white/15 bg-white/5 text-white/70 hover:bg-white/10'}"
 			>
-				{#if acaoEmAndamento === assinaturaKey(null, anoPeriodoMaisRecente)}
+				{#if acaoEmAndamento === assinaturaKey(null, periodoAtual)}
 					<Loader2 class="h-3 w-3 animate-spin" />
-				{:else if encontrarAssinatura(null, anoPeriodoMaisRecente)}
+				{:else if encontrarAssinatura(null, periodoAtual)}
 					<Bell class="h-3 w-3" />
 				{:else}
 					<BellOff class="h-3 w-3" />
 				{/if}
-				{encontrarAssinatura(null, anoPeriodoMaisRecente) ? 'Seguindo toda a matéria' : 'Seguir toda a matéria'}
+				{encontrarAssinatura(null, periodoAtual) ? 'Seguindo toda a matéria' : 'Seguir toda a matéria'}
 			</button>
 		{/if}
 	</div>
@@ -160,7 +174,8 @@
 		<p class="text-xs text-red-300/85">{erroTurmas}</p>
 	{:else if turmas.length === 0}
 		<p class="text-xs text-white/45">
-			Nenhuma turma cadastrada{#if nomeMateria} para {nomeMateria}{/if} no momento.
+			Nenhuma turma cadastrada{#if nomeMateria} para {nomeMateria}{/if} no período {periodoAtual ??
+				'atual'}.
 		</p>
 	{:else}
 		<div class="space-y-2">
