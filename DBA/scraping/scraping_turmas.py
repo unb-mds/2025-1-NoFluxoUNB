@@ -1,3 +1,4 @@
+import argparse
 import requests
 from bs4 import BeautifulSoup
 import time
@@ -9,6 +10,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 import random
 import unicodedata
+from datetime import date
 from pathlib import Path
 
 """
@@ -33,15 +35,19 @@ def _remover_acentos(texto_com_acento):
 MAX_WORKERS = 3  # Reduzido para evitar bloqueios
 REQUEST_DELAY = (2, 5)  # Intervalo maior entre requisições
 MAX_RETRIES = 5  # Mais tentativas por departamento
-OUTPUT_DIR = str(
-    (
-        Path(__file__).resolve().parent
-        / ".."
-        / "dados"
-        / "dados_finais_teste_p_depto_20"
-    ).resolve()
+SCRIPT_DIR = Path(__file__).resolve().parent
+DEFAULT_OUTPUT_DIR = str(
+    (SCRIPT_DIR / ".." / "dados" / "dados_finais_teste_p_depto_20").resolve()
 )
+DEFAULT_IDS_FILE = str(SCRIPT_DIR / "departamentos_ID_unb.csv")
 DEBUG = True  # Ativar para ver logs detalhados
+
+
+def ano_periodo_atual():
+    """Ano/período vigente pela data de hoje (1º sem: jan-jun, 2º sem: jul-dez)."""
+    hoje = date.today()
+    periodo = "1" if hoje.month <= 6 else "2"
+    return str(hoje.year), periodo
 
 
 def _normalizar_texto_para_comparacao(texto):
@@ -255,7 +261,7 @@ def coleta_dados(session, component_id, viewstate, base_url, params):
         return {}
 
 
-def processar_departamento(id_atual):
+def processar_departamento(id_atual, ano, periodo):
     """Processa um departamento com Extração Dinâmica de JSF e Prevenção de ViewExpiredException"""
 
     if id_atual == 0:
@@ -323,8 +329,8 @@ def processar_departamento(id_atual):
                 {
                     "formTurma:inputNivel": "G",
                     "formTurma:inputDepto": str(id_atual),
-                    "formTurma:inputAno": "2026",
-                    "formTurma:inputPeriodo": "1",
+                    "formTurma:inputAno": str(ano),
+                    "formTurma:inputPeriodo": str(periodo),
                     buscar_nome: "Buscar",
                 }
             )
@@ -482,28 +488,29 @@ def processar_departamento(id_atual):
             session.close()
 
 
-def carregar_ids_departamentos():
-    """Carrega TODOS os 207 IDs do seu arquivo CSV"""
+def carregar_ids_departamentos(ids_file=None):
+    """Carrega os IDs de departamento do CSV (default: todos os 207; --ids-file permite um subconjunto pra teste)."""
+    caminho = ids_file or DEFAULT_IDS_FILE
     try:
         import csv
 
         ids = []
-        with open("departamentos_ID_unb.csv", "r", encoding="utf-8") as file:
+        with open(caminho, "r", encoding="utf-8") as file:
             csv_reader = csv.reader(file)
             for row in csv_reader:
                 if row and row[0].isdigit():
                     print(f"Departamento ID: {row[0]}")
                     ids.append(int(row[0]))
-        print(f"\nCarregados {len(ids)} departamentos")
+        print(f"\nCarregados {len(ids)} departamentos (fonte: {caminho})")
         return ids
     except Exception as e:
-        print(f"\n[ERRO CRÍTICO] Falha ao carregar IDs: {str(e)}")
+        print(f"\n[ERRO CRÍTICO] Falha ao carregar IDs de {caminho}: {str(e)}")
         return []
 
 
-def salvar_resultados(turmas, lote_num=None):
+def salvar_resultados(turmas, output_dir, lote_num=None):
 
-    Path(OUTPUT_DIR).mkdir(exist_ok=True)
+    Path(output_dir).mkdir(exist_ok=True)
     timestamp = time.strftime("%Y%m%d_%H%M%S")
     filename = (
         f"turmas_unb_{timestamp}_lote{lote_num}.json"
@@ -511,15 +518,15 @@ def salvar_resultados(turmas, lote_num=None):
         else f"turmas_unb_{timestamp}_FULL.json"
     )
 
-    with open(os.path.join(OUTPUT_DIR, filename), "w", encoding="utf-8") as f:
+    with open(os.path.join(output_dir, filename), "w", encoding="utf-8") as f:
         json.dump(turmas, f, ensure_ascii=False, indent=4, sort_keys=True)
 
     print(f"\n✓ Arquivo salvo: {filename} (Turmas: {len(turmas)})")
 
 
-def salvar_resultados_individualmente(turmas, lote_num=None):
+def salvar_resultados_individualmente(turmas, output_dir, lote_num=None):
     """Salva cada turma em um arquivo JSON individual"""
-    Path(OUTPUT_DIR).mkdir(exist_ok=True)
+    Path(output_dir).mkdir(exist_ok=True)
     timestamp = time.strftime("%Y%m%d_%H%M%S")
 
     for idx, turma in enumerate(turmas, 1):
@@ -531,17 +538,17 @@ def salvar_resultados_individualmente(turmas, lote_num=None):
         # Remove caracteres inválidos do nome do arquivo
         filename = re.sub(r'[<>:"/\\|?*]', "", filename)
 
-        filepath = os.path.join(OUTPUT_DIR, filename)
+        filepath = os.path.join(output_dir, filename)
 
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(turma, f, ensure_ascii=False, indent=4, sort_keys=True)
 
-    print(f"\n✓ {len(turmas)} arquivos individuais salvos no diretório {OUTPUT_DIR}")
+    print(f"\n✓ {len(turmas)} arquivos individuais salvos no diretório {output_dir}")
 
 
-def salvar_por_departamento(resultados, lote_num=None):
+def salvar_por_departamento(resultados, output_dir, lote_num=None):
     """Salva as turmas de cada departamento em arquivos separados"""
-    Path(OUTPUT_DIR).mkdir(exist_ok=True)
+    Path(output_dir).mkdir(exist_ok=True)
 
     for resultado in resultados:
         depto_id = resultado["departamento_id"]
@@ -549,25 +556,29 @@ def salvar_por_departamento(resultados, lote_num=None):
 
         if turmas:  # Só salva se houver turmas
             filename = f"turmas_depto_{depto_id}.json"
-            filepath = os.path.join(OUTPUT_DIR, filename)
+            filepath = os.path.join(output_dir, filename)
 
             with open(filepath, "w", encoding="utf-8") as f:
                 json.dump(turmas, f, ensure_ascii=False, indent=4)
 
     print(
-        f"\n✓ {len(resultados)} arquivos de departamentos salvos no diretório {OUTPUT_DIR}"
+        f"\n✓ {len(resultados)} arquivos de departamentos salvos no diretório {output_dir}"
     )
 
 
-def main():
+def main(output_dir=None, ano=None, periodo=None, ids_file=None):
+    output_dir = output_dir or DEFAULT_OUTPUT_DIR
+    if not ano or not periodo:
+        ano_atual, periodo_atual = ano_periodo_atual()
+        ano = ano or ano_atual
+        periodo = periodo or periodo_atual
+
     print("\n" + "=" * 60)
     print("SCRAPER UNB - VERSÃO COMPLETA (207 DEPARTAMENTOS)")
+    print(f"Ano/Período: {ano}/{periodo} | Saída: {output_dir}")
     print("=" * 60 + "\n")
 
-    ids = carregar_ids_departamentos()
-    # ids = ids[:3]
-    # todos_ids = carregar_ids_departamentos()
-    # ids = todos_ids[:3]
+    ids = carregar_ids_departamentos(ids_file)
     if not ids:
         return
 
@@ -575,7 +586,6 @@ def main():
     todos_dados_por_depto = []
     total_departamentos = len(ids)
 
-    # total_departamentos = 3
     lote_size = 20  # Processa em lotes menores para maior segurança
 
     for i in range(0, total_departamentos, lote_size):
@@ -586,7 +596,10 @@ def main():
         )
 
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-            futures = [executor.submit(processar_departamento, id) for id in lote]
+            futures = [
+                executor.submit(processar_departamento, id, ano, periodo)
+                for id in lote
+            ]
 
             resultados_lote = []
             for future in tqdm(
@@ -595,22 +608,11 @@ def main():
                 resultado = future.result()
                 # resultado["turmas"] para salvamento por depto
                 if resultado and resultado["turmas"]:
-
-                    # dados_lote.extend(resultado)
-                    # todos_dados.extend(resultado)
-
-                    # para salvamento por depto
                     resultados_lote.append(resultado)
                     todos_dados_por_depto.append(resultado)
 
-        # Salva a cada lote
-        # salvar_resultados(todos_dados, lote_num)
-
-        # Salva os dados individuais a cada lote
-        # salvar_resultados_individualmente(dados_lote, lote_num)
-
         # para salvamento por depto
-        salvar_por_departamento(resultados_lote, lote_num)
+        salvar_por_departamento(resultados_lote, output_dir, lote_num)
 
         # Intervalo anti-ban
         if i + lote_size < total_departamentos:
@@ -618,28 +620,12 @@ def main():
             print(f"\n⏳ Aguardando {wait_time}s antes do próximo lote...")
             time.sleep(wait_time)
 
-    """
-    print(f"Processando os seguintes departamentos: {ids}")
-    
-    with ThreadPoolExecutor(max_workers=3) as executor:  # Reduz workers para 3
-        futures = [executor.submit(processar_departamento, id) for id in ids]
-        
-        for future in tqdm(as_completed(futures), total=len(ids), desc="Progresso"):
-            resultado = future.result()
-            if resultado:
-                todos_dados.extend(resultado)
-    """
     # Salvamento final
     print("\n" + "=" * 60)
     print("PROCESSO CONCLUÍDO COM SUCESSO!")
     print(f"Total de departamentos processados: {len(ids)}")
-    # print(f"Total de turmas coletadas: {len(todos_dados)}")
 
-    # salvar_resultados(todos_dados)
-
-    salvar_por_departamento(todos_dados_por_depto)
-
-    # Opcional: gerar CSV também
+    salvar_por_departamento(todos_dados_por_depto, output_dir)
 
     # Opcional: gerar CSV também
     try:
@@ -656,7 +642,7 @@ def main():
 
         df = pd.DataFrame(lista_plana_turmas)
         csv_path = os.path.join(
-            OUTPUT_DIR, f"turmas_unb_{time.strftime('%Y%m%d')}_FULL.csv"
+            output_dir, f"turmas_unb_{time.strftime('%Y%m%d')}_FULL.csv"
         )
         df.to_csv(csv_path, index=False, encoding="utf-8-sig")
         print(f"Arquivo CSV gerado com sucesso: {csv_path}")
@@ -664,5 +650,32 @@ def main():
         print(f"\n[AVISO] Falha ao gerar CSV: {str(e)}")
 
 
+def _parse_args():
+    parser = argparse.ArgumentParser(
+        description="Scraper de turmas do SIGAA/UnB (todos os departamentos)."
+    )
+    parser.add_argument("--ano", default=None, help="Ano da busca (default: ano atual)")
+    parser.add_argument(
+        "--periodo", default=None, help="Período 1 ou 2 (default: calculado pela data atual)"
+    )
+    parser.add_argument(
+        "--output-dir",
+        default=None,
+        help=f"Pasta de saída dos turmas_depto_*.json (default: {DEFAULT_OUTPUT_DIR})",
+    )
+    parser.add_argument(
+        "--ids-file",
+        default=None,
+        help="CSV alternativo de IDs de departamento (default: departamentos_ID_unb.csv, todos os 207)",
+    )
+    return parser.parse_args()
+
+
 if __name__ == "__main__":
-    main()
+    args = _parse_args()
+    main(
+        output_dir=args.output_dir,
+        ano=args.ano,
+        periodo=args.periodo,
+        ids_file=args.ids_file,
+    )

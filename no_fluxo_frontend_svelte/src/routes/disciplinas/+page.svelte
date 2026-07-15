@@ -2,6 +2,7 @@
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import SubjectChainView from '$lib/components/disciplinas/SubjectChainView.svelte';
+	import TurmasVagasPanel from '$lib/components/disciplinas/TurmasVagasPanel.svelte';
 	import { createSupabaseBrowserClient } from '$lib/supabase/client';
 	import { fluxogramaService } from '$lib/services/fluxograma.service';
 import {
@@ -816,13 +817,20 @@ function courseInfoLabel(curriculo: string | null | undefined): string | null {
 					<p class="text-sm text-white/45">Selecione uma matéria para ver a cadeia.</p>
 				</div>
 			{:else if curso && selecionada.source === 'matrix'}
-				<SubjectChainView
-					courseData={curso}
-					focusCode={selecionada.codigoMateria}
-					onNavigate={aoNavegarCadeia}
-					showSemesterBadge={!!curriculoSelecionado}
-					getCourseInfoByCurriculo={courseInfoByCurriculo}
-				/>
+				<div class="space-y-4">
+					<SubjectChainView
+						courseData={curso}
+						focusCode={selecionada.codigoMateria}
+						onNavigate={aoNavegarCadeia}
+						showSemesterBadge={!!curriculoSelecionado}
+						getCourseInfoByCurriculo={courseInfoByCurriculo}
+					/>
+					<TurmasVagasPanel
+						idMateria={selecionada.idMateria}
+						codigoMateria={selecionada.codigoMateria}
+						nomeMateria={selecionada.nomeMateria}
+					/>
+				</div>
 			{:else}
 				<div class="space-y-4">
 					<div class="rounded-2xl border border-white/10 bg-gradient-to-b from-zinc-950/95 to-black/88 p-5 sm:p-6">
@@ -836,6 +844,11 @@ function courseInfoLabel(curriculo: string | null | undefined): string | null {
 						específicas podem variar por currículo.
 					</p>
 				</div>
+					<TurmasVagasPanel
+						idMateria={selecionada.idMateria}
+						codigoMateria={selecionada.codigoMateria}
+						nomeMateria={selecionada.nomeMateria}
+					/>
 					{#if globalChainError}
 						<p class="text-sm text-red-300/90">{globalChainError}</p>
 					{/if}

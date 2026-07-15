@@ -1,0 +1,63 @@
+name: Scrape Ementa
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Roda no dia 1 de cada mês (00:00 UTC) — cabeça da cadeia ementa -> equivalencias -> turmas
+    - cron: '0 0 1 * *'
+
+jobs:
+  jobEmenta:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Upgrade pip and install Cython
+        run: |
+          python -m pip install --upgrade pip
+          pip install wheel Cython
+
+      - name: Install dependencies
+        run: |
+          pip install --no-build-isolation -r DBA/scraping/requirements.txt
+
+      - name: Create log directory
+        run: mkdir -p DBA/logs
+
+      - name: 1. Scrape Ementa
+        working-directory: DBA/scraping
+        run: |
+          set -o pipefail
+          python -u scraping_ementa.py 2>&1 | tee ../logs/scraping_ementa.log
+
+      - name: 2. Insert Cursos/Matrizes/Materias (Supabase)
+        working-directory: DBA/database
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -o pipefail
+          python -u 01_insert_cursos_matrizes_materias.py 2>&1 | tee ../logs/01_insert_cursos_matrizes_materias.log
+
+      - name: Commit dados coletados
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[CI] Atualiza dados de ementa/estruturas curriculares"
+          file_pattern: "DBA/dados/estruturas-curriculares/**/*.json"
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-scrape-ementa
+          path: DBA/logs/*.log
+          if-no-files-found: warn
