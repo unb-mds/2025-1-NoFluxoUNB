@@ -20,6 +20,7 @@ Uso:
 import json
 import sys
 import time
+from collections import Counter
 from datetime import datetime, timezone
 
 from supabase import create_client
@@ -203,6 +204,7 @@ def main():
     sem_codigo = 0
     sem_fk = 0
     sem_chave = 0
+    codigos_sem_fk = Counter()
 
     lote = []
     idx_por_chave = {}
@@ -232,6 +234,7 @@ def main():
                     sem_codigo += 1
                 elif erro == "materia_nao_encontrada":
                     sem_fk += 1
+                    codigos_sem_fk[txt(t.get("codigo")) or "?"] += 1
                 elif erro == "sem_chave_unica":
                     sem_chave += 1
                 continue
@@ -258,6 +261,14 @@ def main():
     print(f"      Ignoradas sem FK de materia: {sem_fk}", flush=True)
     print(f"      Ignoradas sem chave (turma/ano_periodo): {sem_chave}", flush=True)
     print(f"      Tempo: {elapsed}s", flush=True)
+    if codigos_sem_fk:
+        print(
+            f"      [Diagnóstico] {len(codigos_sem_fk)} códigos distintos sem matéria correspondente "
+            f"(top 20 por volume de turmas):",
+            flush=True,
+        )
+        for codigo, qtd in codigos_sem_fk.most_common(20):
+            print(f"        {codigo}: {qtd} turma(s)", flush=True)
     if DRY_RUN:
         print(" [DRY-RUN] Nenhuma alteração foi persistida.", flush=True)
 
