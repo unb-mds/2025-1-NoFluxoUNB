@@ -23,7 +23,10 @@ import {
 	type OptativaManual,
 	findSubjectInFluxograma
 } from '$lib/types/user';
-import { getCompletedByEquivalenceCodes } from '$lib/types/equivalencia';
+import {
+	getCompletedByEquivalenceCodes,
+	findEquivalenceSourceCodes
+} from '$lib/types/equivalencia';
 import { getSubjectsBySemester } from '$lib/types/curso';
 import { captureScreenshot } from '$lib/utils/screenshot';
 import { toast } from 'svelte-sonner';
@@ -389,7 +392,38 @@ function createFluxogramaStore() {
 
 		getSubjectUserData(codigoMateria: string) {
 			if (!userFluxograma) return null;
-			return findSubjectInFluxograma(userFluxograma, codigoMateria);
+			const direto = findSubjectInFluxograma(userFluxograma, codigoMateria);
+			if (direto && isMateriaAprovada(direto)) return direto;
+
+			// Sem tentativa direta aprovada -- se o código consta como concluído
+			// por equivalência de curso, busca os dados reais (menção, professor)
+			// da disciplina que efetivamente satisfez a equivalência, em vez de
+			// mostrar uma tentativa direta reprovada no próprio código.
+			const equivalencias = state.courseData?.equivalencias;
+			if (equivalencias?.length) {
+				const sourceCodes = findEquivalenceSourceCodes(
+					codigoMateria,
+					equivalencias,
+					completedCodes
+				);
+				for (const sourceCode of sourceCodes) {
+					const origem = findSubjectInFluxograma(userFluxograma, sourceCode);
+					if (origem && isMateriaAprovada(origem)) {
+						const nomeOrigem = state.courseData?.materias.find(
+							(m) => m.codigoMateria.trim().toUpperCase() === sourceCode
+						)?.nomeMateria;
+						return {
+							...origem,
+							codigoMateria,
+							tipoDado: 'equivalencia',
+							codigoEquivalente: origem.codigoMateria,
+							nomeEquivalente: origem.nomeEquivalente || nomeOrigem || sourceCode
+						};
+					}
+				}
+			}
+
+			return direto;
 		},
 
 		async addOptativa(materia: MateriaModel, semestre: number) {
