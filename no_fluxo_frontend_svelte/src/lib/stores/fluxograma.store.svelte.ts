@@ -273,24 +273,6 @@ function createFluxogramaStore() {
 		return authState.user?.cargaHorariaIntegralizada ?? null;
 	});
 
-	// Computed: completed subject codes (histórico + concluídas por equivalência)
-	const completedCodes = $derived.by(() => {
-		if (!userFluxograma) return new Set<string>();
-		const base = getCompletedSubjectCodes(userFluxograma);
-		const courseData = state.courseData;
-		const byEquiv =
-			courseData?.equivalencias && courseData.equivalencias.length > 0
-				? getCompletedByEquivalenceCodes(courseData.equivalencias, base)
-				: new Set<string>();
-		return new Set([...base, ...byEquiv]);
-	});
-
-	// Computed: current subject codes
-	const currentCodes = $derived.by(() => {
-		if (!userFluxograma) return new Set<string>();
-		return getCurrentSubjectCodes(userFluxograma);
-	});
-
 	// Computed: failed subject codes
 	const failedCodes = $derived.by(() => {
 		if (!userFluxograma) return new Set<string>();
@@ -304,6 +286,30 @@ function createFluxogramaStore() {
 			}
 		}
 		return failed;
+	});
+
+	// Computed: completed subject codes (histórico + concluídas por equivalência).
+	// Uma reprovação direta na própria matéria (failedCodes) tem prioridade sobre
+	// uma equivalência inferida de outra matéria -- equivalência não deve mascarar
+	// um REP explícito no código da própria disciplina.
+	const completedCodes = $derived.by(() => {
+		if (!userFluxograma) return new Set<string>();
+		const base = getCompletedSubjectCodes(userFluxograma);
+		const courseData = state.courseData;
+		const byEquiv =
+			courseData?.equivalencias && courseData.equivalencias.length > 0
+				? getCompletedByEquivalenceCodes(courseData.equivalencias, base)
+				: new Set<string>();
+		const byEquivSemReprovadas = new Set(
+			[...byEquiv].filter((codigo) => !failedCodes.has(codigo))
+		);
+		return new Set([...base, ...byEquivSemReprovadas]);
+	});
+
+	// Computed: current subject codes
+	const currentCodes = $derived.by(() => {
+		if (!userFluxograma) return new Set<string>();
+		return getCurrentSubjectCodes(userFluxograma);
 	});
 
 	function getOptativasManuaisAtuais(): OptativaManual[] {
