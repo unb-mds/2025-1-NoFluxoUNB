@@ -197,7 +197,7 @@ def load_cache_cursos():
         r = db(
             supabase.table("cursos")
             .select("id_curso, nome_curso, tipo_curso, turno")
-            .order("id_matriz") 
+            .order("id_curso")
             .range(offset, offset + FETCH_PAGE - 1)
             .execute
         )
@@ -385,7 +385,7 @@ def load_cache_matrizes():
         r = db(
             supabase.table("matrizes")
             .select("id_matriz, curriculo_completo, id_curso, versao, ano_vigor")
-            .order("id_matriz") 
+            .order("id_matriz")
             .range(offset, offset + FETCH_PAGE - 1)
             .execute
         )
@@ -599,7 +599,7 @@ def load_cache_materias_por_curso():
         r = db(
             supabase.table("materias_por_curso")
             .select("id_matriz, id_materia")
-            .order("id_matriz") 
+            .order("id_matriz")
             .range(offset, offset + FETCH_PAGE - 1)
             .execute
         )
