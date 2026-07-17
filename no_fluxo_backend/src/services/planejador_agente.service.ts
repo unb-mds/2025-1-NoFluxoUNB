@@ -15,7 +15,6 @@
 import { gerarPlanoCompletov2 } from "./plano_formatura.service";
 import { createControllerLogger } from "../utils/controller_logger";
 import { SupabaseWrapper } from "../supabase_wrapper";
-import { searchInternet } from "../utils/web_search";
 import { MARITACA_URL, MARITACA_MODELS } from "../config/maritaca";
 import type {
     MateriaInput,
@@ -75,8 +74,7 @@ export interface LlmMessage {
 
 export type ChamarLlmFn = (
     messages: any[],
-    tools: any[],
-    useWebSearch?: boolean
+    tools: any[]
 ) => Promise<LlmMessage>;
 
 // =========================================================
@@ -414,23 +412,9 @@ export class PlanejadorAgenteService {
         return !!process.env.MARITACA_API_KEY;
     }
 
-	private shouldUseWebSearch(prompt: string): boolean {
-		const p = prompt.toLowerCase();
-		const dynamicSignals = [
-			'hoje', 'agora', 'atual', 'atualmente', 'últimas', 'ultimas',
-			'notícias', 'noticias', 'preço', 'precos', 'preço atual',
-			'cotação', 'cotacao', 'lançamento', 'lancamento', 'mudou',
-			'mudança', 'mudanca', 'site oficial', 'documentação',
-			'documentacao', 'versão', 'versao', 'api', 'release', 'roadmap',
-			'dificuldade', 'opinião', 'opiniao', 'fofoca', 'dizem'
-		];
-		return dynamicSignals.some(term => p.includes(term));
-	}
-
     private async chamarLlmMaritaca(
         messages: any[],
-        tools: any[],
-        useWebSearch: boolean = false
+        tools: any[]
     ): Promise<LlmMessage> {
         const apiKey = process.env.MARITACA_API_KEY;
         if (!apiKey) throw new Error("MARITACA_API_KEY não configurada");
@@ -441,12 +425,14 @@ export class PlanejadorAgenteService {
                 "Content-Type": "application/json",
                 Authorization: `Key ${apiKey}`,
             },
+            // NÃO enviar web_search: a Maritaca ignora as tools quando ele está
+            // ligado — tool_calls volta null e o modelo inventa que a ferramenta
+            // falhou. As tools são o núcleo deste agente, então elas ganham.
             body: JSON.stringify({
                 model: MARITACA_MODELS.AGENTE,
                 messages,
                 tools,
-                tool_choice: "auto",
-                web_search: useWebSearch
+                tool_choice: "auto"
             }),
         });
 
@@ -573,13 +559,8 @@ Você tem ferramentas disponíveis que pode chamar diretamente:
 [BOTAO|Sim|Sim, pode reduzir a carga e atrasar a formatura.]
 [BOTAO|Não|Não, prefiro manter o ritmo atual.]
 11. TEXTO PURO: NUNCA use markdown. A interface não renderiza markdown — ela desenha os blocos [TURMA|...] e [BOTAO|...] e mostra todo o resto como texto literal. Se você escrever **negrito**, ## título ou - item, o aluno vê os asteriscos, cerquilhas e hifens na tela. Para dar ênfase, use MAIÚSCULAS ou apenas a ordem das frases.
-
-## Regras de Busca na Web (Sabiá Native)
-- Você possui capacidade nativa de buscar na web quando ativada pelo sistema.
-- Se houver conflito entre fontes na web, informe a divergência com clareza.
-- Não copie trechos longos de páginas; resuma com objetividade.
-- Priorize fontes oficiais, documentação, páginas institucionais e veículos confiáveis (fóruns/reddit para opiniões).
-- Quando a pergunta pedir opinião pública, reviews ou dificuldade prática de uma disciplina, considere a diversidade de fontes.`;
+12. FALHA DE TOOL: se uma tool devolver {"erro": ...}, isso é uma falha do NOSSO sistema, não um impedimento acadêmico do aluno. Diga que houve um erro no sistema e sugira tentar de novo. NUNCA invente um procedimento para contornar (não mande procurar secretaria, coordenação ou pedir liberação) — o limite de créditos e o plano são configurações desta plataforma, e nenhum setor da UnB participa disso. Não é preciso pedir autorização a ninguém para mudar o plano aqui.
+13. VOCÊ NÃO BUSCA NA WEB: você não tem acesso à internet. Se o aluno pedir opinião de outros alunos, notícias, ou algo que exija a web, diga que não consegue consultar e responda só com os dados das tools.`;
 
         // Definição das tools
         const tools = [
@@ -755,16 +736,12 @@ Você tem ferramentas disponíveis que pode chamar diretamente:
         while (iteracao < MAX_ITERACOES) {
             iteracao++;
 
-            // Avalia a última mensagem do usuário (ou a mais recente)
-            const lastUserMsg = historicoTruncado.slice().reverse().find(m => m.role === "user");
-            const useWebSearch = lastUserMsg ? this.shouldUseWebSearch(lastUserMsg.content) : false;
-
             logger.info(
-                `[Iteração ${iteracao}] Chamando LLM com ${mensagensLlm.length} mensagens | web_search=${useWebSearch}`
+                `[Iteração ${iteracao}] Chamando LLM com ${mensagensLlm.length} mensagens`
             );
 
             // Chamar LLM
-            const resposta = await this.chamarLlm(mensagensLlm, tools, useWebSearch);
+            const resposta = await this.chamarLlm(mensagensLlm, tools);
 
             // Se conteúdo direto, não há tool call — retornar resposta
             if (resposta.content && !resposta.tool_calls) {
