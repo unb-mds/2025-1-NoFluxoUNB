@@ -78,7 +78,9 @@
 	});
 
 	function parseMessage(text: string) {
-		const regex = /(\b[A-Z]{3,4}\d{4}\b)|(\[TURMA\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^\]]+)\])|(\[BOTAO\|([^|\]]+)(?:\|([^\]]+))?\])/g;
+		// O prompt pede texto puro, mas o LLM escapa e manda **negrito** — sem tratar
+		// aqui, os asteriscos apareceriam literais na bolha.
+		const regex = /(\b[A-Z]{3,4}\d{4}\b)|(\[TURMA\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^\]]+)\])|(\[BOTAO\|([^|\]]+)(?:\|([^\]]+))?\])|(\*\*([^*\n]+)\*\*)/g;
 		const blocks: any[] = [];
 		let currentBubble: any[] = [];
 		let lastIndex = 0;
@@ -86,7 +88,7 @@
 		
 		function flushBubble() {
 			if (currentBubble.length > 0) {
-				const hasContent = currentBubble.some(s => s.type === 'badge' || (s.type === 'text' && s.value.trim() !== ''));
+				const hasContent = currentBubble.some(s => s.type === 'badge' || s.type === 'bold' || (s.type === 'text' && s.value.trim() !== ''));
 				if (hasContent) {
 					blocks.push({ type: 'bubble', segments: currentBubble });
 				}
@@ -120,6 +122,9 @@
 					label: match[9].trim().replace(/([a-z])([A-Z])/g, '$1 $2'),
 					message: match[9].trim() // Ignorando match[10] para evitar alucinações da IA
 				});
+			} else if (match[11]) {
+				// Negrito é inline: fica na bolha atual, sem flush.
+				currentBubble.push({ type: 'bold', value: match[12] });
 			}
 			lastIndex = regex.lastIndex;
 		}
@@ -233,6 +238,8 @@
 								{#each block.segments as segment}
 									{#if segment.type === 'badge'}
 										<span class="inline-flex items-center rounded-md bg-white/10 px-1.5 py-0.5 text-xs font-mono font-bold tracking-wide text-white border border-white/20 mx-0.5 shadow-sm backdrop-blur-md">{segment.value}</span>
+									{:else if segment.type === 'bold'}
+										<strong class="font-bold text-white">{segment.value}</strong>
 									{:else}
 										<span class="whitespace-pre-wrap">{segment.value}</span>
 									{/if}
