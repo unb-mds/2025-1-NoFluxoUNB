@@ -119,3 +119,11 @@ docs/testes/*.toc
 # Os PDFs pequenos ficam versionados; os de 10 MB são reconstruídos sob demanda.
 docs/testes/fixtures/size_10mb_exact.pdf
 docs/testes/fixtures/size_10mb_plus1.pdf
+
+# Dumps de sessão do Playwright MCP (console/page com timestamp).
+.playwright-mcp/
+
+# Saída de revisão do atualizar_departamentos_id.py: o script gera esse arquivo
+# pra conferir o diff antes de aplicar. A lista que os scrapers leem é a
+# departamentos_ID_unb.csv, que continua versionada.
+DBA/scraping/departamentos_ID_unb_novo.csv
