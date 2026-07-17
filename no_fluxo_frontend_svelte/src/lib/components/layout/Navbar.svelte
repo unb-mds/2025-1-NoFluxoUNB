@@ -9,6 +9,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import NavItems from './navbar/NavItems.svelte';
 	import AccountMenu from './navbar/AccountMenu.svelte';
+	import NotificationsMenu from './navbar/NotificationsMenu.svelte';
 	import MobileDrawer from './navbar/MobileDrawer.svelte';
 	import { buildNavEntries, isLinkActive } from './navbar/nav-config';
 	import type { UserModel } from '$lib/types';
@@ -103,7 +104,12 @@
 			>
 				<div class="hidden items-center lg:flex">
 					{#if isAuthenticated}
-						<AccountMenu {user} {isAnonymous} {hasHistorico} {isAdmin} />
+						<div class="flex items-center gap-1.5">
+							{#if !isAnonymous}
+								<NotificationsMenu />
+							{/if}
+							<AccountMenu {user} {isAnonymous} {hasHistorico} {isAdmin} />
+						</div>
 					{:else}
 						<Button href={ROUTES.SIGNUP} size="sm" class="rounded-full px-6 font-semibold"
 							>Criar conta</Button
@@ -129,7 +135,12 @@
 			<div class="hidden items-center lg:ml-auto lg:flex lg:gap-8">
 				{#if isAuthenticated}
 					<NavItems {entries} {pathname} linkClass={navDesktopClass} />
-					<AccountMenu {user} {isAnonymous} {hasHistorico} {isAdmin} />
+					<div class="flex items-center gap-1.5">
+						{#if !isAnonymous}
+							<NotificationsMenu />
+						{/if}
+						<AccountMenu {user} {isAnonymous} {hasHistorico} {isAdmin} />
+					</div>
 				{:else}
 					<a
 						href={ROUTES.FLUXOGRAMAS}

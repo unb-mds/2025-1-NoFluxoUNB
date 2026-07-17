@@ -1,0 +1,123 @@
+name: Fast Sync Turmas
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    # Cauda da cadeia mensal ementa -> equivalencias -> turmas (roda incondicionalmente).
+    workflows: ["Scrape Equivalencias"]
+    types: [completed]
+  schedule:
+    # Cadência rápida, só executa de fato quando o admin liga o flag
+    # scraping_turmas_rapido (época de matrícula). Ver job jobCheckFlag.
+    - cron: '*/15 * * * *'
+
+jobs:
+  jobCheckFlag:
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.check.outputs.enabled }}
+    steps:
+      - name: Determine if this run should scrape turmas
+        id: check
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "Disparo manual — rodando incondicionalmente."
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "${{ github.event_name }}" == "workflow_run" ]; then
+            if [ "${{ github.event.workflow_run.conclusion }}" == "success" ]; then
+              echo "Rodada mensal de base (após Scrape Equivalencias) — rodando incondicionalmente."
+              echo "enabled=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "Scrape Equivalencias não teve sucesso — pulando rodada de base."
+              echo "enabled=false" >> "$GITHUB_OUTPUT"
+            fi
+            exit 0
+          fi
+
+          echo "Cron de 15 min — checando flag scraping_turmas_rapido no Supabase..."
+          RESPONSE=$(curl -sf -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+            "$SUPABASE_URL/rest/v1/system_settings?key=eq.scraping_turmas_rapido&select=value")
+          ENABLED=$(echo "$RESPONSE" | python3 -c "import sys,json;d=json.load(sys.stdin);print(str(bool(d[0]['value'].get('enabled', False))).lower() if d else 'false')" 2>/dev/null || echo "false")
+          echo "Flag scraping_turmas_rapido.enabled = $ENABLED"
+          echo "enabled=$ENABLED" >> "$GITHUB_OUTPUT"
+
+  jobSyncTurmas:
+    needs: jobCheckFlag
+    if: needs.jobCheckFlag.outputs.enabled == 'true'
+    runs-on: ubuntu-latest
+    env:
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Upgrade pip
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Install dependencies
+        run: |
+          pip install wheel Cython
+          pip install --no-build-isolation -r DBA/scraping/requirements.txt
+
+      - name: Create required data directories
+        run: |
+          mkdir -p DBA/dados/dados_finais_teste_p_depto_20
+          mkdir -p DBA/logs
+
+      - name: Compute run_started_at and ano_periodo
+        id: vars
+        run: |
+          RUN_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          ANO_PERIODO=$(python3 -c "import datetime;hoje=datetime.date.today();periodo='1' if hoje.month<=6 else '2';print(f'{hoje.year}.{periodo}')")
+          echo "run_started_at=$RUN_STARTED_AT" >> "$GITHUB_OUTPUT"
+          echo "ano_periodo=$ANO_PERIODO" >> "$GITHUB_OUTPUT"
+
+      - name: 1. Extract Turmas (Scraping)
+        working-directory: DBA/scraping
+        run: |
+          set -o pipefail
+          python -u scraping_turmas.py 2>&1 | tee ../logs/scraping_turmas.log
+
+      - name: 2. Insert Turmas (Supabase)
+        working-directory: DBA/database
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }} # Fallback
+          SUPABASE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }} # Fallback
+        run: |
+          set -o pipefail
+          python -u 03_insert_turmas.py 2>&1 | tee ../logs/03_insert_turmas.log
+
+      - name: 3. Reconcile Turmas (delete stale, same period)
+        working-directory: DBA/database
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }} # Fallback
+          SUPABASE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }} # Fallback
+          RUN_STARTED_AT: ${{ steps.vars.outputs.run_started_at }}
+        run: |
+          set -o pipefail
+          python -u 04_reconciliar_turmas.py --ano-periodo "${{ steps.vars.outputs.ano_periodo }}" 2>&1 | tee ../logs/04_reconciliar_turmas.log
+
+      - name: Upload Logs (Para auditoria)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-sync-turmas
+          path: DBA/logs/*.log
+          if-no-files-found: ignore

@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { ROUTES } from '$lib/config/routes';
-	import { LayoutDashboard, Ticket } from 'lucide-svelte';
+	import { LayoutDashboard, Ticket, Settings } from 'lucide-svelte';
 
 	const links = [
 		{ href: ROUTES.ADMIN_DASHBOARD, label: 'Dashboard', icon: LayoutDashboard },
-		{ href: ROUTES.ADMIN_TICKETS, label: 'Tickets', icon: Ticket }
+		{ href: ROUTES.ADMIN_TICKETS, label: 'Tickets', icon: Ticket },
+		{ href: ROUTES.ADMIN_CONFIGURACOES, label: 'Configurações', icon: Settings }
 	];
 
 	let active = $derived((href: string) => $page.url.pathname.startsWith(href));

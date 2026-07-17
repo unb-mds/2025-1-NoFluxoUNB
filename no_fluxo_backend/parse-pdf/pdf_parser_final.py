@@ -518,12 +518,15 @@ def processar_disciplina_encontrada(
     Retorna True se processada com sucesso, False se ignorada
     """
 
-    # Ignorar matérias com menções II, MI e SR
+    # Menções II, MI e SR são reprovação (escala de letra, não numérica) --
+    # a disciplina entra no histórico normalmente, com status forçado pra
+    # REP, independente do que a coluna "situação" do PDF trouxer.
     if mencao.upper() in ["II", "MI", "SR"]:
         print(
-            f"  -> Ignorando disciplina com menção {mencao}: {codigo} - {nome.strip()[:30]}..."
+            f"  -> Menção {mencao} (reprovado): {codigo} - {nome.strip()[:30]}... "
+            f"(situação original: {situacao} -> forçando REP)"
         )
-        return False
+        situacao = "REP"
 
     # Procurar símbolos e professor nas próximas linhas
     simbolos = ""

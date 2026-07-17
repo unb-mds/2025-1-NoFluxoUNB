@@ -146,3 +146,36 @@ export function getCompletedByEquivalenceCodes(
 	return result;
 }
 
+/**
+ * Para um código já sabido como "concluído por equivalência" (ver
+ * getCompletedByEquivalenceCodes), retorna os códigos das disciplinas
+ * efetivamente cursadas que satisfizeram alguma expressão de equivalência
+ * pra esse código -- usado pra exibir os dados reais (menção, professor)
+ * da disciplina que cursou, em vez dos de uma tentativa direta reprovada
+ * no próprio código de origem.
+ */
+export function findEquivalenceSourceCodes(
+	codigoMateria: string,
+	equivalencias: EquivalenciaModel[],
+	completedCodes: Set<string>
+): string[] {
+	const codeU = codigoMateria.trim().toUpperCase();
+	const completedNorm = new Set([...completedCodes].map((c) => c.trim().toUpperCase()));
+	const sources = new Set<string>();
+	for (const equiv of equivalencias) {
+		if ((equiv.codigoMateriaOrigem || '').trim().toUpperCase() !== codeU) continue;
+		if (equiv.expressaoLogica != null) {
+			for (const c of getCodigosFromExpressaoLogica(equiv.expressaoLogica)) {
+				if (completedNorm.has(c)) sources.add(c);
+			}
+		} else {
+			const result = evaluateExpressionWithTracking(
+				(equiv.expressao || '').trim(),
+				completedCodes
+			);
+			for (const c of result.matchingMaterias) sources.add(c.trim().toUpperCase());
+		}
+	}
+	return [...sources];
+}
+

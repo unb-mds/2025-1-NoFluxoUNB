@@ -17,6 +17,7 @@ export const ROUTES = {
   SUPORTE: '/suporte',
   ADMIN_DASHBOARD: '/admin/dashboard',
   ADMIN_TICKETS: '/admin/tickets',
+  ADMIN_CONFIGURACOES: '/admin/configuracoes',
 
   // Auth routes
   AUTH_CALLBACK: '/auth/callback',
@@ -53,6 +54,7 @@ export const PROTECTED_ROUTES = [
 // Rotas admin → escopo exigido em public.admins.scopes (superadmin ignora).
 const ADMIN_SCOPE_BY_PREFIX: ReadonlyArray<readonly [string, string]> = [
   ['/admin/tickets', 'tickets'],
+  ['/admin/configuracoes', 'settings'],
   ['/admin', 'dashboard'] // fallback p/ qualquer outra área admin
 ];
 
