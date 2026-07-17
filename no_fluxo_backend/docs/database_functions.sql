@@ -1,7 +1,7 @@
 -- Database Functions Export
--- Exported at: 2026-05-17T03:28:11.944554+00:00
+-- Exported at: 2026-07-16T23:00:16.419383+00:00
 -- Source: lijmhbstgdinsukovyfl.supabase.co
--- Total functions: 164
+-- Total functions: 181
 
 -- =============================================================================
 -- FUNCTIONS
@@ -111,18 +111,6 @@ AS '$libdir/vector', $function$array_to_halfvec$function$;
 
 -- Function: array_to_halfvec
 -- Return type: halfvec
--- Arguments: numeric[], integer, boolean
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.array_to_halfvec(numeric[], integer, boolean)
- RETURNS halfvec
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$array_to_halfvec$function$;
-
--- Function: array_to_halfvec
--- Return type: halfvec
 -- Arguments: double precision[], integer, boolean
 -- Volatility: IMMUTABLE
 -- Security definer: NO
@@ -145,13 +133,25 @@ CREATE OR REPLACE FUNCTION public.array_to_halfvec(real[], integer, boolean)
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$array_to_halfvec$function$;
 
--- Function: array_to_sparsevec
--- Return type: sparsevec
--- Arguments: double precision[], integer, boolean
+-- Function: array_to_halfvec
+-- Return type: halfvec
+-- Arguments: numeric[], integer, boolean
 -- Volatility: IMMUTABLE
 -- Security definer: NO
 
-CREATE OR REPLACE FUNCTION public.array_to_sparsevec(double precision[], integer, boolean)
+CREATE OR REPLACE FUNCTION public.array_to_halfvec(numeric[], integer, boolean)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_halfvec$function$;
+
+-- Function: array_to_sparsevec
+-- Return type: sparsevec
+-- Arguments: integer[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_sparsevec(integer[], integer, boolean)
  RETURNS sparsevec
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
@@ -171,11 +171,11 @@ AS '$libdir/vector', $function$array_to_sparsevec$function$;
 
 -- Function: array_to_sparsevec
 -- Return type: sparsevec
--- Arguments: integer[], integer, boolean
+-- Arguments: double precision[], integer, boolean
 -- Volatility: IMMUTABLE
 -- Security definer: NO
 
-CREATE OR REPLACE FUNCTION public.array_to_sparsevec(integer[], integer, boolean)
+CREATE OR REPLACE FUNCTION public.array_to_sparsevec(double precision[], integer, boolean)
  RETURNS sparsevec
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
@@ -282,18 +282,6 @@ $function$;
 
 -- Function: binary_quantize
 -- Return type: bit
--- Arguments: halfvec
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.binary_quantize(halfvec)
- RETURNS bit
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$halfvec_binary_quantize$function$;
-
--- Function: binary_quantize
--- Return type: bit
 -- Arguments: vector
 -- Volatility: IMMUTABLE
 -- Security definer: NO
@@ -303,6 +291,18 @@ CREATE OR REPLACE FUNCTION public.binary_quantize(vector)
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$binary_quantize$function$;
+
+-- Function: binary_quantize
+-- Return type: bit
+-- Arguments: halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.binary_quantize(halfvec)
+ RETURNS bit
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_binary_quantize$function$;
 
 -- Function: calcular_creditos_por_curso
 -- Return type: integer
@@ -1119,6 +1119,18 @@ AS '$libdir/vector', $function$halfvec_cosine_distance$function$;
 
 -- Function: cosine_distance
 -- Return type: double precision
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.cosine_distance(vector, vector)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$cosine_distance$function$;
+
+-- Function: cosine_distance
+-- Return type: double precision
 -- Arguments: sparsevec, sparsevec
 -- Volatility: IMMUTABLE
 -- Security definer: NO
@@ -1129,17 +1141,23 @@ CREATE OR REPLACE FUNCTION public.cosine_distance(sparsevec, sparsevec)
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$sparsevec_cosine_distance$function$;
 
--- Function: cosine_distance
--- Return type: double precision
--- Arguments: vector, vector
--- Volatility: IMMUTABLE
--- Security definer: NO
+-- Function: deixar_de_seguir_materia
+-- Return type: void
+-- Arguments: p_id_assinatura bigint
+-- Volatility: VOLATILE
+-- Security definer: YES
 
-CREATE OR REPLACE FUNCTION public.cosine_distance(vector, vector)
- RETURNS double precision
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$cosine_distance$function$;
+CREATE OR REPLACE FUNCTION public.deixar_de_seguir_materia(p_id_assinatura bigint)
+ RETURNS void
+ LANGUAGE sql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+  UPDATE public.vaga_assinaturas
+     SET ativa = false
+   WHERE id_assinatura = p_id_assinatura
+     AND id_user IN (SELECT id_user FROM public.users WHERE auth_id = auth.uid());
+$function$;
 
 -- Function: export_schema
 -- Return type: jsonb
@@ -1593,6 +1611,133 @@ BEGIN
 END;
 $function$;
 
+-- Function: get_ai_cost_metrics
+-- Return type: jsonb
+-- Arguments: p_days integer DEFAULT 30
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.get_ai_cost_metrics(p_days integer DEFAULT 30)
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_moeda        text;
+  v_total_req    bigint;
+  v_total_tokens bigint;
+  v_custo_total  numeric;
+  v_por_modelo   jsonb;
+  v_por_dia      jsonb;
+  v_sem_preco    boolean;
+BEGIN
+  IF NOT public.has_admin_scope('dashboard') THEN
+    RAISE EXCEPTION 'forbidden: dashboard scope required';
+  END IF;
+
+  SELECT COALESCE(max(currency), 'BRL') INTO v_moeda FROM public.ai_pricing;
+
+  -- agregação por modelo
+  SELECT
+    COALESCE(sum(req), 0),
+    COALESCE(sum(tok), 0),
+    COALESCE(round(sum(custo)::numeric, 4), 0),
+    COALESCE(jsonb_object_agg(model, jsonb_build_object(
+      'requisicoes', req, 'tokens', tok, 'custo', round(custo::numeric, 4)
+    )) FILTER (WHERE model IS NOT NULL), '{}'::jsonb)
+  INTO v_total_req, v_total_tokens, v_custo_total, v_por_modelo
+  FROM (
+    SELECT l.model,
+           count(*)                  AS req,
+           sum(l.total_tokens)       AS tok,
+           sum((l.prompt_tokens / 1000.0) * COALESCE(p.input_per_1k, 0)
+             + (l.completion_tokens / 1000.0) * COALESCE(p.output_per_1k, 0)) AS custo
+    FROM public.ai_usage_log l
+    LEFT JOIN public.ai_pricing p ON p.model = l.model
+    WHERE l.created_at >= now() - (p_days || ' days')::interval
+    GROUP BY l.model
+  ) per_model;
+
+  -- série diária
+  SELECT COALESCE(jsonb_agg(jsonb_build_object(
+           'dia', d, 'custo', c, 'requisicoes', r) ORDER BY d), '[]'::jsonb)
+  INTO v_por_dia
+  FROM (
+    SELECT date_trunc('day', l.created_at)::date AS d,
+           round(sum(
+             (l.prompt_tokens / 1000.0) * COALESCE(p.input_per_1k, 0)
+           + (l.completion_tokens / 1000.0) * COALESCE(p.output_per_1k, 0)
+           )::numeric, 4) AS c,
+           count(*) AS r
+    FROM public.ai_usage_log l
+    LEFT JOIN public.ai_pricing p ON p.model = l.model
+    WHERE l.created_at >= now() - (p_days || ' days')::interval
+    GROUP BY 1
+  ) s;
+
+  SELECT bool_or(input_per_1k = 0 AND output_per_1k = 0) INTO v_sem_preco
+  FROM public.ai_pricing;
+
+  RETURN jsonb_build_object(
+    'moeda',                 v_moeda,
+    'total_requisicoes',     COALESCE(v_total_req, 0),
+    'total_tokens',          COALESCE(v_total_tokens, 0),
+    'custo_total',           COALESCE(v_custo_total, 0),
+    'tokens_medios_por_req', CASE WHEN COALESCE(v_total_req,0) > 0
+                               THEN round(v_total_tokens::numeric / v_total_req, 0)
+                               ELSE 0 END,
+    'por_modelo',            COALESCE(v_por_modelo, '{}'::jsonb),
+    'por_dia',               COALESCE(v_por_dia, '[]'::jsonb),
+    'precos_nao_configurados', COALESCE(v_sem_preco, true)
+  );
+END;
+$function$;
+
+-- Function: get_dashboard_overview
+-- Return type: jsonb
+-- Arguments: (none)
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.get_dashboard_overview()
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_users          bigint;
+  v_com_historico  bigint;
+  v_com_fluxograma bigint;
+  v_tickets_abertos bigint;
+  v_users_30d      bigint;
+BEGIN
+  IF NOT public.has_admin_scope('dashboard') THEN
+    RAISE EXCEPTION 'forbidden: dashboard scope required';
+  END IF;
+
+  SELECT count(*) INTO v_users FROM public.users;
+  SELECT count(DISTINCT id_user) INTO v_com_historico FROM public.historicos_usuarios;
+  SELECT count(*) INTO v_com_fluxograma FROM public.dados_users;
+  SELECT count(*) INTO v_tickets_abertos
+    FROM public.tickets WHERE status <> 'resolvido';
+  SELECT count(*) INTO v_users_30d
+    FROM public.users WHERE created_at >= now() - interval '30 days';
+
+  RETURN jsonb_build_object(
+    'total_users',        v_users,
+    'com_historico',      v_com_historico,
+    'com_fluxograma',     v_com_fluxograma,
+    'tickets_abertos',    v_tickets_abertos,
+    'novos_users_30d',    v_users_30d,
+    'taxa_ativacao',      CASE WHEN v_users > 0
+                            THEN round((v_com_fluxograma::numeric / v_users) * 100, 1)
+                            ELSE 0 END
+  );
+END;
+$function$;
+
 -- Function: get_equivalencias_materia
 -- Return type: TABLE(id_equivalencia integer, id_materia integer, codigo_materia_origem text, nome_materia_origem text, curriculo text, expressao_original text, expressao_logica jsonb)
 -- Arguments: p_codigo text DEFAULT NULL::text, p_nome text DEFAULT NULL::text
@@ -1662,6 +1807,68 @@ AS $function$
     order by pr.id_pre_requisito;
 $function$;
 
+-- Function: get_scraping_health
+-- Return type: jsonb
+-- Arguments: (none)
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.get_scraping_health()
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_turmas_min  timestamptz;
+  v_turmas_max  timestamptz;
+  v_mat_total   bigint;
+  v_mat_sem_em  bigint;
+  v_cursos_sem  bigint;
+BEGIN
+  IF NOT public.has_admin_scope('dashboard') THEN
+    RAISE EXCEPTION 'forbidden: dashboard scope required';
+  END IF;
+
+  SELECT min(last_updated_at), max(last_updated_at)
+  INTO v_turmas_min, v_turmas_max FROM public.turmas;
+
+  SELECT count(*),
+         count(*) FILTER (WHERE ementa IS NULL OR btrim(ementa) = '')
+  INTO v_mat_total, v_mat_sem_em FROM public.materias;
+
+  SELECT count(*) INTO v_cursos_sem
+  FROM public.cursos c
+  WHERE NOT EXISTS (SELECT 1 FROM public.matrizes m WHERE m.id_curso = c.id_curso);
+
+  RETURN jsonb_build_object(
+    'turmas_atualizado_em',  v_turmas_max,
+    'turmas_mais_antigo_em', v_turmas_min,
+    'materias_total',        v_mat_total,
+    'materias_sem_ementa',   v_mat_sem_em,
+    'materias_sem_ementa_pct', CASE WHEN v_mat_total > 0
+                                 THEN round(v_mat_sem_em::numeric / v_mat_total * 100, 1)
+                                 ELSE 0 END,
+    'cursos_sem_matriz',     v_cursos_sem
+  );
+END;
+$function$;
+
+-- Function: get_system_setting
+-- Return type: jsonb
+-- Arguments: p_key text
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.get_system_setting(p_key text)
+ RETURNS jsonb
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+  SELECT value FROM public.system_settings WHERE key = p_key;
+$function$;
+
 -- Function: get_ticket_by_id
 -- Return type: jsonb
 -- Arguments: p_id bigint
@@ -1702,6 +1909,50 @@ BEGIN
   WHERE a.ticket_id = p_id;
 
   RETURN jsonb_build_object('ticket', v_ticket, 'audit_log', v_audit);
+END;
+$function$;
+
+-- Function: get_ticket_metrics
+-- Return type: jsonb
+-- Arguments: (none)
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.get_ticket_metrics()
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_by_status   jsonb;
+  v_by_category jsonb;
+  v_avg_horas   numeric;
+  v_total       bigint;
+BEGIN
+  IF NOT public.has_admin_scope('dashboard') THEN
+    RAISE EXCEPTION 'forbidden: dashboard scope required';
+  END IF;
+
+  SELECT count(*) INTO v_total FROM public.tickets;
+
+  SELECT COALESCE(jsonb_object_agg(status, n), '{}'::jsonb) INTO v_by_status
+  FROM (SELECT status, count(*) n FROM public.tickets GROUP BY status) s;
+
+  SELECT COALESCE(jsonb_object_agg(category, n), '{}'::jsonb) INTO v_by_category
+  FROM (SELECT category, count(*) n FROM public.tickets GROUP BY category) c;
+
+  SELECT round(avg(EXTRACT(EPOCH FROM (resolved_at - created_at)) / 3600.0)::numeric, 1)
+    INTO v_avg_horas
+  FROM public.tickets
+  WHERE status = 'resolvido' AND resolved_at IS NOT NULL;
+
+  RETURN jsonb_build_object(
+    'total',            v_total,
+    'por_status',       v_by_status,
+    'por_categoria',    v_by_category,
+    'tempo_medio_horas', COALESCE(v_avg_horas, 0)
+  );
 END;
 $function$;
 
@@ -1749,6 +2000,142 @@ BEGIN
     CASE WHEN f.status = 'resolvido' THEN 1 ELSE 0 END,
     f.created_at DESC
   LIMIT p_limit OFFSET p_offset;
+END;
+$function$;
+
+-- Function: get_top_cursos
+-- Return type: TABLE(curso text, usuarios bigint)
+-- Arguments: p_limit integer DEFAULT 10
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.get_top_cursos(p_limit integer DEFAULT 10)
+ RETURNS TABLE(curso text, usuarios bigint)
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+BEGIN
+  IF NOT public.has_admin_scope('dashboard') THEN
+    RAISE EXCEPTION 'forbidden: dashboard scope required';
+  END IF;
+
+  RETURN QUERY
+  SELECT COALESCE(NULLIF(trim(h.curso_extraido), ''), 'Não informado') AS curso,
+         count(DISTINCT h.id_user)::bigint AS usuarios
+  FROM public.historicos_usuarios h
+  GROUP BY 1
+  ORDER BY usuarios DESC
+  LIMIT p_limit;
+END;
+$function$;
+
+-- Function: get_turmas_demanda
+-- Return type: jsonb
+-- Arguments: p_periodo text DEFAULT NULL::text
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.get_turmas_demanda(p_periodo text DEFAULT NULL::text)
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_periodo   text;
+  v_ofertadas bigint;
+  v_ocupadas  bigint;
+  v_sobrando  bigint;
+  v_top       jsonb;
+  v_periodos  jsonb;
+BEGIN
+  IF NOT public.has_admin_scope('dashboard') THEN
+    RAISE EXCEPTION 'forbidden: dashboard scope required';
+  END IF;
+
+  v_periodo := COALESCE(p_periodo,
+    (SELECT ano_periodo FROM public.turmas
+      WHERE ano_periodo IS NOT NULL ORDER BY ano_periodo DESC LIMIT 1));
+
+  SELECT COALESCE(sum(vagas_ofertadas),0),
+         COALESCE(sum(vagas_ocupadas),0),
+         COALESCE(sum(vagas_sobrando),0)
+  INTO v_ofertadas, v_ocupadas, v_sobrando
+  FROM public.turmas WHERE ano_periodo = v_periodo;
+
+  SELECT COALESCE(jsonb_agg(t ORDER BY (t->>'ocupacao')::numeric DESC), '[]'::jsonb)
+  INTO v_top
+  FROM (
+    SELECT jsonb_build_object(
+             'codigo', m.codigo_materia,
+             'nome',   m.nome_materia,
+             'ofertadas', sum(tu.vagas_ofertadas),
+             'ocupadas',  sum(tu.vagas_ocupadas),
+             'ocupacao',  CASE WHEN sum(tu.vagas_ofertadas) > 0
+                            THEN round(sum(tu.vagas_ocupadas)::numeric
+                                       / sum(tu.vagas_ofertadas) * 100, 1)
+                            ELSE 0 END
+           ) AS t
+    FROM public.turmas tu
+    JOIN public.materias m ON m.id_materia = tu.id_materia
+    WHERE tu.ano_periodo = v_periodo
+    GROUP BY m.codigo_materia, m.nome_materia
+    HAVING sum(tu.vagas_ofertadas) > 0
+    ORDER BY (sum(tu.vagas_ocupadas)::numeric
+              / NULLIF(sum(tu.vagas_ofertadas),0)) DESC
+    LIMIT 10
+  ) x;
+
+  SELECT COALESCE(jsonb_agg(DISTINCT ano_periodo ORDER BY ano_periodo DESC), '[]'::jsonb)
+  INTO v_periodos
+  FROM public.turmas WHERE ano_periodo IS NOT NULL;
+
+  RETURN jsonb_build_object(
+    'periodo',          v_periodo,
+    'periodos',         v_periodos,
+    'vagas_ofertadas',  v_ofertadas,
+    'vagas_ocupadas',   v_ocupadas,
+    'vagas_sobrando',   v_sobrando,
+    'taxa_ocupacao',    CASE WHEN v_ofertadas > 0
+                          THEN round(v_ocupadas::numeric / v_ofertadas * 100, 1)
+                          ELSE 0 END,
+    'top_concorridas',  v_top
+  );
+END;
+$function$;
+
+-- Function: get_user_growth
+-- Return type: TABLE(bucket date, novos bigint, acumulado bigint)
+-- Arguments: p_days integer DEFAULT 30, p_bucket text DEFAULT 'day'::text
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.get_user_growth(p_days integer DEFAULT 30, p_bucket text DEFAULT 'day'::text)
+ RETURNS TABLE(bucket date, novos bigint, acumulado bigint)
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_trunc text := CASE WHEN p_bucket IN ('day','week','month') THEN p_bucket ELSE 'day' END;
+BEGIN
+  IF NOT public.has_admin_scope('dashboard') THEN
+    RAISE EXCEPTION 'forbidden: dashboard scope required';
+  END IF;
+
+  RETURN QUERY
+  WITH per_bucket AS (
+    SELECT date_trunc(v_trunc, created_at)::date AS b, count(*) AS n
+    FROM public.users
+    WHERE created_at >= now() - (p_days || ' days')::interval
+    GROUP BY 1
+  )
+  SELECT pb.b,
+         pb.n,
+         sum(pb.n) OVER (ORDER BY pb.b)::bigint
+  FROM per_bucket pb
+  ORDER BY pb.b;
 END;
 $function$;
 
@@ -2302,6 +2689,18 @@ AS '$libdir/vector', $function$hnswhandler$function$;
 
 -- Function: inner_product
 -- Return type: double precision
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.inner_product(halfvec, halfvec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_inner_product$function$;
+
+-- Function: inner_product
+-- Return type: double precision
 -- Arguments: sparsevec, sparsevec
 -- Volatility: IMMUTABLE
 -- Security definer: NO
@@ -2323,18 +2722,6 @@ CREATE OR REPLACE FUNCTION public.inner_product(vector, vector)
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$inner_product$function$;
-
--- Function: inner_product
--- Return type: double precision
--- Arguments: halfvec, halfvec
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.inner_product(halfvec, halfvec)
- RETURNS double precision
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$halfvec_inner_product$function$;
 
 -- Function: ivfflat_bit_support
 -- Return type: internal
@@ -2383,18 +2770,6 @@ AS '$libdir/vector', $function$jaccard_distance$function$;
 
 -- Function: l1_distance
 -- Return type: double precision
--- Arguments: halfvec, halfvec
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.l1_distance(halfvec, halfvec)
- RETURNS double precision
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$halfvec_l1_distance$function$;
-
--- Function: l1_distance
--- Return type: double precision
 -- Arguments: vector, vector
 -- Volatility: IMMUTABLE
 -- Security definer: NO
@@ -2417,17 +2792,29 @@ CREATE OR REPLACE FUNCTION public.l1_distance(sparsevec, sparsevec)
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$sparsevec_l1_distance$function$;
 
--- Function: l2_distance
+-- Function: l1_distance
 -- Return type: double precision
 -- Arguments: halfvec, halfvec
 -- Volatility: IMMUTABLE
 -- Security definer: NO
 
-CREATE OR REPLACE FUNCTION public.l2_distance(halfvec, halfvec)
+CREATE OR REPLACE FUNCTION public.l1_distance(halfvec, halfvec)
  RETURNS double precision
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$halfvec_l2_distance$function$;
+AS '$libdir/vector', $function$halfvec_l1_distance$function$;
+
+-- Function: l2_distance
+-- Return type: double precision
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l2_distance(vector, vector)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$l2_distance$function$;
 
 -- Function: l2_distance
 -- Return type: double precision
@@ -2443,27 +2830,15 @@ AS '$libdir/vector', $function$sparsevec_l2_distance$function$;
 
 -- Function: l2_distance
 -- Return type: double precision
--- Arguments: vector, vector
+-- Arguments: halfvec, halfvec
 -- Volatility: IMMUTABLE
 -- Security definer: NO
 
-CREATE OR REPLACE FUNCTION public.l2_distance(vector, vector)
+CREATE OR REPLACE FUNCTION public.l2_distance(halfvec, halfvec)
  RETURNS double precision
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$l2_distance$function$;
-
--- Function: l2_norm
--- Return type: double precision
--- Arguments: sparsevec
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.l2_norm(sparsevec)
- RETURNS double precision
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$sparsevec_l2_norm$function$;
+AS '$libdir/vector', $function$halfvec_l2_distance$function$;
 
 -- Function: l2_norm
 -- Return type: double precision
@@ -2477,17 +2852,17 @@ CREATE OR REPLACE FUNCTION public.l2_norm(halfvec)
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$halfvec_l2_norm$function$;
 
--- Function: l2_normalize
--- Return type: halfvec
--- Arguments: halfvec
+-- Function: l2_norm
+-- Return type: double precision
+-- Arguments: sparsevec
 -- Volatility: IMMUTABLE
 -- Security definer: NO
 
-CREATE OR REPLACE FUNCTION public.l2_normalize(halfvec)
- RETURNS halfvec
+CREATE OR REPLACE FUNCTION public.l2_norm(sparsevec)
+ RETURNS double precision
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$halfvec_l2_normalize$function$;
+AS '$libdir/vector', $function$sparsevec_l2_norm$function$;
 
 -- Function: l2_normalize
 -- Return type: vector
@@ -2502,6 +2877,18 @@ CREATE OR REPLACE FUNCTION public.l2_normalize(vector)
 AS '$libdir/vector', $function$l2_normalize$function$;
 
 -- Function: l2_normalize
+-- Return type: halfvec
+-- Arguments: halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l2_normalize(halfvec)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_l2_normalize$function$;
+
+-- Function: l2_normalize
 -- Return type: sparsevec
 -- Arguments: sparsevec
 -- Volatility: IMMUTABLE
@@ -2512,6 +2899,102 @@ CREATE OR REPLACE FUNCTION public.l2_normalize(sparsevec)
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$sparsevec_l2_normalize$function$;
+
+-- Function: listar_minhas_assinaturas
+-- Return type: SETOF vaga_assinaturas
+-- Arguments: (none)
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.listar_minhas_assinaturas()
+ RETURNS SETOF vaga_assinaturas
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+  SELECT *
+    FROM public.vaga_assinaturas
+   WHERE ativa
+     AND id_user IN (SELECT id_user FROM public.users WHERE auth_id = auth.uid())
+   ORDER BY created_at DESC;
+$function$;
+
+-- Function: listar_notificacoes
+-- Return type: jsonb
+-- Arguments: p_limit integer DEFAULT 30, p_somente_nao_lidas boolean DEFAULT false
+-- Volatility: STABLE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.listar_notificacoes(p_limit integer DEFAULT 30, p_somente_nao_lidas boolean DEFAULT false)
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_id_user bigint;
+  v_items jsonb;
+  v_total_nao_lidas bigint;
+BEGIN
+  SELECT id_user INTO v_id_user FROM public.users WHERE auth_id = auth.uid();
+
+  IF v_id_user IS NULL THEN
+    RETURN jsonb_build_object('items', '[]'::jsonb, 'total_nao_lidas', 0);
+  END IF;
+
+  SELECT COALESCE(jsonb_agg(to_jsonb(n) ORDER BY n.created_at DESC), '[]'::jsonb)
+    INTO v_items
+    FROM (
+      SELECT *
+        FROM public.notificacoes
+       WHERE id_user = v_id_user
+         AND (NOT p_somente_nao_lidas OR NOT lida)
+       ORDER BY created_at DESC
+       LIMIT p_limit
+    ) n;
+
+  SELECT count(*) INTO v_total_nao_lidas
+    FROM public.notificacoes
+   WHERE id_user = v_id_user AND NOT lida;
+
+  RETURN jsonb_build_object('items', v_items, 'total_nao_lidas', v_total_nao_lidas);
+END;
+$function$;
+
+-- Function: marcar_notificacao_lida
+-- Return type: void
+-- Arguments: p_id_notificacao bigint DEFAULT NULL::bigint
+-- Volatility: VOLATILE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.marcar_notificacao_lida(p_id_notificacao bigint DEFAULT NULL::bigint)
+ RETURNS void
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_id_user bigint;
+BEGIN
+  SELECT id_user INTO v_id_user FROM public.users WHERE auth_id = auth.uid();
+
+  IF v_id_user IS NULL THEN
+    RETURN;
+  END IF;
+
+  IF p_id_notificacao IS NOT NULL THEN
+    UPDATE public.notificacoes
+       SET lida = true, lida_em = now()
+     WHERE id_notificacao = p_id_notificacao
+       AND id_user = v_id_user;
+  ELSE
+    UPDATE public.notificacoes
+       SET lida = true, lida_em = now()
+     WHERE id_user = v_id_user
+       AND NOT lida;
+  END IF;
+END;
+$function$;
 
 -- Function: match_materias
 -- Return type: TABLE(codigo_materia text, nome_materia text, departamento text, ementa text, similaridade double precision)
@@ -2534,6 +3017,148 @@ AS $function$
   where embedding is not null and 1 - (embedding <=> query_embedding) > match_threshold
   order by embedding <=> query_embedding
   limit match_count;
+$function$;
+
+-- Function: notificar_vaga_disponivel
+-- Return type: trigger
+-- Arguments: (none)
+-- Volatility: VOLATILE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.notificar_vaga_disponivel()
+ RETURNS trigger
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_codigo_materia text;
+  v_nome_materia text;
+BEGIN
+  IF NOT (
+    (TG_OP = 'UPDATE'
+      AND (OLD.vagas_sobrando IS NULL OR OLD.vagas_sobrando <= 0)
+      AND (NEW.vagas_sobrando IS NOT NULL AND NEW.vagas_sobrando > 0))
+    OR
+    (TG_OP = 'INSERT'
+      AND NEW.vagas_sobrando IS NOT NULL AND NEW.vagas_sobrando > 0)
+  ) THEN
+    RETURN NEW;
+  END IF;
+
+  SELECT codigo_materia, nome_materia
+    INTO v_codigo_materia, v_nome_materia
+    FROM public.materias
+   WHERE id_materia = NEW.id_materia;
+
+  INSERT INTO public.notificacoes (id_user, tipo, titulo, mensagem, metadata)
+  SELECT
+    va.id_user,
+    'vaga_disponivel',
+    'Vaga aberta em ' || COALESCE(v_codigo_materia, 'matéria'),
+    'A turma ' || COALESCE(NEW.turma, '') || ' de ' ||
+      COALESCE(v_nome_materia, v_codigo_materia, 'matéria') ||
+      ' (' || NEW.ano_periodo || ') tem ' || NEW.vagas_sobrando || ' vaga(s) disponível(is).',
+    jsonb_build_object(
+      'id_turmas', NEW.id_turmas,
+      'id_materia', NEW.id_materia,
+      'codigo_materia', v_codigo_materia,
+      'turma', NEW.turma,
+      'ano_periodo', NEW.ano_periodo,
+      'vagas_sobrando', NEW.vagas_sobrando
+    )
+  FROM public.vaga_assinaturas va
+  WHERE va.ativa
+    AND va.id_materia = NEW.id_materia
+    AND va.ano_periodo = NEW.ano_periodo
+    AND (va.turma IS NULL OR va.turma = NEW.turma);
+
+  RETURN NEW;
+END;
+$function$;
+
+-- Function: periodo_letivo_atual
+-- Return type: text
+-- Arguments: (none)
+-- Volatility: STABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.periodo_letivo_atual()
+ RETURNS text
+ LANGUAGE sql
+ STABLE
+AS $function$
+  SELECT extract(year from now())::text || '.' ||
+         (CASE WHEN extract(month from now()) <= 6 THEN '1' ELSE '2' END);
+$function$;
+
+-- Function: registrar_turma_historico
+-- Return type: trigger
+-- Arguments: (none)
+-- Volatility: VOLATILE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.registrar_turma_historico()
+ RETURNS trigger
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+BEGIN
+  IF TG_OP = 'UPDATE'
+     AND NEW.vagas_ofertadas IS NOT DISTINCT FROM OLD.vagas_ofertadas
+     AND NEW.vagas_ocupadas  IS NOT DISTINCT FROM OLD.vagas_ocupadas
+     AND NEW.vagas_sobrando  IS NOT DISTINCT FROM OLD.vagas_sobrando
+     AND NEW.docente         IS NOT DISTINCT FROM OLD.docente
+     AND NEW.horario         IS NOT DISTINCT FROM OLD.horario
+     AND NEW.local           IS NOT DISTINCT FROM OLD.local
+  THEN
+    RETURN NEW;
+  END IF;
+
+  INSERT INTO public.turmas_historico (
+    id_turmas, id_materia, turma, ano_periodo, observed_at,
+    vagas_ofertadas, vagas_ocupadas, vagas_sobrando, docente, horario, local
+  ) VALUES (
+    NEW.id_turmas, NEW.id_materia, NEW.turma, NEW.ano_periodo, now(),
+    NEW.vagas_ofertadas, NEW.vagas_ocupadas, NEW.vagas_sobrando,
+    NEW.docente, NEW.horario, NEW.local
+  );
+
+  RETURN NEW;
+END;
+$function$;
+
+-- Function: seguir_materia
+-- Return type: vaga_assinaturas
+-- Arguments: p_id_materia bigint, p_turma text, p_ano_periodo text
+-- Volatility: VOLATILE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.seguir_materia(p_id_materia bigint, p_turma text, p_ano_periodo text)
+ RETURNS vaga_assinaturas
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_id_user bigint;
+  v_row public.vaga_assinaturas;
+BEGIN
+  SELECT id_user INTO v_id_user FROM public.users WHERE auth_id = auth.uid();
+
+  IF v_id_user IS NULL THEN
+    RAISE EXCEPTION 'usuário não encontrado para o auth_id atual';
+  END IF;
+
+  INSERT INTO public.vaga_assinaturas (id_user, id_materia, turma, ano_periodo, ativa)
+  VALUES (v_id_user, p_id_materia, p_turma, p_ano_periodo, true)
+  ON CONFLICT (id_user, id_materia, turma, ano_periodo)
+  DO UPDATE SET ativa = true
+  RETURNING * INTO v_row;
+
+  RETURN v_row;
+END;
 $function$;
 
 -- Function: set_last_updated_at
@@ -2563,6 +3188,38 @@ CREATE OR REPLACE FUNCTION public.set_limit(real)
  LANGUAGE c
  STRICT
 AS '$libdir/pg_trgm', $function$set_limit$function$;
+
+-- Function: set_system_setting
+-- Return type: system_settings
+-- Arguments: p_key text, p_value jsonb
+-- Volatility: VOLATILE
+-- Security definer: YES
+
+CREATE OR REPLACE FUNCTION public.set_system_setting(p_key text, p_value jsonb)
+ RETURNS system_settings
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_row public.system_settings;
+BEGIN
+  IF NOT public.has_admin_scope('settings') THEN
+    RAISE EXCEPTION 'forbidden: admin scope "settings" required';
+  END IF;
+
+  UPDATE public.system_settings
+     SET value = p_value, updated_at = now(), updated_by = auth.uid()
+   WHERE key = p_key
+   RETURNING * INTO v_row;
+
+  IF v_row.key IS NULL THEN
+    RAISE EXCEPTION 'unknown setting key: %', p_key;
+  END IF;
+
+  RETURN v_row;
+END;
+$function$;
 
 -- Function: show_limit
 -- Return type: real
@@ -3133,18 +3790,6 @@ AS '$libdir/vector', $function$vector_concat$function$;
 
 -- Function: vector_dims
 -- Return type: integer
--- Arguments: halfvec
--- Volatility: IMMUTABLE
--- Security definer: NO
-
-CREATE OR REPLACE FUNCTION public.vector_dims(halfvec)
- RETURNS integer
- LANGUAGE c
- IMMUTABLE PARALLEL SAFE STRICT
-AS '$libdir/vector', $function$halfvec_vector_dims$function$;
-
--- Function: vector_dims
--- Return type: integer
 -- Arguments: vector
 -- Volatility: IMMUTABLE
 -- Security definer: NO
@@ -3154,6 +3799,18 @@ CREATE OR REPLACE FUNCTION public.vector_dims(vector)
  LANGUAGE c
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/vector', $function$vector_dims$function$;
+
+-- Function: vector_dims
+-- Return type: integer
+-- Arguments: halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_dims(halfvec)
+ RETURNS integer
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_vector_dims$function$;
 
 -- Function: vector_eq
 -- Return type: boolean
@@ -3456,5 +4113,5 @@ CREATE OR REPLACE FUNCTION public.word_similarity_op(text, text)
 AS '$libdir/pg_trgm', $function$word_similarity_op$function$;
 
 -- =============================================================================
--- End of functions export (164 total)
+-- End of functions export (181 total)
 -- =============================================================================
