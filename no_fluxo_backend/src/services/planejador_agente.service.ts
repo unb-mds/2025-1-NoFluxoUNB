@@ -1,6 +1,6 @@
 /**
  * Serviço do Agente Planejador — Executa ferramentas (tools) e loop de tool calling
- * com a API da Maritaca (sabiá-3, compatible com OpenAI).
+ * com a API da Maritaca (compatible com OpenAI). Modelo em config/maritaca.ts.
  *
  * Responsabilidades:
  *   - Executores das 4 tools: consultar_plano, simular_cenario, ajustar_carga, mover_materia
@@ -16,6 +16,7 @@ import { gerarPlanoCompletov2 } from "./plano_formatura.service";
 import { createControllerLogger } from "../utils/controller_logger";
 import { SupabaseWrapper } from "../supabase_wrapper";
 import { searchInternet } from "../utils/web_search";
+import { MARITACA_URL, MARITACA_MODELS } from "../config/maritaca";
 import type {
     MateriaInput,
     PlanoFormaturav2,
@@ -84,7 +85,6 @@ export type ChamarLlmFn = (
 
 const MAX_ITERACOES = 5;
 const MAX_HISTORICO = 20;
-const MARITACA_URL = "https://chat.maritaca.ai/api/chat/completions";
 
 function norm(codigo: string): string {
     return (codigo || "").trim().toUpperCase();
@@ -442,7 +442,7 @@ export class PlanejadorAgenteService {
                 Authorization: `Key ${apiKey}`,
             },
             body: JSON.stringify({
-                model: "sabia-3",
+                model: MARITACA_MODELS.AGENTE,
                 messages,
                 tools,
                 tool_choice: "auto",

@@ -1,12 +1,12 @@
 import { SupabaseWrapper } from "../supabase_wrapper";
 import { createControllerLogger } from "../utils/controller_logger";
+import { MARITACA_URL, MARITACA_MODELS } from "../config/maritaca";
 import type { MateriaInput } from "../types/planejamento";
 
 const logger = createControllerLogger("DificuldadeAgenteService", "avaliar");
-const MARITACA_URL = "https://chat.maritaca.ai/api/chat/completions";
 
 /**
- * Serviço responsável por chamar a LLM (Sabiá-3) para preencher a dificuldade estimada
+ * Serviço responsável por chamar a LLM para preencher a dificuldade estimada
  * de disciplinas que ainda não possuem esse dado no banco (Lazy Loading).
  */
 export class DificuldadeAgenteService {
@@ -104,7 +104,7 @@ ${listaMaterias}`;
                         Authorization: `Key ${apiKey}`,
                     },
                     body: JSON.stringify({
-                        model: "sabia-3",
+                        model: MARITACA_MODELS.CLASSIFICACAO,
                         messages: [{ role: "user", content: prompt }],
                         temperature: 0.2, // Baixa temperatura para formato estrito e previsível
                         max_tokens: 1024 // Limite mais baixo para não reservar tokens da cota de rate limit
