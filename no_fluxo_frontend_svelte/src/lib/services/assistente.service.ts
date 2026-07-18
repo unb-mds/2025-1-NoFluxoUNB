@@ -5,6 +5,24 @@
  */
 
 import { config } from '$lib/config';
+import { apiRequest } from '$lib/utils/api';
+import type { PlannerChatMessage } from '$lib/types/plano-formatura';
+
+/** planoInput enviado quando o aluno está logado (acende as tools de plano/histórico). */
+export interface AssistentePlanoInput {
+	curriculoCompleto: string;
+	codigosConcluidos: string[];
+	semestreAtual: number;
+	limiteCreditos: number;
+	objetivo: 'velocidade' | 'equilibrio';
+	trabalha: boolean;
+}
+
+export interface AssistenteChatResponse {
+	reply: string;
+	plano?: unknown;
+	restricoes?: unknown;
+}
 
 interface AssistenteRequest {
     materia: string;
@@ -41,6 +59,41 @@ export class AssistenteService {
     private readonly ragflowEndpoint = '/assistente/analyze';
     private readonly sabiaEndpoint = '/assistente/analyze-sabia';
     private readonly sabiaStreamEndpoint = '/assistente/analyze-sabia-stream';
+
+    /**
+     * Chat-agente da aba Assistente — mesmo motor de tool-calling do planejador.
+     * Envia histórico + (opcional) planoInput. Com planoInput + login, o backend
+     * monta o contexto completo do aluno e libera todas as tools; sem ele, só as
+     * genéricas. Usa apiRequest para levar os headers de autenticação.
+     */
+    async chatAgente(
+        messages: PlannerChatMessage[],
+        planoInput?: AssistentePlanoInput | null,
+        restricoes?: unknown
+    ): Promise<AssistenteChatResponse> {
+        const body: Record<string, unknown> = { messages };
+        if (planoInput) {
+            body.planoInput = {
+                curriculo_completo: planoInput.curriculoCompleto,
+                codigos_concluidos: planoInput.codigosConcluidos,
+                semestre_atual: planoInput.semestreAtual,
+                limite_creditos: planoInput.limiteCreditos,
+                objetivo: planoInput.objetivo === 'velocidade' ? 'velocidade' : 'equilibrado',
+                trabalha: planoInput.trabalha
+            };
+            if (restricoes) body.restricoes = restricoes;
+        }
+
+        const { data, error, status } = await apiRequest<AssistenteChatResponse>('/assistente/chat', {
+            method: 'POST',
+            body
+        });
+
+        if (error || !data) {
+            throw new Error(`Erro ${status} ao chamar assistente: ${error ?? 'Resposta inválida'}`);
+        }
+        return data;
+    }
 
     /**
      * Send a message to the AI assistant using the specified agent

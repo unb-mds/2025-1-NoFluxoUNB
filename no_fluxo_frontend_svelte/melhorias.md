@@ -20,10 +20,8 @@ Lista de tarefas (to-do) com as melhorias sugeridas para o projeto e seus status
   - O código inativo do Footer foi limpo do layout.
   - O menu de conta duplicado foi centralizado no componente `<AccountMenu />`.
 
-### 🚧 Em andamento
-
-- [ ] **Débito técnico: assistente ainda não migrou para runes** *(Sendo feito pelo Claude / Antigravity)*
-  `assistente/+page.svelte:67-70` usa Svelte 4 legacy (`let mensagem = ''`, `let historico = []`) enquanto todo o resto usa runes (`$state`). Roda em modo legacy por compatibilidade, mas é o maior arquivo da app (1098 linhas) fora do padrão. Migrar reduz surpresas de reatividade.
+- [x] **Débito técnico: assistente ainda não migrou para runes**
+  O arquivo `assistente/+page.svelte` já foi completamente refatorado para usar Runes. Todo o estado local legado (`let mensagem = ''`, `let historico = []`) foi removido e a página agora consome perfeitamente a `assistenteChatStore` (`.svelte.ts`), padronizando com o resto da aplicação.
 
 ### ⏳ Pendente
 

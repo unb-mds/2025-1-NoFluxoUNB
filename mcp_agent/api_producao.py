@@ -455,6 +455,27 @@ async def health_check():
     return {"status": "healthy", "service": "Darcy AI", "version": "2.0"}
 
 
+# Busca semântica PURA (embeddings), sem LLM. Exposta como TOOL para o agente
+# TypeScript (planejador_agente). Evita a 2ª chamada de modelo do /recomendar.
+class BuscaMaterias(BaseModel):
+    termos_busca: list[str] = []
+
+
+@app.post("/buscar-materias")
+async def buscar_materias(busca: BuscaMaterias):
+    termos = [t for t in (busca.termos_busca or []) if t and t.strip()]
+    if not termos:
+        raise HTTPException(
+            status_code=400, detail="Informe ao menos um termo em 'termos_busca'."
+        )
+    resultado_json = ferramenta_buscar_materias_unb(termos)
+    try:
+        materias = json.loads(resultado_json)
+    except Exception:
+        materias = []
+    return {"materias": materias}
+
+
 # 4. O ENDPOINT PRINCIPAL DA API
 @app.post("/recomendar")
 async def recomendar_materias(consulta: Consulta):

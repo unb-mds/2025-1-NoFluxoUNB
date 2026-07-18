@@ -8,7 +8,7 @@
  */
 
 import { EndpointController, RequestType } from '../interfaces';
-import { Pair } from '../utils';
+import { Pair, Utils } from '../utils';
 import { Request, Response } from 'express';
 import { RagflowService } from '../services/ragflow.service';
 import { SabiaService } from '../services/sabia.service';
@@ -16,6 +16,9 @@ import { removeAccents } from '../utils/text.utils';
 import { formatRanking } from '../utils/ranking.formatter';
 import { createControllerLogger } from '../utils/controller_logger';
 import { SupabaseWrapper } from '../supabase_wrapper';
+import { PlanejadorAgenteService, type MensagemChat } from '../services/planejador_agente.service';
+import { criarContextoLeve } from '../services/agente/context';
+import { montarContextoAgente } from './PlanejamentoController';
 
 const ragflow = new RagflowService();
 const sabia = new SabiaService();
@@ -102,6 +105,53 @@ export const AssistenteController: EndpointController = {
                 const msg = error instanceof Error ? error.message : String(error);
                 logger.error(`Error after ${duration}ms: ${msg}`);
                 return res.status(500).json({ erro: `Ocorreu um erro interno no servidor: ${msg}` });
+            }
+        }),
+
+        // Chat-agente da aba Assistente. Mesmo motor (tool-calling) do Planejamento,
+        // via Tool Registry compartilhado. Contexto sob demanda: logado + planoInput
+        // => todas as tools; anônimo/sem plano => só as tools genéricas.
+        chat: new Pair(RequestType.POST, async (req: Request, res: Response) => {
+            const logger = createControllerLogger('AssistenteController', 'chat');
+            try {
+                const svc = new PlanejadorAgenteService();
+                if (!svc.isAvailable()) {
+                    return res.status(503).json({ error: 'Serviço de agente temporariamente indisponível.' });
+                }
+
+                const body = req.body;
+                if (!body || typeof body !== 'object') {
+                    return res.status(400).json({ error: 'Body inválido.' });
+                }
+
+                const messages = Array.isArray(body.messages) ? body.messages : [];
+                if (!messages.every((m: any) => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')) {
+                    return res.status(400).json({ error: 'messages deve ser array de { role, content }.' });
+                }
+                const historico: MensagemChat[] = messages.map((m: any) => ({ role: m.role, content: m.content }));
+
+                // Contexto sob demanda.
+                let ctx = criarContextoLeve();
+                const autorizado = await Utils.checkAuthorization(req as Request);
+                const idUser = req.headers['user-id'] || req.headers['User-ID'];
+                if (autorizado && idUser && body.planoInput) {
+                    const { ctx: ctxPlano, error } = await montarContextoAgente(String(idUser), body.planoInput, body.restricoes);
+                    if (ctxPlano) {
+                        ctx = ctxPlano;
+                    } else {
+                        logger.warn(`Sem contexto de plano (modo leve): ${error}`);
+                    }
+                }
+
+                const resultado = await svc.conversar(historico, ctx);
+                return res.status(200).json({
+                    reply: resultado.reply,
+                    plano: resultado.plano ?? undefined,
+                    restricoes: resultado.restricoes,
+                });
+            } catch (err: any) {
+                logger.error(`Erro no chat da assistente: ${err?.message || String(err)}`);
+                return res.status(500).json({ error: err?.message || 'Erro ao processar mensagem do chat.' });
             }
         }),
 

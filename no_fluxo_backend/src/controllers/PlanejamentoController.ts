@@ -148,7 +148,7 @@ interface DadosPlano {
  * Monta todos os dados necessários para gerar o plano (busca em banco + processamento).
  * Retorna { dados } se sucesso ou { status, error } se erro.
  */
-async function montarDadosPlano(
+export async function montarDadosPlano(
     idUser: string,
     input: PlanoInput
 ): Promise<{ dados?: DadosPlano; status?: number; error?: string }> {
@@ -309,6 +309,50 @@ async function montarDadosPlano(
     } catch (err: any) {
         return { status: 500, error: err?.message || "Erro ao montar dados do plano" };
     }
+}
+
+/**
+ * Monta o AgenteContexto completo (com plano) a partir do usuário + planoInput.
+ * Fonte única usada pelo chat do Planejamento e pelo chat da Assistente (logado).
+ */
+export async function montarContextoAgente(
+    idUser: string,
+    planoInputRaw: unknown,
+    restricoesRaw: unknown
+): Promise<{ ctx?: AgenteContexto; status?: number; error?: string }> {
+    const { input, error: inputError } = parseBody(planoInputRaw);
+    if (inputError) return { status: 400, error: inputError };
+
+    const restricoes: RestricoesPlano = {
+        adiar: Array.isArray((restricoesRaw as any)?.adiar) ? (restricoesRaw as any).adiar : [],
+        priorizar: Array.isArray((restricoesRaw as any)?.priorizar) ? (restricoesRaw as any).priorizar : [],
+        limitesPersonalizados:
+            typeof (restricoesRaw as any)?.limitesPersonalizados === "object" && (restricoesRaw as any).limitesPersonalizados !== null
+                ? (restricoesRaw as any).limitesPersonalizados
+                : undefined,
+    };
+
+    const { dados, status, error } = await montarDadosPlano(idUser, input!);
+    if (error) return { status: status || 500, error };
+    if (!dados) return { status: 500, error: "Erro interno ao montar dados do plano" };
+
+    const ctx: AgenteContexto = {
+        materias: dados.materiasMapeadas,
+        cargaHorariaIntegralizada: dados.cargaHorariaIntegralizada,
+        exigidaMatriz: dados.exigidaMatriz,
+        fluxogramaAtual: dados.fluxogramaAtual,
+        idUser: dados.idUser,
+        idCurso: dados.idCurso,
+        numeroPeriodo: dados.numeroPeriodo,
+        preferencias: dados.preferencias,
+        restricoes: {
+            adiar: restricoes.adiar,
+            priorizar: restricoes.priorizar,
+            limitesPersonalizados: restricoes.limitesPersonalizados || {},
+        },
+        codigosComOferta: dados.codigosComOferta,
+    };
+    return { ctx };
 }
 
 interface MatrizRow {
@@ -599,53 +643,16 @@ export const PlanejamentoController: EndpointController = {
                         (m: any) => ({ role: m.role, content: m.content })
                     );
 
-                    // Dados do plano (mesmo formato do gerar-plano)
-                    const { input, error: inputError } = parseBody(body.planoInput);
-                    if (inputError) {
-                        return res.status(400).json({ error: inputError });
-                    }
-
-                    // Restrições (validação)
-                    const bodyRestr = body.restricoes;
-                    const restricoes: RestricoesPlano = {
-                        adiar: Array.isArray((bodyRestr as any)?.adiar) ? (bodyRestr as any).adiar : [],
-                        priorizar: Array.isArray((bodyRestr as any)?.priorizar) ? (bodyRestr as any).priorizar : [],
-                        limitesPersonalizados: typeof (bodyRestr as any)?.limitesPersonalizados === 'object' && (bodyRestr as any).limitesPersonalizados !== null ? (bodyRestr as any).limitesPersonalizados : undefined,
-                    };
-
-                    // ========== MONTAR DADOS DO PLANO ==========
-                    const { dados, status: statusErr, error: erroMontagem } = await montarDadosPlano(
+                    // ========== MONTAR CONTEXTO DO AGENTE (com plano) ==========
+                    const { ctx, status: statusErr, error: erroMontagem } = await montarContextoAgente(
                         id_user as string,
-                        input!
+                        body.planoInput,
+                        body.restricoes
                     );
-                    if (erroMontagem) {
-                        logger.warn(`Erro ao montar dados: ${erroMontagem}`);
-                        return res.status(statusErr || 500).json({ error: erroMontagem });
+                    if (erroMontagem || !ctx) {
+                        logger.warn(`Erro ao montar contexto: ${erroMontagem}`);
+                        return res.status(statusErr || 500).json({ error: erroMontagem || "Erro interno ao montar contexto" });
                     }
-                    if (!dados) {
-                        logger.error("Dados do plano não retornados");
-                        return res.status(500).json({
-                            error: "Erro interno ao montar dados",
-                        });
-                    }
-
-                    // ========== MONTAR CONTEXTO DO AGENTE ==========
-                    const ctx: AgenteContexto = {
-                        materias: dados.materiasMapeadas,
-                        cargaHorariaIntegralizada: dados.cargaHorariaIntegralizada,
-                        exigidaMatriz: dados.exigidaMatriz,
-                        fluxogramaAtual: dados.fluxogramaAtual,
-                        idUser: dados.idUser,
-                        idCurso: dados.idCurso,
-                        numeroPeriodo: dados.numeroPeriodo,
-                        preferencias: dados.preferencias,
-                        restricoes: {
-                            adiar: restricoes.adiar,
-                            priorizar: restricoes.priorizar,
-                            limitesPersonalizados: restricoes.limitesPersonalizados || {},
-                        },
-                        codigosComOferta: dados.codigosComOferta,
-                    };
 
                     // ========== CONVERSAR COM AGENTE ==========
                     logger.info(`Iniciando conversa com agente. Histórico: ${historico.length} mensagens`);

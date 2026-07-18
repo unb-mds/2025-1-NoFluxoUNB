@@ -529,7 +529,7 @@ export function gerarPlano(input: PlanoInput): PlanoFormatura {
 // 8) Motor 2 v2 — gerarPlanoCompletov2
 // =============================================================
 
-interface DisciplinaFluxo {
+export interface DisciplinaFluxo {
     codigo: string;
     status?: "APR" | "REP" | "MATR" | null;
     ano_periodo?: string;
@@ -538,7 +538,11 @@ interface DisciplinaFluxo {
     creditos?: number;
 }
 
-function parseFluxograma(fluxograma_atual_str: string | null | undefined): {
+/**
+ * Extrai do fluxograma_atual do aluno as matérias concluídas (APR/CUMP) e as em
+ * curso (MATR). Exportada para as tools do agente consultarem o histórico real.
+ */
+export function parseFluxograma(fluxograma_atual_str: string | null | undefined): {
     completed: Set<string>;
     currentSemester: DisciplinaFluxo[];
 } {

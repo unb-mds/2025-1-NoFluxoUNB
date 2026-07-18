@@ -52,7 +52,7 @@ function ctxBase(): AgenteContexto {
             objetivo: "equilibrado",
             trabalha: false,
         },
-        restricoes: { adiar: [], priorizar: [] },
+        restricoes: { adiar: [], priorizar: [], limitesPersonalizados: {} },
         codigosComOferta: new Set(["AAA0001", "BBB0002", "CCC0003"]),
     };
 }
@@ -81,31 +81,40 @@ function respostaComTool(
 // ========== Testes dos Executores (Task 3) ==========
 
 describe("planejador_agente — Executores de Tools", () => {
-    test("executarTool desconhecida retorna erro", () => {
+    test("executarTool desconhecida retorna erro", async () => {
         const ctx = ctxBase();
-        const r = executarTool("ferramenta_inexistente", {}, ctx);
+        const r = await executarTool("ferramenta_inexistente", {}, ctx);
         const parsed = JSON.parse(r.resultado);
         expect(parsed.erro).toContain("desconhecida");
     });
 
-    test("consultar_plano sem código retorna resumo", () => {
+    test("consultar_plano sem código retorna resumo", async () => {
         const ctx = ctxBase();
-        const r = executarTool("consultar_plano", {}, ctx);
+        const r = await executarTool("consultar_plano", {}, ctx);
         const parsed = JSON.parse(r.resultado);
         expect(parsed.semestresRestantes).toBeGreaterThan(0);
         expect(parsed.materiasNaoAlocadas).toBeDefined();
     });
 
-    test("consultar_plano com código inválido retorna erro", () => {
+    test("consultar_plano expõe creditosRestantesTotais autoritativo", async () => {
         const ctx = ctxBase();
-        const r = executarTool("consultar_plano", { codigo: "ZZZZZ000" }, ctx);
+        const r = await executarTool("consultar_plano", {}, ctx);
+        const parsed = JSON.parse(r.resultado);
+        // Degree audit: (exigidaMatriz.total 2400 - integralizada.total 600) / 15 = 120
+        expect(parsed.creditosRestantesTotais).toBe(120);
+        expect(parsed.chRestanteTotalHoras).toBe(1800);
+    });
+
+    test("consultar_plano com código inválido retorna erro", async () => {
+        const ctx = ctxBase();
+        const r = await executarTool("consultar_plano", { codigo: "ZZZZZ000" }, ctx);
         const parsed = JSON.parse(r.resultado);
         expect(parsed.erro).toContain("não encontrada");
     });
 
-    test("simular_cenario com mudança de carga retorna antes e depois", () => {
+    test("simular_cenario com mudança de carga retorna antes e depois", async () => {
         const ctx = ctxBase();
-        const r = executarTool(
+        const r = await executarTool(
             "simular_cenario",
             { limiteCreditos: 16 },
             ctx
@@ -118,9 +127,9 @@ describe("planejador_agente — Executores de Tools", () => {
         expect(ctx.preferencias.limiteCreditos).toBe(24);
     });
 
-    test("ajustar_carga rejeita limite inválido", () => {
+    test("ajustar_carga rejeita limite inválido", async () => {
         const ctx = ctxBase();
-        const r = executarTool(
+        const r = await executarTool(
             "ajustar_carga",
             { limiteCreditos: 5 },
             ctx
@@ -129,9 +138,9 @@ describe("planejador_agente — Executores de Tools", () => {
         expect(parsed.erro).toContain("8 e 32");
     });
 
-    test("ajustar_carga com limite válido retorna plano e atualiza contexto", () => {
+    test("ajustar_carga com limite válido retorna plano e atualiza contexto", async () => {
         const ctx = ctxBase();
-        const r = executarTool(
+        const r = await executarTool(
             "ajustar_carga",
             { limiteCreditos: 16, objetivo: "velocidade" },
             ctx
@@ -141,9 +150,9 @@ describe("planejador_agente — Executores de Tools", () => {
         expect(ctx.preferencias.objetivo).toBe("velocidade");
     });
 
-    test("mover_materia com acao inválida retorna erro", () => {
+    test("mover_materia com acao inválida retorna erro", async () => {
         const ctx = ctxBase();
-        const r = executarTool(
+        const r = await executarTool(
             "mover_materia",
             { codigo: "AAA0001", acao: "ignorar" },
             ctx
@@ -152,9 +161,9 @@ describe("planejador_agente — Executores de Tools", () => {
         expect(parsed.erro).toContain("acao");
     });
 
-    test("mover_materia adiar funciona e atualiza contexto", () => {
+    test("mover_materia adiar funciona e atualiza contexto", async () => {
         const ctx = ctxBase();
-        const r = executarTool(
+        const r = await executarTool(
             "mover_materia",
             { codigo: "aaa0001", acao: "adiar" },
             ctx
@@ -164,12 +173,12 @@ describe("planejador_agente — Executores de Tools", () => {
         expect(ctx.restricoes.priorizar).not.toContain("AAA0001");
     });
 
-    test("mover_materia priorizar funciona", () => {
+    test("mover_materia priorizar funciona", async () => {
         const ctx = ctxBase();
-        executarTool("mover_materia", { codigo: "AAA0001", acao: "adiar" }, ctx);
+        await executarTool("mover_materia", { codigo: "AAA0001", acao: "adiar" }, ctx);
         expect(ctx.restricoes.adiar).toContain("AAA0001");
         // Remover restrição
-        executarTool(
+        await executarTool(
             "mover_materia",
             { codigo: "AAA0001", acao: "remover_restricao" },
             ctx
@@ -178,9 +187,9 @@ describe("planejador_agente — Executores de Tools", () => {
         expect(ctx.restricoes.priorizar).not.toContain("AAA0001");
     });
 
-    test("mover_materia com código inexistente retorna erro", () => {
+    test("mover_materia com código inexistente retorna erro", async () => {
         const ctx = ctxBase();
-        const r = executarTool(
+        const r = await executarTool(
             "mover_materia",
             { codigo: "ZZZ9999", acao: "adiar" },
             ctx
@@ -265,7 +274,7 @@ describe("planejador_agente — Loop de Conversa", () => {
             chamadas++;
             return respostaComTool("consultar_plano", {}, `call_${chamadas}`);
         });
-        const r = await svc.conversa(
+        const r = await svc.conversar(
             [{ role: "user", content: "loop infinito" }],
             ctxBase()
         );
@@ -308,7 +317,7 @@ describe("planejador_agente — Loop de Conversa", () => {
         let i = 0;
         const svc = new PlanejadorAgenteService(async () => respostas[i++]);
         const ctx = ctxBase();
-        const r = await svc.conversa(
+        const r = await svc.conversar(
             [{ role: "user", content: "primeiro consulta depois ajusta" }],
             ctx
         );
