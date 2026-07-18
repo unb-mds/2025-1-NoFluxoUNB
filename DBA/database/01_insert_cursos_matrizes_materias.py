@@ -406,24 +406,18 @@ def get_or_create_matriz(
     id_curso, curriculo_completo, versao, ano_vigor, prazos_cargas, status=None
 ):
     curriculo_completo = (curriculo_completo or "").strip()
-    # 1) Cache por curriculo_completo
-    if curriculo_completo in CACHE_MATRIZ_BY_CURRICULO:
-        return CACHE_MATRIZ_BY_CURRICULO[curriculo_completo]["id_matriz"]
-
-    # 2) Cache por (id_curso, versao, ano_vigor) — pode ser formato antigo com turno
-    key = (id_curso, versao or "", ano_vigor or "")
-    if key in CACHE_MATRIZ_BY_CURSO_VERSAO_ANO:
-        row = CACHE_MATRIZ_BY_CURSO_VERSAO_ANO[key]
-        atual = (row.get("curriculo_completo") or "").strip()
-        atual_status = row.get("status")
-        
+    
+    # Função auxiliar para atualizar a linha, se necessário
+    def _update_row(row, check_curriculo=False):
         updates = {}
-        if atual != curriculo_completo and (
-            atual.endswith(" - DIURNO") or atual.endswith(" - NOTURNO")
-        ):
-            updates["curriculo_completo"] = curriculo_completo
-            
-        if status is not None and atual_status != status:
+        if check_curriculo:
+            atual = (row.get("curriculo_completo") or "").strip()
+            if atual != curriculo_completo and (
+                atual.endswith(" - DIURNO") or atual.endswith(" - NOTURNO")
+            ):
+                updates["curriculo_completo"] = curriculo_completo
+                
+        if status is not None and row.get("status") != status:
             updates["status"] = status
             
         if updates:
@@ -440,6 +434,15 @@ def get_or_create_matriz(
                 CACHE_MATRIZ_BY_CURRICULO[curriculo_completo] = row
                 
         return row["id_matriz"]
+
+    # 1) Cache por curriculo_completo
+    if curriculo_completo in CACHE_MATRIZ_BY_CURRICULO:
+        return _update_row(CACHE_MATRIZ_BY_CURRICULO[curriculo_completo])
+
+    # 2) Cache por (id_curso, versao, ano_vigor) — pode ser formato antigo com turno
+    key = (id_curso, versao or "", ano_vigor or "")
+    if key in CACHE_MATRIZ_BY_CURSO_VERSAO_ANO:
+        return _update_row(CACHE_MATRIZ_BY_CURSO_VERSAO_ANO[key], check_curriculo=True)
 
     # 3) Inserir e adicionar ao cache
     ch = prazos_to_ints(prazos_cargas or {})
