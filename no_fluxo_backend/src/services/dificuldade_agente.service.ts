@@ -61,8 +61,8 @@ export class DificuldadeAgenteService {
 
         for (let i = 0; i < materiasParaAvaliar.length; i += CHUNK_SIZE) {
             if (i > 0) {
-                logger.info("Aguardando 2s para respeitar o Rate Limit da API...");
-                await delay(2000);
+                logger.info("Aguardando 3s para respeitar o Rate Limit da API...");
+                await delay(3000);
             }
 
             const chunk = materiasParaAvaliar.slice(i, i + CHUNK_SIZE);
@@ -96,78 +96,96 @@ CIC0004|5|Materia introdutoria basica de programacao.
 Avalie as seguintes matérias:
 ${listaMaterias}`;
 
-            try {
-                const response = await fetch(MARITACA_URL, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Key ${apiKey}`,
-                    },
-                    body: JSON.stringify({
-                        model: MARITACA_MODELS.CLASSIFICACAO,
-                        messages: [{ role: "user", content: prompt }],
-                        temperature: 0.2, // Baixa temperatura para formato estrito e previsível
-                        max_tokens: 1024 // Limite mais baixo para não reservar tokens da cota de rate limit
-                    }),
-                });
+            let maxRetries = 2;
+            let success = false;
 
-                if (!response.ok) {
-                    const err = await response.text();
-                    throw new Error(`Maritaca API error: ${response.status} ${err}`);
-                }
+            while (maxRetries >= 0 && !success) {
+                try {
+                    const response = await fetch(MARITACA_URL, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Key ${apiKey}`,
+                        },
+                        body: JSON.stringify({
+                            model: MARITACA_MODELS.CLASSIFICACAO,
+                            messages: [{ role: "user", content: prompt }],
+                            temperature: 0.2,
+                            max_tokens: 450
+                        }),
+                    });
 
-                const data = (await response.json()) as any;
-                let content = data.choices?.[0]?.message?.content || "";
-                
-                // Limpeza e Parse do formato CODIGO|NOTA|MOTIVO
-                content = content.replace(/```[a-zA-Z]*\n?/g, "").replace(/```/g, "").trim();
-                const linhas = content.split("\n");
-                const resultados: Record<string, {nota: number, motivo: string}> = {};
+                    if (!response.ok) {
+                        const err = await response.text();
+                        if (response.status === 429 && maxRetries > 0) {
+                            logger.warn(`Rate limit (429) atingido. Aguardando 40s antes de tentar novamente... Detalhes: ${err}`);
+                            await delay(40000);
+                            maxRetries--;
+                            continue;
+                        }
+                        throw new Error(`Maritaca API error: ${response.status} ${err}`);
+                    }
 
-                for (const linha of linhas) {
-                    const partes = linha.split("|");
-                    if (partes.length >= 3) {
-                        const codigo = partes[0].trim();
-                        const notaNum = parseInt(partes[1].trim(), 10);
-                        const motivoText = partes.slice(2).join("|").trim();
-                        
-                        if (!isNaN(notaNum)) {
-                            resultados[codigo] = { nota: notaNum, motivo: motivoText };
+                    const data = (await response.json()) as any;
+                    let content = data.choices?.[0]?.message?.content || "";
+                    
+                    // Limpeza e Parse do formato CODIGO|NOTA|MOTIVO
+                    content = content.replace(/```[a-zA-Z]*\n?/g, "").replace(/```/g, "").trim();
+                    const linhas = content.split("\n");
+                    const resultados: Record<string, {nota: number, motivo: string}> = {};
+
+                    for (const linha of linhas) {
+                        const partes = linha.split("|");
+                        if (partes.length >= 3) {
+                            const codigo = partes[0].trim();
+                            const notaNum = parseInt(partes[1].trim(), 10);
+                            const motivoText = partes.slice(2).join("|").trim();
+                            
+                            if (!isNaN(notaNum)) {
+                                resultados[codigo] = { nota: notaNum, motivo: motivoText };
+                            }
                         }
                     }
-                }
 
-                // Processar resultados para o chunk atual
-                for (const materia of chunk) {
-                    const avaliacao = resultados[materia.codigo];
-                    if (avaliacao && typeof avaliacao.nota === "number") {
-                        const notaSegura = Math.max(1, Math.min(10, Math.floor(avaliacao.nota)));
-                        const motivoStr = String(avaliacao.motivo || "").trim();
+                    // Processar resultados para o chunk atual
+                    for (const materia of chunk) {
+                        const avaliacao = resultados[materia.codigo];
+                        if (avaliacao && typeof avaliacao.nota === "number") {
+                            const notaSegura = Math.max(1, Math.min(10, Math.floor(avaliacao.nota)));
+                            const motivoStr = String(avaliacao.motivo || "").trim();
 
-                        materia.dificuldadeEstimada = notaSegura;
-                        materia.motivoDificuldade = motivoStr;
+                            materia.dificuldadeEstimada = notaSegura;
+                            materia.motivoDificuldade = motivoStr;
 
-                        updatePromises.push(
-                            supabase
-                                .from("materias")
-                                .update({
-                                    dificuldade_estimada: notaSegura,
-                                    motivo_dificuldade: motivoStr,
-                                    dificuldade_calculada_em: new Date().toISOString(),
-                                })
-                                .eq("codigo_materia", materia.codigo)
-                        );
-                    } else {
-                        materia.dificuldadeEstimada = 4;
-                        materia.motivoDificuldade = "Dificuldade padrão assumida";
+                            updatePromises.push(
+                                supabase
+                                    .from("materias")
+                                    .update({
+                                        dificuldade_estimada: notaSegura,
+                                        motivo_dificuldade: motivoStr,
+                                        dificuldade_calculada_em: new Date().toISOString(),
+                                    })
+                                    .eq("codigo_materia", materia.codigo)
+                            );
+                        } else {
+                            materia.dificuldadeEstimada = 4;
+                            materia.motivoDificuldade = "Dificuldade padrão assumida";
+                        }
                     }
-                }
-            } catch (error: any) {
-                logger.error(`Erro ao avaliar chunk da LLM: ${error.message}`);
-                // Fallback apenas para as matérias deste chunk
-                for (const m of chunk) {
-                    m.dificuldadeEstimada = 4;
-                    m.motivoDificuldade = "Erro na IA";
+                    success = true;
+                } catch (error: any) {
+                    if (error.message.includes("429") && maxRetries > 0) {
+                        logger.warn(`Rate limit capturado no catch. Aguardando 40s...`);
+                        await delay(40000);
+                        maxRetries--;
+                        continue;
+                    }
+                    logger.error(`Erro ao avaliar chunk da LLM: ${error.message}`);
+                    for (const m of chunk) {
+                        m.dificuldadeEstimada = 4;
+                        m.motivoDificuldade = "Erro na IA";
+                    }
+                    break;
                 }
             }
         }
