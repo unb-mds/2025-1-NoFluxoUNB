@@ -14,6 +14,7 @@ export interface MatrizModel {
 	chOptativaExigida: number | null;
 	chComplementarExigida: number | null;
 	chTotalExigida: number | null;
+	status?: string | null;
 }
 
 /** Carga horária por categoria (fonte: carga_horaria_integralizada jsonb). */

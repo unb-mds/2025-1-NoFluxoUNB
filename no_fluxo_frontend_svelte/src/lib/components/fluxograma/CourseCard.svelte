@@ -31,11 +31,18 @@
 		<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
 			<GraduationCap class="h-5 w-5 text-primary/90" />
 		</div>
-		{#if curso.creditos}
-			<span class="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-xs font-medium text-white/70">
-				{curso.creditos} créditos
-			</span>
-		{/if}
+		<div class="flex items-center gap-2">
+			{#if curso.status}
+				<span class="rounded-full border px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider {curso.status.toLowerCase() === 'ativa' ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400' : 'border-rose-500/30 bg-rose-500/10 text-rose-400'}">
+					{curso.status}
+				</span>
+			{/if}
+			{#if curso.creditos}
+				<span class="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-xs font-medium text-white/70">
+					{curso.creditos} cr
+				</span>
+			{/if}
+		</div>
 	</div>
 
 	<h3 class="mb-1 line-clamp-2 text-sm font-semibold leading-tight text-white">

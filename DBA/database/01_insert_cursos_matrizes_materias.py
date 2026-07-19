@@ -41,7 +41,7 @@ from config import (
 
 DRY_RUN = "--dry-run" in sys.argv
 CHUNK_SIZE = 80
-FETCH_PAGE = 2000  # paginação ao carregar caches do banco
+FETCH_PAGE = 1000  # supabase max is 1000; se > 1000, o len() vem menor e quebra o loop cedo
 # Padrão legado noturno: id_curso = codigo_base + OFFSET_LEGADO; normalizar para id_curso = codigo_base.
 OFFSET_LEGADO_CURSO = 100000
 SLOW_OP_THRESHOLD_S = 5.0
@@ -384,7 +384,7 @@ def load_cache_matrizes():
     while True:
         r = db(
             supabase.table("matrizes")
-            .select("id_matriz, curriculo_completo, id_curso, versao, ano_vigor")
+            .select("id_matriz, curriculo_completo, id_curso, versao, ano_vigor, status")
             .order("id_matriz")
             .range(offset, offset + FETCH_PAGE - 1)
             .execute
@@ -403,32 +403,47 @@ def load_cache_matrizes():
 
 
 def get_or_create_matriz(
-    id_curso, curriculo_completo, versao, ano_vigor, prazos_cargas
+    id_curso, curriculo_completo, versao, ano_vigor, prazos_cargas, status=None
 ):
     curriculo_completo = (curriculo_completo or "").strip()
+    
+    # Função auxiliar para atualizar a linha, se necessário
+    def _update_row(row, check_curriculo=False):
+        updates = {}
+        if check_curriculo:
+            atual = (row.get("curriculo_completo") or "").strip()
+            if atual != curriculo_completo and (
+                atual.endswith(" - DIURNO") or atual.endswith(" - NOTURNO")
+            ):
+                updates["curriculo_completo"] = curriculo_completo
+                
+        if status is not None and row.get("status") != status:
+            updates["status"] = status
+            
+        if updates:
+            print(f"      [DEBUG] Atualizando matriz {row['id_matriz']} com: {updates}", flush=True)
+            if not DRY_RUN:
+                db(
+                    supabase.table("matrizes")
+                    .update(updates)
+                    .eq("id_matriz", row["id_matriz"])
+                    .execute
+                )
+            for k, v in updates.items():
+                row[k] = v
+            if "curriculo_completo" in updates:
+                CACHE_MATRIZ_BY_CURRICULO[curriculo_completo] = row
+                
+        return row["id_matriz"]
+
     # 1) Cache por curriculo_completo
     if curriculo_completo in CACHE_MATRIZ_BY_CURRICULO:
-        return CACHE_MATRIZ_BY_CURRICULO[curriculo_completo]["id_matriz"]
+        return _update_row(CACHE_MATRIZ_BY_CURRICULO[curriculo_completo])
 
     # 2) Cache por (id_curso, versao, ano_vigor) — pode ser formato antigo com turno
     key = (id_curso, versao or "", ano_vigor or "")
     if key in CACHE_MATRIZ_BY_CURSO_VERSAO_ANO:
-        row = CACHE_MATRIZ_BY_CURSO_VERSAO_ANO[key]
-        atual = (row.get("curriculo_completo") or "").strip()
-        if atual != curriculo_completo and (
-            atual.endswith(" - DIURNO") or atual.endswith(" - NOTURNO")
-        ):
-            if not DRY_RUN:
-                db(
-                    supabase.table("matrizes")
-                    .update({"curriculo_completo": curriculo_completo})
-                    .eq("id_matriz", row["id_matriz"])
-                    .execute
-                )
-                row["curriculo_completo"] = curriculo_completo
-                CACHE_MATRIZ_BY_CURRICULO[curriculo_completo] = row
-            return row["id_matriz"]
-        return row["id_matriz"]
+        return _update_row(CACHE_MATRIZ_BY_CURSO_VERSAO_ANO[key], check_curriculo=True)
 
     # 3) Inserir e adicionar ao cache
     ch = prazos_to_ints(prazos_cargas or {})
@@ -437,6 +452,7 @@ def get_or_create_matriz(
         "curriculo_completo": curriculo_completo,
         "versao": versao or "",
         "ano_vigor": ano_vigor,
+        "status": status,
         "ch_obrigatoria_exigida": ch.get("ch_obrigatoria_total"),
         "ch_total_exigida": ch.get("total_minima"),
         "ch_optativa_exigida": ch.get("ch_optativa_minima"),
@@ -445,7 +461,7 @@ def get_or_create_matriz(
     insert_data = {
         k: v
         for k, v in insert_data.items()
-        if v is not None or k in ("curriculo_completo", "versao", "ano_vigor")
+        if v is not None or k in ("curriculo_completo", "versao", "ano_vigor", "status")
     }
     if DRY_RUN:
         return None
@@ -458,6 +474,7 @@ def get_or_create_matriz(
         "id_curso": id_curso,
         "versao": versao or "",
         "ano_vigor": ano_vigor or "",
+        "status": status,
     }
     CACHE_MATRIZ_BY_CURRICULO[curriculo_completo] = row
     CACHE_MATRIZ_BY_CURSO_VERSAO_ANO[key] = row
@@ -596,17 +613,20 @@ def get_or_create_materia(materia, materias_detalhadas):
 def load_cache_materias_por_curso():
     offset = 0
     while True:
-        r = db(
-            supabase.table("materias_por_curso")
-            .select("id_matriz, id_materia")
-            .order("id_matriz")
-            .range(offset, offset + FETCH_PAGE - 1)
-            .execute
-        )
-        for row in r.data or []:
+        try:
+            r = supabase.table("materias_por_curso").select("id_matriz, id_materia").order("id_materia_curso").range(offset, offset + FETCH_PAGE - 1).execute()
+        except Exception as e:
+            print(f"[DEBUG] load_cache_mpc error: {e}", flush=True)
+            break
+            
+        data = r.data or []
+        print(f"[DEBUG] load_cache_mpc offset {offset} returned {len(data)} rows", flush=True)
+        for row in data:
             if row.get("id_matriz") is not None and row.get("id_materia") is not None:
-                SET_MPC.add((row["id_matriz"], row["id_materia"]))
-        if len(r.data or []) < FETCH_PAGE:
+                SET_MPC.add((int(row["id_matriz"]), int(row["id_materia"])))
+                
+        if len(data) < FETCH_PAGE:
+            print(f"[DEBUG] load_cache_mpc breaking because {len(data)} < {FETCH_PAGE}", flush=True)
             break
         offset += FETCH_PAGE
 
@@ -621,15 +641,17 @@ def insert_materias_por_curso_batch(linhas, id_matriz):
     seen = set()
     to_insert = []
     for id_m, niv, tipo_nat in linhas:
-        if id_m is None or id_m <= 0:
+        if id_m is None or int(id_m) <= 0:
             continue
-        if (id_matriz, id_m) in SET_MPC or id_m in seen:
+        id_m_int = int(id_m)
+        id_matriz_int = int(id_matriz)
+        if (id_matriz_int, id_m_int) in SET_MPC or id_m_int in seen:
             continue
-        seen.add(id_m)
-        SET_MPC.add((id_matriz, id_m))
+        seen.add(id_m_int)
+        SET_MPC.add((id_matriz_int, id_m_int))
         row = {
-            "id_materia": id_m,
-            "id_matriz": id_matriz,
+            "id_materia": id_m_int,
+            "id_matriz": id_matriz_int,
             "nivel": niv,
             "tipo_natureza": tipo_nat if tipo_nat is not None else 0,
         }
@@ -757,8 +779,9 @@ def main():
         )
 
         t_matriz = time.time()
+        status_matriz = data.get("status")
         id_matriz = get_or_create_matriz(
-            id_curso, curriculo_completo, versao, ano_vigor, prazos
+            id_curso, curriculo_completo, versao, ano_vigor, prazos, status_matriz
         )
         if id_matriz is None and not DRY_RUN:
             print(f"      [ARQ {idx + 1}] Ignorado: matriz não resolvida.", flush=True)

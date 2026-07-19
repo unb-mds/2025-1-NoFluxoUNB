@@ -21,6 +21,13 @@
 	<div class="success-text">
 		<h3 class="success-title">Processamento concluído</h3>
 		<p class="success-sub">Seu histórico foi processado. Revise os dados abaixo antes de abrir o fluxograma.</p>
+		
+		{#if data.fallback_message}
+			<div class="mt-4 rounded-lg bg-indigo-500/10 border border-indigo-500/20 p-3 text-sm text-indigo-200 text-left flex items-start gap-2 max-w-lg mx-auto">
+				<div class="shrink-0 mt-0.5">ℹ️</div>
+				<p class="leading-relaxed">{data.fallback_message}</p>
+			</div>
+		{/if}
 	</div>
 
 	<div class="results w-full min-w-0">

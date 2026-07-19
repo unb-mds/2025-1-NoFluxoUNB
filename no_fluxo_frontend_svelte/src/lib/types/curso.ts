@@ -64,6 +64,7 @@ export interface MinimalCursoModel {
 	classificacao: CourseClassification | string;
 	/** DIURNO ou NOTURNO */
 	turno?: string | null;
+	status?: string | null;
 }
 
 export function getCourseSubjectCodes(curso: CursoModel): Set<string> {

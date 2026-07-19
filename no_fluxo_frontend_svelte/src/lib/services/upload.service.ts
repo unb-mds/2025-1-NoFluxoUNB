@@ -37,6 +37,7 @@ export interface CasarDisciplinasResponse {
 		media_ponderada?: number;
 		horas_integralizadas?: number;
 	};
+	fallback_message?: string;
 }
 
 export interface CourseSelectionError {
@@ -100,6 +101,26 @@ class UploadService {
 		// Strip full_text — the PL/pgSQL function never reads it, and it adds 20-100KB to the payload
 		const { full_text: _stripped, ...payload } = dadosExtraidos as Record<string, unknown>;
 
+		let originalCurriculo: string | null = null;
+		let novoCurriculo: string | null = null;
+
+		// Verifica se temos um currículo extraído e implementa o fallback se estiver inativo
+		if (payload.matriz_curricular && typeof payload.matriz_curricular === 'string') {
+			try {
+				const info = await supabaseDataService.getMatrizInfoByCurriculo(payload.matriz_curricular);
+				if (info && info.status && info.status.toLowerCase() === 'inativa') {
+					originalCurriculo = payload.matriz_curricular;
+					const fallback = await supabaseDataService.getClosestActiveMatriz(info.id_curso);
+					if (fallback && fallback.curriculo_completo) {
+						payload.matriz_curricular = fallback.curriculo_completo;
+						novoCurriculo = fallback.curriculo_completo;
+					}
+				}
+			} catch (e) {
+				console.error('[Upload] Falha ao verificar status da matriz:', e);
+			}
+		}
+
 		const payloadSize = JSON.stringify(payload).length;
 		console.log(`[Upload] RPC payload size: ${(payloadSize / 1024).toFixed(1)} KB`);
 		console.time('[Upload] casarDisciplinas RPC');
@@ -159,6 +180,9 @@ class UploadService {
 		}
 
 		const casar = result as unknown as CasarDisciplinasResponse;
+		if (originalCurriculo && novoCurriculo) {
+			casar.fallback_message = `Seu currículo (${originalCurriculo}) está inativo no sistema SIGAA. A análise foi feita automaticamente baseada na matriz ativa mais recente (${novoCurriculo}).`;
+		}
 		normalizarPendentesObrigatoriasResumo(casar);
 		return casar;
 	}

@@ -19,7 +19,6 @@ def request_with_retry(
     session, method, url, max_retries=MAX_RETRIES, delay=RETRY_DELAY_SEC, **kwargs
 ):
     """Faz GET ou POST com retentativas em erros de SSL/conexão."""
-    last_error = None
     for attempt in range(max_retries):
         try:
             if method == "get":
@@ -30,14 +29,13 @@ def request_with_retry(
             requests.exceptions.ConnectionError,
             requests.exceptions.ReadTimeout,
         ) as e:
-            last_error = e
             if attempt == max_retries - 1:
                 raise
             print(
                 f"Erro de conexão/SSL (tentativa {attempt + 1}/{max_retries}): {type(e).__name__}. Aguardando {delay}s..."
             )
             time.sleep(delay)
-    raise last_error
+    raise RuntimeError("max_retries deve ser maior que zero")
 
 
 def get_viewstate(soup):
@@ -474,6 +472,7 @@ def scrape_estruturas():
             if len(tds) >= 2:
                 texto_identificador = ""
                 periodo_letivo = ""
+                status_estrutura = tds[1].get_text(strip=True)
                 for txt in tds:
                     if "Detalhes da Estrutura Curricular" in txt.text:
                         texto_identificador = txt.text.strip()
@@ -504,6 +503,7 @@ def scrape_estruturas():
                                 estrutura_id,
                                 id_arquivo,
                                 periodo_letivo,
+                                status_estrutura,
                             )
                         )
                         break
@@ -514,6 +514,7 @@ def scrape_estruturas():
             estrutura_id,
             id_arquivo,
             periodo_letivo,
+            status_estrutura,
         ) in enumerate(relatorios):
             relatorio_html = acessar_relatorio(
                 session, soup, btn_name, btn_value, estrutura_id, estrutura_url
@@ -557,6 +558,7 @@ def scrape_estruturas():
 
             linha_json = {
                 "estrutura_id": estrutura_id,
+                "status": status_estrutura,
                 "curso": nome_curso,
                 "tipo_curso": tipo_curso,
                 "turno": turno,

@@ -84,7 +84,8 @@ export class SupabaseDataService {
 				chObrigatoriaExigida: byExact.ch_obrigatoria_exigida ?? null,
 				chOptativaExigida: byExact.ch_optativa_exigida ?? null,
 				chComplementarExigida: byExact.ch_complementar_exigida ?? null,
-				chTotalExigida: byExact.ch_total_exigida ?? null
+				chTotalExigida: byExact.ch_total_exigida ?? null,
+				status: byExact.status ?? null
 			};
 		}
 
@@ -116,8 +117,40 @@ export class SupabaseDataService {
 			chObrigatoriaExigida: byCodeVersao.ch_obrigatoria_exigida ?? null,
 			chOptativaExigida: byCodeVersao.ch_optativa_exigida ?? null,
 			chComplementarExigida: byCodeVersao.ch_complementar_exigida ?? null,
-			chTotalExigida: byCodeVersao.ch_total_exigida ?? null
+			chTotalExigida: byCodeVersao.ch_total_exigida ?? null,
+			status: byCodeVersao.status ?? null
 		};
+	}
+
+	/**
+	 * Puxa informações rápidas da matriz (para verificar status e fallback)
+	 */
+	async getMatrizInfoByCurriculo(curriculoCompleto: string) {
+		const { data, error } = await this.supabase
+			.from('matrizes')
+			.select('id_matriz, id_curso, curriculo_completo, ano_vigor, status')
+			.eq('curriculo_completo', curriculoCompleto.trim())
+			.maybeSingle();
+
+		if (error) throw new Error(`Erro ao buscar matriz por currículo: ${error.message}`);
+		return data;
+	}
+
+	/**
+	 * Busca a matriz "Ativa" mais recente do curso, baseada no ano de vigor.
+	 */
+	async getClosestActiveMatriz(idCurso: number) {
+		const { data, error } = await this.supabase
+			.from('matrizes')
+			.select('id_matriz, id_curso, curriculo_completo, ano_vigor, status')
+			.eq('id_curso', idCurso)
+			.ilike('status', 'ativa')
+			.order('ano_vigor', { ascending: false })
+			.limit(1)
+			.maybeSingle();
+
+		if (error) throw new Error(`Erro ao buscar matriz ativa mais próxima: ${error.message}`);
+		return data;
 	}
 
 	/**
@@ -178,7 +211,8 @@ export class SupabaseDataService {
 				chObrigatoriaExigida: row.ch_obrigatoria_exigida ?? null,
 				chOptativaExigida: row.ch_optativa_exigida ?? null,
 				chComplementarExigida: row.ch_complementar_exigida ?? null,
-				chTotalExigida: row.ch_total_exigida ?? null
+				chTotalExigida: row.ch_total_exigida ?? null,
+				status: row.status ?? null
 			}));
 		});
 	}
@@ -233,7 +267,7 @@ export class SupabaseDataService {
 		return cached('all_matrizes_with_curso', async () => {
 			const { data, error } = await this.supabase
 				.from('matrizes')
-				.select('id_matriz, id_curso, curriculo_completo, ano_vigor, cursos(id_curso, nome_curso, tipo_curso, turno)')
+				.select('id_matriz, id_curso, curriculo_completo, ano_vigor, status, cursos(id_curso, nome_curso, tipo_curso, turno)')
 				.order('curriculo_completo');
 
 			if (error) throw new Error(`Erro ao buscar matrizes com curso: ${error.message}`);

@@ -174,6 +174,8 @@ class FluxogramaService {
 				}
 				const turno = turnoRaw !== '' ? turnoRaw.toUpperCase() : null;
 
+				const status = row.status != null ? String(row.status) : null;
+
 				return {
 					nomeCurso: String(cursoRec.nome_curso ?? cursoRec.nomeCurso ?? ''),
 					matrizCurricular: curriculoCompleto,
@@ -181,7 +183,8 @@ class FluxogramaService {
 					creditos: idCurso != null ? creditByCurso.get(idCurso) ?? null : null,
 					classificacao: '',
 					tipoCurso: tipoCursoRaw !== '' ? tipoCursoRaw : '',
-					turno
+					turno,
+					status
 				} satisfies MinimalCursoModel;
 			})
 			.filter((c) => c.matrizCurricular && c.nomeCurso);

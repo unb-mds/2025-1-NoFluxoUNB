@@ -25,3 +25,4 @@ supabase==2.31.0
 tenacity==8.2.3
 numpy<2.0.0; python_version < "3.12"
 numpy>=2.1.0,<3.0; python_version >= "3.12"
+tqdm>=4.66.0

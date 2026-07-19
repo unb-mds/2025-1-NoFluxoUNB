@@ -17,7 +17,7 @@
 	import { goto } from '$app/navigation';
 	import { ROUTES } from '$lib/config/routes';
 	import { onMount, tick } from 'svelte';
-	import { Upload, Loader2, AlertTriangle } from 'lucide-svelte';
+	import { Upload, Loader2, AlertTriangle, Info } from 'lucide-svelte';
 	import { isOptativa, type MateriaModel } from '$lib/types/materia';
 	import type { IntegralizacaoResult } from '$lib/types/matriz';
 
@@ -30,7 +30,7 @@
 	let showOptativas = $state(false);
 	let integralizacao = $state<IntegralizacaoResult | null>(null);
 	let integralizacaoLoading = $state(false);
-	let matrizes = $state<Array<{ curriculoCompleto: string }>>([]);
+	let matrizes = $state<Array<{ curriculoCompleto: string; status?: string | null }>>([]);
 	/** Modal “Legenda e regras” (ícone ? no header) */
 	let fluxogramHelpOpen = $state(false);
 	let fluxogramaFocusMode = $state(false);
@@ -40,6 +40,7 @@
 	/** Currículo salvo no casamento (ex.: "60810/1") — mesma regra do casar-disciplinas para achar a matriz. */
 	let matrizCurricular = $derived((userFluxograma as { matrizCurricular?: string } | null)?.matrizCurricular ?? '');
 	let curriculoCompletoAtual = $derived(store.state.courseData?.curriculoCompleto ?? null);
+	let resolvedMatrizCurricular = $state<string | null>(null);
 
 	// Optativas do curso (modal); não há coluna pool no fluxograma — só ao planejar por semestre.
 	let optativas = $derived.by(() => {
@@ -55,7 +56,7 @@
 		if (!cc || !fluxo) {
 			if (course?.idCurso && !cc) {
 				supabaseDataService.getMatrizesByCurso(course.idCurso).then((m) => {
-					matrizes = m.map((x) => ({ curriculoCompleto: x.curriculoCompleto }));
+					matrizes = m.map((x) => ({ curriculoCompleto: x.curriculoCompleto, status: x.status }));
 				});
 			}
 			integralizacao = null;
@@ -74,18 +75,42 @@
 		});
 		if (course?.idCurso) {
 			supabaseDataService.getMatrizesByCurso(course.idCurso).then((m) => {
-				matrizes = m.map((x) => ({ curriculoCompleto: x.curriculoCompleto }));
+				matrizes = m.map((x) => ({ curriculoCompleto: x.curriculoCompleto, status: x.status }));
 			});
 		}
 	});
 
 	onMount(() => {
 		// Mesma regra do casamento: priorizar curriculo (codigo/versao) para achar a matriz correta
-		if (matrizCurricular?.trim()) {
-			store.loadCourseDataByCurriculoCompleto(matrizCurricular.trim(), false);
-		} else if (courseName) {
-			store.loadCourseData(courseName, false);
-		}
+		const loadInitialMatrix = async () => {
+			if (matrizCurricular?.trim()) {
+				let resolvedCurriculo = matrizCurricular.trim();
+				try {
+					const resolvedMatriz = await supabaseDataService.getMatrizByCurriculoCompleto(resolvedCurriculo);
+					if (resolvedMatriz) {
+						resolvedCurriculo = resolvedMatriz.curriculoCompleto;
+						resolvedMatrizCurricular = resolvedCurriculo;
+						const info = await supabaseDataService.getMatrizInfoByCurriculo(resolvedCurriculo);
+						if (info && info.status?.toLowerCase() !== 'ativa' && info.status?.toLowerCase() !== 'ativo') {
+							const todasMatrizes = await supabaseDataService.getMatrizesByCurso(info.id_curso);
+							const closest = todasMatrizes.find(m => m.status?.toLowerCase() === 'ativa' || m.status?.toLowerCase() === 'ativo');
+							if (closest) {
+								await store.loadCourseDataByCurriculoCompleto(closest.curriculoCompleto, false);
+								return;
+							}
+						}
+					}
+				} catch (e) {
+					console.warn('Erro ao verificar status da matriz:', e);
+					resolvedMatrizCurricular = resolvedCurriculo;
+				}
+				await store.loadCourseDataByCurriculoCompleto(resolvedCurriculo, false);
+			} else if (courseName) {
+				await store.loadCourseData(courseName, false);
+			}
+		};
+
+		loadInitialMatrix();
 
 		return () => {
 			store.reset();
@@ -277,6 +302,17 @@
 					<div
 						class="shrink-0 space-y-3 sm:space-y-3.5 md:space-y-4 [@media(orientation:landscape)_and_(max-height:560px)]:space-y-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:space-y-2"
 					>
+						{#if curriculoCompletoAtual && (resolvedMatrizCurricular || matrizCurricular) && curriculoCompletoAtual !== (resolvedMatrizCurricular || matrizCurricular)}
+							<div class="flex animate-in fade-in slide-in-from-top-2 items-start gap-3 rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 backdrop-blur-md">
+								<Info class="mt-0.5 h-5 w-5 shrink-0 text-amber-400" />
+								<div class="min-w-0 flex-1">
+									<h3 class="text-sm font-semibold text-amber-300">Você está simulando uma matriz diferente</h3>
+									<p class="mt-0.5 text-xs leading-relaxed text-amber-200/80">
+										Sua matriz original (<strong>{matrizCurricular}</strong>) pode estar inativa ou você escolheu visualizar outra grade. O fluxograma abaixo corresponde à matriz <strong>{curriculoCompletoAtual}</strong>.
+									</p>
+								</div>
+							</div>
+						{/if}
 						<FluxogramaHeader
 							courseName={store.state.courseData.nomeCurso}
 							matrizCurricular={store.state.courseData.matrizCurricular}

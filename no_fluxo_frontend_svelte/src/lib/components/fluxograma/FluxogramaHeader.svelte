@@ -18,7 +18,7 @@
 		/** Diurno / Noturno — vem de cursos.turno (ou inferido do currículo). Não exibe se vazio. */
 		turno?: string | null;
 		/** Lista de matrizes do mesmo curso para o seletor "Trocar matriz" */
-		matrizes?: Array<{ curriculoCompleto: string }>;
+		matrizes?: Array<{ curriculoCompleto: string; status?: string | null }>;
 		curriculoCompletoAtual?: string | null;
 		onMatrizChange?: (curriculoCompleto: string) => void;
 		containerRef?: HTMLElement | null;
@@ -62,6 +62,9 @@
 	}
 
 	let turnoLabel = $derived(formatTurnoBadge(turno));
+
+	let matrizAtualInfo = $derived(matrizes.find((m) => m.curriculoCompleto === curriculoCompletoAtual));
+	let statusLabel = $derived(matrizAtualInfo?.status);
 
 	function handleBack() {
 		goto(ROUTES.FLUXOGRAMAS);
@@ -130,6 +133,14 @@
 								title="Turno"
 							>
 								{turnoLabel}
+							</span>
+						{/if}
+						{#if statusLabel}
+							<span
+								class="inline-flex shrink-0 items-center rounded-md border px-2 py-0.5 text-xs font-medium backdrop-blur-sm {statusLabel.toLowerCase() === 'ativa' || statusLabel.toLowerCase() === 'ativo' ? 'border-emerald-500/35 bg-emerald-500/10 text-emerald-200/95 shadow-[0_0_8px_rgba(16,185,129,0.15)]' : 'border-rose-500/35 bg-rose-500/10 text-rose-200/95 shadow-[0_0_8px_rgba(244,63,94,0.15)]'}"
+								title="Status da Matriz"
+							>
+								{statusLabel.toUpperCase()}
 							</span>
 						{/if}
 						{#if matrizCurricular}
