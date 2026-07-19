@@ -17,6 +17,7 @@
 	let searchQuery = $state('');
 	let selectedType = $state('');
 	let selectedTurno = $state('');
+	let selectedStatus = $state('');
 	let currentPage = $state(1);
 	const perPage = 6;
 
@@ -43,6 +44,12 @@
 		{ value: 'NOTURNO', label: 'Noturno' }
 	];
 
+	const statusOptions = [
+		{ value: '', label: 'Todas as matrizes' },
+		{ value: 'ATIVA', label: 'Ativas' },
+		{ value: 'INATIVA', label: 'Inativas' }
+	];
+
 	// Filtered courses: busca por nome (sempre); opcional por tipo, turno e texto em currículo
 	let filtered = $derived.by(() => {
 		let result = courses;
@@ -66,6 +73,9 @@
 		}
 		if (selectedTurno) {
 			result = result.filter((c) => (c.turno ?? '').toString().toUpperCase() === selectedTurno);
+		}
+		if (selectedStatus) {
+			result = result.filter((c) => (c.status ?? '').toString().toUpperCase() === selectedStatus);
 		}
 		return result;
 	});
@@ -187,6 +197,16 @@
 					class="w-full appearance-none rounded-xl border border-white/10 bg-black/40 py-2.5 pl-4 pr-8 text-sm text-white backdrop-blur-md outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/30 sm:w-auto"
 				>
 					{#each turnoOptions as opt}
+						<option value={opt.value}>{opt.label}</option>
+					{/each}
+				</select>
+				
+				<select
+					bind:value={selectedStatus}
+					onchange={onSearchOrFilterChange}
+					class="w-full appearance-none rounded-xl border border-white/10 bg-black/40 py-2.5 pl-4 pr-8 text-sm text-white backdrop-blur-md outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/30 sm:w-auto"
+				>
+					{#each statusOptions as opt}
 						<option value={opt.value}>{opt.label}</option>
 					{/each}
 				</select>

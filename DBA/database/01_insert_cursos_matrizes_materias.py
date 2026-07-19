@@ -41,7 +41,7 @@ from config import (
 
 DRY_RUN = "--dry-run" in sys.argv
 CHUNK_SIZE = 80
-FETCH_PAGE = 2000  # paginação ao carregar caches do banco
+FETCH_PAGE = 1000  # supabase max is 1000; se > 1000, o len() vem menor e quebra o loop cedo
 # Padrão legado noturno: id_curso = codigo_base + OFFSET_LEGADO; normalizar para id_curso = codigo_base.
 OFFSET_LEGADO_CURSO = 100000
 SLOW_OP_THRESHOLD_S = 5.0
@@ -421,6 +421,7 @@ def get_or_create_matriz(
             updates["status"] = status
             
         if updates:
+            print(f"      [DEBUG] Atualizando matriz {row['id_matriz']} com: {updates}", flush=True)
             if not DRY_RUN:
                 db(
                     supabase.table("matrizes")
@@ -612,17 +613,20 @@ def get_or_create_materia(materia, materias_detalhadas):
 def load_cache_materias_por_curso():
     offset = 0
     while True:
-        r = db(
-            supabase.table("materias_por_curso")
-            .select("id_matriz, id_materia")
-            .order("id_matriz")
-            .range(offset, offset + FETCH_PAGE - 1)
-            .execute
-        )
-        for row in r.data or []:
+        try:
+            r = supabase.table("materias_por_curso").select("id_matriz, id_materia").order("id_materia_curso").range(offset, offset + FETCH_PAGE - 1).execute()
+        except Exception as e:
+            print(f"[DEBUG] load_cache_mpc error: {e}", flush=True)
+            break
+            
+        data = r.data or []
+        print(f"[DEBUG] load_cache_mpc offset {offset} returned {len(data)} rows", flush=True)
+        for row in data:
             if row.get("id_matriz") is not None and row.get("id_materia") is not None:
-                SET_MPC.add((row["id_matriz"], row["id_materia"]))
-        if len(r.data or []) < FETCH_PAGE:
+                SET_MPC.add((int(row["id_matriz"]), int(row["id_materia"])))
+                
+        if len(data) < FETCH_PAGE:
+            print(f"[DEBUG] load_cache_mpc breaking because {len(data)} < {FETCH_PAGE}", flush=True)
             break
         offset += FETCH_PAGE
 
@@ -637,15 +641,17 @@ def insert_materias_por_curso_batch(linhas, id_matriz):
     seen = set()
     to_insert = []
     for id_m, niv, tipo_nat in linhas:
-        if id_m is None or id_m <= 0:
+        if id_m is None or int(id_m) <= 0:
             continue
-        if (id_matriz, id_m) in SET_MPC or id_m in seen:
+        id_m_int = int(id_m)
+        id_matriz_int = int(id_matriz)
+        if (id_matriz_int, id_m_int) in SET_MPC or id_m_int in seen:
             continue
-        seen.add(id_m)
-        SET_MPC.add((id_matriz, id_m))
+        seen.add(id_m_int)
+        SET_MPC.add((id_matriz_int, id_m_int))
         row = {
-            "id_materia": id_m,
-            "id_matriz": id_matriz,
+            "id_materia": id_m_int,
+            "id_matriz": id_matriz_int,
             "nivel": niv,
             "tipo_natureza": tipo_nat if tipo_nat is not None else 0,
         }
