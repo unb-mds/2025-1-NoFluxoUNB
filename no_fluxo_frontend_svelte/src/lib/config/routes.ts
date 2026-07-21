@@ -14,6 +14,7 @@ export const ROUTES = {
   FLUXOGRAMAS: '/fluxogramas',
   MEU_FLUXOGRAMA: '/meu-fluxograma',
   PLANO_FORMATURA: '/plano-formatura',
+  MONTADOR_GRADE: '/planejamento/grade',
   SUPORTE: '/suporte',
   ADMIN_DASHBOARD: '/admin/dashboard',
   ADMIN_TICKETS: '/admin/tickets',
@@ -47,6 +48,7 @@ export const PROTECTED_ROUTES = [
   '/fluxogramas',
   '/meu-fluxograma',
   '/plano-formatura',
+  '/planejamento',
   '/suporte',
   '/admin',
 ] as const;

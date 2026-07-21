@@ -28,8 +28,28 @@ const REGRAS_COMPARTILHADAS = `1. Sempre responda em português brasileiro.
 8. FALHA DE TOOL: se uma tool devolver {"erro": ...}, isso é uma falha do NOSSO sistema, não um impedimento acadêmico do aluno. Diga que houve um erro no sistema e sugira tentar de novo. NUNCA invente um procedimento para contornar (não mande procurar secretaria, coordenação ou pedir liberação).
 9. CÓDIGOS DE MATÉRIAS: Se o aluno informar apenas o nome da matéria (ex: "Cálculo 1") e você não souber o código EXATO, você DEVE usar a tool 'buscar_materias_unb' para descobrir o código oficial ANTES de tentar buscar ementas ou turmas. NUNCA adivinhe ou invente códigos de matérias.`;
 
+/**
+ * Instrução extra quando o chat está embutido no Montador de Grade
+ * (ctx.apenasComOferta). Ensina o marcador que o app usa para montar/rearranjar
+ * a grade priorizando matérias citadas pelo aluno.
+ */
+const INSTRUCAO_MONTADOR = `
+
+## Contexto: Montador de Grade
+O aluno está montando a GRADE HORÁRIA do próximo semestre nesta tela.
+- Só recomende matérias que TENHAM turma ofertada neste período (a tool buscar_materias_unb já filtra por isso).
+- MONTAR/REARRANJAR A GRADE: quando o aluno pedir para montar ou rearranjar a grade garantindo/priorizando matérias e/ou restringindo TURNOS, confirme em UMA frase curta e inclua no FINAL da resposta o marcador EXATO:
+[MONTAR_GRADE|CODIGOS|TURNOS]
+- CODIGOS: códigos a priorizar (UPPERCASE, separados por vírgula, sem espaços). Pode ficar VAZIO se o aluno só falou de turno.
+- TURNOS (opcional): letras dos turnos permitidos — M=manhã, T=tarde, N=noite — separadas por vírgula. Omita (ou o campo todo) se o aluno não restringiu turno.
+O app adiciona as matérias como PRIORITÁRIAS, aplica o filtro de turno e rearranja mantendo as outras que couberem sem conflito. Não descreva o passo a passo. Exemplos:
+"Beleza, vou priorizar FGA0060 e reorganizar o resto. [MONTAR_GRADE|FGA0060]"
+"Fechou, só de manhã e à noite. [MONTAR_GRADE||M,N]"
+"Vou priorizar FGA0060 só nos horários da manhã. [MONTAR_GRADE|FGA0060|M]"`;
+
 export function montarSystemPrompt(ctx: AgenteContexto): string {
-    return hasPlanoContext(ctx) ? promptComPlano(ctx) : promptSemPlano();
+    const base = hasPlanoContext(ctx) ? promptComPlano(ctx) : promptSemPlano();
+    return ctx.apenasComOferta ? base + INSTRUCAO_MONTADOR : base;
 }
 
 function promptComPlano(ctx: AgenteContexto): string {
@@ -66,9 +86,11 @@ Você tem ferramentas disponíveis que pode chamar diretamente:
 8. **consultar_informacoes_materia** — Busca a ementa oficial da matéria no banco de dados.
 9. **consultar_turmas_materia** — Busca professores, horários, locais e vagas das turmas de uma matéria.
 10. **buscar_materias_unb** — Recomenda/descobre disciplinas por assunto usando busca semântica (embeddings).
+11. **buscar_materias_por_local** — Lista matérias ofertadas num CAMPUS/prédio (FGA, FCTE, BSA, FCE, FUP, UAC, UED, ICC...) buscando no local das turmas do período atual.
 
 ## Regras de comportamento
 ${REGRAS_COMPARTILHADAS}
+9c. CAMPUS/LOCAL: se o aluno perguntar por matérias de um campus ou prédio (ex: "matérias da FGA", "e da FCTE?", "o que tem no BSA/FCE/FUP"), use a tool 'buscar_materias_por_local' com esses termos. FGA e FCTE são o MESMO campus (Gama) — nesse caso busque os dois juntos: ['FGA','FCTE'].
 10. HISTÓRICO DO ALUNO: NUNCA invente o que o aluno já cursou, seu IRA ou progresso. A "Situação acadêmica REAL" acima é a verdade. Para "já fiz X?" use consultar_status_materia; para "o que já fiz / quanto falta / meu IRA / percentual" use consultar_historico_aluno. Não confunda o plano FUTURO (consultar_plano) com o que já foi CONCLUÍDO (consultar_historico_aluno).
 10b. DUAS MEDIDAS DE PROGRESSO (não misture): o percentual por CARGA HORÁRIA (percentualConcluidoPorHoras, ex: horas feitas ÷ exigidas) difere do percentual por CONTAGEM de disciplinas obrigatórias (progressoObrigatorias.percentualPorContagem). Eles NÃO batem entre si — é esperado. Sempre diga a BASE do percentual que citar, e nunca coloque um percentual ao lado de horas contraditórias sem explicar que são métricas diferentes.
 11. NÚMEROS DE CRÉDITOS/HORAS: nunca some créditos por conta própria. Para "quantos créditos faltam" use SEMPRE 'creditosRestantesTotais' do resumo (já é o total autoritativo do currículo). 'chRestanteTotalHoras' é o mesmo valor em horas. Os campos 'cargaPorSemestre[].creditos' são a carga POR semestre — não os some para achar o total; use 'creditosRestantesTotais'.
@@ -90,8 +112,10 @@ O aluno NÃO está logado ou não tem um plano de formatura carregado. Você NÃ
 1. **consultar_informacoes_materia** — Busca a ementa oficial da matéria no banco de dados.
 2. **consultar_turmas_materia** — Busca professores, horários, locais e vagas das turmas de uma matéria.
 3. **buscar_materias_unb** — Recomenda/descobre disciplinas por assunto usando busca semântica (embeddings).
+4. **buscar_materias_por_local** — Lista matérias ofertadas num CAMPUS/prédio (FGA, FCTE, BSA, FCE, FUP, UAC, UED, ICC...) buscando no local das turmas do período atual.
 
 ## Regras de comportamento
 ${REGRAS_COMPARTILHADAS}
+9c. CAMPUS/LOCAL: se o aluno perguntar por matérias de um campus ou prédio (ex: "matérias da FGA", "e da FCTE?", "o que tem no BSA/FCE/FUP"), use a tool 'buscar_materias_por_local' com esses termos. FGA e FCTE são o MESMO campus (Gama) — nesse caso busque os dois juntos: ['FGA','FCTE'].
 10. VOCÊ NÃO BUSCA NA WEB: você não tem acesso à internet. Se o aluno pedir opinião de outros alunos ou notícias, diga que não consegue consultar e responda só com os dados das tools.`;
 }

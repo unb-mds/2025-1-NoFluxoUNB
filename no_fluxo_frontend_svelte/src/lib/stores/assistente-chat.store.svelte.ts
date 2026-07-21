@@ -68,7 +68,7 @@ function createAssistenteChatStore() {
 		get chatLoading() { return chatLoading; },
 		get error() { return error; },
 
-		async enviarMensagem(mensagem: string): Promise<void> {
+		async enviarMensagem(mensagem: string, opts?: { contexto?: 'montador' }): Promise<void> {
 			if (!mensagem.trim() || chatLoading) return;
 			chatMessages = [...chatMessages, { role: 'user', content: mensagem }];
 			chatLoading = true;
@@ -76,7 +76,7 @@ function createAssistenteChatStore() {
 
 			try {
 				const planoInput = await buildPlanoInput();
-				const resposta = await service.chatAgente(chatMessages, planoInput);
+				const resposta = await service.chatAgente(chatMessages, planoInput, undefined, opts?.contexto);
 				chatMessages = [...chatMessages, { role: 'assistant', content: resposta.reply }];
 			} catch (err) {
 				const msg = err instanceof Error ? err.message : 'Erro ao falar com o assistente';

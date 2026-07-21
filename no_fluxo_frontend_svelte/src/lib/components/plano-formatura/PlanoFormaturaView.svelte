@@ -20,8 +20,10 @@
 		AlertTriangle,
 		BookOpenCheck,
 		X,
-		Bot
+		Bot,
+		Download
 	} from 'lucide-svelte';
+	import html2canvas from 'html2canvas-pro';
 
 	let isChangingCredits = $state(false);
 	let displayUnit = $state<'creditos' | 'horas'>('creditos');
@@ -144,6 +146,48 @@
 		}, 100);
 	}
 
+	let isExporting = $state(false);
+
+	async function handleExportPDF() {
+		if (isExporting) return;
+		isExporting = true;
+		try {
+			const element = document.querySelector('.svelte-flow') as HTMLElement;
+			if (!element) return;
+
+			// Oculta UI desnecessária temporariamente
+			const controls = document.querySelector('.svelte-flow__controls') as HTMLElement;
+			if (controls) controls.style.display = 'none';
+
+			const canvas = await html2canvas(element, { 
+				scale: 2,
+				backgroundColor: '#090c12',
+				useCORS: true,
+				logging: false
+			});
+			
+			if (controls) controls.style.display = '';
+
+			const imgData = canvas.toDataURL('image/jpeg', 0.95);
+			
+			// @ts-ignore
+			const { jsPDF } = await import('https://esm.sh/jspdf@2.5.1');
+			
+			const pdf = new jsPDF({
+				orientation: canvas.width > canvas.height ? 'landscape' : 'portrait',
+				unit: 'px',
+				format: [canvas.width, canvas.height]
+			});
+			
+			pdf.addImage(imgData, 'JPEG', 0, 0, canvas.width, canvas.height);
+			pdf.save('Meu_Plano_Formatura.pdf');
+		} catch (error) {
+			console.error("Erro ao exportar PDF:", error);
+		} finally {
+			isExporting = false;
+		}
+	}
+
 	/** Total de matérias críticas em todos os semestres. */
 	const totalCriticas = $derived(
 		planoFormaturaStore.plano?.plano.reduce(
@@ -208,6 +252,19 @@
 		</div>
 
 		<div class="flex items-center gap-2">
+			<button
+				type="button"
+				onclick={handleExportPDF}
+				disabled={isExporting}
+				class="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/60 transition-colors hover:border-white/20 hover:bg-white/8 hover:text-white/85 disabled:opacity-40"
+			>
+				{#if isExporting}
+					<Loader2 class="h-3.5 w-3.5 animate-spin" />
+				{:else}
+					<Download class="h-3.5 w-3.5" />
+				{/if}
+				Exportar PDF
+			</button>
 			<button
 				type="button"
 				onclick={handleAjustar}

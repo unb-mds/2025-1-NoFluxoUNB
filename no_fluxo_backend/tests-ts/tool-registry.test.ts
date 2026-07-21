@@ -13,6 +13,7 @@ const GENERICAS = [
     "consultar_informacoes_materia",
     "consultar_turmas_materia",
     "buscar_materias_unb",
+    "buscar_materias_por_local",
 ];
 const DE_PLANO = [
     "consultar_historico_aluno",

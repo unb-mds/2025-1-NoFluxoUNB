@@ -69,7 +69,8 @@ export class AssistenteService {
     async chatAgente(
         messages: PlannerChatMessage[],
         planoInput?: AssistentePlanoInput | null,
-        restricoes?: unknown
+        restricoes?: unknown,
+        contexto?: 'montador'
     ): Promise<AssistenteChatResponse> {
         const body: Record<string, unknown> = { messages };
         if (planoInput) {
@@ -83,6 +84,8 @@ export class AssistenteService {
             };
             if (restricoes) body.restricoes = restricoes;
         }
+        // Contexto do Montador de Grade → backend filtra recomendações por oferta.
+        if (contexto) body.contexto = contexto;
 
         const { data, error, status } = await apiRequest<AssistenteChatResponse>('/assistente/chat', {
             method: 'POST',

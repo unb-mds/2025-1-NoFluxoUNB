@@ -132,7 +132,8 @@ export class PlanejadorAgenteService {
                 };
             }
             
-            const reply = `Aqui estão as turmas que encontrei para **${turmasData.codigo} - ${turmasData.nome_materia}**:\n\n` + turmasData.turmas_recentes.join('\n');
+            const periodoStr = turmasData.periodo ? ` (${turmasData.periodo})` : '';
+            const reply = `Aqui estão as turmas que encontrei para **${turmasData.codigo} - ${turmasData.nome_materia}**${periodoStr}:\n\n` + turmasData.turmas_recentes.join('\n');
             return {
                 reply,
                 restricoes: ctx.restricoes

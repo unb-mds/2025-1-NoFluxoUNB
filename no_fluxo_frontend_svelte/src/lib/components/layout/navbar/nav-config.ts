@@ -1,5 +1,5 @@
 // no_fluxo_frontend_svelte/src/lib/components/layout/navbar/nav-config.ts
-import { LayoutDashboard, Bot, Upload, GitBranch, BookOpen, GraduationCap } from 'lucide-svelte';
+import { LayoutDashboard, Bot, Upload, GitBranch, BookOpen, GraduationCap, CalendarDays } from 'lucide-svelte';
 import { ROUTES } from '$lib/config/routes';
 
 /** Tipo de um ícone lucide-svelte (componente Svelte). */
@@ -40,6 +40,7 @@ export function buildNavEntries(args: { isAnonymous: boolean; hasHistorico: bool
 			label: 'Planejamento',
 			children: [
 				{ href: ROUTES.PLANO_FORMATURA, label: 'Plano de Formatura', icon: GraduationCap },
+				{ href: ROUTES.MONTADOR_GRADE, label: 'Montador de Grade', icon: CalendarDays },
 				{ href: ROUTES.ASSISTENTE, label: 'Assistente IA', icon: Bot }
 			]
 		},

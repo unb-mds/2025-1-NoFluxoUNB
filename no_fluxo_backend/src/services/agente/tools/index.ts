@@ -10,6 +10,7 @@ import {
     consultarInformacoesMateriaTool,
     consultarTurmasMateriaTool,
     buscarMateriasUnbTool,
+    buscarMateriasPorLocalTool,
 } from "./materia_tools";
 import {
     consultarPlanoTool,
@@ -28,6 +29,7 @@ export function createDefaultRegistry(): ToolRegistry {
         .register(consultarInformacoesMateriaTool)
         .register(consultarTurmasMateriaTool)
         .register(buscarMateriasUnbTool)
+        .register(buscarMateriasPorLocalTool)
         .register(consultarHistoricoAlunoTool)
         .register(consultarStatusMateriaTool)
         .register(consultarPlanoTool)

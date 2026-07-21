@@ -369,6 +369,14 @@ export function extrairSuspensoes(texto: string): string[] {
   return [];
 }
 
+export function extrairPeriodoLetivoAtual(texto: string): number | null {
+  const m = texto.match(/Per[íi]odo Letivo Atual:\s*(\d+)/i);
+  if (m) {
+    return parseInt(m[1], 10);
+  }
+  return null;
+}
+
 export function extrairSemestreAtual(
   disciplinas: DisciplinaExtraida[]
 ): string | null {

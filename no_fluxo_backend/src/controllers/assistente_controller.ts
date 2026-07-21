@@ -143,6 +143,10 @@ export const AssistenteController: EndpointController = {
                     }
                 }
 
+                // Chat embutido no Montador de Grade: recomenda só matérias com turma
+                // ofertada no período ativo. O /assistente comum não manda esse contexto.
+                ctx.apenasComOferta = body.contexto === 'montador';
+
                 const resultado = await svc.conversar(historico, ctx);
                 return res.status(200).json({
                     reply: resultado.reply,

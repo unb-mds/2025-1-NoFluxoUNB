@@ -3,8 +3,13 @@ import {
 	slotMaskFromHorario,
 	hasConflict,
 	autoMontarGrade,
+	agruparBlocosDia,
+	turmaRespeitaTurnos,
+	type Turno,
 	type MateriaTurmas
 } from './horario-slots';
+
+const turnos = (...t: Turno[]) => new Set<Turno>(t);
 
 /**
  * Bit de referência, computado de forma independente da implementação,
@@ -41,8 +46,8 @@ describe('slotMaskFromHorario', () => {
 		expect(slotMaskFromHorario('')).toBe(0n);
 		expect(slotMaskFromHorario('   ')).toBe(0n);
 		expect(slotMaskFromHorario('A DEFINIR')).toBe(0n);
-		// @ts-expect-error validação de robustez em runtime
 		expect(slotMaskFromHorario(null)).toBe(0n);
+		expect(slotMaskFromHorario(undefined)).toBe(0n);
 	});
 
 	it('não colide entre turnos no mesmo dia (M5, T7 e N4 distintos)', () => {
@@ -123,5 +128,77 @@ describe('autoMontarGrade', () => {
 		const r = autoMontarGrade(materias);
 		expect(r.selecao.get('A')?.turma).toBe('A1');
 		expect(r.naoAlocadas).toContain('SEM_TURMA');
+	});
+
+	it('prioriza a matéria de maior peso quando há conflito', () => {
+		const h = slotMaskFromHorario('2M12'); // mesmo horário → só uma cabe
+		const materias = [
+			{ chave: 'A', peso: 1, turmas: [{ mask: h, turma: 'A1' }] },
+			{ chave: 'B', peso: 100, turmas: [{ mask: h, turma: 'B1' }] }
+		];
+		const r = autoMontarGrade(materias);
+		expect(r.selecao.has('B')).toBe(true);
+		expect(r.naoAlocadas).toEqual(['A']);
+	});
+
+	it('mantém a prioritária e ainda encaixa as demais sem conflito', () => {
+		const materias = [
+			{ chave: 'A', peso: 1, turmas: [{ mask: slotMaskFromHorario('2M12'), turma: 'A1' }] },
+			{ chave: 'B', peso: 100, turmas: [{ mask: slotMaskFromHorario('3M12'), turma: 'B1' }] }
+		];
+		const r = autoMontarGrade(materias);
+		expect(r.selecao.has('A')).toBe(true);
+		expect(r.selecao.has('B')).toBe(true);
+		expect(r.naoAlocadas).toEqual([]);
+	});
+});
+
+describe('turmaRespeitaTurnos', () => {
+	it('aceita turma dentro do turno permitido e rejeita fora dele', () => {
+		const manha = slotMaskFromHorario('2M12');
+		expect(turmaRespeitaTurnos(manha, turnos('M'))).toBe(true);
+		expect(turmaRespeitaTurnos(manha, turnos('T'))).toBe(false);
+		expect(turmaRespeitaTurnos(manha, turnos('M', 'N'))).toBe(true);
+	});
+
+	it('turma que cruza dois turnos só cabe se ambos permitidos', () => {
+		const manhaNoite = slotMaskFromHorario('2M12 4N12');
+		expect(turmaRespeitaTurnos(manhaNoite, turnos('M', 'N'))).toBe(true);
+		expect(turmaRespeitaTurnos(manhaNoite, turnos('M'))).toBe(false);
+		expect(turmaRespeitaTurnos(manhaNoite, turnos('M', 'T'))).toBe(false);
+	});
+
+	it('sem filtro (vazio ou 3 turnos) e turma sem horário sempre cabem', () => {
+		const tarde = slotMaskFromHorario('3T34');
+		expect(turmaRespeitaTurnos(tarde, turnos())).toBe(true);
+		expect(turmaRespeitaTurnos(tarde, turnos('M', 'T', 'N'))).toBe(true);
+		expect(turmaRespeitaTurnos(0n, turnos('M'))).toBe(true);
+	});
+});
+
+describe('agruparBlocosDia', () => {
+	it('junta módulos consecutivos da mesma matéria num bloco', () => {
+		expect(agruparBlocosDia(['A', 'A', undefined, 'B'])).toEqual([
+			{ codigo: 'A', offsetStart: 0, span: 2 },
+			{ codigo: 'B', offsetStart: 3, span: 1 }
+		]);
+	});
+
+	it('separa matérias diferentes adjacentes', () => {
+		expect(agruparBlocosDia(['A', 'B'])).toEqual([
+			{ codigo: 'A', offsetStart: 0, span: 1 },
+			{ codigo: 'B', offsetStart: 1, span: 1 }
+		]);
+	});
+
+	it('um buraco quebra o bloco da mesma matéria', () => {
+		expect(agruparBlocosDia(['A', null, 'A'])).toEqual([
+			{ codigo: 'A', offsetStart: 0, span: 1 },
+			{ codigo: 'A', offsetStart: 2, span: 1 }
+		]);
+	});
+
+	it('dia sem nada → nenhum bloco', () => {
+		expect(agruparBlocosDia([undefined, undefined, null])).toEqual([]);
 	});
 });

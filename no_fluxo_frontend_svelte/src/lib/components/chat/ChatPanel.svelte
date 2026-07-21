@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Sparkles, SendHorizontal, Bot } from 'lucide-svelte';
+	import { Sparkles, SendHorizontal, Bot, CalendarPlus } from 'lucide-svelte';
 	import { formatHorarioSigaa, compactarFaixasHorarias, formatLocalSigaa } from '$lib/utils/sigaa';
 	import ChatWrapper from '$lib/components/chat/ChatWrapper.svelte';
 	import ChatBubble from '$lib/components/chat/ChatBubble.svelte';
@@ -27,6 +27,8 @@
 		draggable = false,
 		interactiveBadges = false,
 		onSend,
+		onAddToGrade,
+		onMontarGrade,
 		emptyState
 	}: {
 		messages: ChatMsg[];
@@ -39,6 +41,10 @@
 		/** Quando true, os códigos de matéria viram botões clicáveis (envia o código). */
 		interactiveBadges?: boolean;
 		onSend: (msg: string) => void;
+		/** Quando definido, cada badge de código ganha um botão "+ grade". */
+		onAddToGrade?: (codigo: string) => void;
+		/** Quando definido, o marcador [MONTAR_GRADE|COD,...|TURNOS] vira um botão de ação. */
+		onMontarGrade?: (codigos: string[], turnos?: string[]) => void;
 		emptyState?: Snippet;
 	} = $props();
 
@@ -68,7 +74,7 @@
 
 	// Parser compartilhado: badges de código, blocos [TURMA|...], [BOTAO|...] e **negrito**.
 	function parseMessage(text: string) {
-		const regex = /(\b[A-Z]{3,4}\d{4}\b)|(\[TURMA\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^\]]+)\])|(\[BOTAO\|([^|\]]+)(?:\|([^\]]+))?\])|(\*\*([^*\n]+)\*\*)/g;
+		const regex = /(\b[A-Z]{3,4}\d{4}\b)|(\[TURMA\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|\]]+)(?:\|([^\]]+))?\])|(\[BOTAO\|([^|\]]+)(?:\|([^\]]+))?\])|(\*\*([^*\n]+)\*\*)|(\[MONTAR_GRADE\|([^\]]+)\])/g;
 		const blocks: any[] = [];
 		let currentBubble: any[] = [];
 		let lastIndex = 0;
@@ -102,18 +108,33 @@
 						prof: match[4].trim(),
 						horario: match[5].trim(),
 						local: match[6].trim(),
-						vagas: match[7].trim()
+						vagas: match[7].trim(),
+						periodo: match[8] ? match[8].trim() : undefined
 					}
 				});
-			} else if (match[8]) {
+			} else if (match[9]) {
 				flushBubble();
 				blocks.push({
 					type: 'button',
-					label: match[9].trim().replace(/([a-z])([A-Z])/g, '$1 $2'),
-					message: match[9].trim()
+					label: match[10].trim().replace(/([a-z])([A-Z])/g, '$1 $2'),
+					message: match[11] ? match[11].trim() : match[10].trim()
 				});
-			} else if (match[11]) {
-				currentBubble.push({ type: 'bold', value: match[12] });
+			} else if (match[12]) {
+				currentBubble.push({ type: 'bold', value: match[13] });
+			} else if (match[14]) {
+				flushBubble();
+				// [MONTAR_GRADE|COD1,COD2|M,N] → códigos (1º campo) + turnos (2º, opcional)
+				const partes = (match[15] ?? '').split('|');
+				const codigos = (partes[0] ?? '')
+					.split(',')
+					.map((c) => c.trim().toUpperCase())
+					.filter(Boolean);
+				const turnos = (partes[1] ?? '')
+					.split(',')
+					.map((t) => t.trim().toUpperCase())
+					.filter((t) => t === 'M' || t === 'T' || t === 'N');
+				if (codigos.length > 0 || turnos.length > 0)
+					blocks.push({ type: 'montarGrade', codigos, turnos });
 			}
 			lastIndex = regex.lastIndex;
 		}
@@ -157,13 +178,12 @@
 <ChatWrapper>
 	<!-- Header -->
 	<div
-		class="relative z-10 px-5 py-4 border-b border-white/5 flex items-center justify-between shrink-0 bg-black/20 backdrop-blur-xl {draggable ? 'chat-drag-handle cursor-move select-none' : ''}"
+		class="relative z-10 px-5 py-3.5 border-b border-white/5 flex items-center justify-center shrink-0 bg-black/20 backdrop-blur-xl {draggable ? 'chat-drag-handle cursor-move select-none' : ''}"
 	>
-		<div class="flex items-center gap-3 pointer-events-none">
-			<div class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 shadow-inner border border-white/10">
-				<Bot class="h-4 w-4 text-white" />
-			</div>
-			<h2 class="text-base font-semibold tracking-tight text-white/95">{title}</h2>
+		<div class="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 shadow-sm backdrop-blur-md">
+			<Sparkles class="h-3.5 w-3.5 text-pink-400 shrink-0" />
+			<span class="text-[11px] font-bold tracking-[0.22em] text-white uppercase">{title.toUpperCase()}</span>
+			<span class="text-[11px] text-white/40 font-normal">Powered by Maritaca AI</span>
 		</div>
 	</div>
 
@@ -211,17 +231,27 @@
 							<ChatBubble role={msg.role} name={i === 0 ? (msg.role === 'user' ? 'Você' : assistantName) : undefined}>
 								{#each block.segments as segment}
 									{#if segment.type === 'badge'}
-										{#if interactiveBadges}
-											<button
-												type="button"
-												onclick={() => enviarTexto(segment.value)}
-												disabled={loading}
-												title={`Ver ${segment.value}`}
-												class="badge-glow inline-flex items-center rounded-md bg-indigo-500/20 px-1.5 py-0.5 text-xs font-mono font-bold tracking-wide text-white border border-indigo-400/60 mx-0.5 backdrop-blur-md cursor-pointer transition-all hover:bg-indigo-500/40 hover:border-indigo-300 hover:-translate-y-px active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
-											>{segment.value}</button>
-										{:else}
-											<span class="inline-flex items-center rounded-md bg-white/10 px-1.5 py-0.5 text-xs font-mono font-bold tracking-wide text-white border border-white/20 mx-0.5 shadow-sm backdrop-blur-md">{segment.value}</span>
-										{/if}
+										<span class="mx-0.5 inline-flex items-center gap-0.5">
+											{#if interactiveBadges}
+												<button
+													type="button"
+													onclick={() => enviarTexto(segment.value)}
+													disabled={loading}
+													title={`Ver ${segment.value}`}
+													class="badge-glow inline-flex items-center rounded-md bg-indigo-500/20 px-1.5 py-0.5 text-xs font-mono font-bold tracking-wide text-white border border-indigo-400/60 backdrop-blur-md cursor-pointer transition-all hover:bg-indigo-500/40 hover:border-indigo-300 hover:-translate-y-px active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+												>{segment.value}</button>
+											{:else}
+												<span class="inline-flex items-center rounded-md bg-white/10 px-1.5 py-0.5 text-xs font-mono font-bold tracking-wide text-white border border-white/20 shadow-sm backdrop-blur-md">{segment.value}</span>
+											{/if}
+											{#if onAddToGrade}
+												<button
+													type="button"
+													onclick={() => onAddToGrade?.(segment.value)}
+													title={`Adicionar ${segment.value} à grade`}
+													class="inline-flex items-center rounded-md border border-emerald-400/50 bg-emerald-500/15 px-1 py-0.5 text-[10px] font-semibold text-emerald-100 transition-colors hover:bg-emerald-500/30 active:scale-95"
+												>+ grade</button>
+											{/if}
+										</span>
 									{:else if segment.type === 'bold'}
 										<strong class="font-bold text-white">{segment.value}</strong>
 									{:else}
@@ -234,7 +264,12 @@
 								<div class="absolute -top-10 -right-10 w-32 h-32 bg-indigo-500/30 rounded-full blur-[40px] pointer-events-none"></div>
 
 								<div class="flex flex-wrap items-center justify-between border-b border-indigo-400/20 pb-3 mb-1 gap-2 relative z-10">
-									<span class="text-xl font-black text-white tracking-tight">Turma {block.value.turma}</span>
+									<div class="flex items-center gap-2.5">
+										<span class="text-xl font-black text-white tracking-tight">Turma {block.value.turma}</span>
+										{#if block.value.periodo}
+											<span class="text-indigo-200 text-xs font-bold bg-indigo-500/25 border border-indigo-400/40 px-2.5 py-0.5 rounded-full shadow-sm">{block.value.periodo}</span>
+										{/if}
+									</div>
 									<span class="text-white text-[11px] font-bold tracking-widest bg-indigo-500/30 border border-indigo-400/30 px-3 py-1.5 rounded-full shadow-inner">{block.value.vagas} VAGAS</span>
 								</div>
 
@@ -292,6 +327,20 @@
 										{btn.label}
 									</button>
 								{/each}
+							</div>
+						{:else if block.type === 'montarGrade' && onMontarGrade}
+							<div class="mt-2 ml-10 mr-4 self-start w-[85%]">
+								<button
+									type="button"
+									onclick={() => onMontarGrade?.(block.codigos, block.turnos)}
+									class="flex w-full items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-600/25 px-4 py-2.5 text-left text-sm font-semibold text-emerald-50 shadow-[0_0_15px_rgba(16,185,129,0.15)] backdrop-blur-md transition-all hover:bg-emerald-600/45 active:scale-[0.98]"
+								>
+									<CalendarPlus class="h-4 w-4 shrink-0" />
+									<span>
+										Montar grade{#if block.codigos.length > 0} priorizando {block.codigos.join(', ')}{/if}{#if block.turnos.length > 0}
+											· {block.turnos.map((t: string) => ({ M: 'manhã', T: 'tarde', N: 'noite' })[t] ?? t).join(' e ')}{/if}
+									</span>
+								</button>
 							</div>
 						{/if}
 					{/each}

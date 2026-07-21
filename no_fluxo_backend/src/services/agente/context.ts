@@ -49,6 +49,12 @@ export interface AgenteContexto {
     preferencias: PreferenciasPlano;
     restricoes: RestricoesPlanoInternas;
     codigosComOferta: Set<string>;
+    /**
+     * Quando true, tools de recomendação (buscar_materias_unb) devolvem só matérias
+     * com turma ofertada no período ativo. Ligado pelo chat embutido no Montador de
+     * Grade (body.contexto === 'montador'); o /assistente comum deixa desligado.
+     */
+    apenasComOferta?: boolean;
 }
 
 export interface AgenteResultado {
