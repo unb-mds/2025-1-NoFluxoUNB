@@ -257,7 +257,7 @@ def extrair_curso(texto):
     if match_curso:
         curso = match_curso.group(1).strip()
         # Limpa sufixos desnecessários como "/FCTE - BACHARELADO - DIURNO"
-        curso = curso.split("/")[0].strip()
+        curso = re.split(r"/|-", curso)[0].strip()
         print(f"[CURSO] Curso extraído (padrão original): {curso}")
         return curso
 
@@ -267,7 +267,7 @@ def extrair_curso(texto):
         norm = normalizar(linha)
         if re.match(r"^CURSO\s*[:\-]", norm):
             curso = re.split(r"[:\-]", linha, maxsplit=1)[1].strip()
-            curso = curso.split("/")[0].strip()
+            curso = re.split(r"/|-", curso)[0].strip()
             print(f"[CURSO] Curso extraído (fallback): {curso}")
             return curso
 
