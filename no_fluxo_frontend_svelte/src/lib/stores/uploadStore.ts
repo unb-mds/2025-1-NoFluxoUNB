@@ -243,6 +243,7 @@ function createUploadStore() {
 				startProgressSimulation(55, 85, 3000);
 				const dataWithCourse = {
 					...currentState.extractedData,
+					curso_extraido: courseName,
 					curso_selecionado: courseName,
 					...(selected?.id_curso != null && { id_curso_selecionado: selected.id_curso })
 				};
