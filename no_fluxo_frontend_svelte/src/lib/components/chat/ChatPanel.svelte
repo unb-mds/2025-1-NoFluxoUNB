@@ -178,12 +178,12 @@
 <ChatWrapper>
 	<!-- Header -->
 	<div
-		class="relative z-10 px-5 py-3.5 border-b border-white/5 flex items-center justify-center shrink-0 bg-black/20 backdrop-blur-xl {draggable ? 'chat-drag-handle cursor-move select-none' : ''}"
+		class="relative z-10 px-4 py-3 border-b border-white/5 flex items-center shrink-0 bg-black/20 backdrop-blur-xl {draggable ? 'chat-drag-handle cursor-move select-none pr-20' : ''}"
 	>
-		<div class="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 shadow-sm backdrop-blur-md">
+		<div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 shadow-sm backdrop-blur-md max-w-full overflow-hidden">
 			<Sparkles class="h-3.5 w-3.5 text-pink-400 shrink-0" />
-			<span class="text-[11px] font-bold tracking-[0.22em] text-white uppercase">{title.toUpperCase()}</span>
-			<span class="text-[11px] text-white/40 font-normal">Powered by Maritaca AI</span>
+			<span class="text-[11px] font-bold tracking-[0.16em] text-white uppercase shrink-0">{title.toUpperCase()}</span>
+			<span class="text-[10.5px] text-white/40 font-normal truncate min-w-0">Powered by Maritaca AI</span>
 		</div>
 	</div>
 
