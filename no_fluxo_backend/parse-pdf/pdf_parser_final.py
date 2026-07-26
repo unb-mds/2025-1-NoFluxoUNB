@@ -68,13 +68,13 @@ padrao_curso = re.compile(
 
 # --- Padrão alternativo para curso (formato novo) ---
 padrao_curso_alt = re.compile(
-    r"^([A-ZÀ-ÿ\s]+(?:DE\s+[A-ZÀ-ÿ\s]+)*)/[A-Z]+ - [A-ZÀ-ÿ\s]+ - [A-ZÀ-ÿ]+",
+    r"^([A-ZÀ-ÿ\s\-]+(?:DE\s+[A-ZÀ-ÿ\s\-]+)*)/[A-Z]+ - [A-ZÀ-ÿ\s\-]+ - [A-ZÀ-ÿ]+",
     re.MULTILINE | re.IGNORECASE,
 )
 
 # --- Padrão para curso no novo formato ---
 padrao_curso_novo = re.compile(
-    r"Curso:\s*\n([A-ZÀ-ÿ][A-ZÀ-ÿ\s]+(?:DE\s+[A-ZÀ-ÿ\s]+)*)/[A-Z]+ - [A-ZÀ-ÿ\s]+ - [A-ZÀ-ÿ]+",
+    r"Curso:\s*\n([A-ZÀ-ÿ][A-ZÀ-ÿ\s\-]+(?:DE\s+[A-ZÀ-ÿ\s\-]+)*)/[A-Z]+ - [A-ZÀ-ÿ\s\-]+ - [A-ZÀ-ÿ]+",
     re.MULTILINE | re.IGNORECASE,
 )
 
@@ -273,7 +273,7 @@ def extrair_curso(texto):
 
         # Procura por linhas que parecem ser nomes de curso com o novo padrão
         if re.match(
-            r"^[A-ZÀ-ÿ\s]+(?:DE\s+[A-ZÀ-ÿ\s]+)*/[A-Z]+ - [A-ZÀ-ÿ\s]+ - [A-ZÀ-ÿ]+", linha
+            r"^[A-ZÀ-ÿ\s\-]+(?:DE\s+[A-ZÀ-ÿ\s\-]+)*/[A-Z]+ - [A-ZÀ-ÿ\s\-]+ - [A-ZÀ-ÿ]+", linha
         ):
             curso = linha.split("/")[0].strip()
             print(f"[CURSO] Curso extraído (busca direta): {curso}")
