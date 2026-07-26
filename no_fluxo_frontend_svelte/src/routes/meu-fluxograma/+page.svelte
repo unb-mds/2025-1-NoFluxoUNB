@@ -88,21 +88,14 @@
 
 		const loadInitialMatrix = async () => {
 			if (matrizCurricular?.trim()) {
+				// Fiel à matriz curricular do histórico enviado — não substitui pela matriz
+				// "ativa" mais recente do curso, mesmo que a matriz do aluno esteja inativa.
 				let resolvedCurriculo = matrizCurricular.trim();
 				try {
 					const resolvedMatriz = await supabaseDataService.getMatrizByCurriculoCompleto(resolvedCurriculo);
 					if (resolvedMatriz) {
 						resolvedCurriculo = resolvedMatriz.curriculoCompleto;
 						resolvedMatrizCurricular = resolvedCurriculo;
-						const info = await supabaseDataService.getMatrizInfoByCurriculo(resolvedCurriculo);
-						if (info && info.status?.toLowerCase() !== 'ativa' && info.status?.toLowerCase() !== 'ativo') {
-							const todasMatrizes = await supabaseDataService.getMatrizesByCurso(info.id_curso);
-							const closest = todasMatrizes.find(m => m.status?.toLowerCase() === 'ativa' || m.status?.toLowerCase() === 'ativo');
-							if (closest) {
-								await store.loadCourseDataByCurriculoCompleto(closest.curriculoCompleto, false);
-								return;
-							}
-						}
 					}
 				} catch (e) {
 					console.warn('Erro ao verificar status da matriz:', e);
