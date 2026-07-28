@@ -29,7 +29,7 @@
 	const hasHistorico = $derived(!!user?.dadosFluxograma);
 	const isAdmin = $derived(!!user?.isAdmin);
 	const pathname = $derived($page.url.pathname);
-	const entries = $derived(buildNavEntries({ isAnonymous, hasHistorico }));
+	const entries = $derived(buildNavEntries({ isAnonymous, hasHistorico, isAdmin }));
 
 	async function handleLogout() {
 		await supabase.auth.signOut();

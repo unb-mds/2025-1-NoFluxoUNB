@@ -85,6 +85,13 @@
 							>
 								<ChildIcon class="h-5 w-5" />
 								<span>{child.label}</span>
+								{#if child.badge}
+									<span
+										class="ml-auto rounded-full border border-purple-300/40 bg-purple-500/15 px-1.5 py-0.5 text-[10px] font-medium text-purple-200"
+									>
+										{child.badge}
+									</span>
+								{/if}
 							</a>
 						{/each}
 					{/if}

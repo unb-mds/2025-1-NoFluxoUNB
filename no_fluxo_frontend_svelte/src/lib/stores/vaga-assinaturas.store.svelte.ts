@@ -5,6 +5,7 @@
  */
 import { vagaNotificacaoService } from '$lib/services/vaga-notificacao.service';
 import type { VagaAssinatura } from '$lib/types/notificacao';
+import { toast } from '$lib/utils/toast';
 
 function createVagaAssinaturasStore() {
 	let assinaturas = $state<VagaAssinatura[]>([]);
@@ -63,12 +64,14 @@ function createVagaAssinaturasStore() {
 				const existente = encontrar(idMateria, turma, anoPeriodo);
 				if (existente) {
 					await vagaNotificacaoService.deixarDeSeguir(existente.id_assinatura);
+					toast.success('Você não vai mais receber avisos dessa turma.');
 				} else {
 					await vagaNotificacaoService.seguirMateria(idMateria, turma, anoPeriodo);
+					toast.success('Pronto! Você vai ser avisado quando abrir vaga.');
 				}
 				assinaturas = await vagaNotificacaoService.listarMinhasAssinaturas();
-			} catch {
-				// Falha silenciosa — o estado visual simplesmente não muda.
+			} catch (e: unknown) {
+				toast.error(e instanceof Error ? e.message : 'Erro ao atualizar acompanhamento.');
 			} finally {
 				busyKey = null;
 			}

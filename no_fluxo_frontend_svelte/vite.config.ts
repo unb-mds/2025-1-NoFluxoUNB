@@ -36,6 +36,13 @@ export default defineConfig({
 	server: {
 		port: 5173,
 		strictPort: false,
+		watch: {
+			// Evita loop: o SvelteKit reescreve .svelte-kit/generated a cada sync,
+			// e sem isso o próprio watcher detecta essa escrita como mudança e
+			// dispara outro sync sem parar, travando o event loop (visto em bind
+			// mount do Windows onde o CPU do processo do Vite fica preso a ~100%).
+			ignored: ['**/.svelte-kit/**', '**/build/**']
+		}
 	},
 	preview: {
 		port: 4173

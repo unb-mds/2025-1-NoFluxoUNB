@@ -99,7 +99,7 @@ Salvar em `dados_users` ou tabela nova `perfil_planejamento_user`.
 - Próximo semestre: recomendação firme baseada no estado atual
 - Semestres seguintes: estimativa, marcar `tipo: "estimado"` no output
 - Recalcula sempre que aluno sobe novo histórico
-- Não depende de dados de dificuldade ou taxa de reprovação
+- Usa `dificuldade_estimada` (1-10) como fator real: `plano_formatura.service.ts` limita a soma de dificuldade por semestre a `LIMITE_DIFICULDADE = 35`. A nota combina duas fontes reais independentes, cada uma com peso crescente conforme sua própria amostra (`n / (n + K)`, não corte binário): (1) avaliações subjetivas de alunos (`avaliacoes_disciplinas`/`materias_estatisticas_avaliacoes`) e (2) taxa de reprovação real do histórico acadêmico (`materias_estatisticas_historico`, derivado de `historicos_usuarios`). As duas são combinadas por peso — não uma substituindo a outra, correlação medida entre elas é moderada (r≈0.39), então cada uma capta algo que a outra não capta. Confiança combinada alta dispensa a LLM (`dificuldade_fonte = 'real'`); confiança parcial (só uma fonte, ou pouca amostra nas duas) mistura com estimativa de LLM (`'hibrido'`); nenhum dado real usa só LLM (`'llm'`); sem nome/ementa usa valor padrão (`'default'`). Ver `DificuldadeAgenteService.avaliarESalvarDificuldades` para a fórmula exata.
 - Não prevê turmas/horários futuros (isso é o Motor 1 — próxima etapa)
 - Impacto de reduzir carga deve ser calculado e exibido: "+1 semestre", "+2 semestres"
 

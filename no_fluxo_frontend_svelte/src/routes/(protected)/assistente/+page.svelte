@@ -25,12 +25,33 @@
 	});
 
 	// Starters do chat-agente da Assistente: recomendação, ementa, turmas e histórico.
-	const promptStarters = [
-		{ prefix: 'Recomenda matérias sobre', badge: 'IA', suffix: '', message: 'Quero descobrir disciplinas sobre inteligência artificial' },
-		{ prefix: 'Explica a ementa de', badge: 'Cálculo 1', suffix: '', message: 'Explique o conteúdo de Cálculo 1' },
-		{ prefix: 'Quais as', badge: 'turmas', suffix: 'de uma matéria?', message: 'Quais as turmas de MAT0025?' },
-		{ prefix: 'O que já', badge: 'concluí', suffix: 'no meu curso?', message: 'O que eu já concluí no meu curso?' }
-	];
+	// O primeiro é personalizado — pergunta a opinião real de alunos sobre uma
+	// matéria que o próprio aluno está cursando agora, quando o fluxograma já
+	// carregou (mesmo padrão de starters dinâmicos do PlannerChatPanel).
+	const promptStarters = $derived.by(() => {
+		const starters = [];
+
+		const courseData = fluxogramaStore.state.courseData;
+		const currentCodes = fluxogramaStore.currentCodes;
+		if (courseData && currentCodes.size > 0) {
+			const materiaAtual = courseData.materias.find((m) => currentCodes.has(m.codigoMateria));
+			if (materiaAtual) {
+				starters.push({
+					prefix: 'O que os alunos acham de',
+					badge: materiaAtual.nomeMateria,
+					suffix: '?',
+					message: `O que os alunos acham de ${materiaAtual.nomeMateria} (${materiaAtual.codigoMateria})? Vale a pena eu me preparar mais pra ela?`
+				});
+			}
+		}
+
+		starters.push({ prefix: 'Recomenda matérias sobre', badge: 'IA', suffix: '', message: 'Quero descobrir disciplinas sobre inteligência artificial' });
+		starters.push({ prefix: 'Explica a ementa de', badge: 'Cálculo 1', suffix: '', message: 'Explique o conteúdo de Cálculo 1' });
+		starters.push({ prefix: 'Quais as', badge: 'turmas', suffix: 'de uma matéria?', message: 'Quais as turmas de MAT0025?' });
+		starters.push({ prefix: 'O que já', badge: 'concluí', suffix: 'no meu curso?', message: 'O que eu já concluí no meu curso?' });
+
+		return starters.slice(0, 4);
+	});
 
 	function onSend(msg: string) {
 		assistenteChatStore.enviarMensagem(msg);

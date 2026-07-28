@@ -9,6 +9,8 @@ export interface NavChild {
 	href: string;
 	label: string;
 	icon: NavIcon;
+	/** Rótulo curto (ex.: "Em breve") exibido ao lado do label — feature em rollout gradual. */
+	badge?: string;
 }
 
 export type NavEntry =
@@ -20,8 +22,12 @@ export type NavEntry =
  * Anônimo: só Fluxogramas + Disciplinas (não pode planejar).
  * Suporte fica fora (FAB). Admin não entra aqui (vai no menu da conta).
  */
-export function buildNavEntries(args: { isAnonymous: boolean; hasHistorico: boolean }): NavEntry[] {
-	const { isAnonymous, hasHistorico } = args;
+export function buildNavEntries(args: {
+	isAnonymous: boolean;
+	hasHistorico: boolean;
+	isAdmin?: boolean;
+}): NavEntry[] {
+	const { isAnonymous, hasHistorico, isAdmin = false } = args;
 
 	if (isAnonymous) {
 		return [
@@ -40,7 +46,14 @@ export function buildNavEntries(args: { isAnonymous: boolean; hasHistorico: bool
 			label: 'Planejamento',
 			children: [
 				{ href: ROUTES.PLANO_FORMATURA, label: 'Plano de Formatura', icon: GraduationCap },
-				{ href: ROUTES.MONTADOR_GRADE, label: 'Montador de Grade', icon: CalendarDays },
+				{
+					href: ROUTES.MONTADOR_GRADE,
+					label: 'Montador de Grade',
+					icon: CalendarDays,
+					// Rollout gradual: só admins usam de verdade por enquanto (ver
+					// planejamento/grade/+page.svelte) — usuário padrão vê o aviso.
+					...(isAdmin ? {} : { badge: 'Em breve' })
+				},
 				{ href: ROUTES.ASSISTENTE, label: 'Assistente IA', icon: Bot }
 			]
 		},

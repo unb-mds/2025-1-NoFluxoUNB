@@ -11,6 +11,7 @@ import {
     consultarTurmasMateriaTool,
     buscarMateriasUnbTool,
     buscarMateriasPorLocalTool,
+    consultarOpinioesDisciplinaTool,
 } from "./materia_tools";
 import {
     consultarPlanoTool,
@@ -30,6 +31,7 @@ export function createDefaultRegistry(): ToolRegistry {
         .register(consultarTurmasMateriaTool)
         .register(buscarMateriasUnbTool)
         .register(buscarMateriasPorLocalTool)
+        .register(consultarOpinioesDisciplinaTool)
         .register(consultarHistoricoAlunoTool)
         .register(consultarStatusMateriaTool)
         .register(consultarPlanoTool)

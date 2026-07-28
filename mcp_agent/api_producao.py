@@ -321,7 +321,7 @@ def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
 
         # 1. GERAÇÃO EM LOTE (BATCH EMBEDDING): 1 única chamada para a API do Gemini
         result = genai.embed_content(
-            model="models/gemini-embedding-001",
+            model="models/text-embedding-004",
             content=termos_validos,
             task_type="retrieval_query",
             output_dimensionality=256,
@@ -339,7 +339,7 @@ def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
                 "match_materias",
                 {
                     "query_embedding": vetor,
-                    "match_threshold": 0.6,
+                    "match_threshold": 0.0,
                     "match_count": 20,  # Puxa as 5 melhores de cada termo
                 },
             ).execute()
@@ -383,7 +383,9 @@ def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
 
     except Exception as e:
         print(f"❌ Erro na ferramenta de busca, tente novamente mais tarde: {e}")
-        return json.dumps([])
+        with open("error_log.txt", "w") as f:
+            f.write(str(e))
+        return json.dumps([{"codigo": "ERRO", "nome": f"Exception: {str(e)}", "similaridade": 0}], ensure_ascii=False)
 
 
 def ferramenta_explicar_materia(termo: str) -> dict:

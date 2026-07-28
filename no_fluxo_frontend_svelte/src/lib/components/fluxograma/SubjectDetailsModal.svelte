@@ -5,10 +5,13 @@
 	import { getDirectPrerequisites, getCorequisites } from '$lib/types/curso';
 	import { getStatusLabel, isOptativa, type SubjectStatusValue, SubjectStatusEnum } from '$lib/types/materia';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
-	import { X, BookOpen, GitBranch, Repeat2, Loader2, Trash2 } from 'lucide-svelte';
+	import { X, BookOpen, GitBranch, Repeat2, Loader2, Trash2, CalendarClock, Bell, BellOff } from 'lucide-svelte';
 	import OptativaTipoModal from './OptativaTipoModal.svelte';
 	import { portal } from '$lib/actions/portal';
 	import { getCodigosFromExpressaoLogica, getLogicalCodeGroups } from '$lib/utils/expressao-logica';
+	import { getTurmasPorMaterias, type TurmaOferta } from '$lib/services/turmas.service';
+	import { formatHorarioSigaa, compactarFaixasHorarias, formatLocalSigaa, formatVagas } from '$lib/utils/sigaa';
+	import { vagaAssinaturasStore } from '$lib/stores/vaga-assinaturas.store.svelte';
 
 	interface Props {
 		materia: MateriaModel;
@@ -19,9 +22,46 @@
 	let { materia, courseData, onclose }: Props = $props();
 
 	const store = fluxogramaStore;
-	let activeTab = $state<'info' | 'prereqs' | 'equivalencias'>('info');
+	let activeTab = $state<'info' | 'prereqs' | 'equivalencias' | 'turmas'>('info');
 	let optativaTipoOpen = $state(false);
 	let removendoPlanejada = $state(false);
+
+	// Turmas ofertadas no período letivo ativo — carrega sob demanda (só quando a
+	// aba é aberta), reaproveitando o mesmo serviço do Montador de Grade em vez de
+	// duplicar a query (ver turmas.service.ts).
+	let turmas = $state<TurmaOferta[]>([]);
+	let turmasLoading = $state(false);
+	let turmasError = $state<string | null>(null);
+	let turmasCarregadasPara = $state<number | null>(null);
+
+	$effect(() => {
+		if (activeTab !== 'turmas' || turmasCarregadasPara === materia.idMateria) return;
+		turmasLoading = true;
+		turmasError = null;
+		getTurmasPorMaterias([materia.idMateria])
+			.then((rows) => {
+				turmas = rows;
+				turmasCarregadasPara = materia.idMateria;
+			})
+			.catch(() => {
+				turmasError = 'Não foi possível carregar as turmas agora.';
+			})
+			.finally(() => {
+				turmasLoading = false;
+			});
+		if (!vagaAssinaturasStore.carregado) void vagaAssinaturasStore.load();
+	});
+
+	function horarioLegivel(horario: string | null): string {
+		const linhas = formatHorarioSigaa(horario ?? '');
+		if (linhas.length === 0) return 'Horário a definir';
+		return linhas.map((l) => `${l.dia} ${compactarFaixasHorarias(l.faixas)}`).join(' · ');
+	}
+
+	function localLegivel(local: string | null): string {
+		const linhas = formatLocalSigaa(local ?? '');
+		return linhas.length > 0 ? linhas.join(' · ') : 'Local a definir';
+	}
 
 	let status = $derived(store.getSubjectStatus(materia));
 	let optativaPlanejada = $derived.by(() => {
@@ -74,7 +114,8 @@
 	const tabs = [
 		{ id: 'info' as const, label: 'Info', icon: BookOpen },
 		{ id: 'prereqs' as const, label: 'Pré-requisitos', icon: GitBranch },
-		{ id: 'equivalencias' as const, label: 'Equivalências', icon: Repeat2 }
+		{ id: 'equivalencias' as const, label: 'Equivalências', icon: Repeat2 },
+		{ id: 'turmas' as const, label: 'Turmas', icon: CalendarClock }
 	];
 </script>
 
@@ -316,6 +357,56 @@
 								{#if eq.curriculo}
 									<p class="mt-0.5 text-xs text-white/50">Currículo: {eq.curriculo}</p>
 								{/if}
+							</div>
+						{/each}
+					{/if}
+				</div>
+			{:else if activeTab === 'turmas'}
+				<div class="space-y-2">
+					{#if turmasLoading}
+						<div class="flex items-center justify-center gap-2 py-6 text-sm text-white/50">
+							<Loader2 class="h-4 w-4 animate-spin" />
+							Carregando turmas...
+						</div>
+					{:else if turmasError}
+						<p class="py-4 text-center text-sm text-red-300/80">{turmasError}</p>
+					{:else if turmas.length === 0}
+						<p class="py-4 text-center text-sm text-white/50">
+							Nenhuma turma ofertada no período letivo atual.
+						</p>
+					{:else}
+						{#each turmas as t}
+							{@const seguindo = vagaAssinaturasStore.isSeguindo(t.id_materia, t.turma, t.ano_periodo)}
+							{@const seguirBusy = vagaAssinaturasStore.isBusy(t.id_materia, t.turma, t.ano_periodo)}
+							<div class="rounded-lg bg-white/5 px-3 py-2.5">
+								<div class="flex items-center justify-between gap-2">
+									<span class="text-sm font-semibold text-white/90">Turma {t.turma}</span>
+									<span class="rounded-full bg-white/10 px-2 py-0.5 text-xs text-white/70">
+										{formatVagas(t.vagas_sobrando, t.vagas_ofertadas, t.vagas_ocupadas)} vaga(s)
+									</span>
+								</div>
+								{#if t.docente}
+									<p class="mt-1 text-xs text-white/60">{t.docente}</p>
+								{/if}
+								<p class="mt-1 text-xs text-white/50">{horarioLegivel(t.horario)}</p>
+								<p class="text-xs text-white/50">{localLegivel(t.local)}</p>
+								<button
+									type="button"
+									disabled={seguirBusy}
+									onclick={() => vagaAssinaturasStore.toggle(t.id_materia, t.turma, t.ano_periodo)}
+									class="mt-2 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-medium transition-colors disabled:opacity-50 {seguindo
+										? 'border-purple-300/45 bg-purple-500/18 text-purple-100 hover:bg-purple-500/25'
+										: 'border-white/15 bg-white/5 text-white/70 hover:bg-white/10'}"
+								>
+									{#if seguirBusy}
+										<Loader2 class="h-3 w-3 animate-spin" />
+									{:else if seguindo}
+										<Bell class="h-3 w-3" />
+									{:else}
+										<BellOff class="h-3 w-3" />
+									{/if}
+									{seguindo ? 'Parar de seguir' : 'Avisar quando abrir vaga'}
+								</button>
 							</div>
 						{/each}
 					{/if}

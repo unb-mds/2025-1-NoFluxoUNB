@@ -123,6 +123,16 @@ docs/testes/fixtures/size_10mb_plus1.pdf
 # Dumps de sessão do Playwright MCP (console/page com timestamp).
 .playwright-mcp/
 
+# CSV bruto de avaliações de disciplinas: tem nome de professor e comentários
+# de aluno sem redação — nunca deve entrar no histórico do git. O import lê
+# direto deste diretório local (fonte de verdade fica no Google Forms/Drive).
+opinioes_publicas/
+
+# Relatórios do import de avaliações (scripts/import_avaliacoes_disciplinas.ts):
+# incluem trechos de texto livre para revisão manual, mesmo já redigidos.
+no_fluxo_backend/scripts/_import_reports/
+linhas_avaliacoes_nao_importadas.json
+
 # Saída de revisão do atualizar_departamentos_id.py: o script gera esse arquivo
 # pra conferir o diff antes de aplicar. A lista que os scrapers leem é a
 # departamentos_ID_unb.csv, que continua versionada.

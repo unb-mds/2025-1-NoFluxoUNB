@@ -30,6 +30,11 @@
 	import type { SemestrePlano, ItemSemestre, MateriaPlano } from '$lib/types/plano-formatura';
 	import { CalendarDays, Wand2, Trash2, Loader2, Info, Download, Star } from 'lucide-svelte';
 
+	// Feature em rollout gradual: só admins veem o Montador de Grade de verdade
+	// por enquanto; usuários normais veem um aviso de "em breve" e nem chegam a
+	// disparar o carregamento de curso/plano/turmas (evita trabalho à toa).
+	const isAdmin = $derived(authStore.getUser()?.isAdmin ?? false);
+
 	let status = $state<'loading' | 'ready' | 'error'>('loading');
 	let erro = $state<string | null>(null);
 	let periodo = $state<string | null>(null);
@@ -190,7 +195,9 @@
 		}
 	}
 
-	onMount(montar);
+	onMount(() => {
+		if (isAdmin) void montar();
+	});
 
 	const limiteCreditos = $derived(planoFormaturaStore.preferencias?.limiteCreditos ?? 24);
 	const creditosPct = $derived(
@@ -267,6 +274,19 @@
 
 <PageBackground />
 
+{#if !isAdmin}
+	<div class="relative z-10 mx-auto flex w-full max-w-2xl flex-col items-center px-4 py-24 text-center">
+		<div
+			class="mb-4 flex h-16 w-16 items-center justify-center rounded-3xl border border-purple-500/40 bg-purple-500/10 shadow-[0_0_30px_rgba(168,85,247,0.15)] backdrop-blur-md"
+		>
+			<CalendarDays class="h-8 w-8 text-purple-300" />
+		</div>
+		<h1 class="text-xl font-bold text-white sm:text-2xl">Montador de Grade</h1>
+		<p class="mt-2 max-w-md text-sm leading-relaxed text-white/60">
+			Em breve! Estamos finalizando essa funcionalidade — monte sua grade horária do próximo semestre sem conflito de horário.
+		</p>
+	</div>
+{:else}
 <div class="relative z-10 mx-auto w-full max-w-7xl px-3 py-4 sm:px-5">
 	<!-- Cabeçalho -->
 	<header class="mb-3 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
@@ -399,4 +419,5 @@
 <!-- Chatbot flutuante (Darcy) — recomenda optativas com turma e insere na grade -->
 {#if status === 'ready'}
 	<AssistenteChatFab onAddToGrade={adicionarAoPool} onMontarGrade={montarGradeComPrioridade} />
+{/if}
 {/if}

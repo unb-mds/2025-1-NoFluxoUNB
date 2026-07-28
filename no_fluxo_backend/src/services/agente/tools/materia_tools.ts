@@ -99,7 +99,7 @@ async function consultarInformacoesMateria(args: Record<string, unknown>): Promi
             departamento: data.departamento,
             carga_horaria: data.carga_horaria,
             ementa: data.ementa || "Não cadastrada.",
-            aviso: "Lembre-se de usar sua pesquisa web nativa (Sabiá) se o usuário perguntou sobre a dificuldade ou opiniões.",
+            aviso: "Para dificuldade percebida ou recomendação de outros alunos, use a tool consultar_opinioes_disciplina.",
         });
     } catch (e) {
         return JSON.stringify({ erro: `Falha ao consultar informações da matéria ${codigo}.` });
@@ -114,7 +114,7 @@ export const consultarInformacoesMateriaTool: AgentTool = {
         function: {
             name: "consultar_informacoes_materia",
             description:
-                "Busca a ementa oficial da matéria no banco de dados. (Para nível de dificuldade ou opiniões, você pesquisará nativamente na internet).",
+                "Busca a ementa oficial da matéria no banco de dados. (Para nível de dificuldade percebida ou recomendação de outros alunos, use a tool consultar_opinioes_disciplina).",
             parameters: {
                 type: "object",
                 properties: {
@@ -128,6 +128,97 @@ export const consultarInformacoesMateriaTool: AgentTool = {
         },
     },
     execute: async (args) => ({ resultado: await consultarInformacoesMateria(args) }),
+};
+
+/**
+ * Agregados reais de avaliações de alunos por disciplina — nunca por professor.
+ * Lê só a view pública `materias_estatisticas_avaliacoes` (sem texto livre, sem
+ * professor); não consulta a tabela crua `avaliacoes_disciplinas` em hipótese
+ * alguma, para não expor feedback verbatim nem dado ligado a professor.
+ */
+async function consultarOpinioesDisciplina(args: Record<string, unknown>): Promise<string> {
+    const codigo = typeof args.codigo === "string" ? norm(args.codigo) : "";
+    if (!codigo) return JSON.stringify({ erro: "Código da matéria não fornecido." });
+
+    try {
+        const supabase = SupabaseWrapper.get();
+        const { data: materiaData, error: materiaError } = await supabase
+            .from("materias")
+            .select("nome_materia")
+            .eq("codigo_materia", codigo)
+            .single();
+
+        if (materiaError || !materiaData) {
+            return JSON.stringify({ erro: `Matéria ${codigo} não encontrada.` });
+        }
+
+        const { data, error } = await supabase
+            .from("materias_estatisticas_avaliacoes")
+            .select("n_avaliacoes, dificuldade_media, dificuldade_desvio_padrao, pct_recomendaria, carga_atividades_media, distribuicao_material")
+            .eq("codigo_materia", codigo)
+            .maybeSingle();
+
+        if (error) {
+            return JSON.stringify({ erro: `Falha ao consultar opiniões da matéria ${codigo}.` });
+        }
+
+        if (!data || !data.n_avaliacoes) {
+            return JSON.stringify({
+                codigo,
+                nome_materia: materiaData.nome_materia,
+                n_avaliacoes: 0,
+                aviso: "Nenhuma avaliação de aluno registrada para esta disciplina ainda.",
+            });
+        }
+
+        // Desvio padrão alto (escala 1-6) sinaliza opinião dividida — a média
+        // sozinha esconderia isso, e com este recurso não há como distinguir se a
+        // divisão vem de professor/turma (fora de escopo aqui) ou de outro fator.
+        const LIMIAR_DESVIO_ALTO = 1.3;
+        const opiniaoDividida = data.dificuldade_desvio_padrao != null && data.dificuldade_desvio_padrao > LIMIAR_DESVIO_ALTO;
+
+        return JSON.stringify({
+            codigo,
+            nome_materia: materiaData.nome_materia,
+            n_avaliacoes: data.n_avaliacoes,
+            dificuldade_media: data.dificuldade_media,
+            dificuldade_desvio_padrao: data.dificuldade_desvio_padrao,
+            dificuldade_escala: "1 (muito fácil) a 6 (nível god)",
+            opiniao_dividida: opiniaoDividida,
+            pct_recomendaria: data.pct_recomendaria,
+            carga_atividades_media: data.carga_atividades_media,
+            carga_atividades_escala: "1 (muito leve) a 5 (exagerada)",
+            distribuicao_material: data.distribuicao_material,
+            instrucao_llm:
+                `Estes são agregados estatísticos de avaliações reais de alunos sobre a DISCIPLINA (nunca sobre professor específico). Sempre mencione o tamanho da amostra (n_avaliacoes) na resposta. Se n_avaliacoes for menor que 5, deixe claro que a amostra é pequena e pode não ser representativa. Não invente opiniões além destes números, e não fale de professores individuais mesmo que o aluno pergunte por nome.${opiniaoDividida ? " opiniao_dividida=true: avise explicitamente que as opiniões dos alunos variam bastante nessa disciplina (desvio padrão alto), então a média pode não representar bem a experiência de um aluno específico." : ""} Responda em texto corrido (sem lista com hífen/bullet), como nas outras respostas do chat.`,
+        });
+    } catch (e) {
+        return JSON.stringify({ erro: `Falha ao consultar opiniões da matéria ${codigo}.` });
+    }
+}
+
+export const consultarOpinioesDisciplinaTool: AgentTool = {
+    name: "consultar_opinioes_disciplina",
+    requiresPlano: false,
+    schema: {
+        type: "function",
+        function: {
+            name: "consultar_opinioes_disciplina",
+            description:
+                "Busca agregados estatísticos de avaliações reais de alunos sobre uma disciplina: dificuldade percebida, % que recomendaria, carga de atividades e qualidade do material. Use quando o aluno perguntar 'o que acham de X', dificuldade, se vale a pena cursar, etc. Nunca traz dado por professor.",
+            parameters: {
+                type: "object",
+                properties: {
+                    codigo: {
+                        type: "string",
+                        description: "Código da matéria (ex: MAT0025). Obrigatório.",
+                    },
+                },
+                required: ["codigo"],
+            },
+        },
+    },
+    execute: async (args) => ({ resultado: await consultarOpinioesDisciplina(args) }),
 };
 
 type MateriaBusca = { codigo: string; nome: string; similaridade: number };

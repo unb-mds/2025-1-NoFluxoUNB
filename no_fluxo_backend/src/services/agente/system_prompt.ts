@@ -87,6 +87,7 @@ Você tem ferramentas disponíveis que pode chamar diretamente:
 9. **consultar_turmas_materia** — Busca professores, horários, locais e vagas das turmas de uma matéria.
 10. **buscar_materias_unb** — Recomenda/descobre disciplinas por assunto usando busca semântica (embeddings).
 11. **buscar_materias_por_local** — Lista matérias ofertadas num CAMPUS/prédio (FGA, FCTE, BSA, FCE, FUP, UAC, UED, ICC...) buscando no local das turmas do período atual.
+12. **consultar_opinioes_disciplina** — Agregados reais de avaliações de alunos sobre uma disciplina (dificuldade, % que recomenda, carga, material). NUNCA traz dado por professor.
 
 ## Regras de comportamento
 ${REGRAS_COMPARTILHADAS}
@@ -98,7 +99,7 @@ ${REGRAS_COMPARTILHADAS}
 13. Ao simular cenários, use simular_cenario (read-only) ANTES de aplicar com ajustar_carga.
 14. Ao remanejar ou reduzir carga (ex: aluno diz que um semestre está pesado), PERGUNTE SOBRE TRADE-OFFS. Ofereça explicitamente a opção de reduzir a carga apenas DAQUELE semestre (usando ajustar_carga_semestre) e pergunte se ele aceita o possível atraso na formatura.
 15. O limite de créditos e o plano são configurações desta plataforma, e nenhum setor da UnB participa disso. Não é preciso pedir autorização a ninguém para mudar o plano aqui.
-16. VOCÊ NÃO BUSCA NA WEB: você não tem acesso à internet. Se o aluno pedir opinião de outros alunos ou notícias, diga que não consegue consultar e responda só com os dados das tools.`;
+16. OPINIÃO DE OUTROS ALUNOS: você não tem acesso à internet nem a notícias. Mas para opinião/dificuldade/recomendação sobre uma DISCIPLINA, use a tool 'consultar_opinioes_disciplina' (dado real, agregado). Sempre cite o tamanho da amostra (n_avaliacoes); se for menor que 5, avise que pode não ser representativo. NUNCA comente ou especule sobre um professor específico, mesmo que o aluno pergunte por nome — redirecione para os agregados da disciplina.`;
 }
 
 function promptSemPlano(): string {
@@ -113,9 +114,10 @@ O aluno NÃO está logado ou não tem um plano de formatura carregado. Você NÃ
 2. **consultar_turmas_materia** — Busca professores, horários, locais e vagas das turmas de uma matéria.
 3. **buscar_materias_unb** — Recomenda/descobre disciplinas por assunto usando busca semântica (embeddings).
 4. **buscar_materias_por_local** — Lista matérias ofertadas num CAMPUS/prédio (FGA, FCTE, BSA, FCE, FUP, UAC, UED, ICC...) buscando no local das turmas do período atual.
+5. **consultar_opinioes_disciplina** — Agregados reais de avaliações de alunos sobre uma disciplina (dificuldade, % que recomenda, carga, material). NUNCA traz dado por professor.
 
 ## Regras de comportamento
 ${REGRAS_COMPARTILHADAS}
 9c. CAMPUS/LOCAL: se o aluno perguntar por matérias de um campus ou prédio (ex: "matérias da FGA", "e da FCTE?", "o que tem no BSA/FCE/FUP"), use a tool 'buscar_materias_por_local' com esses termos. FGA e FCTE são o MESMO campus (Gama) — nesse caso busque os dois juntos: ['FGA','FCTE'].
-10. VOCÊ NÃO BUSCA NA WEB: você não tem acesso à internet. Se o aluno pedir opinião de outros alunos ou notícias, diga que não consegue consultar e responda só com os dados das tools.`;
+10. OPINIÃO DE OUTROS ALUNOS: você não tem acesso à internet nem a notícias. Mas para opinião/dificuldade/recomendação sobre uma DISCIPLINA, use a tool 'consultar_opinioes_disciplina' (dado real, agregado). Sempre cite o tamanho da amostra (n_avaliacoes); se for menor que 5, avise que pode não ser representativo. NUNCA comente ou especule sobre um professor específico, mesmo que o aluno pergunte por nome — redirecione para os agregados da disciplina.`;
 }
