@@ -146,3 +146,6 @@ docker-compose.yml
 
 # Workspace de execução do subagent-driven-development (ledger, briefs, review packages).
 .superpowers/
+
+# Worktrees isolados criados pelo harness para agents paralelos (isolation: "worktree").
+.claude/worktrees/
