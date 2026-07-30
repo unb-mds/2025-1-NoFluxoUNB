@@ -300,4 +300,65 @@ describe("AtuadorGrade — revisor (código citado precisa estar nos candidatos)
         const reply = await runGradeComRevisao(agente, "me recomenda algo pro horário livre");
         expect(reply).toBe(RESPOSTA_ESCALONAMENTO_GRADE);
     });
+
+    it("reprova quando o modelo cita um código SEM ter chamado a tool nesta execução (bypass) — nada foi verificado", async () => {
+        // O modelo ignora a instrução de sempre chamar a tool primeiro e já emite a
+        // tag na primeira resposta. ultimosCandidatos nunca é setado (fica null).
+        // Isso NÃO pode ser tratado como "nada a verificar" — é uma citação não
+        // verificada e precisa ser rejeitada como qualquer código inválido.
+        mockCreate.mockImplementation(async () => ({
+            choices: [{ message: { role: "assistant", content: "Beleza! [MONTAR_GRADE|FGA9999]" } }],
+        }));
+
+        const freeMaskTotal = (1n << 96n) - 1n;
+        const agente = createGradeAgent("42", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
+        await expect(run(agente, "me recomenda algo pro horário livre")).rejects.toThrow(
+            OutputGuardrailTripwireTriggered
+        );
+
+        // runGradeComRevisao nunca escala pra fora um código não verificado: como o mock
+        // sempre pula a tool, a reexecução também reprova e o wrapper escalona.
+        const reply = await runGradeComRevisao(agente, "me recomenda algo pro horário livre");
+        expect(reply).toBe(RESPOSTA_ESCALONAMENTO_GRADE);
+        expect(reply).not.toContain("FGA9999");
+    });
+
+    it("reprova quando a tag mistura código válido e inválido — [MONTAR_GRADE|FGA0001,FGA9999]", async () => {
+        mockCreate.mockImplementation(async (req: any) => {
+            const jaTemTool = req.messages.some((m: any) => m.role === "tool");
+            if (!jaTemTool) {
+                return {
+                    choices: [{ message: { role: "assistant", content: null, tool_calls: [{ id: "c1", type: "function", function: { name: "recomendar_por_horario_livre", arguments: "{}" } }] } }],
+                };
+            }
+            return {
+                choices: [{ message: { role: "assistant", content: "Beleza! [MONTAR_GRADE|FGA0001,FGA9999]" } }],
+            };
+        });
+
+        const freeMaskTotal = (1n << 96n) - 1n;
+        const agente = createGradeAgent("42", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
+        await expect(run(agente, "me recomenda algo pro horário livre")).rejects.toThrow(
+            OutputGuardrailTripwireTriggered
+        );
+    });
+
+    it("aprova resposta puramente conversacional, sem tag [MONTAR_GRADE|...] nenhuma", async () => {
+        mockCreate.mockImplementation(async (req: any) => {
+            const jaTemTool = req.messages.some((m: any) => m.role === "tool");
+            if (!jaTemTool) {
+                return {
+                    choices: [{ message: { role: "assistant", content: null, tool_calls: [{ id: "c1", type: "function", function: { name: "recomendar_por_horario_livre", arguments: "{}" } }] } }],
+                };
+            }
+            return {
+                choices: [{ message: { role: "assistant", content: "Não achei nada certeiro pro seu horário livre agora." } }],
+            };
+        });
+
+        const freeMaskTotal = (1n << 96n) - 1n;
+        const agente = createGradeAgent("42", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
+        const resultado = await run(agente, "me recomenda algo pro horário livre");
+        expect(String(resultado.finalOutput)).toContain("Não achei nada certeiro");
+    });
 });

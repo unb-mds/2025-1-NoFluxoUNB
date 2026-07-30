@@ -192,32 +192,53 @@ export async function recomendarPorHorarioLivre(
  * citado na tag [MONTAR_GRADE|...] que não esteja entre eles. Como o filtro de horário
  * já é 100% determinístico (bitmask, nunca passa pela IA), qualquer código fora da lista
  * só pode ser alucinação do agente — não uma matéria que "quase" cabe.
+ *
+ * extrairCodigosDaTag usa a flag global (/g) e varre TODA ocorrência da tag na resposta —
+ * uma resposta pode, em teoria, conter mais de um [MONTAR_GRADE|...] e cada uma precisa
+ * ser verificada, não só a primeira.
  */
 function extrairCodigosDaTag(texto: string): string[] {
-    const m = texto.match(/\[MONTAR_GRADE\|([^|\]]*)\|?[^\]]*\]/);
-    if (!m) return [];
-    return (m[1] ?? "")
-        .split(",")
-        .map((c) => c.trim().toUpperCase())
-        .filter(Boolean);
+    const codigos: string[] = [];
+    const regex = /\[MONTAR_GRADE\|([^|\]]*)\|?[^\]]*\]/g;
+    let m: RegExpExecArray | null;
+    while ((m = regex.exec(texto)) !== null) {
+        codigos.push(
+            ...(m[1] ?? "")
+                .split(",")
+                .map((c) => c.trim().toUpperCase())
+                .filter(Boolean)
+        );
+    }
+    return codigos;
 }
 
 function criarRevisorHorario(getUltimosCandidatos: () => CandidatoGrade[] | null): OutputGuardrail {
     return {
         name: "revisor_horario_grade",
         execute: async ({ agentOutput }) => {
-            const candidatos = getUltimosCandidatos();
-            if (!candidatos) return { tripwireTriggered: false, outputInfo: null };
-
             const texto = typeof agentOutput === "string" ? agentOutput : JSON.stringify(agentOutput);
             const codigosCitados = extrairCodigosDaTag(texto);
-            const codigosValidos = new Set(candidatos.map((c) => c.codigo));
+
+            // Nada citado (resposta puramente conversacional) — nada pra verificar, aprova.
+            // Verificação de citação vem SEMPRE antes da checagem de candidatos: se a
+            // resposta citar um código sem a tool ter rodado nesta execução (candidatos
+            // ainda null), isso NÃO é "nada a verificar" — é uma citação não verificada,
+            // e deve ser tratada como código inválido (mesmo caminho de rejeição abaixo).
+            if (codigosCitados.length === 0) {
+                return { tripwireTriggered: false, outputInfo: null };
+            }
+
+            const candidatos = getUltimosCandidatos();
+            const codigosValidos = new Set((candidatos ?? []).map((c) => c.codigo));
             const codigoInvalido = codigosCitados.find((c) => !codigosValidos.has(c));
 
             if (codigoInvalido) {
+                const motivo = candidatos
+                    ? `A resposta prioriza ${codigoInvalido}, que não está entre os candidatos que cabem no horário livre.`
+                    : `A resposta cita ${codigoInvalido} sem antes ter chamado a tool recomendar_por_horario_livre — nada foi verificado.`;
                 return {
                     tripwireTriggered: true,
-                    outputInfo: { motivo: `A resposta prioriza ${codigoInvalido}, que não está entre os candidatos que cabem no horário livre.` },
+                    outputInfo: { motivo },
                 };
             }
             return { tripwireTriggered: false, outputInfo: null };
