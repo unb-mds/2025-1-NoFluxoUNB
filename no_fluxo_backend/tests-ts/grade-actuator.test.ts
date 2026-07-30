@@ -80,6 +80,14 @@ jest.mock("../src/controllers/PlanejamentoController", () => ({
 import { maskLivre, slotMaskFromHorario } from "../src/utils/horario_slots";
 import { recomendarPorHorarioLivre } from "../src/services/chat/actuators/grade_actuator";
 import { montarDadosPlano } from "../src/controllers/PlanejamentoController";
+import { run, OutputGuardrailTripwireTriggered } from "@openai/agents";
+import { createGradeAgent, runGradeComRevisao, RESPOSTA_ESCALONAMENTO_GRADE } from "../src/services/chat/actuators/grade_actuator";
+
+const mockCreate = jest.fn();
+jest.mock("openai", () => ({
+    __esModule: true,
+    default: jest.fn().mockImplementation(() => ({ chat: { completions: { create: mockCreate } } })),
+}));
 
 beforeEach(() => {
     db.materias.length = 0;
@@ -226,5 +234,70 @@ describe("recomendarPorHorarioLivre — ranking por coerência temática (Task 7
         const resultado = await recomendarPorHorarioLivre("42", "8117/-2 - 2018.2", livreTotal.toString(), "2026.2");
         expect("candidatos" in resultado).toBe(true);
         expect((resultado as any).candidatos.length).toBeGreaterThan(0);
+    });
+});
+
+describe("AtuadorGrade — revisor (código citado precisa estar nos candidatos)", () => {
+    beforeEach(() => {
+        mockCreate.mockReset();
+        db.turmas.length = 0;
+        db.turmas.push({ id_materia: 1, codigo_materia: "FGA0001", ano_periodo: "2026.2", horario: "2M12" });
+    });
+
+    it("aprova quando o código citado no MONTAR_GRADE está entre os candidatos retornados pela tool", async () => {
+        let chamou = 0;
+        mockCreate.mockImplementation(async (req: any) => {
+            chamou++;
+            const jaTemTool = req.messages.some((m: any) => m.role === "tool");
+            if (!jaTemTool) {
+                return {
+                    choices: [{ message: { role: "assistant", content: null, tool_calls: [{ id: "c1", type: "function", function: { name: "recomendar_por_horario_livre", arguments: "{}" } }] } }],
+                };
+            }
+            return { choices: [{ message: { role: "assistant", content: "Achei! [MONTAR_GRADE|FGA0001]" } }] };
+        });
+
+        const freeMaskTotal = (1n << 96n) - 1n; // universo inteiro, mesmo valor usado nos outros testes deste describe
+        const agente = createGradeAgent("42", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
+        const resultado = await run(agente, "tenho um buraco na segunda de manhã, me recomenda algo");
+        expect(String(resultado.finalOutput)).toContain("[MONTAR_GRADE|FGA0001]");
+    });
+
+    it("reprova e reexecuta quando o código citado NÃO está nos candidatos — runGradeComRevisao corrige", async () => {
+        let tentativa = 0;
+        mockCreate.mockImplementation(async (req: any) => {
+            const jaTemTool = req.messages.some((m: any) => m.role === "tool");
+            if (!jaTemTool) {
+                return {
+                    choices: [{ message: { role: "assistant", content: null, tool_calls: [{ id: "c1", type: "function", function: { name: "recomendar_por_horario_livre", arguments: "{}" } }] } }],
+                };
+            }
+            tentativa++;
+            const codigo = tentativa === 1 ? "FGA9999" : "FGA0001"; // 1ª vez alucina, 2ª vez corrige
+            return { choices: [{ message: { role: "assistant", content: `Beleza! [MONTAR_GRADE|${codigo}]` } }] };
+        });
+
+        const freeMaskTotal = (1n << 96n) - 1n; // universo inteiro, simplificado pro teste
+        const agente = createGradeAgent("42", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
+        const reply = await runGradeComRevisao(agente, "me recomenda algo pro horário livre");
+        expect(reply).toContain("FGA0001");
+        expect(reply).not.toContain("FGA9999");
+    });
+
+    it("reprova duas vezes seguidas → escalona pra resposta fixa (revisor do revisor)", async () => {
+        mockCreate.mockImplementation(async (req: any) => {
+            const jaTemTool = req.messages.some((m: any) => m.role === "tool");
+            if (!jaTemTool) {
+                return {
+                    choices: [{ message: { role: "assistant", content: null, tool_calls: [{ id: "c1", type: "function", function: { name: "recomendar_por_horario_livre", arguments: "{}" } }] } }],
+                };
+            }
+            return { choices: [{ message: { role: "assistant", content: "Vixe! [MONTAR_GRADE|FGA9999]" } }] }; // sempre alucina
+        });
+
+        const freeMaskTotal = (1n << 96n) - 1n;
+        const agente = createGradeAgent("42", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
+        const reply = await runGradeComRevisao(agente, "me recomenda algo pro horário livre");
+        expect(reply).toBe(RESPOSTA_ESCALONAMENTO_GRADE);
     });
 });

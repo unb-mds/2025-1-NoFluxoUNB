@@ -14,10 +14,14 @@
  * id_materia via a tabela `materias` antes de consultar `turmas`. Este
  * atuador segue o mesmo padrão de dois passos.
  */
+import { z } from "zod";
+import { Agent, run, tool, OutputGuardrailTripwireTriggered } from "@openai/agents";
+import type { OutputGuardrail } from "@openai/agents";
 import { SupabaseWrapper } from "../../../supabase_wrapper";
 import { montarDadosPlano } from "../../../controllers/PlanejamentoController";
 import { parseFluxograma } from "../../plano_formatura.service";
 import { slotMaskFromHorario } from "../../../utils/horario_slots";
+import { createMaritacaModel } from "../model_provider";
 import type { PlanoInput } from "../../../types/planejamento";
 
 export interface CandidatoGrade {
@@ -179,4 +183,120 @@ export async function recomendarPorHorarioLivre(
         .slice(0, 6);
 
     return { candidatos };
+}
+
+/**
+ * Fase 3 — revisor de horário (docs/chatbot-orquestrador.md): guarda os candidatos
+ * brutos retornados pela última chamada à tool nesta closure (uma por agente/request —
+ * createGradeAgent é sempre chamado de novo por requisição) e rejeita qualquer código
+ * citado na tag [MONTAR_GRADE|...] que não esteja entre eles. Como o filtro de horário
+ * já é 100% determinístico (bitmask, nunca passa pela IA), qualquer código fora da lista
+ * só pode ser alucinação do agente — não uma matéria que "quase" cabe.
+ */
+function extrairCodigosDaTag(texto: string): string[] {
+    const m = texto.match(/\[MONTAR_GRADE\|([^|\]]*)\|?[^\]]*\]/);
+    if (!m) return [];
+    return (m[1] ?? "")
+        .split(",")
+        .map((c) => c.trim().toUpperCase())
+        .filter(Boolean);
+}
+
+function criarRevisorHorario(getUltimosCandidatos: () => CandidatoGrade[] | null): OutputGuardrail {
+    return {
+        name: "revisor_horario_grade",
+        execute: async ({ agentOutput }) => {
+            const candidatos = getUltimosCandidatos();
+            if (!candidatos) return { tripwireTriggered: false, outputInfo: null };
+
+            const texto = typeof agentOutput === "string" ? agentOutput : JSON.stringify(agentOutput);
+            const codigosCitados = extrairCodigosDaTag(texto);
+            const codigosValidos = new Set(candidatos.map((c) => c.codigo));
+            const codigoInvalido = codigosCitados.find((c) => !codigosValidos.has(c));
+
+            if (codigoInvalido) {
+                return {
+                    tripwireTriggered: true,
+                    outputInfo: { motivo: `A resposta prioriza ${codigoInvalido}, que não está entre os candidatos que cabem no horário livre.` },
+                };
+            }
+            return { tripwireTriggered: false, outputInfo: null };
+        },
+    };
+}
+
+export function createGradeAgent(
+    idUser: string,
+    curriculoCompleto: string,
+    freeMaskStr: string,
+    periodoAtivo: string
+): Agent {
+    let ultimosCandidatos: CandidatoGrade[] | null = null;
+
+    const recomendarTool = tool({
+        name: "recomendar_por_horario_livre",
+        description: "Lista matérias (obrigatórias pendentes e optativas com oferta) cuja turma cabe inteira no horário livre atual do aluno, ordenadas por afinidade com o que ele já cursou.",
+        parameters: z.object({}),
+        execute: async () => {
+            const resultado = await recomendarPorHorarioLivre(idUser, curriculoCompleto, freeMaskStr, periodoAtivo);
+            ultimosCandidatos = "candidatos" in resultado ? resultado.candidatos : [];
+            return JSON.stringify(resultado);
+        },
+    });
+
+    return new Agent({
+        name: "AtuadorGrade",
+        instructions:
+            "Você responde SOMENTE pedidos de preencher horário livre / buraco na grade do Montador de Grade. " +
+            "Sempre use a tool recomendar_por_horario_livre antes de responder — nunca cite uma matéria que não veio dela. " +
+            "Se a lista de candidatos vier vazia, diga que não achou nada que caiba nesse horário, sem inventar código. " +
+            "Se o aluno topar montar/priorizar, confirme em uma frase curta e inclua no final [MONTAR_GRADE|CODIGOS] com os códigos escolhidos. " +
+            "Responda em português brasileiro, direto e conciso.",
+        model: createMaritacaModel(),
+        tools: [recomendarTool],
+        outputGuardrails: [criarRevisorHorario(() => ultimosCandidatos)],
+    });
+}
+
+/**
+ * Resposta padrão de escalonamento — nunca inventa nem repassa um código que não
+ * sobreviveu ao revisor duas vezes seguidas.
+ */
+export const RESPOSTA_ESCALONAMENTO_GRADE =
+    "Não achei nada certeiro pro seu horário livre agora — dá uma olhada nas optativas manualmente na lista ao lado.";
+
+function motivoDaReprovacaoGrade(erro: OutputGuardrailTripwireTriggered<any>): string {
+    return (
+        (erro.result.output.outputInfo as { motivo?: string } | null)?.motivo ??
+        "a resposta citou algo que não cabe no horário livre"
+    );
+}
+
+/**
+ * Roda o atuador e, se o revisor reprovar a resposta (código fora dos candidatos),
+ * reexecuta UMA vez com o motivo da reprovação injetado no prompt. Se a reexecução
+ * TAMBÉM for reprovada (reprovou duas vezes seguidas), escalona pra resposta padrão
+ * em vez de devolver um código não verificado ou estourar erro pro usuário — nunca
+ * tenta uma terceira vez.
+ */
+export async function runGradeComRevisao(agent: Agent, input: string): Promise<string> {
+    try {
+        const resultado = await run(agent, input);
+        return String(resultado.finalOutput ?? "");
+    } catch (erro) {
+        if (!(erro instanceof OutputGuardrailTripwireTriggered)) throw erro;
+
+        const motivo = motivoDaReprovacaoGrade(erro);
+        try {
+            const resultadoCorrigido = await run(
+                agent,
+                `${input}\n\n[Revisão automática] Sua resposta anterior foi rejeitada: ${motivo}. ` +
+                    "Responda de novo, citando só códigos que vieram da tool recomendar_por_horario_livre."
+            );
+            return String(resultadoCorrigido.finalOutput ?? "");
+        } catch (segundoErro) {
+            if (!(segundoErro instanceof OutputGuardrailTripwireTriggered)) throw segundoErro;
+            return RESPOSTA_ESCALONAMENTO_GRADE;
+        }
+    }
 }
