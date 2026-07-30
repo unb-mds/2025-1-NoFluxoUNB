@@ -11,6 +11,7 @@ import {
 	autoMontarGrade,
 	slotMaskFromHorario,
 	turmaRespeitaTurnos,
+	maskDosTurnos,
 	type TurmaComMask,
 	type Turno
 } from '$lib/utils/horario-slots';
@@ -226,6 +227,10 @@ function createGradeStore() {
 		},
 		get combinedMask() {
 			return combinedMask;
+		},
+		/** Slots livres = universo dos turnos permitidos menos o que já está selecionado. */
+		get freeMask(): bigint {
+			return maskDosTurnos(turnosPermitidos) & ~combinedMask;
 		},
 		get ocupacao() {
 			return ocupacao;

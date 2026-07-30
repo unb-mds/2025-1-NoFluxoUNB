@@ -36,4 +36,22 @@ describe('assistenteChatStore — contexto montador usa o pipeline novo', () => 
 		expect(chatService.enviarMensagem).toHaveBeenCalledWith('oi', { contexto: 'montador' });
 		expect(assistenteChatStore.chatMessages.at(-1)).toEqual({ role: 'assistant', content: 'beleza!' });
 	});
+
+	it('contexto montador chama chatService.enviarMensagem com horarioLivre e turnos', async () => {
+		vi.mocked(chatService.enviarMensagem).mockResolvedValue({ reply: 'beleza!' });
+
+		await assistenteChatStore.enviarMensagem('oi', {
+			contexto: 'montador',
+			curriculoCompleto: '8117/-2 - 2018.2',
+			horarioLivre: '12345',
+			turnos: ['M']
+		});
+
+		expect(chatService.enviarMensagem).toHaveBeenCalledWith('oi', {
+			contexto: 'montador',
+			curriculoCompleto: '8117/-2 - 2018.2',
+			horarioLivre: '12345',
+			turnos: ['M']
+		});
+	});
 });

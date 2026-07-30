@@ -1,6 +1,8 @@
 <script lang="ts">
 	import ChatPanel from '$lib/components/chat/ChatPanel.svelte';
 	import { assistenteChatStore } from '$lib/stores/assistente-chat.store.svelte';
+	import { gradeStore } from '$lib/stores/grade.store.svelte';
+	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { Bot, X, RefreshCw } from 'lucide-svelte';
 	import { scale } from 'svelte/transition';
 	import { backOut, cubicOut } from 'svelte/easing';
@@ -97,7 +99,13 @@
 	];
 
 	function onSend(msg: string) {
-		assistenteChatStore.enviarMensagem(msg, { contexto: 'montador' });
+		const curriculoCompleto = fluxogramaStore.state.courseData?.curriculoCompleto ?? undefined;
+		assistenteChatStore.enviarMensagem(msg, {
+			contexto: 'montador',
+			curriculoCompleto,
+			horarioLivre: gradeStore.freeMask.toString(),
+			turnos: [...gradeStore.turnosPermitidos]
+		});
 	}
 </script>
 

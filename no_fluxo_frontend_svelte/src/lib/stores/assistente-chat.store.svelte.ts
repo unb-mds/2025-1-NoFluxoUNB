@@ -69,7 +69,10 @@ function createAssistenteChatStore() {
 		get chatLoading() { return chatLoading; },
 		get error() { return error; },
 
-		async enviarMensagem(mensagem: string, opts?: { contexto?: 'montador' }): Promise<void> {
+		async enviarMensagem(
+			mensagem: string,
+			opts?: { contexto?: 'montador'; curriculoCompleto?: string; horarioLivre?: string; turnos?: string[] }
+		): Promise<void> {
 			if (!mensagem.trim() || chatLoading) return;
 			chatMessages = [...chatMessages, { role: 'user', content: mensagem }];
 			chatLoading = true;
@@ -79,7 +82,12 @@ function createAssistenteChatStore() {
 				let reply: string;
 				if (opts?.contexto === 'montador') {
 					// Montador de Grade já migrou pro pipeline novo (orquestrador + atuadores).
-					const resposta = await chatService.enviarMensagem(mensagem, { contexto: 'montador' });
+					const resposta = await chatService.enviarMensagem(mensagem, {
+						contexto: 'montador',
+						curriculoCompleto: opts.curriculoCompleto,
+						horarioLivre: opts.horarioLivre,
+						turnos: opts.turnos
+					});
 					reply = resposta.reply;
 				} else {
 					const planoInput = await buildPlanoInput();
