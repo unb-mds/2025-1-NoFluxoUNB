@@ -38,6 +38,59 @@ function norm(codigo: string): string {
     return (codigo || "").trim().toUpperCase();
 }
 
+function parseEmbeddingVector(raw: unknown): number[] | null {
+    if (Array.isArray(raw)) return raw.map(Number);
+    if (typeof raw === "string") {
+        try {
+            const parsed = JSON.parse(raw);
+            return Array.isArray(parsed) ? parsed.map(Number) : null;
+        } catch {
+            return null;
+        }
+    }
+    return null;
+}
+
+/** Vetor médio das matérias já concluídas — "perfil temático" do aluno. */
+async function calcularVetorPerfil(completedCodes: string[]): Promise<number[] | null> {
+    if (completedCodes.length === 0) return null;
+    const { data, error } = await SupabaseWrapper.get()
+        .from("materias_vetorizadas")
+        .select("codigo_materia, embedding")
+        .in("codigo_materia", completedCodes);
+    if (error || !data) return null;
+
+    const vetores = (data as any[])
+        .map((r) => parseEmbeddingVector(r.embedding))
+        .filter((v): v is number[] => v !== null && v.length > 0);
+    if (vetores.length === 0) return null;
+
+    const dim = vetores[0].length;
+    const soma = new Array(dim).fill(0);
+    for (const v of vetores) for (let i = 0; i < dim; i++) soma[i] += v[i] ?? 0;
+    return soma.map((s) => s / vetores.length);
+}
+
+/** codigo_materia -> similaridade (0..1) via RPC match_materias. Degrada pra Map vazio em qualquer falha. */
+async function buscarSimilaridades(vetorPerfil: number[]): Promise<Map<string, number>> {
+    const mapa = new Map<string, number>();
+    try {
+        const { data, error } = await SupabaseWrapper.get().rpc("match_materias", {
+            query_embedding: vetorPerfil,
+            match_threshold: 0.0,
+            match_count: 100,
+        });
+        if (error || !data) return mapa;
+        for (const item of data as any[]) {
+            const cod = norm(String(item.codigo_materia ?? ""));
+            if (cod) mapa.set(cod, Number(item.similaridade) || 0);
+        }
+    } catch {
+        // Degrada graciosamente — ranking cai pro neutro, horário livre não é afetado.
+    }
+    return mapa;
+}
+
 export async function recomendarPorHorarioLivre(
     idUser: string,
     curriculoCompleto: string,
@@ -102,6 +155,13 @@ export async function recomendarPorHorarioLivre(
         if ((turmaMask & freeMask) === turmaMask) codigosComTurmaNoLivre.add(cod);
     }
 
+    // Ranking por coerência temática (Task 7): perfil = média dos embeddings das
+    // matérias já concluídas; similaridade via RPC match_materias. Só afeta a
+    // ORDEM entre optativas já elegíveis pelo filtro de horário acima — nunca filtra.
+    const codigosCompletos = [...completed];
+    const vetorPerfil = await calcularVetorPerfil(codigosCompletos);
+    const similaridades = vetorPerfil ? await buscarSimilaridades(vetorPerfil) : new Map<string, number>();
+
     const candidatos: CandidatoGrade[] = elegiveis
         .filter((m) => codigosComTurmaNoLivre.has(norm(m.codigo)))
         .map((m) => ({
@@ -113,8 +173,10 @@ export async function recomendarPorHorarioLivre(
         }))
         .sort((a, b) => {
             if (a.obrigatoria !== b.obrigatoria) return a.obrigatoria ? -1 : 1;
-            return a.nivel - b.nivel;
-        });
+            if (a.obrigatoria) return a.nivel - b.nivel;
+            return (similaridades.get(b.codigo) ?? 0) - (similaridades.get(a.codigo) ?? 0);
+        })
+        .slice(0, 6);
 
     return { candidatos };
 }

@@ -48,7 +48,9 @@ function tableFrom(table: string) {
     return { select: () => ({ eq: function () { return this; }, in: function () { return this; }, then: (resolve: any) => resolve({ data: [], error: null }) }) };
 }
 
-const getMock = jest.fn(() => ({ from: (t: string) => tableFrom(t), rpc: async () => ({ data: [], error: null }) }));
+// rpc tipado com (...args: any[]) pra aceitar tanto o mock neutro (Task 6) quanto
+// os mocks de match_materias (Task 7), que recebem (fn, args).
+const getMock = jest.fn(() => ({ from: (t: string) => tableFrom(t), rpc: async (..._args: any[]): Promise<{ data: any[]; error: any }> => ({ data: [], error: null }) }));
 jest.mock("../src/supabase_wrapper", () => ({
     SupabaseWrapper: { get: () => getMock() },
 }));
@@ -77,6 +79,7 @@ jest.mock("../src/controllers/PlanejamentoController", () => ({
 
 import { maskLivre, slotMaskFromHorario } from "../src/utils/horario_slots";
 import { recomendarPorHorarioLivre } from "../src/services/chat/actuators/grade_actuator";
+import { montarDadosPlano } from "../src/controllers/PlanejamentoController";
 
 beforeEach(() => {
     db.materias.length = 0;
@@ -118,5 +121,110 @@ describe("recomendarPorHorarioLivre — filtro determinístico de horário", () 
     it("freeMask = 0n devolve lista vazia sem consultar turmas", async () => {
         const resultado = await recomendarPorHorarioLivre("42", "8117/-2 - 2018.2", "0", "2026.2");
         expect((resultado as any).candidatos).toEqual([]);
+    });
+});
+
+describe("recomendarPorHorarioLivre — ranking por coerência temática (Task 7)", () => {
+    it("entre duas optativas que cabem no horário, prioriza a mais parecida com o histórico", async () => {
+        // Mapeamento extra código -> id_materia pra FGA0004 (beforeEach só cadastra 0001/0002).
+        db.materias.push({ id_materia: 4, codigo_materia: "FGA0004" });
+        db.turmas.push({ id_materia: 2, ano_periodo: "2026.2", horario: "2M12" });
+        db.turmas.push({ id_materia: 4, ano_periodo: "2026.2", horario: "2M12" });
+
+        const rpcMock = jest.fn(async (fn: string) => {
+            if (fn !== "match_materias") return { data: [], error: null };
+            // FGA0004 mais similar ao perfil do aluno (baseado em FGA0001 concluída) do que FGA0002.
+            return {
+                data: [
+                    { codigo_materia: "FGA0004", similaridade: 0.9 },
+                    { codigo_materia: "FGA0002", similaridade: 0.3 },
+                ],
+                error: null,
+            };
+        });
+        getMock.mockImplementation(() => ({
+            from: (t: string) =>
+                t === "materias_vetorizadas"
+                    ? {
+                          select: () => ({
+                              in: () => ({
+                                  then: (resolve: any) =>
+                                      resolve({ data: [{ codigo_materia: "FGA0001", embedding: [0.1, 0.2] }], error: null }),
+                              }),
+                          }),
+                      }
+                    : tableFrom(t),
+            rpc: rpcMock,
+        }));
+
+        const materiasComQuarta = [
+            ...materiasMapeadasFake,
+            { codigo: "FGA0004", nome: "Optativa 2 com Oferta", creditos: 4, nivel: 0, obrigatoria: false, tipo_natureza: 1, carga_horaria: 60 },
+        ];
+        (montarDadosPlano as jest.Mock).mockResolvedValueOnce({
+            dados: {
+                fluxogramaAtual: JSON.stringify({ dados_fluxograma: [[{ codigo: "FGA0001", status: "APR" }]] }),
+                materiasMapeadas: materiasComQuarta,
+                codigosComOferta: new Set(["FGA0002", "FGA0004"]),
+            },
+        });
+
+        const livreTotal = maskLivre(0n, ["M", "T", "N"]);
+        const resultado = await recomendarPorHorarioLivre("42", "8117/-2 - 2018.2", livreTotal.toString(), "2026.2");
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
+
+        const idxFGA0004 = candidatos.findIndex((c) => c.codigo === "FGA0004");
+        const idxFGA0002 = candidatos.findIndex((c) => c.codigo === "FGA0002");
+        expect(idxFGA0004).toBeGreaterThanOrEqual(0);
+        expect(idxFGA0002).toBeGreaterThanOrEqual(0);
+        expect(idxFGA0004).toBeLessThan(idxFGA0002);
+    });
+
+    it("sem histórico (nenhuma matéria concluída): não quebra, cai pra ordem neutra", async () => {
+        // Mock padrão (beforeEach) já tem fluxogramaAtual sem concluídas — calcularVetorPerfil
+        // deve retornar cedo (sem sequer consultar materias_vetorizadas) e o resultado
+        // segue com candidatos intactos, na ordem neutra do filtro de horário.
+        db.turmas.push({ id_materia: 2, ano_periodo: "2026.2", horario: "2M12" });
+
+        const livreTotal = maskLivre(0n, ["M", "T", "N"]);
+        const resultado = await recomendarPorHorarioLivre("42", "8117/-2 - 2018.2", livreTotal.toString(), "2026.2");
+        expect("candidatos" in resultado).toBe(true);
+        expect((resultado as any).candidatos.length).toBeGreaterThan(0);
+    });
+
+    it("RPC match_materias falhando: degrada graciosamente (não lança, mantém candidatos do filtro de horário)", async () => {
+        db.turmas.push({ id_materia: 2, ano_periodo: "2026.2", horario: "2M12" });
+
+        getMock.mockImplementation(() => ({
+            from: (t: string) =>
+                t === "materias_vetorizadas"
+                    ? {
+                          select: () => ({
+                              in: () => ({
+                                  then: (resolve: any) =>
+                                      resolve({ data: [{ codigo_materia: "FGA0001", embedding: [0.1, 0.2] }], error: null }),
+                              }),
+                          }),
+                      }
+                    : tableFrom(t),
+            rpc: async () => {
+                throw new Error("timeout");
+            },
+        }));
+
+        // Histórico não-vazio (FGA0001 concluída) pra garantir que calcularVetorPerfil
+        // de fato chega a chamar buscarSimilaridades/RPC (senão o try/catch nunca seria exercido).
+        (montarDadosPlano as jest.Mock).mockResolvedValueOnce({
+            dados: {
+                fluxogramaAtual: JSON.stringify({ dados_fluxograma: [[{ codigo: "FGA0001", status: "APR" }]] }),
+                materiasMapeadas: materiasMapeadasFake,
+                codigosComOferta: new Set(["FGA0002"]),
+            },
+        });
+
+        const livreTotal = maskLivre(0n, ["M", "T", "N"]);
+        const resultado = await recomendarPorHorarioLivre("42", "8117/-2 - 2018.2", livreTotal.toString(), "2026.2");
+        expect("candidatos" in resultado).toBe(true);
+        expect((resultado as any).candidatos.length).toBeGreaterThan(0);
     });
 });
