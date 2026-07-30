@@ -47,7 +47,7 @@ function montarInstrucoes(apenasComOferta: boolean): string {
     return apenasComOferta ? `${INSTRUCOES}${PROTOCOLO_MONTAR_GRADE}` : INSTRUCOES;
 }
 
-export function createOrquestradorAgent(email: string, apenasComOferta: boolean = false): Agent {
+export function createOrquestradorAgent(email: string, apenasComOferta: boolean = false, curriculoCompleto?: string): Agent {
     const integralizacao = createIntegralizacaoAgent(email);
     const optativas = createOptativasAgent(apenasComOferta);
 

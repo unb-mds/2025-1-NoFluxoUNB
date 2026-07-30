@@ -37,7 +37,7 @@ export const ChatController: EndpointController = {
             }
             const token = authorization.startsWith("Bearer ") ? authorization.slice(7) : authorization;
 
-            const { message } = req.body ?? {};
+            const { message, curriculoCompleto } = req.body ?? {};
             if (!message || typeof message !== "string" || !message.trim()) {
                 return res.status(400).json({ error: "O campo 'message' é obrigatório." });
             }
@@ -57,7 +57,8 @@ export const ChatController: EndpointController = {
                 const session = new SupabaseSession(authData.user.id);
                 const orquestrador = createOrquestradorAgent(
                     authData.user.email ?? "",
-                    req.body?.contexto === "montador"
+                    req.body?.contexto === "montador",
+                    typeof curriculoCompleto === "string" ? curriculoCompleto : undefined
                 );
                 const resultado = await run(orquestrador, message, { session });
 
