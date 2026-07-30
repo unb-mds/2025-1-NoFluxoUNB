@@ -103,6 +103,74 @@ describe("Motor 2 v2", () => {
         expect(Array.isArray(resultado.materiasNaoAlocadas)).toBe(true);
     });
 
+    test("gerarPlanoCompletov2 — nao pula o semestre atual quando o aluno ainda nao tem MATR (matriculas nao publicadas)", () => {
+        // Cenario do bug: inicio de periodo letivo, scraper/turmas ainda sem dados,
+        // fluxograma_atual do aluno nao tem nenhuma materia com status MATR.
+        // O primeiro semestre do plano deve ser o semestre corrente (nao o proximo),
+        // senao o aluno "perde" um semestre inteiro no planejamento.
+        const resultado = gerarPlanoCompletov2(
+            "user-123",
+            "curso-001",
+            3,
+            mockCargaIntegralizada,
+            mockExigidaMatriz,
+            mockFluxogramaJson, // sem MATR
+            mockMaterias,
+            mockPreferencias
+        );
+
+        expect(resultado.semestreAtual).toBeUndefined();
+        expect(resultado.plano.length).toBeGreaterThan(0);
+
+        const now = new Date();
+        const mes = now.getMonth() + 1;
+        const semestreCorrenteEsperado = `${now.getFullYear()}.${mes <= 6 ? 1 : 2}`;
+
+        expect(resultado.plano[0].semestre).toBe(semestreCorrenteEsperado);
+    });
+
+    test("gerarPlanoCompletov2 — com MATR em curso, primeiro semestre do plano fica um a frente do corrente", () => {
+        const fluxogramaComMatr = JSON.stringify({
+            dados_fluxograma: [
+                [
+                    { codigo: "ENE0001", status: "APR", ano_periodo: "2023.1", tipo_dado: "integralizado" },
+                ],
+                [
+                    { codigo: "ENE0002", status: "MATR", ano_periodo: "2026.2", tipo_dado: "cursando" },
+                ],
+            ],
+        });
+
+        const semMatr = gerarPlanoCompletov2(
+            "user-123",
+            "curso-001",
+            3,
+            mockCargaIntegralizada,
+            mockExigidaMatriz,
+            mockFluxogramaJson, // sem MATR
+            mockMaterias,
+            mockPreferencias
+        );
+
+        const comMatr = gerarPlanoCompletov2(
+            "user-123",
+            "curso-001",
+            3,
+            mockCargaIntegralizada,
+            mockExigidaMatriz,
+            fluxogramaComMatr, // com MATR (aluno ja matriculado no semestre corrente)
+            mockMaterias,
+            mockPreferencias
+        );
+
+        expect(comMatr.semestreAtual).toBeDefined();
+        expect(semMatr.plano[0].semestre).toBeDefined();
+        expect(comMatr.plano[0].semestre).toBeDefined();
+        // O plano de quem ja esta cursando o semestre atual deve comecar exatamente
+        // um semestre depois do plano de quem ainda nao tem nada matriculado.
+        expect(comMatr.plano[0].semestre).not.toBe(semMatr.plano[0].semestre);
+    });
+
     test("gerarPlanoCompletov2 — calcula CH faltante corretamente", () => {
         const resultado = gerarPlanoCompletov2(
             "user-123",

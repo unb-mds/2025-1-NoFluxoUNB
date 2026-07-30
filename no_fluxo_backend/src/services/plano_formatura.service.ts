@@ -251,7 +251,12 @@ export function distribuirPorSemestres(
     numeroPeriodo: number,
     codigosComOferta?: Set<string>,
     chOptativaFaltante?: number,
-    semestreBaseStr?: string  // ex: "2026.1" — usado para preencher labelSemestre de cada coluna
+    semestreBaseStr?: string,  // ex: "2026.1" — usado para preencher labelSemestre de cada coluna
+    // Quantos semestres calendario a frente de semestreBaseStr o plano deve comecar.
+    // 1 quando o aluno ja esta com MATR no semestre corrente (semestre corrente ja "gasto"),
+    // 0 quando o semestre corrente ainda esta livre (sem matriculas publicadas ainda) —
+    // nesse caso o plano deve preencher o proprio semestre corrente, nao pular pro seguinte.
+    offsetSemestre: number = 1
 ): SemestrePlano[] {
     if (materias.length === 0) return [];
 
@@ -302,7 +307,7 @@ export function distribuirPorSemestres(
                 semestres.push({
                     indice: indiceSemestre,
                     tipo: indiceSemestre === 0 ? "recomendado" : "estimado",
-                    semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, indiceSemestre + 1) : undefined,
+                    semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, indiceSemestre + offsetSemestre) : undefined,
                     creditos: 0,
                     _horasInternas: 0,
                     materias: [],
@@ -433,7 +438,7 @@ export function distribuirPorSemestres(
             indice: indiceSemestre,
             tipo: indiceSemestre === 0 ? "recomendado" : "estimado",
             // +1 porque o primeiro semestre do plano é o PRÓXIMO (não o atual)
-            semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, indiceSemestre + 1) : undefined,
+            semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, indiceSemestre + offsetSemestre) : undefined,
             creditos: Math.ceil(horasUsadas / 15),
             _horasInternas: horasUsadas,  // NOVO: guardar valor exato em horas para evitar perda de precisão
             materias: materiasPlano,
@@ -741,7 +746,8 @@ function distribuirObrigatorias(
     numeroPeriodo: number,
     codigosComOferta?: Set<string>,
     chOptativaFaltante?: number,
-    semestreBaseStr?: string  // propagado para distribuirPorSemestres para preencher labelSemestre
+    semestreBaseStr?: string,  // propagado para distribuirPorSemestres para preencher labelSemestre
+    offsetSemestre: number = 1  // ver distribuirPorSemestres — 1 se ja ha MATR no semestre corrente, 0 se nao
 ): {
     semestres: SemestrePlano[];
     naoAlocadas: string[];
@@ -756,7 +762,8 @@ function distribuirObrigatorias(
         numeroPeriodo,
         codigosComOferta,
         chOptativaFaltante,
-        semestreBaseStr  // propagar para preencher semestre em cada SemestrePlano
+        semestreBaseStr,  // propagar para preencher semestre em cada SemestrePlano
+        offsetSemestre
     );
 
     // Se há estágio/TCC mas nenhum semestre foi criado, criar semestre vazio receptor
@@ -764,7 +771,7 @@ function distribuirObrigatorias(
         semestres.push({
             indice: 0,
             tipo: "estimado",
-            semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, 1) : undefined,
+            semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, offsetSemestre) : undefined,
             creditos: 0,
             materias: [],
         });
@@ -800,7 +807,7 @@ function distribuirObrigatorias(
             semestres.push({
                 indice: novoIndice,
                 tipo: "estimado",
-                semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, novoIndice + 1) : undefined,
+                semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, novoIndice + offsetSemestre) : undefined,
                 creditos: 0,
                 _horasInternas: 0,
                 materias: [],
@@ -818,7 +825,7 @@ function distribuirObrigatorias(
                 semestres.push({
                     indice: novoIndice,
                     tipo: "estimado",
-                    semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, novoIndice + 1) : undefined,
+                    semestre: semestreBaseStr ? avancarSemestres(semestreBaseStr, novoIndice + offsetSemestre) : undefined,
                     creditos: 0,
                     _horasInternas: 0,
                     materias: [],
@@ -931,6 +938,13 @@ export function gerarPlanoCompletov2(
     // Calcular semestre atual como string "2026.1" para preencher labels das colunas
     const semestreBaseStr = calcularSemestreAtualStr();
 
+    // Se o aluno já tem MATR no semestre corrente, o semestre corrente já está "gasto"
+    // (aparece à parte em resultado.semestreAtual) e o plano deve começar no seguinte.
+    // Se não há MATR (ex: início de período, turmas/matrículas ainda não publicadas),
+    // o semestre corrente ainda está livre e o plano deve preenchê-lo — senão o aluno
+    // perde um semestre inteiro no planejamento.
+    const offsetSemestre = currentSemester.length > 0 ? 1 : 0;
+
     const { semestres, naoAlocadas } = distribuirObrigatorias(
         obrigatorias,
         completedPlusMatr,  // B1: usar completedPlusMatr em vez de completed
@@ -938,7 +952,8 @@ export function gerarPlanoCompletov2(
         semestreAtual,
         codigosComOferta,
         chFaltante.optativa,  // Passar horas faltantes de optativas para reservar espaço
-        semestreBaseStr       // Projeção temporal: preencher SemestrePlano.semestre
+        semestreBaseStr,      // Projeção temporal: preencher SemestrePlano.semestre
+        offsetSemestre
     );
 
     const { semestres: semestresComSlots, optativaAlocada, complementarAlocado } = distribuirSlots(
