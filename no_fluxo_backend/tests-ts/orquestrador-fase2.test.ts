@@ -295,3 +295,15 @@ describe("Fase 2 — Orquestrador (delegação)", () => {
         expect(String(resultado.finalOutput)).toContain("FGA0242");
     });
 });
+
+describe("Fase 2 (migração) — protocolo MONTAR_GRADE nas instruções do orquestrador", () => {
+    it("inclui o bloco do protocolo quando apenasComOferta=true (contexto montador)", () => {
+        const orquestrador = createOrquestradorAgent("aluno@unb.br", true);
+        expect(String(orquestrador.instructions)).toContain("[MONTAR_GRADE|CODIGOS|TURNOS]");
+    });
+
+    it("NÃO inclui o bloco fora do contexto montador (apenasComOferta=false)", () => {
+        const orquestrador = createOrquestradorAgent("aluno@unb.br", false);
+        expect(String(orquestrador.instructions)).not.toContain("MONTAR_GRADE");
+    });
+});

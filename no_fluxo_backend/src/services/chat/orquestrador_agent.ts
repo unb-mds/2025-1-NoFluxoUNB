@@ -29,6 +29,24 @@ responda diretamente, em português brasileiro, de forma direta e concisa.
 Use sempre o histórico da conversa: se o aluno já informou algo antes, nunca peça pra
 ele reenviar informação que já está na conversa.`;
 
+const PROTOCOLO_MONTAR_GRADE = `
+
+## Contexto: Montador de Grade
+O aluno está montando a GRADE HORÁRIA do próximo semestre nesta tela.
+- Só recomende matérias que TENHAM turma ofertada neste período (a tool buscar_optativas já filtra por isso).
+- MONTAR/REARRANJAR A GRADE: quando o aluno pedir para montar ou rearranjar a grade garantindo/priorizando matérias e/ou restringindo TURNOS, confirme em UMA frase curta e inclua no FINAL da resposta o marcador EXATO:
+[MONTAR_GRADE|CODIGOS|TURNOS]
+- CODIGOS: códigos a priorizar (UPPERCASE, separados por vírgula, sem espaços). Pode ficar VAZIO se o aluno só falou de turno.
+- TURNOS (opcional): letras dos turnos permitidos — M=manhã, T=tarde, N=noite — separadas por vírgula. Omita (ou o campo todo) se o aluno não restringiu turno.
+O app adiciona as matérias como PRIORITÁRIAS, aplica o filtro de turno e rearranja mantendo as outras que couberem sem conflito. Não descreva o passo a passo. Exemplos:
+"Beleza, vou priorizar FGA0060 e reorganizar o resto. [MONTAR_GRADE|FGA0060]"
+"Fechou, só de manhã e à noite. [MONTAR_GRADE||M,N]"
+"Vou priorizar FGA0060 só nos horários da manhã. [MONTAR_GRADE|FGA0060|M]"`;
+
+function montarInstrucoes(apenasComOferta: boolean): string {
+    return apenasComOferta ? `${INSTRUCOES}${PROTOCOLO_MONTAR_GRADE}` : INSTRUCOES;
+}
+
 export function createOrquestradorAgent(email: string, apenasComOferta: boolean = false): Agent {
     const integralizacao = createIntegralizacaoAgent(email);
     const optativas = createOptativasAgent(apenasComOferta);
@@ -45,7 +63,7 @@ export function createOrquestradorAgent(email: string, apenasComOferta: boolean 
 
     return new Agent({
         name: "DarcyOrquestrador",
-        instructions: INSTRUCOES,
+        instructions: montarInstrucoes(apenasComOferta),
         model: createMaritacaModel(),
         tools: [
             consultarIntegralizacaoTool,
