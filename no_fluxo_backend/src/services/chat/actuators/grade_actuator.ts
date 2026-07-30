@@ -42,6 +42,23 @@ function norm(codigo: string): string {
     return (codigo || "").trim().toUpperCase();
 }
 
+/**
+ * resolveIdUserPorEmail — reimplementado aqui, não reexportado de
+ * integralizacao_actuator.ts, seguindo o padrão de duplicação já aceito no
+ * restante do pipeline (ver `filtrarPorOfertaAtiva` em optativas_actuator.ts:
+ * "reimplementado aqui — não reexportado do Darcy legado"). Mantém este
+ * atuador self-contained.
+ */
+async function resolveIdUserPorEmail(email: string): Promise<string | null> {
+    const { data, error } = await SupabaseWrapper.get()
+        .from("users")
+        .select("id_user")
+        .eq("email", email)
+        .maybeSingle();
+    if (error || !data?.id_user) return null;
+    return String(data.id_user);
+}
+
 function parseEmbeddingVector(raw: unknown): number[] | null {
     if (Array.isArray(raw)) return raw.map(Number);
     if (typeof raw === "string") {
@@ -96,11 +113,14 @@ async function buscarSimilaridades(vetorPerfil: number[]): Promise<Map<string, n
 }
 
 export async function recomendarPorHorarioLivre(
-    idUser: string,
+    email: string,
     curriculoCompleto: string,
     freeMaskStr: string,
     periodoAtivo: string
 ): Promise<{ candidatos: CandidatoGrade[] } | { erro: string }> {
+    const idUser = await resolveIdUserPorEmail(email);
+    if (!idUser) return { erro: "Não encontrei o cadastro deste usuário." };
+
     const freeMask = BigInt(freeMaskStr || "0");
     if (freeMask === 0n) {
         return { candidatos: [] };
@@ -247,7 +267,7 @@ function criarRevisorHorario(getUltimosCandidatos: () => CandidatoGrade[] | null
 }
 
 export function createGradeAgent(
-    idUser: string,
+    email: string,
     curriculoCompleto: string,
     freeMaskStr: string,
     periodoAtivo: string
@@ -259,7 +279,7 @@ export function createGradeAgent(
         description: "Lista matérias (obrigatórias pendentes e optativas com oferta) cuja turma cabe inteira no horário livre atual do aluno, ordenadas por afinidade com o que ele já cursou.",
         parameters: z.object({}),
         execute: async () => {
-            const resultado = await recomendarPorHorarioLivre(idUser, curriculoCompleto, freeMaskStr, periodoAtivo);
+            const resultado = await recomendarPorHorarioLivre(email, curriculoCompleto, freeMaskStr, periodoAtivo);
             ultimosCandidatos = "candidatos" in resultado ? resultado.candidatos : [];
             return JSON.stringify(resultado);
         },

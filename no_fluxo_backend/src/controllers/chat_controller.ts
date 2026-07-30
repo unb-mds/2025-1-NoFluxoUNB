@@ -37,7 +37,9 @@ export const ChatController: EndpointController = {
             }
             const token = authorization.startsWith("Bearer ") ? authorization.slice(7) : authorization;
 
-            const { message, curriculoCompleto } = req.body ?? {};
+            // turnos: reservado pra uma extensão futura (filtro de turno explícito no
+            // AtuadorGrade) — desencapado do body agora, ainda não usado nesta task.
+            const { message, curriculoCompleto, horarioLivre, turnos: _turnos } = req.body ?? {};
             if (!message || typeof message !== "string" || !message.trim()) {
                 return res.status(400).json({ error: "O campo 'message' é obrigatório." });
             }
@@ -55,10 +57,22 @@ export const ChatController: EndpointController = {
                 }
 
                 const session = new SupabaseSession(authData.user.id);
+
+                // Horário livre só faz sentido acompanhado de um período letivo ativo pra
+                // consultar as turmas contra — mesma RPC já usada em
+                // optativas_actuator.ts:filtrarPorOfertaAtiva, não inventar outra forma de
+                // descobrir o período.
+                let horarioLivreResolvido: { freeMaskStr: string; periodoAtivo: string } | undefined;
+                if (typeof horarioLivre === "string" && horarioLivre) {
+                    const { data: periodoAtivo } = await SupabaseWrapper.get().rpc("periodo_letivo_atual");
+                    horarioLivreResolvido = { freeMaskStr: horarioLivre, periodoAtivo: periodoAtivo ?? "" };
+                }
+
                 const orquestrador = createOrquestradorAgent(
                     authData.user.email ?? "",
                     req.body?.contexto === "montador",
-                    typeof curriculoCompleto === "string" ? curriculoCompleto : undefined
+                    typeof curriculoCompleto === "string" ? curriculoCompleto : undefined,
+                    horarioLivreResolvido
                 );
                 const resultado = await run(orquestrador, message, { session });
 

@@ -1,7 +1,7 @@
 process.env.MARITACA_API_KEY = "test-key";
 
 type Row = Record<string, any>;
-const db: { materias: Row[]; turmas: Row[] } = { materias: [], turmas: [] };
+const db: { materias: Row[]; turmas: Row[]; users: Row[] } = { materias: [], turmas: [], users: [] };
 
 /**
  * Mock genérico de tabela Supabase suportando .select().eq().in().then().
@@ -19,6 +19,7 @@ function makeTable(rows: Row[]) {
         select(_cols: string) {
             const filtrosIn: Array<[string, any[]]> = [];
             const filtrosEq: Array<[string, any]> = [];
+            let modoSingle: "maybe" | null = null;
             const builder: any = {
                 in(col: string, vals: any[]) {
                     filtrosIn.push([col, vals]);
@@ -28,12 +29,19 @@ function makeTable(rows: Row[]) {
                     filtrosEq.push([col, val]);
                     return builder;
                 },
+                maybeSingle() {
+                    modoSingle = "maybe";
+                    return builder;
+                },
                 then(resolve: (v: any) => any) {
                     const resultado = rows.filter(
                         (r) =>
                             filtrosEq.every(([c, v]) => r[c] === v) &&
                             filtrosIn.every(([c, vals]) => vals.includes(r[c]))
                     );
+                    if (modoSingle === "maybe") {
+                        return resolve({ data: resultado[0] ?? null, error: null });
+                    }
                     return resolve({ data: resultado, error: null });
                 },
             };
@@ -45,7 +53,21 @@ function makeTable(rows: Row[]) {
 function tableFrom(table: string) {
     if (table === "materias") return makeTable(db.materias);
     if (table === "turmas") return makeTable(db.turmas);
-    return { select: () => ({ eq: function () { return this; }, in: function () { return this; }, then: (resolve: any) => resolve({ data: [], error: null }) }) };
+    if (table === "users") return makeTable(db.users);
+    return {
+        select: () => ({
+            eq: function () {
+                return this;
+            },
+            in: function () {
+                return this;
+            },
+            maybeSingle: function () {
+                return this;
+            },
+            then: (resolve: any) => resolve({ data: [], error: null }),
+        }),
+    };
 }
 
 // rpc tipado com (...args: any[]) pra aceitar tanto o mock neutro (Task 6) quanto
@@ -92,12 +114,17 @@ jest.mock("openai", () => ({
 beforeEach(() => {
     db.materias.length = 0;
     db.turmas.length = 0;
+    db.users.length = 0;
     getMock.mockReset();
     getMock.mockImplementation(() => ({ from: (t: string) => tableFrom(t), rpc: async () => ({ data: [], error: null }) }));
 
     // Mapeamento código -> id_materia usado pelas duas turmas de teste abaixo.
     db.materias.push({ id_materia: 1, codigo_materia: "FGA0001" });
     db.materias.push({ id_materia: 2, codigo_materia: "FGA0002" });
+    // recomendarPorHorarioLivre/createGradeAgent recebem email e resolvem id_user
+    // internamente (mesmo padrão de integralizacao_actuator.ts) — sem essa linha,
+    // toda chamada cai no "Não encontrei o cadastro deste usuário.".
+    db.users.push({ email: "aluno@unb.br", id_user: 42 });
 });
 
 describe("recomendarPorHorarioLivre — filtro determinístico de horário", () => {
@@ -108,7 +135,7 @@ describe("recomendarPorHorarioLivre — filtro determinístico de horário", () 
         db.turmas.push({ id_materia: 2, ano_periodo: "2026.2", horario: "3T12" });
 
         const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12"); // só libera 2M12 pro teste
-        const resultado = await recomendarPorHorarioLivre("42", "8117/-2 - 2018.2", livre.toString(), "2026.2");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livre.toString(), "2026.2");
 
         expect("candidatos" in resultado).toBe(true);
         const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
@@ -120,14 +147,14 @@ describe("recomendarPorHorarioLivre — filtro determinístico de horário", () 
         db.turmas.push({ id_materia: 2, ano_periodo: "2026.2", horario: "3T12" });
 
         const livreTotal = maskLivre(0n, ["M", "T", "N"]);
-        const resultado = await recomendarPorHorarioLivre("42", "8117/-2 - 2018.2", livreTotal.toString(), "2026.2");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livreTotal.toString(), "2026.2");
 
         const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
         expect(candidatos.map((c) => c.codigo)).not.toContain("FGA0003");
     });
 
     it("freeMask = 0n devolve lista vazia sem consultar turmas", async () => {
-        const resultado = await recomendarPorHorarioLivre("42", "8117/-2 - 2018.2", "0", "2026.2");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", "0", "2026.2");
         expect((resultado as any).candidatos).toEqual([]);
     });
 });
@@ -178,7 +205,7 @@ describe("recomendarPorHorarioLivre — ranking por coerência temática (Task 7
         });
 
         const livreTotal = maskLivre(0n, ["M", "T", "N"]);
-        const resultado = await recomendarPorHorarioLivre("42", "8117/-2 - 2018.2", livreTotal.toString(), "2026.2");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livreTotal.toString(), "2026.2");
         const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
 
         const idxFGA0004 = candidatos.findIndex((c) => c.codigo === "FGA0004");
@@ -195,7 +222,7 @@ describe("recomendarPorHorarioLivre — ranking por coerência temática (Task 7
         db.turmas.push({ id_materia: 2, ano_periodo: "2026.2", horario: "2M12" });
 
         const livreTotal = maskLivre(0n, ["M", "T", "N"]);
-        const resultado = await recomendarPorHorarioLivre("42", "8117/-2 - 2018.2", livreTotal.toString(), "2026.2");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livreTotal.toString(), "2026.2");
         expect("candidatos" in resultado).toBe(true);
         expect((resultado as any).candidatos.length).toBeGreaterThan(0);
     });
@@ -231,7 +258,7 @@ describe("recomendarPorHorarioLivre — ranking por coerência temática (Task 7
         });
 
         const livreTotal = maskLivre(0n, ["M", "T", "N"]);
-        const resultado = await recomendarPorHorarioLivre("42", "8117/-2 - 2018.2", livreTotal.toString(), "2026.2");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livreTotal.toString(), "2026.2");
         expect("candidatos" in resultado).toBe(true);
         expect((resultado as any).candidatos.length).toBeGreaterThan(0);
     });
@@ -258,7 +285,7 @@ describe("AtuadorGrade — revisor (código citado precisa estar nos candidatos)
         });
 
         const freeMaskTotal = (1n << 96n) - 1n; // universo inteiro, mesmo valor usado nos outros testes deste describe
-        const agente = createGradeAgent("42", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
+        const agente = createGradeAgent("aluno@unb.br", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
         const resultado = await run(agente, "tenho um buraco na segunda de manhã, me recomenda algo");
         expect(String(resultado.finalOutput)).toContain("[MONTAR_GRADE|FGA0001]");
     });
@@ -278,7 +305,7 @@ describe("AtuadorGrade — revisor (código citado precisa estar nos candidatos)
         });
 
         const freeMaskTotal = (1n << 96n) - 1n; // universo inteiro, simplificado pro teste
-        const agente = createGradeAgent("42", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
+        const agente = createGradeAgent("aluno@unb.br", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
         const reply = await runGradeComRevisao(agente, "me recomenda algo pro horário livre");
         expect(reply).toContain("FGA0001");
         expect(reply).not.toContain("FGA9999");
@@ -296,7 +323,7 @@ describe("AtuadorGrade — revisor (código citado precisa estar nos candidatos)
         });
 
         const freeMaskTotal = (1n << 96n) - 1n;
-        const agente = createGradeAgent("42", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
+        const agente = createGradeAgent("aluno@unb.br", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
         const reply = await runGradeComRevisao(agente, "me recomenda algo pro horário livre");
         expect(reply).toBe(RESPOSTA_ESCALONAMENTO_GRADE);
     });
@@ -311,7 +338,7 @@ describe("AtuadorGrade — revisor (código citado precisa estar nos candidatos)
         }));
 
         const freeMaskTotal = (1n << 96n) - 1n;
-        const agente = createGradeAgent("42", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
+        const agente = createGradeAgent("aluno@unb.br", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
         await expect(run(agente, "me recomenda algo pro horário livre")).rejects.toThrow(
             OutputGuardrailTripwireTriggered
         );
@@ -337,7 +364,7 @@ describe("AtuadorGrade — revisor (código citado precisa estar nos candidatos)
         });
 
         const freeMaskTotal = (1n << 96n) - 1n;
-        const agente = createGradeAgent("42", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
+        const agente = createGradeAgent("aluno@unb.br", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
         await expect(run(agente, "me recomenda algo pro horário livre")).rejects.toThrow(
             OutputGuardrailTripwireTriggered
         );
@@ -357,7 +384,7 @@ describe("AtuadorGrade — revisor (código citado precisa estar nos candidatos)
         });
 
         const freeMaskTotal = (1n << 96n) - 1n;
-        const agente = createGradeAgent("42", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
+        const agente = createGradeAgent("aluno@unb.br", "8117/-2 - 2018.2", freeMaskTotal.toString(), "2026.2");
         const resultado = await run(agente, "me recomenda algo pro horário livre");
         expect(String(resultado.finalOutput)).toContain("Não achei nada certeiro");
     });

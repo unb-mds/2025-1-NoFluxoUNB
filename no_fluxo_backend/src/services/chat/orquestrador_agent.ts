@@ -13,6 +13,7 @@ import { Agent, tool } from "@openai/agents";
 import { createMaritacaModel } from "./model_provider";
 import { createIntegralizacaoAgent, runIntegralizacaoComRevisao } from "./actuators/integralizacao_actuator";
 import { createOptativasAgent } from "./actuators/optativas_actuator";
+import { createGradeAgent, runGradeComRevisao } from "./actuators/grade_actuator";
 
 const INSTRUCOES = `Você é o Darcy, orquestrador de planejamento acadêmico do No Fluxo (UnB).
 
@@ -34,6 +35,7 @@ const PROTOCOLO_MONTAR_GRADE = `
 ## Contexto: Montador de Grade
 O aluno está montando a GRADE HORÁRIA do próximo semestre nesta tela.
 - Só recomende matérias que TENHAM turma ofertada neste período (a tool buscar_optativas já filtra por isso).
+- Se o aluno disser que tem um horário livre / buraco na grade e pedir recomendação (ex: "tenho segunda de manhã livre, me recomenda algo"), delegue para a tool "recomendar_por_horario_livre" em vez de buscar_optativas — ela já sabe o que cabe no horário e o que é parecido com o histórico do aluno.
 - MONTAR/REARRANJAR A GRADE: quando o aluno pedir para montar ou rearranjar a grade garantindo/priorizando matérias e/ou restringindo TURNOS, confirme em UMA frase curta e inclua no FINAL da resposta o marcador EXATO:
 [MONTAR_GRADE|CODIGOS|TURNOS]
 - CODIGOS: códigos a priorizar (UPPERCASE, separados por vírgula, sem espaços). Pode ficar VAZIO se o aluno só falou de turno.
@@ -47,7 +49,12 @@ function montarInstrucoes(apenasComOferta: boolean): string {
     return apenasComOferta ? `${INSTRUCOES}${PROTOCOLO_MONTAR_GRADE}` : INSTRUCOES;
 }
 
-export function createOrquestradorAgent(email: string, apenasComOferta: boolean = false, curriculoCompleto?: string): Agent {
+export function createOrquestradorAgent(
+    email: string,
+    apenasComOferta: boolean = false,
+    curriculoCompleto?: string,
+    horarioLivre?: { freeMaskStr: string; periodoAtivo: string }
+): Agent {
     const integralizacao = createIntegralizacaoAgent(email);
     const optativas = createOptativasAgent(apenasComOferta);
 
@@ -61,16 +68,33 @@ export function createOrquestradorAgent(email: string, apenasComOferta: boolean 
         execute: async ({ input }) => runIntegralizacaoComRevisao(integralizacao, input),
     });
 
+    const tools = [
+        consultarIntegralizacaoTool,
+        optativas.asTool({
+            toolName: "buscar_optativas",
+            toolDescription: "Delega para o atuador de busca de disciplinas optativas por tema.",
+        }),
+    ];
+
+    // Só entra em cena no Montador de Grade (apenasComOferta) e quando temos o
+    // currículo completo do aluno e o horário livre já calculado (freeMask + período
+    // ativo) — sem os três, não há como o AtuadorGrade filtrar nada, então a tool nem
+    // é registrada (o orquestrador cai pro buscar_optativas de qualquer forma).
+    if (apenasComOferta && curriculoCompleto && horarioLivre) {
+        const grade = createGradeAgent(email, curriculoCompleto, horarioLivre.freeMaskStr, horarioLivre.periodoAtivo);
+        const recomendarHorarioLivreTool = tool({
+            name: "recomendar_por_horario_livre",
+            description: "Delega para o atuador que recomenda matérias que cabem no horário livre atual do aluno, priorizando afinidade com o histórico.",
+            parameters: z.object({ input: z.string() }),
+            execute: async ({ input }) => runGradeComRevisao(grade, input),
+        });
+        tools.push(recomendarHorarioLivreTool);
+    }
+
     return new Agent({
         name: "DarcyOrquestrador",
         instructions: montarInstrucoes(apenasComOferta),
         model: createMaritacaModel(),
-        tools: [
-            consultarIntegralizacaoTool,
-            optativas.asTool({
-                toolName: "buscar_optativas",
-                toolDescription: "Delega para o atuador de busca de disciplinas optativas por tema.",
-            }),
-        ],
+        tools,
     });
 }

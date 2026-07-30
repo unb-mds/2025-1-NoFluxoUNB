@@ -307,3 +307,26 @@ describe("Fase 2 (migração) — protocolo MONTAR_GRADE nas instruções do orq
         expect(String(orquestrador.instructions)).not.toContain("MONTAR_GRADE");
     });
 });
+
+describe("Fase 2 (extensão) — Orquestrador delega horário livre pro AtuadorGrade", () => {
+    it("delega pedido de preencher horário livre pra recomendar_por_horario_livre", async () => {
+        db.materias.push({ id_materia: 1, codigo_materia: "FGA0001" });
+        db.turmas.push({ id_materia: 1, codigo_materia: "FGA0001", ano_periodo: "2026.2", horario: "2M12" });
+        configurarMockLlmGenerico();
+
+        const orquestrador = createOrquestradorAgent(
+            "aluno@unb.br",
+            true,
+            "8117/-2 - 2018.2",
+            { freeMaskStr: ((1n << 96n) - 1n).toString(), periodoAtivo: "2026.2" }
+        );
+        const ferramentas = (orquestrador as any).tools?.map((t: any) => t.name) ?? [];
+        expect(ferramentas).toContain("recomendar_por_horario_livre");
+    });
+
+    it("sem horarioLivre (fora do Montador), a tool não é registrada", async () => {
+        const orquestrador = createOrquestradorAgent("aluno@unb.br", false);
+        const ferramentas = (orquestrador as any).tools?.map((t: any) => t.name) ?? [];
+        expect(ferramentas).not.toContain("recomendar_por_horario_livre");
+    });
+});
