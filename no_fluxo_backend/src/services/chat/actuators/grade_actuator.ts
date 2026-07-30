@@ -3,7 +3,10 @@
  * de chat (docs/chatbot-orquestrador.md), spec em
  * docs/superpowers/specs/2026-07-30-recomendacao-horario-livre-design.md.
  *
- * Filtro de horário é sempre determinístico (bitmask) — nunca passa pela IA.
+ * O filtro de horário em si é sempre determinístico (bitmask) — a comparação de
+ * máscaras nunca passa pela IA. (Nota: `montarDadosPlano`, chamado por esta função,
+ * pode disparar lazy-load de dificuldade via IA para matérias sem `dificuldade_estimada`
+ * — efeito colateral herdado, fora do escopo deste filtro.)
  * Coerência temática (Task 7) é só ranking por cima do que já passou aqui.
  *
  * NOTA sobre o schema de `turmas`: a tabela só tem `id_materia` (sem
@@ -92,19 +95,47 @@ async function calcularVetorPerfil(completedCodes: string[]): Promise<number[] |
     return soma.map((s) => s / vetores.length);
 }
 
-/** codigo_materia -> similaridade (0..1) via RPC match_materias. Degrada pra Map vazio em qualquer falha. */
-async function buscarSimilaridades(vetorPerfil: number[]): Promise<Map<string, number>> {
+function cosineSimilarity(a: number[], b: number[]): number {
+    const dim = Math.min(a.length, b.length);
+    let dot = 0;
+    let normA = 0;
+    let normB = 0;
+    for (let i = 0; i < dim; i++) {
+        dot += a[i] * b[i];
+        normA += a[i] * a[i];
+        normB += b[i] * b[i];
+    }
+    if (normA === 0 || normB === 0) return 0;
+    return dot / (Math.sqrt(normA) * Math.sqrt(normB));
+}
+
+/**
+ * codigo_materia -> similaridade de cosseno (-1..1) contra vetorPerfil, calculada em JS
+ * só para `codigosCandidatos` — a lista pequena (~6) já filtrada pelo horário livre, NUNCA
+ * uma busca no universo inteiro de materias_vetorizadas (~26k linhas). Substitui a antiga
+ * `buscarSimilaridades` via RPC `match_materias`: pedir o top-100 global e procurar os
+ * candidatos ali dentro era estatisticamente quase sempre 0 (candidatos são uma fração
+ * ínfima de 26k linhas), tornando o ranking por afinidade temática um no-op silencioso.
+ * Degrada pra Map vazio em qualquer falha — nunca derruba um candidato que já passou pelo
+ * filtro de horário, só perde o ranking por afinidade (cai pra ordem neutra).
+ */
+async function calcularSimilaridadesCandidatos(
+    vetorPerfil: number[],
+    codigosCandidatos: string[]
+): Promise<Map<string, number>> {
     const mapa = new Map<string, number>();
+    if (codigosCandidatos.length === 0) return mapa;
     try {
-        const { data, error } = await SupabaseWrapper.get().rpc("match_materias", {
-            query_embedding: vetorPerfil,
-            match_threshold: 0.0,
-            match_count: 100,
-        });
+        const { data, error } = await SupabaseWrapper.get()
+            .from("materias_vetorizadas")
+            .select("codigo_materia, embedding")
+            .in("codigo_materia", codigosCandidatos);
         if (error || !data) return mapa;
         for (const item of data as any[]) {
             const cod = norm(String(item.codigo_materia ?? ""));
-            if (cod) mapa.set(cod, Number(item.similaridade) || 0);
+            const vetor = parseEmbeddingVector(item.embedding);
+            if (!cod || !vetor || vetor.length === 0) continue;
+            mapa.set(cod, cosineSimilarity(vetorPerfil, vetor));
         }
     } catch {
         // Degrada graciosamente — ranking cai pro neutro, horário livre não é afetado.
@@ -179,15 +210,32 @@ export async function recomendarPorHorarioLivre(
         if ((turmaMask & freeMask) === turmaMask) codigosComTurmaNoLivre.add(cod);
     }
 
-    // Ranking por coerência temática (Task 7): perfil = média dos embeddings das
-    // matérias já concluídas; similaridade via RPC match_materias. Só afeta a
-    // ORDEM entre optativas já elegíveis pelo filtro de horário acima — nunca filtra.
+    // Ranking por coerência temática (Task 7 / Fix 1): perfil = média dos embeddings das
+    // matérias já concluídas; similaridade calculada em JS (cosseno) só para as optativas
+    // candidatas que já passaram no filtro de horário acima — nunca busca no universo
+    // inteiro de materias_vetorizadas. Só afeta a ORDEM entre optativas já elegíveis pelo
+    // filtro de horário — nunca filtra.
+    const codigosCandidatosOptativas = elegiveis
+        .filter((m) => !m.obrigatoria && codigosComTurmaNoLivre.has(norm(m.codigo)))
+        .map((m) => norm(m.codigo));
     const codigosCompletos = [...completed];
     const vetorPerfil = await calcularVetorPerfil(codigosCompletos);
-    const similaridades = vetorPerfil ? await buscarSimilaridades(vetorPerfil) : new Map<string, number>();
+    const similaridades = vetorPerfil
+        ? await calcularSimilaridadesCandidatos(vetorPerfil, codigosCandidatosOptativas)
+        : new Map<string, number>();
 
+    // Fix 4: dedupe por código antes do slice — a mesma matéria pode em tese aparecer em
+    // dois níveis de materiasMapeadas (ex.: currículos com duplicação de nível); sem isso
+    // ela ocuparia duas das seis vagas finais consigo mesma. Mantém a 1ª ocorrência.
+    const codigosVistos = new Set<string>();
     const candidatos: CandidatoGrade[] = elegiveis
         .filter((m) => codigosComTurmaNoLivre.has(norm(m.codigo)))
+        .filter((m) => {
+            const cod = norm(m.codigo);
+            if (codigosVistos.has(cod)) return false;
+            codigosVistos.add(cod);
+            return true;
+        })
         .map((m) => ({
             codigo: norm(m.codigo),
             nome: m.nome,
@@ -216,6 +264,15 @@ export async function recomendarPorHorarioLivre(
  * extrairCodigosDaTag usa a flag global (/g) e varre TODA ocorrência da tag na resposta —
  * uma resposta pode, em teoria, conter mais de um [MONTAR_GRADE|...] e cada uma precisa
  * ser verificada, não só a primeira.
+ *
+ * Escopo: este guardrail verifica só a resposta do sub-agente AtuadorGrade (o que roda
+ * dentro de createGradeAgent/runGradeComRevisao, abaixo). O orquestrador que compõe a
+ * resposta final ao usuário (orquestrador_agent.ts, createOrquestradorAgent) não tem
+ * outputGuardrails próprios e, em tese, poderia compor uma tag [MONTAR_GRADE|...] com um
+ * código não verificado por este revisor. Isso é um limite de escopo conhecido e aceito,
+ * não um bug: o montador de grade do frontend faz backtracking sem conflito de horário de
+ * qualquer forma, então um código não verificado no pior caso fica sem alocar — nunca gera
+ * um conflito real de horário.
  */
 function extrairCodigosDaTag(texto: string): string[] {
     const codigos: string[] = [];

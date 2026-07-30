@@ -1,7 +1,12 @@
 process.env.MARITACA_API_KEY = "test-key";
 
 type Row = Record<string, any>;
-const db: { materias: Row[]; turmas: Row[]; users: Row[] } = { materias: [], turmas: [], users: [] };
+const db: { materias: Row[]; turmas: Row[]; users: Row[]; materias_vetorizadas: Row[] } = {
+    materias: [],
+    turmas: [],
+    users: [],
+    materias_vetorizadas: [],
+};
 
 /**
  * Mock genérico de tabela Supabase suportando .select().eq().in().then().
@@ -54,6 +59,7 @@ function tableFrom(table: string) {
     if (table === "materias") return makeTable(db.materias);
     if (table === "turmas") return makeTable(db.turmas);
     if (table === "users") return makeTable(db.users);
+    if (table === "materias_vetorizadas") return makeTable(db.materias_vetorizadas);
     return {
         select: () => ({
             eq: function () {
@@ -70,8 +76,9 @@ function tableFrom(table: string) {
     };
 }
 
-// rpc tipado com (...args: any[]) pra aceitar tanto o mock neutro (Task 6) quanto
-// os mocks de match_materias (Task 7), que recebem (fn, args).
+// rpc tipado com (...args: any[]) — não é mais usado pelo ranking por similaridade
+// (Fix 1: match_materias saiu do path de recomendarPorHorarioLivre), mas fica genérico
+// pra não quebrar caso algum outro caminho do arquivo real chame rpc no futuro.
 const getMock = jest.fn(() => ({ from: (t: string) => tableFrom(t), rpc: async (..._args: any[]): Promise<{ data: any[]; error: any }> => ({ data: [], error: null }) }));
 jest.mock("../src/supabase_wrapper", () => ({
     SupabaseWrapper: { get: () => getMock() },
@@ -115,6 +122,7 @@ beforeEach(() => {
     db.materias.length = 0;
     db.turmas.length = 0;
     db.users.length = 0;
+    db.materias_vetorizadas.length = 0;
     getMock.mockReset();
     getMock.mockImplementation(() => ({ from: (t: string) => tableFrom(t), rpc: async () => ({ data: [], error: null }) }));
 
@@ -159,38 +167,22 @@ describe("recomendarPorHorarioLivre — filtro determinístico de horário", () 
     });
 });
 
-describe("recomendarPorHorarioLivre — ranking por coerência temática (Task 7)", () => {
+describe("recomendarPorHorarioLivre — ranking por coerência temática (Task 7 / Fix 1)", () => {
     it("entre duas optativas que cabem no horário, prioriza a mais parecida com o histórico", async () => {
         // Mapeamento extra código -> id_materia pra FGA0004 (beforeEach só cadastra 0001/0002).
         db.materias.push({ id_materia: 4, codigo_materia: "FGA0004" });
         db.turmas.push({ id_materia: 2, ano_periodo: "2026.2", horario: "2M12" });
         db.turmas.push({ id_materia: 4, ano_periodo: "2026.2", horario: "2M12" });
 
-        const rpcMock = jest.fn(async (fn: string) => {
-            if (fn !== "match_materias") return { data: [], error: null };
-            // FGA0004 mais similar ao perfil do aluno (baseado em FGA0001 concluída) do que FGA0002.
-            return {
-                data: [
-                    { codigo_materia: "FGA0004", similaridade: 0.9 },
-                    { codigo_materia: "FGA0002", similaridade: 0.3 },
-                ],
-                error: null,
-            };
-        });
-        getMock.mockImplementation(() => ({
-            from: (t: string) =>
-                t === "materias_vetorizadas"
-                    ? {
-                          select: () => ({
-                              in: () => ({
-                                  then: (resolve: any) =>
-                                      resolve({ data: [{ codigo_materia: "FGA0001", embedding: [0.1, 0.2] }], error: null }),
-                              }),
-                          }),
-                      }
-                    : tableFrom(t),
-            rpc: rpcMock,
-        }));
+        // Fix 1: não há mais RPC match_materias — a similaridade é calculada em JS
+        // (cosseno) a partir de embeddings buscados diretamente em materias_vetorizadas,
+        // só para os candidatos já filtrados por horário (não o universo de ~26k matérias).
+        // Perfil do aluno = embedding de FGA0001 (única concluída) = [0.1, 0.2].
+        db.materias_vetorizadas.push({ codigo_materia: "FGA0001", embedding: [0.1, 0.2] });
+        // FGA0004: paralelo ao perfil ([0.2, 0.4] = 2x[0.1, 0.2]) -> cosseno = 1 (máxima similaridade).
+        db.materias_vetorizadas.push({ codigo_materia: "FGA0004", embedding: [0.2, 0.4] });
+        // FGA0002: ortogonal ao perfil (dot([0.1,0.2],[-0.2,0.1]) = 0) -> cosseno = 0.
+        db.materias_vetorizadas.push({ codigo_materia: "FGA0002", embedding: [-0.2, 0.1] });
 
         const materiasComQuarta = [
             ...materiasMapeadasFake,
@@ -217,8 +209,8 @@ describe("recomendarPorHorarioLivre — ranking por coerência temática (Task 7
 
     it("sem histórico (nenhuma matéria concluída): não quebra, cai pra ordem neutra", async () => {
         // Mock padrão (beforeEach) já tem fluxogramaAtual sem concluídas — calcularVetorPerfil
-        // deve retornar cedo (sem sequer consultar materias_vetorizadas) e o resultado
-        // segue com candidatos intactos, na ordem neutra do filtro de horário.
+        // deve retornar cedo (sem sequer consultar materias_vetorizadas para candidatos) e o
+        // resultado segue com candidatos intactos, na ordem neutra do filtro de horário.
         db.turmas.push({ id_materia: 2, ano_periodo: "2026.2", horario: "2M12" });
 
         const livreTotal = maskLivre(0n, ["M", "T", "N"]);
@@ -227,28 +219,35 @@ describe("recomendarPorHorarioLivre — ranking por coerência temática (Task 7
         expect((resultado as any).candidatos.length).toBeGreaterThan(0);
     });
 
-    it("RPC match_materias falhando: degrada graciosamente (não lança, mantém candidatos do filtro de horário)", async () => {
+    it("materias_vetorizadas falhando na busca dos candidatos: degrada graciosamente (não lança, mantém candidatos do filtro de horário)", async () => {
         db.turmas.push({ id_materia: 2, ano_periodo: "2026.2", horario: "2M12" });
 
+        // Mock dedicado: a 1ª consulta a materias_vetorizadas (calcularVetorPerfil, busca por
+        // FGA0001 concluída) funciona normalmente; a 2ª (calcularSimilaridadesCandidatos, busca
+        // por FGA0002 candidata) rejeita, simulando o novo ponto de falha (não é mais a RPC).
         getMock.mockImplementation(() => ({
-            from: (t: string) =>
-                t === "materias_vetorizadas"
-                    ? {
-                          select: () => ({
-                              in: () => ({
-                                  then: (resolve: any) =>
-                                      resolve({ data: [{ codigo_materia: "FGA0001", embedding: [0.1, 0.2] }], error: null }),
-                              }),
-                          }),
-                      }
-                    : tableFrom(t),
-            rpc: async () => {
-                throw new Error("timeout");
+            from: (t: string) => {
+                if (t !== "materias_vetorizadas") return tableFrom(t);
+                return {
+                    select: () => ({
+                        in: (_col: string, vals: string[]) => {
+                            if (vals.includes("FGA0002")) {
+                                return Promise.reject(new Error("timeout"));
+                            }
+                            return {
+                                then: (resolve: any) =>
+                                    resolve({ data: [{ codigo_materia: "FGA0001", embedding: [0.1, 0.2] }], error: null }),
+                            };
+                        },
+                    }),
+                };
             },
+            rpc: async () => ({ data: [], error: null }),
         }));
 
-        // Histórico não-vazio (FGA0001 concluída) pra garantir que calcularVetorPerfil
-        // de fato chega a chamar buscarSimilaridades/RPC (senão o try/catch nunca seria exercido).
+        // Histórico não-vazio (FGA0001 concluída) pra garantir que calcularVetorPerfil ache um
+        // perfil e o código realmente chegue a chamar calcularSimilaridadesCandidatos (senão o
+        // try/catch nunca seria exercido).
         (montarDadosPlano as jest.Mock).mockResolvedValueOnce({
             dados: {
                 fluxogramaAtual: JSON.stringify({ dados_fluxograma: [[{ codigo: "FGA0001", status: "APR" }]] }),
@@ -261,6 +260,38 @@ describe("recomendarPorHorarioLivre — ranking por coerência temática (Task 7
         const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livreTotal.toString(), "2026.2");
         expect("candidatos" in resultado).toBe(true);
         expect((resultado as any).candidatos.length).toBeGreaterThan(0);
+    });
+});
+
+describe("recomendarPorHorarioLivre — dedupe de candidatos (Fix 4)", () => {
+    it("o mesmo código aparecendo em dois níveis de materiasMapeadas não duplica o candidato final", async () => {
+        db.turmas.push({ id_materia: 1, ano_periodo: "2026.2", horario: "2M12" });
+
+        const materiasComDuplicata = [
+            ...materiasMapeadasFake,
+            {
+                codigo: "FGA0001",
+                nome: "Obrigatória Pendente (duplicata de nível)",
+                creditos: 4,
+                nivel: 5,
+                obrigatoria: true,
+                tipo_natureza: 0,
+                carga_horaria: 60,
+            },
+        ];
+        (montarDadosPlano as jest.Mock).mockResolvedValueOnce({
+            dados: {
+                fluxogramaAtual: JSON.stringify({ dados_fluxograma: [] }),
+                materiasMapeadas: materiasComDuplicata,
+                codigosComOferta: new Set(["FGA0002"]),
+            },
+        });
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livre.toString(), "2026.2");
+
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
+        expect(candidatos.filter((c) => c.codigo === "FGA0001")).toHaveLength(1);
     });
 });
 

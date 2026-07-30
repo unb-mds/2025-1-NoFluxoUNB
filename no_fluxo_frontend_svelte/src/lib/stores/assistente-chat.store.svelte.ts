@@ -1,10 +1,13 @@
 /**
  * Assistente Chat Store — chat-agente da aba Assistente (Svelte 5 runes).
  *
- * Espelha o fluxo do chat do planejador (histórico completo, request/response),
- * mas aponta para /assistente/chat. Monta o planoInput a partir de fluxograma +
- * auth + preferências salvas quando o aluno está logado — assim as tools de
- * plano/histórico do agente acendem. Anônimo/sem curso → só as tools genéricas.
+ * Espelha o fluxo do chat do planejador (histórico completo, request/response).
+ * Rotea pra dois endpoints conforme o contexto: `opts.contexto === 'montador'`
+ * (chat do Montador de Grade) vai pro pipeline novo em /chat/send (orquestrador +
+ * atuadores); qualquer outro contexto (aba Assistente) segue pro legado
+ * /assistente/chat. Monta o planoInput a partir de fluxograma + auth + preferências
+ * salvas quando o aluno está logado — assim as tools de plano/histórico do agente
+ * acendem. Anônimo/sem curso → só as tools genéricas.
  */
 
 import { authStore } from '$lib/stores/auth';
