@@ -10,6 +10,7 @@
 import { authStore } from '$lib/stores/auth';
 import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 import { AssistenteService, type AssistentePlanoInput } from '$lib/services/assistente.service';
+import { chatService } from '$lib/services/chat.service';
 import { planoFormaturaService } from '$lib/services/plano-formatura.service';
 import type { PlannerChatMessage } from '$lib/types/plano-formatura';
 import type { AuthState } from '$lib/types/auth';
@@ -75,9 +76,17 @@ function createAssistenteChatStore() {
 			error = null;
 
 			try {
-				const planoInput = await buildPlanoInput();
-				const resposta = await service.chatAgente(chatMessages, planoInput, undefined, opts?.contexto);
-				chatMessages = [...chatMessages, { role: 'assistant', content: resposta.reply }];
+				let reply: string;
+				if (opts?.contexto === 'montador') {
+					// Montador de Grade já migrou pro pipeline novo (orquestrador + atuadores).
+					const resposta = await chatService.enviarMensagem(mensagem, { contexto: 'montador' });
+					reply = resposta.reply;
+				} else {
+					const planoInput = await buildPlanoInput();
+					const resposta = await service.chatAgente(chatMessages, planoInput, undefined, opts?.contexto);
+					reply = resposta.reply;
+				}
+				chatMessages = [...chatMessages, { role: 'assistant', content: reply }];
 			} catch (err) {
 				const msg = err instanceof Error ? err.message : 'Erro ao falar com o assistente';
 				error = msg;
