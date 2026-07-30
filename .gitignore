@@ -143,3 +143,6 @@ dev.backend.Dockerfile
 dev.frontend-svelte.Dockerfile
 dev.mcp-agent.Dockerfile
 docker-compose.yml
+
+# Workspace de execução do subagent-driven-development (ledger, briefs, review packages).
+.superpowers/
