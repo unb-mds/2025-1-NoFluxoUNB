@@ -59,15 +59,33 @@ describe("expandirCumpridasComEquivalencias", () => {
         expect(expandido.has("CIC0198")).toBe(true);
     });
 
-    it("resolve equivalência em cadeia (X cursada → Y equivalente → Z equivalente a Y)", () => {
+    /**
+     * Equivalência NÃO é transitiva. A UnB registra pares explícitos; o fato de existir
+     * X≡Y e Y≡Z não autoriza X≡Z. Medido em 60 alunos reais: realimentar a cadeia
+     * inflaria em 30% (406 → 583 matérias) o que conta como cumprido.
+     */
+    it("NÃO propaga em cadeia — matéria cumprida por equivalência não satisfaz outra equivalência", () => {
         const materias = [
             materia("Y", { equivalencias: [{ condicoes: ["X"], operador: "OU" }] }),
             materia("Z", { equivalencias: [{ condicoes: ["Y"], operador: "OU" }] }),
         ];
         const expandido = expandirCumpridasComEquivalencias(materias, new Set(["X"]));
 
+        // Y sai direto de X, que o aluno cursou de verdade.
         expect(expandido.has("Y")).toBe(true);
-        expect(expandido.has("Z")).toBe(true);
+        // Z dependeria de Y, que só existe por equivalência — não conta.
+        expect(expandido.has("Z")).toBe(false);
+    });
+
+    it("ordem das matérias na lista não muda o resultado (sem dependência de iteração)", () => {
+        const defs = [
+            materia("Y", { equivalencias: [{ condicoes: ["X"], operador: "OU" }] }),
+            materia("Z", { equivalencias: [{ condicoes: ["Y"], operador: "OU" }] }),
+        ];
+        const direta = expandirCumpridasComEquivalencias(defs, new Set(["X"]));
+        const invertida = expandirCumpridasComEquivalencias([...defs].reverse(), new Set(["X"]));
+
+        expect([...direta].sort()).toEqual([...invertida].sort());
     });
 
     it("matéria sem equivalência não é afetada, e o conjunto original não é mutado", () => {

@@ -213,8 +213,15 @@ export function calcularScore(
  * fluxograma_controller.ts, que resolve isso na montagem do fluxograma mas so para
  * obrigatorias; aqui vale para qualquer materia da matriz.
  *
- * Itera ate o ponto fixo para cobrir cadeia (X cursada -> Y equivale a X -> Z equivale
- * a Y). Termina sempre: o conjunto so cresce e e limitado por materias.length.
+ * PASSE UNICO, de proposito: so o que o aluno cursou DE VERDADE satisfaz uma
+ * equivalencia — uma materia marcada por equivalencia nao realimenta a expansao. Ou
+ * seja, A=B e B=C NAO implica A=C. Equivalencia na UnB e tabela explicita, nao relacao
+ * transitiva: a secretaria nao aceita a cadeia so porque os dois pares existem. Essa e
+ * tambem a semantica do checkEquivalencies (fluxograma_controller.ts), que compara
+ * sempre contra as disciplinas realmente integralizadas.
+ *
+ * Medido em 60 alunos reais: realimentar a cadeia inflaria o resultado em 30%
+ * (406 -> 583 materias), mexendo em 24 dos 60 — inferencia que nao se sustenta.
  *
  * Nao muta o Set recebido.
  */
@@ -222,25 +229,22 @@ export function expandirCumpridasComEquivalencias(
     materias: MateriaInput[],
     cumpridas: Set<string>
 ): Set<string> {
-    const expandido = new Set<string>();
-    for (const c of cumpridas) expandido.add(norm(c));
+    const base = new Set<string>();
+    for (const c of cumpridas) base.add(norm(c));
 
-    let mudou = true;
-    while (mudou) {
-        mudou = false;
-        for (const m of materias) {
-            const cod = norm(m.codigo);
-            if (!cod || expandido.has(cod)) continue;
+    const expandido = new Set<string>(base);
+    for (const m of materias) {
+        const cod = norm(m.codigo);
+        if (!cod || expandido.has(cod)) continue;
 
-            const exprs = Array.isArray(m.equivalencias) ? m.equivalencias : [];
-            for (const raw of exprs) {
-                const expr = parseExprOrNull(raw);
-                if (!expr) continue;
-                if (satisfazExpressaoLogica(expr, expandido)) {
-                    expandido.add(cod);
-                    mudou = true;
-                    break;
-                }
+        const exprs = Array.isArray(m.equivalencias) ? m.equivalencias : [];
+        for (const raw of exprs) {
+            const expr = parseExprOrNull(raw);
+            if (!expr) continue;
+            // Compara contra `base` (cursado de verdade), nunca contra `expandido`.
+            if (satisfazExpressaoLogica(expr, base)) {
+                expandido.add(cod);
+                break;
             }
         }
     }
