@@ -22,7 +22,11 @@ import { Agent, run, tool, OutputGuardrailTripwireTriggered } from "@openai/agen
 import type { OutputGuardrail } from "@openai/agents";
 import { SupabaseWrapper } from "../../../supabase_wrapper";
 import { montarDadosPlano } from "../../../controllers/PlanejamentoController";
-import { parseFluxograma, isDesbloqueada } from "../../plano_formatura.service";
+import {
+    parseFluxograma,
+    isDesbloqueada,
+    expandirCumpridasComEquivalencias,
+} from "../../plano_formatura.service";
 import {
     getCodigosFromExpressaoLogica,
     parseExpressaoLogicaFromDb,
@@ -201,8 +205,14 @@ export async function recomendarPorHorarioLivre(
     // que o aluno está montando — mesma regra que o Motor 2 usa (completedPlusMatr
     // em gerarPlanoCompletov2). O que NÃO entra aqui é codigosNaGrade: aquilo é do
     // mesmo semestre da recomendação e não pode liberar pré-requisito.
-    const cumpridas = new Set(completed);
-    for (const m of currentSemester) cumpridas.add(norm(m.codigo));
+    const cumpridasBase = new Set(completed);
+    for (const m of currentSemester) cumpridasBase.add(norm(m.codigo));
+
+    // Equivalência: se o que o aluno cursou satisfaz a equivalência de Y, Y conta como
+    // cumprida — não recomenda de novo e libera quem depende dela. O fluxograma só
+    // pré-resolve equivalência de obrigatórias, então optativas equivalentes só são
+    // pegas aqui.
+    const cumpridas = expandirCumpridasComEquivalencias(dados.materiasMapeadas, cumpridasBase);
 
     const naGrade = new Set(codigosNaGrade.map(norm));
 

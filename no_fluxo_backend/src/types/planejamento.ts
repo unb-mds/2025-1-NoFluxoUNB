@@ -81,6 +81,13 @@ export interface MateriaInput {
     preRequisitos?: unknown;
     /** Codigos diretos dos co-requisitos. */
     coRequisitos?: unknown;
+    /**
+     * Expressoes de equivalencia desta materia (tabela `equivalencias`). Uma materia
+     * pode ter varias linhas — curriculos/vigencias diferentes —, e basta UMA ser
+     * satisfeita para a materia contar como cumprida. Cada item aceita o formato
+     * {condicoes, operador} ou o formato cru do banco.
+     */
+    equivalencias?: unknown[];
 }
 
 /**

@@ -242,9 +242,16 @@ export async function montarDadosPlano(
 
         let preByMateria = new Map<number, unknown>();
         let coByMateria = new Map<number, unknown>();
+        // Equivalencia é 1:N (uma matéria pode ter várias linhas, de currículos/vigências
+        // diferentes) — diferente de pré/co-requisito, que são 1:1 aqui.
+        let equivByMateria = new Map<number, unknown[]>();
 
         if (idsMaterias.length > 0) {
-            const [{ data: preRows, error: erroPreReq }, { data: coRows, error: erroCoReq }] = await Promise.all([
+            const [
+                { data: preRows, error: erroPreReq },
+                { data: coRows, error: erroCoReq },
+                { data: equivRows, error: erroEquiv },
+            ] = await Promise.all([
                 SupabaseWrapper.get()
                     .from("pre_requisitos")
                     .select("id_materia, expressao_logica")
@@ -253,13 +260,26 @@ export async function montarDadosPlano(
                     .from("co_requisitos")
                     .select("id_materia, expressao_logica")
                     .in("id_materia", idsMaterias),
+                SupabaseWrapper.get()
+                    .from("equivalencias")
+                    .select("id_materia, expressao_logica")
+                    .in("id_materia", idsMaterias),
             ]);
 
             if (erroPreReq) return { status: 500, error: `Erro ao buscar pré-requisitos: ${erroPreReq.message}` };
             if (erroCoReq) return { status: 500, error: `Erro ao buscar co-requisitos: ${erroCoReq.message}` };
+            if (erroEquiv) return { status: 500, error: `Erro ao buscar equivalências: ${erroEquiv.message}` };
 
             if (preRows) preRows.forEach((r: any) => preByMateria.set(r.id_materia, r.expressao_logica));
             if (coRows) coRows.forEach((r: any) => coByMateria.set(r.id_materia, r.expressao_logica));
+            if (equivRows) {
+                equivRows.forEach((r: any) => {
+                    if (r.expressao_logica == null) return;
+                    const atuais = equivByMateria.get(r.id_materia) ?? [];
+                    atuais.push(r.expressao_logica);
+                    equivByMateria.set(r.id_materia, atuais);
+                });
+            }
         }
 
         // 5. MAP MATERIAS PARA O FORMATO DO MOTOR 2
@@ -279,6 +299,7 @@ export async function montarDadosPlano(
                 motivoDificuldade: mat.motivo_dificuldade || undefined,
                 preRequisitos: preByMateria.get(mat.id_materia) || null,
                 coRequisitos: coByMateria.get(mat.id_materia) || null,
+                equivalencias: equivByMateria.get(mat.id_materia) ?? [],
             };
         });
 

@@ -530,6 +530,77 @@ describe("recomendarPorHorarioLivre — co-requisitos", () => {
     });
 });
 
+/**
+ * Equivalência ponta a ponta no atuador. O fluxograma só pré-resolve equivalência de
+ * obrigatórias, então uma OPTATIVA equivalente a algo já cursado escapava do
+ * `completed` e voltava a ser recomendada.
+ */
+describe("recomendarPorHorarioLivre — equivalências", () => {
+    it("não recomenda optativa equivalente a uma matéria que o aluno já cursou", async () => {
+        db.turmas.push({ id_materia: 2, ano_periodo: "2026.2", horario: "2M12" });
+
+        const optativaComEquivalencia = {
+            ...materiasMapeadasFake[1], // FGA0002, optativa com oferta
+            equivalencias: [{ condicoes: ["CIC0234"], operador: "OU" }],
+        };
+        (montarDadosPlano as jest.Mock).mockResolvedValueOnce({
+            dados: {
+                // Aluno cursou CIC0234, que é equivalente a FGA0002.
+                fluxogramaAtual: JSON.stringify({
+                    dados_fluxograma: [[{ codigo: "CIC0234", status: "APR" }]],
+                }),
+                materiasMapeadas: [materiasMapeadasFake[0], optativaComEquivalencia],
+                codigosComOferta: new Set(["FGA0002"]),
+            },
+        });
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livre.toString(), "2026.2");
+
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
+        expect(candidatos.map((c) => c.codigo)).not.toContain("FGA0002");
+    });
+
+    it("libera pré-requisito cumprido por equivalência", async () => {
+        db.materias.push({ id_materia: 5, codigo_materia: "FGA0005" });
+        db.turmas.push({ id_materia: 5, ano_periodo: "2026.2", horario: "2M12" });
+
+        // FGA0005 exige FGA0001. O aluno não cursou FGA0001, mas cursou CIC0234,
+        // que é equivalente a FGA0001.
+        const fga0001ComEquivalencia = {
+            ...materiasMapeadasFake[0], // FGA0001
+            equivalencias: [{ condicoes: ["CIC0234"], operador: "OU" }],
+        };
+        const fga0005 = {
+            codigo: "FGA0005",
+            nome: "Depende de FGA0001",
+            creditos: 4,
+            nivel: 4,
+            obrigatoria: true,
+            tipo_natureza: 0,
+            carga_horaria: 60,
+            preRequisitos: { condicoes: ["FGA0001"], operador: "E" },
+        };
+        (montarDadosPlano as jest.Mock).mockResolvedValueOnce({
+            dados: {
+                fluxogramaAtual: JSON.stringify({
+                    dados_fluxograma: [[{ codigo: "CIC0234", status: "APR" }]],
+                }),
+                materiasMapeadas: [fga0001ComEquivalencia, fga0005],
+                codigosComOferta: new Set([]),
+            },
+        });
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livre.toString(), "2026.2");
+
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
+        // FGA0005 liberada pela equivalência; FGA0001 sai por já estar cumprida.
+        expect(candidatos.map((c) => c.codigo)).toContain("FGA0005");
+        expect(candidatos.map((c) => c.codigo)).not.toContain("FGA0001");
+    });
+});
+
 describe("AtuadorGrade — revisor (código citado precisa estar nos candidatos)", () => {
     beforeEach(() => {
         mockCreate.mockReset();

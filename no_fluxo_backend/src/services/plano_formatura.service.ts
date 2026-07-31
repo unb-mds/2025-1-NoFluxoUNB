@@ -200,6 +200,54 @@ export function calcularScore(
 // 4) isDesbloqueada
 // =============================================================
 
+/**
+ * Expande o conjunto de materias cumpridas com as satisfeitas por EQUIVALENCIA.
+ *
+ * Regra (docs/unb-domain.md: "CUMP = cumprido por equivalencia — conta, desbloqueia
+ * pre-requisitos"): se o que o aluno cursou satisfaz a expressao de equivalencia de Y,
+ * entao Y conta como cumprida. Vale para os dois usos: nao recomendar Y de novo e
+ * liberar quem depende de Y como pre-requisito.
+ *
+ * Uma materia pode ter varias linhas de equivalencia (curriculos/vigencias diferentes)
+ * e basta UMA ser satisfeita — mesma leitura do checkEquivalencies em
+ * fluxograma_controller.ts, que resolve isso na montagem do fluxograma mas so para
+ * obrigatorias; aqui vale para qualquer materia da matriz.
+ *
+ * Itera ate o ponto fixo para cobrir cadeia (X cursada -> Y equivale a X -> Z equivale
+ * a Y). Termina sempre: o conjunto so cresce e e limitado por materias.length.
+ *
+ * Nao muta o Set recebido.
+ */
+export function expandirCumpridasComEquivalencias(
+    materias: MateriaInput[],
+    cumpridas: Set<string>
+): Set<string> {
+    const expandido = new Set<string>();
+    for (const c of cumpridas) expandido.add(norm(c));
+
+    let mudou = true;
+    while (mudou) {
+        mudou = false;
+        for (const m of materias) {
+            const cod = norm(m.codigo);
+            if (!cod || expandido.has(cod)) continue;
+
+            const exprs = Array.isArray(m.equivalencias) ? m.equivalencias : [];
+            for (const raw of exprs) {
+                const expr = parseExprOrNull(raw);
+                if (!expr) continue;
+                if (satisfazExpressaoLogica(expr, expandido)) {
+                    expandido.add(cod);
+                    mudou = true;
+                    break;
+                }
+            }
+        }
+    }
+
+    return expandido;
+}
+
 export function isDesbloqueada(
     materia: MateriaInput,
     completedCodes: Set<string>
@@ -926,10 +974,16 @@ export function gerarPlanoCompletov2(
     console.log(`[Motor2 v2] Limite efetivo para obrigatórias: ${prefs.limiteCreditos * 15 - horasReservadaPorSemestre}h/semestre\n`);
 
     // B1: Criar completedPlusMatr que inclui matérias concluídas E em andamento (MATR)
-    const completedPlusMatr = new Set(completed);
+    const completedPlusMatrBase = new Set(completed);
     for (const m of currentSemester) {
-        completedPlusMatr.add(norm(m.codigo));
+        completedPlusMatrBase.add(norm(m.codigo));
     }
+
+    // Equivalência: matéria satisfeita por algo que o aluno já cursou conta como
+    // cumprida — não entra no plano de novo e libera quem depende dela. O fluxograma
+    // só pré-resolve isso para obrigatórias (fluxograma_controller.checkEquivalencies),
+    // então sem esta expansão as optativas equivalentes escapavam.
+    const completedPlusMatr = expandirCumpridasComEquivalencias(materias, completedPlusMatrBase);
 
     const materiasFaltantes = materias.filter((m) => !completedPlusMatr.has(norm(m.codigo)));
 
