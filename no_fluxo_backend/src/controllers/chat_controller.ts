@@ -39,7 +39,7 @@ export const ChatController: EndpointController = {
 
             // turnos: reservado pra uma extensão futura (filtro de turno explícito no
             // AtuadorGrade) — desencapado do body agora, ainda não usado nesta task.
-            const { message, curriculoCompleto, horarioLivre, turnos: _turnos } = req.body ?? {};
+            const { message, curriculoCompleto, horarioLivre, codigosNaGrade, turnos: _turnos } = req.body ?? {};
             if (!message || typeof message !== "string" || !message.trim()) {
                 return res.status(400).json({ error: "O campo 'message' é obrigatório." });
             }
@@ -62,10 +62,20 @@ export const ChatController: EndpointController = {
                 // consultar as turmas contra — mesma RPC já usada em
                 // optativas_actuator.ts:filtrarPorOfertaAtiva, não inventar outra forma de
                 // descobrir o período.
-                let horarioLivreResolvido: { freeMaskStr: string; periodoAtivo: string } | undefined;
+                let horarioLivreResolvido:
+                    | { freeMaskStr: string; periodoAtivo: string; codigosNaGrade: string[] }
+                    | undefined;
                 if (typeof horarioLivre === "string" && horarioLivre) {
                     const { data: periodoAtivo } = await SupabaseWrapper.get().rpc("periodo_letivo_atual");
-                    horarioLivreResolvido = { freeMaskStr: horarioLivre, periodoAtivo: periodoAtivo ?? "" };
+                    horarioLivreResolvido = {
+                        freeMaskStr: horarioLivre,
+                        periodoAtivo: periodoAtivo ?? "",
+                        // Matérias já alocadas na grade: não recomendar de novo e não deixar
+                        // valerem como pré-requisito (são do mesmo semestre).
+                        codigosNaGrade: Array.isArray(codigosNaGrade)
+                            ? codigosNaGrade.filter((c: unknown): c is string => typeof c === "string")
+                            : [],
+                    };
                 }
 
                 const orquestrador = createOrquestradorAgent(

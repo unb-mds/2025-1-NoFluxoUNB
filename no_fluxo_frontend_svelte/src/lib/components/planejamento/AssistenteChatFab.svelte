@@ -104,7 +104,11 @@
 			contexto: 'montador',
 			curriculoCompleto,
 			horarioLivre: gradeStore.freeMask.toString(),
-			turnos: [...gradeStore.turnosPermitidos]
+			turnos: [...gradeStore.turnosPermitidos],
+			// Matérias com turma já escolhida nesta grade — mesma fonte de onde sai o
+			// freeMask (selecao → combinedMask). O backend usa pra não recomendar
+			// duplicata e pra não deixá-las valerem como pré-requisito (mesmo semestre).
+			codigosNaGrade: [...gradeStore.selecao.keys()]
 		});
 	}
 </script>

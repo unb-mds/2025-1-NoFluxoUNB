@@ -53,7 +53,7 @@ export function createOrquestradorAgent(
     email: string,
     apenasComOferta: boolean = false,
     curriculoCompleto?: string,
-    horarioLivre?: { freeMaskStr: string; periodoAtivo: string }
+    horarioLivre?: { freeMaskStr: string; periodoAtivo: string; codigosNaGrade?: string[] }
 ): Agent {
     const integralizacao = createIntegralizacaoAgent(email);
     const optativas = createOptativasAgent(apenasComOferta);
@@ -81,7 +81,13 @@ export function createOrquestradorAgent(
     // ativo) — sem os três, não há como o AtuadorGrade filtrar nada, então a tool nem
     // é registrada (o orquestrador cai pro buscar_optativas de qualquer forma).
     if (apenasComOferta && curriculoCompleto && horarioLivre) {
-        const grade = createGradeAgent(email, curriculoCompleto, horarioLivre.freeMaskStr, horarioLivre.periodoAtivo);
+        const grade = createGradeAgent(
+            email,
+            curriculoCompleto,
+            horarioLivre.freeMaskStr,
+            horarioLivre.periodoAtivo,
+            horarioLivre.codigosNaGrade ?? []
+        );
         const recomendarHorarioLivreTool = tool({
             name: "recomendar_por_horario_livre",
             description: "Delega para o atuador que recomenda matérias que cabem no horário livre atual do aluno, priorizando afinidade com o histórico.",

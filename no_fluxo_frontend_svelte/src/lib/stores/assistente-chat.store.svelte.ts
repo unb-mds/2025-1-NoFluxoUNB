@@ -74,7 +74,13 @@ function createAssistenteChatStore() {
 
 		async enviarMensagem(
 			mensagem: string,
-			opts?: { contexto?: 'montador'; curriculoCompleto?: string; horarioLivre?: string; turnos?: string[] }
+			opts?: {
+				contexto?: 'montador';
+				curriculoCompleto?: string;
+				horarioLivre?: string;
+				turnos?: string[];
+				codigosNaGrade?: string[];
+			}
 		): Promise<void> {
 			if (!mensagem.trim() || chatLoading) return;
 			chatMessages = [...chatMessages, { role: 'user', content: mensagem }];
@@ -89,7 +95,8 @@ function createAssistenteChatStore() {
 						contexto: 'montador',
 						curriculoCompleto: opts.curriculoCompleto,
 						horarioLivre: opts.horarioLivre,
-						turnos: opts.turnos
+						turnos: opts.turnos,
+						codigosNaGrade: opts.codigosNaGrade
 					});
 					reply = resposta.reply;
 				} else {

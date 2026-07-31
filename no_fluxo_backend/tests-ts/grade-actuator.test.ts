@@ -295,6 +295,131 @@ describe("recomendarPorHorarioLivre — dedupe de candidatos (Fix 4)", () => {
     });
 });
 
+/**
+ * Pré-requisitos + matérias já na grade.
+ *
+ * FGA0005 exige FGA0001. O que satisfaz o pré-requisito é o conjunto
+ * "cumpridas" = APR/CUMP ∪ MATR — matéria MATR é do semestre corrente e estará
+ * concluída antes do semestre que o aluno está montando. Matéria apenas ALOCADA
+ * na grade em construção NÃO satisfaz: ela é do MESMO semestre, então não pode
+ * ser pré-requisito de outra da mesma grade.
+ */
+describe("recomendarPorHorarioLivre — pré-requisitos e matérias já na grade", () => {
+    const FGA0005_DEPENDE_DE_FGA0001 = {
+        codigo: "FGA0005",
+        nome: "Depende de FGA0001",
+        creditos: 4,
+        nivel: 4,
+        obrigatoria: true,
+        tipo_natureza: 0,
+        carga_horaria: 60,
+        preRequisitos: { condicoes: ["FGA0001"], operador: "E" },
+    };
+
+    /** Cadastra id_materia + turma no horário livre pra FGA0005. */
+    function ofertarFGA0005() {
+        db.materias.push({ id_materia: 5, codigo_materia: "FGA0005" });
+        db.turmas.push({ id_materia: 5, ano_periodo: "2026.2", horario: "2M12" });
+    }
+
+    function mockarPlano(fluxograma: unknown[], materias: unknown[], oferta: string[]) {
+        (montarDadosPlano as jest.Mock).mockResolvedValueOnce({
+            dados: {
+                fluxogramaAtual: JSON.stringify({ dados_fluxograma: fluxograma }),
+                materiasMapeadas: materias,
+                codigosComOferta: new Set(oferta),
+            },
+        });
+    }
+
+    it("exclui matéria cujo pré-requisito o aluno NÃO cumpriu", async () => {
+        ofertarFGA0005();
+        // Histórico vazio — FGA0001 não foi cursada.
+        mockarPlano([], [...materiasMapeadasFake, FGA0005_DEPENDE_DE_FGA0001], ["FGA0002"]);
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livre.toString(), "2026.2");
+
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
+        expect(candidatos.map((c) => c.codigo)).not.toContain("FGA0005");
+    });
+
+    it("inclui matéria cujo pré-requisito está APROVADO no histórico", async () => {
+        ofertarFGA0005();
+        mockarPlano(
+            [[{ codigo: "FGA0001", status: "APR" }]],
+            [...materiasMapeadasFake, FGA0005_DEPENDE_DE_FGA0001],
+            ["FGA0002"]
+        );
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livre.toString(), "2026.2");
+
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
+        expect(candidatos.map((c) => c.codigo)).toContain("FGA0005");
+    });
+
+    it("inclui matéria cujo pré-requisito está MATR (cursando agora) — estará concluído no semestre alvo", async () => {
+        ofertarFGA0005();
+        mockarPlano(
+            [[{ codigo: "FGA0001", status: "MATR" }]],
+            [...materiasMapeadasFake, FGA0005_DEPENDE_DE_FGA0001],
+            ["FGA0002"]
+        );
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livre.toString(), "2026.2");
+
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
+        expect(candidatos.map((c) => c.codigo)).toContain("FGA0005");
+    });
+
+    it("NÃO libera pré-requisito que está só alocado na grade em construção (mesmo semestre)", async () => {
+        ofertarFGA0005();
+        // Histórico vazio: FGA0001 só está na grade que o aluno está montando agora.
+        mockarPlano([], [...materiasMapeadasFake, FGA0005_DEPENDE_DE_FGA0001], ["FGA0002"]);
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre(
+            "aluno@unb.br",
+            "8117/-2 - 2018.2",
+            livre.toString(),
+            "2026.2",
+            ["FGA0001"]
+        );
+
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
+        expect(candidatos.map((c) => c.codigo)).not.toContain("FGA0005");
+    });
+
+    it("não recomenda matéria que já está alocada na grade", async () => {
+        db.turmas.push({ id_materia: 1, ano_periodo: "2026.2", horario: "2M12" });
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre(
+            "aluno@unb.br",
+            "8117/-2 - 2018.2",
+            livre.toString(),
+            "2026.2",
+            ["FGA0001"]
+        );
+
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
+        expect(candidatos.map((c) => c.codigo)).not.toContain("FGA0001");
+    });
+
+    it("não recomenda optativa que o aluno já cursou (ramo das optativas também checa o histórico)", async () => {
+        db.turmas.push({ id_materia: 2, ano_periodo: "2026.2", horario: "2M12" });
+        mockarPlano([[{ codigo: "FGA0002", status: "APR" }]], materiasMapeadasFake, ["FGA0002"]);
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livre.toString(), "2026.2");
+
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
+        expect(candidatos.map((c) => c.codigo)).not.toContain("FGA0002");
+    });
+});
+
 describe("AtuadorGrade — revisor (código citado precisa estar nos candidatos)", () => {
     beforeEach(() => {
         mockCreate.mockReset();

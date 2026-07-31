@@ -22,7 +22,7 @@ import { Agent, run, tool, OutputGuardrailTripwireTriggered } from "@openai/agen
 import type { OutputGuardrail } from "@openai/agents";
 import { SupabaseWrapper } from "../../../supabase_wrapper";
 import { montarDadosPlano } from "../../../controllers/PlanejamentoController";
-import { parseFluxograma } from "../../plano_formatura.service";
+import { parseFluxograma, isDesbloqueada } from "../../plano_formatura.service";
 import { slotMaskFromHorario } from "../../../utils/horario_slots";
 import { createMaritacaModel } from "../model_provider";
 import type { PlanoInput } from "../../../types/planejamento";
@@ -147,7 +147,15 @@ export async function recomendarPorHorarioLivre(
     email: string,
     curriculoCompleto: string,
     freeMaskStr: string,
-    periodoAtivo: string
+    periodoAtivo: string,
+    /**
+     * Códigos já alocados na grade que o aluno está montando nesta tela. São do
+     * MESMO semestre da recomendação, então: (a) não podem ser recomendados de novo
+     * e (b) NÃO satisfazem pré-requisito de nenhuma outra — só um co-requisito
+     * funcionaria assim. Diferente de MATR, que é do semestre corrente e estará
+     * concluída antes do semestre alvo.
+     */
+    codigosNaGrade: string[] = []
 ): Promise<{ candidatos: CandidatoGrade[] } | { erro: string }> {
     const idUser = await resolveIdUserPorEmail(email);
     if (!idUser) return { erro: "Não encontrei o cadastro deste usuário." };
@@ -162,12 +170,28 @@ export async function recomendarPorHorarioLivre(
         return { erro: error ?? "Não foi possível carregar o currículo do aluno." };
     }
 
-    const { completed } = parseFluxograma(dados.fluxogramaAtual);
+    const { completed, currentSemester } = parseFluxograma(dados.fluxogramaAtual);
+
+    // "Cumpridas" para efeito de pré-requisito = aprovadas ∪ em curso (MATR).
+    // MATR entra porque é do semestre corrente e estará concluída antes do semestre
+    // que o aluno está montando — mesma regra que o Motor 2 usa (completedPlusMatr
+    // em gerarPlanoCompletov2). O que NÃO entra aqui é codigosNaGrade: aquilo é do
+    // mesmo semestre da recomendação e não pode liberar pré-requisito.
+    const cumpridas = new Set(completed);
+    for (const m of currentSemester) cumpridas.add(norm(m.codigo));
+
+    const naGrade = new Set(codigosNaGrade.map(norm));
 
     const elegiveis = dados.materiasMapeadas.filter((m) => {
         const cod = norm(m.codigo);
-        if (m.obrigatoria) return !completed.has(cod);
-        return dados.codigosComOferta.has(cod);
+        // Já cursada/cursando, ou já alocada na grade em construção → não recomenda.
+        // (Vale também para optativas: antes o ramo delas só olhava a oferta, então
+        // uma optativa já aprovada voltava a ser sugerida.)
+        if (cumpridas.has(cod) || naGrade.has(cod)) return false;
+        // Pré-requisito é filtro DURO: sem ele o aluno não consegue se matricular,
+        // então recomendar seria sugerir algo inviável.
+        if (!isDesbloqueada(m, cumpridas)) return false;
+        return m.obrigatoria || dados.codigosComOferta.has(cod);
     });
     if (elegiveis.length === 0) return { candidatos: [] };
 
@@ -327,16 +351,17 @@ export function createGradeAgent(
     email: string,
     curriculoCompleto: string,
     freeMaskStr: string,
-    periodoAtivo: string
+    periodoAtivo: string,
+    codigosNaGrade: string[] = []
 ): Agent {
     let ultimosCandidatos: CandidatoGrade[] | null = null;
 
     const recomendarTool = tool({
         name: "recomendar_por_horario_livre",
-        description: "Lista matérias (obrigatórias pendentes e optativas com oferta) cuja turma cabe inteira no horário livre atual do aluno, ordenadas por afinidade com o que ele já cursou.",
+        description: "Lista matérias (obrigatórias pendentes e optativas com oferta) cuja turma cabe inteira no horário livre atual do aluno, já com pré-requisitos cumpridos, ordenadas por afinidade com o que ele já cursou.",
         parameters: z.object({}),
         execute: async () => {
-            const resultado = await recomendarPorHorarioLivre(email, curriculoCompleto, freeMaskStr, periodoAtivo);
+            const resultado = await recomendarPorHorarioLivre(email, curriculoCompleto, freeMaskStr, periodoAtivo, codigosNaGrade);
             ultimosCandidatos = "candidatos" in resultado ? resultado.candidatos : [];
             return JSON.stringify(resultado);
         },

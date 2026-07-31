@@ -10,6 +10,8 @@ export interface EnviarMensagemOrquestradorOpts {
 	curriculoCompleto?: string;
 	horarioLivre?: string;
 	turnos?: string[];
+	/** Códigos já alocados na grade em construção (mesmo semestre da recomendação). */
+	codigosNaGrade?: string[];
 }
 
 export interface OrquestradorChatResponse {
@@ -26,6 +28,8 @@ export class ChatService {
 		if (opts?.curriculoCompleto) body.curriculoCompleto = opts.curriculoCompleto;
 		if (opts?.horarioLivre) body.horarioLivre = opts.horarioLivre;
 		if (opts?.turnos && opts.turnos.length > 0) body.turnos = opts.turnos;
+		if (opts?.codigosNaGrade && opts.codigosNaGrade.length > 0)
+			body.codigosNaGrade = opts.codigosNaGrade;
 
 		const { data, error, status } = await apiRequest<OrquestradorChatResponse>('/chat/send', {
 			method: 'POST',
