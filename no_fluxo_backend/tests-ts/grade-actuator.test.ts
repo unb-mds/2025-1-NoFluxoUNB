@@ -420,6 +420,116 @@ describe("recomendarPorHorarioLivre — pré-requisitos e matérias já na grade
     });
 });
 
+/**
+ * Co-requisitos (docs/unb-domain.md: "deve cursar NO MESMO semestre, não antes").
+ *
+ * FGA0007 tem FGA0006 como co-requisito. Satisfeito se FGA0006 já foi cumprida,
+ * já está alocada nesta grade, ou é ela mesma uma candidata viável (aí as duas
+ * entram juntas). Se FGA0006 não estiver disponível de nenhuma dessas formas,
+ * FGA0007 não é matriculável e não deve ser recomendada.
+ */
+describe("recomendarPorHorarioLivre — co-requisitos", () => {
+    const FGA0007_COREQ_FGA0006 = {
+        codigo: "FGA0007",
+        nome: "Exige FGA0006 junto",
+        creditos: 4,
+        nivel: 4,
+        obrigatoria: true,
+        tipo_natureza: 0,
+        carga_horaria: 60,
+        coRequisitos: { condicoes: ["FGA0006"], operador: "E" },
+    };
+    const FGA0006 = {
+        codigo: "FGA0006",
+        nome: "Co-requisito",
+        creditos: 4,
+        nivel: 4,
+        obrigatoria: true,
+        tipo_natureza: 0,
+        carga_horaria: 60,
+    };
+
+    function mockarPlano(fluxograma: unknown[], materias: unknown[]) {
+        (montarDadosPlano as jest.Mock).mockResolvedValueOnce({
+            dados: {
+                fluxogramaAtual: JSON.stringify({ dados_fluxograma: fluxograma }),
+                materiasMapeadas: materias,
+                codigosComOferta: new Set(["FGA0002"]),
+            },
+        });
+    }
+
+    it("exclui matéria cujo co-requisito não está disponível de forma nenhuma", async () => {
+        db.materias.push({ id_materia: 7, codigo_materia: "FGA0007" });
+        db.turmas.push({ id_materia: 7, ano_periodo: "2026.2", horario: "2M12" });
+        // FGA0006 existe na matriz, mas não tem turma no horário livre.
+        db.materias.push({ id_materia: 6, codigo_materia: "FGA0006" });
+        db.turmas.push({ id_materia: 6, ano_periodo: "2026.2", horario: "5N12" });
+        mockarPlano([], [...materiasMapeadasFake, FGA0007_COREQ_FGA0006, FGA0006]);
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livre.toString(), "2026.2");
+
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
+        expect(candidatos.map((c) => c.codigo)).not.toContain("FGA0007");
+    });
+
+    it("inclui quando o co-requisito já está alocado na grade (cursado junto)", async () => {
+        db.materias.push({ id_materia: 7, codigo_materia: "FGA0007" });
+        db.turmas.push({ id_materia: 7, ano_periodo: "2026.2", horario: "2M12" });
+        mockarPlano([], [...materiasMapeadasFake, FGA0007_COREQ_FGA0006, FGA0006]);
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre(
+            "aluno@unb.br",
+            "8117/-2 - 2018.2",
+            livre.toString(),
+            "2026.2",
+            ["FGA0006"]
+        );
+
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
+        expect(candidatos.map((c) => c.codigo)).toContain("FGA0007");
+    });
+
+    it("inclui quando o co-requisito já foi cursado", async () => {
+        db.materias.push({ id_materia: 7, codigo_materia: "FGA0007" });
+        db.turmas.push({ id_materia: 7, ano_periodo: "2026.2", horario: "2M12" });
+        mockarPlano(
+            [[{ codigo: "FGA0006", status: "APR" }]],
+            [...materiasMapeadasFake, FGA0007_COREQ_FGA0006, FGA0006]
+        );
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livre.toString(), "2026.2");
+
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string }>;
+        expect(candidatos.map((c) => c.codigo)).toContain("FGA0007");
+    });
+
+    it("co-requisito que também é candidato viável: as duas entram, e o par fica explícito", async () => {
+        db.materias.push({ id_materia: 7, codigo_materia: "FGA0007" });
+        db.materias.push({ id_materia: 6, codigo_materia: "FGA0006" });
+        // Ambas com turma dentro do horário livre (slots distintos, sem conflito).
+        db.turmas.push({ id_materia: 7, ano_periodo: "2026.2", horario: "2M12" });
+        db.turmas.push({ id_materia: 6, ano_periodo: "2026.2", horario: "3M12" });
+        mockarPlano([], [...materiasMapeadasFake, FGA0007_COREQ_FGA0006, FGA0006]);
+
+        const livre =
+            maskLivre(0n, ["M", "T", "N"]) & (slotMaskFromHorario("2M12") | slotMaskFromHorario("3M12"));
+        const resultado = await recomendarPorHorarioLivre("aluno@unb.br", "8117/-2 - 2018.2", livre.toString(), "2026.2");
+
+        const candidatos = (resultado as any).candidatos as Array<{ codigo: string; coRequisitos?: string[] }>;
+        const codigos = candidatos.map((c) => c.codigo);
+        expect(codigos).toContain("FGA0007");
+        expect(codigos).toContain("FGA0006");
+        // FGA0007 precisa avisar que FGA0006 tem que entrar junto.
+        expect(candidatos.find((c) => c.codigo === "FGA0007")?.coRequisitos).toEqual(["FGA0006"]);
+        // FGA0006 não tem co-requisito próprio pendente.
+        expect(candidatos.find((c) => c.codigo === "FGA0006")?.coRequisitos ?? []).toEqual([]);
+    });
+});
+
 describe("AtuadorGrade — revisor (código citado precisa estar nos candidatos)", () => {
     beforeEach(() => {
         mockCreate.mockReset();

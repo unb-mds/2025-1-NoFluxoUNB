@@ -23,6 +23,11 @@ import type { OutputGuardrail } from "@openai/agents";
 import { SupabaseWrapper } from "../../../supabase_wrapper";
 import { montarDadosPlano } from "../../../controllers/PlanejamentoController";
 import { parseFluxograma, isDesbloqueada } from "../../plano_formatura.service";
+import {
+    getCodigosFromExpressaoLogica,
+    parseExpressaoLogicaFromDb,
+    type ExpressaoLogicaRecursiva,
+} from "../../../utils/expressao_logica";
 import { slotMaskFromHorario } from "../../../utils/horario_slots";
 import { createMaritacaModel } from "../model_provider";
 import type { PlanoInput } from "../../../types/planejamento";
@@ -33,6 +38,11 @@ export interface CandidatoGrade {
     creditos: number;
     obrigatoria: boolean;
     nivel: number;
+    /**
+     * Co-requisitos que ainda precisam entrar JUNTO nesta grade (já filtrados os que
+     * o aluno cumpriu ou já alocou). Vazio = pode ser adicionada sozinha.
+     */
+    coRequisitos?: string[];
 }
 
 const PLANO_INPUT_PADRAO: Omit<PlanoInput, "curriculoCompleto"> = {
@@ -43,6 +53,20 @@ const PLANO_INPUT_PADRAO: Omit<PlanoInput, "curriculoCompleto"> = {
 
 function norm(codigo: string): string {
     return (codigo || "").trim().toUpperCase();
+}
+
+/**
+ * Aceita tanto a expressão já desserializada ({condicoes, operador}) quanto o formato
+ * cru do banco. Mesma lógica do helper homônimo em plano_formatura.service.ts, que é
+ * privado lá — reimplementado aqui pra manter o atuador self-contained, seguindo a
+ * convenção já usada neste arquivo (ver resolveIdUserPorEmail).
+ */
+function parseExprOrNull(raw: unknown): ExpressaoLogicaRecursiva | null {
+    if (raw == null) return null;
+    if (typeof raw === "object" && raw !== null && "condicoes" in (raw as object)) {
+        return raw as ExpressaoLogicaRecursiva;
+    }
+    return parseExpressaoLogicaFromDb(raw);
 }
 
 /**
@@ -248,12 +272,39 @@ export async function recomendarPorHorarioLivre(
         ? await calcularSimilaridadesCandidatos(vetorPerfil, codigosCandidatosOptativas)
         : new Map<string, number>();
 
+    // Co-requisitos: "deve cursar NO MESMO semestre, não antes" (docs/unb-domain.md).
+    // Um co-requisito está resolvido se já foi cumprido, se já está alocado nesta
+    // grade, ou se ele mesmo é candidato viável — nesse caso as duas entram juntas.
+    // Se não for nenhum dos três, a matéria não é matriculável e sai da lista.
+    // Checagem de um nível só (não recursiva), igual ao Motor 2.
+    const disponivelParaCoRequisito = new Set<string>([
+        ...cumpridas,
+        ...naGrade,
+        ...codigosComTurmaNoLivre,
+    ]);
+    const coRequisitosPendentesPor = new Map<string, string[]>();
+
+    function coRequisitosResolvidos(m: (typeof elegiveis)[number]): boolean {
+        const expr = parseExprOrNull(m.coRequisitos);
+        if (!expr) return true;
+        const codigos = getCodigosFromExpressaoLogica(expr).map(norm);
+        if (codigos.some((c) => !disponivelParaCoRequisito.has(c))) return false;
+        // Os que ainda não estão cumpridos/na grade precisam entrar JUNTO — o agente
+        // avisa o aluno, senão ele adiciona uma só e a matrícula é recusada.
+        coRequisitosPendentesPor.set(
+            norm(m.codigo),
+            codigos.filter((c) => !cumpridas.has(c) && !naGrade.has(c))
+        );
+        return true;
+    }
+
     // Fix 4: dedupe por código antes do slice — a mesma matéria pode em tese aparecer em
     // dois níveis de materiasMapeadas (ex.: currículos com duplicação de nível); sem isso
     // ela ocuparia duas das seis vagas finais consigo mesma. Mantém a 1ª ocorrência.
     const codigosVistos = new Set<string>();
     const candidatos: CandidatoGrade[] = elegiveis
         .filter((m) => codigosComTurmaNoLivre.has(norm(m.codigo)))
+        .filter((m) => coRequisitosResolvidos(m))
         .filter((m) => {
             const cod = norm(m.codigo);
             if (codigosVistos.has(cod)) return false;
@@ -266,6 +317,7 @@ export async function recomendarPorHorarioLivre(
             creditos: m.creditos,
             obrigatoria: m.obrigatoria,
             nivel: m.nivel,
+            coRequisitos: coRequisitosPendentesPor.get(norm(m.codigo)) ?? [],
         }))
         .sort((a, b) => {
             if (a.obrigatoria !== b.obrigatoria) return a.obrigatoria ? -1 : 1;
@@ -373,6 +425,8 @@ export function createGradeAgent(
             "Você responde SOMENTE pedidos de preencher horário livre / buraco na grade do Montador de Grade. " +
             "Sempre use a tool recomendar_por_horario_livre antes de responder — nunca cite uma matéria que não veio dela. " +
             "Se a lista de candidatos vier vazia, diga que não achou nada que caiba nesse horário, sem inventar código. " +
+            "CO-REQUISITOS: se um candidato vier com 'coRequisitos' não-vazio, essas matérias têm que ser cursadas NO MESMO semestre — " +
+            "avise o aluno numa frase (ex: 'FGA0007 exige FGA0006 junto') e, se ele aceitar, inclua TODAS no marcador, nunca só uma. " +
             "Se o aluno topar montar/priorizar, confirme em uma frase curta e inclua no final [MONTAR_GRADE|CODIGOS] com os códigos escolhidos. " +
             "Responda em português brasileiro, direto e conciso.",
         model: createMaritacaModel(),
