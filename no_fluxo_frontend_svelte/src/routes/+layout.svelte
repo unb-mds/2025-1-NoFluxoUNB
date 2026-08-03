@@ -10,8 +10,6 @@
 	import Navbar from '$lib/components/layout/Navbar.svelte';
 	import LoadingBar from '$lib/components/layout/LoadingBar.svelte';
 	import SuporteFab from '$lib/components/support/SuporteFab.svelte';
-	import VagaNotificacaoTourModal from '$lib/components/onboarding/VagaNotificacaoTourModal.svelte';
-	import { novidadesStore } from '$lib/stores/novidades.store.svelte';
 	import { Toaster } from 'svelte-sonner';
 	import '../app.css';
 
@@ -47,19 +45,6 @@
 	let showNavbar = $derived(
 		!isAuthRoute($page.url.pathname) && $page.url.pathname !== '/'
 	);
-
-	// Tour "novidades" (alerta de vaga) — abre uma vez por usuário logado.
-	let tourVagaOpen = $state(false);
-	let tourVagaChecado = $state(false);
-	$effect(() => {
-		if (tourVagaChecado || !$isAuthenticated || $isAnonymous || $currentUser?.idUser == null) return;
-		tourVagaChecado = true;
-		tourVagaOpen = novidadesStore.shouldShowVagaTour($currentUser.idUser);
-	});
-	function fecharTourVaga() {
-		novidadesStore.dismissVagaTour($currentUser?.idUser ?? null);
-		tourVagaOpen = false;
-	}
 
 	// Watch for route changes and verify auth
 	$effect(() => {
@@ -136,7 +121,5 @@
 {#if $isAuthenticated && !$isAnonymous && showNavbar}
 	<SuporteFab />
 {/if}
-
-<VagaNotificacaoTourModal open={tourVagaOpen} onClose={fecharTourVaga} />
 
 <Toaster richColors position="top-right" />
