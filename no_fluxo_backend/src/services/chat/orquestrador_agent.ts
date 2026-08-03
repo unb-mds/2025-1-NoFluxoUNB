@@ -56,7 +56,8 @@ export function createOrquestradorAgent(
     horarioLivre?: { freeMaskStr: string; periodoAtivo: string; codigosNaGrade?: string[] }
 ): Agent {
     const integralizacao = createIntegralizacaoAgent(email);
-    const optativas = createOptativasAgent(apenasComOferta);
+    // email vai junto: sem ele a busca semântica sugere matéria que o aluno já cursou.
+    const optativas = createOptativasAgent(apenasComOferta, email);
 
     // Fase 3: não usa agent.asTool() puro pro atuador de integralização — precisa do
     // wrapper runIntegralizacaoComRevisao pra reexecutar com o motivo da reprovação
