@@ -726,3 +726,197 @@ describe("AtuadorGrade — revisor (código citado precisa estar nos candidatos)
         expect(String(resultado.finalOutput)).toContain("Não achei nada certeiro");
     });
 });
+
+/**
+ * Oferta por equivalência: quando a matéria da matriz mudou de código, a turma é
+ * publicada sob o código NOVO. Sem olhar equivalência, ela some da recomendação.
+ * Caso real (matriz 693, Eng. de Software): CIC0151 sem turma, CIC0197/FGA0158 com.
+ *
+ * Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md
+ */
+describe("recomendarPorHorarioLivre — turma achada via equivalência", () => {
+    it("recomenda a matéria da matriz quando só a equivalente tem turma, informando o código ofertado", async () => {
+        // FGA0001 (matriz) mudou de código: não tem turma própria; FGA0900 é a nova.
+        db.materias.push({ id_materia: 9, codigo_materia: "FGA0900" });
+        db.turmas.push({ id_materia: 9, ano_periodo: "2026.2", horario: "2M12" });
+
+        (montarDadosPlano as jest.Mock).mockResolvedValueOnce({
+            dados: {
+                fluxogramaAtual: JSON.stringify({ dados_fluxograma: [] }),
+                materiasMapeadas: [
+                    {
+                        ...materiasMapeadasFake[0],
+                        equivalencias: [{ operador: "OU", condicoes: ["FGA0900"] }],
+                    },
+                ],
+                codigosComOferta: new Set<string>(),
+            },
+        });
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre(
+            "aluno@unb.br",
+            "8117/-2 - 2018.2",
+            livre.toString(),
+            "2026.2"
+        );
+
+        const candidatos = (resultado as any).candidatos as Array<{
+            codigo: string;
+            codigoOfertado?: string;
+        }>;
+        // O candidato é o código DA MATRIZ — é ele que vai na tag [MONTAR_GRADE|...].
+        expect(candidatos.map((c) => c.codigo)).toEqual(["FGA0001"]);
+        // Mas o aluno se matricula no código realmente ofertado.
+        expect(candidatos[0].codigoOfertado).toBe("FGA0900");
+    });
+
+    it("não preenche codigoOfertado quando a turma é do próprio código", async () => {
+        db.turmas.push({ id_materia: 1, ano_periodo: "2026.2", horario: "2M12" });
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre(
+            "aluno@unb.br",
+            "8117/-2 - 2018.2",
+            livre.toString(),
+            "2026.2"
+        );
+
+        const candidatos = (resultado as any).candidatos as Array<{
+            codigo: string;
+            codigoOfertado?: string;
+        }>;
+        expect(candidatos.map((c) => c.codigo)).toEqual(["FGA0001"]);
+        expect(candidatos[0].codigoOfertado).toBeUndefined();
+    });
+
+    /** "X E Y" só vale cursando os dois — a turma de X sozinha não cobre a matéria. */
+    it("equivalência com operador E não vira oferta", async () => {
+        db.materias.push({ id_materia: 9, codigo_materia: "FGA0900" });
+        db.turmas.push({ id_materia: 9, ano_periodo: "2026.2", horario: "2M12" });
+
+        (montarDadosPlano as jest.Mock).mockResolvedValueOnce({
+            dados: {
+                fluxogramaAtual: JSON.stringify({ dados_fluxograma: [] }),
+                materiasMapeadas: [
+                    {
+                        ...materiasMapeadasFake[0],
+                        equivalencias: [{ operador: "E", condicoes: ["FGA0900", "FGA0901"] }],
+                    },
+                ],
+                codigosComOferta: new Set<string>(),
+            },
+        });
+
+        const livreTotal = maskLivre(0n, ["M", "T", "N"]);
+        const resultado = await recomendarPorHorarioLivre(
+            "aluno@unb.br",
+            "8117/-2 - 2018.2",
+            livreTotal.toString(),
+            "2026.2"
+        );
+
+        expect((resultado as any).candidatos).toEqual([]);
+    });
+
+    it("a turma da equivalente ainda precisa caber no horário livre", async () => {
+        db.materias.push({ id_materia: 9, codigo_materia: "FGA0900" });
+        // Turma da equivalente na terça à tarde, mas o livre só cobre segunda de manhã.
+        db.turmas.push({ id_materia: 9, ano_periodo: "2026.2", horario: "3T12" });
+
+        (montarDadosPlano as jest.Mock).mockResolvedValueOnce({
+            dados: {
+                fluxogramaAtual: JSON.stringify({ dados_fluxograma: [] }),
+                materiasMapeadas: [
+                    {
+                        ...materiasMapeadasFake[0],
+                        equivalencias: [{ operador: "OU", condicoes: ["FGA0900"] }],
+                    },
+                ],
+                codigosComOferta: new Set<string>(),
+            },
+        });
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre(
+            "aluno@unb.br",
+            "8117/-2 - 2018.2",
+            livre.toString(),
+            "2026.2"
+        );
+
+        expect((resultado as any).candidatos).toEqual([]);
+    });
+
+    /**
+     * Substituto é FALLBACK, não alternativa: se a matéria ainda é ofertada no próprio
+     * código neste período, é nele que o aluno se matricula — mesmo que o horário dessa
+     * turma seja pior. Medido em produção: 1.396 pares têm oferta nos DOIS códigos, ou
+     * seja, coexistem em vez de terem sido renomeados.
+     */
+    it("não cai no substituto quando a matéria ainda tem turma própria no período", async () => {
+        db.materias.push({ id_materia: 9, codigo_materia: "FGA0900" });
+        // FGA0001 É ofertada, mas na terça à tarde — fora do horário livre do aluno.
+        db.turmas.push({ id_materia: 1, ano_periodo: "2026.2", horario: "3T12" });
+        // A equivalente tem turma que caberia. Não pode ser recomendada mesmo assim.
+        db.turmas.push({ id_materia: 9, ano_periodo: "2026.2", horario: "2M12" });
+
+        (montarDadosPlano as jest.Mock).mockResolvedValueOnce({
+            dados: {
+                fluxogramaAtual: JSON.stringify({ dados_fluxograma: [] }),
+                materiasMapeadas: [
+                    {
+                        ...materiasMapeadasFake[0],
+                        equivalencias: [{ operador: "OU", condicoes: ["FGA0900"] }],
+                    },
+                ],
+                codigosComOferta: new Set<string>(),
+            },
+        });
+
+        const livre = maskLivre(0n, ["M", "T", "N"]) & slotMaskFromHorario("2M12");
+        const resultado = await recomendarPorHorarioLivre(
+            "aluno@unb.br",
+            "8117/-2 - 2018.2",
+            livre.toString(),
+            "2026.2"
+        );
+
+        expect((resultado as any).candidatos).toEqual([]);
+    });
+
+    /**
+     * Equivalência é usada para achar OFERTA, não para dispensar a matéria. Se o aluno
+     * já cursou a equivalente, expandirCumpridasComEquivalencias a marca como cumprida
+     * e ela não pode voltar como recomendação.
+     */
+    it("não recomenda quando o aluno JÁ cursou a equivalente", async () => {
+        db.materias.push({ id_materia: 9, codigo_materia: "FGA0900" });
+        db.turmas.push({ id_materia: 9, ano_periodo: "2026.2", horario: "2M12" });
+
+        (montarDadosPlano as jest.Mock).mockResolvedValueOnce({
+            dados: {
+                fluxogramaAtual: JSON.stringify({
+                    dados_fluxograma: [[{ codigo: "FGA0900", status: "APR" }]],
+                }),
+                materiasMapeadas: [
+                    {
+                        ...materiasMapeadasFake[0],
+                        equivalencias: [{ operador: "OU", condicoes: ["FGA0900"] }],
+                    },
+                ],
+                codigosComOferta: new Set<string>(),
+            },
+        });
+
+        const livreTotal = maskLivre(0n, ["M", "T", "N"]);
+        const resultado = await recomendarPorHorarioLivre(
+            "aluno@unb.br",
+            "8117/-2 - 2018.2",
+            livreTotal.toString(),
+            "2026.2"
+        );
+
+        expect((resultado as any).candidatos).toEqual([]);
+    });
+});

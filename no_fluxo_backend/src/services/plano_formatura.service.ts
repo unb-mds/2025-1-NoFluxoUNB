@@ -12,6 +12,7 @@ import {
     parseExpressaoLogicaFromDb,
     satisfazExpressaoLogica,
     getCodigosFromExpressaoLogica,
+    getSubstitutosFromExpressaoLogica,
     type ExpressaoLogicaRecursiva,
 } from "../utils/expressao_logica";
 import type {
@@ -43,8 +44,13 @@ const PERC_CRITICA = 0.3;
 // Projeção Temporal — Semestres e Datas
 // =============================================================
 
-/** Calcula o semestre atual com base na data do sistema ("2026.1" ou "2026.2"). */
-function calcularSemestreAtualStr(): string {
+/**
+ * Calcula o semestre atual com base na data do sistema ("2026.1" ou "2026.2").
+ *
+ * Espelha exatamente a RPC `periodo_letivo_atual` do banco (jan–jun = .1,
+ * jul–dez = .2), por isso serve de fallback pra ela em resolverPeriodoAtivo.
+ */
+export function calcularSemestreAtualStr(): string {
     const now = new Date();
     const mes = now.getMonth() + 1; // 1-12
     return `${now.getFullYear()}.${mes <= 6 ? 1 : 2}`;
@@ -247,6 +253,82 @@ export function expandirCumpridasComEquivalencias(
                 break;
             }
         }
+    }
+
+    return expandido;
+}
+
+// =============================================================
+// 4b) Oferta por equivalencia (codigo antigo na matriz, turma no codigo novo)
+// =============================================================
+
+/**
+ * Mapeia cada materia da matriz para os codigos que podem SUBSTITUI-LA na busca por
+ * oferta em `turmas`.
+ *
+ * Quando uma materia muda de codigo, a matriz continua com o antigo mas a turma e
+ * publicada sob o novo. Caso real (matriz 693, Eng. de Software): CIC0151 nao tem
+ * turma, mas suas equivalentes CIC0197 / FGA0158 tem.
+ *
+ * Direcao DIRETA apenas: so as linhas de `equivalencias` cuja origem e a propria
+ * materia. A leitura inversa ("outra materia declara esta como equivalente, logo
+ * cursar aquela vale por esta") e inferencia, nao fato registrado — medido em
+ * producao, so 46% dos pares 1:1 tem o inverso cadastrado.
+ *
+ * Usa getSubstitutosFromExpressaoLogica, entao ramos "E" nao geram substituto: os
+ * codigos ali so valem cursados juntos, e uma turma isolada nao cobre a materia.
+ *
+ * Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md
+ */
+export function construirSubstitutosPorCodigo(
+    materias: MateriaInput[]
+): Map<string, string[]> {
+    const mapa = new Map<string, string[]>();
+
+    for (const m of materias) {
+        const cod = norm(m.codigo);
+        if (!cod) continue;
+
+        const exprs = Array.isArray(m.equivalencias) ? m.equivalencias : [];
+        const substitutos = new Set<string>(mapa.get(cod) ?? []);
+        for (const raw of exprs) {
+            const expr = parseExprOrNull(raw);
+            if (!expr) continue;
+            for (const s of getSubstitutosFromExpressaoLogica(expr)) {
+                // Uma materia nao substitui a si mesma.
+                if (s !== cod) substitutos.add(s);
+            }
+        }
+
+        if (substitutos.size > 0) mapa.set(cod, [...substitutos]);
+    }
+
+    return mapa;
+}
+
+/**
+ * Expande o conjunto de codigos com oferta real: uma materia da matriz tambem conta
+ * como ofertada quando algum codigo que a substitui tem turma no periodo.
+ *
+ * PASSE UNICO, igual a expandirCumpridasComEquivalencias (commit 7e7075f4): compara
+ * sempre contra a oferta REAL, nunca contra o conjunto ja expandido. A <= B e B <= C
+ * nao implica A <= C — equivalencia na UnB e tabela explicita, nao relacao transitiva.
+ *
+ * Nao muta o Set recebido.
+ */
+export function expandirOfertaComEquivalencias(
+    substitutosPorCodigo: Map<string, string[]>,
+    codigosComOfertaPropria: Set<string>
+): Set<string> {
+    const base = new Set<string>();
+    for (const c of codigosComOfertaPropria) base.add(norm(c));
+
+    const expandido = new Set<string>(base);
+    for (const [codigoRaw, substitutos] of substitutosPorCodigo) {
+        const cod = norm(codigoRaw);
+        if (!cod || expandido.has(cod)) continue;
+        // Compara contra `base` (oferta real), nunca contra `expandido`.
+        if (substitutos.some((s) => base.has(norm(s)))) expandido.add(cod);
     }
 
     return expandido;

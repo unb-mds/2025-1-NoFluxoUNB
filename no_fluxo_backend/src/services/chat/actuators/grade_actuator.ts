@@ -26,6 +26,7 @@ import {
     parseFluxograma,
     isDesbloqueada,
     expandirCumpridasComEquivalencias,
+    construirSubstitutosPorCodigo,
 } from "../../plano_formatura.service";
 import {
     getCodigosFromExpressaoLogica,
@@ -47,6 +48,12 @@ export interface CandidatoGrade {
      * o aluno cumpriu ou já alocou). Vazio = pode ser adicionada sozinha.
      */
     coRequisitos?: string[];
+    /**
+     * Código sob o qual a turma foi realmente ofertada, quando difere do código da
+     * matriz (matéria que mudou de código). É NESSE código que o aluno se matricula.
+     * Indefinido quando a turma é do próprio código.
+     */
+    codigoOfertado?: string;
 }
 
 const PLANO_INPUT_PADRAO: Omit<PlanoInput, "curriculoCompleto"> = {
@@ -231,12 +238,29 @@ export async function recomendarPorHorarioLivre(
 
     const codigos = elegiveis.map((m) => norm(m.codigo));
 
-    // Passo 1: código -> id_materia (turmas não tem codigo_materia direto).
+    // Equivalência na busca por OFERTA (diferente da busca por cumprimento acima):
+    // quando a matéria muda de código, a matriz continua com o antigo mas a turma é
+    // publicada sob o novo (ex. CIC0151 → CIC0197/FGA0158). Sem isso ela nunca vira
+    // candidata, mesmo tendo turma que cabe no horário livre.
+    // Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md
+    const substitutosPorCodigo = construirSubstitutosPorCodigo(elegiveis);
+    const matrizPorSubstituto = new Map<string, string[]>();
+    for (const [codMatriz, substitutos] of substitutosPorCodigo) {
+        for (const s of substitutos) {
+            const lista = matrizPorSubstituto.get(s) ?? [];
+            lista.push(codMatriz);
+            matrizPorSubstituto.set(s, lista);
+        }
+    }
+
+    // Passo 1: código -> id_materia (turmas não tem codigo_materia direto). Inclui os
+    // substitutos, que estão FORA da matriz e portanto fora de `codigos`.
     const supabase = SupabaseWrapper.get();
+    const codigosParaResolver = [...new Set([...codigos, ...matrizPorSubstituto.keys()])];
     const { data: materiasRows, error: erroMaterias } = await supabase
         .from("materias")
         .select("id_materia, codigo_materia")
-        .in("codigo_materia", codigos);
+        .in("codigo_materia", codigosParaResolver);
 
     if (erroMaterias) {
         return { erro: "Não foi possível resolver as matérias do currículo." };
@@ -260,12 +284,48 @@ export async function recomendarPorHorarioLivre(
         return { erro: "Não foi possível consultar as turmas do período." };
     }
 
-    const codigosComTurmaNoLivre = new Set<string>();
+    const codigosDaMatriz = new Set(codigos);
+
+    // Substituto é FALLBACK, não alternativa: se a matéria ainda é ofertada no próprio
+    // código neste período, é nele que o aluno se matricula — mesmo que o horário dessa
+    // turma seja pior. Por isso a checagem é "tem QUALQUER turma própria no período",
+    // não "tem turma própria que cabe no livre". Medido em produção: 1.396 pares têm
+    // oferta nos DOIS códigos (coexistem em vez de renomeados).
+    const temOfertaPropriaNoPeriodo = new Set<string>();
+    for (const t of turmas as any[]) {
+        const cod = codigoPorId.get(Number(t.id_materia));
+        if (cod && codigosDaMatriz.has(cod)) temOfertaPropriaNoPeriodo.add(cod);
+    }
+
+    // Turma do próprio código da matéria, já filtrada pelo horário livre.
+    const ofertaPropria = new Set<string>();
+    // Código da matriz -> código do substituto cuja turma cabe (primeiro que casar).
+    const ofertaViaSubstituto = new Map<string, string>();
+
     for (const t of turmas as any[]) {
         const cod = codigoPorId.get(Number(t.id_materia));
         if (!cod) continue;
         const turmaMask = slotMaskFromHorario(t.horario);
-        if ((turmaMask & freeMask) === turmaMask) codigosComTurmaNoLivre.add(cod);
+        if ((turmaMask & freeMask) !== turmaMask) continue;
+
+        // Um código pode ser as duas coisas ao mesmo tempo (matéria da matriz E
+        // substituta de outra), então os dois ramos são avaliados, não excludentes.
+        if (codigosDaMatriz.has(cod)) ofertaPropria.add(cod);
+        for (const codMatriz of matrizPorSubstituto.get(cod) ?? []) {
+            if (temOfertaPropriaNoPeriodo.has(codMatriz)) continue;
+            if (!ofertaViaSubstituto.has(codMatriz)) ofertaViaSubstituto.set(codMatriz, cod);
+        }
+    }
+
+    const codigosComTurmaNoLivre = new Set<string>([
+        ...ofertaPropria,
+        ...ofertaViaSubstituto.keys(),
+    ]);
+
+    /** Só preenche quando a turma vem de um código diferente do da matriz. */
+    function codigoOfertadoDe(cod: string): string | undefined {
+        if (ofertaPropria.has(cod)) return undefined;
+        return ofertaViaSubstituto.get(cod);
     }
 
     // Ranking por coerência temática (Task 7 / Fix 1): perfil = média dos embeddings das
@@ -328,6 +388,7 @@ export async function recomendarPorHorarioLivre(
             obrigatoria: m.obrigatoria,
             nivel: m.nivel,
             coRequisitos: coRequisitosPendentesPor.get(norm(m.codigo)) ?? [],
+            codigoOfertado: codigoOfertadoDe(norm(m.codigo)),
         }))
         .sort((a, b) => {
             if (a.obrigatoria !== b.obrigatoria) return a.obrigatoria ? -1 : 1;
@@ -437,6 +498,9 @@ export function createGradeAgent(
             "Se a lista de candidatos vier vazia, diga que não achou nada que caiba nesse horário, sem inventar código. " +
             "CO-REQUISITOS: se um candidato vier com 'coRequisitos' não-vazio, essas matérias têm que ser cursadas NO MESMO semestre — " +
             "avise o aluno numa frase (ex: 'FGA0007 exige FGA0006 junto') e, se ele aceitar, inclua TODAS no marcador, nunca só uma. " +
+            "CÓDIGO OFERTADO: se um candidato vier com 'codigoOfertado', a matéria mudou de código e a turma está publicada sob esse outro — " +
+            "avise numa frase (ex: 'CIC0151 hoje é ofertada como FGA0158, é nesse código que você se matricula'). " +
+            "No marcador [MONTAR_GRADE|...] use SEMPRE o campo 'codigo', nunca o 'codigoOfertado'. " +
             "Se o aluno topar montar/priorizar, confirme em uma frase curta e inclua no final [MONTAR_GRADE|CODIGOS] com os códigos escolhidos. " +
             "Responda em português brasileiro, direto e conciso.",
         model: createMaritacaModel(),

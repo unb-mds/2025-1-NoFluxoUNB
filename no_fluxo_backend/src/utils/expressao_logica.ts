@@ -29,6 +29,48 @@ export function getCodigosFromExpressaoLogica(
 }
 
 /**
+ * Extrai os códigos que substituem SOZINHOS a matéria de origem de uma linha de
+ * `equivalencias` — usado para achar oferta em `turmas` quando a matéria da matriz
+ * mudou de código.
+ *
+ * Diferente de getCodigosFromExpressaoLogica, que achata a expressão inteira: sob um
+ * nó "E" os códigos só valem cursados JUNTOS ("quem fez X E Y está dispensado"), então
+ * nenhum deles substitui isolado e o ramo inteiro é descartado. Operador desconhecido
+ * também devolve vazio, mesma postura fail-fast de satisfazExpressaoLogica.
+ *
+ * Medido em produção: aproveita as ~11.4k expressões só com OU e descarta as 718
+ * puramente E mais os ramos E das 1.265 mistas.
+ *
+ * Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md (D2)
+ */
+export function getSubstitutosFromExpressaoLogica(
+    expr: ExpressaoLogicaRecursiva | null | undefined
+): string[] {
+    return [...coletarSubstitutos(expr, new Set<string>())];
+}
+
+function coletarSubstitutos(
+    expr: ExpressaoLogicaRecursiva | null | undefined,
+    acc: Set<string>
+): Set<string> {
+    if (!expr) return acc;
+
+    if (typeof expr === "string") {
+        const c = norm(expr);
+        if (c) acc.add(c);
+        return acc;
+    }
+
+    if (typeof expr === "object" && Array.isArray(expr.condicoes)) {
+        // Só "OU" propaga: em "E" as condições valem juntas, nenhuma substitui sozinha.
+        if (expr.operador?.toUpperCase() !== "OU") return acc;
+        for (const c of expr.condicoes) coletarSubstitutos(c, acc);
+    }
+
+    return acc;
+}
+
+/**
  * Verifica se um código está contido na expressão.
  */
 export function codigoContidoEmExpressaoLogica(
