@@ -23,8 +23,11 @@ RUN useradd -r -u 1001 appuser
 # Copy installed packages from builder
 COPY --from=builder /install /usr/local
 
-# Copy only the production API source
-COPY --from=builder /app/src/api_producao.py ./
+# Copy the production API source. Precisa ser *.py, e nao apenas
+# api_producao.py: o modulo importa vizinhos (tool_call_utils) e copiar um
+# arquivo so faz o uvicorn morrer com ModuleNotFoundError na subida.
+# O .dockerignore ja mantem .env* e __pycache__ fora do build context.
+COPY --from=builder /app/src/*.py ./
 
 RUN chown -R appuser:appuser /app
 
