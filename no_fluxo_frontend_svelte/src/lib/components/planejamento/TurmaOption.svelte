@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
 	import { vagaAssinaturasStore } from '$lib/stores/vaga-assinaturas.store.svelte';
-	import { formatHorarioSigaa, compactarFaixasHorarias } from '$lib/utils/sigaa';
+	import { formatHorarioSigaa, compactarFaixasHorarias, formatLocalCompacto } from '$lib/utils/sigaa';
 	import type { TurmaComMask } from '$lib/utils/horario-slots';
 	import type { TurmaOferta } from '$lib/services/turmas.service';
 	import { Check, Users, CalendarClock, Ban, Bell, BellOff, Loader2 } from 'lucide-svelte';
@@ -19,6 +19,8 @@
 	const conflitoCom = $derived(gradeStore.conflitaCom(codigo, tg));
 	const bloqueada = $derived(!isSel && conflitoCom !== null);
 	const cor = $derived(gradeStore.corDaMateria(codigo));
+	// O SIGAA às vezes embute o horário colado na sala ("2M34(BSA N AT 09/41) ...").
+	const local = $derived(formatLocalCompacto(t.local));
 
 	function horarioLegivel(horario: string | null): string {
 		const linhas = formatHorarioSigaa(horario ?? '');
@@ -79,7 +81,7 @@
 			{horarioLegivel(t.horario)}
 		</p>
 		<p class="mt-0.5 truncate text-[11px] text-white/45">
-			{t.docente ?? 'Docente não informado'}{#if t.local} · {t.local}{/if}
+			{t.docente ?? 'Docente não informado'}{#if local} · {local}{/if}
 		</p>
 		{#if bloqueada}
 			<p class="mt-1 flex items-center gap-1 text-[10px] font-medium text-red-300/85">

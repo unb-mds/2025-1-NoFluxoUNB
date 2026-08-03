@@ -109,6 +109,36 @@ export function formatLocalSigaa(rawLocal: string): string[] {
 	return [raw];
 }
 
+/**
+ * Só as salas de um campo `local`, em uma linha.
+ *
+ * O SIGAA às vezes embute o horário colado no nome da sala —
+ * "2M34(BSA N AT 09/41) 35M34(ICC ANF. 2)" (caso real: MAT0026 turma 03) — e jogar
+ * isso cru na tela vira um bolo ilegível. Diferente de `formatLocalSigaa`, que devolve
+ * uma linha por dia repetindo o horário: aqui o horário já aparece à parte no card, e
+ * o que falta é só onde a aula acontece.
+ *
+ * Local que não usa o formato codificado passa intacto ("FCTE - I10").
+ */
+export function formatLocalCompacto(rawLocal: string | null | undefined): string {
+	const raw = String(rawLocal ?? '').trim();
+	if (!raw) return '';
+
+	const regex = /[2-7]+[MTN][1-7]+\(([^)]+)\)/g;
+	const salas = new Set<string>();
+	let match: RegExpExecArray | null = regex.exec(raw);
+	while (match) {
+		const sala = String(match[1] ?? '')
+			.trim()
+			.replace(/\s+/g, ' ');
+		if (sala) salas.add(sala);
+		match = regex.exec(raw);
+	}
+
+	if (salas.size > 0) return [...salas].join(' · ');
+	return raw.replace(/\s+/g, ' ');
+}
+
 export function formatVagas(
 	vagasSobrando: number | null,
 	vagasOfertadas: number | null,
