@@ -46,9 +46,9 @@ for materia in tqdm(all_materias, desc="Calculando Embeddings (Gemini)"):
     texto_busca = f"Disciplina: {nome}. Ementa: {ementa}"
     
     try:
-        # Usa o mesmo modelo que consertamos na API
+        # Usa o mesmo modelo da API (api_producao.py)
         result = genai.embed_content(
-            model="models/text-embedding-004",
+            model="models/gemini-embedding-001",
             content=texto_busca,
             task_type="retrieval_document",
             output_dimensionality=256
