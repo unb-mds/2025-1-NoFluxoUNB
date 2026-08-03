@@ -22,8 +22,13 @@ export interface MateriaGrade {
 	nome: string;
 	creditos: number;
 	idMateria: number;
-	/** Turmas ofertadas para a matéria, já com máscara de horário. */
-	turmas: Array<TurmaComMask<TurmaOferta>>;
+	/**
+	 * Turmas ofertadas para a matéria, já com máscara de horário. `codigoOfertado` vem
+	 * preenchido quando a matéria mudou de código e a turma está publicada sob outro —
+	 * é nesse código que o aluno se matricula.
+	 * Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md
+	 */
+	turmas: Array<TurmaComMask<TurmaOferta> & { codigoOfertado?: string }>;
 	/** Aviso quando o aluno ainda não satisfaz os pré-requisitos (não bloqueia). */
 	avisoPreRequisito?: string | null;
 	/** Códigos de co-requisitos (matérias que precisam ser cursadas juntas). */

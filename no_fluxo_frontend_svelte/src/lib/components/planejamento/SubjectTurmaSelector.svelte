@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
 	import TurmaOption from './TurmaOption.svelte';
-	import { TriangleAlert, Star, Trash2 } from 'lucide-svelte';
+	import { TriangleAlert, Star, Trash2, Info } from 'lucide-svelte';
 
 	// Alterna a turma de uma matéria: clicar na já selecionada remove; senão seleciona.
 	function toggle(codigo: string, idTurma: number) {
@@ -18,6 +18,8 @@
 		{@const cor = gradeStore.corDaMateria(materia.codigo)}
 		{@const selecionada = gradeStore.turmaSelecionada(materia.codigo)}
 		{@const prioritaria = gradeStore.isPrioritaria(materia.codigo)}
+		<!-- Matéria que mudou de código: as turmas vêm todas do substituto, então basta a 1ª. -->
+		{@const codigoOfertado = materia.turmas[0]?.codigoOfertado}
 		<section
 			class="rounded-2xl border border-white/10 bg-zinc-950/78 p-3"
 			role="group"
@@ -41,7 +43,16 @@
 							{materia.turmas.length} turma(s) disponível(is)
 						{/if}
 					</p>
-					{#if materia.avisoPreRequisito}
+					{#if codigoOfertado}
+					<p class="mt-1 flex items-start gap-1 text-[10px] font-medium text-sky-300/90">
+						<Info class="mt-px h-3 w-3 shrink-0" />
+						<span>
+							Ofertada como <span class="font-mono font-semibold">{codigoOfertado}</span> — é
+							nesse código que você se matricula
+						</span>
+					</p>
+				{/if}
+				{#if materia.avisoPreRequisito}
 						<p class="mt-1 flex items-start gap-1 text-[10px] font-medium text-amber-300/90">
 							<TriangleAlert class="mt-px h-3 w-3 shrink-0" />
 							<span>Pré-requisito pendente: {materia.avisoPreRequisito}</span>

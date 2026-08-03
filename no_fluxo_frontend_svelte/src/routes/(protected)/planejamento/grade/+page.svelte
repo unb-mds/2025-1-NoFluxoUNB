@@ -25,7 +25,11 @@
 	import { getPeriodoAtivo, getTurmasPorMaterias, type TurmaOferta } from '$lib/services/turmas.service';
 	import { getMateriasByCodigos } from '$lib/services/materias.service';
 	import { satisfazPreRequisitos } from '$lib/types/curso';
-	import { setHasCodeIgnoreCase } from '$lib/utils/subject-codes';
+	import { setHasCodeIgnoreCase, filtrarNaoCursados } from '$lib/utils/subject-codes';
+	import {
+		construirSubstitutosPorCodigo,
+		resolverTurmasComEquivalencia
+	} from '$lib/utils/oferta-equivalencia';
 	import { ROUTES } from '$lib/config/routes';
 	import type { SemestrePlano, ItemSemestre, MateriaPlano } from '$lib/types/plano-formatura';
 	import { CalendarDays, Wand2, Trash2, Loader2, Info, Download, Star } from 'lucide-svelte';
@@ -127,7 +131,35 @@
 			}
 		}
 
-		const ids = [...resolved.values()].map((r) => r.idMateria);
+		// Equivalência: quando a matéria mudou de código, a matriz continua com o antigo
+		// mas a turma é publicada sob o novo (ex.: CIC0151 → CIC0197/FGA0158). Sem isso a
+		// matéria entra no pool com zero turmas — card morto, impossível de alocar.
+		// `courseData.equivalencias` já vem carregado, então não há query a mais aqui.
+		// Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md
+		const substitutosPorCodigo = construirSubstitutosPorCodigo(
+			fluxogramaStore.state.courseData?.equivalencias ?? [],
+			resolved.keys()
+		);
+
+		const idPorCodigo = new Map<string, number>();
+		for (const [cod, r] of resolved) idPorCodigo.set(cod, r.idMateria);
+
+		// Os substitutos estão fora do que já foi resolvido acima — precisam de lookup próprio.
+		const codigosSubstitutos = [
+			...new Set([...substitutosPorCodigo.values()].flat().filter((c) => !idPorCodigo.has(c)))
+		];
+		if (codigosSubstitutos.length > 0) {
+			try {
+				for (const m of await getMateriasByCodigos(codigosSubstitutos)) {
+					idPorCodigo.set(m.codigo.trim().toUpperCase(), m.idMateria);
+				}
+			} catch {
+				// Degrada pro comportamento antigo (só turmas do código próprio) em vez de
+				// derrubar a montagem inteira do pool.
+			}
+		}
+
+		const ids = [...new Set(idPorCodigo.values())];
 		const turmas = await getTurmasPorMaterias(ids, per);
 		const porMateria = new Map<number, TurmaOferta[]>();
 		for (const t of turmas) {
@@ -146,9 +178,16 @@
 				idMateria: r.idMateria,
 				avisoPreRequisito,
 				coRequisitos,
-				turmas: (porMateria.get(r.idMateria) ?? []).map((t) => ({
-					turma: t,
-					mask: slotMaskFromHorario(t.horario)
+				turmas: resolverTurmasComEquivalencia(
+					codigo,
+					r.idMateria,
+					substitutosPorCodigo.get(codigo) ?? [],
+					idPorCodigo,
+					porMateria
+				).map(({ turma, codigoOfertado }) => ({
+					turma,
+					mask: slotMaskFromHorario(turma.horario),
+					codigoOfertado
 				}))
 			});
 		}
@@ -182,7 +221,13 @@
 			const salvos = lerPoolSalvo(idUser, periodo);
 			const removidas = new Set(lerRemovidasSalvo(idUser, periodo));
 			// Salvos vêm primeiro (não re-adiciona removidas); recomendado só o que não foi removido.
-			const todos = [...new Set([...salvos, ...recomendadoCodigos])].filter((c) => !removidas.has(c));
+			// O filtro de já-cursadas vale também para os `salvos`: matéria concluída depois de
+			// ter entrado no pool some sozinha no próximo carregamento, sem o aluno ter que remover.
+			const todos = filtrarNaoCursados(
+				[...new Set([...salvos, ...recomendadoCodigos])].filter((c) => !removidas.has(c)),
+				fluxogramaStore.completedCodes,
+				fluxogramaStore.currentCodes ?? new Set<string>()
+			);
 
 			const pool = await construirMaterias(todos, periodo);
 			gradeStore.init(pool, { idUser, periodo });
@@ -230,6 +275,16 @@
 		const c = codigo.trim().toUpperCase();
 		if (!periodo) return;
 		if (gradeStore.hasMateria(c)) return;
+		// Avisa em vez de adicionar em silêncio: o aluno pode estar buscando pelo nome e
+		// não perceber que é a mesma matéria que já cursou (ou que está cursando agora).
+		if (setHasCodeIgnoreCase(fluxogramaStore.completedCodes, c)) {
+			avisoAdd = `Você já foi aprovado em ${c}.`;
+			return;
+		}
+		if (setHasCodeIgnoreCase(fluxogramaStore.currentCodes ?? new Set<string>(), c)) {
+			avisoAdd = `Você já está cursando ${c} neste semestre.`;
+			return;
+		}
 		try {
 			const [m] = await construirMaterias([c], periodo);
 			if (m) {
