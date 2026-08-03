@@ -1,6 +1,7 @@
 import { writable, get } from 'svelte/store';
 import { goto } from '$app/navigation';
 import { toast } from 'svelte-sonner';
+import { planoFormaturaStore } from '$lib/stores/plano-formatura.store.svelte';
 import {
 	uploadService,
 	type UploadPdfResponse,
@@ -202,6 +203,7 @@ function createUploadStore() {
 				}
 
 				// Success
+				planoFormaturaStore.reset();
 				update((s) => ({
 					...s,
 					progress: 100,
@@ -260,6 +262,7 @@ function createUploadStore() {
 					return;
 				}
 
+				planoFormaturaStore.reset();
 				update((s) => ({
 					...s,
 					progress: 100,

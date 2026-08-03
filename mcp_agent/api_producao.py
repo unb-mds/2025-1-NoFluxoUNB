@@ -9,6 +9,7 @@ from openai import OpenAI
 import google.generativeai as genai
 from supabase import create_client
 from dotenv import load_dotenv
+from tool_call_utils import extrair_tool_call_texto, termo_materia
 
 
 # 1. INICIALIZAÇÃO GLOBAL (Roda apenas quando o servidor liga)
@@ -62,8 +63,17 @@ class Consulta(BaseModel):
     interesse: str
     matriz_curricular: str = ""
 
+# Prompt de ROTEAMENTO — usado na 1ª chamada, apenas para o modelo escolher a ferramenta.
+ROUTING_PROMPT = (
+    "Você é o Darcy, assistente acadêmico da UnB. Escolha a ferramenta conforme a intenção do usuário:\n"
+    "- Se ele quer DESCOBRIR/RECOMENDAR disciplinas sobre um assunto ou interesse, use 'buscar_materias_unb'.\n"
+    "- Se ele pede as OPTATIVAS do curso dele, use 'buscar_optativas_curso'.\n"
+    "- Se ele quer ENTENDER O CONTEÚDO de UMA disciplina específica (ex: 'explique o conteúdo de X', "
+    "'sobre o que é Y', 'do que se trata Z'), use 'explicar_materia'.\n"
+    "SEMPRE chame exatamente uma ferramenta."
+)
 
-# Prompt do Sistema
+# Prompt do Sistema — usado na geração final da LISTA de disciplinas (recomendação).
 SYSTEM_PROMPT = (
     "Você é o Darcy, assistente da UnB. Sua tarefa é listar as disciplinas encontradas no banco de dados.\n\n"
     "REGRAS CRÍTICAS:\n"
@@ -76,6 +86,17 @@ SYSTEM_PROMPT = (
     "3. NÃO adicione introduções de respostas ou conclusões. Apenas a lista completa.\n"
     "4. EXCEÇÕES: ignore disciplinas genéricas como 'Práticas de Extensão', 'Projeto Integrador', 'Formação em...', ou que contenham 'MONITORIA' ou 'MONITORIA EM' no nome.\n"
     "5. Ordene por relevância (nota) decrescente."
+)
+
+# Prompt usado na geração final da EXPLICAÇÃO de conteúdo de uma disciplina.
+EXPLICACAO_PROMPT = (
+    "Você é o Darcy, assistente da UnB. Explique de forma clara e didática o conteúdo da disciplina, "
+    "usando SOMENTE o nome da disciplina e a ementa fornecidos nos dados do banco. "
+    "NÃO invente informação que não esteja na ementa.\n"
+    "Estruture a resposta assim: comece com uma visão geral em 1-2 frases e, em seguida, liste os principais "
+    "tópicos abordados em bullets. Use linguagem acessível a um estudante.\n"
+    "Se a disciplina não for encontrada ('encontrada': false) ou a ementa estiver vazia, responda que não há "
+    "ementa cadastrada para essa disciplina e peça para o usuário conferir o nome ou o código."
 )
 
 TOOLS = [
@@ -111,6 +132,23 @@ TOOLS = [
                     }
                 },
                 "required": ["aviso"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "explicar_materia",
+            "description": "Explica o conteúdo/ementa de UMA disciplina específica quando o usuário quer entender do que ela trata (ex: 'explique o conteúdo de Fundamentos de Redes', 'sobre o que é Cálculo 1').",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "materia": {
+                        "type": "string",
+                        "description": "Nome ou código da disciplina que o usuário quer entender.",
+                    }
+                },
+                "required": ["materia"],
             },
         },
     },
@@ -283,7 +321,7 @@ def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
 
         # 1. GERAÇÃO EM LOTE (BATCH EMBEDDING): 1 única chamada para a API do Gemini
         result = genai.embed_content(
-            model="models/gemini-embedding-001",
+            model="models/text-embedding-004",
             content=termos_validos,
             task_type="retrieval_query",
             output_dimensionality=256,
@@ -301,7 +339,7 @@ def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
                 "match_materias",
                 {
                     "query_embedding": vetor,
-                    "match_threshold": 0.6,
+                    "match_threshold": 0.0,
                     "match_count": 20,  # Puxa as 5 melhores de cada termo
                 },
             ).execute()
@@ -345,7 +383,71 @@ def ferramenta_buscar_materias_unb(termos_busca: list) -> str:
 
     except Exception as e:
         print(f"❌ Erro na ferramenta de busca, tente novamente mais tarde: {e}")
-        return json.dumps([])
+        with open("error_log.txt", "w") as f:
+            f.write(str(e))
+        return json.dumps([{"codigo": "ERRO", "nome": f"Exception: {str(e)}", "similaridade": 0}], ensure_ascii=False)
+
+
+def ferramenta_explicar_materia(termo: str) -> dict:
+    """Busca UMA disciplina na tabela `materias` e devolve apenas nome + ementa.
+
+    Casa por código (padrão AAA9999) ou por nome (ilike). O modelo deve explicar
+    o conteúdo usando SOMENTE estes dois campos.
+    """
+    termo = (termo or "").strip()
+    if not termo:
+        return {"encontrada": False, "termo": termo}
+
+    try:
+        termo_upper = termo.upper()
+        query = supabase.table("materias").select("codigo_materia, nome_materia, ementa")
+
+        if re.match(r'^[A-Z]{3}\d{4}$', termo_upper):
+            res = query.eq("codigo_materia", termo_upper).limit(1).execute()
+        else:
+            res = query.ilike("nome_materia", f"%{termo}%").limit(1).execute()
+
+        if not res.data:
+            print(f"[DEBUG] 📖 Ementa não encontrada para: '{termo}'")
+            return {"encontrada": False, "termo": termo}
+
+        materia = res.data[0]
+        print(f"[DEBUG] 📖 Ementa encontrada para: {materia.get('nome_materia')}")
+        return {
+            "encontrada": True,
+            "nome_materia": materia.get("nome_materia"),
+            "ementa": materia.get("ementa") or "",
+        }
+
+    except Exception as e:
+        print(f"❌ Erro ao buscar ementa: {e}")
+        return {"encontrada": False, "termo": termo}
+
+
+def resolver_tool_call(msg_ia):
+    """Resolve (nome_ferramenta, args) da tool call escolhida pelo modelo.
+
+    Tenta primeiro o campo estruturado `tool_calls`; se estiver vazio, cai no
+    fallback que parseia uma tool call emitida como TEXTO no conteúdo (evita que
+    a tag "<tool_call>..." vaze crua para o usuário). Retorna (None, None) quando
+    o modelo respondeu direto, sem ferramenta.
+    """
+    if getattr(msg_ia, "tool_calls", None):
+        tool_call = msg_ia.tool_calls[0]  # Usa apenas a primeira para economia extrema
+        try:
+            args = json.loads(tool_call.function.arguments)
+        except (ValueError, TypeError):
+            args = {}
+        if not isinstance(args, dict):
+            args = {}
+        return tool_call.function.name, args
+
+    fallback = extrair_tool_call_texto(getattr(msg_ia, "content", None))
+    if fallback:
+        print(f"[DEBUG] Tool call recuperada do texto (fallback): {fallback[0]}")
+        return fallback
+
+    return None, None
 
 
 # 3. ENDPOINT DE HEALTH CHECK (para monitoramento)
@@ -355,6 +457,27 @@ async def health_check():
     return {"status": "healthy", "service": "Darcy AI", "version": "2.0"}
 
 
+# Busca semântica PURA (embeddings), sem LLM. Exposta como TOOL para o agente
+# TypeScript (planejador_agente). Evita a 2ª chamada de modelo do /recomendar.
+class BuscaMaterias(BaseModel):
+    termos_busca: list[str] = []
+
+
+@app.post("/buscar-materias")
+async def buscar_materias(busca: BuscaMaterias):
+    termos = [t for t in (busca.termos_busca or []) if t and t.strip()]
+    if not termos:
+        raise HTTPException(
+            status_code=400, detail="Informe ao menos um termo em 'termos_busca'."
+        )
+    resultado_json = ferramenta_buscar_materias_unb(termos)
+    try:
+        materias = json.loads(resultado_json)
+    except Exception:
+        materias = []
+    return {"materias": materias}
+
+
 # 4. O ENDPOINT PRINCIPAL DA API
 @app.post("/recomendar")
 async def recomendar_materias(consulta: Consulta):
@@ -362,11 +485,6 @@ async def recomendar_materias(consulta: Consulta):
         raise HTTPException(
             status_code=400, detail="O campo 'interesse' não pode estar vazio."
         )
-
-    mensagens = [
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": consulta.interesse},
-    ]
 
     # Acumula uso de tokens por modelo para tracking de custo no dashboard admin.
     usage_calls = []
@@ -385,68 +503,78 @@ async def recomendar_materias(consulta: Consulta):
         )
 
     try:
-        # Passa a bola para o Sabiá analisar o interesse
+        # 1ª chamada: só para o modelo ESCOLHER a ferramenta (roteamento).
         response = client_maritaca.chat.completions.create(
-            model="sabiazinho-4", messages=mensagens, tools=TOOLS, tool_choice="auto"
+            model="sabiazinho-4",
+            messages=[
+                {"role": "system", "content": ROUTING_PROMPT},
+                {"role": "user", "content": consulta.interesse},
+            ],
+            tools=TOOLS,
+            tool_choice="auto",
         )
         _coletar_usage(response, "sabiazinho-4")
 
         msg_ia = response.choices[0].message
+        nome_ferramenta, args = resolver_tool_call(msg_ia)
 
-        # Se o Sabiá decidir buscar no banco
-        if msg_ia.tool_calls:
-            mensagens.append(msg_ia)
-            tool_call = msg_ia.tool_calls[
-                0
-            ]  # Usa apenas a primeira para economia extrema
-            args = json.loads(tool_call.function.arguments)
-            nome_ferramenta = tool_call.function.name
+        # Modelo respondeu direto, sem ferramenta.
+        if not nome_ferramenta:
+            resposta_texto = msg_ia.content or ""
+            return {
+                "success": True,
+                "disciplinas": parse_resposta_sabia(resposta_texto),
+                "resposta_completa": resposta_texto,
+                "usage": usage_calls,
+            }
 
-            # --- ROTEAMENTO ---
-            if nome_ferramenta == "buscar_optativas_curso":
-                print("\n[DEBUG] 🎓 IA escolheu buscar optativas do curso.")
-                if not consulta.matriz_curricular.strip():
-                    return {
-                        "success": False,
-                        "error": "Envie o historico academico",
-                        "disciplinas": [],
-                        "resposta_completa": "Envie o historico academico",
-                        "usage": usage_calls,
-                    }
-                # Passa a string da matriz direto da consulta!
-                dados_banco = ferramenta_buscar_optativas(consulta.matriz_curricular)
-            elif nome_ferramenta == "buscar_materias_unb":
-                termos = args.get("termos_busca", [])
-                print(f"\n[DEBUG] Termos enviados para o banco: {termos}\n")
-                dados_banco = ferramenta_buscar_materias_unb(termos)
-            else:
-                dados_banco = "[]"
-
-            mensagens.append(
-                {
-                    "tool_call_id": tool_call.id,
-                    "role": "tool",
-                    "name": nome_ferramenta,
-                    "content": dados_banco,
+        # --- ROTEAMENTO / EXECUÇÃO DA FERRAMENTA ---
+        if nome_ferramenta == "buscar_optativas_curso":
+            print("\n[DEBUG] 🎓 IA escolheu buscar optativas do curso.")
+            if not consulta.matriz_curricular.strip():
+                return {
+                    "success": False,
+                    "error": "Envie o historico academico",
+                    "disciplinas": [],
+                    "resposta_completa": "Envie o historico academico",
+                    "usage": usage_calls,
                 }
-            )
-
-            # Resposta final do Sabiá com limite de tokens aumentado
-            final_response = client_maritaca.chat.completions.create(
-                model="sabia-4",
-                messages=mensagens,
-                max_tokens=5000,  # Aumentado para comportar mais disciplinas
-            )
-            _coletar_usage(final_response, "sabia-4")
-            resposta_texto = final_response.choices[0].message.content
-            print(f"\n[DEBUG] Texto bruto da IA:\n{resposta_texto}\n")
+            dados_banco = ferramenta_buscar_optativas(consulta.matriz_curricular)
+            modo = "lista"
+        elif nome_ferramenta == "explicar_materia":
+            termo = termo_materia(args)
+            print(f"\n[DEBUG] 📖 IA escolheu explicar a matéria: '{termo}'")
+            dados_banco = json.dumps(ferramenta_explicar_materia(termo), ensure_ascii=False)
+            modo = "explicacao"
+        elif nome_ferramenta == "buscar_materias_unb":
+            termos = args.get("termos_busca", [])
+            print(f"\n[DEBUG] Termos enviados para o banco: {termos}\n")
+            dados_banco = ferramenta_buscar_materias_unb(termos)
+            modo = "lista"
         else:
-            resposta_texto = msg_ia.content
+            dados_banco = "[]"
+            modo = "lista"
 
-        # Retorna o JSON estruturado pronto para o frontend
+        # 2ª chamada: geração final com o prompt certo para cada modo.
+        final_prompt = EXPLICACAO_PROMPT if modo == "explicacao" else SYSTEM_PROMPT
+        final_response = client_maritaca.chat.completions.create(
+            model="sabia-4",
+            messages=[
+                {"role": "system", "content": final_prompt},
+                {"role": "user", "content": consulta.interesse},
+                {"role": "system", "content": f"DADOS DO BANCO (baseie-se SOMENTE nestes dados):\n{dados_banco}"},
+            ],
+            max_tokens=5000,  # Aumentado para comportar mais disciplinas
+        )
+        _coletar_usage(final_response, "sabia-4")
+        resposta_texto = final_response.choices[0].message.content or ""
+        print(f"\n[DEBUG] Texto bruto da IA:\n{resposta_texto}\n")
+
+        # Modo explicação é prosa: não extrai lista de disciplinas.
+        disciplinas = [] if modo == "explicacao" else parse_resposta_sabia(resposta_texto)
         return {
             "success": True,
-            "disciplinas": parse_resposta_sabia(resposta_texto),
+            "disciplinas": disciplinas,
             "resposta_completa": resposta_texto,
             "usage": usage_calls,
         }
@@ -470,11 +598,6 @@ async def recomendar_materias_stream(consulta: Consulta):
         )
 
     def generate():
-        mensagens = [
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": consulta.interesse},
-        ]
-
         usage_calls = []
 
         def _coletar_usage(resp, modelo: str):
@@ -494,89 +617,100 @@ async def recomendar_materias_stream(consulta: Consulta):
             # Stage 1: Thinking
             yield _sse_event("thinking", message="Analisando seu interesse...")
 
+            # 1ª chamada: só para o modelo ESCOLHER a ferramenta (roteamento).
             response = client_maritaca.chat.completions.create(
                 model="sabiazinho-4",
-                messages=mensagens,
+                messages=[
+                    {"role": "system", "content": ROUTING_PROMPT},
+                    {"role": "user", "content": consulta.interesse},
+                ],
                 tools=TOOLS,
                 tool_choice="auto",
             )
             _coletar_usage(response, "sabiazinho-4")
 
             msg_ia = response.choices[0].message
+            nome_ferramenta, args = resolver_tool_call(msg_ia)
 
-            if msg_ia.tool_calls:
-                mensagens.append(msg_ia)
-                tool_call = msg_ia.tool_calls[0]
-                args = json.loads(tool_call.function.arguments)
-                nome_ferramenta = tool_call.function.name
+            # Modelo respondeu direto, sem ferramenta.
+            if not nome_ferramenta:
+                yield _sse_event("done", resultado=msg_ia.content or "")
+                return
 
-                # Stage 2: Searching & Roteamento
-                if nome_ferramenta == "buscar_optativas_curso":
-                    if not consulta.matriz_curricular.strip():
-                        yield _sse_event("error", message="Envie o historico academico")
-                        return
-                    yield _sse_event(
-                        "searching", message="Consultando sua matriz curricular..."
-                    )
-                    dados_banco = ferramenta_buscar_optativas(
-                        consulta.matriz_curricular
-                    )
-                else:
-                    termos = args.get("termos_busca", [])
-                    yield _sse_event(
-                        "searching", message="Buscando disciplinas no banco de dados..."
-                    )
-                    dados_banco = ferramenta_buscar_materias_unb(termos)
+            # Stage 2: Searching & Roteamento
+            if nome_ferramenta == "buscar_optativas_curso":
+                if not consulta.matriz_curricular.strip():
+                    yield _sse_event("error", message="Envie o historico academico")
+                    return
+                yield _sse_event("searching", message="Consultando sua matriz curricular...")
+                dados_banco = ferramenta_buscar_optativas(consulta.matriz_curricular)
+                modo = "lista"
+            elif nome_ferramenta == "explicar_materia":
+                termo = termo_materia(args)
+                yield _sse_event("searching", message="Buscando a ementa da disciplina...")
+                dados_banco = json.dumps(ferramenta_explicar_materia(termo), ensure_ascii=False)
+                modo = "explicacao"
+            else:  # buscar_materias_unb (ou desconhecida)
+                termos = args.get("termos_busca", [])
+                yield _sse_event("searching", message="Buscando disciplinas no banco de dados...")
+                dados_banco = ferramenta_buscar_materias_unb(termos)
+                modo = "lista"
 
-                mensagens.append(
-                    {
-                        "tool_call_id": tool_call.id,
-                        "role": "tool",
-                        "name": nome_ferramenta,
-                        "content": dados_banco,
-                    }
-                )
-
-                # Stage 3: Generating (with streaming)
+            # Stage 3: Generating (with streaming)
+            if modo == "explicacao":
+                yield _sse_event("generating", message="Explicando o conteúdo da matéria...")
+                final_prompt = EXPLICACAO_PROMPT
+            else:
                 yield _sse_event("generating", message="Gerando recomendações...")
+                final_prompt = SYSTEM_PROMPT
 
-                stream = client_maritaca.chat.completions.create(
-                    model="sabia-4", messages=mensagens, max_tokens=5000, stream=True
-                )
+            stream = client_maritaca.chat.completions.create(
+                model="sabia-4",
+                messages=[
+                    {"role": "system", "content": final_prompt},
+                    {"role": "user", "content": consulta.interesse},
+                    {"role": "system", "content": f"DADOS DO BANCO (baseie-se SOMENTE nestes dados):\n{dados_banco}"},
+                ],
+                max_tokens=5000,
+                stream=True,
+            )
 
-                resposta_texto = ""
-                codigos_emitidos = set()
+            resposta_texto = ""
+            codigos_emitidos = set()
 
-                for chunk in stream:
-                    # Chunk final de usage (include_usage) vem sem choices.
-                    if getattr(chunk, "usage", None) is not None:
-                        _coletar_usage(chunk, "sabia-4")
-                    if not chunk.choices:
+            for chunk in stream:
+                # Chunk final de usage (include_usage) vem sem choices.
+                if getattr(chunk, "usage", None) is not None:
+                    _coletar_usage(chunk, "sabia-4")
+                if not chunk.choices:
+                    continue
+                delta = chunk.choices[0].delta
+                if delta.content:
+                    resposta_texto += delta.content
+
+                    # No modo explicação a resposta é prosa: não emite cards de disciplina.
+                    if modo != "lista":
                         continue
-                    delta = chunk.choices[0].delta
-                    if delta.content:
-                        resposta_texto += delta.content
 
-                        # Only parse complete lines to avoid emitting partial names
-                        last_newline = resposta_texto.rfind("\n")
-                        if last_newline == -1:
-                            continue
-                        complete_text = resposta_texto[:last_newline]
+                    # Only parse complete lines to avoid emitting partial names
+                    last_newline = resposta_texto.rfind('\n')
+                    if last_newline == -1:
+                        continue
+                    complete_text = resposta_texto[:last_newline]
 
-                        disciplinas = parse_resposta_sabia(complete_text)
-                        for disc in disciplinas:
-                            if disc["codigo"] not in codigos_emitidos:
-                                codigos_emitidos.add(disc["codigo"])
-                                yield _sse_event("disciplina", data=disc)
+                    disciplinas = parse_resposta_sabia(complete_text)
+                    for disc in disciplinas:
+                        if disc["codigo"] not in codigos_emitidos:
+                            codigos_emitidos.add(disc["codigo"])
+                            yield _sse_event("disciplina", data=disc)
 
-                # Parse any remaining text after stream ends
+            # Parse any remaining text after stream ends (apenas no modo lista)
+            if modo == "lista":
                 disciplinas = parse_resposta_sabia(resposta_texto)
                 for disc in disciplinas:
                     if disc["codigo"] not in codigos_emitidos:
                         codigos_emitidos.add(disc["codigo"])
                         yield _sse_event("disciplina", data=disc)
-            else:
-                resposta_texto = msg_ia.content
 
             # Evento de uso de tokens (para tracking de custo no dashboard)
             yield _sse_event("usage", calls=usage_calls)

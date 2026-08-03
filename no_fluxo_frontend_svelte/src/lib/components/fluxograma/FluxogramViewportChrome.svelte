@@ -1,7 +1,10 @@
 <script lang="ts">
-import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle, Maximize2, Minimize2, Network } from 'lucide-svelte';
+import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle, Maximize2, Minimize2, Network, GraduationCap, Calendar, TrendingUp } from 'lucide-svelte';
 	import { browser } from '$app/environment';
 	import { fluxogramaStore, type ConnectionMode } from '$lib/stores/fluxograma.store.svelte';
+	import { getTotalCreditsCompleted } from '$lib/types/user';
+	import { isOptativa } from '$lib/types/materia';
+	import { formatarIraParaExibicao } from '$lib/utils/ira';
 	import { portal } from '$lib/actions/portal';
 	import { matchesFluxogramCompactTouchMode } from '$lib/utils/fluxogram-viewport';
 
@@ -22,6 +25,27 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode }: Props =
 	/** Campo de zoom digitável — não sobrescreve enquanto o utilizador edita */
 	let zoomInputFocused = $state(false);
 	let zoomDraft = $state(String(Math.round(store.state.zoomLevel * 100)));
+
+	let courseData = $derived(store.state.courseData);
+	let userFluxograma = $derived(store.userFluxograma);
+
+	let totalCredits = $derived.by(() => {
+        if (!courseData) return 0;
+		if (courseData.totalCreditos != null && courseData.totalCreditos > 0) {
+			return courseData.totalCreditos;
+		}
+		return courseData.materias
+			.filter((m) => !isOptativa(m))
+			.reduce((sum, m) => sum + m.creditos, 0);
+	});
+
+	let completedCredits = $derived.by(() => {
+		if (!userFluxograma || !courseData) return 0;
+		const creditsMap = new Map(courseData.materias.map((m) => [m.codigoMateria, m.creditos]));
+		return getTotalCreditsCompleted(userFluxograma, creditsMap);
+	});
+    
+    let progressPct = $derived(totalCredits > 0 ? Math.round((completedCredits / totalCredits) * 100) : 0);
 
 	$effect(() => {
 		const p = zoomPercent;
@@ -139,6 +163,30 @@ function handleToggleFocusMode() {
 	aria-hidden="false"
 	data-fluxogram-viewport-chrome
 >
+	<!-- HUD no modo tela cheia -->
+	{#if focusMode && courseData && userFluxograma}
+		<div class="pointer-events-none absolute left-0 right-0 top-[max(0.75rem,env(safe-area-inset-top,0px))] z-[40] flex justify-center {compactTouch ? 'px-16' : ''}">
+			<div class="pointer-events-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 rounded-full border border-white/10 bg-black/50 px-4 py-2 text-xs backdrop-blur-md sm:text-sm">
+				<div class="flex items-center gap-1.5 text-white">
+					<GraduationCap class="h-4 w-4 text-green-400" />
+					<span class="font-medium">{progressPct}% <span class="hidden sm:inline text-white/50">concluído</span></span>
+				</div>
+				<div class="h-3 w-px bg-white/20"></div>
+				<div class="flex items-center gap-1.5 text-white">
+					<Calendar class="h-4 w-4 text-amber-400" />
+					<span class="font-medium">{userFluxograma.semestreAtual}º <span class="hidden sm:inline text-white/50">sem.</span></span>
+				</div>
+				{#if userFluxograma.ira != null}
+					<div class="h-3 w-px bg-white/20"></div>
+					<div class="flex items-center gap-1.5 text-white">
+						<TrendingUp class="h-4 w-4 text-purple-400" />
+						<span class="font-medium">IRA: {formatarIraParaExibicao(userFluxograma.ira, userFluxograma.iraTexto)}</span>
+					</div>
+				{/if}
+			</div>
+		</div>
+	{/if}
+
 	<div
 		class="pointer-events-none absolute right-[max(0.75rem,env(safe-area-inset-right,0px))] top-[max(0.75rem,env(safe-area-inset-top,0px))] z-[46] {compactTouch ? 'hidden' : ''}"
 	>

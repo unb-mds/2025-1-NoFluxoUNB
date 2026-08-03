@@ -81,11 +81,7 @@
 	});
 
 	onMount(() => {
-		if (!userFluxograma) {
-			goto(ROUTES.UPLOAD_HISTORICO);
-			return;
-		}
-
+		// Mesma regra do casamento: priorizar curriculo (codigo/versao) para achar a matriz correta
 		const loadInitialMatrix = async () => {
 			if (matrizCurricular?.trim()) {
 				// Fiel à matriz curricular do histórico enviado — não substitui pela matriz

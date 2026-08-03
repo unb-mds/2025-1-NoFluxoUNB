@@ -1,0 +1,779 @@
+/**
+ * Controller do Motor 2 — Cadeia de formatura personalizada.
+ *
+ * Endpoint: POST /planejamento/gerar-plano
+ *
+ * Entrada (PlanoInput):
+ *   {
+ *     curriculoCompleto: "8117/-2 - 2018.2",
+ *     completedCodes: ["MAT0026", ...],
+ *     numeroPeriodo: 3,
+ *     preferencias: { limiteCreditos: 24, objetivo: "equilibrado", trabalha: false },
+ *     materiasFaltantes?: MateriaInput[]   // opcional — se informado, pula o DB lookup
+ *   }
+ *
+ * Saida (PlanoFormatura):
+ *   { semestresRestantes, plano: SemestrePlano[], materiasNaoAlocadas: string[] }
+ *
+ * Spec: docs/motor2.md
+ */
+
+import { EndpointController, RequestType } from "../interfaces";
+import { Pair, Utils } from "../utils";
+import { Request, Response } from "express";
+import { SupabaseWrapper } from "../supabase_wrapper";
+import { createControllerLogger } from "../utils/controller_logger";
+import {
+    gerarPlano,
+    gerarPlanoCompletov2,
+    construirSubstitutosPorCodigo,
+    expandirOfertaComEquivalencias,
+    calcularSemestreAtualStr,
+} from "../services/plano_formatura.service";
+import { PlanejadorAgenteService, type MensagemChat, type AgenteContexto, type RestricoesPlanoInternas } from "../services/planejador_agente.service";
+import { DificuldadeAgenteService } from "../services/dificuldade_agente.service";
+import type {
+    MateriaInput,
+    PlanoInput,
+    PreferenciasPlano,
+    PlanoFormaturav2,
+    CargaIntegralizada,
+    RestricoesPlano
+} from "../types/planejamento";
+
+// =============================================================
+// Helpers
+// =============================================================
+
+function isObject(v: unknown): v is Record<string, unknown> {
+    return typeof v === "object" && v !== null && !Array.isArray(v);
+}
+
+function validatePreferencias(raw: unknown): PreferenciasPlano | null {
+    if (!isObject(raw)) return null;
+    const limite = Number(raw.limiteCreditos);
+    if (!Number.isFinite(limite) || limite <= 0) return null;
+    const objetivo = raw.objetivo;
+    if (objetivo !== "velocidade" && objetivo !== "equilibrado") return null;
+    if (typeof raw.trabalha !== "boolean") return null;
+    return {
+        limiteCreditos: Math.floor(limite),
+        objetivo,
+        trabalha: raw.trabalha,
+    };
+}
+
+/**
+ * Valida e normaliza o body do endpoint.
+ * Aceita camelCase ou snake_case e converte para camelCase.
+ * Retorna `{ input }` ou `{ error }` (com 400-friendly message).
+ */
+function parseBody(body: unknown): { input?: PlanoInput; error?: string } {
+    if (!isObject(body)) return { error: "Body inválido" };
+
+    // Aceita camelCase ou snake_case
+    const curriculoCompleto = body.curriculoCompleto || body.curriculo_completo;
+    if (typeof curriculoCompleto !== "string" || !curriculoCompleto.trim()) {
+        return { error: "curriculoCompleto é obrigatório" };
+    }
+
+    const completedCodes = body.completedCodes || body.codigos_concluidos;
+    if (!Array.isArray(completedCodes) || !completedCodes.every((c) => typeof c === "string")) {
+        return { error: "completedCodes deve ser array de strings" };
+    }
+
+    const numeroPeriodo = Number(body.numeroPeriodo || body.semestre_atual);
+    if (!Number.isFinite(numeroPeriodo) || numeroPeriodo < 1) {
+        return { error: "numeroPeriodo deve ser inteiro >= 1" };
+    }
+
+    // Busca preferencias em camelCase ou constrói a partir de campos snake_case
+    let preferencias = body.preferencias ? validatePreferencias(body.preferencias) : null;
+    if (!preferencias && body.limite_creditos) {
+        // Constrói preferencias a partir dos campos snake_case
+        preferencias = validatePreferencias({
+            limiteCreditos: body.limite_creditos,
+            objetivo: body.objetivo || "equilibrado",
+            trabalha: body.trabalha !== undefined ? body.trabalha : false,
+        });
+    }
+    if (!preferencias) {
+        return {
+            error:
+                "preferencias inválidas (formato: { limiteCreditos: number, objetivo: 'velocidade'|'equilibrado', trabalha: boolean })",
+        };
+    }
+
+    // Restrições opcionais (adiar/priorizar) — normaliza códigos.
+    const rawRestricoes = body.restricoes;
+    if (isObject(rawRestricoes)) {
+        const normList = (v: unknown): string[] =>
+            Array.isArray(v) ? v.filter((c): c is string => typeof c === "string").map((c) => c.trim().toUpperCase()) : [];
+        const restricoes = { adiar: normList(rawRestricoes.adiar), priorizar: normList(rawRestricoes.priorizar) };
+        if (restricoes.adiar.length > 0 || restricoes.priorizar.length > 0) {
+            if (preferencias) preferencias.restricoes = restricoes;
+        }
+    }
+
+    let materiasFaltantes: MateriaInput[] | undefined;
+    if (body.materiasFaltantes !== undefined) {
+        if (!Array.isArray(body.materiasFaltantes)) {
+            return { error: "materiasFaltantes deve ser array" };
+        }
+        materiasFaltantes = body.materiasFaltantes as MateriaInput[];
+    }
+
+    return {
+        input: {
+            curriculoCompleto: curriculoCompleto.trim(),
+            completedCodes,
+            numeroPeriodo: Math.floor(numeroPeriodo),
+            preferencias,
+            materiasFaltantes,
+        },
+    };
+}
+
+// =============================================================
+// Interface para dados montados
+// =============================================================
+
+interface DadosPlano {
+    idUser: string;
+    idCurso: string;
+    numeroPeriodo: number;
+    preferencias: PreferenciasPlano;
+    cargaHorariaIntegralizada: CargaIntegralizada;
+    exigidaMatriz: CargaIntegralizada;
+    fluxogramaAtual: string | null | undefined;
+    materiasMapeadas: MateriaInput[];
+    codigosComOferta: Set<string>;
+}
+
+/**
+ * Período letivo CORRENTE, para que a oferta considerada venha sempre de um único
+ * período — o de agora. Nada aqui é fixo: a RPC `periodo_letivo_atual` é calculada
+ * por data (jan–jun = .1, jul–dez = .2), então a virada de semestre é automática.
+ *
+ * Isso importa porque o banco carrega o próximo período enquanto o atual ainda roda
+ * (2026.1 e 2026.2 coexistem hoje, ~6.4k turmas cada). Contar os dois faz matéria que
+ * não é mais ofertada contar como ofertada; usar o MAIOR faria o sistema pular pro
+ * semestre seguinte antes da hora. Por isso o fallback quando a RPC não responde é a
+ * mesma fórmula de data em TS (calcularSemestreAtualStr), nunca um palpite tirado dos
+ * dados. Sempre devolve um período.
+ *
+ * Recebe o client por parâmetro para ser testável sem mock do módulo inteiro.
+ * Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md (D5)
+ */
+export async function resolverPeriodoAtivo(supabase: any): Promise<string> {
+    try {
+        const { data } = await supabase.rpc("periodo_letivo_atual");
+        if (data) return String(data);
+    } catch {
+        // Cai no fallback abaixo.
+    }
+    return calcularSemestreAtualStr();
+}
+
+/**
+ * Monta todos os dados necessários para gerar o plano (busca em banco + processamento).
+ * Retorna { dados } se sucesso ou { status, error } se erro.
+ */
+export async function montarDadosPlano(
+    idUser: string,
+    input: PlanoInput
+): Promise<{ dados?: DadosPlano; status?: number; error?: string }> {
+    try {
+        // 1. Busca dados do usuário e preferências no dados_users.
+        const { data: usuarioData, error: erroUsuario } = await SupabaseWrapper.get()
+            .from("dados_users")
+            .select("id_user, semestre_atual, carga_horaria_integralizada, fluxograma_atual, preferencias_plano")
+            .eq("id_user", idUser)
+            .maybeSingle();
+
+        if (erroUsuario) {
+            return { status: 500, error: `Erro ao buscar dados_users: ${erroUsuario.message}` };
+        }
+
+        if (!usuarioData) {
+            return { status: 404, error: "Dados do usuário não encontrados" };
+        }
+
+        const { curriculoCompleto, completedCodes, numeroPeriodo, preferencias: bodyPreferencias } = input;
+        const matriz = await resolveMatriz(curriculoCompleto);
+        if (!matriz) {
+            return { status: 404, error: "Matriz curricular não encontrada" };
+        }
+
+        // Monta CargaIntegralizada Exigida
+        const exigidaMatriz: CargaIntegralizada = {
+            total: matriz.ch_total_exigida || 0,
+            obrigatoria: matriz.ch_obrigatoria_exigida || 0,
+            optativa: matriz.ch_optativa_exigida || 0,
+            complementar: matriz.ch_complementar_exigida || 0
+        };
+
+        // Monta CargaIntegralizada Feita pelo Aluno
+        const chFeita = usuarioData.carga_horaria_integralizada as Record<string, any> || {};
+        const cargaHorariaIntegralizada: CargaIntegralizada = {
+            total: Number(chFeita.total) || 0,
+            obrigatoria: Number(chFeita.obrigatoria) || 0,
+            optativa: Number(chFeita.optativa) || 0,
+            complementar: Number(chFeita.complementar) || 0
+        };
+
+        // Monta Preferências usando body ou preferências salvas do usuário.
+        const prefs = usuarioData.preferencias_plano as Record<string, any> || {};
+        const preferencias: PreferenciasPlano = bodyPreferencias ?? {
+            limiteCreditos: Number(prefs.limiteCreditos) || 24,
+            objetivo: prefs.objetivo === "velocidade" ? "velocidade" : "equilibrado",
+            trabalha: Boolean(prefs.trabalha)
+        };
+
+        // 2. Busca materias_por_curso
+        const { data: materiasPorCurso, error: erroMPC } = await SupabaseWrapper.get()
+            .from("materias_por_curso")
+            .select("id_materia, nivel, tipo_natureza, materias(id_materia, codigo_materia, nome_materia, carga_horaria, departamento, dificuldade_estimada, motivo_dificuldade)")
+            .eq("id_matriz", matriz.id_matriz);
+
+        if (erroMPC) {
+            return { status: 500, error: `Erro ao buscar materias_por_curso: ${erroMPC.message}` };
+        }
+
+        if (!materiasPorCurso || materiasPorCurso.length === 0) {
+            return { status: 404, error: "Nenhuma matéria encontrada para a matriz curricular" };
+        }
+
+        // 3. Busca pre_requisitos e co_requisitos para as materias da matriz
+        const idsMaterias = (materiasPorCurso as any[])
+            .map((r: any) => r.materias?.id_materia)
+            .filter((id): id is number => typeof id === "number");
+
+        let preByMateria = new Map<number, unknown>();
+        let coByMateria = new Map<number, unknown>();
+        // Equivalencia é 1:N (uma matéria pode ter várias linhas, de currículos/vigências
+        // diferentes) — diferente de pré/co-requisito, que são 1:1 aqui.
+        let equivByMateria = new Map<number, unknown[]>();
+
+        if (idsMaterias.length > 0) {
+            const [
+                { data: preRows, error: erroPreReq },
+                { data: coRows, error: erroCoReq },
+                { data: equivRows, error: erroEquiv },
+            ] = await Promise.all([
+                SupabaseWrapper.get()
+                    .from("pre_requisitos")
+                    .select("id_materia, expressao_logica")
+                    .in("id_materia", idsMaterias),
+                SupabaseWrapper.get()
+                    .from("co_requisitos")
+                    .select("id_materia, expressao_logica")
+                    .in("id_materia", idsMaterias),
+                // Escopo de curso igual ao de fluxograma_controller.ts: equivalencia
+                // registrada para OUTRO curso nao vale aqui. id_curso nulo = geral.
+                SupabaseWrapper.get()
+                    .from("equivalencias")
+                    .select("id_materia, expressao_logica")
+                    .in("id_materia", idsMaterias)
+                    .or(`id_curso.is.null,id_curso.eq.${matriz.id_curso}`),
+            ]);
+
+            if (erroPreReq) return { status: 500, error: `Erro ao buscar pré-requisitos: ${erroPreReq.message}` };
+            if (erroCoReq) return { status: 500, error: `Erro ao buscar co-requisitos: ${erroCoReq.message}` };
+            if (erroEquiv) return { status: 500, error: `Erro ao buscar equivalências: ${erroEquiv.message}` };
+
+            if (preRows) preRows.forEach((r: any) => preByMateria.set(r.id_materia, r.expressao_logica));
+            if (coRows) coRows.forEach((r: any) => coByMateria.set(r.id_materia, r.expressao_logica));
+            if (equivRows) {
+                equivRows.forEach((r: any) => {
+                    if (r.expressao_logica == null) return;
+                    const atuais = equivByMateria.get(r.id_materia) ?? [];
+                    atuais.push(r.expressao_logica);
+                    equivByMateria.set(r.id_materia, atuais);
+                });
+            }
+        }
+
+        // 4. MAP MATERIAS PARA O FORMATO DO MOTOR 2
+        const materiasMapeadas: MateriaInput[] = (materiasPorCurso as any[]).map(row => {
+            const mat = row.materias;
+            const cargaHr = mat.carga_horaria || 60; 
+            return {
+                codigo: mat.codigo_materia.trim().toUpperCase(),
+                nome: mat.nome_materia || mat.codigo_materia,
+                creditos: Math.ceil(cargaHr / 15),
+                nivel: row.nivel || 0,
+                obrigatoria: row.tipo_natureza === 0,
+                tipo_natureza: row.tipo_natureza,
+                carga_horaria: cargaHr,
+                departamento: mat.departamento || undefined,
+                dificuldadeEstimada: mat.dificuldade_estimada || undefined,
+                motivoDificuldade: mat.motivo_dificuldade || undefined,
+                preRequisitos: preByMateria.get(mat.id_materia) || null,
+                coRequisitos: coByMateria.get(mat.id_materia) || null,
+                equivalencias: equivByMateria.get(mat.id_materia) ?? [],
+            };
+        });
+
+        // 5. Busca materias com oferta real em turmas (para evitar "optativas fantasmas").
+        //
+        // Considera EQUIVALENCIA: quando a materia muda de codigo, a matriz continua com o
+        // antigo mas a turma e publicada sob o novo (ex. CIC0151 -> CIC0197/FGA0158). Sem
+        // isso a materia parece "sem oferta" e leva -10 de score em calcularScore, alem de
+        // ser descartada no filtro de elegiveis do AtuadorGrade.
+        // Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md
+        const substitutosPorCodigo = construirSubstitutosPorCodigo(materiasMapeadas);
+
+        const idPorCodigo = new Map<string, number>();
+        for (const mpc of materiasPorCurso as any[]) {
+            const id = mpc.materias?.id_materia;
+            const cod = (mpc.materias?.codigo_materia || "").trim().toUpperCase();
+            if (id && cod) idPorCodigo.set(cod, id);
+        }
+
+        // Os substitutos estao FORA da matriz, entao nao caem no mapa acima — precisam de
+        // uma resolucao codigo -> id_materia propria.
+        const codigosSubstitutos = [
+            ...new Set(
+                [...substitutosPorCodigo.values()].flat().filter((c) => !idPorCodigo.has(c))
+            ),
+        ];
+        if (codigosSubstitutos.length > 0) {
+            const { data: substitutosRows, error: erroSubstitutos } = await SupabaseWrapper.get()
+                .from("materias")
+                .select("id_materia, codigo_materia")
+                .in("codigo_materia", codigosSubstitutos);
+            // Degrada: sem os ids dos substitutos, a oferta cai no comportamento antigo
+            // (so o codigo proprio) em vez de derrubar a requisicao inteira.
+            if (!erroSubstitutos && substitutosRows) {
+                for (const r of substitutosRows as any[]) {
+                    const cod = (r.codigo_materia || "").trim().toUpperCase();
+                    if (cod && r.id_materia) idPorCodigo.set(cod, r.id_materia);
+                }
+            }
+        }
+
+        // Periodo ativo: a oferta considerada e SEMPRE a do periodo CORRENTE, resolvido
+        // por data (ver resolverPeriodoAtivo) — vira sozinho a cada semestre. O banco tem
+        // 2026.1 e 2026.2 ao mesmo tempo, entao sem esse filtro uma materia que nao e
+        // mais ofertada continuaria contando como ofertada.
+        const periodoAtivo = await resolverPeriodoAtivo(SupabaseWrapper.get());
+
+        const { data: turmasData, error: erroTurmas } = await SupabaseWrapper.get()
+            .from("turmas")
+            .select("id_materia")
+            .eq("ano_periodo", periodoAtivo)
+            .in("id_materia", [...idPorCodigo.values()]);
+
+        const materiasComOferta = new Set<number>();
+        if (!erroTurmas && turmasData && Array.isArray(turmasData)) {
+            for (const turma of turmasData) {
+                if (turma.id_materia) materiasComOferta.add(turma.id_materia);
+            }
+        }
+
+        const codigosComOfertaPropria = new Set<string>();
+        for (const [cod, id] of idPorCodigo) {
+            if (materiasComOferta.has(id)) codigosComOfertaPropria.add(cod);
+        }
+
+        const codigosComOferta = expandirOfertaComEquivalencias(
+            substitutosPorCodigo,
+            codigosComOfertaPropria
+        );
+
+        // 6. LAZY LOADING DA DIFICULDADE
+        const materiasSemDificuldade = materiasMapeadas.filter(m => m.dificuldadeEstimada == null);
+        if (materiasSemDificuldade.length > 0) {
+            try {
+                await DificuldadeAgenteService.avaliarESalvarDificuldades(materiasSemDificuldade);
+            } catch (err) {
+                console.error(`Erro ao tentar fazer lazy load da dificuldade: ${err}`);
+            }
+        }
+
+
+        return {
+            dados: {
+                idUser,
+                idCurso: String(matriz.id_curso),
+                numeroPeriodo,
+                preferencias,
+                cargaHorariaIntegralizada,
+                exigidaMatriz,
+                fluxogramaAtual: usuarioData.fluxograma_atual as string | null | undefined,
+                materiasMapeadas,
+                codigosComOferta,
+            }
+        };
+    } catch (err: any) {
+        return { status: 500, error: err?.message || "Erro ao montar dados do plano" };
+    }
+}
+
+/**
+ * Monta o AgenteContexto completo (com plano) a partir do usuário + planoInput.
+ * Fonte única usada pelo chat do Planejamento e pelo chat da Assistente (logado).
+ */
+export async function montarContextoAgente(
+    idUser: string,
+    planoInputRaw: unknown,
+    restricoesRaw: unknown
+): Promise<{ ctx?: AgenteContexto; status?: number; error?: string }> {
+    const { input, error: inputError } = parseBody(planoInputRaw);
+    if (inputError) return { status: 400, error: inputError };
+
+    const restricoes: RestricoesPlano = {
+        adiar: Array.isArray((restricoesRaw as any)?.adiar) ? (restricoesRaw as any).adiar : [],
+        priorizar: Array.isArray((restricoesRaw as any)?.priorizar) ? (restricoesRaw as any).priorizar : [],
+        limitesPersonalizados:
+            typeof (restricoesRaw as any)?.limitesPersonalizados === "object" && (restricoesRaw as any).limitesPersonalizados !== null
+                ? (restricoesRaw as any).limitesPersonalizados
+                : undefined,
+    };
+
+    const { dados, status, error } = await montarDadosPlano(idUser, input!);
+    if (error) return { status: status || 500, error };
+    if (!dados) return { status: 500, error: "Erro interno ao montar dados do plano" };
+
+    const ctx: AgenteContexto = {
+        materias: dados.materiasMapeadas,
+        cargaHorariaIntegralizada: dados.cargaHorariaIntegralizada,
+        exigidaMatriz: dados.exigidaMatriz,
+        fluxogramaAtual: dados.fluxogramaAtual,
+        idUser: dados.idUser,
+        idCurso: dados.idCurso,
+        numeroPeriodo: dados.numeroPeriodo,
+        preferencias: dados.preferencias,
+        restricoes: {
+            adiar: restricoes.adiar,
+            priorizar: restricoes.priorizar,
+            limitesPersonalizados: restricoes.limitesPersonalizados || {},
+        },
+        codigosComOferta: dados.codigosComOferta,
+    };
+    return { ctx };
+}
+
+interface MatrizRow {
+    id_matriz: number;
+    id_curso: number;
+    curriculo_completo: string;
+    ch_total_exigida?: number | null;
+    ch_obrigatoria_exigida?: number | null;
+    ch_optativa_exigida?: number | null;
+    ch_complementar_exigida?: number | null;
+}
+
+async function resolveMatriz(
+    curriculoCompleto: string
+): Promise<MatrizRow | null> {
+    const cc = curriculoCompleto.trim();
+
+    // Tenta match exato primeiro.
+    try {
+        console.log(`[resolveMatriz] Querying matrizes for: "${cc}"`);
+        console.log(`[resolveMatriz] Supabase URL: ${process.env.SUPABASE_URL}`);
+        console.log(`[resolveMatriz] Has service role key: ${!!process.env.SUPABASE_SERVICE_ROLE_KEY}`);
+
+        const { data: exato, error } = await SupabaseWrapper.get()
+            .from("matrizes")
+            .select(
+                "id_matriz, id_curso, curriculo_completo, ch_total_exigida, ch_obrigatoria_exigida, ch_optativa_exigida, ch_complementar_exigida"
+            )
+            .eq("curriculo_completo", cc)
+            .maybeSingle();
+
+        if (error) {
+            console.error(`[resolveMatriz] Query error: ${error.message} | Code: ${error.code}`);
+        }
+        console.log(`[resolveMatriz] Query result:`, exato);
+
+        if (exato) return exato as MatrizRow;
+    } catch (err) {
+        console.error(`[resolveMatriz] Exception on exact match:`, err);
+    }
+
+    // Fallback: prefixo (ex: "8117/-2" -> "8117/-2 - 2018.2").
+    if (cc.includes("/")) {
+        const prefix = cc.split(" - ")[0]?.trim() ?? cc;
+        const { data: rows } = await SupabaseWrapper.get()
+            .from("matrizes")
+            .select(
+                "id_matriz, id_curso, curriculo_completo, ch_total_exigida, ch_obrigatoria_exigida, ch_optativa_exigida, ch_complementar_exigida"
+            )
+            .like("curriculo_completo", prefix + "%")
+            .order("curriculo_completo")
+            .limit(1);
+        if (rows && rows.length > 0) return rows[0] as MatrizRow;
+    }
+
+    return null;
+}
+
+interface MateriaPorCursoRow {
+    id_materia: number;
+    nivel: number;
+    tipo_natureza: number | null;
+    materias: {
+        id_materia: number;
+        codigo_materia: string;
+        nome_materia: string;
+        carga_horaria: number | null;
+    } | null;
+}
+
+/**
+ * Busca as materias faltantes do aluno para um determinado curriculo.
+ * "Faltante" = pertence ao curriculo E codigo nao esta em `completedCodes`.
+ */
+async function buscarMateriasFaltantes(
+    matriz: MatrizRow,
+    completedCodes: Set<string>
+): Promise<MateriaInput[]> {
+    // Busca todas as materias da matriz via matrizes -> materias_por_curso.
+    const { data, error } = await SupabaseWrapper.get()
+        .from("materias_por_curso")
+        .select("id_materia,nivel,tipo_natureza,materias(id_materia,codigo_materia,nome_materia,carga_horaria)")
+        .eq("id_matriz", matriz.id_matriz);
+    if (error) throw new Error(`Erro ao buscar materias_por_curso: ${error.message}`);
+    if (!data || data.length === 0) return [];
+
+    const mpcRows: MateriaPorCursoRow[] = (data as any) ?? [];
+    const idsMaterias = mpcRows
+        .map((r) => r.materias?.id_materia)
+        .filter((id): id is number => typeof id === "number");
+
+    if (idsMaterias.length === 0) return [];
+
+    // Busca pre-requisitos + co-requisitos das materias do curriculo.
+    const [{ data: preRows }, { data: coRows }] = await Promise.all([
+        SupabaseWrapper.get()
+            .from("pre_requisitos")
+            .select("id_materia, expressao_logica")
+            .in("id_materia", idsMaterias),
+        SupabaseWrapper.get()
+            .from("co_requisitos")
+            .select("id_materia, expressao_logica")
+            .in("id_materia", idsMaterias),
+    ]);
+
+    const preByMateria = new Map<number, unknown>();
+    for (const r of preRows ?? []) {
+        if (typeof (r as any).id_materia === "number") {
+            preByMateria.set((r as any).id_materia, (r as any).expressao_logica);
+        }
+    }
+    const coByMateria = new Map<number, unknown>();
+    for (const r of coRows ?? []) {
+        if (typeof (r as any).id_materia === "number") {
+            coByMateria.set((r as any).id_materia, (r as any).expressao_logica);
+        }
+    }
+
+    const completedUpper = new Set<string>();
+    for (const c of completedCodes) completedUpper.add(c.trim().toUpperCase());
+
+    const out: MateriaInput[] = [];
+    for (const row of mpcRows) {
+        const mat = row.materias;
+        if (!mat?.codigo_materia) continue;
+        const codigo = mat.codigo_materia.trim().toUpperCase();
+        if (completedUpper.has(codigo)) continue; // ja concluida
+
+        const creditos = mat.carga_horaria != null ? Math.round(mat.carga_horaria / 15) : 4;
+        out.push({
+            codigo,
+            nome: mat.nome_materia ?? codigo,
+            creditos,
+            nivel: row.nivel ?? 0,
+            obrigatoria: (row.tipo_natureza ?? 0) === 0,
+            tipo_natureza: row.tipo_natureza ?? undefined,
+            carga_horaria: mat.carga_horaria ?? 60,
+            preRequisitos: preByMateria.get(mat.id_materia) ?? null,
+            coRequisitos: coByMateria.get(mat.id_materia) ?? null,
+        });
+    }
+    return out;
+}
+
+// =============================================================
+// Endpoint
+// =============================================================
+
+export const PlanejamentoController: EndpointController = {
+    name: "planejamento",
+    routes: {
+        "test-db": new Pair(
+            RequestType.GET,
+            async (req: Request, res: Response) => {
+                try {
+                    console.log("[TEST] Querying matrizes table...");
+                    const { data, error } = await SupabaseWrapper.get()
+                        .from("matrizes")
+                        .select("*")
+                        .limit(1);
+
+                    if (error) {
+                        console.error("[TEST] Error:", error);
+                        return res.status(500).json({ error: error.message, code: error.code });
+                    }
+
+                    console.log("[TEST] Success:", data);
+                    return res.status(200).json({ success: true, data });
+                } catch (err) {
+                    console.error("[TEST] Exception:", err);
+                    return res.status(500).json({ error: String(err) });
+                }
+            }
+        ),
+        "gerar-plano": new Pair(
+            RequestType.POST,
+            async (req: Request, res: Response) => {
+                const logger = createControllerLogger("PlanejamentoController", "gerar-plano");
+
+                try {
+                    // ========== JWT AUTHENTICATION ==========
+                    if (!await Utils.checkAuthorization(req as Request)) {
+                        logger.warn("Autorização falhou");
+                        return res.status(401).json({ error: "Usuário não autorizado" });
+                    }
+
+                    const id_user = req.headers["user-id"] || req.headers["User-ID"];
+                    if (!id_user) {
+                        logger.warn("User-ID header não encontrado");
+                        return res.status(401).json({ error: "User-ID não informado" });
+                    }
+
+                    logger.info(`Gerando plano para usuário: ${id_user}`);
+
+                    // ========== PARSE BODY ==========
+                    const { input, error: bodyError } = parseBody(req.body);
+                    if (bodyError) {
+                        logger.warn(`Body inválido: ${bodyError}`);
+                        return res.status(400).json({ error: bodyError });
+                    }
+
+                    // ========== MONTAR DADOS DO PLANO ==========
+                    const { dados, status, error } = await montarDadosPlano(id_user as string, input!);
+                    if (error) {
+                        logger.warn(`Erro ao montar dados: ${error}`);
+                        return res.status(status || 500).json({ error });
+                    }
+                    if (!dados) {
+                        logger.error("Dados do plano não retornados");
+                        return res.status(500).json({ error: "Erro interno ao montar dados" });
+                    }
+
+                    logger.info(`Dados do plano montados: ${dados.idCurso}, semestre ${dados.numeroPeriodo}, ${dados.materiasMapeadas.length} matérias`);
+
+                    // ========== CALL V2 ALGORITHM ==========
+                    const plano: PlanoFormaturav2 = gerarPlanoCompletov2(
+                        dados.idUser,
+                        dados.idCurso,
+                        dados.numeroPeriodo,
+                        dados.cargaHorariaIntegralizada,
+                        dados.exigidaMatriz,
+                        dados.fluxogramaAtual,
+                        dados.materiasMapeadas,
+                        dados.preferencias,
+                        dados.codigosComOferta
+                    );
+
+                    logger.info(`Plano gerado: ${plano.semestresRestantes} semestres, ${plano.materiasNaoAlocadas.length} não-alocadas`);
+
+                    return res.status(200).json(plano);
+                } catch (err: any) {
+                    logger.error(`Erro ao gerar plano: ${err?.message || String(err)}`);
+                    return res.status(500).json({ error: err?.message || "Erro ao gerar plano" });
+                }
+            }
+        ),
+        "chat": new Pair(
+            RequestType.POST,
+            async (req: Request, res: Response) => {
+                const logger = createControllerLogger("PlanejamentoController", "chat");
+
+                try {
+                    // ========== JWT AUTHENTICATION ==========
+                    if (!await Utils.checkAuthorization(req as Request)) {
+                        logger.warn("Autorização falhou");
+                        return res.status(401).json({ error: "Usuário não autorizado" });
+                    }
+
+                    const id_user = req.headers["user-id"] || req.headers["User-ID"];
+                    if (!id_user) {
+                        logger.warn("User-ID header não encontrado");
+                        return res.status(401).json({ error: "User-ID não informado" });
+                    }
+
+                    logger.info(`Chat agente planejador para usuário: ${id_user}`);
+
+                    // ========== VERIFICAR DISPONIBILIDADE DO MARITACA ==========
+                    const svc = new PlanejadorAgenteService();
+                    if (!svc.isAvailable()) {
+                        logger.warn("Maritaca API não disponível");
+                        return res.status(503).json({
+                            error: "Serviço de agente temporariamente indisponível",
+                        });
+                    }
+
+                    // ========== PARSE BODY ==========
+                    const body = req.body;
+                    if (!isObject(body)) {
+                        return res.status(400).json({ error: "Body inválido" });
+                    }
+
+                    // Mensagens do chat
+                    const messages = Array.isArray(body.messages) ? body.messages : [];
+                    if (
+                        !messages.every(
+                            (m) =>
+                                isObject(m) &&
+                                (m.role === "user" || m.role === "assistant") &&
+                                typeof m.content === "string"
+                        )
+                    ) {
+                        return res.status(400).json({
+                            error: "messages deve ser array de { role, content }",
+                        });
+                    }
+
+                    const historico: MensagemChat[] = messages.map(
+                        (m: any) => ({ role: m.role, content: m.content })
+                    );
+
+                    // ========== MONTAR CONTEXTO DO AGENTE (com plano) ==========
+                    const { ctx, status: statusErr, error: erroMontagem } = await montarContextoAgente(
+                        id_user as string,
+                        body.planoInput,
+                        body.restricoes
+                    );
+                    if (erroMontagem || !ctx) {
+                        logger.warn(`Erro ao montar contexto: ${erroMontagem}`);
+                        return res.status(statusErr || 500).json({ error: erroMontagem || "Erro interno ao montar contexto" });
+                    }
+
+                    // ========== CONVERSAR COM AGENTE ==========
+                    logger.info(`Iniciando conversa com agente. Histórico: ${historico.length} mensagens`);
+                    const resultado = await svc.conversar(historico, ctx);
+
+                    logger.info(`Conversa concluída. Resposta: ${resultado.reply.slice(0, 50)}...`);
+
+                    return res.status(200).json({
+                        reply: resultado.reply,
+                        plano: resultado.plano ?? undefined,
+                        restricoes: resultado.restricoes,
+                    });
+                } catch (err: any) {
+                    logger.error(
+                        `Erro ao processar chat: ${err?.message || String(err)}`
+                    );
+                    return res.status(500).json({
+                        error: err?.message || "Erro ao processar mensagem do chat",
+                    });
+                }
+            }
+        ),
+    },
+};

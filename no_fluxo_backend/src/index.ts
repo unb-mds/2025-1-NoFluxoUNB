@@ -11,13 +11,15 @@ import express, { Express, Request, Response } from 'express';
 import { EndpointController, RequestType } from './interfaces';
 import bodyParser from 'body-parser';
 import cors from "cors";
+import helmet from 'helmet';
 import { FluxogramaController } from './controllers/fluxograma_controller';
-import { TestesController } from './controllers/testes_controller';
 import logger from './logger';
 import { UsersController } from './controllers/users_controller';
 import { CursosController } from './controllers/cursos_controller';
 import { MateriasController } from './controllers/materias_controller';
 import { AssistenteController } from './controllers/assistente_controller';
+import { PlanejamentoController } from './controllers/PlanejamentoController';
+import { ChatController } from './controllers/chat_controller';
 
 // Log loaded environment variables (for debugging)
 logger.info('Environment variables loaded:');
@@ -55,11 +57,12 @@ const router = express.Router();
 
 const controllers: EndpointController[] = [
     FluxogramaController,
-    TestesController,
     UsersController,
     CursosController,
     MateriasController,
     AssistenteController,
+    PlanejamentoController,
+    ChatController,
 ];
 router.get('/', (req: Request, res: Response) => {
     logger.info(`\b[GET][/]`);
@@ -165,6 +168,9 @@ const app: Express = express();
 
 //expressws(app);
 
+// Security headers — aplicar helmet antes das demais middlewares (CLAUDE.md).
+app.use(helmet());
+
 // Configure CORS properly (allow prod and local origins) and ensure preflight succeeds
 const allowedOrigins = new Set<string>([
     'https://www.no-fluxo.com',
@@ -208,8 +214,3 @@ const port = process.env.PORT ?? 3000;
 app.listen(port, () => {
     logger.info(`Server running on port ${port}`);
 });
-
-
-
-
-

@@ -98,6 +98,7 @@
 .nav-link {
 	position: relative;
 	display: inline-block;
+	white-space: nowrap;
 	transition: color 160ms ease;
 }
 
@@ -256,10 +257,23 @@ body[data-fluxograma-focus-mode='true'] .navbar-glass {
 	border-radius: 14px;
 	font-size: 16px;
 	font-family: inherit;
+	color: #111827;
+	background: #fff;
+	color-scheme: light;
 	transition:
 		border-color 0.2s,
 		box-shadow 0.2s;
 	box-sizing: border-box;
+}
+
+/* Evita texto acinzentado ilegível no autofill do Chrome/Edge em SO com tema escuro */
+.auth-input:-webkit-autofill,
+.auth-input:-webkit-autofill:hover,
+.auth-input:-webkit-autofill:focus {
+	-webkit-text-fill-color: #111827;
+	-webkit-box-shadow: 0 0 0 1000px #fff inset;
+	box-shadow: 0 0 0 1000px #fff inset;
+	caret-color: #111827;
 }
 
 .auth-input:focus {

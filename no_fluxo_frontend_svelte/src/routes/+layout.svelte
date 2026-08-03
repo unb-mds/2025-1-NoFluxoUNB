@@ -8,7 +8,6 @@
 	import { checkAuth, isPublicRoute } from '$lib/guards/authGuard';
 	import { isAuthRoute } from '$lib/config/routes';
 	import Navbar from '$lib/components/layout/Navbar.svelte';
-	import Footer from '$lib/components/layout/Footer.svelte';
 	import LoadingBar from '$lib/components/layout/LoadingBar.svelte';
 	import SuporteFab from '$lib/components/support/SuporteFab.svelte';
 	import { Toaster } from 'svelte-sonner';
@@ -46,7 +45,6 @@
 	let showNavbar = $derived(
 		!isAuthRoute($page.url.pathname) && $page.url.pathname !== '/'
 	);
-	let showFooter = $derived(false);
 
 	// Watch for route changes and verify auth
 	$effect(() => {
@@ -77,19 +75,8 @@
 			}
 		});
 
-		// Initial session check
-		authService.getSession().then(async (session) => {
-			if (session?.user?.email) {
-				const result = await authService.databaseSearchUser();
-				if (result.success) {
-					authStore.setUser(result.user);
-				} else {
-					authStore.setLoading(false);
-				}
-			} else {
-				authStore.setLoading(false);
-			}
-		});
+		// Initial session check (memoizado — o guard de rota protegida pode já ter disparado isso)
+		authService.ensureSessionBootstrapped();
 
 		return () => {
 			subscription.unsubscribe();
@@ -106,7 +93,7 @@
 <div class="flex min-h-screen flex-col overflow-x-hidden">
 	{#if showNavbar}
 		<div class="navbar-glass sticky top-0 z-50 px-4 pt-3 md:px-6 md:pt-4">
-			<div class="mx-auto w-full max-w-[min(1180px,calc(100vw-2rem))]">
+			<div class="mx-auto w-full">
 				<Navbar
 					user={$currentUser}
 					isAuthenticated={$isAuthenticated || $isAnonymous}
@@ -129,10 +116,6 @@
 			{@render children()}
 		{/if}
 	</main>
-
-	{#if showFooter}
-		<Footer />
-	{/if}
 </div>
 
 {#if $isAuthenticated && !$isAnonymous && showNavbar}

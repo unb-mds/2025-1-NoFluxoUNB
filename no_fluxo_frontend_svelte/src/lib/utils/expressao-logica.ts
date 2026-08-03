@@ -298,6 +298,27 @@ export function getLogicalCodeGroups(
 }
 
 /**
+ * Códigos que substituem SOZINHOS a matéria de origem de uma linha de `equivalencias`
+ * — usado para achar oferta em `turmas` quando a matéria da matriz mudou de código.
+ *
+ * Diferente de getCodigosFromExpressaoLogica, que achata tudo: sob um `E` os códigos só
+ * valem cursados JUNTOS, então nenhum substitui isolado. Cai em getLogicalCodeGroups,
+ * que já normaliza texto/recursivo/legado em forma disjuntiva (blocos ligados por OU,
+ * itens internos ligados por E) — um substituto é exatamente um bloco de um código só.
+ *
+ * Espelho de getSubstitutosFromExpressaoLogica em
+ * no_fluxo_backend/src/utils/expressao_logica.ts.
+ * Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md (D2)
+ */
+export function getSubstitutosFromExpressaoLogica(
+	expressaoLogica: ExpressaoLogicaRecursiva | ExpressaoLogicaJson | null | undefined,
+	expressaoTexto?: string | null
+): string[] {
+	const grupos = getLogicalCodeGroups(expressaoLogica, expressaoTexto);
+	return [...new Set(grupos.filter((g) => g.length === 1).map((g) => g[0]))];
+}
+
+/**
  * Avalia a expressão lógica contra o conjunto de códigos concluídos.
  * Suporta formato legado { materias, operador } e recursivo { operador, condicoes }.
  */

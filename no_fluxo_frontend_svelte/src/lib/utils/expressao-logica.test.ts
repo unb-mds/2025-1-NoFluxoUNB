@@ -6,7 +6,8 @@ import {
 	getCodigosFromExpressaoLogica,
 	evaluateExpressaoLogica,
 	getMatchingCodesFromExpressao,
-	getLogicalCodeGroups
+	getLogicalCodeGroups,
+	getSubstitutosFromExpressaoLogica
 } from './expressao-logica';
 
 describe('expressao logica helpers', () => {
@@ -58,5 +59,58 @@ describe('expressao logica helpers', () => {
 		const huge = 'MAT' + 'X'.repeat(1000);
 		expect(getCodigosFromExpressaoLogica(huge)).toEqual([]);
 		expect(getCodigosFromExpressaoLogica('')).toEqual([]);
+	});
+});
+
+/**
+ * Espelho de getSubstitutosFromExpressaoLogica no backend
+ * (no_fluxo_backend/src/utils/expressao_logica.ts).
+ * Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md (D2)
+ */
+describe('getSubstitutosFromExpressaoLogica', () => {
+	it('OU: cada condição substitui sozinha', () => {
+		expect(
+			getSubstitutosFromExpressaoLogica({ operador: 'OU', condicoes: ['CIC0197', 'FGA0158'] }).sort()
+		).toEqual(['CIC0197', 'FGA0158']);
+	});
+
+	it('E: nenhuma condição substitui sozinha', () => {
+		expect(getSubstitutosFromExpressaoLogica({ operador: 'E', condicoes: ['FGA0001', 'FGA0002'] })).toEqual([]);
+	});
+
+	it('misto: só o ramo OU vira substituto', () => {
+		expect(
+			getSubstitutosFromExpressaoLogica({
+				operador: 'OU',
+				condicoes: ['MAT0025', { operador: 'E', condicoes: ['FGA0001', 'FGA0002'] }]
+			})
+		).toEqual(['MAT0025']);
+	});
+
+	it('string simples e expressão textual OU', () => {
+		expect(getSubstitutosFromExpressaoLogica('CIC0198')).toEqual(['CIC0198']);
+		expect(getSubstitutosFromExpressaoLogica('CIC0197 OU FGA0158').sort()).toEqual([
+			'CIC0197',
+			'FGA0158'
+		]);
+	});
+
+	it('expressão textual com E não gera substituto', () => {
+		expect(getSubstitutosFromExpressaoLogica('FGA0001 E FGA0002')).toEqual([]);
+	});
+
+	it('formato legado { materias, operador } respeita o operador', () => {
+		expect(
+			getSubstitutosFromExpressaoLogica({ materias: ['CIC0197', 'FGA0158'], operador: 'OU' }).sort()
+		).toEqual(['CIC0197', 'FGA0158']);
+		expect(
+			getSubstitutosFromExpressaoLogica({ materias: ['FGA0001', 'FGA0002'], operador: 'E' })
+		).toEqual([]);
+	});
+
+	it('entrada nula/vazia devolve lista vazia', () => {
+		expect(getSubstitutosFromExpressaoLogica(null)).toEqual([]);
+		expect(getSubstitutosFromExpressaoLogica(undefined)).toEqual([]);
+		expect(getSubstitutosFromExpressaoLogica({ operador: 'OU', condicoes: [] })).toEqual([]);
 	});
 });

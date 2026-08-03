@@ -124,6 +124,33 @@ export class SabiaService {
     }
 
     /**
+     * Busca semântica pura (embeddings) via endpoint enxuto /buscar-materias do
+     * FastAPI — sem LLM. Usada como TOOL pelo agente (buscar_materias_unb).
+     * Retorna lista de { codigo, nome, similaridade }. Nunca lança: em erro/queda
+     * do serviço Python devolve [] para o agente degradar graciosamente.
+     */
+    async buscarMaterias(termosBusca: string[]): Promise<Array<{ codigo: string; nome: string; similaridade: number }>> {
+        if (!this.available) return [];
+        try {
+            const response = await fetch(`${this.apiUrl}/buscar-materias`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ termos_busca: termosBusca }),
+            });
+            if (!response.ok) {
+                logger.error(`[SabiaService] /buscar-materias retornou ${response.status}`);
+                return [];
+            }
+            const data = await response.json() as { materias?: Array<{ codigo: string; nome: string; similaridade: number }> };
+            return data.materias ?? [];
+        } catch (error) {
+            const msg = error instanceof Error ? error.message : String(error);
+            logger.error(`[SabiaService] Falha em buscarMaterias: ${msg}`);
+            return [];
+        }
+    }
+
+    /**
      * Stream the Sabiá AI response via SSE, piping events from the FastAPI server.
      */
     async analyzarInteresseStream(interesse: string, matrizCurricular: string = '', res: Response): Promise<void> {

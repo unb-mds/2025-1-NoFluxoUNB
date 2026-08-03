@@ -112,37 +112,42 @@ export function hasValidEquivalence(
  * but has completed one or more subjects that satisfy its equivalence expression.
  * Used so the fluxograma marks "MATEMÁTICA DISCRETA 2" as concluída when the user
  * completed e.g. MAT0035 (which satisfies the equivalence expression).
+ *
+ * PASSE ÚNICO, de propósito: só o que o aluno cursou DE VERDADE satisfaz uma
+ * equivalência — uma matéria marcada por equivalência não realimenta a expansão.
+ * Ou seja, A≡B e B≡C NÃO implica A≡C. Equivalência na UnB é tabela explícita, não
+ * relação transitiva: a secretaria não aceita a cadeia só porque os dois pares
+ * existem.
+ *
+ * Alinha o frontend ao backend (`expandirCumpridasComEquivalencias` em
+ * plano_formatura.service.ts, commit 7e7075f4). Antes divergiam, e o aluno via
+ * matéria verde no fluxograma que o plano de formatura insistia que faltava.
+ *
+ * Medido nos 1.658 alunos com fluxograma: encadear inflava as marcações por
+ * equivalência em 29% (8.497 contra 6.035 matérias de matriz), mexendo em 824.
  */
 export function getCompletedByEquivalenceCodes(
 	equivalencias: EquivalenciaModel[],
 	completedCodes: Set<string>
 ): Set<string> {
 	const result = new Set<string>();
-	/** Códigos já “válidos”; cresce com cada origem satisfeita (cadeia de equivalências). */
-	const workNorm = new Set(
+	/** O que o aluno cursou de verdade — nunca cresce durante a avaliação. */
+	const base = new Set(
 		[...completedCodes].map((c) => c.trim().toUpperCase()).filter((c) => c.length > 0)
 	);
-	let changed = true;
-	let guard = 0;
-	while (changed && guard++ < 64) {
-		changed = false;
-		for (const equiv of equivalencias) {
-			const origemRaw = (equiv.codigoMateriaOrigem || '').trim();
-			if (!origemRaw) continue;
-			const origemU = origemRaw.toUpperCase();
-			if (workNorm.has(origemU)) continue;
-			const snap = new Set(workNorm);
-			const satisfaz =
-				equiv.expressaoLogica != null
-					? evaluateExpressaoLogica(equiv.expressaoLogica, snap)
-					: evaluateExpression((equiv.expressao || '').trim(), snap);
-			if (satisfaz) {
-				workNorm.add(origemU);
-				result.add(origemRaw);
-				changed = true;
-			}
-		}
+
+	for (const equiv of equivalencias) {
+		const origemRaw = (equiv.codigoMateriaOrigem || '').trim();
+		if (!origemRaw) continue;
+		if (base.has(origemRaw.toUpperCase())) continue;
+
+		const satisfaz =
+			equiv.expressaoLogica != null
+				? evaluateExpressaoLogica(equiv.expressaoLogica, base)
+				: evaluateExpression((equiv.expressao || '').trim(), base);
+		if (satisfaz) result.add(origemRaw);
 	}
+
 	return result;
 }
 

@@ -27,6 +27,7 @@ import {
 	debugCargaHorariaIntegralizada,
 	calcularNumeroSemestre,
 	extrairDadosAcademicos,
+	extrairPeriodoLetivoAtual,
 	type DisciplinaExtraida,
 	type EquivalenciaExtraida,
 	type DadosAcademicos
@@ -355,7 +356,8 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 	}
 
 	const semestreAtual = extrairSemestreAtual(allDisciplinas);
-	const numeroSemestre = calcularNumeroSemestre(allDisciplinas);
+	const periodoReal = extrairPeriodoLetivoAtual(textoTotal);
+	const numeroSemestre = periodoReal ?? calcularNumeroSemestre(allDisciplinas);
 
 	const elapsed = (performance.now() - startTime).toFixed(0);
 	const regularCount = disciplinas.length;

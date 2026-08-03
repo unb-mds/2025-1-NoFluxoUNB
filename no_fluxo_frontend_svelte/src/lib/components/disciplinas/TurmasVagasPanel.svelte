@@ -3,6 +3,7 @@
 	import { vagaNotificacaoService } from '$lib/services/vaga-notificacao.service';
 	import type { VagaAssinatura } from '$lib/types/notificacao';
 	import { Bell, BellOff, Loader2 } from 'lucide-svelte';
+	import { toast } from '$lib/utils/toast';
 
 	interface Props {
 		idMateria: number;
@@ -109,12 +110,15 @@
 			const existente = encontrarAssinatura(turma, anoPeriodo);
 			if (existente) {
 				await vagaNotificacaoService.deixarDeSeguir(existente.id_assinatura);
+				toast.success('Você não vai mais receber avisos dessa turma.');
 			} else {
 				await vagaNotificacaoService.seguirMateria(idMateria, turma, anoPeriodo);
+				toast.success('Pronto! Você vai ser avisado quando abrir vaga.');
 			}
 			await carregarAssinaturas();
 		} catch (e: unknown) {
 			erroAcao = e instanceof Error ? e.message : 'Erro ao atualizar acompanhamento.';
+			toast.error(erroAcao);
 		} finally {
 			acaoEmAndamento = null;
 		}

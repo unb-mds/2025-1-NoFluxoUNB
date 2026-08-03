@@ -7,6 +7,7 @@ import type { User, Session } from '@supabase/supabase-js';
 
 export class AuthService {
 	private supabase = createSupabaseBrowserClient();
+	private bootstrapPromise: Promise<void> | null = null;
 
 	/**
 	 * Search for user in database — DIRECT SUPABASE QUERY
@@ -361,6 +362,30 @@ export class AuthService {
 			data: { session }
 		} = await this.supabase.auth.getSession();
 		return session;
+	}
+
+	/**
+	 * Resolve a sessão inicial do Supabase e popula o authStore (ou marca
+	 * isLoading=false se não houver sessão). Memoizado: chamadas concorrentes ou
+	 * repetidas (root layout onMount + guard de rota protegida) reaproveitam a
+	 * mesma requisição em vez de duplicar a busca.
+	 */
+	ensureSessionBootstrapped(): Promise<void> {
+		if (!this.bootstrapPromise) {
+			this.bootstrapPromise = this.getSession().then(async (session) => {
+				if (session?.user?.email) {
+					const result = await this.databaseSearchUser();
+					if (result.success) {
+						authStore.setUser(result.user);
+					} else {
+						authStore.setLoading(false);
+					}
+				} else {
+					authStore.setLoading(false);
+				}
+			});
+		}
+		return this.bootstrapPromise;
 	}
 
 	/**

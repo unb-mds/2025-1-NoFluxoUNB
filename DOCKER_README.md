@@ -1,104 +1,48 @@
-# Docker Setup for NoFluxo
+# Docker — Desenvolvimento Local
 
-The Docker configuration has been moved to the **repository root** to properly access the `.git` directory for auto-updates.
+Setup para rodar o projeto inteiro (backend, frontend, mcp_agent) localmente via Docker, com hot-reload, sem precisar instalar Node ou Python na máquina.
 
-## Quick Start
+Para o build de produção (Kubernetes), veja `k8s.backend.Dockerfile`, `k8s.frontend-svelte.Dockerfile` e `k8s.mcp-agent.Dockerfile` — esse README é só sobre o setup de dev local.
 
-1. **Copy environment configuration:**
-   ```bash
-   # From the repository root
-   cp no_fluxo_backend/.env.example no_fluxo_backend/.env
-   # Edit no_fluxo_backend/.env with your actual values
-   ```
+`docker-compose.yml`, `dev.backend.Dockerfile`, `dev.frontend-svelte.Dockerfile` e `dev.mcp-agent.Dockerfile` são conveniência individual e **não são versionados** (estão no `.gitignore`) — cada dev que quiser usar Docker localmente recria esses arquivos na própria cópia do repo.
 
-2. **Run the Docker setup:**
-   ```bash
-   # From the repository root
-   docker-compose up --build
-   ```
+## Pré-requisitos
 
-## File Structure
+- Cada subprojeto precisa do seu `.env` já preenchido:
+  - `no_fluxo_backend/.env` (copie de `no_fluxo_backend/.env.example`)
+  - `no_fluxo_frontend_svelte/.env` (copie de `no_fluxo_frontend_svelte/.env.example`)
+  - `mcp_agent/.env`
+- O banco (Supabase) é em nuvem — não tem container de banco aqui.
 
-```
-2025-1-NoFluxoUNB/               # Repository root (you are here)
-├── .git/                        # Git repository (properly accessible now!)
-├── Dockerfile                   # Main Docker configuration
-├── docker-compose.yml          # Docker Compose setup
-├── docker-entrypoint.sh        # Container startup script
-├── nginx.conf                  # Nginx configuration
-├── DOCKER_README.md            # This file
-└── no_fluxo_backend/           # Backend code
-    ├── .env                    # Environment configuration (create this)
-    ├── .env.example            # Environment template
-    ├── start_and_monitor.py    # Auto-update monitoring script
-    ├── src/                    # TypeScript source code
-    ├── ai_agent/               # AI agent code
-    └── ...                     # Other backend files
-```
+## Subir tudo
 
-## What Changed?
+A partir da raiz do repositório:
 
-### ✅ Fixed Issues:
-- **Git repository access**: `.git` directory is now properly mounted and accessible
-- **Auto-updates**: Git operations work correctly from the container
-- **Fork synchronization**: Fork repositories can be properly cloned and updated
-
-### 📁 File Movements:
-**Moved to root:**
-- `Dockerfile` (was in `no_fluxo_backend/`)
-- `docker-compose.yml` (was in `no_fluxo_backend/`)
-- `docker-entrypoint.sh` (was in `no_fluxo_backend/`)
-- `nginx.conf` (was in `no_fluxo_backend/`)
-
-**Stayed in `no_fluxo_backend/`:**
-- `start_and_monitor.py` (runs from backend context)
-- All source code and application files
-- `.env` configuration file
-
-## Environment Configuration
-
-Create your environment file:
 ```bash
-cp no_fluxo_backend/.env.example no_fluxo_backend/.env
+docker-compose up --build
 ```
 
-Key variables for auto-updates:
-```env
-GIT_USERNAME=your_github_username
-GIT_TOKEN=your_github_personal_access_token
-GIT_BRANCH=dev
-FORK_URL=https://github.com/yourusername/2025-1-NoFluxoUNB.git
+- Backend (Express): `http://localhost:3000` (porta vem de `PORT` em `no_fluxo_backend/.env`; se você mudar esse valor, ajuste também `ports:` em `docker-compose.yml`)
+- Frontend (SvelteKit): `http://localhost:5173`
+- MCP Agent / Darcy AI (FastAPI): `http://localhost:8000`
+
+Editar código em `no_fluxo_backend/src/`, `no_fluxo_frontend_svelte/src/` ou `mcp_agent/` reflete nos containers automaticamente (nodemon, Vite HMR e uvicorn `--reload`, respectivamente) — não precisa rebuildar.
+
+## Parar
+
+```bash
+docker-compose down
 ```
 
-## How It Works
+Os volumes nomeados (`backend_node_modules`, `frontend_node_modules`) persistem entre execuções, então o próximo `up --build` não reinstala tudo do zero a menos que o `package.json`/lockfile tenha mudado.
 
-1. **Repository Mounting**: The entire repository root (including `.git`) is mounted to `/app`
-2. **Backend Context**: The application runs from `/app/no_fluxo_backend/`
-3. **Git Operations**: Auto-update script accesses `/app/.git` properly
-4. **Volume Persistence**: Logs, builds, and fork data persist across container restarts
+## Arquivos
 
-## URLs
+- `dev.backend.Dockerfile`, `dev.frontend-svelte.Dockerfile`, `dev.mcp-agent.Dockerfile` — imagens de dev, só instalam dependências (código vem por bind mount).
+- `docker-compose.yml` — orquestra os 3 serviços.
 
-- **Main API**: `https://localhost:443/` (or `https://simplifica-pbl.space/`)
-- **AI Agent**: `https://localhost:4652/` (or `https://simplifica-pbl.space:4652/`)
+## Notas
 
-## Development
-
-For local development without Docker, continue using the scripts in `no_fluxo_backend/`.
-
-For production deployment with auto-updates, use this root-level Docker setup.
-
-## Troubleshooting
-
-**Git operations fail:**
-- Ensure you're running `docker-compose` from the repository root
-- Check that `.git` directory exists and has content
-- Verify git credentials in `no_fluxo_backend/.env`
-
-**Permission issues:**
-- The container automatically fixes ownership of mounted directories
-- Logs will show detailed permission debugging information
-
-**Build issues:**
-- Check that all files exist in `no_fluxo_backend/`
-- Review build logs for missing dependencies 
+- O frontend só usa `PUBLIC_API_URL` (via `$env/static/public`) para chamar o backend — como as chamadas partem do navegador (fora do container) e a porta do backend é publicada no host, `http://localhost:3000` do `.env` já funciona sem override nenhum no compose.
+- Se aparecer erro de módulo nativo faltando (ex. `node-gyp`) depois de mudar dependências, rode `docker-compose up --build` (força reinstalar) em vez de só `up`.
+- Primeira requisição ao frontend pode demorar ~10s (Vite otimizando dependências a frio); as próximas são rápidas.

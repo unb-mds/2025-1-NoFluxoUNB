@@ -188,6 +188,8 @@ interface ForeignKeyInfo {
     column_name: string;
     foreign_table_name: string;
     foreign_column_name: string;
+    delete_rule?: string;
+    update_rule?: string;
 }
 
 interface PrimaryKeyInfo {
@@ -1192,8 +1194,13 @@ function generateSupabaseBaselineMigrationSql(schema: DatabaseSchema): string {
 
     // Foreign keys
     for (const fk of schema.foreign_keys || []) {
+        // NO ACTION é o default do Postgres — omitir mantém o DDL enxuto.
+        // As demais regras precisam ser emitidas: sem elas o baseline recria a FK
+        // com um comportamento diferente do banco de origem.
+        const onDelete = fk.delete_rule && fk.delete_rule !== 'NO ACTION' ? ` ON DELETE ${fk.delete_rule}` : '';
+        const onUpdate = fk.update_rule && fk.update_rule !== 'NO ACTION' ? ` ON UPDATE ${fk.update_rule}` : '';
         lines.push(
-            `ALTER TABLE ONLY public.${toSqlIdentifier(fk.table_name)} ADD CONSTRAINT ${toSqlIdentifier(fk.constraint_name)} FOREIGN KEY (${toSqlIdentifier(fk.column_name)}) REFERENCES public.${toSqlIdentifier(fk.foreign_table_name)}(${toSqlIdentifier(fk.foreign_column_name)});`
+            `ALTER TABLE ONLY public.${toSqlIdentifier(fk.table_name)} ADD CONSTRAINT ${toSqlIdentifier(fk.constraint_name)} FOREIGN KEY (${toSqlIdentifier(fk.column_name)}) REFERENCES public.${toSqlIdentifier(fk.foreign_table_name)}(${toSqlIdentifier(fk.foreign_column_name)})${onDelete}${onUpdate};`
         );
     }
     if ((schema.foreign_keys || []).length > 0) lines.push('');

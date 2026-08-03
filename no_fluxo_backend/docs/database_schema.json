@@ -116,6 +116,278 @@
     {
       "columns": [
         {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "model",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "column_name": "input_per_1k",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "0",
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "column_name": "output_per_1k",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "0",
+          "ordinal_position": 3,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "currency",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "'BRL'::text",
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "updated_at",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "now()",
+          "ordinal_position": 5,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "uuid",
+          "data_type": "uuid",
+          "column_name": "updated_by",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 6,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "ai_pricing",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": "nextval('ai_usage_log_id_seq'::regclass)",
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "created_at",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "now()",
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "endpoint",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "model",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "column_name": "prompt_tokens",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": "0",
+          "ordinal_position": 5,
+          "numeric_precision": 32,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "column_name": "completion_tokens",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": "0",
+          "ordinal_position": 6,
+          "numeric_precision": 32,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "column_name": "total_tokens",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": "0",
+          "ordinal_position": 7,
+          "numeric_precision": 32,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "column_name": "duration_ms",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 8,
+          "numeric_precision": 32,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "column_name": "success",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "true",
+          "ordinal_position": 9,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "request_excerpt",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 10,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "ai_usage_log",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
           "udt_name": "int8",
           "data_type": "bigint",
           "column_name": "id_co_requisito",
@@ -431,119 +703,27 @@
           "datetime_precision": null,
           "identity_generation": null,
           "character_maximum_length": null
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "column_name": "preferencias_plano",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "'{\"objetivo\": \"equilibrado\", \"trabalha\": false, \"limiteCreditos\": 24}'::jsonb",
+          "ordinal_position": 13,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
         }
       ],
       "table_name": "dados_users",
       "table_type": "BASE TABLE",
       "table_comment": null
-    },
-    {
-      "columns": [
-        {
-          "udt_name": "int8",
-          "data_type": "bigint",
-          "column_name": "id_dado_user",
-          "is_identity": "YES",
-          "is_nullable": "NO",
-          "is_updatable": "YES",
-          "numeric_scale": 0,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 1,
-          "numeric_precision": 64,
-          "datetime_precision": null,
-          "identity_generation": "BY DEFAULT",
-          "character_maximum_length": null,
-          "is_primary_key": true
-        },
-        {
-          "udt_name": "timestamptz",
-          "data_type": "timestamp with time zone",
-          "column_name": "created_at",
-          "is_identity": "NO",
-          "is_nullable": "NO",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": "now()",
-          "ordinal_position": 2,
-          "numeric_precision": null,
-          "datetime_precision": 6,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "text",
-          "data_type": "text",
-          "column_name": "fluxograma_atual",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": "'{}'::text",
-          "ordinal_position": 3,
-          "numeric_precision": null,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "int8",
-          "data_type": "bigint",
-          "column_name": "id_user",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": 0,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 4,
-          "numeric_precision": 64,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null,
-          "foreign_key": {
-            "foreign_table": "users",
-            "foreign_column": "id_user"
-          }
-        },
-        {
-          "udt_name": "int8",
-          "data_type": "bigint",
-          "column_name": "semestre_atual",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": 0,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 5,
-          "numeric_precision": 64,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "jsonb",
-          "data_type": "jsonb",
-          "column_name": "carga_horaria_integralizada",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": "'{\"total\": 0, \"optativa\": 0, \"obrigatoria\": 0, \"complementar\": 0}'::jsonb",
-          "ordinal_position": 6,
-          "numeric_precision": null,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        }
-      ],
-      "table_name": "dados_users_teste",
-      "table_type": "BASE TABLE",
-      "table_comment": "This is a duplicate of dados_users"
     },
     {
       "columns": [
@@ -1107,6 +1287,54 @@
           "datetime_precision": null,
           "identity_generation": null,
           "character_maximum_length": null
+        },
+        {
+          "udt_name": "int2",
+          "data_type": "smallint",
+          "column_name": "dificuldade_estimada",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": "Estimativa de dificuldade de 1 a 10 calculada via Sabiá-3",
+          "column_default": null,
+          "ordinal_position": 8,
+          "numeric_precision": 16,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "motivo_dificuldade",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": "Feedback do motivo da dificuldade gerado pela IA",
+          "column_default": null,
+          "ordinal_position": 9,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "dificuldade_calculada_em",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 10,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
         }
       ],
       "table_name": "materias",
@@ -1522,6 +1750,162 @@
         {
           "udt_name": "int8",
           "data_type": "bigint",
+          "column_name": "id_notificacao",
+          "is_identity": "YES",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": "ALWAYS",
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "created_at",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "now()",
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_user",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "users",
+            "foreign_column": "id_user"
+          }
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "tipo",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "'vaga_disponivel'::text",
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "titulo",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 5,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "mensagem",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 6,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "column_name": "metadata",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 7,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "column_name": "lida",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "false",
+          "ordinal_position": 8,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "lida_em",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 9,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "notificacoes",
+      "table_type": "BASE TABLE",
+      "table_comment": "Feed genérico de notificações in-app por usuário (tipo permite reuso além de vaga_disponivel)"
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
           "column_name": "id_pre_requisito",
           "is_identity": "YES",
           "is_nullable": "NO",
@@ -1612,6 +1996,94 @@
       "table_name": "pre_requisitos",
       "table_type": "BASE TABLE",
       "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "key",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "column_name": "value",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "description",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "updated_at",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "now()",
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "uuid",
+          "data_type": "uuid",
+          "column_name": "updated_by",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 5,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "system_settings",
+      "table_type": "BASE TABLE",
+      "table_comment": "Configurações operacionais key/value (feature flags, toggles administrativos)."
     },
     {
       "columns": [
@@ -2194,6 +2666,214 @@
         {
           "udt_name": "int8",
           "data_type": "bigint",
+          "column_name": "id_historico",
+          "is_identity": "YES",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": "ALWAYS",
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_turmas",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 2,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "turmas",
+            "foreign_column": "id_turmas"
+          }
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "materias",
+            "foreign_column": "id_materia"
+          }
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "turma",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "ano_periodo",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 5,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "observed_at",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "now()",
+          "ordinal_position": 6,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "column_name": "vagas_ofertadas",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 7,
+          "numeric_precision": 32,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "column_name": "vagas_ocupadas",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 8,
+          "numeric_precision": 32,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "column_name": "vagas_sobrando",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 9,
+          "numeric_precision": 32,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "docente",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 10,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "horario",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 11,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "local",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 12,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "turmas_historico",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
           "column_name": "id_user",
           "is_identity": "YES",
           "is_nullable": "NO",
@@ -2276,6 +2956,134 @@
       "table_name": "users",
       "table_type": "BASE TABLE",
       "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_assinatura",
+          "is_identity": "YES",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": "ALWAYS",
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "created_at",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "now()",
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_user",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "users",
+            "foreign_column": "id_user"
+          }
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "materias",
+            "foreign_column": "id_materia"
+          }
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "turma",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 5,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "ano_periodo",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 6,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "bool",
+          "data_type": "boolean",
+          "column_name": "ativa",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "true",
+          "ordinal_position": 7,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "vaga_assinaturas",
+      "table_type": "BASE TABLE",
+      "table_comment": "Assinaturas de aluno para notificação de vaga em matéria (todas as turmas) ou turma específica, por ano_periodo"
     }
   ],
   "indexes": [
@@ -2288,6 +3096,26 @@
       "index_name": "idx_admins_role",
       "table_name": "admins",
       "index_definition": "CREATE INDEX idx_admins_role ON public.admins USING btree (role)"
+    },
+    {
+      "index_name": "ai_pricing_pkey",
+      "table_name": "ai_pricing",
+      "index_definition": "CREATE UNIQUE INDEX ai_pricing_pkey ON public.ai_pricing USING btree (model)"
+    },
+    {
+      "index_name": "ai_usage_log_pkey",
+      "table_name": "ai_usage_log",
+      "index_definition": "CREATE UNIQUE INDEX ai_usage_log_pkey ON public.ai_usage_log USING btree (id)"
+    },
+    {
+      "index_name": "idx_ai_usage_created_at",
+      "table_name": "ai_usage_log",
+      "index_definition": "CREATE INDEX idx_ai_usage_created_at ON public.ai_usage_log USING btree (created_at DESC)"
+    },
+    {
+      "index_name": "idx_ai_usage_model",
+      "table_name": "ai_usage_log",
+      "index_definition": "CREATE INDEX idx_ai_usage_model ON public.ai_usage_log USING btree (model)"
     },
     {
       "index_name": "co_requisitos_pkey",
@@ -2313,16 +3141,6 @@
       "index_name": "dados_users_pkey",
       "table_name": "dados_users",
       "index_definition": "CREATE UNIQUE INDEX dados_users_pkey ON public.dados_users USING btree (id_dado_user)"
-    },
-    {
-      "index_name": "dados_users_teste_id_user_key",
-      "table_name": "dados_users_teste",
-      "index_definition": "CREATE UNIQUE INDEX dados_users_teste_id_user_key ON public.dados_users_teste USING btree (id_user)"
-    },
-    {
-      "index_name": "dados_users_teste_pkey",
-      "table_name": "dados_users_teste",
-      "index_definition": "CREATE UNIQUE INDEX dados_users_teste_pkey ON public.dados_users_teste USING btree (id_dado_user)"
     },
     {
       "index_name": "equivalencias_pkey",
@@ -2390,9 +3208,24 @@
       "index_definition": "CREATE UNIQUE INDEX matrizes_pkey ON public.matrizes USING btree (id_matriz)"
     },
     {
+      "index_name": "idx_notificacoes_id_user_nao_lida",
+      "table_name": "notificacoes",
+      "index_definition": "CREATE INDEX idx_notificacoes_id_user_nao_lida ON public.notificacoes USING btree (id_user, created_at DESC) WHERE (NOT lida)"
+    },
+    {
+      "index_name": "notificacoes_pkey",
+      "table_name": "notificacoes",
+      "index_definition": "CREATE UNIQUE INDEX notificacoes_pkey ON public.notificacoes USING btree (id_notificacao)"
+    },
+    {
       "index_name": "pre_requisitos_pkey",
       "table_name": "pre_requisitos",
       "index_definition": "CREATE UNIQUE INDEX pre_requisitos_pkey ON public.pre_requisitos USING btree (id_pre_requisito)"
+    },
+    {
+      "index_name": "system_settings_pkey",
+      "table_name": "system_settings",
+      "index_definition": "CREATE UNIQUE INDEX system_settings_pkey ON public.system_settings USING btree (key)"
     },
     {
       "index_name": "idx_ticket_audit_ticket",
@@ -2445,6 +3278,21 @@
       "index_definition": "CREATE UNIQUE INDEX uq_turmas_oferta ON public.turmas USING btree (id_materia, turma, ano_periodo)"
     },
     {
+      "index_name": "idx_turmas_historico_materia_periodo",
+      "table_name": "turmas_historico",
+      "index_definition": "CREATE INDEX idx_turmas_historico_materia_periodo ON public.turmas_historico USING btree (id_materia, ano_periodo, observed_at DESC)"
+    },
+    {
+      "index_name": "idx_turmas_historico_observed_at",
+      "table_name": "turmas_historico",
+      "index_definition": "CREATE INDEX idx_turmas_historico_observed_at ON public.turmas_historico USING btree (observed_at)"
+    },
+    {
+      "index_name": "turmas_historico_pkey",
+      "table_name": "turmas_historico",
+      "index_definition": "CREATE UNIQUE INDEX turmas_historico_pkey ON public.turmas_historico USING btree (id_historico)"
+    },
+    {
       "index_name": "idx_users_auth_id",
       "table_name": "users",
       "index_definition": "CREATE INDEX idx_users_auth_id ON public.users USING btree (auth_id)"
@@ -2458,6 +3306,26 @@
       "index_name": "users_pkey",
       "table_name": "users",
       "index_definition": "CREATE UNIQUE INDEX users_pkey ON public.users USING btree (id_user)"
+    },
+    {
+      "index_name": "idx_vaga_assinaturas_id_user",
+      "table_name": "vaga_assinaturas",
+      "index_definition": "CREATE INDEX idx_vaga_assinaturas_id_user ON public.vaga_assinaturas USING btree (id_user)"
+    },
+    {
+      "index_name": "idx_vaga_assinaturas_materia_ativa",
+      "table_name": "vaga_assinaturas",
+      "index_definition": "CREATE INDEX idx_vaga_assinaturas_materia_ativa ON public.vaga_assinaturas USING btree (id_materia, ano_periodo) WHERE ativa"
+    },
+    {
+      "index_name": "uq_vaga_assinatura",
+      "table_name": "vaga_assinaturas",
+      "index_definition": "CREATE UNIQUE INDEX uq_vaga_assinatura ON public.vaga_assinaturas USING btree (id_user, id_materia, turma, ano_periodo)"
+    },
+    {
+      "index_name": "vaga_assinaturas_pkey",
+      "table_name": "vaga_assinaturas",
+      "index_definition": "CREATE UNIQUE INDEX vaga_assinaturas_pkey ON public.vaga_assinaturas USING btree (id_assinatura)"
     }
   ],
   "policies": [
@@ -2504,6 +3372,39 @@
       "policy_name": "admins_update_superadmin",
       "using_expression": "is_superadmin()",
       "with_check_expression": "is_superadmin()"
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "ai_pricing",
+      "policy_name": "ai_pricing_select_dashboard",
+      "using_expression": "has_admin_scope('dashboard'::text)",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "ALL",
+      "permissive": "PERMISSIVE",
+      "table_name": "ai_pricing",
+      "policy_name": "ai_pricing_write_superadmin",
+      "using_expression": "is_superadmin()",
+      "with_check_expression": "is_superadmin()"
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "ai_usage_log",
+      "policy_name": "ai_usage_select_dashboard",
+      "using_expression": "has_admin_scope('dashboard'::text)",
+      "with_check_expression": null
     },
     {
       "roles": [
@@ -2628,12 +3529,45 @@
     },
     {
       "roles": [
+        "authenticated"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "notificacoes",
+      "policy_name": "notificacoes_select_own",
+      "using_expression": "(id_user IN ( SELECT users.id_user\n   FROM users\n  WHERE (users.auth_id = auth.uid())))",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "command": "UPDATE",
+      "permissive": "PERMISSIVE",
+      "table_name": "notificacoes",
+      "policy_name": "notificacoes_update_own",
+      "using_expression": "(id_user IN ( SELECT users.id_user\n   FROM users\n  WHERE (users.auth_id = auth.uid())))",
+      "with_check_expression": "(id_user IN ( SELECT users.id_user\n   FROM users\n  WHERE (users.auth_id = auth.uid())))"
+    },
+    {
+      "roles": [
         "public"
       ],
       "command": "SELECT",
       "permissive": "PERMISSIVE",
       "table_name": "pre_requisitos",
       "policy_name": "pre_requisitos_select_public",
+      "using_expression": "true",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "system_settings",
+      "policy_name": "system_settings_select_authenticated",
       "using_expression": "true",
       "with_check_expression": null
     },
@@ -2694,6 +3628,18 @@
     },
     {
       "roles": [
+        "authenticated",
+        "anon"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "turmas",
+      "policy_name": "turmas_select_public",
+      "using_expression": "true",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
         "public"
       ],
       "command": "INSERT",
@@ -2724,6 +3670,50 @@
       "policy_name": "users_update_own",
       "using_expression": "(auth_id = auth.uid())",
       "with_check_expression": "(auth_id = auth.uid())"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "command": "DELETE",
+      "permissive": "PERMISSIVE",
+      "table_name": "vaga_assinaturas",
+      "policy_name": "vaga_assinaturas_delete_own",
+      "using_expression": "(id_user IN ( SELECT users.id_user\n   FROM users\n  WHERE (users.auth_id = auth.uid())))",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "command": "INSERT",
+      "permissive": "PERMISSIVE",
+      "table_name": "vaga_assinaturas",
+      "policy_name": "vaga_assinaturas_insert_own",
+      "using_expression": null,
+      "with_check_expression": "(id_user IN ( SELECT users.id_user\n   FROM users\n  WHERE (users.auth_id = auth.uid())))"
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "vaga_assinaturas",
+      "policy_name": "vaga_assinaturas_select_own",
+      "using_expression": "(id_user IN ( SELECT users.id_user\n   FROM users\n  WHERE (users.auth_id = auth.uid())))",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "authenticated"
+      ],
+      "command": "UPDATE",
+      "permissive": "PERMISSIVE",
+      "table_name": "vaga_assinaturas",
+      "policy_name": "vaga_assinaturas_update_own",
+      "using_expression": "(id_user IN ( SELECT users.id_user\n   FROM users\n  WHERE (users.auth_id = auth.uid())))",
+      "with_check_expression": "(id_user IN ( SELECT users.id_user\n   FROM users\n  WHERE (users.auth_id = auth.uid())))"
     }
   ],
   "triggers": [
@@ -2771,6 +3761,36 @@
       "trigger_function_schema": "public",
       "trigger_function_source": "\r\nBEGIN\r\n  NEW.last_updated_at = now();\r\n  RETURN NEW;\r\nEND;\r\n",
       "trigger_function_definition": "CREATE OR REPLACE FUNCTION public.set_last_updated_at()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\r\nBEGIN\r\n  NEW.last_updated_at = now();\r\n  RETURN NEW;\r\nEND;\r\n$function$\n"
+    },
+    {
+      "for_each": "ROW",
+      "condition": null,
+      "is_enabled": true,
+      "table_name": "turmas",
+      "table_schema": "public",
+      "trigger_name": "trg_turmas_historico",
+      "trigger_type": "AFTER",
+      "trigger_events": "INSERT OR UPDATE",
+      "trigger_definition": "CREATE TRIGGER trg_turmas_historico AFTER INSERT OR UPDATE ON public.turmas FOR EACH ROW EXECUTE FUNCTION registrar_turma_historico()",
+      "trigger_function_name": "registrar_turma_historico",
+      "trigger_function_schema": "public",
+      "trigger_function_source": "\r\nBEGIN\r\n  IF TG_OP = 'UPDATE'\r\n     AND NEW.vagas_ofertadas IS NOT DISTINCT FROM OLD.vagas_ofertadas\r\n     AND NEW.vagas_ocupadas  IS NOT DISTINCT FROM OLD.vagas_ocupadas\r\n     AND NEW.vagas_sobrando  IS NOT DISTINCT FROM OLD.vagas_sobrando\r\n     AND NEW.docente         IS NOT DISTINCT FROM OLD.docente\r\n     AND NEW.horario         IS NOT DISTINCT FROM OLD.horario\r\n     AND NEW.local           IS NOT DISTINCT FROM OLD.local\r\n  THEN\r\n    RETURN NEW;\r\n  END IF;\r\n\r\n  INSERT INTO public.turmas_historico (\r\n    id_turmas, id_materia, turma, ano_periodo, observed_at,\r\n    vagas_ofertadas, vagas_ocupadas, vagas_sobrando, docente, horario, local\r\n  ) VALUES (\r\n    NEW.id_turmas, NEW.id_materia, NEW.turma, NEW.ano_periodo, now(),\r\n    NEW.vagas_ofertadas, NEW.vagas_ocupadas, NEW.vagas_sobrando,\r\n    NEW.docente, NEW.horario, NEW.local\r\n  );\r\n\r\n  RETURN NEW;\r\nEND;\r\n",
+      "trigger_function_definition": "CREATE OR REPLACE FUNCTION public.registrar_turma_historico()\n RETURNS trigger\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\r\nBEGIN\r\n  IF TG_OP = 'UPDATE'\r\n     AND NEW.vagas_ofertadas IS NOT DISTINCT FROM OLD.vagas_ofertadas\r\n     AND NEW.vagas_ocupadas  IS NOT DISTINCT FROM OLD.vagas_ocupadas\r\n     AND NEW.vagas_sobrando  IS NOT DISTINCT FROM OLD.vagas_sobrando\r\n     AND NEW.docente         IS NOT DISTINCT FROM OLD.docente\r\n     AND NEW.horario         IS NOT DISTINCT FROM OLD.horario\r\n     AND NEW.local           IS NOT DISTINCT FROM OLD.local\r\n  THEN\r\n    RETURN NEW;\r\n  END IF;\r\n\r\n  INSERT INTO public.turmas_historico (\r\n    id_turmas, id_materia, turma, ano_periodo, observed_at,\r\n    vagas_ofertadas, vagas_ocupadas, vagas_sobrando, docente, horario, local\r\n  ) VALUES (\r\n    NEW.id_turmas, NEW.id_materia, NEW.turma, NEW.ano_periodo, now(),\r\n    NEW.vagas_ofertadas, NEW.vagas_ocupadas, NEW.vagas_sobrando,\r\n    NEW.docente, NEW.horario, NEW.local\r\n  );\r\n\r\n  RETURN NEW;\r\nEND;\r\n$function$\n"
+    },
+    {
+      "for_each": "ROW",
+      "condition": null,
+      "is_enabled": true,
+      "table_name": "turmas",
+      "table_schema": "public",
+      "trigger_name": "trg_turmas_notificar_vaga",
+      "trigger_type": "AFTER",
+      "trigger_events": "INSERT OR UPDATE",
+      "trigger_definition": "CREATE TRIGGER trg_turmas_notificar_vaga AFTER INSERT OR UPDATE ON public.turmas FOR EACH ROW EXECUTE FUNCTION notificar_vaga_disponivel()",
+      "trigger_function_name": "notificar_vaga_disponivel",
+      "trigger_function_schema": "public",
+      "trigger_function_source": "\r\nDECLARE\r\n  v_codigo_materia text;\r\n  v_nome_materia text;\r\nBEGIN\r\n  IF NOT (\r\n    (TG_OP = 'UPDATE'\r\n      AND (OLD.vagas_sobrando IS NULL OR OLD.vagas_sobrando <= 0)\r\n      AND (NEW.vagas_sobrando IS NOT NULL AND NEW.vagas_sobrando > 0))\r\n    OR\r\n    (TG_OP = 'INSERT'\r\n      AND NEW.vagas_sobrando IS NOT NULL AND NEW.vagas_sobrando > 0)\r\n  ) THEN\r\n    RETURN NEW;\r\n  END IF;\r\n\r\n  SELECT codigo_materia, nome_materia\r\n    INTO v_codigo_materia, v_nome_materia\r\n    FROM public.materias\r\n   WHERE id_materia = NEW.id_materia;\r\n\r\n  INSERT INTO public.notificacoes (id_user, tipo, titulo, mensagem, metadata)\r\n  SELECT\r\n    va.id_user,\r\n    'vaga_disponivel',\r\n    'Vaga aberta em ' || COALESCE(v_codigo_materia, 'matéria'),\r\n    'A turma ' || COALESCE(NEW.turma, '') || ' de ' ||\r\n      COALESCE(v_nome_materia, v_codigo_materia, 'matéria') ||\r\n      ' (' || NEW.ano_periodo || ') tem ' || NEW.vagas_sobrando || ' vaga(s) disponível(is).',\r\n    jsonb_build_object(\r\n      'id_turmas', NEW.id_turmas,\r\n      'id_materia', NEW.id_materia,\r\n      'codigo_materia', v_codigo_materia,\r\n      'turma', NEW.turma,\r\n      'ano_periodo', NEW.ano_periodo,\r\n      'vagas_sobrando', NEW.vagas_sobrando\r\n    )\r\n  FROM public.vaga_assinaturas va\r\n  WHERE va.ativa\r\n    AND va.id_materia = NEW.id_materia\r\n    AND va.ano_periodo = NEW.ano_periodo\r\n    AND (va.turma IS NULL OR va.turma = NEW.turma);\r\n\r\n  RETURN NEW;\r\nEND;\r\n",
+      "trigger_function_definition": "CREATE OR REPLACE FUNCTION public.notificar_vaga_disponivel()\n RETURNS trigger\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\r\nDECLARE\r\n  v_codigo_materia text;\r\n  v_nome_materia text;\r\nBEGIN\r\n  IF NOT (\r\n    (TG_OP = 'UPDATE'\r\n      AND (OLD.vagas_sobrando IS NULL OR OLD.vagas_sobrando <= 0)\r\n      AND (NEW.vagas_sobrando IS NOT NULL AND NEW.vagas_sobrando > 0))\r\n    OR\r\n    (TG_OP = 'INSERT'\r\n      AND NEW.vagas_sobrando IS NOT NULL AND NEW.vagas_sobrando > 0)\r\n  ) THEN\r\n    RETURN NEW;\r\n  END IF;\r\n\r\n  SELECT codigo_materia, nome_materia\r\n    INTO v_codigo_materia, v_nome_materia\r\n    FROM public.materias\r\n   WHERE id_materia = NEW.id_materia;\r\n\r\n  INSERT INTO public.notificacoes (id_user, tipo, titulo, mensagem, metadata)\r\n  SELECT\r\n    va.id_user,\r\n    'vaga_disponivel',\r\n    'Vaga aberta em ' || COALESCE(v_codigo_materia, 'matéria'),\r\n    'A turma ' || COALESCE(NEW.turma, '') || ' de ' ||\r\n      COALESCE(v_nome_materia, v_codigo_materia, 'matéria') ||\r\n      ' (' || NEW.ano_periodo || ') tem ' || NEW.vagas_sobrando || ' vaga(s) disponível(is).',\r\n    jsonb_build_object(\r\n      'id_turmas', NEW.id_turmas,\r\n      'id_materia', NEW.id_materia,\r\n      'codigo_materia', v_codigo_materia,\r\n      'turma', NEW.turma,\r\n      'ano_periodo', NEW.ano_periodo,\r\n      'vagas_sobrando', NEW.vagas_sobrando\r\n    )\r\n  FROM public.vaga_assinaturas va\r\n  WHERE va.ativa\r\n    AND va.id_materia = NEW.id_materia\r\n    AND va.ano_periodo = NEW.ano_periodo\r\n    AND (va.turma IS NULL OR va.turma = NEW.turma);\r\n\r\n  RETURN NEW;\r\nEND;\r\n$function$\n"
     }
   ],
   "functions": [
@@ -2789,24 +3809,6 @@
       "function_name": "array_to_halfvec",
       "function_type": "function",
       "argument_types": "integer[], integer, boolean",
-      "parallel_safety": "SAFE",
-      "security_definer": false
-    },
-    {
-      "config": null,
-      "strict": true,
-      "comment": null,
-      "language": "c",
-      "arguments": "numeric[], integer, boolean",
-      "definition": "CREATE OR REPLACE FUNCTION public.array_to_halfvec(numeric[], integer, boolean)\n RETURNS halfvec\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$array_to_halfvec$function$\n",
-      "volatility": "IMMUTABLE",
-      "return_type": "halfvec",
-      "returns_set": false,
-      "source_code": "array_to_halfvec",
-      "function_oid": 198036,
-      "function_name": "array_to_halfvec",
-      "function_type": "function",
-      "argument_types": "numeric[], integer, boolean",
       "parallel_safety": "SAFE",
       "security_definer": false
     },
@@ -2851,16 +3853,34 @@
       "strict": true,
       "comment": null,
       "language": "c",
-      "arguments": "double precision[], integer, boolean",
-      "definition": "CREATE OR REPLACE FUNCTION public.array_to_sparsevec(double precision[], integer, boolean)\n RETURNS sparsevec\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$array_to_sparsevec$function$\n",
+      "arguments": "numeric[], integer, boolean",
+      "definition": "CREATE OR REPLACE FUNCTION public.array_to_halfvec(numeric[], integer, boolean)\n RETURNS halfvec\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$array_to_halfvec$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "halfvec",
+      "returns_set": false,
+      "source_code": "array_to_halfvec",
+      "function_oid": 198036,
+      "function_name": "array_to_halfvec",
+      "function_type": "function",
+      "argument_types": "numeric[], integer, boolean",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "integer[], integer, boolean",
+      "definition": "CREATE OR REPLACE FUNCTION public.array_to_sparsevec(integer[], integer, boolean)\n RETURNS sparsevec\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$array_to_sparsevec$function$\n",
       "volatility": "IMMUTABLE",
       "return_type": "sparsevec",
       "returns_set": false,
       "source_code": "array_to_sparsevec",
-      "function_oid": 198159,
+      "function_oid": 198157,
       "function_name": "array_to_sparsevec",
       "function_type": "function",
-      "argument_types": "double precision[], integer, boolean",
+      "argument_types": "integer[], integer, boolean",
       "parallel_safety": "SAFE",
       "security_definer": false
     },
@@ -2887,16 +3907,16 @@
       "strict": true,
       "comment": null,
       "language": "c",
-      "arguments": "integer[], integer, boolean",
-      "definition": "CREATE OR REPLACE FUNCTION public.array_to_sparsevec(integer[], integer, boolean)\n RETURNS sparsevec\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$array_to_sparsevec$function$\n",
+      "arguments": "double precision[], integer, boolean",
+      "definition": "CREATE OR REPLACE FUNCTION public.array_to_sparsevec(double precision[], integer, boolean)\n RETURNS sparsevec\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$array_to_sparsevec$function$\n",
       "volatility": "IMMUTABLE",
       "return_type": "sparsevec",
       "returns_set": false,
       "source_code": "array_to_sparsevec",
-      "function_oid": 198157,
+      "function_oid": 198159,
       "function_name": "array_to_sparsevec",
       "function_type": "function",
-      "argument_types": "integer[], integer, boolean",
+      "argument_types": "double precision[], integer, boolean",
       "parallel_safety": "SAFE",
       "security_definer": false
     },
@@ -3013,24 +4033,6 @@
       "strict": true,
       "comment": null,
       "language": "c",
-      "arguments": "halfvec",
-      "definition": "CREATE OR REPLACE FUNCTION public.binary_quantize(halfvec)\n RETURNS bit\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$halfvec_binary_quantize$function$\n",
-      "volatility": "IMMUTABLE",
-      "return_type": "bit",
-      "returns_set": false,
-      "source_code": "halfvec_binary_quantize",
-      "function_oid": 198009,
-      "function_name": "binary_quantize",
-      "function_type": "function",
-      "argument_types": "halfvec",
-      "parallel_safety": "SAFE",
-      "security_definer": false
-    },
-    {
-      "config": null,
-      "strict": true,
-      "comment": null,
-      "language": "c",
       "arguments": "vector",
       "definition": "CREATE OR REPLACE FUNCTION public.binary_quantize(vector)\n RETURNS bit\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$binary_quantize$function$\n",
       "volatility": "IMMUTABLE",
@@ -3041,6 +4043,24 @@
       "function_name": "binary_quantize",
       "function_type": "function",
       "argument_types": "vector",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "halfvec",
+      "definition": "CREATE OR REPLACE FUNCTION public.binary_quantize(halfvec)\n RETURNS bit\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$halfvec_binary_quantize$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "bit",
+      "returns_set": false,
+      "source_code": "halfvec_binary_quantize",
+      "function_oid": 198009,
+      "function_name": "binary_quantize",
+      "function_type": "function",
+      "argument_types": "halfvec",
       "parallel_safety": "SAFE",
       "security_definer": false
     },
@@ -3105,24 +4125,6 @@
       "strict": true,
       "comment": null,
       "language": "c",
-      "arguments": "sparsevec, sparsevec",
-      "definition": "CREATE OR REPLACE FUNCTION public.cosine_distance(sparsevec, sparsevec)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$sparsevec_cosine_distance$function$\n",
-      "volatility": "IMMUTABLE",
-      "return_type": "double precision",
-      "returns_set": false,
-      "source_code": "sparsevec_cosine_distance",
-      "function_oid": 198139,
-      "function_name": "cosine_distance",
-      "function_type": "function",
-      "argument_types": "sparsevec, sparsevec",
-      "parallel_safety": "SAFE",
-      "security_definer": false
-    },
-    {
-      "config": null,
-      "strict": true,
-      "comment": null,
-      "language": "c",
       "arguments": "vector, vector",
       "definition": "CREATE OR REPLACE FUNCTION public.cosine_distance(vector, vector)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$cosine_distance$function$\n",
       "volatility": "IMMUTABLE",
@@ -3138,6 +4140,44 @@
     },
     {
       "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "sparsevec, sparsevec",
+      "definition": "CREATE OR REPLACE FUNCTION public.cosine_distance(sparsevec, sparsevec)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$sparsevec_cosine_distance$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "double precision",
+      "returns_set": false,
+      "source_code": "sparsevec_cosine_distance",
+      "function_oid": 198139,
+      "function_name": "cosine_distance",
+      "function_type": "function",
+      "argument_types": "sparsevec, sparsevec",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "sql",
+      "arguments": "p_id_assinatura bigint",
+      "definition": "CREATE OR REPLACE FUNCTION public.deixar_de_seguir_materia(p_id_assinatura bigint)\n RETURNS void\n LANGUAGE sql\n SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\r\n  UPDATE public.vaga_assinaturas\r\n     SET ativa = false\r\n   WHERE id_assinatura = p_id_assinatura\r\n     AND id_user IN (SELECT id_user FROM public.users WHERE auth_id = auth.uid());\r\n$function$\n",
+      "volatility": "VOLATILE",
+      "return_type": "void",
+      "returns_set": false,
+      "source_code": "\r\n  UPDATE public.vaga_assinaturas\r\n     SET ativa = false\r\n   WHERE id_assinatura = p_id_assinatura\r\n     AND id_user IN (SELECT id_user FROM public.users WHERE auth_id = auth.uid());\r\n",
+      "function_oid": 362001,
+      "function_name": "deixar_de_seguir_materia",
+      "function_type": "function",
+      "argument_types": "p_id_assinatura bigint",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": null,
       "strict": false,
       "comment": "Exports the complete database schema as JSON including tables, views, functions (with full source code), triggers (with function definitions), all constraints, indexes, policies, enums, sequences, and extensions.",
       "language": "plpgsql",
@@ -3149,6 +4189,46 @@
       "source_code": "\nBEGIN\n    RETURN jsonb_build_object(\n        'exported_at', NOW(),\n        'postgres_version', version(),\n        \n        -- TABLES WITH DETAILED COLUMNS\n        'tables', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'table_name', t.table_name,\n                'table_type', t.table_type,\n                'table_comment', obj_description(pc.oid, 'pg_class'),\n                'columns', (\n                    SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                        'column_name', c.column_name,\n                        'data_type', c.data_type,\n                        'udt_name', c.udt_name,\n                        'is_nullable', c.is_nullable,\n                        'column_default', c.column_default,\n                        'is_identity', c.is_identity,\n                        'identity_generation', c.identity_generation,\n                        'ordinal_position', c.ordinal_position,\n                        'character_maximum_length', c.character_maximum_length,\n                        'numeric_precision', c.numeric_precision,\n                        'numeric_scale', c.numeric_scale,\n                        'datetime_precision', c.datetime_precision,\n                        'is_updatable', c.is_updatable,\n                        'column_comment', col_description(pc.oid, c.ordinal_position)\n                    ) ORDER BY c.ordinal_position), '[]'::jsonb)\n                    FROM information_schema.columns c \n                    WHERE c.table_name = t.table_name \n                    AND c.table_schema = 'public'\n                )\n            ) ORDER BY t.table_name), '[]'::jsonb)\n            FROM information_schema.tables t\n            JOIN pg_class pc ON pc.relname = t.table_name AND pc.relnamespace = 'public'::regnamespace\n            WHERE t.table_schema = 'public'\n            AND t.table_type = 'BASE TABLE'\n        ),\n        \n        -- VIEWS WITH DEFINITIONS\n        'views', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'view_name', table_name,\n                'view_definition', view_definition,\n                'is_updatable', is_updatable,\n                'is_insertable_into', is_insertable_into\n            ) ORDER BY table_name), '[]'::jsonb)\n            FROM information_schema.views\n            WHERE table_schema = 'public'\n        ),\n\n        -- MATERIALIZED VIEWS WITH DEFINITIONS\n        'materialized_views', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'view_name', matviewname,\n                'view_definition', definition,\n                'is_populated', ispopulated\n            ) ORDER BY matviewname), '[]'::jsonb)\n            FROM pg_matviews\n            WHERE schemaname = 'public'\n        ),\n        \n        -- FUNCTIONS AND PROCEDURES (with full definitions and source code)\n        'functions', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'function_name', p.proname,\n                'function_oid', p.oid::bigint,\n                'return_type', pg_get_function_result(p.oid),\n                'arguments', pg_get_function_arguments(p.oid),\n                'argument_types', pg_get_function_identity_arguments(p.oid),\n                'function_type', CASE \n                    WHEN p.prokind = 'f' THEN 'function'\n                    WHEN p.prokind = 'p' THEN 'procedure'\n                    WHEN p.prokind = 'a' THEN 'aggregate'\n                    WHEN p.prokind = 'w' THEN 'window'\n                    ELSE 'unknown'\n                END,\n                'volatility', CASE p.provolatile\n                    WHEN 'i' THEN 'IMMUTABLE'\n                    WHEN 's' THEN 'STABLE'\n                    WHEN 'v' THEN 'VOLATILE'\n                END,\n                'parallel_safety', CASE p.proparallel\n                    WHEN 's' THEN 'SAFE'\n                    WHEN 'r' THEN 'RESTRICTED'\n                    WHEN 'u' THEN 'UNSAFE'\n                END,\n                'security_definer', p.prosecdef,\n                'strict', p.proisstrict,\n                'returns_set', p.proretset,\n                'language', l.lanname,\n                'source_code', p.prosrc,\n                'definition', pg_get_functiondef(p.oid),\n                'config', p.proconfig,\n                'comment', obj_description(p.oid, 'pg_proc')\n            ) ORDER BY p.proname), '[]'::jsonb)\n            FROM pg_proc p\n            JOIN pg_namespace n ON p.pronamespace = n.oid\n            JOIN pg_language l ON p.prolang = l.oid\n            WHERE n.nspname = 'public'\n            AND p.prokind IN ('f', 'p')\n        ),\n        \n        -- TRIGGERS WITH FULL DEFINITIONS (including the trigger function definition)\n        -- Only triggers on PUBLIC schema tables\n        'triggers', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'trigger_name', tg.tgname,\n                'table_name', tab.relname,\n                'table_schema', ns.nspname,\n                'trigger_type', CASE \n                    WHEN tg.tgtype & 2 = 2 THEN 'BEFORE'\n                    WHEN tg.tgtype & 64 = 64 THEN 'INSTEAD OF'\n                    ELSE 'AFTER'\n                END,\n                'trigger_events', concat_ws(' OR ',\n                    CASE WHEN tg.tgtype & 4 = 4 THEN 'INSERT' END,\n                    CASE WHEN tg.tgtype & 8 = 8 THEN 'DELETE' END,\n                    CASE WHEN tg.tgtype & 16 = 16 THEN 'UPDATE' END,\n                    CASE WHEN tg.tgtype & 32 = 32 THEN 'TRUNCATE' END\n                ),\n                'for_each', CASE WHEN tg.tgtype & 1 = 1 THEN 'ROW' ELSE 'STATEMENT' END,\n                'trigger_function_name', p.proname,\n                'trigger_function_schema', fn.nspname,\n                'trigger_function_definition', pg_get_functiondef(p.oid),\n                'trigger_function_source', p.prosrc,\n                'is_enabled', CASE tg.tgenabled\n                    WHEN 'O' THEN true\n                    WHEN 'D' THEN false\n                    WHEN 'R' THEN true  -- replica\n                    WHEN 'A' THEN true  -- always\n                    ELSE true\n                END,\n                'trigger_definition', pg_get_triggerdef(tg.oid),\n                -- NOTE: tg.tgqual can reference both OLD and NEW, which makes pg_get_expr error\n                -- (\"expression contains variables of more than one relation\"). We extract WHEN()\n                -- from the full trigger definition instead (best-effort).\n                'condition', substring(pg_get_triggerdef(tg.oid) from 'WHEN \\\\((.*)\\\\) EXECUTE')\n            ) ORDER BY tab.relname, tg.tgname), '[]'::jsonb)\n            FROM pg_trigger tg\n            JOIN pg_class tab ON tg.tgrelid = tab.oid\n            JOIN pg_namespace ns ON tab.relnamespace = ns.oid\n            JOIN pg_proc p ON tg.tgfoid = p.oid\n            JOIN pg_namespace fn ON p.pronamespace = fn.oid\n            WHERE ns.nspname = 'public'\n            AND NOT tg.tgisinternal  -- exclude system triggers\n        ),\n        \n        -- TRIGGERS ON auth.users (critical for signup flows)\n        -- These triggers fire when users sign up and typically create profiles\n        'auth_triggers', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'trigger_name', tg.tgname,\n                'table_name', tab.relname,\n                'table_schema', ns.nspname,\n                'trigger_type', CASE \n                    WHEN tg.tgtype & 2 = 2 THEN 'BEFORE'\n                    WHEN tg.tgtype & 64 = 64 THEN 'INSTEAD OF'\n                    ELSE 'AFTER'\n                END,\n                'trigger_events', concat_ws(' OR ',\n                    CASE WHEN tg.tgtype & 4 = 4 THEN 'INSERT' END,\n                    CASE WHEN tg.tgtype & 8 = 8 THEN 'DELETE' END,\n                    CASE WHEN tg.tgtype & 16 = 16 THEN 'UPDATE' END,\n                    CASE WHEN tg.tgtype & 32 = 32 THEN 'TRUNCATE' END\n                ),\n                'for_each', CASE WHEN tg.tgtype & 1 = 1 THEN 'ROW' ELSE 'STATEMENT' END,\n                'trigger_function_name', p.proname,\n                'trigger_function_schema', fn.nspname,\n                'trigger_function_definition', CASE \n                    WHEN fn.nspname = 'public' THEN pg_get_functiondef(p.oid)\n                    ELSE NULL  -- Can't always get definition for non-public functions\n                END,\n                'trigger_function_source', CASE \n                    WHEN fn.nspname = 'public' THEN p.prosrc\n                    ELSE NULL\n                END,\n                'is_enabled', CASE tg.tgenabled\n                    WHEN 'O' THEN true\n                    WHEN 'D' THEN false\n                    WHEN 'R' THEN true\n                    WHEN 'A' THEN true\n                    ELSE true\n                END,\n                'trigger_definition', pg_get_triggerdef(tg.oid)\n            ) ORDER BY tg.tgname), '[]'::jsonb)\n            FROM pg_trigger tg\n            JOIN pg_class tab ON tg.tgrelid = tab.oid\n            JOIN pg_namespace ns ON tab.relnamespace = ns.oid\n            JOIN pg_proc p ON tg.tgfoid = p.oid\n            JOIN pg_namespace fn ON p.pronamespace = fn.oid\n            WHERE ns.nspname = 'auth'\n            AND tab.relname = 'users'\n            AND NOT tg.tgisinternal\n        ),\n        \n        -- FOREIGN KEYS (public schema only)\n        'foreign_keys', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', tc.constraint_name,\n                'table_name', tc.table_name,\n                'column_name', kcu.column_name,\n                'foreign_table_name', ccu.table_name,\n                'foreign_column_name', ccu.column_name,\n                'update_rule', rc.update_rule,\n                'delete_rule', rc.delete_rule,\n                'match_option', rc.match_option\n            ) ORDER BY tc.table_name, tc.constraint_name), '[]'::jsonb)\n            FROM information_schema.table_constraints tc\n            JOIN information_schema.key_column_usage kcu\n                ON tc.constraint_name = kcu.constraint_name\n                AND tc.table_schema = kcu.table_schema\n            JOIN information_schema.constraint_column_usage ccu\n                ON ccu.constraint_name = tc.constraint_name\n                AND ccu.table_schema = tc.table_schema\n            JOIN information_schema.referential_constraints rc\n                ON rc.constraint_name = tc.constraint_name\n                AND rc.constraint_schema = tc.table_schema\n            WHERE tc.constraint_type = 'FOREIGN KEY'\n            AND tc.table_schema = 'public'\n        ),\n        \n        -- FOREIGN KEYS REFERENCING auth.users\n        -- These are critical for user profile tables that link to auth.users\n        'auth_foreign_keys', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', con.conname,\n                'table_schema', nsp.nspname,\n                'table_name', rel.relname,\n                'column_name', att.attname,\n                'foreign_table_schema', fnsp.nspname,\n                'foreign_table_name', frel.relname,\n                'foreign_column_name', fatt.attname,\n                'on_delete', CASE con.confdeltype\n                    WHEN 'a' THEN 'NO ACTION'\n                    WHEN 'r' THEN 'RESTRICT'\n                    WHEN 'c' THEN 'CASCADE'\n                    WHEN 'n' THEN 'SET NULL'\n                    WHEN 'd' THEN 'SET DEFAULT'\n                END,\n                'on_update', CASE con.confupdtype\n                    WHEN 'a' THEN 'NO ACTION'\n                    WHEN 'r' THEN 'RESTRICT'\n                    WHEN 'c' THEN 'CASCADE'\n                    WHEN 'n' THEN 'SET NULL'\n                    WHEN 'd' THEN 'SET DEFAULT'\n                END\n            ) ORDER BY rel.relname), '[]'::jsonb)\n            FROM pg_constraint con\n            JOIN pg_class rel ON con.conrelid = rel.oid\n            JOIN pg_namespace nsp ON rel.relnamespace = nsp.oid\n            JOIN pg_class frel ON con.confrelid = frel.oid\n            JOIN pg_namespace fnsp ON frel.relnamespace = fnsp.oid\n            JOIN pg_attribute att ON att.attrelid = rel.oid AND att.attnum = ANY(con.conkey)\n            JOIN pg_attribute fatt ON fatt.attrelid = frel.oid AND fatt.attnum = ANY(con.confkey)\n            WHERE con.contype = 'f'\n            AND fnsp.nspname = 'auth'\n            AND frel.relname = 'users'\n        ),\n        \n        -- PRIMARY KEYS\n        'primary_keys', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', tc.constraint_name,\n                'table_name', tc.table_name,\n                'column_name', kcu.column_name,\n                'ordinal_position', kcu.ordinal_position\n            ) ORDER BY tc.table_name, kcu.ordinal_position), '[]'::jsonb)\n            FROM information_schema.table_constraints tc\n            JOIN information_schema.key_column_usage kcu\n                ON tc.constraint_name = kcu.constraint_name\n                AND tc.table_schema = kcu.table_schema\n            WHERE tc.constraint_type = 'PRIMARY KEY'\n            AND tc.table_schema = 'public'\n        ),\n        \n        -- UNIQUE CONSTRAINTS\n        'unique_constraints', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', tc.constraint_name,\n                'table_name', tc.table_name,\n                'column_name', kcu.column_name,\n                'ordinal_position', kcu.ordinal_position\n            ) ORDER BY tc.table_name, tc.constraint_name, kcu.ordinal_position), '[]'::jsonb)\n            FROM information_schema.table_constraints tc\n            JOIN information_schema.key_column_usage kcu\n                ON tc.constraint_name = kcu.constraint_name\n                AND tc.table_schema = kcu.table_schema\n            WHERE tc.constraint_type = 'UNIQUE'\n            AND tc.table_schema = 'public'\n        ),\n        \n        -- CHECK CONSTRAINTS\n        'check_constraints', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', cc.constraint_name,\n                'table_name', tc.table_name,\n                'check_clause', cc.check_clause\n            ) ORDER BY tc.table_name, cc.constraint_name), '[]'::jsonb)\n            FROM information_schema.check_constraints cc\n            JOIN information_schema.table_constraints tc\n                ON cc.constraint_name = tc.constraint_name\n                AND cc.constraint_schema = tc.table_schema\n            WHERE cc.constraint_schema = 'public'\n            AND tc.constraint_type = 'CHECK'\n        ),\n        \n        -- INDEXES (with full definition)\n        'indexes', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'index_name', indexname,\n                'table_name', tablename,\n                'index_definition', indexdef\n            ) ORDER BY tablename, indexname), '[]'::jsonb)\n            FROM pg_indexes\n            WHERE schemaname = 'public'\n        ),\n        \n        -- SEQUENCES (with current values and settings)\n        'sequences', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'sequence_name', sq.relname,\n                'data_type', sq.seqtypid::regtype::text,\n                'start_value', sq.seqstart,\n                'min_value', sq.seqmin,\n                'max_value', sq.seqmax,\n                'increment_by', sq.seqincrement,\n                'cycle', sq.seqcycle,\n                'cache_size', sq.seqcache,\n                'owned_by', sq.owned_by\n            ) ORDER BY sq.relname), '[]'::jsonb)\n            FROM (\n                SELECT \n                    s.relname,\n                    s.oid as seq_oid,\n                    seq.seqtypid,\n                    seq.seqstart,\n                    seq.seqmin,\n                    seq.seqmax,\n                    seq.seqincrement,\n                    seq.seqcycle,\n                    seq.seqcache,\n                    (\n                        SELECT a.attrelid::regclass || '.' || a.attname\n                        FROM pg_depend d\n                        JOIN pg_attribute a ON d.refobjid = a.attrelid AND d.refobjsubid = a.attnum\n                        WHERE d.objid = s.oid AND d.deptype = 'a'\n                        LIMIT 1\n                    ) as owned_by\n                FROM pg_class s\n                JOIN pg_sequence seq ON s.oid = seq.seqrelid\n                JOIN pg_namespace n ON s.relnamespace = n.oid\n                WHERE n.nspname = 'public'\n                AND s.relkind = 'S'\n            ) sq\n        ),\n        \n        -- RLS POLICIES (with roles)\n        'policies', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'policy_name', pol.polname,\n                'table_name', tab.relname,\n                'command', CASE pol.polcmd \n                    WHEN 'r' THEN 'SELECT'\n                    WHEN 'a' THEN 'INSERT'\n                    WHEN 'w' THEN 'UPDATE'\n                    WHEN 'd' THEN 'DELETE'\n                    WHEN '*' THEN 'ALL'\n                END,\n                'permissive', CASE pol.polpermissive \n                    WHEN true THEN 'PERMISSIVE'\n                    ELSE 'RESTRICTIVE'\n                END,\n                'roles', COALESCE(\n                    (SELECT array_agg(r.rolname) FROM pg_roles r WHERE r.oid = ANY(pol.polroles)),\n                    ARRAY['public']\n                ),\n                'using_expression', pg_get_expr(pol.polqual, pol.polrelid),\n                'with_check_expression', pg_get_expr(pol.polwithcheck, pol.polrelid)\n            ) ORDER BY tab.relname, pol.polname), '[]'::jsonb)\n            FROM pg_policy pol\n            JOIN pg_class tab ON pol.polrelid = tab.oid\n            JOIN pg_namespace nsp ON tab.relnamespace = nsp.oid\n            WHERE nsp.nspname = 'public'\n        ),\n        \n        -- ENUMS\n        'enums', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'enum_name', t.typname,\n                'enum_values', (\n                    SELECT array_agg(e.enumlabel ORDER BY e.enumsortorder)\n                    FROM pg_enum e\n                    WHERE e.enumtypid = t.oid\n                )\n            ) ORDER BY t.typname), '[]'::jsonb)\n            FROM pg_type t\n            JOIN pg_namespace n ON t.typnamespace = n.oid\n            WHERE n.nspname = 'public'\n            AND t.typtype = 'e'\n        ),\n        \n        -- EXTENSIONS\n        'extensions', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'extension_name', e.extname,\n                'schema', n.nspname,\n                'version', e.extversion,\n                'relocatable', e.extrelocatable\n            ) ORDER BY e.extname), '[]'::jsonb)\n            FROM pg_extension e\n            JOIN pg_namespace n ON e.extnamespace = n.oid\n        ),\n        \n        -- TABLE STATS (row counts and sizes)\n        'table_stats', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'table_name', relname,\n                'estimated_rows', reltuples::bigint,\n                'total_size_bytes', pg_total_relation_size(oid),\n                'table_size_bytes', pg_table_size(oid),\n                'indexes_size_bytes', pg_indexes_size(oid)\n            ) ORDER BY relname), '[]'::jsonb)\n            FROM pg_class\n            WHERE relnamespace = 'public'::regnamespace\n            AND relkind = 'r'\n        ),\n        \n        -- RLS ENABLED TABLES\n        'rls_enabled_tables', (\n            SELECT COALESCE(jsonb_agg(relname ORDER BY relname), '[]'::jsonb)\n            FROM pg_class c\n            JOIN pg_namespace n ON c.relnamespace = n.oid\n            WHERE n.nspname = 'public'\n            AND c.relkind = 'r'\n            AND c.relrowsecurity = true\n        )\n    );\nEND;\n",
       "function_oid": 192713,
       "function_name": "export_schema",
+      "function_type": "function",
+      "argument_types": "",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "p_days integer DEFAULT 30",
+      "definition": "CREATE OR REPLACE FUNCTION public.get_ai_cost_metrics(p_days integer DEFAULT 30)\n RETURNS jsonb\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\nDECLARE\n  v_moeda        text;\n  v_total_req    bigint;\n  v_total_tokens bigint;\n  v_custo_total  numeric;\n  v_por_modelo   jsonb;\n  v_por_dia      jsonb;\n  v_sem_preco    boolean;\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  SELECT COALESCE(max(currency), 'BRL') INTO v_moeda FROM public.ai_pricing;\n\n  -- agregação por modelo\n  SELECT\n    COALESCE(sum(req), 0),\n    COALESCE(sum(tok), 0),\n    COALESCE(round(sum(custo)::numeric, 4), 0),\n    COALESCE(jsonb_object_agg(model, jsonb_build_object(\n      'requisicoes', req, 'tokens', tok, 'custo', round(custo::numeric, 4)\n    )) FILTER (WHERE model IS NOT NULL), '{}'::jsonb)\n  INTO v_total_req, v_total_tokens, v_custo_total, v_por_modelo\n  FROM (\n    SELECT l.model,\n           count(*)                  AS req,\n           sum(l.total_tokens)       AS tok,\n           sum((l.prompt_tokens / 1000.0) * COALESCE(p.input_per_1k, 0)\n             + (l.completion_tokens / 1000.0) * COALESCE(p.output_per_1k, 0)) AS custo\n    FROM public.ai_usage_log l\n    LEFT JOIN public.ai_pricing p ON p.model = l.model\n    WHERE l.created_at >= now() - (p_days || ' days')::interval\n    GROUP BY l.model\n  ) per_model;\n\n  -- série diária\n  SELECT COALESCE(jsonb_agg(jsonb_build_object(\n           'dia', d, 'custo', c, 'requisicoes', r) ORDER BY d), '[]'::jsonb)\n  INTO v_por_dia\n  FROM (\n    SELECT date_trunc('day', l.created_at)::date AS d,\n           round(sum(\n             (l.prompt_tokens / 1000.0) * COALESCE(p.input_per_1k, 0)\n           + (l.completion_tokens / 1000.0) * COALESCE(p.output_per_1k, 0)\n           )::numeric, 4) AS c,\n           count(*) AS r\n    FROM public.ai_usage_log l\n    LEFT JOIN public.ai_pricing p ON p.model = l.model\n    WHERE l.created_at >= now() - (p_days || ' days')::interval\n    GROUP BY 1\n  ) s;\n\n  SELECT bool_or(input_per_1k = 0 AND output_per_1k = 0) INTO v_sem_preco\n  FROM public.ai_pricing;\n\n  RETURN jsonb_build_object(\n    'moeda',                 v_moeda,\n    'total_requisicoes',     COALESCE(v_total_req, 0),\n    'total_tokens',          COALESCE(v_total_tokens, 0),\n    'custo_total',           COALESCE(v_custo_total, 0),\n    'tokens_medios_por_req', CASE WHEN COALESCE(v_total_req,0) > 0\n                               THEN round(v_total_tokens::numeric / v_total_req, 0)\n                               ELSE 0 END,\n    'por_modelo',            COALESCE(v_por_modelo, '{}'::jsonb),\n    'por_dia',               COALESCE(v_por_dia, '[]'::jsonb),\n    'precos_nao_configurados', COALESCE(v_sem_preco, true)\n  );\nEND;\n$function$\n",
+      "volatility": "STABLE",
+      "return_type": "jsonb",
+      "returns_set": false,
+      "source_code": "\nDECLARE\n  v_moeda        text;\n  v_total_req    bigint;\n  v_total_tokens bigint;\n  v_custo_total  numeric;\n  v_por_modelo   jsonb;\n  v_por_dia      jsonb;\n  v_sem_preco    boolean;\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  SELECT COALESCE(max(currency), 'BRL') INTO v_moeda FROM public.ai_pricing;\n\n  -- agregação por modelo\n  SELECT\n    COALESCE(sum(req), 0),\n    COALESCE(sum(tok), 0),\n    COALESCE(round(sum(custo)::numeric, 4), 0),\n    COALESCE(jsonb_object_agg(model, jsonb_build_object(\n      'requisicoes', req, 'tokens', tok, 'custo', round(custo::numeric, 4)\n    )) FILTER (WHERE model IS NOT NULL), '{}'::jsonb)\n  INTO v_total_req, v_total_tokens, v_custo_total, v_por_modelo\n  FROM (\n    SELECT l.model,\n           count(*)                  AS req,\n           sum(l.total_tokens)       AS tok,\n           sum((l.prompt_tokens / 1000.0) * COALESCE(p.input_per_1k, 0)\n             + (l.completion_tokens / 1000.0) * COALESCE(p.output_per_1k, 0)) AS custo\n    FROM public.ai_usage_log l\n    LEFT JOIN public.ai_pricing p ON p.model = l.model\n    WHERE l.created_at >= now() - (p_days || ' days')::interval\n    GROUP BY l.model\n  ) per_model;\n\n  -- série diária\n  SELECT COALESCE(jsonb_agg(jsonb_build_object(\n           'dia', d, 'custo', c, 'requisicoes', r) ORDER BY d), '[]'::jsonb)\n  INTO v_por_dia\n  FROM (\n    SELECT date_trunc('day', l.created_at)::date AS d,\n           round(sum(\n             (l.prompt_tokens / 1000.0) * COALESCE(p.input_per_1k, 0)\n           + (l.completion_tokens / 1000.0) * COALESCE(p.output_per_1k, 0)\n           )::numeric, 4) AS c,\n           count(*) AS r\n    FROM public.ai_usage_log l\n    LEFT JOIN public.ai_pricing p ON p.model = l.model\n    WHERE l.created_at >= now() - (p_days || ' days')::interval\n    GROUP BY 1\n  ) s;\n\n  SELECT bool_or(input_per_1k = 0 AND output_per_1k = 0) INTO v_sem_preco\n  FROM public.ai_pricing;\n\n  RETURN jsonb_build_object(\n    'moeda',                 v_moeda,\n    'total_requisicoes',     COALESCE(v_total_req, 0),\n    'total_tokens',          COALESCE(v_total_tokens, 0),\n    'custo_total',           COALESCE(v_custo_total, 0),\n    'tokens_medios_por_req', CASE WHEN COALESCE(v_total_req,0) > 0\n                               THEN round(v_total_tokens::numeric / v_total_req, 0)\n                               ELSE 0 END,\n    'por_modelo',            COALESCE(v_por_modelo, '{}'::jsonb),\n    'por_dia',               COALESCE(v_por_dia, '[]'::jsonb),\n    'precos_nao_configurados', COALESCE(v_sem_preco, true)\n  );\nEND;\n",
+      "function_oid": 319815,
+      "function_name": "get_ai_cost_metrics",
+      "function_type": "function",
+      "argument_types": "p_days integer",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "",
+      "definition": "CREATE OR REPLACE FUNCTION public.get_dashboard_overview()\n RETURNS jsonb\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\nDECLARE\n  v_users          bigint;\n  v_com_historico  bigint;\n  v_com_fluxograma bigint;\n  v_tickets_abertos bigint;\n  v_users_30d      bigint;\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  SELECT count(*) INTO v_users FROM public.users;\n  SELECT count(DISTINCT id_user) INTO v_com_historico FROM public.historicos_usuarios;\n  SELECT count(*) INTO v_com_fluxograma FROM public.dados_users;\n  SELECT count(*) INTO v_tickets_abertos\n    FROM public.tickets WHERE status <> 'resolvido';\n  SELECT count(*) INTO v_users_30d\n    FROM public.users WHERE created_at >= now() - interval '30 days';\n\n  RETURN jsonb_build_object(\n    'total_users',        v_users,\n    'com_historico',      v_com_historico,\n    'com_fluxograma',     v_com_fluxograma,\n    'tickets_abertos',    v_tickets_abertos,\n    'novos_users_30d',    v_users_30d,\n    'taxa_ativacao',      CASE WHEN v_users > 0\n                            THEN round((v_com_fluxograma::numeric / v_users) * 100, 1)\n                            ELSE 0 END\n  );\nEND;\n$function$\n",
+      "volatility": "STABLE",
+      "return_type": "jsonb",
+      "returns_set": false,
+      "source_code": "\nDECLARE\n  v_users          bigint;\n  v_com_historico  bigint;\n  v_com_fluxograma bigint;\n  v_tickets_abertos bigint;\n  v_users_30d      bigint;\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  SELECT count(*) INTO v_users FROM public.users;\n  SELECT count(DISTINCT id_user) INTO v_com_historico FROM public.historicos_usuarios;\n  SELECT count(*) INTO v_com_fluxograma FROM public.dados_users;\n  SELECT count(*) INTO v_tickets_abertos\n    FROM public.tickets WHERE status <> 'resolvido';\n  SELECT count(*) INTO v_users_30d\n    FROM public.users WHERE created_at >= now() - interval '30 days';\n\n  RETURN jsonb_build_object(\n    'total_users',        v_users,\n    'com_historico',      v_com_historico,\n    'com_fluxograma',     v_com_fluxograma,\n    'tickets_abertos',    v_tickets_abertos,\n    'novos_users_30d',    v_users_30d,\n    'taxa_ativacao',      CASE WHEN v_users > 0\n                            THEN round((v_com_fluxograma::numeric / v_users) * 100, 1)\n                            ELSE 0 END\n  );\nEND;\n",
+      "function_oid": 319773,
+      "function_name": "get_dashboard_overview",
       "function_type": "function",
       "argument_types": "",
       "parallel_safety": "UNSAFE",
@@ -3217,6 +4297,46 @@
       "strict": false,
       "comment": null,
       "language": "plpgsql",
+      "arguments": "",
+      "definition": "CREATE OR REPLACE FUNCTION public.get_scraping_health()\n RETURNS jsonb\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\nDECLARE\n  v_turmas_min  timestamptz;\n  v_turmas_max  timestamptz;\n  v_mat_total   bigint;\n  v_mat_sem_em  bigint;\n  v_cursos_sem  bigint;\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  SELECT min(last_updated_at), max(last_updated_at)\n  INTO v_turmas_min, v_turmas_max FROM public.turmas;\n\n  SELECT count(*),\n         count(*) FILTER (WHERE ementa IS NULL OR btrim(ementa) = '')\n  INTO v_mat_total, v_mat_sem_em FROM public.materias;\n\n  SELECT count(*) INTO v_cursos_sem\n  FROM public.cursos c\n  WHERE NOT EXISTS (SELECT 1 FROM public.matrizes m WHERE m.id_curso = c.id_curso);\n\n  RETURN jsonb_build_object(\n    'turmas_atualizado_em',  v_turmas_max,\n    'turmas_mais_antigo_em', v_turmas_min,\n    'materias_total',        v_mat_total,\n    'materias_sem_ementa',   v_mat_sem_em,\n    'materias_sem_ementa_pct', CASE WHEN v_mat_total > 0\n                                 THEN round(v_mat_sem_em::numeric / v_mat_total * 100, 1)\n                                 ELSE 0 END,\n    'cursos_sem_matriz',     v_cursos_sem\n  );\nEND;\n$function$\n",
+      "volatility": "STABLE",
+      "return_type": "jsonb",
+      "returns_set": false,
+      "source_code": "\nDECLARE\n  v_turmas_min  timestamptz;\n  v_turmas_max  timestamptz;\n  v_mat_total   bigint;\n  v_mat_sem_em  bigint;\n  v_cursos_sem  bigint;\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  SELECT min(last_updated_at), max(last_updated_at)\n  INTO v_turmas_min, v_turmas_max FROM public.turmas;\n\n  SELECT count(*),\n         count(*) FILTER (WHERE ementa IS NULL OR btrim(ementa) = '')\n  INTO v_mat_total, v_mat_sem_em FROM public.materias;\n\n  SELECT count(*) INTO v_cursos_sem\n  FROM public.cursos c\n  WHERE NOT EXISTS (SELECT 1 FROM public.matrizes m WHERE m.id_curso = c.id_curso);\n\n  RETURN jsonb_build_object(\n    'turmas_atualizado_em',  v_turmas_max,\n    'turmas_mais_antigo_em', v_turmas_min,\n    'materias_total',        v_mat_total,\n    'materias_sem_ementa',   v_mat_sem_em,\n    'materias_sem_ementa_pct', CASE WHEN v_mat_total > 0\n                                 THEN round(v_mat_sem_em::numeric / v_mat_total * 100, 1)\n                                 ELSE 0 END,\n    'cursos_sem_matriz',     v_cursos_sem\n  );\nEND;\n",
+      "function_oid": 319817,
+      "function_name": "get_scraping_health",
+      "function_type": "function",
+      "argument_types": "",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "sql",
+      "arguments": "p_key text",
+      "definition": "CREATE OR REPLACE FUNCTION public.get_system_setting(p_key text)\n RETURNS jsonb\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\r\n  SELECT value FROM public.system_settings WHERE key = p_key;\r\n$function$\n",
+      "volatility": "STABLE",
+      "return_type": "jsonb",
+      "returns_set": false,
+      "source_code": "\r\n  SELECT value FROM public.system_settings WHERE key = p_key;\r\n",
+      "function_oid": 361947,
+      "function_name": "get_system_setting",
+      "function_type": "function",
+      "argument_types": "p_key text",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
       "arguments": "p_id bigint",
       "definition": "CREATE OR REPLACE FUNCTION public.get_ticket_by_id(p_id bigint)\n RETURNS jsonb\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\nDECLARE\n  v_ticket  jsonb;\n  v_audit   jsonb;\n  v_is_admin boolean := public.is_ticket_admin();\nBEGIN\n  SELECT to_jsonb(t) || jsonb_build_object(\n           'creator_name',  u.nome_completo,\n           'creator_email', u.email\n         )\n    INTO v_ticket\n  FROM public.tickets t\n  LEFT JOIN public.users u ON u.auth_id = t.created_by\n  WHERE t.id = p_id\n    AND (v_is_admin OR t.created_by = auth.uid());\n\n  IF v_ticket IS NULL THEN\n    RAISE EXCEPTION 'ticket not found or access denied';\n  END IF;\n\n  SELECT COALESCE(jsonb_agg(to_jsonb(a) || jsonb_build_object(\n           'actor_name', au.nome_completo\n         ) ORDER BY a.created_at), '[]'::jsonb)\n    INTO v_audit\n  FROM public.ticket_audit_log a\n  LEFT JOIN public.users au ON au.auth_id = a.actor_id\n  WHERE a.ticket_id = p_id;\n\n  RETURN jsonb_build_object('ticket', v_ticket, 'audit_log', v_audit);\nEND;\n$function$\n",
       "volatility": "STABLE",
@@ -3237,6 +4357,26 @@
       "strict": false,
       "comment": null,
       "language": "plpgsql",
+      "arguments": "",
+      "definition": "CREATE OR REPLACE FUNCTION public.get_ticket_metrics()\n RETURNS jsonb\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\nDECLARE\n  v_by_status   jsonb;\n  v_by_category jsonb;\n  v_avg_horas   numeric;\n  v_total       bigint;\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  SELECT count(*) INTO v_total FROM public.tickets;\n\n  SELECT COALESCE(jsonb_object_agg(status, n), '{}'::jsonb) INTO v_by_status\n  FROM (SELECT status, count(*) n FROM public.tickets GROUP BY status) s;\n\n  SELECT COALESCE(jsonb_object_agg(category, n), '{}'::jsonb) INTO v_by_category\n  FROM (SELECT category, count(*) n FROM public.tickets GROUP BY category) c;\n\n  SELECT round(avg(EXTRACT(EPOCH FROM (resolved_at - created_at)) / 3600.0)::numeric, 1)\n    INTO v_avg_horas\n  FROM public.tickets\n  WHERE status = 'resolvido' AND resolved_at IS NOT NULL;\n\n  RETURN jsonb_build_object(\n    'total',            v_total,\n    'por_status',       v_by_status,\n    'por_categoria',    v_by_category,\n    'tempo_medio_horas', COALESCE(v_avg_horas, 0)\n  );\nEND;\n$function$\n",
+      "volatility": "STABLE",
+      "return_type": "jsonb",
+      "returns_set": false,
+      "source_code": "\nDECLARE\n  v_by_status   jsonb;\n  v_by_category jsonb;\n  v_avg_horas   numeric;\n  v_total       bigint;\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  SELECT count(*) INTO v_total FROM public.tickets;\n\n  SELECT COALESCE(jsonb_object_agg(status, n), '{}'::jsonb) INTO v_by_status\n  FROM (SELECT status, count(*) n FROM public.tickets GROUP BY status) s;\n\n  SELECT COALESCE(jsonb_object_agg(category, n), '{}'::jsonb) INTO v_by_category\n  FROM (SELECT category, count(*) n FROM public.tickets GROUP BY category) c;\n\n  SELECT round(avg(EXTRACT(EPOCH FROM (resolved_at - created_at)) / 3600.0)::numeric, 1)\n    INTO v_avg_horas\n  FROM public.tickets\n  WHERE status = 'resolvido' AND resolved_at IS NOT NULL;\n\n  RETURN jsonb_build_object(\n    'total',            v_total,\n    'por_status',       v_by_status,\n    'por_categoria',    v_by_category,\n    'tempo_medio_horas', COALESCE(v_avg_horas, 0)\n  );\nEND;\n",
+      "function_oid": 319776,
+      "function_name": "get_ticket_metrics",
+      "function_type": "function",
+      "argument_types": "",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
       "arguments": "p_limit integer DEFAULT 50, p_offset integer DEFAULT 0, p_status text DEFAULT NULL::text, p_category text DEFAULT NULL::text, p_search text DEFAULT NULL::text",
       "definition": "CREATE OR REPLACE FUNCTION public.get_tickets_paginated(p_limit integer DEFAULT 50, p_offset integer DEFAULT 0, p_status text DEFAULT NULL::text, p_category text DEFAULT NULL::text, p_search text DEFAULT NULL::text)\n RETURNS TABLE(id bigint, title text, description text, status text, category text, priority text, created_by uuid, creator_name text, creator_email text, assigned_to uuid, created_at timestamp with time zone, updated_at timestamp with time zone, resolved_at timestamp with time zone, total_count bigint)\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\nBEGIN\n  IF NOT public.is_ticket_admin() THEN\n    RAISE EXCEPTION 'forbidden: admin role required';\n  END IF;\n\n  RETURN QUERY\n  WITH filtered AS (\n    SELECT t.*\n    FROM public.tickets t\n    WHERE (p_status   IS NULL OR t.status   = p_status)\n      AND (p_category IS NULL OR t.category = p_category)\n      AND (\n        p_search IS NULL OR\n        t.title       ILIKE '%' || p_search || '%' OR\n        t.description ILIKE '%' || p_search || '%' OR\n        t.id::text = p_search\n      )\n  )\n  SELECT\n    f.id, f.title, f.description, f.status, f.category, f.priority,\n    f.created_by,\n    u.nome_completo AS creator_name,\n    u.email         AS creator_email,\n    f.assigned_to,\n    f.created_at, f.updated_at, f.resolved_at,\n    (SELECT count(*) FROM filtered)::bigint AS total_count\n  FROM filtered f\n  LEFT JOIN public.users u ON u.auth_id = f.created_by\n  ORDER BY\n    CASE WHEN f.status = 'resolvido' THEN 1 ELSE 0 END,\n    f.created_at DESC\n  LIMIT p_limit OFFSET p_offset;\nEND;\n$function$\n",
       "volatility": "STABLE",
@@ -3247,6 +4387,66 @@
       "function_name": "get_tickets_paginated",
       "function_type": "function",
       "argument_types": "p_limit integer, p_offset integer, p_status text, p_category text, p_search text",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "p_limit integer DEFAULT 10",
+      "definition": "CREATE OR REPLACE FUNCTION public.get_top_cursos(p_limit integer DEFAULT 10)\n RETURNS TABLE(curso text, usuarios bigint)\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  RETURN QUERY\n  SELECT COALESCE(NULLIF(trim(h.curso_extraido), ''), 'Não informado') AS curso,\n         count(DISTINCT h.id_user)::bigint AS usuarios\n  FROM public.historicos_usuarios h\n  GROUP BY 1\n  ORDER BY usuarios DESC\n  LIMIT p_limit;\nEND;\n$function$\n",
+      "volatility": "STABLE",
+      "return_type": "TABLE(curso text, usuarios bigint)",
+      "returns_set": true,
+      "source_code": "\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  RETURN QUERY\n  SELECT COALESCE(NULLIF(trim(h.curso_extraido), ''), 'Não informado') AS curso,\n         count(DISTINCT h.id_user)::bigint AS usuarios\n  FROM public.historicos_usuarios h\n  GROUP BY 1\n  ORDER BY usuarios DESC\n  LIMIT p_limit;\nEND;\n",
+      "function_oid": 319775,
+      "function_name": "get_top_cursos",
+      "function_type": "function",
+      "argument_types": "p_limit integer",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "p_periodo text DEFAULT NULL::text",
+      "definition": "CREATE OR REPLACE FUNCTION public.get_turmas_demanda(p_periodo text DEFAULT NULL::text)\n RETURNS jsonb\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\nDECLARE\n  v_periodo   text;\n  v_ofertadas bigint;\n  v_ocupadas  bigint;\n  v_sobrando  bigint;\n  v_top       jsonb;\n  v_periodos  jsonb;\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  v_periodo := COALESCE(p_periodo,\n    (SELECT ano_periodo FROM public.turmas\n      WHERE ano_periodo IS NOT NULL ORDER BY ano_periodo DESC LIMIT 1));\n\n  SELECT COALESCE(sum(vagas_ofertadas),0),\n         COALESCE(sum(vagas_ocupadas),0),\n         COALESCE(sum(vagas_sobrando),0)\n  INTO v_ofertadas, v_ocupadas, v_sobrando\n  FROM public.turmas WHERE ano_periodo = v_periodo;\n\n  SELECT COALESCE(jsonb_agg(t ORDER BY (t->>'ocupacao')::numeric DESC), '[]'::jsonb)\n  INTO v_top\n  FROM (\n    SELECT jsonb_build_object(\n             'codigo', m.codigo_materia,\n             'nome',   m.nome_materia,\n             'ofertadas', sum(tu.vagas_ofertadas),\n             'ocupadas',  sum(tu.vagas_ocupadas),\n             'ocupacao',  CASE WHEN sum(tu.vagas_ofertadas) > 0\n                            THEN round(sum(tu.vagas_ocupadas)::numeric\n                                       / sum(tu.vagas_ofertadas) * 100, 1)\n                            ELSE 0 END\n           ) AS t\n    FROM public.turmas tu\n    JOIN public.materias m ON m.id_materia = tu.id_materia\n    WHERE tu.ano_periodo = v_periodo\n    GROUP BY m.codigo_materia, m.nome_materia\n    HAVING sum(tu.vagas_ofertadas) > 0\n    ORDER BY (sum(tu.vagas_ocupadas)::numeric\n              / NULLIF(sum(tu.vagas_ofertadas),0)) DESC\n    LIMIT 10\n  ) x;\n\n  SELECT COALESCE(jsonb_agg(DISTINCT ano_periodo ORDER BY ano_periodo DESC), '[]'::jsonb)\n  INTO v_periodos\n  FROM public.turmas WHERE ano_periodo IS NOT NULL;\n\n  RETURN jsonb_build_object(\n    'periodo',          v_periodo,\n    'periodos',         v_periodos,\n    'vagas_ofertadas',  v_ofertadas,\n    'vagas_ocupadas',   v_ocupadas,\n    'vagas_sobrando',   v_sobrando,\n    'taxa_ocupacao',    CASE WHEN v_ofertadas > 0\n                          THEN round(v_ocupadas::numeric / v_ofertadas * 100, 1)\n                          ELSE 0 END,\n    'top_concorridas',  v_top\n  );\nEND;\n$function$\n",
+      "volatility": "STABLE",
+      "return_type": "jsonb",
+      "returns_set": false,
+      "source_code": "\nDECLARE\n  v_periodo   text;\n  v_ofertadas bigint;\n  v_ocupadas  bigint;\n  v_sobrando  bigint;\n  v_top       jsonb;\n  v_periodos  jsonb;\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  v_periodo := COALESCE(p_periodo,\n    (SELECT ano_periodo FROM public.turmas\n      WHERE ano_periodo IS NOT NULL ORDER BY ano_periodo DESC LIMIT 1));\n\n  SELECT COALESCE(sum(vagas_ofertadas),0),\n         COALESCE(sum(vagas_ocupadas),0),\n         COALESCE(sum(vagas_sobrando),0)\n  INTO v_ofertadas, v_ocupadas, v_sobrando\n  FROM public.turmas WHERE ano_periodo = v_periodo;\n\n  SELECT COALESCE(jsonb_agg(t ORDER BY (t->>'ocupacao')::numeric DESC), '[]'::jsonb)\n  INTO v_top\n  FROM (\n    SELECT jsonb_build_object(\n             'codigo', m.codigo_materia,\n             'nome',   m.nome_materia,\n             'ofertadas', sum(tu.vagas_ofertadas),\n             'ocupadas',  sum(tu.vagas_ocupadas),\n             'ocupacao',  CASE WHEN sum(tu.vagas_ofertadas) > 0\n                            THEN round(sum(tu.vagas_ocupadas)::numeric\n                                       / sum(tu.vagas_ofertadas) * 100, 1)\n                            ELSE 0 END\n           ) AS t\n    FROM public.turmas tu\n    JOIN public.materias m ON m.id_materia = tu.id_materia\n    WHERE tu.ano_periodo = v_periodo\n    GROUP BY m.codigo_materia, m.nome_materia\n    HAVING sum(tu.vagas_ofertadas) > 0\n    ORDER BY (sum(tu.vagas_ocupadas)::numeric\n              / NULLIF(sum(tu.vagas_ofertadas),0)) DESC\n    LIMIT 10\n  ) x;\n\n  SELECT COALESCE(jsonb_agg(DISTINCT ano_periodo ORDER BY ano_periodo DESC), '[]'::jsonb)\n  INTO v_periodos\n  FROM public.turmas WHERE ano_periodo IS NOT NULL;\n\n  RETURN jsonb_build_object(\n    'periodo',          v_periodo,\n    'periodos',         v_periodos,\n    'vagas_ofertadas',  v_ofertadas,\n    'vagas_ocupadas',   v_ocupadas,\n    'vagas_sobrando',   v_sobrando,\n    'taxa_ocupacao',    CASE WHEN v_ofertadas > 0\n                          THEN round(v_ocupadas::numeric / v_ofertadas * 100, 1)\n                          ELSE 0 END,\n    'top_concorridas',  v_top\n  );\nEND;\n",
+      "function_oid": 319816,
+      "function_name": "get_turmas_demanda",
+      "function_type": "function",
+      "argument_types": "p_periodo text",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "p_days integer DEFAULT 30, p_bucket text DEFAULT 'day'::text",
+      "definition": "CREATE OR REPLACE FUNCTION public.get_user_growth(p_days integer DEFAULT 30, p_bucket text DEFAULT 'day'::text)\n RETURNS TABLE(bucket date, novos bigint, acumulado bigint)\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\nDECLARE\n  v_trunc text := CASE WHEN p_bucket IN ('day','week','month') THEN p_bucket ELSE 'day' END;\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  RETURN QUERY\n  WITH per_bucket AS (\n    SELECT date_trunc(v_trunc, created_at)::date AS b, count(*) AS n\n    FROM public.users\n    WHERE created_at >= now() - (p_days || ' days')::interval\n    GROUP BY 1\n  )\n  SELECT pb.b,\n         pb.n,\n         sum(pb.n) OVER (ORDER BY pb.b)::bigint\n  FROM per_bucket pb\n  ORDER BY pb.b;\nEND;\n$function$\n",
+      "volatility": "STABLE",
+      "return_type": "TABLE(bucket date, novos bigint, acumulado bigint)",
+      "returns_set": true,
+      "source_code": "\nDECLARE\n  v_trunc text := CASE WHEN p_bucket IN ('day','week','month') THEN p_bucket ELSE 'day' END;\nBEGIN\n  IF NOT public.has_admin_scope('dashboard') THEN\n    RAISE EXCEPTION 'forbidden: dashboard scope required';\n  END IF;\n\n  RETURN QUERY\n  WITH per_bucket AS (\n    SELECT date_trunc(v_trunc, created_at)::date AS b, count(*) AS n\n    FROM public.users\n    WHERE created_at >= now() - (p_days || ' days')::interval\n    GROUP BY 1\n  )\n  SELECT pb.b,\n         pb.n,\n         sum(pb.n) OVER (ORDER BY pb.b)::bigint\n  FROM per_bucket pb\n  ORDER BY pb.b;\nEND;\n",
+      "function_oid": 319774,
+      "function_name": "get_user_growth",
+      "function_type": "function",
+      "argument_types": "p_days integer, p_bucket text",
       "parallel_safety": "UNSAFE",
       "security_definer": true
     },
@@ -4103,6 +5303,24 @@
       "strict": true,
       "comment": null,
       "language": "c",
+      "arguments": "halfvec, halfvec",
+      "definition": "CREATE OR REPLACE FUNCTION public.inner_product(halfvec, halfvec)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$halfvec_inner_product$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "double precision",
+      "returns_set": false,
+      "source_code": "halfvec_inner_product",
+      "function_oid": 198003,
+      "function_name": "inner_product",
+      "function_type": "function",
+      "argument_types": "halfvec, halfvec",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
       "arguments": "sparsevec, sparsevec",
       "definition": "CREATE OR REPLACE FUNCTION public.inner_product(sparsevec, sparsevec)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$sparsevec_inner_product$function$\n",
       "volatility": "IMMUTABLE",
@@ -4131,24 +5349,6 @@
       "function_name": "inner_product",
       "function_type": "function",
       "argument_types": "vector, vector",
-      "parallel_safety": "SAFE",
-      "security_definer": false
-    },
-    {
-      "config": null,
-      "strict": true,
-      "comment": null,
-      "language": "c",
-      "arguments": "halfvec, halfvec",
-      "definition": "CREATE OR REPLACE FUNCTION public.inner_product(halfvec, halfvec)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$halfvec_inner_product$function$\n",
-      "volatility": "IMMUTABLE",
-      "return_type": "double precision",
-      "returns_set": false,
-      "source_code": "halfvec_inner_product",
-      "function_oid": 198003,
-      "function_name": "inner_product",
-      "function_type": "function",
-      "argument_types": "halfvec, halfvec",
       "parallel_safety": "SAFE",
       "security_definer": false
     },
@@ -4289,24 +5489,6 @@
       "strict": true,
       "comment": null,
       "language": "c",
-      "arguments": "halfvec, halfvec",
-      "definition": "CREATE OR REPLACE FUNCTION public.l1_distance(halfvec, halfvec)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$halfvec_l1_distance$function$\n",
-      "volatility": "IMMUTABLE",
-      "return_type": "double precision",
-      "returns_set": false,
-      "source_code": "halfvec_l1_distance",
-      "function_oid": 198005,
-      "function_name": "l1_distance",
-      "function_type": "function",
-      "argument_types": "halfvec, halfvec",
-      "parallel_safety": "SAFE",
-      "security_definer": false
-    },
-    {
-      "config": null,
-      "strict": true,
-      "comment": null,
-      "language": "c",
       "arguments": "vector, vector",
       "definition": "CREATE OR REPLACE FUNCTION public.l1_distance(vector, vector)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$l1_distance$function$\n",
       "volatility": "IMMUTABLE",
@@ -4344,33 +5526,15 @@
       "comment": null,
       "language": "c",
       "arguments": "halfvec, halfvec",
-      "definition": "CREATE OR REPLACE FUNCTION public.l2_distance(halfvec, halfvec)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$halfvec_l2_distance$function$\n",
+      "definition": "CREATE OR REPLACE FUNCTION public.l1_distance(halfvec, halfvec)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$halfvec_l1_distance$function$\n",
       "volatility": "IMMUTABLE",
       "return_type": "double precision",
       "returns_set": false,
-      "source_code": "halfvec_l2_distance",
-      "function_oid": 198002,
-      "function_name": "l2_distance",
+      "source_code": "halfvec_l1_distance",
+      "function_oid": 198005,
+      "function_name": "l1_distance",
       "function_type": "function",
       "argument_types": "halfvec, halfvec",
-      "parallel_safety": "SAFE",
-      "security_definer": false
-    },
-    {
-      "config": null,
-      "strict": true,
-      "comment": null,
-      "language": "c",
-      "arguments": "sparsevec, sparsevec",
-      "definition": "CREATE OR REPLACE FUNCTION public.l2_distance(sparsevec, sparsevec)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$sparsevec_l2_distance$function$\n",
-      "volatility": "IMMUTABLE",
-      "return_type": "double precision",
-      "returns_set": false,
-      "source_code": "sparsevec_l2_distance",
-      "function_oid": 198137,
-      "function_name": "l2_distance",
-      "function_type": "function",
-      "argument_types": "sparsevec, sparsevec",
       "parallel_safety": "SAFE",
       "security_definer": false
     },
@@ -4397,16 +5561,34 @@
       "strict": true,
       "comment": null,
       "language": "c",
-      "arguments": "sparsevec",
-      "definition": "CREATE OR REPLACE FUNCTION public.l2_norm(sparsevec)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$sparsevec_l2_norm$function$\n",
+      "arguments": "sparsevec, sparsevec",
+      "definition": "CREATE OR REPLACE FUNCTION public.l2_distance(sparsevec, sparsevec)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$sparsevec_l2_distance$function$\n",
       "volatility": "IMMUTABLE",
       "return_type": "double precision",
       "returns_set": false,
-      "source_code": "sparsevec_l2_norm",
-      "function_oid": 198141,
-      "function_name": "l2_norm",
+      "source_code": "sparsevec_l2_distance",
+      "function_oid": 198137,
+      "function_name": "l2_distance",
       "function_type": "function",
-      "argument_types": "sparsevec",
+      "argument_types": "sparsevec, sparsevec",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "halfvec, halfvec",
+      "definition": "CREATE OR REPLACE FUNCTION public.l2_distance(halfvec, halfvec)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$halfvec_l2_distance$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "double precision",
+      "returns_set": false,
+      "source_code": "halfvec_l2_distance",
+      "function_oid": 198002,
+      "function_name": "l2_distance",
+      "function_type": "function",
+      "argument_types": "halfvec, halfvec",
       "parallel_safety": "SAFE",
       "security_definer": false
     },
@@ -4433,16 +5615,16 @@
       "strict": true,
       "comment": null,
       "language": "c",
-      "arguments": "halfvec",
-      "definition": "CREATE OR REPLACE FUNCTION public.l2_normalize(halfvec)\n RETURNS halfvec\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$halfvec_l2_normalize$function$\n",
+      "arguments": "sparsevec",
+      "definition": "CREATE OR REPLACE FUNCTION public.l2_norm(sparsevec)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$sparsevec_l2_norm$function$\n",
       "volatility": "IMMUTABLE",
-      "return_type": "halfvec",
+      "return_type": "double precision",
       "returns_set": false,
-      "source_code": "halfvec_l2_normalize",
-      "function_oid": 198008,
-      "function_name": "l2_normalize",
+      "source_code": "sparsevec_l2_norm",
+      "function_oid": 198141,
+      "function_name": "l2_norm",
       "function_type": "function",
-      "argument_types": "halfvec",
+      "argument_types": "sparsevec",
       "parallel_safety": "SAFE",
       "security_definer": false
     },
@@ -4469,6 +5651,24 @@
       "strict": true,
       "comment": null,
       "language": "c",
+      "arguments": "halfvec",
+      "definition": "CREATE OR REPLACE FUNCTION public.l2_normalize(halfvec)\n RETURNS halfvec\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$halfvec_l2_normalize$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "halfvec",
+      "returns_set": false,
+      "source_code": "halfvec_l2_normalize",
+      "function_oid": 198008,
+      "function_name": "l2_normalize",
+      "function_type": "function",
+      "argument_types": "halfvec",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
       "arguments": "sparsevec",
       "definition": "CREATE OR REPLACE FUNCTION public.l2_normalize(sparsevec)\n RETURNS sparsevec\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$sparsevec_l2_normalize$function$\n",
       "volatility": "IMMUTABLE",
@@ -4481,6 +5681,66 @@
       "argument_types": "sparsevec",
       "parallel_safety": "SAFE",
       "security_definer": false
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "sql",
+      "arguments": "",
+      "definition": "CREATE OR REPLACE FUNCTION public.listar_minhas_assinaturas()\n RETURNS SETOF vaga_assinaturas\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\r\n  SELECT *\r\n    FROM public.vaga_assinaturas\r\n   WHERE ativa\r\n     AND id_user IN (SELECT id_user FROM public.users WHERE auth_id = auth.uid())\r\n   ORDER BY created_at DESC;\r\n$function$\n",
+      "volatility": "STABLE",
+      "return_type": "SETOF vaga_assinaturas",
+      "returns_set": true,
+      "source_code": "\r\n  SELECT *\r\n    FROM public.vaga_assinaturas\r\n   WHERE ativa\r\n     AND id_user IN (SELECT id_user FROM public.users WHERE auth_id = auth.uid())\r\n   ORDER BY created_at DESC;\r\n",
+      "function_oid": 362002,
+      "function_name": "listar_minhas_assinaturas",
+      "function_type": "function",
+      "argument_types": "",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "p_limit integer DEFAULT 30, p_somente_nao_lidas boolean DEFAULT false",
+      "definition": "CREATE OR REPLACE FUNCTION public.listar_notificacoes(p_limit integer DEFAULT 30, p_somente_nao_lidas boolean DEFAULT false)\n RETURNS jsonb\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\r\nDECLARE\r\n  v_id_user bigint;\r\n  v_items jsonb;\r\n  v_total_nao_lidas bigint;\r\nBEGIN\r\n  SELECT id_user INTO v_id_user FROM public.users WHERE auth_id = auth.uid();\r\n\r\n  IF v_id_user IS NULL THEN\r\n    RETURN jsonb_build_object('items', '[]'::jsonb, 'total_nao_lidas', 0);\r\n  END IF;\r\n\r\n  SELECT COALESCE(jsonb_agg(to_jsonb(n) ORDER BY n.created_at DESC), '[]'::jsonb)\r\n    INTO v_items\r\n    FROM (\r\n      SELECT *\r\n        FROM public.notificacoes\r\n       WHERE id_user = v_id_user\r\n         AND (NOT p_somente_nao_lidas OR NOT lida)\r\n       ORDER BY created_at DESC\r\n       LIMIT p_limit\r\n    ) n;\r\n\r\n  SELECT count(*) INTO v_total_nao_lidas\r\n    FROM public.notificacoes\r\n   WHERE id_user = v_id_user AND NOT lida;\r\n\r\n  RETURN jsonb_build_object('items', v_items, 'total_nao_lidas', v_total_nao_lidas);\r\nEND;\r\n$function$\n",
+      "volatility": "STABLE",
+      "return_type": "jsonb",
+      "returns_set": false,
+      "source_code": "\r\nDECLARE\r\n  v_id_user bigint;\r\n  v_items jsonb;\r\n  v_total_nao_lidas bigint;\r\nBEGIN\r\n  SELECT id_user INTO v_id_user FROM public.users WHERE auth_id = auth.uid();\r\n\r\n  IF v_id_user IS NULL THEN\r\n    RETURN jsonb_build_object('items', '[]'::jsonb, 'total_nao_lidas', 0);\r\n  END IF;\r\n\r\n  SELECT COALESCE(jsonb_agg(to_jsonb(n) ORDER BY n.created_at DESC), '[]'::jsonb)\r\n    INTO v_items\r\n    FROM (\r\n      SELECT *\r\n        FROM public.notificacoes\r\n       WHERE id_user = v_id_user\r\n         AND (NOT p_somente_nao_lidas OR NOT lida)\r\n       ORDER BY created_at DESC\r\n       LIMIT p_limit\r\n    ) n;\r\n\r\n  SELECT count(*) INTO v_total_nao_lidas\r\n    FROM public.notificacoes\r\n   WHERE id_user = v_id_user AND NOT lida;\r\n\r\n  RETURN jsonb_build_object('items', v_items, 'total_nao_lidas', v_total_nao_lidas);\r\nEND;\r\n",
+      "function_oid": 362003,
+      "function_name": "listar_notificacoes",
+      "function_type": "function",
+      "argument_types": "p_limit integer, p_somente_nao_lidas boolean",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "p_id_notificacao bigint DEFAULT NULL::bigint",
+      "definition": "CREATE OR REPLACE FUNCTION public.marcar_notificacao_lida(p_id_notificacao bigint DEFAULT NULL::bigint)\n RETURNS void\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\r\nDECLARE\r\n  v_id_user bigint;\r\nBEGIN\r\n  SELECT id_user INTO v_id_user FROM public.users WHERE auth_id = auth.uid();\r\n\r\n  IF v_id_user IS NULL THEN\r\n    RETURN;\r\n  END IF;\r\n\r\n  IF p_id_notificacao IS NOT NULL THEN\r\n    UPDATE public.notificacoes\r\n       SET lida = true, lida_em = now()\r\n     WHERE id_notificacao = p_id_notificacao\r\n       AND id_user = v_id_user;\r\n  ELSE\r\n    UPDATE public.notificacoes\r\n       SET lida = true, lida_em = now()\r\n     WHERE id_user = v_id_user\r\n       AND NOT lida;\r\n  END IF;\r\nEND;\r\n$function$\n",
+      "volatility": "VOLATILE",
+      "return_type": "void",
+      "returns_set": false,
+      "source_code": "\r\nDECLARE\r\n  v_id_user bigint;\r\nBEGIN\r\n  SELECT id_user INTO v_id_user FROM public.users WHERE auth_id = auth.uid();\r\n\r\n  IF v_id_user IS NULL THEN\r\n    RETURN;\r\n  END IF;\r\n\r\n  IF p_id_notificacao IS NOT NULL THEN\r\n    UPDATE public.notificacoes\r\n       SET lida = true, lida_em = now()\r\n     WHERE id_notificacao = p_id_notificacao\r\n       AND id_user = v_id_user;\r\n  ELSE\r\n    UPDATE public.notificacoes\r\n       SET lida = true, lida_em = now()\r\n     WHERE id_user = v_id_user\r\n       AND NOT lida;\r\n  END IF;\r\nEND;\r\n",
+      "function_oid": 362004,
+      "function_name": "marcar_notificacao_lida",
+      "function_type": "function",
+      "argument_types": "p_id_notificacao bigint",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
     },
     {
       "config": null,
@@ -4499,6 +5759,84 @@
       "argument_types": "query_embedding vector, match_threshold double precision, match_count integer",
       "parallel_safety": "UNSAFE",
       "security_definer": false
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "",
+      "definition": "CREATE OR REPLACE FUNCTION public.notificar_vaga_disponivel()\n RETURNS trigger\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\r\nDECLARE\r\n  v_codigo_materia text;\r\n  v_nome_materia text;\r\nBEGIN\r\n  IF NOT (\r\n    (TG_OP = 'UPDATE'\r\n      AND (OLD.vagas_sobrando IS NULL OR OLD.vagas_sobrando <= 0)\r\n      AND (NEW.vagas_sobrando IS NOT NULL AND NEW.vagas_sobrando > 0))\r\n    OR\r\n    (TG_OP = 'INSERT'\r\n      AND NEW.vagas_sobrando IS NOT NULL AND NEW.vagas_sobrando > 0)\r\n  ) THEN\r\n    RETURN NEW;\r\n  END IF;\r\n\r\n  SELECT codigo_materia, nome_materia\r\n    INTO v_codigo_materia, v_nome_materia\r\n    FROM public.materias\r\n   WHERE id_materia = NEW.id_materia;\r\n\r\n  INSERT INTO public.notificacoes (id_user, tipo, titulo, mensagem, metadata)\r\n  SELECT\r\n    va.id_user,\r\n    'vaga_disponivel',\r\n    'Vaga aberta em ' || COALESCE(v_codigo_materia, 'matéria'),\r\n    'A turma ' || COALESCE(NEW.turma, '') || ' de ' ||\r\n      COALESCE(v_nome_materia, v_codigo_materia, 'matéria') ||\r\n      ' (' || NEW.ano_periodo || ') tem ' || NEW.vagas_sobrando || ' vaga(s) disponível(is).',\r\n    jsonb_build_object(\r\n      'id_turmas', NEW.id_turmas,\r\n      'id_materia', NEW.id_materia,\r\n      'codigo_materia', v_codigo_materia,\r\n      'turma', NEW.turma,\r\n      'ano_periodo', NEW.ano_periodo,\r\n      'vagas_sobrando', NEW.vagas_sobrando\r\n    )\r\n  FROM public.vaga_assinaturas va\r\n  WHERE va.ativa\r\n    AND va.id_materia = NEW.id_materia\r\n    AND va.ano_periodo = NEW.ano_periodo\r\n    AND (va.turma IS NULL OR va.turma = NEW.turma);\r\n\r\n  RETURN NEW;\r\nEND;\r\n$function$\n",
+      "volatility": "VOLATILE",
+      "return_type": "trigger",
+      "returns_set": false,
+      "source_code": "\r\nDECLARE\r\n  v_codigo_materia text;\r\n  v_nome_materia text;\r\nBEGIN\r\n  IF NOT (\r\n    (TG_OP = 'UPDATE'\r\n      AND (OLD.vagas_sobrando IS NULL OR OLD.vagas_sobrando <= 0)\r\n      AND (NEW.vagas_sobrando IS NOT NULL AND NEW.vagas_sobrando > 0))\r\n    OR\r\n    (TG_OP = 'INSERT'\r\n      AND NEW.vagas_sobrando IS NOT NULL AND NEW.vagas_sobrando > 0)\r\n  ) THEN\r\n    RETURN NEW;\r\n  END IF;\r\n\r\n  SELECT codigo_materia, nome_materia\r\n    INTO v_codigo_materia, v_nome_materia\r\n    FROM public.materias\r\n   WHERE id_materia = NEW.id_materia;\r\n\r\n  INSERT INTO public.notificacoes (id_user, tipo, titulo, mensagem, metadata)\r\n  SELECT\r\n    va.id_user,\r\n    'vaga_disponivel',\r\n    'Vaga aberta em ' || COALESCE(v_codigo_materia, 'matéria'),\r\n    'A turma ' || COALESCE(NEW.turma, '') || ' de ' ||\r\n      COALESCE(v_nome_materia, v_codigo_materia, 'matéria') ||\r\n      ' (' || NEW.ano_periodo || ') tem ' || NEW.vagas_sobrando || ' vaga(s) disponível(is).',\r\n    jsonb_build_object(\r\n      'id_turmas', NEW.id_turmas,\r\n      'id_materia', NEW.id_materia,\r\n      'codigo_materia', v_codigo_materia,\r\n      'turma', NEW.turma,\r\n      'ano_periodo', NEW.ano_periodo,\r\n      'vagas_sobrando', NEW.vagas_sobrando\r\n    )\r\n  FROM public.vaga_assinaturas va\r\n  WHERE va.ativa\r\n    AND va.id_materia = NEW.id_materia\r\n    AND va.ano_periodo = NEW.ano_periodo\r\n    AND (va.turma IS NULL OR va.turma = NEW.turma);\r\n\r\n  RETURN NEW;\r\nEND;\r\n",
+      "function_oid": 361998,
+      "function_name": "notificar_vaga_disponivel",
+      "function_type": "function",
+      "argument_types": "",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": null,
+      "strict": false,
+      "comment": "Semestre letivo vigente no formato ano.periodo (ex: 2026.2), calculado pela data atual.",
+      "language": "sql",
+      "arguments": "",
+      "definition": "CREATE OR REPLACE FUNCTION public.periodo_letivo_atual()\n RETURNS text\n LANGUAGE sql\n STABLE\nAS $function$\r\n  SELECT extract(year from now())::text || '.' ||\r\n         (CASE WHEN extract(month from now()) <= 6 THEN '1' ELSE '2' END);\r\n$function$\n",
+      "volatility": "STABLE",
+      "return_type": "text",
+      "returns_set": false,
+      "source_code": "\r\n  SELECT extract(year from now())::text || '.' ||\r\n         (CASE WHEN extract(month from now()) <= 6 THEN '1' ELSE '2' END);\r\n",
+      "function_oid": 362061,
+      "function_name": "periodo_letivo_atual",
+      "function_type": "function",
+      "argument_types": "",
+      "parallel_safety": "UNSAFE",
+      "security_definer": false
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "",
+      "definition": "CREATE OR REPLACE FUNCTION public.registrar_turma_historico()\n RETURNS trigger\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\r\nBEGIN\r\n  IF TG_OP = 'UPDATE'\r\n     AND NEW.vagas_ofertadas IS NOT DISTINCT FROM OLD.vagas_ofertadas\r\n     AND NEW.vagas_ocupadas  IS NOT DISTINCT FROM OLD.vagas_ocupadas\r\n     AND NEW.vagas_sobrando  IS NOT DISTINCT FROM OLD.vagas_sobrando\r\n     AND NEW.docente         IS NOT DISTINCT FROM OLD.docente\r\n     AND NEW.horario         IS NOT DISTINCT FROM OLD.horario\r\n     AND NEW.local           IS NOT DISTINCT FROM OLD.local\r\n  THEN\r\n    RETURN NEW;\r\n  END IF;\r\n\r\n  INSERT INTO public.turmas_historico (\r\n    id_turmas, id_materia, turma, ano_periodo, observed_at,\r\n    vagas_ofertadas, vagas_ocupadas, vagas_sobrando, docente, horario, local\r\n  ) VALUES (\r\n    NEW.id_turmas, NEW.id_materia, NEW.turma, NEW.ano_periodo, now(),\r\n    NEW.vagas_ofertadas, NEW.vagas_ocupadas, NEW.vagas_sobrando,\r\n    NEW.docente, NEW.horario, NEW.local\r\n  );\r\n\r\n  RETURN NEW;\r\nEND;\r\n$function$\n",
+      "volatility": "VOLATILE",
+      "return_type": "trigger",
+      "returns_set": false,
+      "source_code": "\r\nBEGIN\r\n  IF TG_OP = 'UPDATE'\r\n     AND NEW.vagas_ofertadas IS NOT DISTINCT FROM OLD.vagas_ofertadas\r\n     AND NEW.vagas_ocupadas  IS NOT DISTINCT FROM OLD.vagas_ocupadas\r\n     AND NEW.vagas_sobrando  IS NOT DISTINCT FROM OLD.vagas_sobrando\r\n     AND NEW.docente         IS NOT DISTINCT FROM OLD.docente\r\n     AND NEW.horario         IS NOT DISTINCT FROM OLD.horario\r\n     AND NEW.local           IS NOT DISTINCT FROM OLD.local\r\n  THEN\r\n    RETURN NEW;\r\n  END IF;\r\n\r\n  INSERT INTO public.turmas_historico (\r\n    id_turmas, id_materia, turma, ano_periodo, observed_at,\r\n    vagas_ofertadas, vagas_ocupadas, vagas_sobrando, docente, horario, local\r\n  ) VALUES (\r\n    NEW.id_turmas, NEW.id_materia, NEW.turma, NEW.ano_periodo, now(),\r\n    NEW.vagas_ofertadas, NEW.vagas_ocupadas, NEW.vagas_sobrando,\r\n    NEW.docente, NEW.horario, NEW.local\r\n  );\r\n\r\n  RETURN NEW;\r\nEND;\r\n",
+      "function_oid": 364737,
+      "function_name": "registrar_turma_historico",
+      "function_type": "function",
+      "argument_types": "",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "p_id_materia bigint, p_turma text, p_ano_periodo text",
+      "definition": "CREATE OR REPLACE FUNCTION public.seguir_materia(p_id_materia bigint, p_turma text, p_ano_periodo text)\n RETURNS vaga_assinaturas\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\r\nDECLARE\r\n  v_id_user bigint;\r\n  v_row public.vaga_assinaturas;\r\nBEGIN\r\n  SELECT id_user INTO v_id_user FROM public.users WHERE auth_id = auth.uid();\r\n\r\n  IF v_id_user IS NULL THEN\r\n    RAISE EXCEPTION 'usuário não encontrado para o auth_id atual';\r\n  END IF;\r\n\r\n  INSERT INTO public.vaga_assinaturas (id_user, id_materia, turma, ano_periodo, ativa)\r\n  VALUES (v_id_user, p_id_materia, p_turma, p_ano_periodo, true)\r\n  ON CONFLICT (id_user, id_materia, turma, ano_periodo)\r\n  DO UPDATE SET ativa = true\r\n  RETURNING * INTO v_row;\r\n\r\n  RETURN v_row;\r\nEND;\r\n$function$\n",
+      "volatility": "VOLATILE",
+      "return_type": "vaga_assinaturas",
+      "returns_set": false,
+      "source_code": "\r\nDECLARE\r\n  v_id_user bigint;\r\n  v_row public.vaga_assinaturas;\r\nBEGIN\r\n  SELECT id_user INTO v_id_user FROM public.users WHERE auth_id = auth.uid();\r\n\r\n  IF v_id_user IS NULL THEN\r\n    RAISE EXCEPTION 'usuário não encontrado para o auth_id atual';\r\n  END IF;\r\n\r\n  INSERT INTO public.vaga_assinaturas (id_user, id_materia, turma, ano_periodo, ativa)\r\n  VALUES (v_id_user, p_id_materia, p_turma, p_ano_periodo, true)\r\n  ON CONFLICT (id_user, id_materia, turma, ano_periodo)\r\n  DO UPDATE SET ativa = true\r\n  RETURNING * INTO v_row;\r\n\r\n  RETURN v_row;\r\nEND;\r\n",
+      "function_oid": 362000,
+      "function_name": "seguir_materia",
+      "function_type": "function",
+      "argument_types": "p_id_materia bigint, p_turma text, p_ano_periodo text",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
     },
     {
       "config": null,
@@ -4535,6 +5873,26 @@
       "argument_types": "real",
       "parallel_safety": "UNSAFE",
       "security_definer": false
+    },
+    {
+      "config": [
+        "search_path=public"
+      ],
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "p_key text, p_value jsonb",
+      "definition": "CREATE OR REPLACE FUNCTION public.set_system_setting(p_key text, p_value jsonb)\n RETURNS system_settings\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO 'public'\nAS $function$\r\nDECLARE\r\n  v_row public.system_settings;\r\nBEGIN\r\n  IF NOT public.has_admin_scope('settings') THEN\r\n    RAISE EXCEPTION 'forbidden: admin scope \"settings\" required';\r\n  END IF;\r\n\r\n  UPDATE public.system_settings\r\n     SET value = p_value, updated_at = now(), updated_by = auth.uid()\r\n   WHERE key = p_key\r\n   RETURNING * INTO v_row;\r\n\r\n  IF v_row.key IS NULL THEN\r\n    RAISE EXCEPTION 'unknown setting key: %', p_key;\r\n  END IF;\r\n\r\n  RETURN v_row;\r\nEND;\r\n$function$\n",
+      "volatility": "VOLATILE",
+      "return_type": "system_settings",
+      "returns_set": false,
+      "source_code": "\r\nDECLARE\r\n  v_row public.system_settings;\r\nBEGIN\r\n  IF NOT public.has_admin_scope('settings') THEN\r\n    RAISE EXCEPTION 'forbidden: admin scope \"settings\" required';\r\n  END IF;\r\n\r\n  UPDATE public.system_settings\r\n     SET value = p_value, updated_at = now(), updated_by = auth.uid()\r\n   WHERE key = p_key\r\n   RETURNING * INTO v_row;\r\n\r\n  IF v_row.key IS NULL THEN\r\n    RAISE EXCEPTION 'unknown setting key: %', p_key;\r\n  END IF;\r\n\r\n  RETURN v_row;\r\nEND;\r\n",
+      "function_oid": 361946,
+      "function_name": "set_system_setting",
+      "function_type": "function",
+      "argument_types": "p_key text, p_value jsonb",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
     },
     {
       "config": null,
@@ -5267,24 +6625,6 @@
       "strict": true,
       "comment": null,
       "language": "c",
-      "arguments": "halfvec",
-      "definition": "CREATE OR REPLACE FUNCTION public.vector_dims(halfvec)\n RETURNS integer\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$halfvec_vector_dims$function$\n",
-      "volatility": "IMMUTABLE",
-      "return_type": "integer",
-      "returns_set": false,
-      "source_code": "halfvec_vector_dims",
-      "function_oid": 198006,
-      "function_name": "vector_dims",
-      "function_type": "function",
-      "argument_types": "halfvec",
-      "parallel_safety": "SAFE",
-      "security_definer": false
-    },
-    {
-      "config": null,
-      "strict": true,
-      "comment": null,
-      "language": "c",
       "arguments": "vector",
       "definition": "CREATE OR REPLACE FUNCTION public.vector_dims(vector)\n RETURNS integer\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$vector_dims$function$\n",
       "volatility": "IMMUTABLE",
@@ -5295,6 +6635,24 @@
       "function_name": "vector_dims",
       "function_type": "function",
       "argument_types": "vector",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "halfvec",
+      "definition": "CREATE OR REPLACE FUNCTION public.vector_dims(halfvec)\n RETURNS integer\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/vector', $function$halfvec_vector_dims$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "integer",
+      "returns_set": false,
+      "source_code": "halfvec_vector_dims",
+      "function_oid": 198006,
+      "function_name": "vector_dims",
+      "function_type": "function",
+      "argument_types": "halfvec",
       "parallel_safety": "SAFE",
       "security_definer": false
     },
@@ -5752,6 +7110,17 @@
   "sequences": [
     {
       "cycle": false,
+      "owned_by": "ai_usage_log.id",
+      "data_type": "bigint",
+      "max_value": 9223372036854776000,
+      "min_value": 1,
+      "cache_size": 1,
+      "start_value": 1,
+      "increment_by": 1,
+      "sequence_name": "ai_usage_log_id_seq"
+    },
+    {
+      "cycle": false,
       "owned_by": null,
       "data_type": "bigint",
       "max_value": 9223372036854776000,
@@ -5771,17 +7140,6 @@
       "start_value": 1,
       "increment_by": 1,
       "sequence_name": "dados_users_id_dado_user_seq"
-    },
-    {
-      "cycle": false,
-      "owned_by": null,
-      "data_type": "bigint",
-      "max_value": 9223372036854776000,
-      "min_value": 1,
-      "cache_size": 1,
-      "start_value": 1,
-      "increment_by": 1,
-      "sequence_name": "dados_users_teste_id_dado_user_seq"
     },
     {
       "cycle": false,
@@ -5847,6 +7205,17 @@
       "cache_size": 1,
       "start_value": 1,
       "increment_by": 1,
+      "sequence_name": "notificacoes_id_notificacao_seq"
+    },
+    {
+      "cycle": false,
+      "owned_by": null,
+      "data_type": "bigint",
+      "max_value": 9223372036854776000,
+      "min_value": 1,
+      "cache_size": 1,
+      "start_value": 1,
+      "increment_by": 1,
       "sequence_name": "pre_requisitos_id_pre_requisito_seq"
     },
     {
@@ -5880,6 +7249,17 @@
       "cache_size": 1,
       "start_value": 1,
       "increment_by": 1,
+      "sequence_name": "turmas_historico_id_historico_seq"
+    },
+    {
+      "cycle": false,
+      "owned_by": null,
+      "data_type": "bigint",
+      "max_value": 9223372036854776000,
+      "min_value": 1,
+      "cache_size": 1,
+      "start_value": 1,
+      "increment_by": 1,
       "sequence_name": "turmas_id_turmas_seq"
     },
     {
@@ -5892,6 +7272,17 @@
       "start_value": 1,
       "increment_by": 1,
       "sequence_name": "users_id_user_seq"
+    },
+    {
+      "cycle": false,
+      "owned_by": null,
+      "data_type": "bigint",
+      "max_value": 9223372036854776000,
+      "min_value": 1,
+      "cache_size": 1,
+      "start_value": 1,
+      "increment_by": 1,
+      "sequence_name": "vaga_assinaturas_id_assinatura_seq"
     }
   ],
   "extensions": [
@@ -5938,7 +7329,7 @@
       "extension_name": "vector"
     }
   ],
-  "exported_at": "2026-05-17T03:28:11.944554+00:00",
+  "exported_at": "2026-07-16T23:00:16.419383+00:00",
   "table_stats": [
     {
       "table_name": "admins",
@@ -5946,6 +7337,20 @@
       "table_size_bytes": 16384,
       "total_size_bytes": 49152,
       "indexes_size_bytes": 32768
+    },
+    {
+      "table_name": "ai_pricing",
+      "estimated_rows": -1,
+      "table_size_bytes": 16384,
+      "total_size_bytes": 32768,
+      "indexes_size_bytes": 16384
+    },
+    {
+      "table_name": "ai_usage_log",
+      "estimated_rows": 395,
+      "table_size_bytes": 98304,
+      "total_size_bytes": 180224,
+      "indexes_size_bytes": 81920
     },
     {
       "table_name": "co_requisitos",
@@ -5963,17 +7368,10 @@
     },
     {
       "table_name": "dados_users",
-      "estimated_rows": 925,
-      "table_size_bytes": 1925120,
-      "total_size_bytes": 2007040,
-      "indexes_size_bytes": 81920
-    },
-    {
-      "table_name": "dados_users_teste",
-      "estimated_rows": -1,
-      "table_size_bytes": 8192,
-      "total_size_bytes": 24576,
-      "indexes_size_bytes": 16384
+      "estimated_rows": 1334,
+      "table_size_bytes": 2736128,
+      "total_size_bytes": 2834432,
+      "indexes_size_bytes": 98304
     },
     {
       "table_name": "equivalencias",
@@ -5984,23 +7382,23 @@
     },
     {
       "table_name": "historicos_usuarios",
-      "estimated_rows": 1291,
-      "table_size_bytes": 3186688,
-      "total_size_bytes": 3391488,
-      "indexes_size_bytes": 204800
+      "estimated_rows": 2121,
+      "table_size_bytes": 5021696,
+      "total_size_bytes": 5341184,
+      "indexes_size_bytes": 319488
     },
     {
       "table_name": "materias",
       "estimated_rows": 26223,
-      "table_size_bytes": 7725056,
-      "total_size_bytes": 9134080,
-      "indexes_size_bytes": 1409024
+      "table_size_bytes": 7995392,
+      "total_size_bytes": 9420800,
+      "indexes_size_bytes": 1425408
     },
     {
       "table_name": "materias_por_curso",
       "estimated_rows": 141184,
-      "table_size_bytes": 13582336,
-      "total_size_bytes": 41369600,
+      "table_size_bytes": 14483456,
+      "total_size_bytes": 42270720,
       "indexes_size_bytes": 27787264
     },
     {
@@ -6018,11 +7416,25 @@
       "indexes_size_bytes": 98304
     },
     {
+      "table_name": "notificacoes",
+      "estimated_rows": -1,
+      "table_size_bytes": 8192,
+      "total_size_bytes": 24576,
+      "indexes_size_bytes": 16384
+    },
+    {
       "table_name": "pre_requisitos",
       "estimated_rows": 15507,
       "table_size_bytes": 2211840,
       "total_size_bytes": 2580480,
       "indexes_size_bytes": 368640
+    },
+    {
+      "table_name": "system_settings",
+      "estimated_rows": -1,
+      "table_size_bytes": 16384,
+      "total_size_bytes": 32768,
+      "indexes_size_bytes": 16384
     },
     {
       "table_name": "ticket_audit_log",
@@ -6035,22 +7447,36 @@
       "table_name": "tickets",
       "estimated_rows": -1,
       "table_size_bytes": 16384,
-      "total_size_bytes": 122880,
-      "indexes_size_bytes": 106496
+      "total_size_bytes": 131072,
+      "indexes_size_bytes": 114688
     },
     {
       "table_name": "turmas",
-      "estimated_rows": 6473,
-      "table_size_bytes": 1024000,
-      "total_size_bytes": 1564672,
-      "indexes_size_bytes": 540672
+      "estimated_rows": 12807,
+      "table_size_bytes": 2711552,
+      "total_size_bytes": 3964928,
+      "indexes_size_bytes": 1253376
+    },
+    {
+      "table_name": "turmas_historico",
+      "estimated_rows": 12807,
+      "table_size_bytes": 2031616,
+      "total_size_bytes": 3096576,
+      "indexes_size_bytes": 1064960
     },
     {
       "table_name": "users",
-      "estimated_rows": 1376,
-      "table_size_bytes": 229376,
-      "total_size_bytes": 450560,
-      "indexes_size_bytes": 221184
+      "estimated_rows": 1778,
+      "table_size_bytes": 253952,
+      "total_size_bytes": 499712,
+      "indexes_size_bytes": 245760
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "estimated_rows": -1,
+      "table_size_bytes": 8192,
+      "total_size_bytes": 40960,
+      "indexes_size_bytes": 32768
     }
   ],
   "foreign_keys": [
@@ -6081,16 +7507,6 @@
       "update_rule": "NO ACTION",
       "match_option": "NONE",
       "constraint_name": "dados_users_id_user_fkey",
-      "foreign_table_name": "users",
-      "foreign_column_name": "id_user"
-    },
-    {
-      "table_name": "dados_users_teste",
-      "column_name": "id_user",
-      "delete_rule": "NO ACTION",
-      "update_rule": "NO ACTION",
-      "match_option": "NONE",
-      "constraint_name": "dados_users_teste_id_user_fkey",
       "foreign_table_name": "users",
       "foreign_column_name": "id_user"
     },
@@ -6165,6 +7581,16 @@
       "foreign_column_name": "id_curso"
     },
     {
+      "table_name": "notificacoes",
+      "column_name": "id_user",
+      "delete_rule": "CASCADE",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "notificacoes_id_user_fkey",
+      "foreign_table_name": "users",
+      "foreign_column_name": "id_user"
+    },
+    {
       "table_name": "pre_requisitos",
       "column_name": "id_materia",
       "delete_rule": "NO ACTION",
@@ -6203,6 +7629,46 @@
       "constraint_name": "turmas_id_materia_fkey",
       "foreign_table_name": "materias",
       "foreign_column_name": "id_materia"
+    },
+    {
+      "table_name": "turmas_historico",
+      "column_name": "id_materia",
+      "delete_rule": "CASCADE",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "turmas_historico_id_materia_fkey",
+      "foreign_table_name": "materias",
+      "foreign_column_name": "id_materia"
+    },
+    {
+      "table_name": "turmas_historico",
+      "column_name": "id_turmas",
+      "delete_rule": "SET NULL",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "turmas_historico_id_turmas_fkey",
+      "foreign_table_name": "turmas",
+      "foreign_column_name": "id_turmas"
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "column_name": "id_materia",
+      "delete_rule": "CASCADE",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "vaga_assinaturas_id_materia_fkey",
+      "foreign_table_name": "materias",
+      "foreign_column_name": "id_materia"
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "column_name": "id_user",
+      "delete_rule": "CASCADE",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "vaga_assinaturas_id_user_fkey",
+      "foreign_table_name": "users",
+      "foreign_column_name": "id_user"
     }
   ],
   "primary_keys": [
@@ -6210,6 +7676,18 @@
       "table_name": "admins",
       "column_name": "auth_id",
       "constraint_name": "admins_pkey",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "ai_pricing",
+      "column_name": "model",
+      "constraint_name": "ai_pricing_pkey",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "ai_usage_log",
+      "column_name": "id",
+      "constraint_name": "ai_usage_log_pkey",
       "ordinal_position": 1
     },
     {
@@ -6228,12 +7706,6 @@
       "table_name": "dados_users",
       "column_name": "id_dado_user",
       "constraint_name": "dados_users_pkey",
-      "ordinal_position": 1
-    },
-    {
-      "table_name": "dados_users_teste",
-      "column_name": "id_dado_user",
-      "constraint_name": "dados_users_teste_pkey",
       "ordinal_position": 1
     },
     {
@@ -6273,9 +7745,21 @@
       "ordinal_position": 1
     },
     {
+      "table_name": "notificacoes",
+      "column_name": "id_notificacao",
+      "constraint_name": "notificacoes_pkey",
+      "ordinal_position": 1
+    },
+    {
       "table_name": "pre_requisitos",
       "column_name": "id_pre_requisito",
       "constraint_name": "pre_requisitos_pkey",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "system_settings",
+      "column_name": "key",
+      "constraint_name": "system_settings_pkey",
       "ordinal_position": 1
     },
     {
@@ -6297,9 +7781,21 @@
       "ordinal_position": 1
     },
     {
+      "table_name": "turmas_historico",
+      "column_name": "id_historico",
+      "constraint_name": "turmas_historico_pkey",
+      "ordinal_position": 1
+    },
+    {
       "table_name": "users",
       "column_name": "id_user",
       "constraint_name": "users_pkey",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "column_name": "id_assinatura",
+      "constraint_name": "vaga_assinaturas_pkey",
       "ordinal_position": 1
     }
   ],
@@ -6324,6 +7820,17 @@
       "column_name": "created_by",
       "table_schema": "public",
       "constraint_name": "admins_created_by_fkey",
+      "foreign_table_name": "users",
+      "foreign_column_name": "id",
+      "foreign_table_schema": "auth"
+    },
+    {
+      "on_delete": "SET NULL",
+      "on_update": "NO ACTION",
+      "table_name": "ai_pricing",
+      "column_name": "updated_by",
+      "table_schema": "public",
+      "constraint_name": "ai_pricing_updated_by_fkey",
       "foreign_table_name": "users",
       "foreign_column_name": "id",
       "foreign_table_schema": "auth"
@@ -6390,6 +7897,17 @@
       "column_name": "user_id",
       "table_schema": "auth",
       "constraint_name": "sessions_user_id_fkey",
+      "foreign_table_name": "users",
+      "foreign_column_name": "id",
+      "foreign_table_schema": "auth"
+    },
+    {
+      "on_delete": "NO ACTION",
+      "on_update": "NO ACTION",
+      "table_name": "system_settings",
+      "column_name": "updated_by",
+      "table_schema": "public",
+      "constraint_name": "system_settings_updated_by_fkey",
       "foreign_table_name": "users",
       "foreign_column_name": "id",
       "foreign_table_schema": "auth"
@@ -6488,6 +8006,61 @@
       "constraint_name": "admins_role_check"
     },
     {
+      "table_name": "ai_pricing",
+      "check_clause": "model IS NOT NULL",
+      "constraint_name": "2200_319780_1_not_null"
+    },
+    {
+      "table_name": "ai_pricing",
+      "check_clause": "input_per_1k IS NOT NULL",
+      "constraint_name": "2200_319780_2_not_null"
+    },
+    {
+      "table_name": "ai_pricing",
+      "check_clause": "output_per_1k IS NOT NULL",
+      "constraint_name": "2200_319780_3_not_null"
+    },
+    {
+      "table_name": "ai_pricing",
+      "check_clause": "currency IS NOT NULL",
+      "constraint_name": "2200_319780_4_not_null"
+    },
+    {
+      "table_name": "ai_pricing",
+      "check_clause": "updated_at IS NOT NULL",
+      "constraint_name": "2200_319780_5_not_null"
+    },
+    {
+      "table_name": "ai_usage_log",
+      "check_clause": "id IS NOT NULL",
+      "constraint_name": "2200_319797_1_not_null"
+    },
+    {
+      "table_name": "ai_usage_log",
+      "check_clause": "created_at IS NOT NULL",
+      "constraint_name": "2200_319797_2_not_null"
+    },
+    {
+      "table_name": "ai_usage_log",
+      "check_clause": "prompt_tokens IS NOT NULL",
+      "constraint_name": "2200_319797_5_not_null"
+    },
+    {
+      "table_name": "ai_usage_log",
+      "check_clause": "completion_tokens IS NOT NULL",
+      "constraint_name": "2200_319797_6_not_null"
+    },
+    {
+      "table_name": "ai_usage_log",
+      "check_clause": "total_tokens IS NOT NULL",
+      "constraint_name": "2200_319797_7_not_null"
+    },
+    {
+      "table_name": "ai_usage_log",
+      "check_clause": "success IS NOT NULL",
+      "constraint_name": "2200_319797_9_not_null"
+    },
+    {
       "table_name": "co_requisitos",
       "check_clause": "id_co_requisito IS NOT NULL",
       "constraint_name": "2200_26775_1_not_null"
@@ -6516,16 +8089,6 @@
       "table_name": "dados_users",
       "check_clause": "created_at IS NOT NULL",
       "constraint_name": "2200_18982_2_not_null"
-    },
-    {
-      "table_name": "dados_users_teste",
-      "check_clause": "id_dado_user IS NOT NULL",
-      "constraint_name": "2200_281736_1_not_null"
-    },
-    {
-      "table_name": "dados_users_teste",
-      "check_clause": "created_at IS NOT NULL",
-      "constraint_name": "2200_281736_2_not_null"
     },
     {
       "table_name": "equivalencias",
@@ -6563,6 +8126,11 @@
       "constraint_name": "2200_18861_2_not_null"
     },
     {
+      "table_name": "materias",
+      "check_clause": "(((dificuldade_estimada >= 1) AND (dificuldade_estimada <= 10)))",
+      "constraint_name": "materias_dificuldade_estimada_check"
+    },
+    {
       "table_name": "materias_por_curso",
       "check_clause": "id_materia_curso IS NOT NULL",
       "constraint_name": "2200_18873_1_not_null"
@@ -6598,6 +8166,46 @@
       "constraint_name": "2200_195149_5_not_null"
     },
     {
+      "table_name": "notificacoes",
+      "check_clause": "id_notificacao IS NOT NULL",
+      "constraint_name": "2200_361978_1_not_null"
+    },
+    {
+      "table_name": "notificacoes",
+      "check_clause": "created_at IS NOT NULL",
+      "constraint_name": "2200_361978_2_not_null"
+    },
+    {
+      "table_name": "notificacoes",
+      "check_clause": "id_user IS NOT NULL",
+      "constraint_name": "2200_361978_3_not_null"
+    },
+    {
+      "table_name": "notificacoes",
+      "check_clause": "tipo IS NOT NULL",
+      "constraint_name": "2200_361978_4_not_null"
+    },
+    {
+      "table_name": "notificacoes",
+      "check_clause": "titulo IS NOT NULL",
+      "constraint_name": "2200_361978_5_not_null"
+    },
+    {
+      "table_name": "notificacoes",
+      "check_clause": "mensagem IS NOT NULL",
+      "constraint_name": "2200_361978_6_not_null"
+    },
+    {
+      "table_name": "notificacoes",
+      "check_clause": "metadata IS NOT NULL",
+      "constraint_name": "2200_361978_7_not_null"
+    },
+    {
+      "table_name": "notificacoes",
+      "check_clause": "lida IS NOT NULL",
+      "constraint_name": "2200_361978_8_not_null"
+    },
+    {
       "table_name": "pre_requisitos",
       "check_clause": "id_pre_requisito IS NOT NULL",
       "constraint_name": "2200_26759_1_not_null"
@@ -6606,6 +8214,21 @@
       "table_name": "pre_requisitos",
       "check_clause": "id_materia IS NOT NULL",
       "constraint_name": "2200_26759_2_not_null"
+    },
+    {
+      "table_name": "system_settings",
+      "check_clause": "key IS NOT NULL",
+      "constraint_name": "2200_361932_1_not_null"
+    },
+    {
+      "table_name": "system_settings",
+      "check_clause": "value IS NOT NULL",
+      "constraint_name": "2200_361932_2_not_null"
+    },
+    {
+      "table_name": "system_settings",
+      "check_clause": "updated_at IS NOT NULL",
+      "constraint_name": "2200_361932_4_not_null"
     },
     {
       "table_name": "ticket_audit_log",
@@ -6743,6 +8366,31 @@
       "constraint_name": "chk_vagas_sobrando_consistente"
     },
     {
+      "table_name": "turmas_historico",
+      "check_clause": "id_historico IS NOT NULL",
+      "constraint_name": "2200_364716_1_not_null"
+    },
+    {
+      "table_name": "turmas_historico",
+      "check_clause": "id_materia IS NOT NULL",
+      "constraint_name": "2200_364716_3_not_null"
+    },
+    {
+      "table_name": "turmas_historico",
+      "check_clause": "turma IS NOT NULL",
+      "constraint_name": "2200_364716_4_not_null"
+    },
+    {
+      "table_name": "turmas_historico",
+      "check_clause": "ano_periodo IS NOT NULL",
+      "constraint_name": "2200_364716_5_not_null"
+    },
+    {
+      "table_name": "turmas_historico",
+      "check_clause": "observed_at IS NOT NULL",
+      "constraint_name": "2200_364716_6_not_null"
+    },
+    {
       "table_name": "users",
       "check_clause": "id_user IS NOT NULL",
       "constraint_name": "2200_18893_1_not_null"
@@ -6751,36 +8399,65 @@
       "table_name": "users",
       "check_clause": "created_at IS NOT NULL",
       "constraint_name": "2200_18893_2_not_null"
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "check_clause": "id_assinatura IS NOT NULL",
+      "constraint_name": "2200_361949_1_not_null"
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "check_clause": "created_at IS NOT NULL",
+      "constraint_name": "2200_361949_2_not_null"
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "check_clause": "id_user IS NOT NULL",
+      "constraint_name": "2200_361949_3_not_null"
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "check_clause": "id_materia IS NOT NULL",
+      "constraint_name": "2200_361949_4_not_null"
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "check_clause": "ano_periodo IS NOT NULL",
+      "constraint_name": "2200_361949_6_not_null"
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "check_clause": "ativa IS NOT NULL",
+      "constraint_name": "2200_361949_7_not_null"
     }
   ],
   "materialized_views": [],
   "rls_enabled_tables": [
     "admins",
+    "ai_pricing",
+    "ai_usage_log",
     "co_requisitos",
     "cursos",
     "dados_users",
-    "dados_users_teste",
     "equivalencias",
     "historicos_usuarios",
     "materias",
     "materias_por_curso",
+    "notificacoes",
     "pre_requisitos",
+    "system_settings",
     "ticket_audit_log",
     "tickets",
     "turmas",
-    "users"
+    "turmas_historico",
+    "users",
+    "vaga_assinaturas"
   ],
   "unique_constraints": [
     {
       "table_name": "dados_users",
       "column_name": "id_user",
       "constraint_name": "dados_users_id_user_unique",
-      "ordinal_position": 1
-    },
-    {
-      "table_name": "dados_users_teste",
-      "column_name": "id_user",
-      "constraint_name": "dados_users_teste_id_user_key",
       "ordinal_position": 1
     },
     {
@@ -6848,6 +8525,30 @@
       "column_name": "auth_id",
       "constraint_name": "users_auth_id_key",
       "ordinal_position": 1
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "column_name": "id_user",
+      "constraint_name": "uq_vaga_assinatura",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "column_name": "id_materia",
+      "constraint_name": "uq_vaga_assinatura",
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "column_name": "turma",
+      "constraint_name": "uq_vaga_assinatura",
+      "ordinal_position": 3
+    },
+    {
+      "table_name": "vaga_assinaturas",
+      "column_name": "ano_periodo",
+      "constraint_name": "uq_vaga_assinatura",
+      "ordinal_position": 4
     }
   ],
   "export_method": "rpc",

@@ -29,6 +29,11 @@ no_fluxo_frontend_svelte/.svelte-kit/
 no_fluxo_frontend_svelte/build/
 no_fluxo_frontend_svelte/.env*
 
+# mcp_agent específico
+mcp_agent/.venv/
+mcp_agent/__pycache__/
+mcp_agent/.env*
+
 # Frontend específico
 no_fluxo_frontend/.dart_tool/
 no_fluxo_frontend/.packages

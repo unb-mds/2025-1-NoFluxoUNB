@@ -12,6 +12,8 @@
 		onSubjectOpenChain?: (materia: MateriaModel) => void;
 		onSubjectLongPress?: (materia: MateriaModel) => void;
 		headerOffsetY?: number;
+		/** Label customizado para o header. Se não fornecido, usa "Semestre {semester}". */
+		headerLabel?: string;
 	}
 
 	let {
@@ -21,7 +23,8 @@
 		onSubjectClick,
 		onSubjectOpenChain,
 		onSubjectLongPress,
-		headerOffsetY = 0
+		headerOffsetY = 0,
+		headerLabel
 	}: Props = $props();
 
 	const store = fluxogramaStore;
@@ -99,7 +102,7 @@
 		style="transform: translateY({headerOffsetY}px); position: relative; background: hsl(var(--primary) / 0.18); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 0 12px hsl(var(--primary) / 0.15);"
 	>
 		<span class="text-[11px] font-bold uppercase tracking-wider text-white/95">
-			Semestre {semester}
+			{headerLabel ?? `Semestre ${semester}`}
 		</span>
 	</div>
 
