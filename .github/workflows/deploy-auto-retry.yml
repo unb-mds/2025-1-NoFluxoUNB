@@ -1,0 +1,30 @@
+name: Deploy Auto-retry
+
+# O job "deploy" do workflow Deploy falha de forma intermitente ao logar no
+# registry privado (registry.kubernetes.crianex.com) por bloqueio/timeout de
+# rede específico do IP do runner do GitHub Actions — não é flaky por
+# requisição (retry dentro do mesmo job não ajuda, porque reusa o mesmo IP),
+# é flaky por runner. Um runner novo (IP novo) costuma funcionar.
+# Este workflow reexecuta só os jobs que falharam em uma execução nova,
+# limitado a algumas tentativas, para não mascarar uma falha real de código.
+on:
+  workflow_run:
+    workflows: ["Deploy"]
+    types: [completed]
+
+permissions:
+  actions: write
+
+jobs:
+  retry:
+    if: >
+      github.event.workflow_run.conclusion == 'failure' &&
+      github.event.workflow_run.run_attempt < 4
+    runs-on: ubuntu-latest
+    steps:
+      - name: Re-executa os jobs que falharam em um runner novo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Deploy falhou (tentativa ${{ github.event.workflow_run.run_attempt }}), reexecutando em runner novo..."
+          gh run rerun ${{ github.event.workflow_run.id }} --failed --repo ${{ github.repository }}
