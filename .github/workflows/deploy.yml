@@ -39,11 +39,14 @@ jobs:
         uses: docker/setup-qemu-action@v3
 
       - name: Log in to private registry
-        uses: docker/login-action@v3
+        uses: nick-fields/retry@v3
         with:
-          registry: registry.kubernetes.crianex.com
-          username: ${{ secrets.REGISTRY_USERNAME }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+          timeout_minutes: 2
+          max_attempts: 5
+          retry_wait_seconds: 10
+          command: |
+            echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login registry.kubernetes.crianex.com \
+              --username "${{ secrets.REGISTRY_USERNAME }}" --password-stdin
 
       - name: Deploy
         env:
