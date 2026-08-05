@@ -53,6 +53,24 @@ describe('decideProtectedRouteAccess', () => {
 		expect(decideProtectedRouteAccess('/suporte', realUser())).toEqual({ action: 'allow' });
 	});
 
+	// Regressão: "Enviar Novamente" no fluxograma apaga o fluxograma e manda para
+	// /upload-historico. Se o guard mandasse essa rota para /suporte (o destino do
+	// access_denied), o aluno cairia na tela de chamados sem entender por quê.
+	it('permite /upload-historico para conta real, admin ou não', () => {
+		expect(decideProtectedRouteAccess('/upload-historico', realUser())).toEqual({
+			action: 'allow'
+		});
+		expect(
+			decideProtectedRouteAccess('/upload-historico', realUser({ isAdmin: true, adminScopes: [] }))
+		).toEqual({ action: 'allow' });
+		expect(
+			decideProtectedRouteAccess(
+				'/upload-historico',
+				realUser({ isAdmin: true, adminScopes: ['tickets'] })
+			)
+		).toEqual({ action: 'allow' });
+	});
+
 	it('bloqueia anônimo em rota admin — corrige o bypass que existia no checkAuth central', () => {
 		expect(decideProtectedRouteAccess('/admin/dashboard', anonymous)).toEqual({
 			action: 'redirect',

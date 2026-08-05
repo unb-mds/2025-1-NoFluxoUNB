@@ -234,8 +234,10 @@
 </script>
 
 <div class="flex h-full gap-0 bg-[#090c12] text-white">
-	<!-- Main content (plano scroll area) -->
-	<div class="flex-1 flex flex-col gap-5 px-6 py-6 overflow-hidden">
+	<!-- Main content (plano scroll area).
+	     No mobile a página rola normalmente: o canvas do plano tem altura limitada e
+	     captura o toque só dentro dele, então precisa sobrar página rolável em volta. -->
+	<div class="flex-1 flex flex-col gap-4 px-3 py-4 overflow-y-auto sm:gap-5 sm:px-6 sm:py-6 lg:overflow-hidden">
 
 	<!-- ─── Page header ──────────────────────────────────────────────────── -->
 	<div class="flex flex-wrap items-start justify-between gap-4">
@@ -251,24 +253,25 @@
 			</p>
 		</div>
 
-		<div class="flex items-center gap-2">
+		<div class="flex w-full items-center gap-2 sm:w-auto">
 			<button
 				type="button"
 				onclick={handleExportPDF}
 				disabled={isExporting}
-				class="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/60 transition-colors hover:border-white/20 hover:bg-white/8 hover:text-white/85 disabled:opacity-40"
+				class="flex flex-1 touch-manipulation items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-white/60 transition-colors hover:border-white/20 hover:bg-white/8 hover:text-white/85 disabled:opacity-40 sm:flex-none sm:py-1.5"
 			>
 				{#if isExporting}
 					<Loader2 class="h-3.5 w-3.5 animate-spin" />
 				{:else}
 					<Download class="h-3.5 w-3.5" />
 				{/if}
-				Exportar PDF
+				<span class="hidden sm:inline">Exportar PDF</span>
+				<span class="sm:hidden">PDF</span>
 			</button>
 			<button
 				type="button"
 				onclick={handleAjustar}
-				class="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/60 transition-colors hover:border-white/20 hover:bg-white/8 hover:text-white/85"
+				class="flex flex-1 touch-manipulation items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-white/60 transition-colors hover:border-white/20 hover:bg-white/8 hover:text-white/85 sm:flex-none sm:py-1.5"
 			>
 				<Settings class="h-3.5 w-3.5" />
 				Preferências
@@ -277,7 +280,7 @@
 				type="button"
 				onclick={handleRefresh}
 				disabled={planoFormaturaStore.status === 'loading'}
-				class="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/60 transition-colors hover:border-white/20 hover:bg-white/8 hover:text-white/85 disabled:opacity-40"
+				class="flex flex-1 touch-manipulation items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-white/60 transition-colors hover:border-white/20 hover:bg-white/8 hover:text-white/85 disabled:opacity-40 sm:flex-none sm:py-1.5"
 			>
 				<RefreshCw class="h-3.5 w-3.5 {planoFormaturaStore.status === 'loading' ? 'animate-spin' : ''}" />
 				Atualizar
@@ -287,38 +290,41 @@
 
 	<!-- ─── Summary stats ────────────────────────────────────────────────── -->
 	{#if planoFormaturaStore.status === 'success' && planoFormaturaStore.plano}
-		<div class="grid grid-cols-3 gap-3" transition:fade={{ duration: 200 }}>
+		<div class="grid grid-cols-3 gap-2 sm:gap-3" transition:fade={{ duration: 200 }}>
 			<!-- Formatura estimada -->
-			<div class="rounded-xl border border-blue-500/20 bg-blue-600/8 px-4 py-3.5">
-				<p class="text-[11px] font-medium uppercase tracking-wider text-blue-400/70">Formatura</p>
-				<p class="mt-1 text-xl font-bold text-blue-200">
+			<div class="rounded-xl border border-blue-500/20 bg-blue-600/8 px-2.5 py-2.5 sm:px-4 sm:py-3.5">
+				<p class="text-[10px] font-medium uppercase tracking-wider text-blue-400/70 sm:text-[11px]">Formatura</p>
+				<p class="mt-1 text-lg font-bold text-blue-200 sm:text-xl">
 					{planoFormaturaStore.formaturaEstimada ?? '—'}
 				</p>
-				<p class="mt-0.5 text-[10px] text-blue-400/45">semestre previsto</p>
+				<p class="mt-0.5 text-[10px] leading-tight text-blue-400/45">semestre previsto</p>
 			</div>
 
 			<!-- Semestres restantes -->
-			<div class="rounded-xl border border-white/10 bg-white/4 px-4 py-3.5">
-				<p class="text-[11px] font-medium uppercase tracking-wider text-white/40">Semestres</p>
-				<p class="mt-1 text-xl font-bold text-white/85">
+			<div class="rounded-xl border border-white/10 bg-white/4 px-2.5 py-2.5 sm:px-4 sm:py-3.5">
+				<p class="text-[10px] font-medium uppercase tracking-wider text-white/40 sm:text-[11px]">Semestres</p>
+				<p class="mt-1 text-lg font-bold text-white/85 sm:text-xl">
 					{planoFormaturaStore.semestresRestantes ?? '—'}
 				</p>
-				<p class="mt-0.5 text-[10px] text-white/30">restantes até formatura</p>
+				<p class="mt-0.5 text-[10px] leading-tight text-white/30">restantes até formatura</p>
 			</div>
 
 			<!-- Matérias críticas -->
-			<div class="rounded-xl border border-orange-500/20 bg-orange-600/8 px-4 py-3.5">
-				<p class="text-[11px] font-medium uppercase tracking-wider text-orange-400/70">Críticas</p>
-				<p class="mt-1 text-xl font-bold text-orange-200">{totalCriticas}</p>
-				<p class="mt-0.5 text-[10px] text-orange-400/45">matérias estratégicas</p>
+			<div class="rounded-xl border border-orange-500/20 bg-orange-600/8 px-2.5 py-2.5 sm:px-4 sm:py-3.5">
+				<p class="text-[10px] font-medium uppercase tracking-wider text-orange-400/70 sm:text-[11px]">Críticas</p>
+				<p class="mt-1 text-lg font-bold text-orange-200 sm:text-xl">{totalCriticas}</p>
+				<p class="mt-0.5 text-[10px] leading-tight text-orange-400/45">matérias estratégicas</p>
 			</div>
 		</div>
 	{/if}
 
 	<!-- ─── Credit limit toggle ───────────────────────────────────────────── -->
-	<div class="flex flex-wrap items-center justify-between gap-4">
-		<div class="flex items-center gap-3">
-			<span class="shrink-0 text-xs font-medium text-white/40">Créditos / semestre:</span>
+	<div class="flex flex-wrap items-center justify-between gap-3 sm:gap-4">
+		<div class="flex min-w-0 flex-1 items-center gap-2 sm:flex-none sm:gap-3">
+			<span class="shrink-0 text-xs font-medium text-white/40">
+				<span class="hidden sm:inline">Créditos / semestre:</span>
+				<span class="sm:hidden">Créditos:</span>
+			</span>
 			<input
 				type="range"
 				min={8}
@@ -327,7 +333,7 @@
 				disabled={isChangingCredits}
 				value={planoFormaturaStore.preferencias.limiteCreditos}
 				oninput={(e) => debouncedLimiteChange(Number((e.target as HTMLInputElement).value))}
-				class="w-36 accent-blue-500 disabled:opacity-40"
+				class="min-w-0 flex-1 accent-blue-500 disabled:opacity-40 sm:w-36 sm:flex-none"
 			/>
 			<div class="flex items-center gap-1">
 				<input
@@ -350,7 +356,7 @@
 			<button
 				type="button"
 				onclick={() => { displayUnit = 'creditos'; }}
-				class="rounded-lg px-3 py-1.5 text-xs font-semibold transition-all
+				class="touch-manipulation rounded-lg px-3 py-2 text-xs font-semibold transition-all sm:py-1.5
 					{displayUnit === 'creditos'
 						? 'border border-blue-500/60 bg-blue-600/20 text-blue-200 ring-1 ring-blue-500/30'
 						: 'border border-white/10 bg-white/4 text-white/50 hover:border-white/20 hover:bg-white/7 hover:text-white/75'}"
@@ -360,7 +366,7 @@
 			<button
 				type="button"
 				onclick={() => { displayUnit = 'horas'; }}
-				class="rounded-lg px-3 py-1.5 text-xs font-semibold transition-all
+				class="touch-manipulation rounded-lg px-3 py-2 text-xs font-semibold transition-all sm:py-1.5
 					{displayUnit === 'horas'
 						? 'border border-blue-500/60 bg-blue-600/20 text-blue-200 ring-1 ring-blue-500/30'
 						: 'border border-white/10 bg-white/4 text-white/50 hover:border-white/20 hover:bg-white/7 hover:text-white/75'}"
@@ -420,7 +426,7 @@
 
 	<!-- ─── Success: horizontal scroll of semester cards ──────────────────── -->
 	{:else if planoFormaturaStore.status === 'success' && planoFormaturaStore.plano}
-		<div class="flex flex-1 flex-col gap-4 overflow-hidden" transition:fade={{ duration: 200 }}>
+		<div class="flex flex-1 flex-col gap-4 lg:overflow-hidden" transition:fade={{ duration: 200 }}>
 
 			<!-- Notice about elective credits -->
 			{#if hasOptativasPendentes}

@@ -1,6 +1,8 @@
 <script lang="ts">
-	import { createSupabaseBrowserClient } from '$lib/supabase/client';
 	import { vagaNotificacaoService } from '$lib/services/vaga-notificacao.service';
+	import { getPeriodoAtivo } from '$lib/services/turmas.service';
+	import { getOfertaDeMateria, type TurmaResolvida } from '$lib/services/oferta-turmas.service';
+	import type { LinhaEquivalencia } from '$lib/utils/oferta-equivalencia';
 	import type { VagaAssinatura } from '$lib/types/notificacao';
 	import { Bell, BellOff, Loader2 } from 'lucide-svelte';
 	import { toast } from '$lib/utils/toast';
@@ -9,27 +11,24 @@
 		idMateria: number;
 		codigoMateria?: string;
 		nomeMateria?: string;
+		/**
+		 * Equivalências da matriz, quando a tela tem curso carregado. Sem elas a busca
+		 * degrada para a oferta do próprio código (caso da matéria global, sem matriz).
+		 */
+		equivalencias?: LinhaEquivalencia[];
 	}
 
-	let { idMateria, codigoMateria, nomeMateria }: Props = $props();
+	let { idMateria, codigoMateria, nomeMateria, equivalencias = [] }: Props = $props();
 
-	type TurmaRow = {
-		id_turmas: number;
-		turma: string;
-		docente: string | null;
-		horario: string | null;
-		local: string | null;
-		ano_periodo: string;
-		vagas_ofertadas: number | null;
-		vagas_ocupadas: number | null;
-		vagas_sobrando: number | null;
-	};
-
-	const supabase = createSupabaseBrowserClient();
-
-	let turmas = $state<TurmaRow[]>([]);
+	// Oferta resolvida por equivalência — a matéria pode ter mudado de código e a turma
+	// ser publicada sob o novo. Mesma regra do Montador de Grade e da aba Turmas do
+	// fluxograma (ver oferta-turmas.service.ts).
+	let turmas = $state<TurmaResolvida[]>([]);
 	let carregandoTurmas = $state(false);
 	let erroTurmas = $state<string | null>(null);
+
+	/** Código sob o qual a oferta saiu, quando difere do da matriz. */
+	const codigoOfertado = $derived(turmas[0]?.codigoOfertado ?? null);
 
 	let assinaturas = $state<VagaAssinatura[]>([]);
 	let carregandoAssinaturas = $state(false);
@@ -38,6 +37,12 @@
 	let erroAcao = $state<string | null>(null);
 
 	let periodoAtual = $state<string | null>(null);
+
+	/**
+	 * A assinatura de vaga é gravada contra a matéria que de fato tem a oferta — que é o
+	 * substituto quando a matéria mudou de código, senão a própria.
+	 */
+	const idMateriaOferta = $derived(turmas[0]?.turma.id_materia ?? idMateria);
 
 	function assinaturaKey(turma: string | null, anoPeriodo: string): string {
 		return `${turma ?? '__toda__'}::${anoPeriodo}`;
@@ -48,7 +53,7 @@
 			assinaturas.find(
 				(a) =>
 					a.ativa &&
-					a.id_materia === idMateria &&
+					a.id_materia === idMateriaOferta &&
 					(a.turma ?? null) === turma &&
 					a.ano_periodo === anoPeriodo
 			) ?? null
@@ -59,29 +64,13 @@
 		carregandoTurmas = true;
 		erroTurmas = null;
 		try {
-			const { data: periodoData, error: periodoError } =
-				await supabase.rpc('periodo_letivo_atual');
-			if (periodoError) {
-				erroTurmas = periodoError.message;
-				turmas = [];
-				return;
-			}
-			periodoAtual = periodoData as string;
-
-			const { data, error } = await supabase
-				.from('turmas')
-				.select(
-					'id_turmas, turma, docente, horario, local, ano_periodo, vagas_ofertadas, vagas_ocupadas, vagas_sobrando'
-				)
-				.eq('id_materia', idMateria)
-				.eq('ano_periodo', periodoAtual)
-				.order('turma');
-			if (error) {
-				erroTurmas = error.message;
-				turmas = [];
-				return;
-			}
-			turmas = (data as TurmaRow[] | null) ?? [];
+			periodoAtual = await getPeriodoAtivo();
+			turmas = await getOfertaDeMateria(
+				codigoMateria ?? '',
+				idMateria,
+				equivalencias,
+				periodoAtual
+			);
 		} catch (e: unknown) {
 			erroTurmas = e instanceof Error ? e.message : 'Erro ao carregar turmas.';
 			turmas = [];
@@ -112,7 +101,7 @@
 				await vagaNotificacaoService.deixarDeSeguir(existente.id_assinatura);
 				toast.success('Você não vai mais receber avisos dessa turma.');
 			} else {
-				await vagaNotificacaoService.seguirMateria(idMateria, turma, anoPeriodo);
+				await vagaNotificacaoService.seguirMateria(idMateriaOferta, turma, anoPeriodo);
 				toast.success('Pronto! Você vai ser avisado quando abrir vaga.');
 			}
 			await carregarAssinaturas();
@@ -126,6 +115,7 @@
 
 	$effect(() => {
 		void idMateria;
+		void codigoMateria;
 		turmas = [];
 		carregarTurmas();
 		carregarAssinaturas();
@@ -183,7 +173,13 @@
 		</p>
 	{:else}
 		<div class="space-y-2">
-			{#each turmas as t (t.id_turmas)}
+			{#if codigoOfertado}
+				<p class="rounded-xl border border-sky-300/25 bg-sky-500/10 px-3 py-2 text-[11px] leading-snug text-sky-200/90">
+					Ofertada como <span class="font-mono font-semibold">{codigoOfertado}</span> neste período —
+					é nesse código que você se matricula.
+				</p>
+			{/if}
+			{#each turmas as { turma: t } (t.id_turmas)}
 				{@const seguindo = encontrarAssinatura(t.turma, t.ano_periodo)}
 				{@const key = assinaturaKey(t.turma, t.ano_periodo)}
 				<div class="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-white/10 bg-black/25 px-3 py-2.5">

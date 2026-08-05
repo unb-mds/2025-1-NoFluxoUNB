@@ -4,7 +4,7 @@
 	import { formatHorarioSigaa, compactarFaixasHorarias, formatLocalCompacto } from '$lib/utils/sigaa';
 	import type { TurmaComMask } from '$lib/utils/horario-slots';
 	import type { TurmaOferta } from '$lib/services/turmas.service';
-	import { Check, Users, CalendarClock, Ban, Bell, BellOff, Loader2 } from 'lucide-svelte';
+	import { Check, Users, CalendarClock, Ban, Bell, BellOff, Loader2, Sparkles } from 'lucide-svelte';
 
 	// Uma linha de turma reutilizada pelo seletor e pelo diálogo de troca. Deriva o
 	// estado (selecionada / bloqueada por conflito) direto do gradeStore.
@@ -19,6 +19,8 @@
 	const conflitoCom = $derived(gradeStore.conflitaCom(codigo, tg));
 	const bloqueada = $derived(!isSel && conflitoCom !== null);
 	const cor = $derived(gradeStore.corDaMateria(codigo));
+	// Turma que atende (ao menos em parte) a preferência declarada de turno/professor.
+	const combinaComPreferencia = $derived(gradeStore.bonusPreferencia(codigo, tg) > 0);
 	// O SIGAA às vezes embute o horário colado na sala ("2M34(BSA N AT 09/41) ...").
 	const local = $derived(formatLocalCompacto(t.local));
 
@@ -67,6 +69,14 @@
 			<span class="flex items-center gap-1.5 font-mono text-xs font-semibold">
 				{#if isSel}<Check class="h-3.5 w-3.5" />{/if}
 				Turma {t.turma}
+				{#if combinaComPreferencia}
+					<span
+						title="Combina com sua preferência de horário/professor"
+						class="inline-flex items-center rounded-full border border-sky-300/40 bg-sky-500/15 px-1.5 py-px text-sky-200"
+					>
+						<Sparkles class="h-2.5 w-2.5" />
+					</span>
+				{/if}
 			</span>
 			{#if vagas}
 				<span

@@ -9,7 +9,10 @@
 	import OptativaTipoModal from './OptativaTipoModal.svelte';
 	import { portal } from '$lib/actions/portal';
 	import { getCodigosFromExpressaoLogica, getLogicalCodeGroups } from '$lib/utils/expressao-logica';
-	import { getTurmasPorMaterias, type TurmaOferta } from '$lib/services/turmas.service';
+	import {
+		getOfertaDeMateria,
+		type TurmaResolvida
+	} from '$lib/services/oferta-turmas.service';
 	import { formatHorarioSigaa, compactarFaixasHorarias, formatLocalSigaa, formatVagas } from '$lib/utils/sigaa';
 	import { vagaAssinaturasStore } from '$lib/stores/vaga-assinaturas.store.svelte';
 
@@ -26,10 +29,11 @@
 	let optativaTipoOpen = $state(false);
 	let removendoPlanejada = $state(false);
 
-	// Turmas ofertadas no período letivo ativo — carrega sob demanda (só quando a
-	// aba é aberta), reaproveitando o mesmo serviço do Montador de Grade em vez de
-	// duplicar a query (ver turmas.service.ts).
-	let turmas = $state<TurmaOferta[]>([]);
+	// Turmas ofertadas no período letivo ativo — carrega sob demanda (só quando a aba é
+	// aberta). Passa pelo serviço de oferta para cair na equivalência quando a matéria
+	// mudou de código: antes a busca era só por id_materia e a aba dizia "nenhuma turma"
+	// para matérias que tinham oferta sob o código novo.
+	let turmas = $state<TurmaResolvida[]>([]);
 	let turmasLoading = $state(false);
 	let turmasError = $state<string | null>(null);
 	let turmasCarregadasPara = $state<number | null>(null);
@@ -38,7 +42,7 @@
 		if (activeTab !== 'turmas' || turmasCarregadasPara === materia.idMateria) return;
 		turmasLoading = true;
 		turmasError = null;
-		getTurmasPorMaterias([materia.idMateria])
+		getOfertaDeMateria(materia.codigoMateria, materia.idMateria, courseData.equivalencias ?? [])
 			.then((rows) => {
 				turmas = rows;
 				turmasCarregadasPara = materia.idMateria;
@@ -375,7 +379,16 @@
 							Nenhuma turma ofertada no período letivo atual.
 						</p>
 					{:else}
-						{#each turmas as t}
+						{#if turmas[0]?.codigoOfertado}
+							<p
+								class="rounded-lg border border-sky-300/25 bg-sky-500/10 px-3 py-2 text-xs leading-snug text-sky-200/90"
+							>
+								Esta matéria é ofertada como
+								<span class="font-mono font-semibold">{turmas[0].codigoOfertado}</span> neste período —
+								é nesse código que você se matricula.
+							</p>
+						{/if}
+						{#each turmas as { turma: t } (t.id_turmas)}
 							{@const seguindo = vagaAssinaturasStore.isSeguindo(t.id_materia, t.turma, t.ano_periodo)}
 							{@const seguirBusy = vagaAssinaturasStore.isBusy(t.id_materia, t.turma, t.ano_periodo)}
 							<div class="rounded-lg bg-white/5 px-3 py-2.5">

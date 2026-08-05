@@ -82,7 +82,7 @@
 		try {
 			await fluxogramaService.deleteFluxograma(user.idUser);
 			toast.success('Fluxograma removido. Envie seu histórico novamente.');
-			goto(ROUTES.UPLOAD_HISTORICO);
+			await goto(ROUTES.UPLOAD_HISTORICO);
 		} catch {
 			toast.error('Erro ao remover fluxograma.');
 		} finally {

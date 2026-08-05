@@ -5,6 +5,7 @@
  * `periodo_letivo_atual`).
  */
 import { createSupabaseBrowserClient } from '$lib/supabase/client';
+import { searchMaterias } from './materias.service';
 
 export interface TurmaOferta {
 	id_turmas: number;
@@ -53,4 +54,98 @@ export async function getTurmasPorMaterias(
 
 	if (error) throw new Error(error.message);
 	return (data as TurmaOferta[] | null) ?? [];
+}
+
+/** Turma da busca global, já com a matéria a que pertence. */
+export interface TurmaComMateria extends TurmaOferta {
+	codigoMateria: string;
+	nomeMateria: string;
+}
+
+/**
+ * Busca na oferta inteira do período: casa o termo contra **docente, horário e sala**
+ * da turma e também contra **código e nome da matéria**. Serve para perguntas que a
+ * busca por matéria não responde — "que matérias o professor X dá?", "o que tem em
+ * 2M34?".
+ *
+ * São duas consultas unidas em vez de um join: PostgREST não expressa "casa na turma
+ * OU na matéria embutida" numa query só, e assim a busca não depende do nome da
+ * relação FK entre `turmas` e `materias`.
+ */
+export async function searchTurmas(
+	query: string,
+	periodo?: string,
+	limite = 80
+): Promise<TurmaComMateria[]> {
+	// Vírgula e parênteses delimitam filtros no PostgREST; % é curinga.
+	const termo = query.replace(/[%,()]/g, ' ').trim();
+	if (termo.length < 2) return [];
+
+	const periodoAtivo = periodo ?? (await getPeriodoAtivo());
+	const like = `%${termo}%`;
+
+	const [porAtributo, materias] = await Promise.all([
+		supabase
+			.from('turmas')
+			.select(TURMA_COLUNAS)
+			.eq('ano_periodo', periodoAtivo)
+			.or(`docente.ilike.${like},horario.ilike.${like},local.ilike.${like}`)
+			.limit(limite),
+		searchMaterias(termo)
+	]);
+
+	if (porAtributo.error) throw new Error(porAtributo.error.message);
+
+	const encontradas = new Map<number, TurmaOferta>();
+	for (const t of (porAtributo.data as TurmaOferta[] | null) ?? []) {
+		encontradas.set(t.id_turmas, t);
+	}
+
+	if (materias.length > 0) {
+		for (const t of await getTurmasPorMaterias(
+			materias.map((m) => m.idMateria),
+			periodoAtivo
+		)) {
+			encontradas.set(t.id_turmas, t);
+		}
+	}
+	if (encontradas.size === 0) return [];
+
+	// Nomes das matérias de tudo que sobrou — inclusive das turmas achadas por docente,
+	// cuja matéria pode não ter casado com o termo.
+	const idsSemNome = [...new Set([...encontradas.values()].map((t) => t.id_materia))];
+	const nomePorId = new Map(materias.map((m) => [m.idMateria, m]));
+	const faltantes = idsSemNome.filter((id) => !nomePorId.has(id));
+	if (faltantes.length > 0) {
+		const { data, error } = await supabase
+			.from('materias')
+			.select('id_materia, codigo_materia, nome_materia')
+			.in('id_materia', faltantes);
+		if (error) throw new Error(error.message);
+		for (const m of (data as Array<{
+			id_materia: number | string;
+			codigo_materia: string;
+			nome_materia: string;
+		}> | null) ?? []) {
+			const id = Number(m.id_materia);
+			nomePorId.set(id, {
+				idMateria: id,
+				codigo: String(m.codigo_materia),
+				nome: String(m.nome_materia),
+				creditos: 0
+			});
+		}
+	}
+
+	return [...encontradas.values()]
+		.map((t) => ({
+			...t,
+			codigoMateria: nomePorId.get(t.id_materia)?.codigo ?? '—',
+			nomeMateria: nomePorId.get(t.id_materia)?.nome ?? 'Matéria desconhecida'
+		}))
+		.sort(
+			(a, b) =>
+				a.codigoMateria.localeCompare(b.codigoMateria) || a.turma.localeCompare(b.turma)
+		)
+		.slice(0, limite);
 }

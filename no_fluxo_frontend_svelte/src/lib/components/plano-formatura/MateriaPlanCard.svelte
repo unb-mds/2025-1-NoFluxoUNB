@@ -99,9 +99,9 @@
 		</div>
 	</div>
 
-	<!-- Hover Quick Actions -->
+	<!-- Quick Actions: no hover aparecem flutuando; no toque viram parte do card -->
 	{#if onChatAction}
-		<div class="hidden group-hover:flex absolute -bottom-3 left-1/2 -translate-x-1/2 shadow-[0_4px_20px_rgba(0,0,0,0.5)] bg-[#1e1e2d] border border-slate-600 rounded-full overflow-hidden z-[100]">
+		<div class="quick-actions absolute -bottom-3 left-1/2 -translate-x-1/2 shadow-[0_4px_20px_rgba(0,0,0,0.5)] bg-[#1e1e2d] border border-slate-600 rounded-full overflow-hidden z-[100]">
 			<button 
 				type="button"
 				onclick={(e) => { e.stopPropagation(); onChatAction?.(`/turmas ${materia.codigo}`); }}
@@ -119,3 +119,27 @@
 		</div>
 	{/if}
 </div>
+
+<style>
+	.quick-actions {
+		display: none;
+	}
+	.group:hover .quick-actions {
+		display: flex;
+	}
+
+	/*
+	 * Em telas de toque não existe "passar o mouse": as ações rápidas ficavam
+	 * inalcançáveis. Aqui elas saem do overlay e entram no fluxo do card.
+	 */
+	@media (hover: none) {
+		.quick-actions {
+			position: static;
+			display: flex;
+			align-self: center;
+			margin-top: 0.25rem;
+			transform: none;
+			translate: none;
+		}
+	}
+</style>

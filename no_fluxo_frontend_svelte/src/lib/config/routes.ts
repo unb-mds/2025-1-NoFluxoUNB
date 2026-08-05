@@ -15,6 +15,7 @@ export const ROUTES = {
   MEU_FLUXOGRAMA: '/meu-fluxograma',
   PLANO_FORMATURA: '/plano-formatura',
   MONTADOR_GRADE: '/planejamento/grade',
+  BUSCAR_TURMAS: '/planejamento/turmas',
   SUPORTE: '/suporte',
   ADMIN_DASHBOARD: '/admin/dashboard',
   ADMIN_TICKETS: '/admin/tickets',

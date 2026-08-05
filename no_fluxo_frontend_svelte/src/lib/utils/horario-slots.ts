@@ -192,11 +192,22 @@ export interface TurmaComMask<T> {
 	turma: T;
 }
 
+/** Turma candidata na montagem automática, com o bônus de preferência já calculado. */
+export type TurmaCandidata<T> = TurmaComMask<T> & {
+	/**
+	 * O quanto esta turma atende às preferências do aluno (horário/professor).
+	 * É só critério de **desempate**: quem calcula os bônus deve manter
+	 * `peso` de matéria > soma máxima de bônus possível, para que encaixar mais uma
+	 * matéria nunca perca para agradar uma preferência (ver grade.store).
+	 */
+	bonus?: number;
+};
+
 export interface MateriaTurmas<T> {
 	/** Identificador da matéria (código ou id) usado como chave da seleção. */
 	chave: string;
 	/** Turmas ofertadas para a matéria, cada uma com sua máscara de horário. */
-	turmas: Array<TurmaComMask<T>>;
+	turmas: Array<TurmaCandidata<T>>;
 	/**
 	 * Peso para priorização na montagem automática (default 1). Quanto maior, mais
 	 * o montador prefere encaixá-la quando nem tudo cabe sem conflito.
@@ -206,14 +217,24 @@ export interface MateriaTurmas<T> {
 
 export interface AutoMontarResult<T> {
 	/** Turma escolhida por matéria (chave → turma selecionada). */
-	selecao: Map<string, TurmaComMask<T>>;
+	selecao: Map<string, TurmaCandidata<T>>;
 	/** Chaves das matérias que não couberam sem conflito. */
 	naoAlocadas: string[];
+	/**
+	 * Chaves alocadas numa turma que não atinge o melhor bônus disponível para a
+	 * matéria — ou seja, a preferência declarada teve de ceder para caber na grade.
+	 */
+	preferenciasNaoAtendidas: string[];
 }
 
 /**
  * Escolhe, via backtracking, uma turma por matéria de modo que nenhuma
  * sobreponha horário com outra, **maximizando** o número de matérias alocadas.
+ *
+ * Preferências de horário/professor entram como `bonus` por turma e funcionam só
+ * como desempate: desde que o chamador mantenha `peso` de matéria maior que a soma
+ * máxima de bônus, encaixar mais uma matéria sempre ganha de agradar uma
+ * preferência. Quem teve de ceder volta em `preferenciasNaoAtendidas`.
  *
  * Para um semestre típico (~5–7 matérias × poucas turmas) o espaço de busca é
  * minúsculo e a resposta é instantânea. Matérias sem turma disponível — ou que
@@ -221,14 +242,23 @@ export interface AutoMontarResult<T> {
  */
 export function autoMontarGrade<T>(materias: Array<MateriaTurmas<T>>): AutoMontarResult<T> {
 	const pesoDe = (m: MateriaTurmas<T>) => m.peso ?? 1;
-	const pesoTotal = materias.reduce((s, m) => s + pesoDe(m), 0);
+	const bonusDe = (t: TurmaCandidata<T>) => t.bonus ?? 0;
+	const melhorBonusDe = (m: MateriaTurmas<T>) =>
+		m.turmas.reduce((max, t) => Math.max(max, bonusDe(t)), 0);
 
-	// Tenta as de maior peso primeiro — melhora a poda e tende a alocá-las.
-	const ordenadas = [...materias].sort((a, b) => pesoDe(b) - pesoDe(a));
+	// Cota superior do que é alcançável: toda matéria alocada na sua melhor turma.
+	// Atingi-la significa ótimo — permite cortar a busca cedo.
+	const pesoTotal = materias.reduce((s, m) => s + pesoDe(m) + melhorBonusDe(m), 0);
 
-	let melhorSelecao: Map<string, TurmaComMask<T>> = new Map();
+	// Matérias de maior peso primeiro e, dentro de cada uma, as turmas que mais
+	// atendem à preferência — melhora a poda e faz o ótimo aparecer antes.
+	const ordenadas = [...materias]
+		.sort((a, b) => pesoDe(b) - pesoDe(a))
+		.map((m) => ({ ...m, turmas: [...m.turmas].sort((x, y) => bonusDe(y) - bonusDe(x)) }));
+
+	let melhorSelecao: Map<string, TurmaCandidata<T>> = new Map();
 	let melhorPeso = -1;
-	const atual = new Map<string, TurmaComMask<T>>();
+	const atual = new Map<string, TurmaCandidata<T>>();
 	let pesoAtual = 0;
 
 	function recurse(i: number, accMask: bigint): void {
@@ -246,9 +276,9 @@ export function autoMontarGrade<T>(materias: Array<MateriaTurmas<T>>): AutoMonta
 		for (const t of m.turmas) {
 			if (hasConflict(t.mask, accMask)) continue;
 			atual.set(m.chave, t);
-			pesoAtual += pesoDe(m);
+			pesoAtual += pesoDe(m) + bonusDe(t);
 			recurse(i + 1, accMask | t.mask);
-			pesoAtual -= pesoDe(m);
+			pesoAtual -= pesoDe(m) + bonusDe(t);
 			atual.delete(m.chave);
 			if (melhorPeso === pesoTotal) return;
 		}
@@ -259,7 +289,18 @@ export function autoMontarGrade<T>(materias: Array<MateriaTurmas<T>>): AutoMonta
 
 	recurse(0, 0n);
 
-	const naoAlocadas = materias.map((m) => m.chave).filter((chave) => !melhorSelecao.has(chave));
+	const naoAlocadas: string[] = [];
+	const preferenciasNaoAtendidas: string[] = [];
+	for (const m of materias) {
+		const escolhida = melhorSelecao.get(m.chave);
+		if (!escolhida) {
+			naoAlocadas.push(m.chave);
+			continue;
+		}
+		const melhor = melhorBonusDe(m);
+		// Só reporta quem declarou preferência (melhor > 0) e não conseguiu o melhor.
+		if (melhor > 0 && bonusDe(escolhida) < melhor) preferenciasNaoAtendidas.push(m.chave);
+	}
 
-	return { selecao: melhorSelecao, naoAlocadas };
+	return { selecao: melhorSelecao, naoAlocadas, preferenciasNaoAtendidas };
 }

@@ -829,6 +829,7 @@ function courseInfoLabel(curriculo: string | null | undefined): string | null {
 						idMateria={selecionada.idMateria}
 						codigoMateria={selecionada.codigoMateria}
 						nomeMateria={selecionada.nomeMateria}
+						equivalencias={curso?.equivalencias ?? []}
 					/>
 				</div>
 			{:else}
@@ -848,6 +849,7 @@ function courseInfoLabel(curriculo: string | null | undefined): string | null {
 						idMateria={selecionada.idMateria}
 						codigoMateria={selecionada.codigoMateria}
 						nomeMateria={selecionada.nomeMateria}
+						equivalencias={curso?.equivalencias ?? []}
 					/>
 					{#if globalChainError}
 						<p class="text-sm text-red-300/90">{globalChainError}</p>

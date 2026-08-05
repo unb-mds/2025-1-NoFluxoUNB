@@ -22,17 +22,14 @@
 	} from '$lib/stores/grade.store.svelte';
 	import type { Turno } from '$lib/utils/horario-slots';
 	import { vagaAssinaturasStore } from '$lib/stores/vaga-assinaturas.store.svelte';
-	import { getPeriodoAtivo, getTurmasPorMaterias, type TurmaOferta } from '$lib/services/turmas.service';
+	import { getPeriodoAtivo } from '$lib/services/turmas.service';
 	import { getMateriasByCodigos } from '$lib/services/materias.service';
+	import { getOfertaComEquivalencia } from '$lib/services/oferta-turmas.service';
 	import { satisfazPreRequisitos } from '$lib/types/curso';
 	import { setHasCodeIgnoreCase, filtrarNaoCursados } from '$lib/utils/subject-codes';
-	import {
-		construirSubstitutosPorCodigo,
-		resolverTurmasComEquivalencia
-	} from '$lib/utils/oferta-equivalencia';
 	import { ROUTES } from '$lib/config/routes';
 	import type { SemestrePlano, ItemSemestre, MateriaPlano } from '$lib/types/plano-formatura';
-	import { CalendarDays, Wand2, Trash2, Loader2, Info, Download, Star } from 'lucide-svelte';
+	import { CalendarDays, Wand2, Trash2, Loader2, Info, Download, Star, Search } from 'lucide-svelte';
 
 	// Feature em rollout gradual: só admins veem o Montador de Grade de verdade
 	// por enquanto; usuários normais veem um aviso de "em breve" e nem chegam a
@@ -131,42 +128,13 @@
 			}
 		}
 
-		// Equivalência: quando a matéria mudou de código, a matriz continua com o antigo
-		// mas a turma é publicada sob o novo (ex.: CIC0151 → CIC0197/FGA0158). Sem isso a
-		// matéria entra no pool com zero turmas — card morto, impossível de alocar.
-		// `courseData.equivalencias` já vem carregado, então não há query a mais aqui.
-		// Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md
-		const substitutosPorCodigo = construirSubstitutosPorCodigo(
+		// Equivalência (matéria que mudou de código) resolvida no serviço compartilhado —
+		// mesma regra que a aba Turmas do fluxograma e o painel de /disciplinas usam.
+		const ofertaPorCodigo = await getOfertaComEquivalencia(
+			[...resolved].map(([codigo, r]) => ({ codigo, idMateria: r.idMateria })),
 			fluxogramaStore.state.courseData?.equivalencias ?? [],
-			resolved.keys()
+			per
 		);
-
-		const idPorCodigo = new Map<string, number>();
-		for (const [cod, r] of resolved) idPorCodigo.set(cod, r.idMateria);
-
-		// Os substitutos estão fora do que já foi resolvido acima — precisam de lookup próprio.
-		const codigosSubstitutos = [
-			...new Set([...substitutosPorCodigo.values()].flat().filter((c) => !idPorCodigo.has(c)))
-		];
-		if (codigosSubstitutos.length > 0) {
-			try {
-				for (const m of await getMateriasByCodigos(codigosSubstitutos)) {
-					idPorCodigo.set(m.codigo.trim().toUpperCase(), m.idMateria);
-				}
-			} catch {
-				// Degrada pro comportamento antigo (só turmas do código próprio) em vez de
-				// derrubar a montagem inteira do pool.
-			}
-		}
-
-		const ids = [...new Set(idPorCodigo.values())];
-		const turmas = await getTurmasPorMaterias(ids, per);
-		const porMateria = new Map<number, TurmaOferta[]>();
-		for (const t of turmas) {
-			const l = porMateria.get(t.id_materia) ?? [];
-			l.push(t);
-			porMateria.set(t.id_materia, l);
-		}
 
 		const out: MateriaGrade[] = [];
 		for (const [codigo, r] of resolved) {
@@ -178,13 +146,7 @@
 				idMateria: r.idMateria,
 				avisoPreRequisito,
 				coRequisitos,
-				turmas: resolverTurmasComEquivalencia(
-					codigo,
-					r.idMateria,
-					substitutosPorCodigo.get(codigo) ?? [],
-					idPorCodigo,
-					porMateria
-				).map(({ turma, codigoOfertado }) => ({
+				turmas: (ofertaPorCodigo.get(codigo) ?? []).map(({ turma, codigoOfertado }) => ({
 					turma,
 					mask: slotMaskFromHorario(turma.horario),
 					codigoOfertado
@@ -382,7 +344,7 @@
 							type="button"
 							onclick={() => gradeStore.toggleTurno(t)}
 							aria-pressed={ativo}
-							class="rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors {ativo
+							class="touch-manipulation rounded-full px-2.5 py-1.5 text-[11px] font-medium transition-colors sm:py-1 {ativo
 								? 'bg-purple-500/25 text-purple-100'
 								: 'text-white/40 hover:text-white/70'}"
 						>
@@ -396,7 +358,7 @@
 					title={gradeStore.temPrioritarias
 						? 'Rearranja sem conflito priorizando as matérias com estrela'
 						: 'Monta uma grade sem conflito. Marque matérias com estrela para priorizá-las.'}
-					class="inline-flex items-center gap-1.5 rounded-full border border-purple-300/45 bg-purple-500/18 px-3 py-1.5 text-xs font-semibold text-purple-100 transition-colors hover:bg-purple-500/25"
+					class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-purple-300/45 bg-purple-500/18 px-3 py-2 text-xs font-semibold text-purple-100 transition-colors hover:bg-purple-500/25 sm:py-1.5"
 				>
 					<Wand2 class="h-3.5 w-3.5" /> Rearranjar
 					{#if gradeStore.temPrioritarias}<Star class="h-3 w-3 fill-current text-amber-300" />{/if}
@@ -405,14 +367,21 @@
 					type="button"
 					onclick={exportarGrade}
 					disabled={exportando || gradeStore.selecao.size === 0}
-					class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/70 transition-colors hover:bg-white/10 disabled:opacity-40"
+					class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-xs font-medium text-white/70 transition-colors hover:bg-white/10 sm:py-1.5 disabled:opacity-40"
 				>
 					{#if exportando}<Loader2 class="h-3.5 w-3.5 animate-spin" />{:else}<Download class="h-3.5 w-3.5" />{/if} Exportar
 				</button>
+				<a
+					href={ROUTES.BUSCAR_TURMAS}
+					title="Procurar na oferta inteira por professor, horário ou sala"
+					class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-xs font-medium text-white/70 transition-colors hover:bg-white/10 sm:py-1.5"
+				>
+					<Search class="h-3.5 w-3.5" /> Buscar turmas
+				</a>
 				<button
 					type="button"
 					onclick={() => gradeStore.limpar()}
-					class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/70 transition-colors hover:bg-white/10"
+					class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-xs font-medium text-white/70 transition-colors hover:bg-white/10 sm:py-1.5"
 				>
 					<Trash2 class="h-3.5 w-3.5" /> Limpar
 				</button>
@@ -430,6 +399,17 @@
 		<div class="mb-3 flex items-start gap-2 rounded-xl border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-100">
 			<Info class="mt-0.5 h-3.5 w-3.5 shrink-0" />
 			<span>Não coube sem conflito: <strong>{gradeStore.ultimaMontagem.naoAlocadas.join(', ')}</strong>. Ajuste manualmente.</span>
+		</div>
+	{/if}
+
+	{#if gradeStore.ultimaMontagem && gradeStore.ultimaMontagem.preferenciasNaoAtendidas.length > 0}
+		<div class="mb-3 flex items-start gap-2 rounded-xl border border-sky-300/30 bg-sky-500/10 px-3 py-2 text-xs text-sky-100">
+			<Info class="mt-0.5 h-3.5 w-3.5 shrink-0" />
+			<span>
+				Preferência de horário/professor não coube em
+				<strong>{gradeStore.ultimaMontagem.preferenciasNaoAtendidas.join(', ')}</strong> — a matéria
+				entrou numa turma alternativa para não ficar de fora.
+			</span>
 		</div>
 	{/if}
 

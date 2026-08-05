@@ -50,6 +50,37 @@ export interface SelecaoResultado {
 
 export interface MontagemResultado {
 	naoAlocadas: string[];
+	/** Matérias que couberam, mas numa turma fora da preferência declarada. */
+	preferenciasNaoAtendidas: string[];
+}
+
+/**
+ * Preferência do aluno para uma matéria específica: ele quer a matéria, mas de
+ * preferência num certo turno e/ou com um certo professor. É desejo, não filtro —
+ * ver `montarAutomatico`.
+ */
+export interface PreferenciaMateria {
+	/** Turnos preferidos. Vazio = tanto faz. */
+	turnos: Turno[];
+	/** Nome do docente exatamente como vem em `turmas.docente`. Null = tanto faz. */
+	docente: string | null;
+}
+
+const PREFERENCIA_VAZIA: PreferenciaMateria = { turnos: [], docente: null };
+
+/**
+ * Bônus por preferência atendida. São valores pequenos de propósito: o peso de uma
+ * matéria é calculado em `montarAutomatico` como `BONUS_MAX * pool + 1`, garantindo
+ * que encaixar mais uma matéria sempre supere qualquer soma de preferências. Ou seja,
+ * preferência desempata — nunca custa uma matéria.
+ */
+const BONUS_TURNO = 2;
+const BONUS_DOCENTE = 3;
+const BONUS_MAX = BONUS_TURNO + BONUS_DOCENTE;
+
+/** Docentes comparáveis: sem espaços redundantes, caixa alta. */
+function normDocente(nome: string | null | undefined): string {
+	return (nome ?? '').trim().replace(/\s+/g, ' ').toUpperCase();
 }
 
 /** Paleta dark-mode, uma cor estável por matéria (por ordem no pool). */
@@ -113,6 +144,8 @@ function createGradeStore() {
 	let hoverCodigo = $state<string | null>(null);
 	/** Códigos priorizados: o "Montar automático" tenta encaixá-los primeiro. */
 	let prioritarias = $state<Set<string>>(new Set());
+	/** Preferência de turno/professor por matéria (código → preferência). */
+	let preferencias = $state<Record<string, PreferenciaMateria>>({});
 	/** Turnos permitidos ao rearranjar (M/T/N). Os 3 = sem filtro. */
 	let turnosPermitidos = $state<Set<Turno>>(new Set<Turno>(['M', 'T', 'N']));
 	/** Códigos que o aluno removeu — não voltam ao re-semear o recomendado. */
@@ -181,7 +214,8 @@ function createGradeStore() {
 				activeId,
 				prioritarias: [...prioritarias],
 				turnos: [...turnosPermitidos],
-				removidas: [...removidas]
+				removidas: [...removidas],
+				preferencias
 			})
 		);
 	}
@@ -271,6 +305,89 @@ function createGradeStore() {
 			return prioritarias.size > 0;
 		},
 
+		// ─── Preferência de turno / professor ────────────────────────────────────
+		/** Preferência declarada da matéria (nunca null — vazia significa "tanto faz"). */
+		preferenciaDe(codigo: string): PreferenciaMateria {
+			return preferencias[codigo] ?? PREFERENCIA_VAZIA;
+		},
+
+		temPreferencia(codigo: string): boolean {
+			const p = preferencias[codigo];
+			return !!p && (p.turnos.length > 0 || p.docente !== null);
+		},
+
+		get totalComPreferencia() {
+			return Object.keys(preferencias).length;
+		},
+
+		/** Docentes distintos que oferecem a matéria, em ordem alfabética. */
+		docentesDe(codigo: string): string[] {
+			const mat = pool.find((m) => m.codigo === codigo);
+			if (!mat) return [];
+			const vistos = new Map<string, string>();
+			for (const t of mat.turmas) {
+				const nome = (t.turma.docente ?? '').trim();
+				if (nome) vistos.set(normDocente(nome), nome);
+			}
+			return [...vistos.values()].sort((a, b) => a.localeCompare(b, 'pt-BR'));
+		},
+
+		/** Liga/desliga um turno preferido da matéria. */
+		togglePreferenciaTurno(codigo: string, t: Turno): void {
+			const atual = preferencias[codigo] ?? PREFERENCIA_VAZIA;
+			const turnos = atual.turnos.includes(t)
+				? atual.turnos.filter((x) => x !== t)
+				: [...atual.turnos, t];
+			this.setPreferencia(codigo, { turnos, docente: atual.docente });
+		},
+
+		setPreferenciaDocente(codigo: string, docente: string | null): void {
+			const atual = preferencias[codigo] ?? PREFERENCIA_VAZIA;
+			this.setPreferencia(codigo, { turnos: atual.turnos, docente: docente || null });
+		},
+
+		/** Grava a preferência; preferência vazia é removida em vez de guardada. */
+		setPreferencia(codigo: string, pref: PreferenciaMateria): void {
+			const limpa: PreferenciaMateria = {
+				turnos: [...new Set(pref.turnos)],
+				docente: pref.docente || null
+			};
+			const proximas = { ...preferencias };
+			if (limpa.turnos.length === 0 && limpa.docente === null) delete proximas[codigo];
+			else proximas[codigo] = limpa;
+			preferencias = proximas;
+			persistCenarios();
+		},
+
+		limparPreferencia(codigo: string): void {
+			if (!(codigo in preferencias)) return;
+			const proximas = { ...preferencias };
+			delete proximas[codigo];
+			preferencias = proximas;
+			persistCenarios();
+		},
+
+		/**
+		 * Quanto a turma atende à preferência da matéria (0 = nada, BONUS_MAX = tudo).
+		 * A UI usa para marcar as turmas que combinam; o montador, como desempate.
+		 */
+		bonusPreferencia(codigo: string, tg: TurmaComMask<TurmaOferta>): number {
+			const pref = preferencias[codigo];
+			if (!pref) return 0;
+			let bonus = 0;
+			if (
+				pref.turnos.length > 0 &&
+				pref.turnos.length < 3 &&
+				turmaRespeitaTurnos(tg.mask, new Set(pref.turnos))
+			) {
+				bonus += BONUS_TURNO;
+			}
+			if (pref.docente && normDocente(tg.turma.docente) === normDocente(pref.docente)) {
+				bonus += BONUS_DOCENTE;
+			}
+			return bonus;
+		},
+
 		get turnosPermitidos() {
 			return turnosPermitidos;
 		},
@@ -324,6 +441,7 @@ function createGradeStore() {
 						prioritarias?: string[];
 						turnos?: Turno[];
 						removidas?: string[];
+						preferencias?: Record<string, PreferenciaMateria>;
 				  }
 				| null = null;
 			if (key && typeof localStorage !== 'undefined') {
@@ -344,6 +462,17 @@ function createGradeStore() {
 					: ['M', 'T', 'N']
 			);
 			removidas = new Set(Array.isArray(restaurado?.removidas) ? restaurado!.removidas : []);
+
+			// Saneia o que veio do localStorage: turnos inválidos ou formato antigo viram
+			// "sem preferência" em vez de envenenar o cálculo de bônus.
+			preferencias = {};
+			for (const [codigo, p] of Object.entries(restaurado?.preferencias ?? {})) {
+				const turnos = (Array.isArray(p?.turnos) ? p.turnos : []).filter(
+					(t): t is Turno => t === 'M' || t === 'T' || t === 'N'
+				);
+				const docente = typeof p?.docente === 'string' && p.docente.trim() ? p.docente : null;
+				if (turnos.length > 0 || docente) preferencias[codigo] = { turnos, docente };
+			}
 
 			if (restaurado && Array.isArray(restaurado.grades) && restaurado.grades.length > 0) {
 				grades = restaurado.grades.map((g) => ({
@@ -394,6 +523,11 @@ function createGradeStore() {
 				np.delete(codigo);
 				prioritarias = np;
 			}
+			if (codigo in preferencias) {
+				const pp = { ...preferencias };
+				delete pp[codigo];
+				preferencias = pp;
+			}
 			const nr = new Set(removidas);
 			nr.add(codigo);
 			removidas = nr;
@@ -443,18 +577,29 @@ function createGradeStore() {
 		},
 
 		montarAutomatico(): MontagemResultado {
+			// Peso de uma matéria > soma máxima de bônus de todo o pool. Assim a
+			// preferência de horário/professor só desempata entre soluções que alocam o
+			// mesmo tanto de matérias — nunca deixa uma matéria de fora para agradar uma
+			// preferência (ver autoMontarGrade).
+			const pesoBase = BONUS_MAX * pool.length + 1;
+
 			const r = autoMontarGrade(
 				pool.map((m) => ({
 					chave: m.codigo,
 					// Só considera turmas dentro dos turnos permitidos.
-					turmas: m.turmas.filter((t) => turmaRespeitaTurnos(t.mask, turnosPermitidos)),
-					peso: prioritarias.has(m.codigo) ? 1000 : 1
+					turmas: m.turmas
+						.filter((t) => turmaRespeitaTurnos(t.mask, turnosPermitidos))
+						.map((t) => ({ ...t, bonus: this.bonusPreferencia(m.codigo, t) })),
+					peso: prioritarias.has(m.codigo) ? pesoBase * 1000 : pesoBase
 				}))
 			);
 			const novaSel: Record<string, number> = {};
 			for (const [codigo, t] of r.selecao) novaSel[codigo] = t.turma.id_turmas;
 			grades = grades.map((g) => (g.id === activeId ? { ...g, selecao: novaSel } : g));
-			ultimaMontagem = { naoAlocadas: r.naoAlocadas };
+			ultimaMontagem = {
+				naoAlocadas: r.naoAlocadas,
+				preferenciasNaoAtendidas: r.preferenciasNaoAtendidas
+			};
 			persistCenarios();
 			return ultimaMontagem;
 		},

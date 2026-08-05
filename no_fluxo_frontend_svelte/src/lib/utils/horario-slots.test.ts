@@ -78,7 +78,10 @@ describe('hasConflict', () => {
 });
 
 describe('autoMontarGrade', () => {
-	const mk = <T>(chave: string, turmas: Array<{ mask: bigint; turma: T }>): MateriaTurmas<T> => ({
+	const mk = <T>(
+		chave: string,
+		turmas: Array<{ mask: bigint; turma: T; bonus?: number }>
+	): MateriaTurmas<T> => ({
 		chave,
 		turmas
 	});
@@ -150,6 +153,81 @@ describe('autoMontarGrade', () => {
 		expect(r.selecao.has('A')).toBe(true);
 		expect(r.selecao.has('B')).toBe(true);
 		expect(r.naoAlocadas).toEqual([]);
+	});
+
+	// ─── Preferências (horário/professor) entram como bônus de desempate ──────────
+	describe('bônus de preferência', () => {
+		it('escolhe a turma preferida quando ambas cabem', () => {
+			const materias = [
+				mk('A', [
+					{ mask: slotMaskFromHorario('2M12'), turma: 'sem-preferencia' },
+					{ mask: slotMaskFromHorario('3M12'), turma: 'preferida', bonus: 5 }
+				])
+			];
+			const r = autoMontarGrade(materias);
+			expect(r.selecao.get('A')?.turma).toBe('preferida');
+			expect(r.preferenciasNaoAtendidas).toEqual([]);
+		});
+
+		it('cede a preferência para não perder uma matéria, e reporta quem cedeu', () => {
+			// A só existe em 2M12. B prefere 2M12 (bônus), mas aí A ficaria de fora.
+			// peso da matéria (10) > bônus máximo (5) → alocar A vence a preferência de B.
+			const materias = [
+				{ chave: 'A', peso: 10, turmas: [{ mask: slotMaskFromHorario('2M12'), turma: 'A1' }] },
+				{
+					chave: 'B',
+					peso: 10,
+					turmas: [
+						{ mask: slotMaskFromHorario('2M12'), turma: 'B-preferida', bonus: 5 },
+						{ mask: slotMaskFromHorario('3M12'), turma: 'B-alternativa', bonus: 0 }
+					]
+				}
+			];
+			const r = autoMontarGrade(materias);
+			expect(r.naoAlocadas).toEqual([]);
+			expect(r.selecao.get('B')?.turma).toBe('B-alternativa');
+			expect(r.preferenciasNaoAtendidas).toEqual(['B']);
+		});
+
+		it('não reporta matéria sem preferência declarada', () => {
+			const materias = [mk('A', [{ mask: slotMaskFromHorario('2M12'), turma: 'A1' }])];
+			expect(autoMontarGrade(materias).preferenciasNaoAtendidas).toEqual([]);
+		});
+
+		it('prefere o encaixe parcial ao nenhum quando o ideal não cabe', () => {
+			// A ocupa 2M12. B queria turno+professor (5), sobra a de bônus parcial (2).
+			const materias = [
+				{ chave: 'A', peso: 10, turmas: [{ mask: slotMaskFromHorario('2M12'), turma: 'A1' }] },
+				{
+					chave: 'B',
+					peso: 10,
+					turmas: [
+						{ mask: slotMaskFromHorario('2M12'), turma: 'B-ideal', bonus: 5 },
+						{ mask: slotMaskFromHorario('3M12'), turma: 'B-parcial', bonus: 2 },
+						{ mask: slotMaskFromHorario('4M12'), turma: 'B-nada', bonus: 0 }
+					]
+				}
+			];
+			const r = autoMontarGrade(materias);
+			expect(r.selecao.get('B')?.turma).toBe('B-parcial');
+			expect(r.preferenciasNaoAtendidas).toEqual(['B']);
+		});
+
+		it('bônus nunca troca uma matéria alocada por preferência atendida', () => {
+			// Se o bônus superasse o peso, o montador largaria A para dar a turma
+			// preferida a B. Com peso > bônus máximo isso não pode acontecer.
+			const materias = [
+				{ chave: 'A', peso: 10, turmas: [{ mask: slotMaskFromHorario('2M12'), turma: 'A1' }] },
+				{
+					chave: 'B',
+					peso: 10,
+					turmas: [{ mask: slotMaskFromHorario('2M12'), turma: 'B-preferida', bonus: 5 }]
+				}
+			];
+			const r = autoMontarGrade(materias);
+			expect(r.selecao.size).toBe(1);
+			expect(r.naoAlocadas.length).toBe(1);
+		});
 	});
 });
 
