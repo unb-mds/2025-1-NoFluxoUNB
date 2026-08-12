@@ -239,7 +239,7 @@ function handleToggleFocusMode() {
 				>
 					<ZoomIn class="h-4 w-4" />
 				</button>
-				<label class="flex shrink-0 items-center gap-0.5 text-white/55" title="Zoom 30% a 200% — Enter ou clique fora para aplicar">
+				<label class="flex shrink-0 items-center gap-0.5 text-white/55" title="Zoom de 30% a 200%. Enter ou clique fora para aplicar">
 					<input
 						type="text"
 						inputmode="numeric"
@@ -467,7 +467,7 @@ function handleToggleFocusMode() {
 					>
 						<ZoomIn class="h-5 w-5" />
 					</button>
-					<label class="flex shrink-0 items-center gap-1 text-white/70" title="30 a 200% — Enter ou fora do campo para aplicar">
+					<label class="flex shrink-0 items-center gap-1 text-white/70" title="30 a 200%. Enter ou fora do campo para aplicar">
 						<input
 							type="text"
 							inputmode="numeric"
