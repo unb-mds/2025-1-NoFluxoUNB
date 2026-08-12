@@ -298,16 +298,38 @@ function createFluxogramaStore() {
 		if (!userFluxograma) return new Set<string>();
 		const base = getCurrentSubjectCodes(userFluxograma);
 		const courseData = state.courseData;
+		// Passa as concluídas EXPANDIDAS (com equivalências): se outra equivalência
+		// da mesma matéria já está satisfeita só com concluídas, ela é concluída —
+		// não deve reaparecer como "cursando" por uma segunda expressão.
 		const byEquiv =
 			courseData?.equivalencias && courseData.equivalencias.length > 0
-				? getCurrentByEquivalenceCodes(
-						courseData.equivalencias,
-						getCompletedSubjectCodes(userFluxograma),
-						base
-					)
+				? getCurrentByEquivalenceCodes(courseData.equivalencias, completedCodes, base)
 				: new Set<string>();
 		return new Set([...base, ...byEquiv]);
 	});
+
+	// Nome/créditos resolvidos da tabela global `materias` para extras cujo dado
+	// persistido não tem nome (uploads antigos, antes do schema guardar). Cache
+	// simples: cada código é buscado uma única vez por sessão.
+	let materiasResolvidas = $state<Map<string, { nome: string; creditos: number }>>(new Map());
+	const materiasJaBuscadas = new Set<string>();
+	async function resolverNomesExtras(codigos: string[]): Promise<void> {
+		const novos = codigos.filter((c) => !materiasJaBuscadas.has(c));
+		if (novos.length === 0) return;
+		for (const c of novos) materiasJaBuscadas.add(c);
+		try {
+			const { getMateriasByCodigos } = await import('$lib/services/materias.service');
+			const encontradas = await getMateriasByCodigos(novos);
+			if (encontradas.length === 0) return;
+			const next = new Map(materiasResolvidas);
+			for (const m of encontradas) {
+				next.set(m.codigo.trim().toUpperCase(), { nome: m.nome, creditos: m.creditos });
+			}
+			materiasResolvidas = next;
+		} catch {
+			/* sem rede/erro: cards ficam com o código, como antes */
+		}
+	}
 
 	// ── Extras cursadas: optativas/eletivas do histórico fora das obrigatórias ──
 	// O histórico traz matérias que não são obrigatórias da matriz (optativas,
@@ -385,14 +407,18 @@ function createFluxogramaStore() {
 				seen.add(codeU);
 
 				const daMatriz = courseByCode.get(codeU);
+				const resolvida = materiasResolvidas.get(codeU);
 				const materia: MateriaModel = daMatriz ?? {
 					// Fora da matriz (módulo livre/eletiva): sintetiza o card com os
-					// dados do histórico. id negativo estável só para keys do Svelte.
+					// dados do histórico (ou da tabela global de matérias, para
+					// uploads antigos que não persistiram nome). id negativo estável
+					// só para keys do Svelte.
 					ementa: '',
 					idMateria: syntheticId--,
 					codigoMateria: dados.codigoMateria.trim(),
-					nomeMateria: dados.nomeMateria?.trim() || dados.codigoMateria.trim(),
-					creditos: dados.creditos ?? 0,
+					nomeMateria:
+						dados.nomeMateria?.trim() || resolvida?.nome || dados.codigoMateria.trim(),
+					creditos: dados.creditos ?? resolvida?.creditos ?? 0,
 					nivel: 0,
 					tipoNatureza: 1
 				};
@@ -402,6 +428,19 @@ function createFluxogramaStore() {
 				out.get(semestre)!.push({ materia, dados });
 			}
 		}
+
+		// Busca (uma vez) nome/créditos dos extras sem nome persistido — quando a
+		// resposta chegar, materiasResolvidas muda e este derived recalcula.
+		const pendentesNome: string[] = [];
+		for (const list of out.values()) {
+			for (const { materia, dados } of list) {
+				if (materia.idMateria < 0 && !dados.nomeMateria && !materiasResolvidas.has(materia.codigoMateria.trim().toUpperCase())) {
+					pendentesNome.push(materia.codigoMateria.trim().toUpperCase());
+				}
+			}
+		}
+		if (pendentesNome.length > 0) void resolverNomesExtras(pendentesNome);
+
 		return out;
 	});
 
