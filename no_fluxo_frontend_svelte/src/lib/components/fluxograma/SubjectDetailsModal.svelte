@@ -157,14 +157,22 @@
 						{@const exigidaPor =
 							fluxogramaStore.optatorias.get(materia.codigoMateria.trim().toUpperCase()) ?? []}
 						{#if exigidaPor.length > 0}
+							{@const nomeDe = (cod: string) =>
+								courseData.materias.find(
+									(m) => m.codigoMateria.trim().toUpperCase() === cod.trim().toUpperCase()
+								)?.nomeMateria ?? cod}
 							<div class="mt-2 rounded-lg border border-amber-400/40 bg-amber-500/10 px-3 py-2">
 								<p class="text-xs font-semibold uppercase tracking-wider text-amber-300">
 									Optatória
 								</p>
 								<p class="mt-1 text-xs leading-relaxed text-white/80">
 									No SIGAA ela consta como <strong>optativa</strong>, mas é pré-requisito de
-									<strong>{exigidaPor.join(', ')}</strong> — na prática, você vai precisar cursá-la
-									para avançar nas obrigatórias.
+									{#each exigidaPor as cod, i (cod)}{#if i > 0},
+										{/if}<strong
+											class="cursor-help underline decoration-dotted underline-offset-2"
+											title={cod}>{nomeDe(cod)}</strong
+										>{/each} — na prática, você vai precisar cursá-la para avançar nas
+									obrigatórias.
 								</p>
 							</div>
 						{:else}

@@ -50,6 +50,15 @@
 		store.optatorias.get(materia.codigoMateria.trim().toUpperCase()) ?? []
 	);
 	let ehOptatoria = $derived(ehOptativa && obrigatoriasQueExigem.length > 0);
+	/** Nomes das obrigatórias que exigem esta optatória (tooltip legível). */
+	let nomesQueExigem = $derived(
+		obrigatoriasQueExigem.map(
+			(cod) =>
+				store.state.courseData?.materias.find(
+					(m) => m.codigoMateria.trim().toUpperCase() === cod.trim().toUpperCase()
+				)?.nomeMateria ?? cod
+		)
+	);
 
 	/** Aproveitamento de estudos (CUMP no SIGAA): disciplina ganha sem cursar aqui. */
 	let concluidaPorAproveitamento = $derived(
@@ -313,17 +322,6 @@
 	<div class="mb-1 flex shrink-0 items-center justify-between gap-1">
 		<span class="text-[11px] font-semibold uppercase tracking-wider {textColor} opacity-100">
 			{materia.codigoMateria}
-			{#if ehOptatoria}
-				<span
-					class="ml-1 rounded bg-amber-500/80 px-1 py-px text-[8px] font-bold normal-case text-black"
-					title={`Optatória: consta como optativa no SIGAA, mas é pré-requisito de ${obrigatoriasQueExigem.join(', ')} — na prática você vai precisar dela`}
-				>(optatória)</span>
-			{:else if ehOptativa}
-				<span
-					class="ml-1 rounded bg-purple-500/70 px-1 py-px text-[8px] font-bold normal-case text-white"
-					title="Optativa — não é exigida individualmente; conta para a carga horária optativa"
-				>(opt)</span>
-			{/if}
 		</span>
 		<div class="flex items-center gap-1">
 			<span class="rounded-md bg-black/25 px-1.5 py-0.5 text-[10px] font-bold {textColor} opacity-90">
@@ -350,16 +348,34 @@
 		</p>
 	{/if}
 
-	{#if concluidaPorEquivalencia}
-		<span
-			class="absolute right-0 -bottom-1.5 rounded bg-purple-500/90 px-1.5 py-0.5 text-[9px] font-medium text-white"
-			title="Concluída por equivalência"
-		>equiv.</span>
-	{:else if concluidaPorAproveitamento}
-		<span
-			class="absolute right-0 -bottom-1.5 rounded bg-emerald-600/90 px-1.5 py-0.5 text-[9px] font-medium text-white"
-			title="Aproveitamento de estudos — componente ganho por disciplina de outra instituição/curso"
-		>aprov.</span>
+	<!-- Etiquetas no canto inferior direito: natureza (opt./optatória) empilha
+	     com a de conquista (equiv./aprov.) quando o card tem as duas. -->
+	{#if ehOptatoria || ehOptativa || concluidaPorEquivalencia || concluidaPorAproveitamento}
+		<div class="absolute right-0 -bottom-1.5 flex items-center gap-0.5">
+			{#if ehOptatoria}
+				<span
+					class="rounded bg-amber-500/90 px-1.5 py-0.5 text-[9px] font-medium text-black"
+					title={`Optatória: consta como optativa no SIGAA, mas é pré-requisito de ${nomesQueExigem.join(', ')} — na prática você vai precisar dela`}
+				>optatória</span>
+			{:else if ehOptativa}
+				<span
+					class="rounded bg-blue-500/85 px-1.5 py-0.5 text-[9px] font-medium text-white"
+					title="Optativa — não é exigida individualmente; conta para a carga horária optativa"
+				>opt.</span>
+			{/if}
+			{#if concluidaPorEquivalencia}
+				<span
+					class="rounded bg-purple-500/90 px-1.5 py-0.5 text-[9px] font-medium text-white"
+					title="Concluída por equivalência"
+				>equiv.</span>
+			{:else if concluidaPorAproveitamento}
+				<!-- Branco com texto escuro: o verde-esmeralda sumia sobre o card verde de Aprovado. -->
+				<span
+					class="rounded bg-zinc-50/95 px-1.5 py-0.5 text-[9px] font-semibold text-emerald-900"
+					title="Aproveitamento de estudos — componente ganho por disciplina de outra instituição/curso"
+				>aprov.</span>
+			{/if}
+		</div>
 	{/if}
 
 	<!-- Prerequisite indicator badge -->

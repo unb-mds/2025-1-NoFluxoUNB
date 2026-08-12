@@ -537,6 +537,32 @@ function handleToggleFocusMode() {
 					<strong class="text-white/85">Status</strong> (Aprovado, Matriculado, etc.): as cores estão na
 					<strong class="text-white/90">barra acima do fluxograma</strong>, junto de Assistente e Optativas.
 				</p>
+				<section class="mt-4 border-t border-white/10 pt-4">
+					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">
+						Etiquetas nos cards
+					</h3>
+					<ul class="space-y-1.5 text-white/90">
+						<li class="flex items-center gap-2">
+							<span class="shrink-0 rounded bg-blue-500/85 px-1.5 py-0.5 text-[9px] font-medium text-white">opt.</span>
+							<span>Optativa — não é exigida individualmente; conta para a carga horária optativa</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<span class="shrink-0 rounded bg-amber-500/90 px-1.5 py-0.5 text-[9px] font-medium text-black">optatória</span>
+							<span>
+								Optativa no SIGAA, mas <strong class="text-white">pré-requisito de obrigatória</strong> —
+								na prática, você vai precisar dela
+							</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<span class="shrink-0 rounded bg-purple-500/90 px-1.5 py-0.5 text-[9px] font-medium text-white">equiv.</span>
+							<span>Concluída por equivalência — você cursou outra disciplina que vale por esta</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<span class="shrink-0 rounded bg-zinc-50/95 px-1.5 py-0.5 text-[9px] font-semibold text-emerald-900">aprov.</span>
+							<span>Aproveitamento de estudos — ganha por disciplina de outra instituição ou curso</span>
+						</li>
+					</ul>
+				</section>
 				{#if !store.state.isAnonymous}
 					<section class="mt-4 border-t border-white/10 pt-4">
 						<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">Indicadores</h3>
