@@ -18,6 +18,7 @@ import {
 	getCompletedSubjectCodes,
 	getCurrentSubjectCodes,
 	isMateriaAprovada,
+	isMateriaCurrent,
 	type DadosFluxogramaUser,
 	type OptativaPlanejadaRef,
 	type OptativaManual,
@@ -25,6 +26,7 @@ import {
 } from '$lib/types/user';
 import {
 	getCompletedByEquivalenceCodes,
+	getCurrentByEquivalenceCodes,
 	findEquivalenceSourceCodes
 } from '$lib/types/equivalencia';
 import { getSubjectsBySemester } from '$lib/types/curso';
@@ -288,10 +290,22 @@ function createFluxogramaStore() {
 		return new Set([...base, ...byEquiv]);
 	});
 
-	// Computed: current subject codes
+	// Computed: current subject codes (matrículas diretas + "Matriculado em
+	// Equivalente" — ex.: cursando FGA0146/ED1 nova marca FGA0147 da matriz como
+	// em curso, espelhando a expansão que completedCodes já faz para concluídas).
 	const currentCodes = $derived.by(() => {
 		if (!userFluxograma) return new Set<string>();
-		return getCurrentSubjectCodes(userFluxograma);
+		const base = getCurrentSubjectCodes(userFluxograma);
+		const courseData = state.courseData;
+		const byEquiv =
+			courseData?.equivalencias && courseData.equivalencias.length > 0
+				? getCurrentByEquivalenceCodes(
+						courseData.equivalencias,
+						getCompletedSubjectCodes(userFluxograma),
+						base
+					)
+				: new Set<string>();
+		return new Set([...base, ...byEquiv]);
 	});
 
 	// Computed: failed subject codes
@@ -409,6 +423,30 @@ function createFluxogramaStore() {
 				for (const sourceCode of sourceCodes) {
 					const origem = findSubjectInFluxograma(userFluxograma, sourceCode);
 					if (origem && isMateriaAprovada(origem)) {
+						const nomeOrigem = state.courseData?.materias.find(
+							(m) => m.codigoMateria.trim().toUpperCase() === sourceCode
+						)?.nomeMateria;
+						return {
+							...origem,
+							codigoMateria,
+							tipoDado: 'equivalencia',
+							codigoEquivalente: origem.codigoMateria,
+							nomeEquivalente: origem.nomeEquivalente || nomeOrigem || sourceCode
+						};
+					}
+				}
+
+				// "Matriculado em Equivalente": cursando uma equivalente agora — mostra
+				// os dados da turma em curso, e não uma tentativa direta reprovada
+				// antiga (que pintaria o anel vermelho num card já roxo).
+				const sourceCodesCursando = findEquivalenceSourceCodes(
+					codigoMateria,
+					equivalencias,
+					currentCodes
+				);
+				for (const sourceCode of sourceCodesCursando) {
+					const origem = findSubjectInFluxograma(userFluxograma, sourceCode);
+					if (origem && isMateriaCurrent(origem)) {
 						const nomeOrigem = state.courseData?.materias.find(
 							(m) => m.codigoMateria.trim().toUpperCase() === sourceCode
 						)?.nomeMateria;

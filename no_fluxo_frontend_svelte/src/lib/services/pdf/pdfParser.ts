@@ -85,10 +85,29 @@ function compararAnoPeriodo(
 }
 
 /**
- * Mantém somente o último estado por código de disciplina.
+ * Prioridade do status na consolidação — mesma tabela do RPC casar_disciplinas:
+ * aprovações/aproveitamentos (APR/CUMP/DISP) > matrícula atual (MATR) > resto.
+ * Essencial para o aproveitamento (CUMP), que no SIGAA vem SEM ano/período
+ * ("--"): por recência ele perderia para qualquer tentativa datada — um REP
+ * antigo, ou um TRANC que depois apagaria a disciplina inteira do payload.
+ */
+function prioridadeStatus(status: string | null | undefined): number {
+	const s = String(status ?? '')
+		.trim()
+		.toUpperCase();
+	if (s === 'APR' || s === 'CUMP' || s === 'DISP') return 3;
+	if (s === 'MATR') return 2;
+	return 1;
+}
+
+/**
+ * Mantém somente o estado vencedor por código de disciplina.
  * Regras de persistência:
- * - sempre considerar a ocorrência mais recente (ano/período; empate: última no array);
- * - se o estado final for TRANC, não salvar a disciplina.
+ * - prioridade de status primeiro (APR/CUMP/DISP > MATR > REP/TRANC/CANC);
+ * - dentro da mesma prioridade, a ocorrência mais recente (ano/período; empate:
+ *   última no array);
+ * - se o estado final for TRANC, não salvar a disciplina (com a prioridade
+ *   acima, isso só acontece quando não existe nenhuma tentativa melhor).
  */
 function consolidarDisciplinasRegularesParaPersistencia(
 	disciplinas: DisciplinaExtraida[]
@@ -107,8 +126,15 @@ function consolidarDisciplinasRegularesParaPersistencia(
 			return;
 		}
 
-		const cmp = compararAnoPeriodo(prev.item.ano_periodo, item.ano_periodo);
-		const deveSubstituir = cmp < 0 || (cmp === 0 && index > prev.index);
+		const prioPrev = prioridadeStatus(prev.item.status);
+		const prioItem = prioridadeStatus(item.status);
+		let deveSubstituir: boolean;
+		if (prioItem !== prioPrev) {
+			deveSubstituir = prioItem > prioPrev;
+		} else {
+			const cmp = compararAnoPeriodo(prev.item.ano_periodo, item.ano_periodo);
+			deveSubstituir = cmp < 0 || (cmp === 0 && index > prev.index);
+		}
 		if (deveSubstituir) byCodigo.set(codigo, { item, index });
 	});
 
