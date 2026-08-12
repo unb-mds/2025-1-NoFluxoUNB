@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { MateriaModel, OptativaAdicionada } from '$lib/types/materia';
+	import type { DadosMateria } from '$lib/types/user';
 	import SubjectCard from './SubjectCard.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 
@@ -8,6 +9,8 @@
 		subjects: MateriaModel[];
 		/** Optativas planejadas pelo usuário neste semestre. */
 		optPlanned?: OptativaAdicionada[];
+		/** Optativas/eletivas do histórico cursadas/aproveitadas neste semestre. */
+		extrasCursadas?: { materia: MateriaModel; dados: DadosMateria }[];
 		onSubjectClick?: (materia: MateriaModel) => void;
 		onSubjectOpenChain?: (materia: MateriaModel) => void;
 		onSubjectLongPress?: (materia: MateriaModel) => void;
@@ -20,6 +23,7 @@
 		semester,
 		subjects,
 		optPlanned = [],
+		extrasCursadas = [],
 		onSubjectClick,
 		onSubjectOpenChain,
 		onSubjectLongPress,
@@ -58,7 +62,8 @@
 		const completed = store.completedCodes;
 		const totalCredits =
 			subjects.reduce((s, m) => s + (m.creditos ?? 0), 0) +
-			optPlanned.reduce((s, o) => s + (o.materia.creditos ?? 0), 0);
+			optPlanned.reduce((s, o) => s + (o.materia.creditos ?? 0), 0) +
+			extrasCursadas.reduce((s, e) => s + (e.materia.creditos ?? 0), 0);
 		const totalHours = Math.round(totalCredits * 15);
 		const completedCredits =
 			subjects.reduce(
@@ -68,6 +73,11 @@
 			optPlanned.reduce(
 				(s, o) =>
 					codeConcluido(o.materia.codigoMateria, completed) ? s + (o.materia.creditos ?? 0) : s,
+				0
+			) +
+			extrasCursadas.reduce(
+				(s, e) =>
+					codeConcluido(e.materia.codigoMateria, completed) ? s + (e.materia.creditos ?? 0) : s,
 				0
 			);
 		const completedHours = Math.round(completedCredits * 15);
@@ -107,7 +117,7 @@
 	</div>
 
 	<!-- Badge: horas/créditos no topo (menos transparência para fácil leitura) -->
-	{#if subjects.length > 0 || optPlanned.length > 0}
+	{#if subjects.length > 0 || optPlanned.length > 0 || extrasCursadas.length > 0}
 		<div
 			class="flex justify-center rounded-lg border border-white/15 bg-white/[0.06] px-2 py-1.5 text-center shadow-sm backdrop-blur-sm"
 			title={displayUnit === 'creditos'
@@ -134,6 +144,16 @@
 				onOpenDetails={() => onSubjectClick?.(opt.materia)}
 				onOpenChain={() => onSubjectOpenChain?.(opt.materia)}
 				onlongpress={() => onSubjectLongPress?.(opt.materia)}
+			/>
+		{/each}
+		<!-- Optativas/eletivas do histórico (cursadas, cursando ou aproveitadas) -->
+		{#each extrasCursadas as extra (`extra-${extra.materia.codigoMateria}-${semester}`)}
+			<SubjectCard
+				materia={extra.materia}
+				showOptBadge={true}
+				onOpenDetails={() => onSubjectClick?.(extra.materia)}
+				onOpenChain={() => onSubjectOpenChain?.(extra.materia)}
+				onlongpress={() => onSubjectLongPress?.(extra.materia)}
 			/>
 		{/each}
 	</div>

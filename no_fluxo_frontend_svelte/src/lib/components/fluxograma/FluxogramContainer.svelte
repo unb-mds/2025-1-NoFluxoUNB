@@ -86,6 +86,9 @@
 		for (const k of store.optativasBySemester.keys()) {
 			if (k > 0) keys.add(k);
 		}
+		for (const k of store.extrasCursadasBySemester.keys()) {
+			if (k > 0) keys.add(k);
+		}
 		return Array.from(keys).sort((a, b) => a - b);
 	});
 
@@ -281,10 +284,12 @@
 			{@const optPlanned = optRaw.filter((o) =>
 				!codesInCol.has(o.materia.codigoMateria.trim().toUpperCase())
 			)}
+			{@const extrasCursadas = store.extrasCursadasBySemester.get(semester) ?? []}
 			<SemesterColumn
 				{semester}
 				{subjects}
 				optPlanned={optPlanned}
+				{extrasCursadas}
 				{onSubjectClick}
 				{onSubjectOpenChain}
 				{onSubjectLongPress}

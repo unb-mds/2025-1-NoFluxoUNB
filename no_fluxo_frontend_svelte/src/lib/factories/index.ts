@@ -64,7 +64,21 @@ export function createDadosMateriaFromJson(json: Record<string, unknown>): Dados
 				? (json.nivel_alocado as number | string)
 				: json.nivelAlocado != null
 					? (json.nivelAlocado as number | string)
-					: null
+					: null,
+		// Nome/créditos do histórico (RPC manda nome/nome_materia e creditos):
+		// essencial para matérias fora da matriz, que não existem no courseData.
+		nomeMateria:
+			json.nome_materia != null
+				? String(json.nome_materia)
+				: json.nome != null
+					? String(json.nome)
+					: json.nomeMateria != null
+						? String(json.nomeMateria)
+						: null,
+		creditos:
+			json.creditos != null && Number.isFinite(Number(json.creditos))
+				? Number(json.creditos)
+				: null
 	};
 }
 
@@ -83,7 +97,9 @@ export function dadosMateriaToJson(dados: DadosMateria): Record<string, unknown>
 		is_manual: dados.isManual ?? undefined,
 		nivel_destino: dados.nivelDestino ?? undefined,
 		nivel: dados.nivel ?? undefined,
-		nivel_alocado: dados.nivelAlocado ?? undefined
+		nivel_alocado: dados.nivelAlocado ?? undefined,
+		nome_materia: dados.nomeMateria ?? undefined,
+		creditos: dados.creditos ?? undefined
 	};
 }
 

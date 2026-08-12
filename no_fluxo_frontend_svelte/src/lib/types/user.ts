@@ -34,6 +34,11 @@ export interface DadosMateria {
 	nivel?: number | string | null;
 	/** Alias serializado para compatibilidade com payloads legados/externos. */
 	nivelAlocado?: number | string | null;
+	/** Nome da matéria como veio do histórico — necessário para exibir matérias
+	 * fora da matriz (módulo livre/eletivas), que não existem no courseData. */
+	nomeMateria?: string | null;
+	/** Créditos da matéria no histórico (fallback quando fora da matriz). */
+	creditos?: number | null;
 }
 
 export interface DadosFluxogramaUser {

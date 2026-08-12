@@ -38,6 +38,12 @@
 	let concluidaPorEquivalencia = $derived(
 		status === SubjectStatusEnum.COMPLETED && userData?.tipoDado === 'equivalencia'
 	);
+	/** Aproveitamento de estudos (CUMP no SIGAA): disciplina ganha sem cursar aqui. */
+	let concluidaPorAproveitamento = $derived(
+		status === SubjectStatusEnum.COMPLETED &&
+			userData?.tipoDado !== 'equivalencia' &&
+			String(userData?.status ?? '').toUpperCase() === 'CUMP'
+	);
 	let destaqueReprovacao = $derived.by(() => {
 		const st = String(userData?.status ?? '').toUpperCase();
 		return st === 'REP' || st === 'REPF' || st === 'REPMF';
@@ -331,6 +337,11 @@
 			class="absolute right-0 -bottom-1.5 rounded bg-purple-500/90 px-1.5 py-0.5 text-[9px] font-medium text-white"
 			title="Concluída por equivalência"
 		>equiv.</span>
+	{:else if concluidaPorAproveitamento}
+		<span
+			class="absolute right-0 -bottom-1.5 rounded bg-emerald-600/90 px-1.5 py-0.5 text-[9px] font-medium text-white"
+			title="Aproveitamento de estudos — componente ganho por disciplina de outra instituição/curso"
+		>aprov.</span>
 	{/if}
 
 	<!-- Prerequisite indicator badge -->

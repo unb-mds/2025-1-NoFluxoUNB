@@ -20,6 +20,7 @@ import {
 	isMateriaAprovada,
 	isMateriaCurrent,
 	type DadosFluxogramaUser,
+	type DadosMateria,
 	type OptativaPlanejadaRef,
 	type OptativaManual,
 	findSubjectInFluxograma
@@ -308,6 +309,102 @@ function createFluxogramaStore() {
 		return new Set([...base, ...byEquiv]);
 	});
 
+	// ── Extras cursadas: optativas/eletivas do histórico fora das obrigatórias ──
+	// O histórico traz matérias que não são obrigatórias da matriz (optativas,
+	// módulo livre, aproveitamentos como Inteligência Artificial/CUMP). Elas eram
+	// invisíveis no fluxograma; aqui viram cards na coluna do semestre em que
+	// foram cursadas (ano/período → ordinal do aluno). CUMP sem período (ganhas
+	// no ingresso) caem no 1º semestre.
+	const extrasCursadasBySemester = $derived.by(() => {
+		void diagramLayoutRevision;
+		const out = new Map<number, { materia: MateriaModel; dados: DadosMateria }[]>();
+		const fluxo = userFluxograma;
+		const course = state.courseData;
+		if (!fluxo) return out;
+
+		// Códigos que já têm card na grade: obrigatórias da matriz (nivel > 0)…
+		const obrigatorias = new Set<string>();
+		if (course) {
+			for (const [sem, mats] of getSubjectsBySemester(course)) {
+				if (sem <= 0) continue;
+				for (const m of mats) obrigatorias.add(m.codigoMateria.trim().toUpperCase());
+			}
+		}
+		// …e optativas planejadas (renderizadas como optPlanned).
+		const planejadas = new Set(
+			optativasAdicionadas.map((o) => o.materia.codigoMateria.trim().toUpperCase())
+		);
+
+		// Matérias cujo status já foi "consumido" por uma obrigatória da matriz via
+		// equivalência (ex.: FGA0146/ED1 nova → FGA0147 roxa) não viram card extra —
+		// senão a mesma disciplina aparece duas vezes no fluxograma.
+		const consumidasPorEquivalencia = new Set<string>();
+		if (course?.equivalencias?.length) {
+			const compCur = new Set(
+				[...completedCodes, ...currentCodes].map((c) => c.trim().toUpperCase())
+			);
+			for (const eq of course.equivalencias) {
+				const origem = (eq.codigoMateriaOrigem || '').trim().toUpperCase();
+				if (!obrigatorias.has(origem) || !compCur.has(origem)) continue;
+				for (const src of findEquivalenceSourceCodes(origem, [eq], compCur)) {
+					consumidasPorEquivalencia.add(src.trim().toUpperCase());
+				}
+			}
+		}
+
+		// Ordinal do semestre: posição do ano/período entre os períodos distintos
+		// do histórico (2022.2→1, 2023.1→2, …), casando com "semestre atual".
+		const periodos = new Set<string>();
+		for (const sem of fluxo.dadosFluxograma) {
+			for (const m of sem) {
+				const p = String(m.anoPeriodo ?? '').trim();
+				if (/^\d{4}\.\d$/.test(p)) periodos.add(p);
+			}
+		}
+		const ordemPeriodos = [...periodos].sort();
+		const ordinalDe = (p: string | null | undefined): number => {
+			const idx = ordemPeriodos.indexOf(String(p ?? '').trim());
+			return idx >= 0 ? idx + 1 : 1;
+		};
+
+		const courseByCode = course
+			? new Map(course.materias.map((m) => [m.codigoMateria.trim().toUpperCase(), m]))
+			: new Map<string, MateriaModel>();
+
+		const seen = new Set<string>();
+		let syntheticId = -1;
+		for (const sem of fluxo.dadosFluxograma) {
+			for (const dados of sem) {
+				const codeU = dados.codigoMateria.trim().toUpperCase();
+				if (!codeU || seen.has(codeU)) continue;
+				if (obrigatorias.has(codeU) || planejadas.has(codeU)) continue;
+				if (consumidasPorEquivalencia.has(codeU)) continue;
+				if (dados.isManual) continue; // manuais já rendem via optativasAdicionadas
+				const st = String(dados.status ?? '').toUpperCase();
+				if (st !== 'APR' && st !== 'CUMP' && st !== 'DISP' && st !== 'MATR') continue;
+				seen.add(codeU);
+
+				const daMatriz = courseByCode.get(codeU);
+				const materia: MateriaModel = daMatriz ?? {
+					// Fora da matriz (módulo livre/eletiva): sintetiza o card com os
+					// dados do histórico. id negativo estável só para keys do Svelte.
+					ementa: '',
+					idMateria: syntheticId--,
+					codigoMateria: dados.codigoMateria.trim(),
+					nomeMateria: dados.nomeMateria?.trim() || dados.codigoMateria.trim(),
+					creditos: dados.creditos ?? 0,
+					nivel: 0,
+					tipoNatureza: 1
+				};
+
+				const semestre = st === 'CUMP' ? 1 : ordinalDe(dados.anoPeriodo);
+				if (!out.has(semestre)) out.set(semestre, []);
+				out.get(semestre)!.push({ materia, dados });
+			}
+		}
+		return out;
+	});
+
 	// Computed: failed subject codes
 	const failedCodes = $derived.by(() => {
 		if (!userFluxograma) return new Set<string>();
@@ -373,6 +470,9 @@ function createFluxogramaStore() {
 		},
 		get optativasBySemester() {
 			return optativasBySemester;
+		},
+		get extrasCursadasBySemester() {
+			return extrasCursadasBySemester;
 		},
 		get optativaPlanejadaSemestrePorCodigo() {
 			return optativaPlanejadaSemestrePorCodigo;

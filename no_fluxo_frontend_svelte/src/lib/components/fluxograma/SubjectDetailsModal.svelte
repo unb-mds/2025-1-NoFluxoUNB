@@ -166,18 +166,33 @@
 			{#if userData}
 				<div class="mt-3 space-y-2">
 					{#if userData.tipoDado === 'equivalencia'}
+						{@const cursandoEquiv = String(userData.status ?? '').toUpperCase() === 'MATR'}
 						<div class="rounded-lg border border-purple-400/40 bg-purple-500/10 px-3 py-2">
 							<p class="text-xs font-semibold uppercase tracking-wider text-purple-300">
-								Concluída por equivalência
+								{cursandoEquiv ? 'Cursando por equivalência' : 'Concluída por equivalência'}
 							</p>
 							{#if userData.codigoEquivalente || userData.nomeEquivalente}
 								<p class="mt-1 text-sm text-white/80">
-									Cursada como: {userData.codigoEquivalente ?? ''} {userData.nomeEquivalente ? `— ${userData.nomeEquivalente}` : ''}
+									{cursandoEquiv ? 'Cursando como' : 'Cursada como'}: {userData.codigoEquivalente ??
+										''}
+									{userData.nomeEquivalente ? `— ${userData.nomeEquivalente}` : ''}
 								</p>
 							{/if}
 							{#if userData.anoPeriodo}
 								<p class="mt-0.5 text-xs text-white/50">Período: {userData.anoPeriodo}</p>
 							{/if}
+						</div>
+					{:else if String(userData.status ?? '').toUpperCase() === 'CUMP'}
+						<!-- Aproveitamento de estudos: o SIGAA registra CUMP sem período/menção —
+						     tipicamente disciplina aproveitada de outra instituição ou curso. -->
+						<div class="rounded-lg border border-emerald-400/40 bg-emerald-500/10 px-3 py-2">
+							<p class="text-xs font-semibold uppercase tracking-wider text-emerald-300">
+								Aproveitamento de estudos
+							</p>
+							<p class="mt-1 text-sm text-white/80">
+								Componente ganho por aproveitamento — cursado em outra instituição ou curso e
+								aceito pela UnB.
+							</p>
 						</div>
 					{/if}
 					<div class="flex flex-wrap gap-2">
@@ -196,7 +211,7 @@
 								Menção: {userData.mencao}
 							</span>
 						{/if}
-						{#if userData.frequencia != null && userData.frequencia > 0}
+						{#if userData.frequencia != null && Number(userData.frequencia) > 0}
 							<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-medium text-white/80">
 								Frequência: {userData.frequencia}%
 							</span>
