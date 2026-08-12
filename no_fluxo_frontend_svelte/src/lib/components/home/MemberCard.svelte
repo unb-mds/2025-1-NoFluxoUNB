@@ -8,6 +8,11 @@
 		instagram?: string;
 		linkedin?: string;
 		email?: string;
+		role?: string;
+		funcao?: string;
+		variant?: 'founder' | 'maintainer' | 'default';
+		autoRotate?: boolean;
+		rotateDelay?: number;
 	}
 
 	let {
@@ -16,12 +21,32 @@
 		specialties = [],
 		instagram = '',
 		linkedin = '',
-		email = ''
+		email = '',
+		role = 'Desenvolvedor',
+		funcao = '',
+		variant = 'default',
+		autoRotate = false,
+		rotateDelay = 0
 	}: Props = $props();
 	let imageError = $state(false);
 	let currentSlide = $state(0);
+	let hovered = $state(false);
 
 	const totalSlides = 3;
+	const SLIDE_MS = 4200;
+
+	$effect(() => {
+		if (!autoRotate || hovered) return;
+		// lê currentSlide para reagendar a cada troca (automática ou manual)
+		const current = currentSlide;
+		const timer = setTimeout(
+			() => {
+				currentSlide = (current + 1) % totalSlides;
+			},
+			current === 0 && rotateDelay ? SLIDE_MS + rotateDelay : SLIDE_MS
+		);
+		return () => clearTimeout(timer);
+	});
 
 	const avatarUrl = $derived(`https://avatars.githubusercontent.com/${githubUsername}`);
 	const githubUrl = $derived(`https://github.com/${githubUsername}`);
@@ -48,7 +73,15 @@
 	}
 </script>
 
-<div class="team-card nf-card-surface nf-card-interactive">
+<div
+	class="team-card nf-card-surface nf-card-interactive"
+	class:is-founder={variant === 'founder'}
+	class:is-maintainer={variant === 'maintainer'}
+	onmouseenter={() => (hovered = true)}
+	onmouseleave={() => (hovered = false)}
+	role="group"
+	aria-label={`${name} — ${role}`}
+>
 	<div class="carousel-header">
 		<div class="carousel-controls">
 			<button class="carousel-btn" onclick={previousSlide} aria-label="Card anterior">
@@ -85,11 +118,17 @@
 			</div>
 
 			<h4 class="team-name">{name}</h4>
-			<span class="team-role">Desenvolvedor</span>
+			<span class="team-role">{role}</span>
+			{#if funcao}
+				<span class="team-funcao">{funcao}</span>
+			{/if}
 		</div>
 	{:else if currentSlide === 1}
 		<div class="member-slide">
-			<h4 class="slide-title">Especialidades</h4>
+			<h4 class="slide-title">O que faz</h4>
+			{#if funcao}
+				<p class="slide-subtitle">{funcao}</p>
+			{/if}
 			<ul class="specialties-list">
 				{#if specialties.length > 0}
 					{#each specialties as specialty}
@@ -144,11 +183,83 @@
 
 <style>
 	.team-card {
+		position: relative;
 		padding: 1rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		min-height: 280px;
+		min-height: 296px;
+		height: 100%;
+	}
+
+	/* anel de destaque sobreposto: não conflita com a borda do nf-card-surface */
+	.team-card.is-founder::after,
+	.team-card.is-maintainer::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		pointer-events: none;
+		border: 1.5px solid transparent;
+	}
+
+	.team-card.is-founder {
+		box-shadow:
+			0 0 0 1px rgba(233, 187, 92, 0.28),
+			0 10px 32px rgba(233, 187, 92, 0.12);
+	}
+
+	.team-card.is-founder::after {
+		border-color: rgba(240, 197, 106, 0.75);
+		background:
+			linear-gradient(
+					160deg,
+					rgba(255, 214, 128, 0.16) 0%,
+					rgba(255, 214, 128, 0) 45%,
+					rgba(255, 214, 128, 0.08) 100%
+				)
+				border-box;
+	}
+
+	.team-card.is-founder .team-avatar,
+	.team-card.is-founder .fallback-avatar {
+		box-shadow:
+			0 0 0 2px rgba(240, 197, 106, 0.8),
+			0 0 16px rgba(240, 197, 106, 0.3);
+	}
+
+	.team-card.is-founder .team-role {
+		color: #f0c56a;
+		font-weight: 600;
+	}
+
+	.team-card.is-maintainer {
+		box-shadow:
+			0 0 0 1px hsl(var(--primary) / 0.35),
+			0 10px 32px hsl(var(--primary) / 0.18);
+	}
+
+	.team-card.is-maintainer::after {
+		border-color: hsl(var(--primary) / 0.75);
+		background: linear-gradient(
+				160deg,
+				hsl(var(--primary) / 0.16) 0%,
+				hsl(var(--primary) / 0) 45%,
+				hsl(var(--primary) / 0.1) 100%
+			)
+			border-box;
+	}
+
+	.team-card.is-maintainer .team-avatar,
+	.team-card.is-maintainer .fallback-avatar {
+		box-shadow:
+			0 0 0 2px hsl(var(--primary) / 0.85),
+			0 0 16px hsl(var(--primary) / 0.35);
+	}
+
+	.team-card.is-maintainer .team-role {
+		color: hsl(var(--primary));
+		font-weight: 600;
 	}
 
 	.carousel-header {
@@ -182,6 +293,7 @@
 	}
 
 	.member-slide {
+		animation: slide-in 0.42s cubic-bezier(0.4, 0, 0.2, 1);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -235,11 +347,32 @@
 		letter-spacing: 0.5px;
 	}
 
+	.team-funcao {
+		color: hsl(var(--muted-foreground));
+		font-size: clamp(0.6875rem, 1.2vw, 0.8125rem);
+		line-height: 1.3;
+		max-width: 90%;
+		/* altura fixa de 2 linhas mantém todos os cards alinhados */
+		min-height: 2.6em;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
 	.slide-title {
 		color: hsl(var(--foreground));
 		font-size: 1rem;
 		font-weight: 700;
 		margin-bottom: 0.25rem;
+	}
+
+	.slide-subtitle {
+		color: hsl(var(--muted-foreground));
+		font-size: 0.8125rem;
+		line-height: 1.35;
+		margin: -0.15rem 0 0.35rem;
 	}
 
 	.specialties-list {
@@ -314,5 +447,22 @@
 
 	.dot.active {
 		background: #f9fafb;
+	}
+
+	@keyframes slide-in {
+		from {
+			opacity: 0;
+			transform: translateY(8px);
+		}
+		to {
+			opacity: 1;
+			transform: none;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.member-slide {
+			animation: none;
+		}
 	}
 </style>
