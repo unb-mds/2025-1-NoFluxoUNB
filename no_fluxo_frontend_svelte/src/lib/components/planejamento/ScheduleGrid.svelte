@@ -3,6 +3,7 @@
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
 	import { DIAS_SEMANA, SLOTS_DIA, bitIndex, agruparBlocosDia } from '$lib/utils/horario-slots';
 	import { CalendarClock, ChevronsUpDown, LayoutGrid, List } from 'lucide-svelte';
+	import HelpTip from '$lib/components/onboarding/HelpTip.svelte';
 
 	// Clicar num bloco abre a troca de turma daquela matéria (na página).
 	let { onBlocoClick }: { onBlocoClick: (codigo: string) => void } = $props();
@@ -169,7 +170,11 @@
 	}
 </script>
 
-<div class="rounded-2xl border border-white/10 bg-zinc-950/78 p-3 sm:p-4" id="grade-export">
+<div
+	class="rounded-2xl border border-white/10 bg-zinc-950/78 p-3 sm:p-4"
+	id="grade-export"
+	data-tour="calendario"
+>
 	{#if modo === 'grade'}
 		<div class="grade-scroll overflow-x-auto" bind:this={scroller}>
 			<div
@@ -349,7 +354,12 @@
 					</button>
 				{/each}
 			</div>
-			<div class="flex flex-wrap items-center gap-1.5">
+			<div class="flex flex-wrap items-center gap-1.5" data-tour="visualizacao">
+				<HelpTip
+					side="top"
+					title="Formas de ver a grade"
+					text="“Agenda” lista as aulas por dia — melhor no celular. “Semana inteira” mostra também os dias e turnos vazios, útil pra achar buracos livres. Clique num bloco colorido pra trocar de turma."
+				/>
 				<button
 					type="button"
 					onclick={trocarModo}
@@ -379,7 +389,7 @@
 	{:else}
 		<p class="mt-3 flex items-center justify-center gap-2 py-6 text-center text-xs text-white/40">
 			<CalendarClock class="h-4 w-4" />
-			Escolha turmas nas matérias (ou clique em "Montar automático") para ver sua grade.
+			Escolha turmas nas matérias (ou clique em "Rearranjar", no topo) para ver sua grade.
 		</p>
 	{/if}
 </div>

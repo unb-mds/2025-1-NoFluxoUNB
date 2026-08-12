@@ -2,6 +2,7 @@
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
 	import { formatHorarioSigaa, compactarFaixasHorarias } from '$lib/utils/sigaa';
 	import { X, ListChecks, TriangleAlert } from 'lucide-svelte';
+	import HelpTip from '$lib/components/onboarding/HelpTip.svelte';
 
 	function nomeMateria(codigo: string): string {
 		return gradeStore.pool.find((m) => m.codigo === codigo)?.nome ?? codigo;
@@ -16,10 +17,14 @@
 	}
 </script>
 
-<section class="rounded-2xl border border-white/10 bg-zinc-950/78 p-3">
+<section class="rounded-2xl border border-white/10 bg-zinc-950/78 p-3" data-tour="resumo">
 	<header class="mb-2.5 flex items-center justify-between border-b border-white/10 pb-2">
 		<p class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white/80">
-			<ListChecks class="h-3.5 w-3.5" /> Resumo
+			<ListChecks class="h-3.5 w-3.5" /> 4 · Resumo
+			<HelpTip
+				title="Sua grade em lista"
+				text="Tudo que está no calendário aparece aqui com turma, professor e horário. Passe o mouse para destacar a matéria na grade e use o X para tirá-la."
+			/>
 		</p>
 		<span class="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] text-white/60">
 			{gradeStore.creditosSelecionados} créditos
