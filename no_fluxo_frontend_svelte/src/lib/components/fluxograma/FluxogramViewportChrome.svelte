@@ -544,22 +544,22 @@ function handleToggleFocusMode() {
 					<ul class="space-y-1.5 text-white/90">
 						<li class="flex items-center gap-2">
 							<span class="shrink-0 rounded bg-blue-500/85 px-1.5 py-0.5 text-[9px] font-medium text-white">opt.</span>
-							<span>Optativa — não é exigida individualmente; conta para a carga horária optativa</span>
+							<span>Optativa: não é exigida individualmente, mas conta para a carga horária optativa</span>
 						</li>
 						<li class="flex items-center gap-2">
 							<span class="shrink-0 rounded bg-amber-500/90 px-1.5 py-0.5 text-[9px] font-medium text-black">optatória</span>
 							<span>
-								Optativa no SIGAA, mas <strong class="text-white">pré-requisito de obrigatória</strong> —
-								na prática, você vai precisar dela
+								Optativa no SIGAA que é <strong class="text-white">pré-requisito de obrigatória</strong>.
+								Na prática, você vai precisar dela
 							</span>
 						</li>
 						<li class="flex items-center gap-2">
 							<span class="shrink-0 rounded bg-purple-500/90 px-1.5 py-0.5 text-[9px] font-medium text-white">equiv.</span>
-							<span>Concluída por equivalência — você cursou outra disciplina que vale por esta</span>
+							<span>Concluída por equivalência: você cursou outra disciplina que vale por esta</span>
 						</li>
 						<li class="flex items-center gap-2">
 							<span class="shrink-0 rounded bg-zinc-50/95 px-1.5 py-0.5 text-[9px] font-semibold text-emerald-900">aprov.</span>
-							<span>Aproveitamento de estudos — ganha por disciplina de outra instituição ou curso</span>
+							<span>Aproveitamento de estudos: ganha por disciplina de outra instituição ou curso</span>
 						</li>
 					</ul>
 				</section>
@@ -599,7 +599,7 @@ function handleToggleFocusMode() {
 						<li class="flex flex-wrap items-center gap-2">
 							<div class="h-0.5 w-6 shrink-0 border-t-2 border-dashed border-green-400"></div>
 							<span>
-								Co-requisito — com conexões ativas, aparece ao focar a disciplina (Diretas) ou no modo
+								Co-requisito: com conexões ativas, aparece ao focar a disciplina (Diretas) ou no modo
 								<strong class="text-white/85">Todas</strong>
 							</span>
 						</li>
@@ -609,20 +609,20 @@ function handleToggleFocusMode() {
 					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-purple-300">Mobile / toque</h3>
 					<ul class="space-y-2 text-sm text-white/90">
 						<li>
-							<strong>1 toque</strong> na disciplina (com conexões ativas) — <strong class="text-white"
+							<strong>1 toque</strong> na disciplina (com conexões ativas) <strong class="text-white"
 								>seleciona e destaca a cadeia</strong> no diagrama.
 						</li>
 						<li>
-							<strong>2º toque</strong> na mesma disciplina — abre a
+							<strong>2º toque</strong> na mesma disciplina abre a
 							<strong class="text-white">ficha da disciplina</strong> (ementa/detalhes).
 						</li>
 						<li>
-							<strong>Segurar</strong> o dedo no card — abre a <strong class="text-white">cadeia topológica</strong>
+							<strong>Segurar</strong> o dedo no card abre a <strong class="text-white">cadeia topológica</strong>
 							(roadmap da disciplina).
 						</li>
-						<li><strong>Toque na área vazia</strong> — esconde as conexões</li>
+						<li><strong>Toque na área vazia</strong> esconde as conexões</li>
 						<li class="border-t border-white/10 pt-2 text-white/80">
-							<strong>Deslizar</strong> com um dedo — rola o diagrama e, no fim da área, segue rolando a página · Zoom: botão flutuante ou pinça (quando disponível)
+							<strong>Deslizar</strong> com um dedo rola o diagrama e, no fim da área, segue rolando a página · Zoom: botão flutuante ou pinça (quando disponível)
 						</li>
 					</ul>
 				</section>
@@ -641,7 +641,7 @@ function handleToggleFocusMode() {
 						<li>
 							<strong>Conexões off:</strong> <strong>clique esquerdo</strong> abre direto o modal da disciplina.
 						</li>
-						<li><strong>Clique direito</strong> — abre o roadmap/cadeia topológica da matéria.</li>
+						<li><strong>Clique direito</strong> abre o roadmap/cadeia topológica da matéria.</li>
 					</ul>
 				</section>
 			</div>

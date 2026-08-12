@@ -355,12 +355,12 @@
 			{#if ehOptatoria}
 				<span
 					class="rounded bg-amber-500/90 px-1.5 py-0.5 text-[9px] font-medium text-black"
-					title={`Optatória: consta como optativa no SIGAA, mas é pré-requisito de ${nomesQueExigem.join(', ')} — na prática você vai precisar dela`}
+					title={`Optatória: consta como optativa no SIGAA, mas é pré-requisito de ${nomesQueExigem.join(', ')}. Na prática você vai precisar dela`}
 				>optatória</span>
 			{:else if ehOptativa}
 				<span
 					class="rounded bg-blue-500/85 px-1.5 py-0.5 text-[9px] font-medium text-white"
-					title="Optativa — não é exigida individualmente; conta para a carga horária optativa"
+					title="Optativa: não é exigida individualmente, mas conta para a carga horária optativa"
 				>opt.</span>
 			{/if}
 			{#if concluidaPorEquivalencia}
@@ -372,7 +372,7 @@
 				<!-- Branco com texto escuro: o verde-esmeralda sumia sobre o card verde de Aprovado. -->
 				<span
 					class="rounded bg-zinc-50/95 px-1.5 py-0.5 text-[9px] font-semibold text-emerald-900"
-					title="Aproveitamento de estudos — componente ganho por disciplina de outra instituição/curso"
+					title="Aproveitamento de estudos: componente ganho por disciplina de outra instituição/curso"
 				>aprov.</span>
 			{/if}
 		</div>

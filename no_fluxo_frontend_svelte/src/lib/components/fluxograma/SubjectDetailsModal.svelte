@@ -171,7 +171,7 @@
 										{/if}<strong
 											class="cursor-help underline decoration-dotted underline-offset-2"
 											title={cod}>{nomeDe(cod)}</strong
-										>{/each} — na prática, você vai precisar cursá-la para avançar nas
+										>{/each}. Na prática, você vai precisar cursá-la para avançar nas
 									obrigatórias.
 								</p>
 							</div>
@@ -179,7 +179,7 @@
 							<span
 								class="mt-2 inline-block rounded-full bg-purple-500/25 px-2.5 py-0.5 text-xs font-medium text-purple-200"
 							>
-								Optativa — conta para a carga horária optativa
+								Optativa: conta para a carga horária optativa
 							</span>
 						{/if}
 					{/if}
@@ -220,7 +220,7 @@
 								Aproveitamento de estudos
 							</p>
 							<p class="mt-1 text-sm text-white/80">
-								Componente ganho por aproveitamento — cursado em outra instituição ou curso e
+								Componente ganho por aproveitamento, cursado em outra instituição ou curso e
 								aceito pela UnB.
 							</p>
 						</div>
