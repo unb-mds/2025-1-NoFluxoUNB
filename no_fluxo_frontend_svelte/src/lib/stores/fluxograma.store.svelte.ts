@@ -308,6 +308,33 @@ function createFluxogramaStore() {
 		return new Set([...base, ...byEquiv]);
 	});
 
+	// ── "Optatórias": optativas que são pré-requisito de obrigatória ────────────
+	// No SIGAA elas constam como Optativa, mas na prática o aluno PRECISA delas
+	// para destravar obrigatórias. Mapa: código da optativa → obrigatórias que a
+	// exigem (para a etiqueta e o tooltip explicarem a transparência ao aluno).
+	const optatorias = $derived.by(() => {
+		const map = new Map<string, string[]>();
+		const course = state.courseData;
+		if (!course) return map;
+		const byId = new Map(course.materias.map((m) => [m.idMateria, m]));
+		const byCode = new Map(
+			course.materias.map((m) => [m.codigoMateria.trim().toUpperCase(), m])
+		);
+		for (const pr of course.preRequisitos ?? []) {
+			const alvo = byId.get(pr.idMateria);
+			// Só conta quando a matéria que EXIGE o requisito é obrigatória da matriz.
+			if (!alvo || isOptativa(alvo)) continue;
+			const reqCode = pr.codigoMateriaRequisito?.trim().toUpperCase();
+			if (!reqCode) continue;
+			const req = byCode.get(reqCode);
+			if (!req || !isOptativa(req)) continue;
+			if (!map.has(reqCode)) map.set(reqCode, []);
+			const list = map.get(reqCode)!;
+			if (!list.includes(alvo.codigoMateria)) list.push(alvo.codigoMateria);
+		}
+		return map;
+	});
+
 	// Nome/créditos resolvidos da tabela global `materias` para extras cujo dado
 	// persistido não tem nome (uploads antigos, antes do schema guardar). Cache
 	// simples: cada código é buscado uma única vez por sessão.
@@ -374,8 +401,11 @@ function createFluxogramaStore() {
 			}
 		}
 
-		// Ordinal do semestre: posição do ano/período entre os períodos distintos
-		// do histórico (2022.2→1, 2023.1→2, …), casando com "semestre atual".
+		// Ordinal do semestre: sequência CONTÍNUA do primeiro ao último período do
+		// histórico (2022.2→1, 2023.1→2, …), casando com o "semestre atual" do
+		// SIGAA. Não dá para usar só os períodos presentes: a consolidação remove
+		// períodos em que o aluno só teve tentativas superadas (REP/TRANC), e o
+		// ordinal encolheria.
 		const periodos = new Set<string>();
 		for (const sem of fluxo.dadosFluxograma) {
 			for (const m of sem) {
@@ -383,7 +413,20 @@ function createFluxogramaStore() {
 				if (/^\d{4}\.\d$/.test(p)) periodos.add(p);
 			}
 		}
-		const ordemPeriodos = [...periodos].sort();
+		const ordemPeriodos: string[] = [];
+		if (periodos.size > 0) {
+			const sorted = [...periodos].sort();
+			let [ano, per] = sorted[0].split('.').map(Number);
+			const [anoF, perF] = sorted[sorted.length - 1].split('.').map(Number);
+			while (ano < anoF || (ano === anoF && per <= perF)) {
+				ordemPeriodos.push(`${ano}.${per}`);
+				if (per === 1) per = 2;
+				else {
+					per = 1;
+					ano++;
+				}
+			}
+		}
 		const ordinalDe = (p: string | null | undefined): number => {
 			const idx = ordemPeriodos.indexOf(String(p ?? '').trim());
 			return idx >= 0 ? idx + 1 : 1;
@@ -393,18 +436,23 @@ function createFluxogramaStore() {
 			? new Map(course.materias.map((m) => [m.codigoMateria.trim().toUpperCase(), m]))
 			: new Map<string, MateriaModel>();
 
+		// Dedup por código+período (não só código): repetíveis aprovadas mais de
+		// uma vez (ex.: extensão para créditos de optativa) geram um card por
+		// semestre cursado — e cada um soma nas horas da coluna.
 		const seen = new Set<string>();
 		let syntheticId = -1;
 		for (const sem of fluxo.dadosFluxograma) {
 			for (const dados of sem) {
 				const codeU = dados.codigoMateria.trim().toUpperCase();
-				if (!codeU || seen.has(codeU)) continue;
+				if (!codeU) continue;
+				const chave = `${codeU}|${String(dados.anoPeriodo ?? '').trim()}`;
+				if (seen.has(chave)) continue;
 				if (obrigatorias.has(codeU) || planejadas.has(codeU)) continue;
 				if (consumidasPorEquivalencia.has(codeU)) continue;
 				if (dados.isManual) continue; // manuais já rendem via optativasAdicionadas
 				const st = String(dados.status ?? '').toUpperCase();
 				if (st !== 'APR' && st !== 'CUMP' && st !== 'DISP' && st !== 'MATR') continue;
-				seen.add(codeU);
+				seen.add(chave);
 
 				const daMatriz = courseByCode.get(codeU);
 				const resolvida = materiasResolvidas.get(codeU);
@@ -512,6 +560,9 @@ function createFluxogramaStore() {
 		},
 		get extrasCursadasBySemester() {
 			return extrasCursadasBySemester;
+		},
+		get optatorias() {
+			return optatorias;
 		},
 		get optativaPlanejadaSemestrePorCodigo() {
 			return optativaPlanejadaSemestrePorCodigo;

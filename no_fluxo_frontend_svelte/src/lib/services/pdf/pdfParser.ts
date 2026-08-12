@@ -85,62 +85,67 @@ function compararAnoPeriodo(
 }
 
 /**
- * Prioridade do status na consolidação — mesma tabela do RPC casar_disciplinas:
- * aprovações/aproveitamentos (APR/CUMP/DISP) > matrícula atual (MATR) > resto.
- * Essencial para o aproveitamento (CUMP), que no SIGAA vem SEM ano/período
- * ("--"): por recência ele perderia para qualquer tentativa datada — um REP
- * antigo, ou um TRANC que depois apagaria a disciplina inteira do payload.
- */
-function prioridadeStatus(status: string | null | undefined): number {
-	const s = String(status ?? '')
-		.trim()
-		.toUpperCase();
-	if (s === 'APR' || s === 'CUMP' || s === 'DISP') return 3;
-	if (s === 'MATR') return 2;
-	return 1;
-}
-
-/**
- * Mantém somente o estado vencedor por código de disciplina.
- * Regras de persistência:
- * - prioridade de status primeiro (APR/CUMP/DISP > MATR > REP/TRANC/CANC);
- * - dentro da mesma prioridade, a ocorrência mais recente (ano/período; empate:
- *   última no array);
- * - se o estado final for TRANC, não salvar a disciplina (com a prioridade
- *   acima, isso só acontece quando não existe nenhuma tentativa melhor).
+ * Consolida as tentativas por código de disciplina para persistência.
+ *
+ * Regras:
+ * - TODA aprovação conta (APR/CUMP/DISP), uma por ano/período: disciplinas
+ *   repetíveis (extensão, ex. DSC0172 cursada em 2024.1 E 2024.2 para créditos
+ *   de optativa) geram uma entrada por semestre cursado. Isso também protege o
+ *   aproveitamento (CUMP), que vem SEM período no SIGAA e antes perdia por
+ *   recência para um REP/TRANC datado — chegando a apagar a matéria inteira.
+ * - MATR mais recente é mantida (cursando agora — inclusive re-matrícula de
+ *   repetível já aprovada).
+ * - Sem aprovação nem matrícula: mantém só a tentativa mais recente
+ *   (ano/período; empate: última no array), e descarta se for TRANC.
  */
 function consolidarDisciplinasRegularesParaPersistencia(
 	disciplinas: DisciplinaExtraida[]
 ): DisciplinaExtraida[] {
-	type WithIndex = { item: DisciplinaExtraida; index: number };
-	const byCodigo = new Map<string, WithIndex>();
+	const statusDe = (d: DisciplinaExtraida) => String(d.status ?? '').trim().toUpperCase();
+	const APROVADA = new Set(['APR', 'CUMP', 'DISP']);
 
+	type WithIndex = { item: DisciplinaExtraida; index: number };
+	const porCodigo = new Map<string, WithIndex[]>();
 	disciplinas.forEach((item, index) => {
 		const codigo = String(item.codigo ?? '')
 			.trim()
 			.toUpperCase();
 		if (!codigo) return;
-		const prev = byCodigo.get(codigo);
-		if (!prev) {
-			byCodigo.set(codigo, { item, index });
-			return;
-		}
-
-		const prioPrev = prioridadeStatus(prev.item.status);
-		const prioItem = prioridadeStatus(item.status);
-		let deveSubstituir: boolean;
-		if (prioItem !== prioPrev) {
-			deveSubstituir = prioItem > prioPrev;
-		} else {
-			const cmp = compararAnoPeriodo(prev.item.ano_periodo, item.ano_periodo);
-			deveSubstituir = cmp < 0 || (cmp === 0 && index > prev.index);
-		}
-		if (deveSubstituir) byCodigo.set(codigo, { item, index });
+		if (!porCodigo.has(codigo)) porCodigo.set(codigo, []);
+		porCodigo.get(codigo)!.push({ item, index });
 	});
 
-	return [...byCodigo.values()]
-		.map((v) => v.item)
-		.filter((d) => String(d.status ?? '').trim().toUpperCase() !== 'TRANC');
+	const out: WithIndex[] = [];
+	for (const list of porCodigo.values()) {
+		const aprovadas = list.filter((w) => APROVADA.has(statusDe(w.item)));
+		const periodosVistos = new Set<string>();
+		for (const w of aprovadas) {
+			const chave = String(w.item.ano_periodo ?? '').trim() || '--';
+			if (periodosVistos.has(chave)) continue;
+			periodosVistos.add(chave);
+			out.push(w);
+		}
+
+		const matrs = list.filter((w) => statusDe(w.item) === 'MATR');
+		if (matrs.length > 0) {
+			const maisRecente = matrs.reduce((a, b) => {
+				const cmp = compararAnoPeriodo(a.item.ano_periodo, b.item.ano_periodo);
+				return cmp < 0 || (cmp === 0 && b.index > a.index) ? b : a;
+			});
+			out.push(maisRecente);
+		}
+
+		if (aprovadas.length === 0 && matrs.length === 0) {
+			const vencedora = list.reduce((a, b) => {
+				const cmp = compararAnoPeriodo(a.item.ano_periodo, b.item.ano_periodo);
+				return cmp < 0 || (cmp === 0 && b.index > a.index) ? b : a;
+			});
+			if (statusDe(vencedora.item) !== 'TRANC') out.push(vencedora);
+		}
+	}
+
+	// Ordem original do extrato — estável para o RPC e para os snapshots.
+	return out.sort((a, b) => a.index - b.index).map((w) => w.item);
 }
 
 // ─── Regex-based extractors for non-discipline data ───

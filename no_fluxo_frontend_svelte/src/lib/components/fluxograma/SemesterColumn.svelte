@@ -147,7 +147,7 @@
 			/>
 		{/each}
 		<!-- Optativas/eletivas do histórico (cursadas, cursando ou aproveitadas) -->
-		{#each extrasCursadas as extra (`extra-${extra.materia.codigoMateria}-${semester}`)}
+		{#each extrasCursadas as extra (`extra-${extra.materia.codigoMateria}-${extra.dados.anoPeriodo ?? 'cump'}-${semester}`)}
 			<SubjectCard
 				materia={extra.materia}
 				showOptBadge={true}

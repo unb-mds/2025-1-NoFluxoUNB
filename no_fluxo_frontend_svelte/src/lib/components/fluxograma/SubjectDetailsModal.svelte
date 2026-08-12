@@ -153,6 +153,28 @@
 					</div>
 					<h2 class="text-base font-bold text-white sm:text-lg">{materia.nomeMateria}</h2>
 					<p class="mt-1 text-sm text-white/50">{materia.creditos > 0 ? `${materia.creditos} créditos` : 'Créditos não informados'}</p>
+					{#if isOptativa(materia)}
+						{@const exigidaPor =
+							fluxogramaStore.optatorias.get(materia.codigoMateria.trim().toUpperCase()) ?? []}
+						{#if exigidaPor.length > 0}
+							<div class="mt-2 rounded-lg border border-amber-400/40 bg-amber-500/10 px-3 py-2">
+								<p class="text-xs font-semibold uppercase tracking-wider text-amber-300">
+									Optatória
+								</p>
+								<p class="mt-1 text-xs leading-relaxed text-white/80">
+									No SIGAA ela consta como <strong>optativa</strong>, mas é pré-requisito de
+									<strong>{exigidaPor.join(', ')}</strong> — na prática, você vai precisar cursá-la
+									para avançar nas obrigatórias.
+								</p>
+							</div>
+						{:else}
+							<span
+								class="mt-2 inline-block rounded-full bg-purple-500/25 px-2.5 py-0.5 text-xs font-medium text-purple-200"
+							>
+								Optativa — conta para a carga horária optativa
+							</span>
+						{/if}
+					{/if}
 				</div>
 				<button
 					onclick={onclose}

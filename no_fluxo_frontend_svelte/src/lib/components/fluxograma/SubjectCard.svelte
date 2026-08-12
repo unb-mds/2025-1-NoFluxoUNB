@@ -4,6 +4,7 @@
 		SubjectStatusEnum,
 		canBeTaken,
 		hasPrerequisites,
+		isOptativa,
 		type SubjectStatusValue
 	} from '$lib/types/materia';
 	import { satisfazPreRequisitos } from '$lib/types/curso';
@@ -38,6 +39,18 @@
 	let concluidaPorEquivalencia = $derived(
 		status === SubjectStatusEnum.COMPLETED && userData?.tipoDado === 'equivalencia'
 	);
+	/**
+	 * Etiqueta de optativa: vale para qualquer optativa (tipo_natureza=1 no
+	 * SIGAA), inclusive as que têm nível na matriz (ex.: Qualidade de Software 2
+	 * no 7º nível) — antes só planejadas/extras ganhavam a tag.
+	 */
+	let ehOptativa = $derived(showOptBadge || isOptativa(materia));
+	/** "Optatória": optativa exigida como pré-requisito de obrigatória. */
+	let obrigatoriasQueExigem = $derived(
+		store.optatorias.get(materia.codigoMateria.trim().toUpperCase()) ?? []
+	);
+	let ehOptatoria = $derived(ehOptativa && obrigatoriasQueExigem.length > 0);
+
 	/** Aproveitamento de estudos (CUMP no SIGAA): disciplina ganha sem cursar aqui. */
 	let concluidaPorAproveitamento = $derived(
 		status === SubjectStatusEnum.COMPLETED &&
@@ -300,10 +313,15 @@
 	<div class="mb-1 flex shrink-0 items-center justify-between gap-1">
 		<span class="text-[11px] font-semibold uppercase tracking-wider {textColor} opacity-100">
 			{materia.codigoMateria}
-			{#if showOptBadge}
+			{#if ehOptatoria}
+				<span
+					class="ml-1 rounded bg-amber-500/80 px-1 py-px text-[8px] font-bold normal-case text-black"
+					title={`Optatória: consta como optativa no SIGAA, mas é pré-requisito de ${obrigatoriasQueExigem.join(', ')} — na prática você vai precisar dela`}
+				>(optatória)</span>
+			{:else if ehOptativa}
 				<span
 					class="ml-1 rounded bg-purple-500/70 px-1 py-px text-[8px] font-bold normal-case text-white"
-					title="Optativa planejada no fluxograma"
+					title="Optativa — não é exigida individualmente; conta para a carga horária optativa"
 				>(opt)</span>
 			{/if}
 		</span>
