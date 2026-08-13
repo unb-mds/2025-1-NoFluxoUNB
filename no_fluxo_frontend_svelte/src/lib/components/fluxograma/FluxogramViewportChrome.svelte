@@ -561,6 +561,13 @@ function handleToggleFocusMode() {
 							<span class="shrink-0 rounded bg-zinc-50/95 px-1.5 py-0.5 text-[9px] font-semibold text-emerald-900">aprov.</span>
 							<span>Aproveitamento de estudos: ganha por disciplina de outra instituição ou curso</span>
 						</li>
+						<li class="flex items-center gap-2">
+							<span class="shrink-0 rounded bg-teal-400/90 px-1.5 py-0.5 text-[9px] font-medium text-black">mód. livre</span>
+							<span>
+								Cursada fora da matriz do curso (monitoria, eletiva de outro curso). Conta para a
+								carga horária de módulo livre
+							</span>
+						</li>
 					</ul>
 				</section>
 				{#if !store.state.isAnonymous}

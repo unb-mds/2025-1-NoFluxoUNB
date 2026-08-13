@@ -44,7 +44,14 @@
 	 * SIGAA), inclusive as que têm nível na matriz (ex.: Qualidade de Software 2
 	 * no 7º nível) — antes só planejadas/extras ganhavam a tag.
 	 */
-	let ehOptativa = $derived(showOptBadge || isOptativa(materia));
+	/**
+	 * Módulo livre: componente cursado FORA da matriz do curso (monitoria,
+	 * eletiva de outro curso — os itens "#" do SIGAA). Esses cards são
+	 * sintetizados pelo store com idMateria negativo; classificá-los como
+	 * optativa estava errado.
+	 */
+	let ehModuloLivre = $derived(materia.idMateria < 0);
+	let ehOptativa = $derived(!ehModuloLivre && (showOptBadge || isOptativa(materia)));
 	/** "Optatória": optativa exigida como pré-requisito de obrigatória. */
 	let obrigatoriasQueExigem = $derived(
 		store.optatorias.get(materia.codigoMateria.trim().toUpperCase()) ?? []
@@ -350,9 +357,14 @@
 
 	<!-- Etiquetas no canto inferior direito: natureza (opt./optatória) empilha
 	     com a de conquista (equiv./aprov.) quando o card tem as duas. -->
-	{#if ehOptatoria || ehOptativa || concluidaPorEquivalencia || concluidaPorAproveitamento}
+	{#if ehModuloLivre || ehOptatoria || ehOptativa || concluidaPorEquivalencia || concluidaPorAproveitamento}
 		<div class="absolute right-0 -bottom-1.5 flex items-center gap-0.5">
-			{#if ehOptatoria}
+			{#if ehModuloLivre}
+				<span
+					class="rounded bg-teal-400/90 px-1.5 py-0.5 text-[9px] font-medium text-black"
+					title="Módulo livre: componente cursado fora da matriz do curso (monitoria, eletiva de outro curso). Conta para a carga horária de módulo livre"
+				>mód. livre</span>
+			{:else if ehOptatoria}
 				<span
 					class="rounded bg-amber-500/90 px-1.5 py-0.5 text-[9px] font-medium text-black"
 					title={`Optatória: consta como optativa no SIGAA, mas é pré-requisito de ${nomesQueExigem.join(', ')}. Na prática você vai precisar dela`}

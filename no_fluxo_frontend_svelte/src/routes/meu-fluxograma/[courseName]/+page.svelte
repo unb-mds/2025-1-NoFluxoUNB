@@ -7,8 +7,7 @@
 	import FluxogramViewportChrome from '$lib/components/fluxograma/FluxogramViewportChrome.svelte';
 	import FluxogramContainer from '$lib/components/fluxograma/FluxogramContainer.svelte';
 	import SubjectDetailsModal from '$lib/components/fluxograma/SubjectDetailsModal.svelte';
-	import OptativasModal from '$lib/components/fluxograma/OptativasModal.svelte';
-	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
+		import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
 	import ProgressSummaryBar from '$lib/components/fluxograma/ProgressSummaryBar.svelte';
 	import MudancaCursoLauncher from '$lib/components/fluxograma/MudancaCursoLauncher.svelte';
 	import OptativasAdicionadasSection from '$lib/components/fluxograma/OptativasAdicionadasSection.svelte';
@@ -38,7 +37,6 @@ import {
 	let fluxogramaViewportRef: HTMLElement | null = $state(null);
 	let selectedSubject = $state<MateriaModel | null>(null);
 	let chainDialogSubject = $state<MateriaModel | null>(null);
-	let showOptativas = $state(false);
 	let integralizacao = $state<IntegralizacaoResult | null>(null);
 	let integralizacaoLoading = $state(false);
 	let matrizes = $state<Array<{ curriculoCompleto: string }>>([]);
@@ -116,12 +114,6 @@ type EquivalenciaSimulacaoItem = {
 			if (courseSubjectCodes.has(code)) count++;
 		}
 		return count;
-	});
-
-	// Optativas do curso (modal); sem coluna pool no fluxograma.
-	let optativas = $derived.by(() => {
-		if (!store.state.courseData) return [];
-		return store.state.courseData.materias.filter((m) => isOptativa(m));
 	});
 
 let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
@@ -427,7 +419,6 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 						/>
 
 						<FluxogramaLegendControls
-							onOpenOptativas={optativas.length > 0 ? () => (showOptativas = true) : undefined}
 							showFluxogramViewMenu={true}
 							onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
 						/>
@@ -557,14 +548,6 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 				materia={chainDialogSubject}
 				courseData={store.state.courseData}
 				onclose={closeChainDialog}
-			/>
-		{/if}
-
-		<!-- Optativas modal -->
-		{#if showOptativas}
-			<OptativasModal
-				{optativas}
-				onclose={() => (showOptativas = false)}
 			/>
 		{/if}
 

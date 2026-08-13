@@ -5,9 +5,9 @@
 	import { getDirectPrerequisites, getCorequisites } from '$lib/types/curso';
 	import { getStatusLabel, isOptativa, type SubjectStatusValue, SubjectStatusEnum } from '$lib/types/materia';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
-	import { X, BookOpen, GitBranch, Repeat2, Loader2, Trash2, CalendarClock, Bell, BellOff } from 'lucide-svelte';
-	import OptativaTipoModal from './OptativaTipoModal.svelte';
-	import { portal } from '$lib/actions/portal';
+	import { X, BookOpen, GitBranch, GraduationCap, Repeat2, Loader2, Trash2, CalendarClock, Bell, BellOff } from 'lucide-svelte';
+		import { portal } from '$lib/actions/portal';
+import { ROUTES } from '$lib/config/routes';
 	import { getCodigosFromExpressaoLogica, getLogicalCodeGroups } from '$lib/utils/expressao-logica';
 	import {
 		getOfertaDeMateria,
@@ -26,7 +26,6 @@
 
 	const store = fluxogramaStore;
 	let activeTab = $state<'info' | 'prereqs' | 'equivalencias' | 'turmas'>('info');
-	let optativaTipoOpen = $state(false);
 	let removendoPlanejada = $state(false);
 
 	// Turmas ofertadas no período letivo ativo — carrega sob demanda (só quando a aba é
@@ -106,12 +105,10 @@
 	};
 
 	function handleKeydown(e: KeyboardEvent) {
-		if (optativaTipoOpen) return;
 		if (e.key === 'Escape') onclose?.();
 	}
 
 	function handleBackdropClick(e: MouseEvent) {
-		if (optativaTipoOpen) return;
 		if (e.target === e.currentTarget) onclose?.();
 	}
 
@@ -153,7 +150,14 @@
 					</div>
 					<h2 class="text-base font-bold text-white sm:text-lg">{materia.nomeMateria}</h2>
 					<p class="mt-1 text-sm text-white/50">{materia.creditos > 0 ? `${materia.creditos} créditos` : 'Créditos não informados'}</p>
-					{#if isOptativa(materia)}
+					{#if materia.idMateria < 0}
+						<!-- Componente fora da matriz (monitoria, eletiva de outro curso). -->
+						<span
+							class="mt-2 inline-block rounded-full bg-teal-500/25 px-2.5 py-0.5 text-xs font-medium text-teal-200"
+						>
+							Módulo livre: cursada fora da matriz do curso
+						</span>
+					{:else if isOptativa(materia)}
 						{@const exigidaPor =
 							fluxogramaStore.optatorias.get(materia.codigoMateria.trim().toUpperCase()) ?? []}
 						{#if exigidaPor.length > 0}
@@ -515,32 +519,22 @@
 						Remover do fluxograma (sessão anônima)
 					</button>
 				</div>
-			{:else if !store.state.isAnonymous && isOptativa(materia) && (status === SubjectStatusEnum.AVAILABLE || status === SubjectStatusEnum.NOT_STARTED || status === SubjectStatusEnum.LOCKED)}
+			{:else if !store.state.isAnonymous && materia.idMateria > 0 && isOptativa(materia) && (status === SubjectStatusEnum.AVAILABLE || status === SubjectStatusEnum.NOT_STARTED || status === SubjectStatusEnum.LOCKED)}
+				<!-- Quer cursar esta optativa? O lugar de encaixá-la é a previsão de
+				     formatura, onde o Darcy também sugere outras do mesmo interesse. -->
 				<div class="border-t border-white/10 px-6 py-3">
-					<button
-						type="button"
-						onclick={() => {
-							optativaTipoOpen = true;
-						}}
-						class="w-full rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:from-purple-500 hover:to-purple-600"
+					<a
+						href={ROUTES.PLANO_FORMATURA}
+						class="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:from-purple-500 hover:to-purple-600"
 					>
-						Adicionar optativa ao fluxograma / histórico
-					</button>
+						<GraduationCap class="h-4 w-4" />
+						Adicionar à previsão de formatura
+					</a>
+					<p class="mt-1.5 text-center text-[11px] leading-relaxed text-white/45">
+						No Planejador você encaixa esta optativa no semestre certo e o Darcy sugere outras
+						do seu interesse.
+					</p>
 				</div>
 			{/if}
 	</div>
 </div>
-
-{#if optativaTipoOpen}
-	<OptativaTipoModal
-		{materia}
-		defaultSemestre={1}
-		ondecidir={(tipo, sem) => {
-			optativaTipoOpen = false;
-			if (tipo === 'futura') store.addOptativa(materia, sem ?? 1);
-			else store.registrarOptativaConcluida(materia, sem ?? 1);
-			onclose?.();
-		}}
-		onpular={() => (optativaTipoOpen = false)}
-	/>
-{/if}

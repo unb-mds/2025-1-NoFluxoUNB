@@ -1,5 +1,5 @@
 <script lang="ts">
-import { BookOpen, Bot, Info } from 'lucide-svelte';
+import { Bot, GraduationCap, Info } from 'lucide-svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { ROUTES } from '$lib/config/routes';
 	import { SubjectStatusEnum, getStatusLabel } from '$lib/types/materia';
@@ -15,17 +15,16 @@ import { BookOpen, Bot, Info } from 'lucide-svelte';
 	];
 
 	interface Props {
-		onOpenOptativas?: () => void;
-		/** Desktop: mesma barra que Assistente/Optativas; no mobile ficam no header */
+		/** Desktop: mesma barra que Assistente/Planejar; no mobile ficam no header */
 		onOpenFluxogramHelp?: () => void;
 		showFluxogramViewMenu?: boolean;
 	}
 
-	let { onOpenOptativas, onOpenFluxogramHelp, showFluxogramViewMenu = false }: Props = $props();
+	let { onOpenFluxogramHelp, showFluxogramViewMenu = false }: Props = $props();
 
 	const store = fluxogramaStore;
 
-	let hasPrimaryActions = $derived(!store.state.isAnonymous || !!onOpenOptativas);
+	let hasPrimaryActions = $derived(!store.state.isAnonymous);
 	let hasViewActions = $derived(!!onOpenFluxogramHelp || showFluxogramViewMenu);
 	/** Só ajuda/⚙ sem Assistente/Optativas — esconde barra vazia no mobile */
 	let viewOnlyOnDesktop = $derived(!hasPrimaryActions && hasViewActions);
@@ -59,6 +58,17 @@ import { BookOpen, Bot, Info } from 'lucide-svelte';
 
 		<div class="flex min-w-0 flex-wrap items-center gap-2 sm:gap-2.5">
 		{#if !store.state.isAnonymous}
+			<!-- Fluxo principal do produto: o fluxograma mostra onde você está; o
+			     Planejador é onde você monta a previsão de formatura e adiciona
+			     optativas do seu interesse (com sugestões do Darcy). -->
+			<a
+				href={ROUTES.PLANO_FORMATURA}
+				title="Monte sua previsão de formatura semestre a semestre e adicione optativas do seu interesse, com sugestões do Darcy"
+				class="nf-cta-glow inline-flex min-h-9 flex-1 items-center justify-center gap-1.5 rounded-lg border border-primary/60 bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-[filter] hover:brightness-110 sm:min-h-0 sm:flex-none sm:justify-center"
+			>
+				<GraduationCap class="h-3.5 w-3.5 shrink-0" />
+				Planejar formatura
+			</a>
 			<a
 				href={ROUTES.ASSISTENTE}
 				class="inline-flex min-h-9 flex-1 items-center justify-center gap-1.5 rounded-lg border border-primary/40 bg-primary/[0.12] px-3 py-1.5 text-xs font-medium text-purple-200 transition-colors hover:border-primary/55 hover:bg-primary/[0.22] sm:min-h-0 sm:flex-none sm:justify-center"
@@ -66,18 +76,6 @@ import { BookOpen, Bot, Info } from 'lucide-svelte';
 				<Bot class="h-3.5 w-3.5 shrink-0" />
 				Assistente
 			</a>
-		{/if}
-		{#if onOpenOptativas}
-			<button
-				type="button"
-				onclick={onOpenOptativas}
-				class="inline-flex min-h-9 flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/18 bg-white/[0.06] px-3 py-1.5 text-xs font-medium text-white/80 transition-colors hover:border-white/25 hover:bg-white/12 hover:text-white sm:min-h-0 sm:flex-none {!store.state.isAnonymous
-					? 'sm:min-w-[8rem]'
-					: ''}"
-			>
-				<BookOpen class="h-3.5 w-3.5 shrink-0" />
-				Optativas
-			</button>
 		{/if}
 
 		<div class="hidden items-center gap-2 md:ml-auto md:flex md:shrink-0">

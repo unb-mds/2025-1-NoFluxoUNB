@@ -7,8 +7,7 @@
 	import FluxogramContainer from '$lib/components/fluxograma/FluxogramContainer.svelte';
 	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
 	import SubjectDetailsModal from '$lib/components/fluxograma/SubjectDetailsModal.svelte';
-	import OptativasModal from '$lib/components/fluxograma/OptativasModal.svelte';
-	import OptativasAdicionadasSection from '$lib/components/fluxograma/OptativasAdicionadasSection.svelte';
+		import OptativasAdicionadasSection from '$lib/components/fluxograma/OptativasAdicionadasSection.svelte';
 	import ProgressToolsSection from '$lib/components/fluxograma/ProgressToolsSection.svelte';
 	import PrerequisiteChainDialog from '$lib/components/fluxograma/PrerequisiteChainDialog.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
@@ -18,7 +17,7 @@
 	import { ROUTES } from '$lib/config/routes';
 	import { onMount, tick } from 'svelte';
 	import { Upload, Loader2, AlertTriangle, Info } from 'lucide-svelte';
-	import { isOptativa, type MateriaModel } from '$lib/types/materia';
+	import { type MateriaModel } from '$lib/types/materia';
 	import type { IntegralizacaoResult } from '$lib/types/matriz';
 
 	const store = fluxogramaStore;
@@ -27,7 +26,6 @@
 	let fluxogramaViewportRef: HTMLElement | null = $state(null);
 	let selectedSubject = $state<MateriaModel | null>(null);
 	let chainDialogSubject = $state<MateriaModel | null>(null);
-	let showOptativas = $state(false);
 	let integralizacao = $state<IntegralizacaoResult | null>(null);
 	let integralizacaoLoading = $state(false);
 	let matrizes = $state<Array<{ curriculoCompleto: string; status?: string | null }>>([]);
@@ -42,11 +40,6 @@
 	let curriculoCompletoAtual = $derived(store.state.courseData?.curriculoCompleto ?? null);
 	let resolvedMatrizCurricular = $state<string | null>(null);
 
-	// Optativas do curso (modal); não há coluna pool no fluxograma — só ao planejar por semestre.
-	let optativas = $derived.by(() => {
-		if (!store.state.courseData) return [];
-		return store.state.courseData.materias.filter((m) => isOptativa(m));
-	});
 
 	$effect(() => {
 		const course = store.state.courseData;
@@ -319,7 +312,6 @@
 							onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
 						/>
 						<FluxogramaLegendControls
-							onOpenOptativas={() => (showOptativas = true)}
 							showFluxogramViewMenu={true}
 							onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
 						/>
@@ -377,14 +369,6 @@
 				materia={selectedSubject}
 				courseData={store.state.courseData}
 				onclose={closeSubjectModal}
-			/>
-		{/if}
-
-		<!-- Optativas modal -->
-		{#if showOptativas}
-			<OptativasModal
-				{optativas}
-				onclose={() => (showOptativas = false)}
 			/>
 		{/if}
 
