@@ -21,7 +21,8 @@
 		BookOpenCheck,
 		X,
 		Bot,
-		Download
+		Download,
+		Sparkles
 	} from 'lucide-svelte';
 	import html2canvas from 'html2canvas-pro';
 
@@ -59,6 +60,18 @@
 			resetChat();
 			chatPositioned = true;
 		}
+	});
+
+	// Mensagens de usuário disparadas fora da view (ex.: interesses informados no
+	// onboarding) abrem o chat — senão a resposta do Darcy AI chega com o painel
+	// fechado e o aluno nem fica sabendo.
+	let ultimaContagemChat = 0;
+	$effect(() => {
+		const msgs = planoFormaturaStore.chatMessages;
+		if (msgs.length > ultimaContagemChat && msgs[msgs.length - 1]?.role === 'user' && !isChatOpen) {
+			isChatOpen = true;
+		}
+		ultimaContagemChat = msgs.length;
 	});
 
 	function draggable(node: HTMLElement) {
@@ -430,12 +443,20 @@
 
 			<!-- Notice about elective credits -->
 			{#if hasOptativasPendentes}
-				<div class="flex items-start gap-2.5 rounded-xl border border-amber-500/20 bg-amber-600/8 px-4 py-3">
-					<BookOpenCheck class="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
-					<p class="text-xs text-amber-200/70 leading-relaxed">
+				<div class="flex flex-wrap items-center gap-2.5 rounded-xl border border-amber-500/20 bg-amber-600/8 px-4 py-3">
+					<BookOpenCheck class="h-4 w-4 shrink-0 text-amber-400" />
+					<p class="min-w-[200px] flex-1 text-xs text-amber-200/70 leading-relaxed">
 						O plano cobre as matérias <strong class="text-amber-200/90">obrigatórias</strong>.
-						Créditos optativos e complementares devem ser planejados separadamente.
+						Para as optativas, conte seus interesses ao Darcy AI e receba sugestões que combinam com você.
 					</p>
+					<button
+						type="button"
+						onclick={() => handleChatAction('Me ajude a escolher optativas: pergunte quais são meus interesses dentro da minha área e depois sugira matérias optativas da UnB que combinem com eles.')}
+						class="flex shrink-0 touch-manipulation items-center gap-1.5 rounded-lg border border-pink-500/30 bg-pink-500/10 px-3 py-1.5 text-xs font-medium text-pink-300 transition-colors hover:border-pink-500/50 hover:bg-pink-500/20"
+					>
+						<Sparkles class="h-3.5 w-3.5" />
+						Sugerir optativas
+					</button>
 				</div>
 			{/if}
 
