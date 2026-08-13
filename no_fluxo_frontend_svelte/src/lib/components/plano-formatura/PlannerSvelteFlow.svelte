@@ -4,7 +4,7 @@
 	import { browser } from '$app/environment';
 	import type { PlanoFormatura } from '$lib/types/plano-formatura';
 	import type { CursoModel } from '$lib/types/curso';
-	import { getDirectPrerequisites } from '$lib/types/curso';
+	import { getCodigosFromExpressaoLogica } from '$lib/utils/expressao-logica';
 	import SvelteFlowMateriaNode from './SvelteFlowMateriaNode.svelte';
 	import SvelteFlowHeaderNode from './SvelteFlowHeaderNode.svelte';
 	import type { MateriaPlano } from '$lib/types/plano-formatura';
@@ -180,36 +180,70 @@
 			currentColumnIndex++;
 		});
 
-		// 2. Criar Edges (Arestas) verificando os pré-requisitos
+		// 2. Arestas: cada matéria conecta a TODOS os pré/co-requisitos presentes no
+		// diagrama. A expressão pode ser composta — ((A E B) OU C) — então os códigos
+		// vêm da expressão inteira, não de um único campo: reduzir ao primeiro código
+		// perdia setas (FGA0244 exige FGA0211 E FGA0030; só FGA0211 aparecia) e errava
+		// quando a primeira alternativa nem estava no plano (FGA0147 vs FGA0146 nova).
 		if (curso) {
-			plano.plano.forEach((semestre) => {
-				semestre.materias.forEach((item) => {
-					if ('codigo' in item) {
-						const targetNodeId = codeToNodeId.get(item.codigo);
-						if (!targetNodeId) return;
+			const normCod = (c: string) => c.trim().toUpperCase();
+			// codeToNodeId usa códigos normalizados do backend; espelha para o lookup.
+			const nodePorCodigo = new Map(
+				[...codeToNodeId].map(([cod, id]) => [normCod(cod), id])
+			);
+			const materiaPorCodigo = new Map(
+				curso.materias.map((m) => [normCod(m.codigoMateria), m])
+			);
+			const edgeIds = new Set<string>();
 
-						const prereqs = getDirectPrerequisites(curso, item.codigo);
-						prereqs.forEach(prereqMateria => {
-							const sourceNodeId = codeToNodeId.get(prereqMateria.codigoMateria);
-							// Se o pré-requisito também está no plano (não foi concluído ainda)
-							if (sourceNodeId) {
-								newEdges.push({
-									id: `edge-${sourceNodeId}-${targetNodeId}`,
-									source: sourceNodeId,
-									target: targetNodeId,
-									type: 'smoothstep',
-									animated: true,
-									style: 'stroke: rgba(255,255,255,0.2); stroke-width: 2;',
-									markerEnd: {
-										type: MarkerType.ArrowClosed,
-										color: 'rgba(255,255,255,0.2)',
-									}
-								});
-							}
-						});
-					}
+			const pushEdge = (sourceNodeId: string, targetNodeId: string, coreq: boolean) => {
+				const id = `edge-${coreq ? 'co-' : ''}${sourceNodeId}-${targetNodeId}`;
+				if (edgeIds.has(id) || sourceNodeId === targetNodeId) return;
+				edgeIds.add(id);
+				const cor = coreq ? 'rgba(168,85,247,0.45)' : 'rgba(255,255,255,0.2)';
+				newEdges.push({
+					id,
+					source: sourceNodeId,
+					target: targetNodeId,
+					type: 'smoothstep',
+					animated: !coreq,
+					label: coreq ? 'co-req' : undefined,
+					style: `stroke: ${cor}; stroke-width: 2;${coreq ? ' stroke-dasharray: 6 4;' : ''}`,
+					markerEnd: { type: MarkerType.ArrowClosed, color: cor }
 				});
-			});
+			};
+
+			// Códigos exigidos por uma linha de requisito: expressão completa quando
+			// existir, senão o código simples resolvido pelo factory.
+			const codigosDaLinha = (
+				expressao: Parameters<typeof getCodigosFromExpressaoLogica>[0],
+				codigoSimples: string | undefined
+			): string[] => {
+				const daExpressao = getCodigosFromExpressaoLogica(expressao);
+				const base = daExpressao.length > 0 ? daExpressao : codigoSimples ? [codigoSimples] : [];
+				return base.map(normCod);
+			};
+
+			for (const [codigo, targetNodeId] of codeToNodeId) {
+				const materia = materiaPorCodigo.get(normCod(codigo));
+				if (!materia) continue; // fora da matriz (módulo livre/equivalente): sem linhas próprias
+
+				for (const pr of curso.preRequisitos) {
+					if (pr.idMateria !== materia.idMateria) continue;
+					for (const cod of codigosDaLinha(pr.expressaoLogica, pr.codigoMateriaRequisito)) {
+						const sourceNodeId = nodePorCodigo.get(cod);
+						if (sourceNodeId) pushEdge(sourceNodeId, targetNodeId, false);
+					}
+				}
+
+				for (const co of curso.coRequisitos ?? []) {
+					if (co.idMateria !== materia.idMateria) continue;
+					for (const cod of codigosDaLinha(co.expressaoLogica, co.codigoMateriaCoRequisito)) {
+						const sourceNodeId = nodePorCodigo.get(cod);
+						if (sourceNodeId) pushEdge(sourceNodeId, targetNodeId, true);
+					}
+				}
+			}
 		}
 
 		nodes = newNodes;
