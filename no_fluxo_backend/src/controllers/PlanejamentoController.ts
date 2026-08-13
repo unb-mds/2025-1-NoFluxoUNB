@@ -109,8 +109,12 @@ function parseBody(body: unknown): { input?: PlanoInput; error?: string } {
     if (isObject(rawRestricoes)) {
         const normList = (v: unknown): string[] =>
             Array.isArray(v) ? v.filter((c): c is string => typeof c === "string").map((c) => c.trim().toUpperCase()) : [];
-        const restricoes = { adiar: normList(rawRestricoes.adiar), priorizar: normList(rawRestricoes.priorizar) };
-        if (restricoes.adiar.length > 0 || restricoes.priorizar.length > 0) {
+        const restricoes = {
+            adiar: normList(rawRestricoes.adiar),
+            priorizar: normList(rawRestricoes.priorizar),
+            adicionar: normList(rawRestricoes.adicionar),
+        };
+        if (restricoes.adiar.length > 0 || restricoes.priorizar.length > 0 || restricoes.adicionar.length > 0) {
             if (preferencias) preferencias.restricoes = restricoes;
         }
     }
@@ -176,6 +180,58 @@ export async function resolverPeriodoAtivo(supabase: any): Promise<string> {
 }
 
 /**
+ * Injeta no pool do alocador as optativas que o aluno adicionou via chat e que
+ * não estão na matriz do curso: busca nome/carga/pré-requisitos na tabela
+ * global de matérias e as inclui como optativa (nivel 0). Degrada em silêncio —
+ * sem os dados, a optativa apenas não entra no plano.
+ */
+export async function injetarOptativasAdicionadas(
+    pool: MateriaInput[],
+    codigosRaw: string[] | undefined
+): Promise<void> {
+    const codigos = [...new Set((codigosRaw ?? []).map((c) => c.trim().toUpperCase()).filter(Boolean))];
+    const faltando = codigos.filter(
+        (c) => !pool.some((m) => m.codigo.trim().toUpperCase() === c)
+    );
+    if (faltando.length === 0) return;
+
+    const { data, error } = await SupabaseWrapper.get()
+        .from("materias")
+        .select("id_materia, codigo_materia, nome_materia, carga_horaria")
+        .in("codigo_materia", faltando);
+    if (error || !data) return;
+
+    const ids = (data as any[])
+        .map((r) => r.id_materia)
+        .filter((id): id is number => typeof id === "number");
+    const preByMateria = new Map<number, unknown>();
+    if (ids.length > 0) {
+        const { data: preRows } = await SupabaseWrapper.get()
+            .from("pre_requisitos")
+            .select("id_materia, expressao_logica")
+            .in("id_materia", ids);
+        (preRows ?? []).forEach((r: any) => preByMateria.set(r.id_materia, r.expressao_logica));
+    }
+
+    for (const r of data as any[]) {
+        const codigo = (r.codigo_materia || "").trim().toUpperCase();
+        if (!codigo || pool.some((m) => m.codigo.trim().toUpperCase() === codigo)) continue;
+        const carga = r.carga_horaria ?? 60;
+        pool.push({
+            codigo,
+            nome: r.nome_materia ?? codigo,
+            creditos: Math.round(carga / 15),
+            nivel: 0,
+            obrigatoria: false,
+            tipo_natureza: 1,
+            carga_horaria: carga,
+            preRequisitos: preByMateria.get(r.id_materia) ?? null,
+            coRequisitos: null,
+        });
+    }
+}
+
+/**
  * Monta todos os dados necessários para gerar o plano (busca em banco + processamento).
  * Retorna { dados } se sucesso ou { status, error } se erro.
  */
@@ -229,6 +285,12 @@ export async function montarDadosPlano(
             objetivo: prefs.objetivo === "velocidade" ? "velocidade" : "equilibrado",
             trabalha: Boolean(prefs.trabalha)
         };
+        // Restrições persistidas (adiar/priorizar/adicionar): o body ganha; sem
+        // restrições no body, as salvas continuam valendo — senão as optativas
+        // adicionadas via chat sumiriam do plano no reload da página.
+        if (!preferencias.restricoes && prefs.restricoes && typeof prefs.restricoes === "object") {
+            preferencias.restricoes = prefs.restricoes as RestricoesPlano;
+        }
 
         // 2. Busca materias_por_curso
         const { data: materiasPorCurso, error: erroMPC } = await SupabaseWrapper.get()
@@ -382,6 +444,10 @@ export async function montarDadosPlano(
             codigosComOfertaPropria
         );
 
+        // Optativas adicionadas via chat podem estar FORA da matriz — sem linha em
+        // materias_por_curso não existe MateriaInput para o alocador considerar.
+        await injetarOptativasAdicionadas(materiasMapeadas, preferencias.restricoes?.adicionar);
+
         // 6. LAZY LOADING DA DIFICULDADE
         const materiasSemDificuldade = materiasMapeadas.filter(m => m.dificuldadeEstimada == null);
         if (materiasSemDificuldade.length > 0) {
@@ -423,9 +489,14 @@ export async function montarContextoAgente(
     const { input, error: inputError } = parseBody(planoInputRaw);
     if (inputError) return { status: 400, error: inputError };
 
+    const normCodes = (v: unknown): string[] =>
+        Array.isArray(v)
+            ? v.filter((c): c is string => typeof c === "string").map((c) => c.trim().toUpperCase())
+            : [];
     const restricoes: RestricoesPlano = {
-        adiar: Array.isArray((restricoesRaw as any)?.adiar) ? (restricoesRaw as any).adiar : [],
-        priorizar: Array.isArray((restricoesRaw as any)?.priorizar) ? (restricoesRaw as any).priorizar : [],
+        adiar: normCodes((restricoesRaw as any)?.adiar),
+        priorizar: normCodes((restricoesRaw as any)?.priorizar),
+        adicionar: normCodes((restricoesRaw as any)?.adicionar),
         limitesPersonalizados:
             typeof (restricoesRaw as any)?.limitesPersonalizados === "object" && (restricoesRaw as any).limitesPersonalizados !== null
                 ? (restricoesRaw as any).limitesPersonalizados
@@ -435,6 +506,10 @@ export async function montarContextoAgente(
     const { dados, status, error } = await montarDadosPlano(idUser, input!);
     if (error) return { status: status || 500, error };
     if (!dados) return { status: 500, error: "Erro interno ao montar dados do plano" };
+
+    // Optativas já adicionadas em conversas anteriores precisam existir no pool
+    // para o alocador (as persistidas via preferências já foram injetadas).
+    await injetarOptativasAdicionadas(dados.materiasMapeadas, restricoes.adicionar);
 
     const ctx: AgenteContexto = {
         materias: dados.materiasMapeadas,
@@ -449,6 +524,7 @@ export async function montarContextoAgente(
             adiar: restricoes.adiar,
             priorizar: restricoes.priorizar,
             limitesPersonalizados: restricoes.limitesPersonalizados || {},
+            adicionar: restricoes.adicionar ?? [],
         },
         codigosComOferta: dados.codigosComOferta,
     };

@@ -27,6 +27,11 @@ export interface RestricoesPlano {
     priorizar: string[];
     /** Limite de creditos customizado por indice de semestre (0 = próximo). Chave: indice, Valor: creditos. */
     limitesPersonalizados?: Record<number, number>;
+    /**
+     * Optativas que o aluno escolheu ADICIONAR ao plano (via chat). Entram na
+     * alocacao como materias concretas e abatem a CH optativa faltante.
+     */
+    adicionar?: string[];
 }
 
 /**

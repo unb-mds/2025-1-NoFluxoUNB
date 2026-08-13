@@ -10,6 +10,10 @@ export interface RestricoesPlano {
 	adiar: string[];
 	/** Códigos priorizados para entrar no semestre mais cedo. */
 	priorizar: string[];
+	/** Limite de créditos customizado por índice de semestre. */
+	limitesPersonalizados?: Record<number, number>;
+	/** Optativas que o aluno adicionou ao plano via chat. */
+	adicionar?: string[];
 }
 
 // ─── Mensagens de chat ───────────────────────────────────────────────────────

@@ -11,6 +11,8 @@ import {
 } from "../context";
 import type { AgentTool, ToolResult } from "../tool_registry";
 import type { MateriaPlano } from "../../../types/planejamento";
+import { parseFluxograma } from "../../plano_formatura.service";
+import { SupabaseWrapper } from "../../../supabase_wrapper";
 
 function consultarPlano(args: Record<string, unknown>, ctx: AgenteContexto): string {
     const plano = gerarPlanoDoContexto(ctx);
@@ -52,6 +54,7 @@ function simularCenario(args: Record<string, unknown>, ctx: AgenteContexto): str
             adiar: [...ctx.restricoes.adiar],
             priorizar: [...ctx.restricoes.priorizar],
             limitesPersonalizados: { ...ctx.restricoes.limitesPersonalizados },
+            adicionar: [...ctx.restricoes.adicionar],
         },
     };
 
@@ -145,6 +148,132 @@ function moverMateria(args: Record<string, unknown>, ctx: AgenteContexto): ToolR
         planoAtualizado: plano,
     };
 }
+
+/**
+ * Adiciona (ou remove) uma OPTATIVA no plano de formatura. A matéria entra na
+ * alocação como componente concreto e a CH dela abate a CH optativa faltante.
+ * Valida a situação do aluno antes: concluída, em curso ou obrigatória do curso
+ * não podem ser adicionadas.
+ */
+async function adicionarOptativa(
+    args: Record<string, unknown>,
+    ctx: AgenteContexto
+): Promise<ToolResult> {
+    const codigo = typeof args.codigo === "string" ? norm(args.codigo) : "";
+    const acao = args.acao === "remover" ? "remover" : "adicionar";
+    if (!codigo) {
+        return { resultado: JSON.stringify({ erro: "Informe o código da matéria em 'codigo'." }) };
+    }
+
+    if (acao === "remover") {
+        if (!ctx.restricoes.adicionar.includes(codigo)) {
+            return {
+                resultado: JSON.stringify({ erro: `${codigo} não está entre as optativas adicionadas ao plano.` }),
+            };
+        }
+        ctx.restricoes.adicionar = ctx.restricoes.adicionar.filter((c) => c !== codigo);
+        const plano = gerarPlanoDoContexto(ctx);
+        return {
+            resultado: JSON.stringify({
+                mensagem: `Optativa ${codigo} removida do plano.`,
+                planoAtualizado: resumoDoPlano(plano, ctx),
+            }),
+            planoAtualizado: plano,
+        };
+    }
+
+    // Situação do aluno: não adicionar o que já foi vencido ou entra sozinho no plano.
+    const { completed, currentSemester } = parseFluxograma(ctx.fluxogramaAtual);
+    if (completed.has(codigo)) {
+        return { resultado: JSON.stringify({ erro: `${codigo} já foi concluída pelo aluno — não faz sentido adicionar.` }) };
+    }
+    if (currentSemester.some((m) => norm(m.codigo) === codigo)) {
+        return { resultado: JSON.stringify({ erro: `${codigo} já está em curso neste semestre.` }) };
+    }
+    const daMatriz = ctx.materias.find((m) => norm(m.codigo) === codigo);
+    if (daMatriz?.obrigatoria) {
+        return { resultado: JSON.stringify({ erro: `${codigo} é obrigatória do curso e já entra no plano automaticamente.` }) };
+    }
+    if (ctx.restricoes.adicionar.includes(codigo)) {
+        return { resultado: JSON.stringify({ erro: `${codigo} já foi adicionada ao plano.` }) };
+    }
+
+    // Fora da matriz: busca os dados na base global para o alocador conhecer a matéria.
+    if (!daMatriz) {
+        const { data } = await SupabaseWrapper.get()
+            .from("materias")
+            .select("id_materia, codigo_materia, nome_materia, carga_horaria")
+            .eq("codigo_materia", codigo)
+            .limit(1);
+        const row = (data ?? [])[0] as
+            | { id_materia: number; codigo_materia: string; nome_materia: string | null; carga_horaria: number | null }
+            | undefined;
+        if (!row) {
+            return { resultado: JSON.stringify({ erro: `Matéria ${codigo} não encontrada na base da UnB.` }) };
+        }
+        const { data: preRows } = await SupabaseWrapper.get()
+            .from("pre_requisitos")
+            .select("expressao_logica")
+            .eq("id_materia", row.id_materia);
+        const carga = row.carga_horaria ?? 60;
+        ctx.materias.push({
+            codigo,
+            nome: row.nome_materia ?? codigo,
+            creditos: Math.round(carga / 15),
+            nivel: 0,
+            obrigatoria: false,
+            tipo_natureza: 1,
+            carga_horaria: carga,
+            preRequisitos: (preRows ?? [])[0]?.expressao_logica ?? null,
+            coRequisitos: null,
+        });
+    }
+
+    ctx.restricoes.adicionar.push(codigo);
+    const plano = gerarPlanoDoContexto(ctx);
+    const entrou = plano.plano.some((s) =>
+        s.materias.some((m) => "codigo" in m && norm((m as MateriaPlano).codigo) === codigo)
+    );
+    return {
+        resultado: JSON.stringify({
+            mensagem: entrou
+                ? `Optativa ${codigo} adicionada ao plano.`
+                : `Optativa ${codigo} registrada, mas o alocador não conseguiu encaixá-la (provável pré-requisito pendente) — avise o aluno.`,
+            chOptativaFaltante: plano.chOptativaFaltante,
+            planoAtualizado: resumoDoPlano(plano, ctx),
+        }),
+        planoAtualizado: plano,
+    };
+}
+
+export const adicionarOptativaTool: AgentTool = {
+    name: "adicionar_optativa",
+    requiresPlano: true,
+    schema: {
+        type: "function",
+        function: {
+            name: "adicionar_optativa",
+            description:
+                "Adiciona uma matéria OPTATIVA ao plano de formatura do aluno (ou remove uma adicionada antes). A carga horária dela passa a contar para as horas optativas faltantes. Use DEPOIS que o aluno confirmar que quer aquela optativa no plano.",
+            parameters: {
+                type: "object",
+                properties: {
+                    codigo: {
+                        type: "string",
+                        description: "Código da matéria optativa (ex: FCTE0005). Obrigatório.",
+                    },
+                    acao: {
+                        type: "string",
+                        enum: ["adicionar", "remover"],
+                        description: "Padrão: 'adicionar'. Use 'remover' para tirar uma optativa adicionada antes.",
+                    },
+                },
+                required: ["codigo"],
+            },
+        },
+    },
+    execute: async (args, ctx) => adicionarOptativa(args, ctx),
+};
 
 export const consultarPlanoTool: AgentTool = {
     name: "consultar_plano",

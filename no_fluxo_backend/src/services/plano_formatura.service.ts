@@ -1073,7 +1073,13 @@ export function gerarPlanoCompletov2(
 
     const materiasFaltantes = materias.filter((m) => !completedPlusMatr.has(norm(m.codigo)));
 
-    const obrigatorias = materiasFaltantes.filter((m) => m.obrigatoria);
+    // Optativas que o aluno pediu para ADICIONAR (via chat) entram na alocacao como
+    // materias concretas, no mesmo pipeline das obrigatorias; a CH delas abate a
+    // reserva de slots e a CH optativa faltante mais abaixo.
+    const adicionadas = new Set((prefs.restricoes?.adicionar ?? []).map(norm));
+    const obrigatorias = materiasFaltantes.filter(
+        (m) => m.obrigatoria || adicionadas.has(norm(m.codigo))
+    );
 
     // Calcular semestre atual como string "2026.1" para preencher labels das colunas
     const semestreBaseStr = calcularSemestreAtualStr();
@@ -1096,15 +1102,31 @@ export function gerarPlanoCompletov2(
         offsetSemestre
     );
 
+    // CH das optativas adicionadas que de fato entraram no plano: cobre parte da
+    // CH optativa faltante, entao os slots genericos reservam so o restante.
+    let chOptativaConcreta = 0;
+    if (adicionadas.size > 0) {
+        for (const sem of semestres) {
+            for (const m of sem.materias) {
+                if ("codigo" in m && m.codigo && adicionadas.has(norm(m.codigo))) {
+                    const matInfo = materias.find((x) => norm(x.codigo) === norm(m.codigo));
+                    if (matInfo && !matInfo.obrigatoria) {
+                        chOptativaConcreta += matInfo.carga_horaria ?? creditosParaHoras(getCreditosSafely(matInfo));
+                    }
+                }
+            }
+        }
+    }
+
     const { semestres: semestresComSlots, optativaAlocada, complementarAlocado } = distribuirSlots(
         semestres,
-        chFaltante.optativa,
+        Math.max(0, chFaltante.optativa - chOptativaConcreta),
         chFaltante.complementar,
         prefs.limiteCreditos,
         prefs.restricoes?.limitesPersonalizados
     );
 
-    const chOptativaRestante = Math.max(0, chFaltante.optativa - optativaAlocada);
+    const chOptativaRestante = Math.max(0, chFaltante.optativa - chOptativaConcreta - optativaAlocada);
     const chComplementarRestante = Math.max(0, chFaltante.complementar - complementarAlocado);
 
     // Calcula quantas obrigatórias conseguimos alocar (CH em horas)

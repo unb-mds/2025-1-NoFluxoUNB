@@ -19,6 +19,7 @@ import {
     ajustarCargaTool,
     ajustarCargaSemestreTool,
     moverMateriaTool,
+    adicionarOptativaTool,
 } from "./plano_tools";
 import {
     consultarHistoricoAlunoTool,
@@ -38,7 +39,8 @@ export function createDefaultRegistry(): ToolRegistry {
         .register(simularCenarioTool)
         .register(ajustarCargaTool)
         .register(ajustarCargaSemestreTool)
-        .register(moverMateriaTool);
+        .register(moverMateriaTool)
+        .register(adicionarOptativaTool);
 }
 
 /** Registry singleton compartilhado pelos dois chats. */
