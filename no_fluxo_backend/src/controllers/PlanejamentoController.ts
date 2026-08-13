@@ -49,6 +49,18 @@ function isObject(v: unknown): v is Record<string, unknown> {
     return typeof v === "object" && v !== null && !Array.isArray(v);
 }
 
+/** Normaliza o mapa codigo -> indice de semestre das optativas adicionadas. */
+function normMapaSemestres(raw: unknown): Record<string, number> {
+    const out: Record<string, number> = {};
+    if (!isObject(raw)) return out;
+    for (const [cod, val] of Object.entries(raw)) {
+        const codigo = cod.trim().toUpperCase();
+        const idx = Number(val);
+        if (codigo && Number.isFinite(idx) && idx >= 0) out[codigo] = Math.floor(idx);
+    }
+    return out;
+}
+
 function validatePreferencias(raw: unknown): PreferenciasPlano | null {
     if (!isObject(raw)) return null;
     const limite = Number(raw.limiteCreditos);
@@ -109,12 +121,17 @@ function parseBody(body: unknown): { input?: PlanoInput; error?: string } {
     if (isObject(rawRestricoes)) {
         const normList = (v: unknown): string[] =>
             Array.isArray(v) ? v.filter((c): c is string => typeof c === "string").map((c) => c.trim().toUpperCase()) : [];
-        const restricoes = {
+        const restricoes: RestricoesPlano = {
             adiar: normList(rawRestricoes.adiar),
             priorizar: normList(rawRestricoes.priorizar),
             adicionar: normList(rawRestricoes.adicionar),
+            adicionarEm: normMapaSemestres(rawRestricoes.adicionarEm),
         };
-        if (restricoes.adiar.length > 0 || restricoes.priorizar.length > 0 || restricoes.adicionar.length > 0) {
+        if (
+            restricoes.adiar.length > 0 ||
+            restricoes.priorizar.length > 0 ||
+            (restricoes.adicionar?.length ?? 0) > 0
+        ) {
             if (preferencias) preferencias.restricoes = restricoes;
         }
     }
@@ -497,6 +514,7 @@ export async function montarContextoAgente(
         adiar: normCodes((restricoesRaw as any)?.adiar),
         priorizar: normCodes((restricoesRaw as any)?.priorizar),
         adicionar: normCodes((restricoesRaw as any)?.adicionar),
+        adicionarEm: normMapaSemestres((restricoesRaw as any)?.adicionarEm),
         limitesPersonalizados:
             typeof (restricoesRaw as any)?.limitesPersonalizados === "object" && (restricoesRaw as any).limitesPersonalizados !== null
                 ? (restricoesRaw as any).limitesPersonalizados
@@ -525,6 +543,7 @@ export async function montarContextoAgente(
             priorizar: restricoes.priorizar,
             limitesPersonalizados: restricoes.limitesPersonalizados || {},
             adicionar: restricoes.adicionar ?? [],
+            adicionarEm: restricoes.adicionarEm ?? {},
         },
         codigosComOferta: dados.codigosComOferta,
     };

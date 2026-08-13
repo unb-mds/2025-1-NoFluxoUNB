@@ -14,6 +14,8 @@ export interface RestricoesPlano {
 	limitesPersonalizados?: Record<number, number>;
 	/** Optativas que o aluno adicionou ao plano via chat. */
 	adicionar?: string[];
+	/** Semestre escolhido por optativa adicionada (código → índice no plano). */
+	adicionarEm?: Record<string, number>;
 }
 
 // ─── Mensagens de chat ───────────────────────────────────────────────────────
@@ -78,6 +80,8 @@ export interface MateriaPlano {
 	dificuldadeEstimada?: number;
 	/** Justificativa da IA para a dificuldade calculada. */
 	motivoDificuldade?: string;
+	/** true quando a matéria não é obrigatória (optativa adicionada pelo aluno). */
+	optativa?: boolean;
 }
 
 // ─── Slots genéricos para créditos ────────────────────────────────────────────

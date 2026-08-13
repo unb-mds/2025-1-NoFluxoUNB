@@ -31,6 +31,8 @@ export interface RestricoesPlanoInternas {
     limitesPersonalizados: Record<number, number>;
     /** Optativas que o aluno escolheu adicionar ao plano (codigos normalizados). */
     adicionar: string[];
+    /** Semestre escolhido por optativa adicionada (codigo -> indice no plano). */
+    adicionarEm: Record<string, number>;
 }
 
 /**
@@ -110,7 +112,7 @@ export function criarContextoLeve(idUser: string = ""): AgenteContexto {
         idCurso: "",
         numeroPeriodo: 0,
         preferencias: { limiteCreditos: 24, objetivo: "equilibrado", trabalha: false },
-        restricoes: { adiar: [], priorizar: [], limitesPersonalizados: {}, adicionar: [] },
+        restricoes: { adiar: [], priorizar: [], limitesPersonalizados: {}, adicionar: [], adicionarEm: {} },
         codigosComOferta: new Set(),
     };
 }
@@ -131,6 +133,7 @@ export function gerarPlanoDoContexto(ctx: AgenteContexto): PlanoFormaturav2 {
                 priorizar: ctx.restricoes.priorizar,
                 limitesPersonalizados: ctx.restricoes.limitesPersonalizados,
                 adicionar: ctx.restricoes.adicionar,
+                adicionarEm: ctx.restricoes.adicionarEm,
             },
         },
         ctx.codigosComOferta

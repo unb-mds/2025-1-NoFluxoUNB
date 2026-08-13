@@ -32,6 +32,11 @@ export interface RestricoesPlano {
      * alocacao como materias concretas e abatem a CH optativa faltante.
      */
     adicionar?: string[];
+    /**
+     * Semestre escolhido pelo aluno para cada optativa adicionada
+     * (codigo -> indice do semestre no plano). Sem entrada = onde couber.
+     */
+    adicionarEm?: Record<string, number>;
 }
 
 /**
@@ -143,6 +148,8 @@ export interface MateriaPlano {
     dificuldadeEstimada?: number;
     /** Motivo textual da avaliacao de dificuldade (geralmente provido pela IA). */
     motivoDificuldade?: string;
+    /** true quando a materia NAO eh obrigatoria (optativa adicionada pelo aluno). */
+    optativa?: boolean;
 }
 
 /** Slot generico para optativas (nao especifica materia). */

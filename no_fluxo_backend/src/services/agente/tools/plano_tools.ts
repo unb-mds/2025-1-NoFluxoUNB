@@ -55,6 +55,7 @@ function simularCenario(args: Record<string, unknown>, ctx: AgenteContexto): str
             priorizar: [...ctx.restricoes.priorizar],
             limitesPersonalizados: { ...ctx.restricoes.limitesPersonalizados },
             adicionar: [...ctx.restricoes.adicionar],
+            adicionarEm: { ...ctx.restricoes.adicionarEm },
         },
     };
 
@@ -172,6 +173,7 @@ async function adicionarOptativa(
             };
         }
         ctx.restricoes.adicionar = ctx.restricoes.adicionar.filter((c) => c !== codigo);
+        delete ctx.restricoes.adicionarEm[codigo];
         const plano = gerarPlanoDoContexto(ctx);
         return {
             resultado: JSON.stringify({
@@ -230,14 +232,23 @@ async function adicionarOptativa(
     }
 
     ctx.restricoes.adicionar.push(codigo);
+    const semestreIndice = Number(args.semestreIndice);
+    if (Number.isFinite(semestreIndice) && semestreIndice >= 0) {
+        ctx.restricoes.adicionarEm[codigo] = Math.floor(semestreIndice);
+    }
     const plano = gerarPlanoDoContexto(ctx);
-    const entrou = plano.plano.some((s) =>
+    const semDestino = plano.plano.find((s) =>
         s.materias.some((m) => "codigo" in m && norm((m as MateriaPlano).codigo) === codigo)
     );
+    const pediuIndice = Number.isFinite(semestreIndice) && semestreIndice >= 0;
+    const caiuOndePediu = !pediuIndice || semDestino?.indice === Math.floor(semestreIndice);
     return {
         resultado: JSON.stringify({
-            mensagem: entrou
-                ? `Optativa ${codigo} adicionada ao plano.`
+            mensagem: semDestino
+                ? `Optativa ${codigo} adicionada ao plano no semestre de índice ${semDestino.indice}${semDestino.semestre ? ` (${semDestino.semestre})` : ""}.` +
+                  (caiuOndePediu
+                      ? ""
+                      : " Não foi possível usar o semestre pedido (só dá para escolher um semestre IGUAL ou POSTERIOR ao mais cedo em que ela cabe) — explique isso ao aluno.")
                 : `Optativa ${codigo} registrada, mas o alocador não conseguiu encaixá-la (provável pré-requisito pendente) — avise o aluno.`,
             chOptativaFaltante: plano.chOptativaFaltante,
             planoAtualizado: resumoDoPlano(plano, ctx),
@@ -266,6 +277,11 @@ export const adicionarOptativaTool: AgentTool = {
                         type: "string",
                         enum: ["adicionar", "remover"],
                         description: "Padrão: 'adicionar'. Use 'remover' para tirar uma optativa adicionada antes.",
+                    },
+                    semestreIndice: {
+                        type: "number",
+                        description:
+                            "Índice do semestre do plano onde o aluno quer a optativa (0 = próximo). Mapeie o número do semestre pedido (ex: 'Semestre 13') pelo 'numeroSemestre' do resumo do plano. Omita para deixar onde couber melhor. Só funciona para semestre igual ou posterior ao mais cedo em que ela cabe.",
                     },
                 },
                 required: ["codigo"],

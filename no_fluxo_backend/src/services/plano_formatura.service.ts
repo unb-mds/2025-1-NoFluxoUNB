@@ -562,9 +562,12 @@ export function distribuirPorSemestres(
                 desbloqueiaDireto: e.desbloqueiaDireto,
                 desbloqueiaIndireto: e.desbloqueiaIndireto,
                 score: e.score,
-                motivo: isCritica ? (e.materia.nivel < numeroPeriodo ? "pendente há tempo, alta prioridade" : "alta prioridade") : "",
+                motivo: isCritica
+                    ? (e.materia.nivel < numeroPeriodo ? "pendente há tempo, alta prioridade" : "alta prioridade")
+                    : (!e.materia.obrigatoria ? "optativa escolhida por você" : ""),
                 dificuldadeEstimada: e.materia.dificuldadeEstimada,
-                motivoDificuldade: e.materia.motivoDificuldade
+                motivoDificuldade: e.materia.motivoDificuldade,
+                optativa: e.materia.obrigatoria ? undefined : true
             };
         });
 
@@ -1101,6 +1104,31 @@ export function gerarPlanoCompletov2(
         semestreBaseStr,      // Projeção temporal: preencher SemestrePlano.semestre
         offsetSemestre
     );
+
+    // Optativas com semestre escolhido pelo aluno (adicionarEm): move o card para o
+    // indice pedido. So move para FRENTE do que o alocador escolheu — para tras
+    // esbarraria em pre-requisitos/limite de creditos que o alocador ja respeitou.
+    const adicionarEm = prefs.restricoes?.adicionarEm ?? {};
+    for (const [codRaw, alvoRaw] of Object.entries(adicionarEm)) {
+        const cod = norm(codRaw);
+        if (!adicionadas.has(cod) || semestres.length === 0) continue;
+        const alvo = Math.min(Math.max(0, Math.floor(alvoRaw)), semestres.length - 1);
+        const origemIdx = semestres.findIndex((s) =>
+            s.materias.some((m) => "codigo" in m && norm(m.codigo) === cod)
+        );
+        if (origemIdx < 0 || alvo <= origemIdx) continue;
+        const origem = semestres[origemIdx];
+        const pos = origem.materias.findIndex((m) => "codigo" in m && norm((m as MateriaPlano).codigo) === cod);
+        const [mPlano] = origem.materias.splice(pos, 1) as MateriaPlano[];
+        const destino = semestres[alvo];
+        destino.materias.push(mPlano);
+        const matInfo = materias.find((x) => norm(x.codigo) === cod);
+        const horasReais = matInfo ? getHorasSafely(matInfo) : creditosParaHoras(mPlano.creditos);
+        origem.creditos -= mPlano.creditos;
+        destino.creditos += mPlano.creditos;
+        if (origem._horasInternas != null) origem._horasInternas -= horasReais;
+        if (destino._horasInternas != null) destino._horasInternas += horasReais;
+    }
 
     // CH das optativas adicionadas que de fato entraram no plano: cobre parte da
     // CH optativa faltante, entao os slots genericos reservam so o restante.
