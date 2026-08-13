@@ -597,6 +597,37 @@ async function buscarMateriasFaltantes(
     return out;
 }
 
+/**
+ * Matérias MATR fora da matriz do curso (ex.: cursando a equivalente nova —
+ * FGA0146 no lugar da FGA0147 da matriz) não aparecem na lista de matérias do
+ * plano, e o fluxograma_atual do aluno não guarda nome; sem este lookup o card
+ * do semestre em curso mostraria o próprio código no lugar do nome.
+ */
+async function resolverNomesSemestreAtual(plano: PlanoFormaturav2 | undefined): Promise<void> {
+    const pendentes = (plano?.semestreAtual?.materias ?? []).filter(
+        (m) => !m.nome || m.nome.trim().toUpperCase() === m.codigo.trim().toUpperCase()
+    );
+    if (pendentes.length === 0) return;
+
+    const { data, error } = await SupabaseWrapper.get()
+        .from("materias")
+        .select("codigo_materia, nome_materia, carga_horaria")
+        .in("codigo_materia", pendentes.map((m) => m.codigo));
+    // Degrada: sem o lookup, o card segue mostrando o código.
+    if (error || !data) return;
+
+    const porCodigo = new Map<string, { nome_materia: string | null; carga_horaria: number | null }>();
+    for (const r of data as any[]) {
+        const cod = (r.codigo_materia || "").trim().toUpperCase();
+        if (cod) porCodigo.set(cod, r);
+    }
+    for (const m of pendentes) {
+        const row = porCodigo.get(m.codigo.trim().toUpperCase());
+        if (row?.nome_materia) m.nome = row.nome_materia;
+        if (row?.carga_horaria != null) m.creditos = Math.round(row.carga_horaria / 15);
+    }
+}
+
 // =============================================================
 // Endpoint
 // =============================================================
@@ -680,6 +711,8 @@ export const PlanejamentoController: EndpointController = {
                         dados.codigosComOferta
                     );
 
+                    await resolverNomesSemestreAtual(plano);
+
                     logger.info(`Plano gerado: ${plano.semestresRestantes} semestres, ${plano.materiasNaoAlocadas.length} não-alocadas`);
 
                     return res.status(200).json(plano);
@@ -759,6 +792,8 @@ export const PlanejamentoController: EndpointController = {
                     const resultado = await svc.conversar(historico, ctx);
 
                     logger.info(`Conversa concluída. Resposta: ${resultado.reply.slice(0, 50)}...`);
+
+                    await resolverNomesSemestreAtual(resultado.plano);
 
                     return res.status(200).json({
                         reply: resultado.reply,
