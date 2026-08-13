@@ -214,6 +214,16 @@ export interface PlanoFormaturav2 {
     chOptativaFaltante: number;
     /** CH faltante para complementares. */
     chComplementarFaltante: number;
+    /**
+     * Fotografia da integralizacao em horas, para a UI projetar o % acumulado
+     * a cada semestre do plano (integralizadas + em curso + semestres do plano
+     * sobre o total exigido pela matriz).
+     */
+    integralizacao?: {
+        horasIntegralizadas: number;
+        horasEmCurso: number;
+        horasExigidasTotal: number;
+    };
 }
 
 /** Saida completa do Motor 2 (versao anterior para compatibilidade). */

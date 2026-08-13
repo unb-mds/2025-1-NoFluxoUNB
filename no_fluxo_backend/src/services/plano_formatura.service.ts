@@ -1175,6 +1175,14 @@ export function gerarPlanoCompletov2(
         chObrigatoriaFaltante: Math.max(0, chFaltante.obrigatoria - chObrigatoriaAlocada),
         chOptativaFaltante: chOptativaRestante,
         chComplementarFaltante: chComplementarRestante,
+        integralizacao: {
+            horasIntegralizadas: cargaHorariaIntegralizada.total,
+            horasEmCurso:
+                horasSemestreAtual.obrigatoria +
+                horasSemestreAtual.optativa +
+                horasSemestreAtual.complementar,
+            horasExigidasTotal: exigidaMatriz.total,
+        },
     };
 
     return resultado;

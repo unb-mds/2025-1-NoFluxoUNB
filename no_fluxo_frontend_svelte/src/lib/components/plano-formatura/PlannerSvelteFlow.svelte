@@ -83,15 +83,35 @@
 		const temMATR = Boolean(materiasMATR && materiasMATR.length > 0);
 		const offsetSemestre = temMATR ? 1 : 0;
 
+		// Projeção de integralização: acumula as horas da matriz já vencidas e as de
+		// cada coluna, mostrando no cabeçalho quantos % o aluno terá integralizado ao
+		// fim daquele semestre. Slots genéricos (optativa/complementar) contam pelo ch.
+		const integ = 'integralizacao' in plano ? plano.integralizacao : undefined;
+		const horasDoSemestre = (s: (typeof plano.plano)[number]): number =>
+			s._horasInternas ??
+			s.materias.reduce(
+				(acc, m) => acc + ('codigo' in m ? (m.creditos ?? 4) * 15 : m.ch),
+				0
+			);
+		const pctIntegralizado = (horas: number): string | undefined =>
+			integ && integ.horasExigidasTotal > 0
+				? `~${Math.min(100, Math.round((horas / integ.horasExigidasTotal) * 100))}% integralizado`
+				: undefined;
+		let horasAcumuladas = integ?.horasIntegralizadas ?? 0;
+
 		// 1. Renderiza a coluna do semestre ATUAL (materias matriculadas) se houver
 		if (temMATR) {
 			const xPos = START_X + (currentColumnIndex * COLUMN_WIDTH);
-			
+
+			horasAcumuladas += integ?.horasEmCurso ?? 0;
 			newNodes.push({
 				id: 'header-matr',
 				type: 'header',
-				position: { x: xPos, y: START_Y - 70 },
-				data: { label: `Semestre ${semestreAtual} (Em Curso)` },
+				position: { x: xPos, y: START_Y - 100 },
+				data: {
+					label: `Semestre ${semestreAtual} (Em Curso)`,
+					sublabel: pctIntegralizado(horasAcumuladas)
+				},
 				draggable: false,
 				selectable: false
 			});
@@ -130,11 +150,15 @@
 
 			// Renderiza um cabeçalho pro semestre
 			const semestreStr = semestre.semestre ? ` (${semestre.semestre})` : '';
+			horasAcumuladas += horasDoSemestre(semestre);
 			newNodes.push({
 				id: `header-${semestre.indice}`,
 				type: 'header',
-				position: { x: xPos, y: START_Y - 70 },
-				data: { label: `Semestre ${numeroSemestre}${semestreStr} — ${rotuloTipo}` },
+				position: { x: xPos, y: START_Y - 100 },
+				data: {
+					label: `Semestre ${numeroSemestre}${semestreStr} — ${rotuloTipo}`,
+					sublabel: pctIntegralizado(horasAcumuladas)
+				},
 				draggable: false,
 				selectable: false
 			});

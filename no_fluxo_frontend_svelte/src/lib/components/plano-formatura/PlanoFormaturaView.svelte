@@ -21,7 +21,8 @@
 		BookOpenCheck,
 		X,
 		Bot,
-		Download
+		Download,
+		Sparkles
 	} from 'lucide-svelte';
 	import html2canvas from 'html2canvas-pro';
 
@@ -200,6 +201,16 @@
 	const hasOptativasPendentes = $derived(
 		planoFormaturaStore.status === 'success' && planoFormaturaStore.plano !== null
 	);
+
+	/**
+	 * Horas de optativas que o plano NÃO cobre. Enquanto for > 0 o aluno não
+	 * integraliza a matriz — o banner vira aviso pedindo para adicionar optativas.
+	 */
+	const chOptativaNaoCoberta = $derived.by(() => {
+		const p = planoFormaturaStore.plano;
+		if (!p || !('chOptativaFaltante' in p)) return 0;
+		return Math.max(0, Math.round(p.chOptativaFaltante));
+	});
 
 	/** Semestre atual do aluno (ex: 3, 4, etc). */
 	const semestreAtual = $derived(authState.user?.dadosFluxograma?.semestreAtual ?? 1);
@@ -428,15 +439,41 @@
 	{:else if planoFormaturaStore.status === 'success' && planoFormaturaStore.plano}
 		<div class="flex flex-1 flex-col gap-4 lg:overflow-hidden" transition:fade={{ duration: 200 }}>
 
-			<!-- Notice about elective credits -->
+			<!-- Aviso de optativas: vira alerta quando o plano não bate as horas optativas -->
 			{#if hasOptativasPendentes}
-				<div class="flex items-start gap-2.5 rounded-xl border border-amber-500/20 bg-amber-600/8 px-4 py-3">
-					<BookOpenCheck class="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
-					<p class="text-xs text-amber-200/70 leading-relaxed">
-						O plano cobre as matérias <strong class="text-amber-200/90">obrigatórias</strong>.
-						Créditos optativos e complementares devem ser planejados separadamente.
-					</p>
-				</div>
+				{#if chOptativaNaoCoberta > 0}
+					<div class="flex flex-wrap items-center gap-2.5 rounded-xl border border-red-500/25 bg-red-600/8 px-4 py-3">
+						<AlertTriangle class="h-4 w-4 shrink-0 text-red-400" />
+						<p class="min-w-[200px] flex-1 text-xs text-red-200/80 leading-relaxed">
+							Faltam <strong class="text-red-200">{chOptativaNaoCoberta}h de optativas</strong> fora do plano.
+							Adicione optativas para bater as horas e conseguir se formar.
+						</p>
+						<button
+							type="button"
+							onclick={() => handleChatAction(`Preciso completar ${chOptativaNaoCoberta}h de optativas para me formar. Me pergunte meus interesses dentro da minha área e sugira optativas da UnB que combinem com eles e batam essas horas.`)}
+							class="flex shrink-0 touch-manipulation items-center gap-1.5 rounded-lg border border-pink-500/30 bg-pink-500/10 px-3 py-1.5 text-xs font-medium text-pink-300 transition-colors hover:border-pink-500/50 hover:bg-pink-500/20"
+						>
+							<Sparkles class="h-3.5 w-3.5" />
+							Escolher com o Darcy AI
+						</button>
+					</div>
+				{:else}
+					<div class="flex flex-wrap items-center gap-2.5 rounded-xl border border-amber-500/20 bg-amber-600/8 px-4 py-3">
+						<BookOpenCheck class="h-4 w-4 shrink-0 text-amber-400" />
+						<p class="min-w-[200px] flex-1 text-xs text-amber-200/70 leading-relaxed">
+							O plano cobre as matérias <strong class="text-amber-200/90">obrigatórias</strong> e reserva as horas de optativas.
+							Conte seus interesses ao Darcy AI para escolher quais optativas cursar.
+						</p>
+						<button
+							type="button"
+							onclick={() => handleChatAction('Me ajude a escolher optativas: pergunte quais são meus interesses dentro da minha área e depois sugira matérias optativas da UnB que combinem com eles.')}
+							class="flex shrink-0 touch-manipulation items-center gap-1.5 rounded-lg border border-pink-500/30 bg-pink-500/10 px-3 py-1.5 text-xs font-medium text-pink-300 transition-colors hover:border-pink-500/50 hover:bg-pink-500/20"
+						>
+							<Sparkles class="h-3.5 w-3.5" />
+							Sugerir optativas
+						</button>
+					</div>
+				{/if}
 			{/if}
 
 			<!-- Fluxo interativo Svelte Flow (Substitui scroll horizontal antigo) -->

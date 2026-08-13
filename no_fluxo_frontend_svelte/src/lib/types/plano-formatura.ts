@@ -167,6 +167,15 @@ export interface PlanoFormaturav2 {
 	chOptativaFaltante: number;
 	/** Créditos complementares faltando. */
 	chComplementarFaltante: number;
+	/**
+	 * Fotografia da integralização em horas, para projetar o % acumulado a cada
+	 * semestre do plano (integralizadas + em curso + semestres sobre o exigido).
+	 */
+	integralizacao?: {
+		horasIntegralizadas: number;
+		horasEmCurso: number;
+		horasExigidasTotal: number;
+	};
 }
 
 /**
