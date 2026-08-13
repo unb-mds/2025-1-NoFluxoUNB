@@ -35,7 +35,7 @@
 	}
 </script>
 
-<div class="space-y-3">
+<div class="space-y-3" data-tour="escolher-turma">
 	{#each gradeStore.pool as materia (materia.codigo)}
 		{@const cor = gradeStore.corDaMateria(materia.codigo)}
 		{@const selecionada = gradeStore.turmaSelecionada(materia.codigo)}

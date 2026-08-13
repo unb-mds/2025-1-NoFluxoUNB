@@ -180,6 +180,7 @@
 		class="fixed z-[90] flex items-center justify-center border border-pink-500/50 bg-[#1e1e24]/80 shadow-[0_8px_30px_rgba(236,72,153,0.3)] backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-pink-400 hover:bg-[#2a2a32] active:scale-95
 			{isMobile ? 'bottom-4 right-4 h-14 w-14 rounded-full' : 'bottom-6 right-6 h-12 w-12 rounded-xl'}"
 		aria-label="Abrir assistente IA"
+		data-tour="assistente-ia"
 		in:scale={{ start: 0.5, duration: 400, easing: backOut, delay: 100 }}
 		out:scale={{ start: 0.5, duration: 200, easing: cubicOut }}
 	>
