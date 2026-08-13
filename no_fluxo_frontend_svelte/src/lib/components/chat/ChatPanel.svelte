@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import { Sparkles, SendHorizontal, Bot, CalendarPlus } from 'lucide-svelte';
 	import { formatHorarioSigaa, compactarFaixasHorarias, formatLocalSigaa } from '$lib/utils/sigaa';
 	import ChatWrapper from '$lib/components/chat/ChatWrapper.svelte';
@@ -52,6 +53,47 @@
 	let inputRef: HTMLInputElement;
 	let chatViewport = $state<HTMLElement | null>(null);
 
+	// ─── Animação de digitação da resposta ────────────────────────────────────
+	// A última resposta do assistente é revelada progressivamente (estilo
+	// Claude/GPT). Mensagens que já estavam no histórico ao montar não animam.
+	const contagemInicial = untrack(() => messages.length);
+	let typingMsg = $state<ChatMsg | null>(null);
+	let typingShown = $state(0);
+	// Controle NÃO-reativo de qual mensagem está animando — se o efeito lesse
+	// typingMsg, mudá-lo dentro dele dispararia re-execução e mataria o timer.
+	let animando: ChatMsg | null = null;
+
+	/**
+	 * Fatia o texto sem cortar no meio de um marcador de formatação — um
+	 * `[BOTAO|...]` ou `**negrito**` pela metade renderizaria cru no chat.
+	 */
+	function fatiaSegura(texto: string, n: number): string {
+		let out = texto.slice(0, n);
+		const abre = out.lastIndexOf('[');
+		if (abre >= 0 && out.indexOf(']', abre) === -1) out = out.slice(0, abre);
+		const asteriscos = out.split('**').length - 1;
+		if (asteriscos % 2 === 1) out = out.slice(0, out.lastIndexOf('**'));
+		return out;
+	}
+
+	$effect(() => {
+		const ultima = messages[messages.length - 1];
+		if (!ultima || ultima.role !== 'assistant' || messages.length <= contagemInicial) return;
+		if (animando !== ultima) {
+			animando = ultima;
+			typingMsg = ultima;
+			typingShown = 0;
+		}
+		const total = ultima.content.length;
+		if (untrack(() => typingShown) >= total) return;
+		const timer = setInterval(() => {
+			typingShown = Math.min(total, typingShown + 4);
+			if (chatViewport) chatViewport.scrollTop = chatViewport.scrollHeight;
+			if (typingShown >= total) clearInterval(timer);
+		}, 18);
+		return () => clearInterval(timer);
+	});
+
 	function enviar() {
 		if (messageInput.trim() === '' || loading) return;
 		const msg = messageInput.trim();
@@ -74,6 +116,12 @@
 
 	// Parser compartilhado: badges de código, blocos [TURMA|...], [BOTAO|...] e **negrito**.
 	function parseMessage(text: string) {
+		// Tipografia: itens de lista viram bullet de verdade e o excesso de linhas
+		// em branco é colapsado — o texto cru do modelo era corrido demais de ler.
+		text = text
+			.replace(/\n{3,}/g, '\n\n')
+			.replace(/^[ \t]*[-*]\s+/gm, '•  ')
+			.replace(/^[ \t]*(\d+)[.)]\s+/gm, '$1.  ');
 		const regex = /(\b[A-Z]{3,4}\d{4}\b)|(\[TURMA\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|\]]+)(?:\|([^\]]+))?\])|(\[BOTAO\|([^|\]]+)(?:\|([^\]]+))?\])|(\*\*([^*\n]+)\*\*)|(\[MONTAR_GRADE\|([^\]]+)\])/g;
 		const blocks: any[] = [];
 		let currentBubble: any[] = [];
@@ -226,7 +274,11 @@
 				</div>
 			{:else}
 				{#each messages as msg (msg)}
-					{#each parseMessage(msg.content) as block, i}
+					{@const conteudo =
+						msg === typingMsg && typingShown < msg.content.length
+							? fatiaSegura(msg.content, typingShown)
+							: msg.content}
+					{#each parseMessage(conteudo) as block, i}
 						{#if block.type === 'bubble'}
 							<ChatBubble role={msg.role} name={i === 0 ? (msg.role === 'user' ? 'Você' : assistantName) : undefined}>
 								{#each block.segments as segment}
