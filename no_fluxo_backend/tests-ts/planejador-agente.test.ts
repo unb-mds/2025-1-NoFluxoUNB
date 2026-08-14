@@ -52,7 +52,7 @@ function ctxBase(): AgenteContexto {
             objetivo: "equilibrado",
             trabalha: false,
         },
-        restricoes: { adiar: [], priorizar: [], limitesPersonalizados: {} },
+        restricoes: { adiar: [], priorizar: [], limitesPersonalizados: {}, adicionar: [], adicionarEm: {} },
         codigosComOferta: new Set(["AAA0001", "BBB0002", "CCC0003"]),
     };
 }

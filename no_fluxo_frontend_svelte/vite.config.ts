@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 import { SvelteKitPWA } from '@vite-pwa/sveltekit';
@@ -49,5 +50,10 @@ export default defineConfig({
 	},
 	ssr: {
 		noExternal: ['@xyflow/svelte']
+	},
+	test: {
+		// Só testes unitários de src/: os specs de tests-e2e/ são do PLAYWRIGHT
+		// (rodam via `npm run test:integration`) e explodem se o Vitest os coletar.
+		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
 });
