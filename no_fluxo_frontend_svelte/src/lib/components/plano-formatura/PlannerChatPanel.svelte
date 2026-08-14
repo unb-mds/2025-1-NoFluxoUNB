@@ -1,11 +1,39 @@
 <script lang="ts">
 	import { planoFormaturaStore } from '$lib/stores/plano-formatura.store.svelte';
+	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { Bot } from 'lucide-svelte';
 	import ChatPanel from '$lib/components/chat/ChatPanel.svelte';
 	import { authStore } from '$lib/stores/auth';
 
 	let authState = $derived($authStore);
 	const semestreAtual = $derived(authState.user?.dadosFluxograma?.semestreAtual ?? 1);
+
+	// Código → nome para os chips do chat mostrarem o nome da matéria. Junta a
+	// matriz do curso com o plano (que tem optativas fora da matriz, ex.: DIN0002).
+	const nomesMaterias = $derived.by(() => {
+		const map = new Map<string, string>();
+		const norm = (c: string) => c.trim().toUpperCase();
+		for (const m of fluxogramaStore.state.courseData?.materias ?? []) {
+			if (m.codigoMateria && m.nomeMateria) map.set(norm(m.codigoMateria), m.nomeMateria);
+		}
+		const plano = planoFormaturaStore.plano as any;
+		for (const s of plano?.plano ?? []) {
+			for (const m of s.materias ?? []) {
+				if (m.codigo && m.nome) map.set(norm(m.codigo), m.nome);
+			}
+		}
+		for (const m of plano?.semestreAtual?.materias ?? []) {
+			if (m.codigo && m.nome) map.set(norm(m.codigo), m.nome);
+		}
+		return map;
+	});
+
+	/** Nome da matéria em Title Case para o starter (o badge faz marquee se não couber). */
+	function nomeParaBadge(codigo: string): string {
+		const nome = nomesMaterias.get(codigo.trim().toUpperCase());
+		if (!nome) return codigo;
+		return nome.toLowerCase().replace(/(^|[\s(])\p{L}/gu, (c) => c.toUpperCase());
+	}
 
 	const promptStarters = $derived.by(() => {
 		const starters = [];
@@ -39,7 +67,7 @@
 		const criticas = plano.plano.flatMap(s => s.materias).filter(m => 'critica' in m && m.critica);
 		if (criticas.length > 0) {
 			const m = criticas[0] as any;
-			starters.push({ prefix: 'Ver turmas de', badge: m.codigo, suffix: '', message: `/turmas ${m.codigo}` });
+			starters.push({ prefix: 'Ver turmas de', badge: nomeParaBadge(m.codigo), suffix: '', message: `/turmas ${m.codigo}` });
 		} else {
 			starters.push({ prefix: 'Buscar', badge: 'turmas disponíveis', suffix: '', message: 'Mostre turmas com vagas sobrando' });
 		}
@@ -48,7 +76,7 @@
 		const primeiraMat = plano.plano[0].materias.find(m => 'codigo' in m);
 		if (primeiraMat) {
 			const m = primeiraMat as any;
-			starters.push({ prefix: 'Adiar a matéria', badge: m.codigo, suffix: '', message: `Adie a matéria ${m.codigo} para o próximo semestre` });
+			starters.push({ prefix: 'Adiar a matéria', badge: nomeParaBadge(m.codigo), suffix: '', message: `Adie a matéria ${m.codigo} para o próximo semestre` });
 		}
 
 		// 4. Perguntas Gerais Fixas
@@ -68,6 +96,7 @@
 	messages={planoFormaturaStore.chatMessages}
 	loading={planoFormaturaStore.chatLoading}
 	{promptStarters}
+	{nomesMaterias}
 	draggable={true}
 	title="Darcy AI"
 	assistantName="Darcy AI"
