@@ -6,6 +6,7 @@
 
 import { SupabaseWrapper } from "../../../supabase_wrapper";
 import { SabiaService } from "../../sabia.service";
+import { parseFluxograma } from "../../plano_formatura.service";
 import { norm, type AgenteContexto } from "../context";
 import { removeAccents } from "../../../utils/text.utils";
 import type { AgentTool } from "../tool_registry";
@@ -286,7 +287,36 @@ async function buscarMateriasUnb(args: Record<string, unknown>, ctx: AgenteConte
             materias: [],
         });
     }
-    return JSON.stringify({ materias });
+
+    // Situação do aluno em cada resultado: já concluída, em curso ou obrigatória
+    // do curso não devem ser recomendadas como optativas — separá-las aqui evita
+    // que o modelo sugira matéria que o aluno já venceu (ex.: APC no 9º semestre).
+    const { completed, currentSemester } = parseFluxograma(ctx.fluxogramaAtual);
+    const emCurso = new Set(currentSemester.map((m) => norm(m.codigo)));
+    const pendentePorCodigo = new Map(ctx.materias.map((m) => [norm(m.codigo), m]));
+    const situacaoDe = (codigo: string): string => {
+        const cod = norm(codigo);
+        if (completed.has(cod)) return "ja_concluida";
+        if (emCurso.has(cod)) return "em_curso";
+        if (pendentePorCodigo.get(cod)?.obrigatoria) return "obrigatoria_do_curso";
+        return "disponivel";
+    };
+    const recomendaveis: (MateriaBusca & { situacao_aluno: string })[] = [];
+    const naoRecomendaveis: { codigo: string; nome: string; motivo: string }[] = [];
+    for (const m of materias) {
+        const situacao = situacaoDe(m.codigo);
+        if (situacao === "disponivel") recomendaveis.push({ ...m, situacao_aluno: situacao });
+        else naoRecomendaveis.push({ codigo: m.codigo, nome: m.nome, motivo: situacao });
+    }
+
+    return JSON.stringify({
+        materias: recomendaveis,
+        nao_recomendaveis: naoRecomendaveis.length > 0 ? naoRecomendaveis : undefined,
+        aviso:
+            recomendaveis.length === 0
+                ? "Todas as disciplinas encontradas já foram concluídas, estão em curso ou são obrigatórias do curso — tente outros termos."
+                : undefined,
+    });
 }
 
 export const buscarMateriasUnbTool: AgentTool = {

@@ -4,7 +4,7 @@
 	import { browser } from '$app/environment';
 	import type { PlanoFormatura } from '$lib/types/plano-formatura';
 	import type { CursoModel } from '$lib/types/curso';
-	import { getDirectPrerequisites } from '$lib/types/curso';
+	import { getCodigosFromExpressaoLogica } from '$lib/utils/expressao-logica';
 	import SvelteFlowMateriaNode from './SvelteFlowMateriaNode.svelte';
 	import SvelteFlowHeaderNode from './SvelteFlowHeaderNode.svelte';
 	import type { MateriaPlano } from '$lib/types/plano-formatura';
@@ -83,15 +83,35 @@
 		const temMATR = Boolean(materiasMATR && materiasMATR.length > 0);
 		const offsetSemestre = temMATR ? 1 : 0;
 
+		// Projeção de integralização: acumula as horas da matriz já vencidas e as de
+		// cada coluna, mostrando no cabeçalho quantos % o aluno terá integralizado ao
+		// fim daquele semestre. Slots genéricos (optativa/complementar) contam pelo ch.
+		const integ = 'integralizacao' in plano ? plano.integralizacao : undefined;
+		const horasDoSemestre = (s: (typeof plano.plano)[number]): number =>
+			s._horasInternas ??
+			s.materias.reduce(
+				(acc, m) => acc + ('codigo' in m ? (m.creditos ?? 4) * 15 : m.ch),
+				0
+			);
+		const pctIntegralizado = (horas: number): string | undefined =>
+			integ && integ.horasExigidasTotal > 0
+				? `~${Math.min(100, Math.round((horas / integ.horasExigidasTotal) * 100))}% integralizado`
+				: undefined;
+		let horasAcumuladas = integ?.horasIntegralizadas ?? 0;
+
 		// 1. Renderiza a coluna do semestre ATUAL (materias matriculadas) se houver
 		if (temMATR) {
 			const xPos = START_X + (currentColumnIndex * COLUMN_WIDTH);
-			
+
+			horasAcumuladas += integ?.horasEmCurso ?? 0;
 			newNodes.push({
 				id: 'header-matr',
 				type: 'header',
-				position: { x: xPos, y: START_Y - 70 },
-				data: { label: `Semestre ${semestreAtual} (Em Curso)` },
+				position: { x: xPos, y: START_Y - 100 },
+				data: {
+					label: `Semestre ${semestreAtual} (Em Curso)`,
+					sublabel: pctIntegralizado(horasAcumuladas)
+				},
 				draggable: false,
 				selectable: false
 			});
@@ -130,11 +150,15 @@
 
 			// Renderiza um cabeçalho pro semestre
 			const semestreStr = semestre.semestre ? ` (${semestre.semestre})` : '';
+			horasAcumuladas += horasDoSemestre(semestre);
 			newNodes.push({
 				id: `header-${semestre.indice}`,
 				type: 'header',
-				position: { x: xPos, y: START_Y - 70 },
-				data: { label: `Semestre ${numeroSemestre}${semestreStr} — ${rotuloTipo}` },
+				position: { x: xPos, y: START_Y - 100 },
+				data: {
+					label: `Semestre ${numeroSemestre}${semestreStr} — ${rotuloTipo}`,
+					sublabel: pctIntegralizado(horasAcumuladas)
+				},
 				draggable: false,
 				selectable: false
 			});
@@ -156,36 +180,70 @@
 			currentColumnIndex++;
 		});
 
-		// 2. Criar Edges (Arestas) verificando os pré-requisitos
+		// 2. Arestas: cada matéria conecta a TODOS os pré/co-requisitos presentes no
+		// diagrama. A expressão pode ser composta — ((A E B) OU C) — então os códigos
+		// vêm da expressão inteira, não de um único campo: reduzir ao primeiro código
+		// perdia setas (FGA0244 exige FGA0211 E FGA0030; só FGA0211 aparecia) e errava
+		// quando a primeira alternativa nem estava no plano (FGA0147 vs FGA0146 nova).
 		if (curso) {
-			plano.plano.forEach((semestre) => {
-				semestre.materias.forEach((item) => {
-					if ('codigo' in item) {
-						const targetNodeId = codeToNodeId.get(item.codigo);
-						if (!targetNodeId) return;
+			const normCod = (c: string) => c.trim().toUpperCase();
+			// codeToNodeId usa códigos normalizados do backend; espelha para o lookup.
+			const nodePorCodigo = new Map(
+				[...codeToNodeId].map(([cod, id]) => [normCod(cod), id])
+			);
+			const materiaPorCodigo = new Map(
+				curso.materias.map((m) => [normCod(m.codigoMateria), m])
+			);
+			const edgeIds = new Set<string>();
 
-						const prereqs = getDirectPrerequisites(curso, item.codigo);
-						prereqs.forEach(prereqMateria => {
-							const sourceNodeId = codeToNodeId.get(prereqMateria.codigoMateria);
-							// Se o pré-requisito também está no plano (não foi concluído ainda)
-							if (sourceNodeId) {
-								newEdges.push({
-									id: `edge-${sourceNodeId}-${targetNodeId}`,
-									source: sourceNodeId,
-									target: targetNodeId,
-									type: 'smoothstep',
-									animated: true,
-									style: 'stroke: rgba(255,255,255,0.2); stroke-width: 2;',
-									markerEnd: {
-										type: MarkerType.ArrowClosed,
-										color: 'rgba(255,255,255,0.2)',
-									}
-								});
-							}
-						});
-					}
+			const pushEdge = (sourceNodeId: string, targetNodeId: string, coreq: boolean) => {
+				const id = `edge-${coreq ? 'co-' : ''}${sourceNodeId}-${targetNodeId}`;
+				if (edgeIds.has(id) || sourceNodeId === targetNodeId) return;
+				edgeIds.add(id);
+				const cor = coreq ? 'rgba(168,85,247,0.45)' : 'rgba(255,255,255,0.2)';
+				newEdges.push({
+					id,
+					source: sourceNodeId,
+					target: targetNodeId,
+					type: 'smoothstep',
+					animated: !coreq,
+					label: coreq ? 'co-req' : undefined,
+					style: `stroke: ${cor}; stroke-width: 2;${coreq ? ' stroke-dasharray: 6 4;' : ''}`,
+					markerEnd: { type: MarkerType.ArrowClosed, color: cor }
 				});
-			});
+			};
+
+			// Códigos exigidos por uma linha de requisito: expressão completa quando
+			// existir, senão o código simples resolvido pelo factory.
+			const codigosDaLinha = (
+				expressao: Parameters<typeof getCodigosFromExpressaoLogica>[0],
+				codigoSimples: string | undefined
+			): string[] => {
+				const daExpressao = getCodigosFromExpressaoLogica(expressao);
+				const base = daExpressao.length > 0 ? daExpressao : codigoSimples ? [codigoSimples] : [];
+				return base.map(normCod);
+			};
+
+			for (const [codigo, targetNodeId] of codeToNodeId) {
+				const materia = materiaPorCodigo.get(normCod(codigo));
+				if (!materia) continue; // fora da matriz (módulo livre/equivalente): sem linhas próprias
+
+				for (const pr of curso.preRequisitos) {
+					if (pr.idMateria !== materia.idMateria) continue;
+					for (const cod of codigosDaLinha(pr.expressaoLogica, pr.codigoMateriaRequisito)) {
+						const sourceNodeId = nodePorCodigo.get(cod);
+						if (sourceNodeId) pushEdge(sourceNodeId, targetNodeId, false);
+					}
+				}
+
+				for (const co of curso.coRequisitos ?? []) {
+					if (co.idMateria !== materia.idMateria) continue;
+					for (const cod of codigosDaLinha(co.expressaoLogica, co.codigoMateriaCoRequisito)) {
+						const sourceNodeId = nodePorCodigo.get(cod);
+						if (sourceNodeId) pushEdge(sourceNodeId, targetNodeId, true);
+					}
+				}
+			}
 		}
 
 		nodes = newNodes;
@@ -232,7 +290,49 @@
 <style>
 	/* Botões dos Controls no tamanho mínimo de alvo de toque. */
 	.modo-toque :global(.svelte-flow__controls-button) {
-		width: 32px;
-		height: 32px;
+		width: 36px;
+		height: 36px;
+	}
+
+	/* Controls do xyflow com o acabamento do resto da UI (vidro escuro, borda
+	   sutil, hover suave) em vez do painel branco padrão. */
+	.planner-flow :global(.svelte-flow__controls) {
+		overflow: hidden;
+		border-radius: 12px;
+		border: 1px solid hsl(0 0% 100% / 0.1);
+		background: hsl(222 30% 7% / 0.85);
+		backdrop-filter: blur(12px);
+		box-shadow:
+			0 8px 30px hsl(0 0% 0% / 0.45),
+			inset 0 1px 0 hsl(0 0% 100% / 0.06);
+	}
+	.planner-flow :global(.svelte-flow__controls-button) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 30px;
+		height: 30px;
+		border: none;
+		border-bottom: 1px solid hsl(0 0% 100% / 0.07);
+		background: transparent;
+		transition: background-color 0.15s ease;
+	}
+	.planner-flow :global(.svelte-flow__controls-button:last-child) {
+		border-bottom: none;
+	}
+	.planner-flow :global(.svelte-flow__controls-button:hover) {
+		background: hsl(0 0% 100% / 0.09);
+	}
+	.planner-flow :global(.svelte-flow__controls-button:active) {
+		background: hsl(0 0% 100% / 0.14);
+	}
+	.planner-flow :global(.svelte-flow__controls-button svg) {
+		max-width: 12px;
+		max-height: 12px;
+		fill: hsl(0 0% 100% / 0.6);
+		transition: fill 0.15s ease;
+	}
+	.planner-flow :global(.svelte-flow__controls-button:hover svg) {
+		fill: hsl(0 0% 100% / 0.95);
 	}
 </style>

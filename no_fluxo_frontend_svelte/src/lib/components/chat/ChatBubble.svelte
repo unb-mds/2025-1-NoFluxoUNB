@@ -18,9 +18,9 @@
 	{/if}
 	
 	<div
-		class="max-w-[88%] px-5 py-3.5 text-[14.5px] leading-relaxed backdrop-blur-xl shadow-lg my-1 transition-all {isUser
+		class="max-w-[88%] px-5 py-3.5 text-[14px] leading-[1.75] [text-wrap:pretty] backdrop-blur-xl shadow-lg my-1 transition-all {isUser
 				? 'bg-white/15 text-white rounded-[24px] rounded-tr-[8px] border border-white/20'
-				: 'bg-black/30 text-white/90 rounded-[24px] rounded-tl-[8px] border border-white/10'}"
+				: 'bg-black/30 text-white/85 rounded-[24px] rounded-tl-[8px] border border-white/10'}"
 	>
 		{@render children()}
 	</div>

@@ -29,7 +29,22 @@
 	import { setHasCodeIgnoreCase, filtrarNaoCursados } from '$lib/utils/subject-codes';
 	import { ROUTES } from '$lib/config/routes';
 	import type { SemestrePlano, ItemSemestre, MateriaPlano } from '$lib/types/plano-formatura';
-	import { CalendarDays, Wand2, Trash2, Loader2, Info, Download, Star, Search } from 'lucide-svelte';
+	import {
+		CalendarDays,
+		Wand2,
+		Trash2,
+		Loader2,
+		Info,
+		Download,
+		Star,
+		Search,
+		Compass,
+		Maximize2,
+		Minimize2
+	} from 'lucide-svelte';
+	import OnboardingTour from '$lib/components/onboarding/OnboardingTour.svelte';
+	import HelpTip from '$lib/components/onboarding/HelpTip.svelte';
+	import { tourStore, type TourStep } from '$lib/components/onboarding/tour.store.svelte';
 
 	// Feature em rollout gradual: só admins veem o Montador de Grade de verdade
 	// por enquanto; usuários normais veem um aviso de "em breve" e nem chegam a
@@ -212,6 +227,9 @@
 	);
 	const creditosAcima = $derived(gradeStore.creditosSelecionados > limiteCreditos);
 
+	// Calendário em tela cheia (só faz diferença no desktop; no mobile já é 1 coluna).
+	let calendarioExpandido = $state(false);
+
 	let exportando = $state(false);
 	async function exportarGrade(): Promise<void> {
 		if (exportando) return;
@@ -276,6 +294,87 @@
 		gradeStore.montarAutomatico();
 	}
 
+	// ---------------------------------------------------------------------------
+	// Onboarding guiado
+	// ---------------------------------------------------------------------------
+	const TOUR_ID = 'montador-grade-v1';
+
+	// 7 passos: só o caminho crítico (achar → turma → calendário → rearranjar →
+	// exportar → IA). Turnos, créditos e modos de visualização são secundários e
+	// já têm HelpTip permanente ao lado do próprio controle.
+	const TOUR_STEPS: TourStep[] = [
+		{
+			title: 'Bem-vindo ao Montador de Grade 👋',
+			description:
+				'Em 1 minuto você monta a grade do próximo semestre sem conflito de horário. Já deixamos as matérias recomendadas pelo seu plano na lista — é só escolher as turmas.',
+			hint: 'Dá pra navegar com as setas ← → do teclado e sair com Esc.'
+		},
+		{
+			target: 'buscar-materia',
+			side: 'right',
+			title: '1. Ache a matéria',
+			description:
+				'Digite o código (ex.: CIC0004) ou parte do nome e clique no resultado para jogar a matéria na sua lista. Só aparecem matérias da sua matriz que você ainda não cursou.',
+			hint: 'Quer algo fora da matriz? Use “Buscar turmas”, no topo da página.'
+		},
+		{
+			target: 'escolher-turma',
+			side: 'right',
+			title: '2. Escolha a turma',
+			description:
+				'Cada matéria mostra as turmas ofertadas com professor, horário e vagas. Clique numa turma para colocá-la na grade — clicar de novo tira. A estrela marca a matéria como prioritária.',
+			hint: 'Turma lotada? Dá pra seguir a turma e ser avisado quando abrir vaga.'
+		},
+		{
+			target: 'calendario',
+			side: 'left',
+			title: '3. Veja sua semana',
+			description:
+				'As turmas escolhidas viram blocos coloridos aqui. Conflito de horário aparece destacado na hora, então não tem como se matricular em duas aulas no mesmo slot sem perceber.',
+			hint: 'Clique num bloco para trocar a turma; os controles abaixo do calendário mudam a visualização.'
+		},
+		{
+			target: 'rearranjar',
+			side: 'bottom',
+			title: 'Deixe o automático resolver',
+			description:
+				'“Rearranjar” testa as combinações e encaixa o máximo de matérias sem conflito, respeitando os turnos que você deixar ligados ali ao lado e priorizando as marcadas com estrela. Se algo não couber, a gente avisa.'
+		},
+		{
+			target: 'resumo',
+			side: 'left',
+			title: '4. Confira e exporte',
+			description:
+				'O resumo lista tudo que está na grade com turma e horário. Quando estiver do jeito que você quer, use “Exportar” para baixar a grade em imagem e levar pro dia da matrícula.',
+			hint: 'O contador de créditos no topo compara sua seleção com o limite do seu plano.'
+		},
+		{
+			target: 'assistente-ia',
+			side: 'left',
+			padding: 12,
+			title: '✨ E tem a Darcy, nossa IA',
+			description:
+				'Peça em português: “optativas de redes à tarde com turma aberta” ou “monta minha grade sem aula de manhã”. Ela sugere só matérias com turma neste semestre e joga direto na sua grade.',
+			hint: 'Reveja este passo a passo em “Como funciona”, no topo — e os “?” explicam cada controle.'
+		}
+	];
+
+	function abrirTour(): void {
+		tourStore.start(TOUR_ID, TOUR_STEPS);
+	}
+
+	// Primeira visita: abre sozinho, mas só depois que a grade carregou (senão os
+	// alvos do spotlight ainda nem existem na tela).
+	// Propositalmente NÃO é $state: escrever numa flag reativa aqui invalidaria o
+	// próprio efeito, cujo cleanup cancelaria o timer antes de ele disparar.
+	let tourAutoDisparado = false;
+	$effect(() => {
+		if (status !== 'ready' || tourAutoDisparado) return;
+		tourAutoDisparado = true;
+		const t = setTimeout(() => tourStore.startSeNovo(TOUR_ID, TOUR_STEPS), 500);
+		return () => clearTimeout(t);
+	});
+
 	const TURNO_OPCOES: ReadonlyArray<[Turno, string]> = [
 		['M', 'Manhã'],
 		['T', 'Tarde'],
@@ -320,22 +419,29 @@
 
 		{#if status === 'ready'}
 			<div class="flex w-full flex-wrap items-center gap-2 sm:w-auto">
-				<div
-					class="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1"
-					title="Créditos selecionados vs. seu limite por semestre"
+				<HelpTip
+					side="bottom"
+					title="Créditos do semestre"
+					text="Soma dos créditos das turmas já escolhidas contra o limite do seu plano. A barra fica amarela perto do limite e vermelha se passar."
 				>
-					<span class="text-xs {creditosAcima ? 'font-semibold text-red-300' : 'text-white/70'}">
-						{gradeStore.creditosSelecionados}/{limiteCreditos} cr
-					</span>
-					<span class="h-1.5 w-16 overflow-hidden rounded-full bg-white/10">
-						<span
-							class="block h-full rounded-full transition-all {creditosAcima ? 'bg-red-400' : creditosPct > 85 ? 'bg-amber-400' : 'bg-emerald-400'}"
-							style="width: {creditosPct}%"
-						></span>
-					</span>
-				</div>
+					<div
+						class="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1"
+						data-tour="creditos"
+					>
+						<span class="text-xs {creditosAcima ? 'font-semibold text-red-300' : 'text-white/70'}">
+							{gradeStore.creditosSelecionados}/{limiteCreditos} cr
+						</span>
+						<span class="h-1.5 w-16 overflow-hidden rounded-full bg-white/10">
+							<span
+								class="block h-full rounded-full transition-all {creditosAcima ? 'bg-red-400' : creditosPct > 85 ? 'bg-amber-400' : 'bg-emerald-400'}"
+								style="width: {creditosPct}%"
+							></span>
+						</span>
+					</div>
+				</HelpTip>
 				<div
 					class="flex items-center gap-0.5 rounded-full border border-white/10 bg-white/5 p-0.5"
+					data-tour="turnos"
 					title="Turnos permitidos ao rearranjar"
 				>
 					{#each TURNO_OPCOES as [t, label] (t)}
@@ -352,32 +458,50 @@
 						</button>
 					{/each}
 				</div>
-				<button
-					type="button"
-					onclick={() => gradeStore.montarAutomatico()}
-					title={gradeStore.temPrioritarias
-						? 'Rearranja sem conflito priorizando as matérias com estrela'
-						: 'Monta uma grade sem conflito. Marque matérias com estrela para priorizá-las.'}
-					class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-purple-300/45 bg-purple-500/18 px-3 py-2 text-xs font-semibold text-purple-100 transition-colors hover:bg-purple-500/25 sm:py-1.5"
+				<HelpTip
+					side="bottom"
+					title="Rearranjar (montagem automática)"
+					text={gradeStore.temPrioritarias
+						? 'Rearranja tudo sem conflito de horário, começando pelas matérias com estrela.'
+						: 'Encaixa suas matérias sem conflito de horário, respeitando os turnos escolhidos. Marque estrela numa matéria para ela entrar primeiro.'}
 				>
-					<Wand2 class="h-3.5 w-3.5" /> Rearranjar
-					{#if gradeStore.temPrioritarias}<Star class="h-3 w-3 fill-current text-amber-300" />{/if}
-				</button>
-				<button
-					type="button"
-					onclick={exportarGrade}
-					disabled={exportando || gradeStore.selecao.size === 0}
-					class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-xs font-medium text-white/70 transition-colors hover:bg-white/10 sm:py-1.5 disabled:opacity-40"
+					<button
+						type="button"
+						onclick={() => gradeStore.montarAutomatico()}
+						data-tour="rearranjar"
+						class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-purple-300/45 bg-purple-500/18 px-3 py-2 text-xs font-semibold text-purple-100 transition-colors hover:bg-purple-500/25 sm:py-1.5"
+					>
+						<Wand2 class="h-3.5 w-3.5" /> Rearranjar
+						{#if gradeStore.temPrioritarias}<Star class="h-3 w-3 fill-current text-amber-300" />{/if}
+					</button>
+				</HelpTip>
+				<HelpTip
+					side="bottom"
+					title="Exportar"
+					text="Baixa a grade como imagem PNG — boa pra mandar no grupo do curso ou conferir na hora da matrícula."
 				>
-					{#if exportando}<Loader2 class="h-3.5 w-3.5 animate-spin" />{:else}<Download class="h-3.5 w-3.5" />{/if} Exportar
-				</button>
-				<a
-					href={ROUTES.BUSCAR_TURMAS}
-					title="Procurar na oferta inteira por professor, horário ou sala"
-					class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-xs font-medium text-white/70 transition-colors hover:bg-white/10 sm:py-1.5"
+					<button
+						type="button"
+						onclick={exportarGrade}
+						disabled={exportando || gradeStore.selecao.size === 0}
+						data-tour="exportar"
+						class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-xs font-medium text-white/70 transition-colors hover:bg-white/10 sm:py-1.5 disabled:opacity-40"
+					>
+						{#if exportando}<Loader2 class="h-3.5 w-3.5 animate-spin" />{:else}<Download class="h-3.5 w-3.5" />{/if} Exportar
+					</button>
+				</HelpTip>
+				<HelpTip
+					side="bottom"
+					title="Buscar turmas"
+					text="Procura na oferta inteira do semestre por professor, horário ou sala — inclusive matérias que não estão na sua matriz."
 				>
-					<Search class="h-3.5 w-3.5" /> Buscar turmas
-				</a>
+					<a
+						href={ROUTES.BUSCAR_TURMAS}
+						class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-xs font-medium text-white/70 transition-colors hover:bg-white/10 sm:py-1.5"
+					>
+						<Search class="h-3.5 w-3.5" /> Buscar turmas
+					</a>
+				</HelpTip>
 				<button
 					type="button"
 					onclick={() => gradeStore.limpar()}
@@ -385,6 +509,19 @@
 				>
 					<Trash2 class="h-3.5 w-3.5" /> Limpar
 				</button>
+				<HelpTip
+					side="bottom"
+					title="Tour guiado"
+					text="Refaz o passo a passo do montador quando quiser."
+				>
+					<button
+						type="button"
+						onclick={abrirTour}
+						class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-purple-300/30 bg-purple-500/10 px-3 py-2 text-xs font-medium text-purple-100/90 transition-colors hover:bg-purple-500/20 sm:py-1.5"
+					>
+						<Compass class="h-3.5 w-3.5" /> Como funciona
+					</button>
+				</HelpTip>
 			</div>
 		{/if}
 	</header>
@@ -420,36 +557,102 @@
 	{:else if status === 'error'}
 		<div class="rounded-2xl border border-red-300/30 bg-red-500/10 px-4 py-6 text-center text-sm text-red-200">{erro}</div>
 	{:else}
-		<div class="grid gap-4 lg:grid-cols-[22rem_minmax(0,1fr)_18rem]">
-			<!-- Coluna esquerda: matérias + busca -->
-			<div class="order-2 space-y-3 lg:order-1 lg:sticky lg:top-24 lg:max-h-[calc(100dvh-9rem)] lg:overflow-y-auto lg:pr-0.5">
-				<MateriaSearchAdd onAdd={adicionarAoPool} />
-				{#if avisoAdd}
-					<p class="rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-[11px] text-amber-100">{avisoAdd}</p>
-				{/if}
-				{#if gradeStore.pool.length === 0}
-					<p class="rounded-2xl border border-white/10 bg-zinc-950/78 px-3 py-6 text-center text-xs text-white/50">
+		<!--
+			As três áreas viram snippets para poderem ser rearranjadas sem duplicação:
+			no modo normal o calendário fica ao centro com matérias à esquerda e resumo
+			à direita (ordem 1→2→3→4 do tour); no modo ampliado ele ocupa a largura
+			toda e os painéis descem para uma linha abaixo.
+		-->
+		{#snippet colunaMaterias()}
+			<MateriaSearchAdd onAdd={adicionarAoPool} />
+			{#if avisoAdd}
+				<p class="rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-[11px] text-amber-100">{avisoAdd}</p>
+			{/if}
+			{#if gradeStore.pool.length === 0}
+				<div class="rounded-2xl border border-white/10 bg-zinc-950/78 px-3 py-6 text-center">
+					<p class="text-xs text-white/50">
 						Busque matérias acima ou peça recomendações ao assistente (botão flutuante).
 					</p>
-				{:else}
-					<SubjectTurmaSelector />
-				{/if}
-			</div>
+					<button
+						type="button"
+						onclick={abrirTour}
+						class="mt-3 inline-flex items-center gap-1.5 rounded-full border border-purple-300/35 bg-purple-500/12 px-3 py-1.5 text-[11px] font-medium text-purple-100 transition-colors hover:bg-purple-500/22"
+					>
+						<Compass class="h-3.5 w-3.5" /> Ver o passo a passo
+					</button>
+				</div>
+			{:else}
+				<div class="flex items-center justify-between gap-2 px-1 pt-1">
+					<p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/55">2 · Turmas</p>
+					<HelpTip
+						title="Escolha uma turma por matéria"
+						text="Clique numa turma para colocá-la na grade; clicar de novo tira. A estrela marca a matéria como prioritária no Rearranjar."
+					/>
+				</div>
+				<SubjectTurmaSelector />
+			{/if}
+		{/snippet}
 
-			<!-- Centro: calendário -->
-			<div class="order-1 lg:order-2">
-				<ScheduleGrid onBlocoClick={(codigo) => (materiaDialog = codigo)} />
+		{#snippet calendario()}
+			<div class="mb-1.5 flex items-center justify-between px-1">
+				<p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/55">
+					3 · Sua semana
+				</p>
+				<HelpTip
+					side="left"
+					title={calendarioExpandido ? 'Voltar ao layout compacto' : 'Ampliar o calendário'}
+					text={calendarioExpandido
+						? 'Traz matérias e resumo de volta para o lado do calendário.'
+						: 'O calendário ocupa a tela inteira e os painéis descem — melhor pra enxergar a semana toda.'}
+				>
+					<button
+						type="button"
+						onclick={() => (calendarioExpandido = !calendarioExpandido)}
+						data-tour="ampliar"
+						class="hidden touch-manipulation items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[10px] text-white/55 transition-colors hover:bg-white/10 lg:inline-flex"
+					>
+						{#if calendarioExpandido}
+							<Minimize2 class="h-3 w-3" /> Reduzir
+						{:else}
+							<Maximize2 class="h-3 w-3" /> Ampliar
+						{/if}
+					</button>
+				</HelpTip>
 			</div>
+			<ScheduleGrid onBlocoClick={(codigo) => (materiaDialog = codigo)} />
+		{/snippet}
 
-			<!-- Direita: resumo -->
-			<div class="order-3">
-				<GradeResumo />
+		{#if calendarioExpandido}
+			<div class="space-y-4">
+				<div>{@render calendario()}</div>
+				<div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]">
+					<div class="space-y-3">{@render colunaMaterias()}</div>
+					<div><GradeResumo /></div>
+				</div>
 			</div>
-		</div>
+		{:else}
+			<div class="grid gap-4 lg:grid-cols-[22rem_minmax(0,1fr)_18rem]">
+				<!-- Coluna esquerda: matérias + busca -->
+				<div class="order-2 space-y-3 lg:order-1 lg:sticky lg:top-24 lg:max-h-[calc(100dvh-9rem)] lg:overflow-y-auto lg:pr-0.5">
+					{@render colunaMaterias()}
+				</div>
+
+				<!-- Centro: calendário -->
+				<div class="order-1 lg:order-2">{@render calendario()}</div>
+
+				<!-- Direita: resumo -->
+				<div class="order-3">
+					<GradeResumo />
+				</div>
+			</div>
+		{/if}
 	{/if}
 </div>
 
 <TrocarTurmaDialog codigo={materiaDialog} onClose={() => (materiaDialog = null)} />
+
+<!-- Onboarding guiado (spotlight + coach marks) -->
+<OnboardingTour />
 
 <!-- Chatbot flutuante (Darcy) — recomenda optativas com turma e insere na grade -->
 {#if status === 'ready'}

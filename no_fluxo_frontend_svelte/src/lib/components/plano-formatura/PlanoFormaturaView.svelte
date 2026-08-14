@@ -22,7 +22,8 @@
 		X,
 		Bot,
 		Download,
-		Sparkles
+		Sparkles,
+		Minus
 	} from 'lucide-svelte';
 	import html2canvas from 'html2canvas-pro';
 
@@ -49,10 +50,54 @@
 	});
 
 	function resetChat() {
-		chatW = 384;
-		chatH = 550;
+		// Abre generoso: texto de resposta fica confortável sem o aluno precisar
+		// redimensionar. Limitado pela janela para não estourar telas menores.
+		// Também é o "restaurar": volta exatamente ao tamanho/posição de abertura.
+		chatW = Math.min(520, window.innerWidth - 48);
+		chatH = Math.min(760, window.innerHeight - 120);
 		chatX = window.innerWidth - chatW - 24;
 		chatY = window.innerHeight - chatH - 24;
+	}
+
+	// Minimizar = voltar ao botão flutuante do bot. Tamanho e posição ficam
+	// guardados, então reabrir volta onde estava.
+	function fecharChat() {
+		isChatOpen = false;
+	}
+
+	// ─── Redimensionar pelo canto superior esquerdo ──────────────────────────
+	// O resize:both nativo só existe no canto inferior direito; esta alça cresce
+	// a janela para cima/esquerda compensando a posição.
+	const CHAT_MIN_W = 320;
+	const CHAT_MIN_H = 380;
+
+	function startResizeTopLeft(e: MouseEvent) {
+		if (isMobile) return;
+		e.preventDefault();
+		e.stopPropagation();
+		let px = e.clientX;
+		let py = e.clientY;
+
+		function move(ev: MouseEvent) {
+			const dx = ev.clientX - px;
+			const dy = ev.clientY - py;
+			px = ev.clientX;
+			py = ev.clientY;
+			const novoW = Math.max(CHAT_MIN_W, chatW - dx);
+			const novoH = Math.max(CHAT_MIN_H, chatH - dy);
+			chatX += chatW - novoW;
+			chatY += chatH - novoH;
+			chatW = novoW;
+			chatH = novoH;
+		}
+
+		function up() {
+			window.removeEventListener('mousemove', move);
+			window.removeEventListener('mouseup', up);
+		}
+
+		window.addEventListener('mousemove', move);
+		window.addEventListener('mouseup', up);
 	}
 
 	$effect(() => {
@@ -213,6 +258,34 @@
 	const hasOptativasPendentes = $derived(
 		planoFormaturaStore.status === 'success' && planoFormaturaStore.plano !== null
 	);
+
+	/**
+	 * Horas de optativas que o plano NÃO cobre. Enquanto for > 0 o aluno não
+	 * integraliza a matriz — o banner vira aviso pedindo para adicionar optativas.
+	 */
+	const chOptativaNaoCoberta = $derived.by(() => {
+		const p = planoFormaturaStore.plano;
+		if (!p || !('chOptativaFaltante' in p)) return 0;
+		return Math.max(0, Math.round(p.chOptativaFaltante));
+	});
+
+	/**
+	 * Horas de optativas RESERVADAS como slots genéricos: o plano guardou o
+	 * espaço, mas o aluno ainda não escolheu quais matérias cursar — sem escolher,
+	 * essas horas continuam pendentes de verdade.
+	 */
+	const chOptativaEmSlots = $derived.by(() => {
+		const p = planoFormaturaStore.plano as { plano?: { materias?: unknown[] }[] } | null;
+		if (!p?.plano) return 0;
+		let total = 0;
+		for (const s of p.plano) {
+			for (const m of s.materias ?? []) {
+				const item = m as { tipo?: string; ch?: number };
+				if (item?.tipo === 'optativa_slot') total += Number(item.ch) || 0;
+			}
+		}
+		return Math.round(total);
+	});
 
 	/** Semestre atual do aluno (ex: 3, 4, etc). */
 	const semestreAtual = $derived(authState.user?.dadosFluxograma?.semestreAtual ?? 1);
@@ -441,23 +514,58 @@
 	{:else if planoFormaturaStore.status === 'success' && planoFormaturaStore.plano}
 		<div class="flex flex-1 flex-col gap-4 lg:overflow-hidden" transition:fade={{ duration: 200 }}>
 
-			<!-- Notice about elective credits -->
+			<!-- Aviso de optativas: vira alerta quando o plano não bate as horas optativas -->
 			{#if hasOptativasPendentes}
-				<div class="flex flex-wrap items-center gap-2.5 rounded-xl border border-amber-500/20 bg-amber-600/8 px-4 py-3">
-					<BookOpenCheck class="h-4 w-4 shrink-0 text-amber-400" />
-					<p class="min-w-[200px] flex-1 text-xs text-amber-200/70 leading-relaxed">
-						O plano cobre as matérias <strong class="text-amber-200/90">obrigatórias</strong>.
-						Para as optativas, conte seus interesses ao Darcy AI e receba sugestões que combinam com você.
-					</p>
-					<button
-						type="button"
-						onclick={() => handleChatAction('Me ajude a escolher optativas: pergunte quais são meus interesses dentro da minha área e depois sugira matérias optativas da UnB que combinem com eles.')}
-						class="flex shrink-0 touch-manipulation items-center gap-1.5 rounded-lg border border-pink-500/30 bg-pink-500/10 px-3 py-1.5 text-xs font-medium text-pink-300 transition-colors hover:border-pink-500/50 hover:bg-pink-500/20"
-					>
-						<Sparkles class="h-3.5 w-3.5" />
-						Sugerir optativas
-					</button>
-				</div>
+				{#if chOptativaNaoCoberta > 0}
+					<div class="flex flex-wrap items-center gap-2.5 rounded-xl border border-red-500/25 bg-red-600/8 px-4 py-3">
+						<AlertTriangle class="h-4 w-4 shrink-0 text-red-400" />
+						<p class="min-w-[200px] flex-1 text-xs text-red-200/80 leading-relaxed">
+							Faltam <strong class="text-red-200">{chOptativaNaoCoberta}h de optativas</strong> fora do plano.
+							Adicione optativas para bater as horas e conseguir se formar.
+						</p>
+						<button
+							type="button"
+							onclick={() => handleChatAction(`Preciso completar ${chOptativaNaoCoberta}h de optativas para me formar. Me pergunte meus interesses dentro da minha área e sugira optativas da UnB que combinem com eles e batam essas horas.`)}
+							class="flex shrink-0 touch-manipulation items-center gap-1.5 rounded-lg border border-pink-500/30 bg-pink-500/10 px-3 py-1.5 text-xs font-medium text-pink-300 transition-colors hover:border-pink-500/50 hover:bg-pink-500/20"
+						>
+							<Sparkles class="h-3.5 w-3.5" />
+							Escolher com o Darcy AI
+						</button>
+					</div>
+				{:else if chOptativaEmSlots > 0}
+					<div class="flex flex-wrap items-center gap-2.5 rounded-xl border border-amber-500/25 bg-amber-600/10 px-4 py-3">
+						<AlertTriangle class="h-4 w-4 shrink-0 text-amber-400" />
+						<p class="min-w-[200px] flex-1 text-xs text-amber-200/80 leading-relaxed">
+							Faltam <strong class="text-amber-200">{chOptativaEmSlots}h de optativas</strong> para escolher:
+							o plano reservou o espaço nos semestres, mas as matérias ainda não foram definidas.
+							Escolha com o Darcy AI para bater as horas e se formar.
+						</p>
+						<button
+							type="button"
+							onclick={() => handleChatAction(`Preciso escolher ${chOptativaEmSlots}h de optativas para completar meu plano. Me pergunte meus interesses dentro da minha área e sugira matérias optativas da UnB que combinem com eles.`)}
+							class="flex shrink-0 touch-manipulation items-center gap-1.5 rounded-lg border border-pink-500/30 bg-pink-500/10 px-3 py-1.5 text-xs font-medium text-pink-300 transition-colors hover:border-pink-500/50 hover:bg-pink-500/20"
+						>
+							<Sparkles class="h-3.5 w-3.5" />
+							Escolher com o Darcy AI
+						</button>
+					</div>
+				{:else}
+					<div class="flex flex-wrap items-center gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-600/8 px-4 py-3">
+						<BookOpenCheck class="h-4 w-4 shrink-0 text-emerald-400" />
+						<p class="min-w-[200px] flex-1 text-xs text-emerald-200/70 leading-relaxed">
+							O plano cobre as matérias <strong class="text-emerald-200/90">obrigatórias</strong> e as horas de optativas
+							já estão atendidas pelas suas escolhas. Ainda dá para trocar: converse com o Darcy AI.
+						</p>
+						<button
+							type="button"
+							onclick={() => handleChatAction('Me ajude a revisar as optativas do meu plano: sugira alternativas da UnB que combinem com meus interesses.')}
+							class="flex shrink-0 touch-manipulation items-center gap-1.5 rounded-lg border border-pink-500/30 bg-pink-500/10 px-3 py-1.5 text-xs font-medium text-pink-300 transition-colors hover:border-pink-500/50 hover:bg-pink-500/20"
+						>
+							<Sparkles class="h-3.5 w-3.5" />
+							Revisar optativas
+						</button>
+					</div>
+				{/if}
 			{/if}
 
 			<!-- Fluxo interativo Svelte Flow (Substitui scroll horizontal antigo) -->
@@ -487,26 +595,48 @@
 		<div 
 			class="fixed z-[100] flex flex-col bg-[#090c12]/90 sm:bg-[#090c12]/60 backdrop-blur-3xl overflow-hidden border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.5)] origin-bottom-right
 				{isMobile ? 'bottom-0 left-0 right-0 w-full h-[85vh] rounded-t-3xl rounded-b-none' : 'rounded-2xl'}" 
-			style={isMobile ? '' : `left: ${chatX}px; top: ${chatY}px; width: ${chatW}px; height: ${chatH}px; resize: both;`}
+			style={isMobile
+				? ''
+				: `left: ${chatX}px; top: ${chatY}px; width: ${chatW}px; height: ${chatH}px; resize: both;`}
 			use:draggable
 			in:scale={{ start: 0.6, duration: 400, easing: backOut }}
 			out:scale={{ start: 0.8, duration: 200, easing: cubicOut }}
 		>
+			{#if !isMobile}
+				<!-- Alça de redimensionar no canto superior esquerdo (espelho do resize nativo) -->
+				<div
+					class="group/resize absolute top-0 left-0 z-50 h-6 w-6 cursor-nwse-resize"
+					onmousedown={startResizeTopLeft}
+					role="presentation"
+					title="Redimensionar"
+				>
+					<div class="absolute top-1.5 left-1.5 h-2.5 w-2.5 rounded-tl border-t-2 border-l-2 border-white/25 transition-colors group-hover/resize:border-white/60"></div>
+				</div>
+			{/if}
 			<div class="absolute top-4 right-4 z-50 flex items-center gap-1">
 				{#if !isMobile}
-					<button 
-						type="button" 
-						onclick={resetChat} 
+					<button
+						type="button"
+						onclick={resetChat}
 						class="p-1 rounded-md text-white/40 hover:text-white/80 hover:bg-white/5 transition-colors cursor-pointer"
 						aria-label="Restaurar tamanho e posição"
 						title="Restaurar tamanho e posição"
 					>
 						<RefreshCw class="h-4 w-4" />
 					</button>
+					<button
+						type="button"
+						onclick={fecharChat}
+						class="p-1 rounded-md text-white/40 hover:text-white/80 hover:bg-white/5 transition-colors cursor-pointer"
+						aria-label="Minimizar chat"
+						title="Minimizar chat"
+					>
+						<Minus class="h-4 w-4" />
+					</button>
 				{/if}
-				<button 
-					type="button" 
-					onclick={() => isChatOpen = false} 
+				<button
+					type="button"
+					onclick={fecharChat}
 					class="p-1 rounded-md text-white/40 hover:text-white/80 hover:bg-white/5 transition-colors cursor-pointer"
 					aria-label="Fechar chat"
 				>

@@ -27,6 +27,16 @@ export interface RestricoesPlano {
     priorizar: string[];
     /** Limite de creditos customizado por indice de semestre (0 = próximo). Chave: indice, Valor: creditos. */
     limitesPersonalizados?: Record<number, number>;
+    /**
+     * Optativas que o aluno escolheu ADICIONAR ao plano (via chat). Entram na
+     * alocacao como materias concretas e abatem a CH optativa faltante.
+     */
+    adicionar?: string[];
+    /**
+     * Semestre escolhido pelo aluno para cada optativa adicionada
+     * (codigo -> indice do semestre no plano). Sem entrada = onde couber.
+     */
+    adicionarEm?: Record<string, number>;
 }
 
 /**
@@ -138,6 +148,8 @@ export interface MateriaPlano {
     dificuldadeEstimada?: number;
     /** Motivo textual da avaliacao de dificuldade (geralmente provido pela IA). */
     motivoDificuldade?: string;
+    /** true quando a materia NAO eh obrigatoria (optativa adicionada pelo aluno). */
+    optativa?: boolean;
 }
 
 /** Slot generico para optativas (nao especifica materia). */
@@ -214,6 +226,16 @@ export interface PlanoFormaturav2 {
     chOptativaFaltante: number;
     /** CH faltante para complementares. */
     chComplementarFaltante: number;
+    /**
+     * Fotografia da integralizacao em horas, para a UI projetar o % acumulado
+     * a cada semestre do plano (integralizadas + em curso + semestres do plano
+     * sobre o total exigido pela matriz).
+     */
+    integralizacao?: {
+        horasIntegralizadas: number;
+        horasEmCurso: number;
+        horasExigidasTotal: number;
+    };
 }
 
 /** Saida completa do Motor 2 (versao anterior para compatibilidade). */

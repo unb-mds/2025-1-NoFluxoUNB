@@ -43,10 +43,16 @@ export default [
 			}
 		},
 		plugins: {
-			svelte: sveltePlugin
+			svelte: sveltePlugin,
+			'@typescript-eslint': tseslint
 		},
 		rules: {
-			...sveltePlugin.configs.recommended.rules
+			...sveltePlugin.configs.recommended.rules,
+			// A regra core não entende TypeScript e acusa como "não usados" os nomes
+			// de parâmetro em anotações de tipo (ex.: `onSend: (msg: string) => void`).
+			// Troca pela versão do typescript-eslint, igual ao bloco de .ts acima.
+			'no-unused-vars': 'off',
+			'@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }]
 		}
 	},
 	prettier,

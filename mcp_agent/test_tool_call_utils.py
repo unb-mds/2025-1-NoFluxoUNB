@@ -9,9 +9,9 @@ from tool_call_utils import extrair_tool_call_texto, termo_materia
 def test_extrai_tool_call_wrapper():
     # O caso real do bug reportado: a tool call vazou como texto.
     content = (
-        '<tool_call>\n'
+        "<tool_call>\n"
         '{"name": "buscar_materias_unb", "arguments": {"termos_busca": ["ENE0274"]}}\n'
-        '</tool_call>'
+        "</tool_call>"
     )
     nome, args = extrair_tool_call_texto(content)
     assert nome == "buscar_materias_unb", nome
@@ -26,7 +26,9 @@ def test_extrai_explicar_materia():
 
 
 def test_extrai_json_puro_sem_wrapper():
-    content = 'Claro! {"name": "explicar_materia", "arguments": {"materia": "Calculo 1"}}'
+    content = (
+        'Claro! {"name": "explicar_materia", "arguments": {"materia": "Calculo 1"}}'
+    )
     nome, args = extrair_tool_call_texto(content)
     assert nome == "explicar_materia"
     assert args == {"materia": "Calculo 1"}
@@ -46,7 +48,7 @@ def test_texto_normal_nao_e_tool_call():
 
 
 def test_json_invalido_retorna_none():
-    assert extrair_tool_call_texto('<tool_call>{name: quebrado}</tool_call>') is None
+    assert extrair_tool_call_texto("<tool_call>{name: quebrado}</tool_call>") is None
 
 
 def test_termo_materia_variacoes():
@@ -58,7 +60,9 @@ def test_termo_materia_variacoes():
 
 
 if __name__ == "__main__":
-    testes = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
+    testes = [
+        v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)
+    ]
     falhas = 0
     for t in testes:
         try:

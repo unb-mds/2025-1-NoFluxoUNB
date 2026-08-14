@@ -63,6 +63,7 @@ class Consulta(BaseModel):
     interesse: str
     matriz_curricular: str = ""
 
+
 # Prompt de ROTEAMENTO — usado na 1ª chamada, apenas para o modelo escolher a ferramenta.
 ROUTING_PROMPT = (
     "Você é o Darcy, assistente acadêmico da UnB. Escolha a ferramenta conforme a intenção do usuário:\n"
@@ -398,9 +399,11 @@ def ferramenta_explicar_materia(termo: str) -> dict:
 
     try:
         termo_upper = termo.upper()
-        query = supabase.table("materias").select("codigo_materia, nome_materia, ementa")
+        query = supabase.table("materias").select(
+            "codigo_materia, nome_materia, ementa"
+        )
 
-        if re.match(r'^[A-Z]{3}\d{4}$', termo_upper):
+        if re.match(r"^[A-Z]{3}\d{4}$", termo_upper):
             res = query.eq("codigo_materia", termo_upper).limit(1).execute()
         else:
             res = query.ilike("nome_materia", f"%{termo}%").limit(1).execute()
@@ -542,7 +545,9 @@ async def recomendar_materias(consulta: Consulta):
         elif nome_ferramenta == "explicar_materia":
             termo = termo_materia(args)
             print(f"\n[DEBUG] 📖 IA escolheu explicar a matéria: '{termo}'")
-            dados_banco = json.dumps(ferramenta_explicar_materia(termo), ensure_ascii=False)
+            dados_banco = json.dumps(
+                ferramenta_explicar_materia(termo), ensure_ascii=False
+            )
             modo = "explicacao"
         elif nome_ferramenta == "buscar_materias_unb":
             termos = args.get("termos_busca", [])
@@ -560,7 +565,10 @@ async def recomendar_materias(consulta: Consulta):
             messages=[
                 {"role": "system", "content": final_prompt},
                 {"role": "user", "content": consulta.interesse},
-                {"role": "system", "content": f"DADOS DO BANCO (baseie-se SOMENTE nestes dados):\n{dados_banco}"},
+                {
+                    "role": "system",
+                    "content": f"DADOS DO BANCO (baseie-se SOMENTE nestes dados):\n{dados_banco}",
+                },
             ],
             max_tokens=5000,  # Aumentado para comportar mais disciplinas
         )
@@ -569,7 +577,9 @@ async def recomendar_materias(consulta: Consulta):
         print(f"\n[DEBUG] Texto bruto da IA:\n{resposta_texto}\n")
 
         # Modo explicação é prosa: não extrai lista de disciplinas.
-        disciplinas = [] if modo == "explicacao" else parse_resposta_sabia(resposta_texto)
+        disciplinas = (
+            [] if modo == "explicacao" else parse_resposta_sabia(resposta_texto)
+        )
         return {
             "success": True,
             "disciplinas": disciplinas,
@@ -640,23 +650,33 @@ async def recomendar_materias_stream(consulta: Consulta):
                 if not consulta.matriz_curricular.strip():
                     yield _sse_event("error", message="Envie o historico academico")
                     return
-                yield _sse_event("searching", message="Consultando sua matriz curricular...")
+                yield _sse_event(
+                    "searching", message="Consultando sua matriz curricular..."
+                )
                 dados_banco = ferramenta_buscar_optativas(consulta.matriz_curricular)
                 modo = "lista"
             elif nome_ferramenta == "explicar_materia":
                 termo = termo_materia(args)
-                yield _sse_event("searching", message="Buscando a ementa da disciplina...")
-                dados_banco = json.dumps(ferramenta_explicar_materia(termo), ensure_ascii=False)
+                yield _sse_event(
+                    "searching", message="Buscando a ementa da disciplina..."
+                )
+                dados_banco = json.dumps(
+                    ferramenta_explicar_materia(termo), ensure_ascii=False
+                )
                 modo = "explicacao"
             else:  # buscar_materias_unb (ou desconhecida)
                 termos = args.get("termos_busca", [])
-                yield _sse_event("searching", message="Buscando disciplinas no banco de dados...")
+                yield _sse_event(
+                    "searching", message="Buscando disciplinas no banco de dados..."
+                )
                 dados_banco = ferramenta_buscar_materias_unb(termos)
                 modo = "lista"
 
             # Stage 3: Generating (with streaming)
             if modo == "explicacao":
-                yield _sse_event("generating", message="Explicando o conteúdo da matéria...")
+                yield _sse_event(
+                    "generating", message="Explicando o conteúdo da matéria..."
+                )
                 final_prompt = EXPLICACAO_PROMPT
             else:
                 yield _sse_event("generating", message="Gerando recomendações...")
@@ -667,7 +687,10 @@ async def recomendar_materias_stream(consulta: Consulta):
                 messages=[
                     {"role": "system", "content": final_prompt},
                     {"role": "user", "content": consulta.interesse},
-                    {"role": "system", "content": f"DADOS DO BANCO (baseie-se SOMENTE nestes dados):\n{dados_banco}"},
+                    {
+                        "role": "system",
+                        "content": f"DADOS DO BANCO (baseie-se SOMENTE nestes dados):\n{dados_banco}",
+                    },
                 ],
                 max_tokens=5000,
                 stream=True,
@@ -691,7 +714,7 @@ async def recomendar_materias_stream(consulta: Consulta):
                         continue
 
                     # Only parse complete lines to avoid emitting partial names
-                    last_newline = resposta_texto.rfind('\n')
+                    last_newline = resposta_texto.rfind("\n")
                     if last_newline == -1:
                         continue
                     complete_text = resposta_texto[:last_newline]

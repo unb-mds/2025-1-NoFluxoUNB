@@ -142,7 +142,7 @@ function createGradeStore() {
 	let ultimaMontagem = $state<MontagemResultado | null>(null);
 	/** Matéria sob o mouse (lista/resumo) — o calendário destaca os blocos dela. */
 	let hoverCodigo = $state<string | null>(null);
-	/** Códigos priorizados: o "Montar automático" tenta encaixá-los primeiro. */
+	/** Códigos priorizados: o "Rearranjar" (montarAutomatico) tenta encaixá-los primeiro. */
 	let prioritarias = $state<Set<string>>(new Set());
 	/** Preferência de turno/professor por matéria (código → preferência). */
 	let preferencias = $state<Record<string, PreferenciaMateria>>({});

@@ -19,7 +19,12 @@ import {
     distribuirPorSemestres,
     gerarPlano,
 } from "../src/services/plano_formatura.service";
-import type { MateriaInput, PreferenciasPlano } from "../src/types/planejamento";
+import type { MateriaInput, PreferenciasPlano, MateriaPlano, SemestrePlano } from "../src/types/planejamento";
+
+/** Só as matérias concretas de um semestre (exclui slots genéricos de optativa/complementar). */
+function soMaterias(s: SemestrePlano): MateriaPlano[] {
+    return s.materias.filter((m): m is MateriaPlano => "codigo" in m);
+}
 
 // ---------- Helpers / fixtures ----------
 
@@ -243,7 +248,7 @@ describe("distribuirPorSemestres", () => {
         ];
         const semestres = distribuirPorSemestres(mats, new Set(), prefsDefault, 1);
         expect(semestres.length).toBe(1);
-        expect(semestres[0].materias.map((m) => m.codigo).sort()).toEqual(["A", "B", "C"]);
+        expect(soMaterias(semestres[0]).map((m) => m.codigo).sort()).toEqual(["A", "B", "C"]);
         expect(semestres[0].creditos).toBe(12);
     });
 
@@ -269,8 +274,8 @@ describe("distribuirPorSemestres", () => {
         ];
         const semestres = distribuirPorSemestres(mats, new Set(), prefs, 1);
         expect(semestres.length).toBe(2);
-        expect(semestres[0].materias[0].codigo).toBe("A");
-        expect(semestres[1].materias[0].codigo).toBe("B");
+        expect(soMaterias(semestres[0])[0].codigo).toBe("A");
+        expect(soMaterias(semestres[1])[0].codigo).toBe("B");
     });
 
     it("primeiro semestre eh 'recomendado'; demais 'estimado'", () => {
@@ -289,7 +294,7 @@ describe("distribuirPorSemestres", () => {
         const mats = [mkMateria({ codigo: "B", creditos: 4, preRequisitos: "A" })];
         const semestres = distribuirPorSemestres(mats, new Set(["A"]), prefsDefault, 1);
         expect(semestres.length).toBe(1);
-        expect(semestres[0].materias[0].codigo).toBe("B");
+        expect(soMaterias(semestres[0])[0].codigo).toBe("B");
     });
 
     it("nao alocaveis (ciclo / dependencia ausente) nao travam o algoritmo", () => {
@@ -315,7 +320,7 @@ describe("distribuirPorSemestres", () => {
         ];
         const semestres = distribuirPorSemestres(mats, new Set(), prefs, 1);
         // Primeiro semestre deve ser C (maior score: obrigatoria + 2 diretos)
-        expect(semestres[0].materias[0].codigo).toBe("C");
+        expect(soMaterias(semestres[0])[0].codigo).toBe("C");
     });
 });
 
@@ -349,9 +354,9 @@ describe("gerarPlano", () => {
             materiasFaltantes: mats,
         });
         expect(plano.semestresRestantes).toBe(3);
-        expect(plano.plano[0].materias[0].codigo).toBe("A");
-        expect(plano.plano[1].materias[0].codigo).toBe("B");
-        expect(plano.plano[2].materias[0].codigo).toBe("C");
+        expect(soMaterias(plano.plano[0])[0].codigo).toBe("A");
+        expect(soMaterias(plano.plano[1])[0].codigo).toBe("B");
+        expect(soMaterias(plano.plano[2])[0].codigo).toBe("C");
         expect(plano.plano[0].tipo).toBe("recomendado");
         expect(plano.plano[1].tipo).toBe("estimado");
     });
@@ -370,7 +375,7 @@ describe("gerarPlano", () => {
             preferencias: prefsDefault,
             materiasFaltantes: mats,
         });
-        const atr = plano.plano[0].materias.find((m) => m.codigo === "ATR");
+        const atr = soMaterias(plano.plano[0]).find((m) => m.codigo === "ATR");
         expect(atr).toBeDefined();
         expect(atr!.critica).toBe(true);
     });
@@ -399,8 +404,8 @@ describe("gerarPlano", () => {
             preferencias: prefsDefault,
             materiasFaltantes: mats,
         });
-        expect(plano.plano[0].materias[0].motivo).toBeTruthy();
-        expect(typeof plano.plano[0].materias[0].motivo).toBe("string");
+        expect(soMaterias(plano.plano[0])[0].motivo).toBeTruthy();
+        expect(typeof soMaterias(plano.plano[0])[0].motivo).toBe("string");
     });
 
     it("respeita completedCodes (considera materias ja feitas como pre-req cumprido)", () => {
@@ -415,7 +420,7 @@ describe("gerarPlano", () => {
             preferencias: prefsDefault,
             materiasFaltantes: mats,
         });
-        expect(plano.plano[0].materias[0].codigo).toBe("B");
+        expect(soMaterias(plano.plano[0])[0].codigo).toBe("B");
         expect(plano.semestresRestantes).toBe(1);
     });
 });

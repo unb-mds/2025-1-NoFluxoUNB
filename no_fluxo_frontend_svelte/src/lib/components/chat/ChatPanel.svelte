@@ -1,9 +1,11 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import { Sparkles, SendHorizontal, Bot, CalendarPlus } from 'lucide-svelte';
 	import { formatHorarioSigaa, compactarFaixasHorarias, formatLocalSigaa } from '$lib/utils/sigaa';
 	import ChatWrapper from '$lib/components/chat/ChatWrapper.svelte';
 	import ChatBubble from '$lib/components/chat/ChatBubble.svelte';
 	import ChatLoader from '$lib/components/chat/ChatLoader.svelte';
+	import MarqueeText from '$lib/components/ui/MarqueeText.svelte';
 	import type { Snippet } from 'svelte';
 
 	interface Starter {
@@ -29,6 +31,7 @@
 		onSend,
 		onAddToGrade,
 		onMontarGrade,
+		nomesMaterias,
 		emptyState
 	}: {
 		messages: ChatMsg[];
@@ -45,12 +48,60 @@
 		onAddToGrade?: (codigo: string) => void;
 		/** Quando definido, o marcador [MONTAR_GRADE|COD,...|TURNOS] vira um botão de ação. */
 		onMontarGrade?: (codigos: string[], turnos?: string[]) => void;
+		/** Mapa código→nome: chips de matéria exibem o nome (código vira tooltip). */
+		nomesMaterias?: Map<string, string>;
 		emptyState?: Snippet;
 	} = $props();
+
+	/** "INTRODUÇÃO A COMPUTAÇÃO GRÁFICA" → "Introdução A Computação Gráfica". */
+	function nomeBonito(nome: string): string {
+		return nome.toLowerCase().replace(/(^|[\s(])\p{L}/gu, (c) => c.toUpperCase());
+	}
 
 	let messageInput = $state('');
 	let inputRef: HTMLInputElement;
 	let chatViewport = $state<HTMLElement | null>(null);
+
+	// ─── Animação de digitação da resposta ────────────────────────────────────
+	// A última resposta do assistente é revelada progressivamente (estilo
+	// Claude/GPT). Mensagens que já estavam no histórico ao montar não animam.
+	const contagemInicial = untrack(() => messages.length);
+	let typingMsg = $state<ChatMsg | null>(null);
+	let typingShown = $state(0);
+	// Controle NÃO-reativo de qual mensagem está animando — se o efeito lesse
+	// typingMsg, mudá-lo dentro dele dispararia re-execução e mataria o timer.
+	let animando: ChatMsg | null = null;
+
+	/**
+	 * Fatia o texto sem cortar no meio de um marcador de formatação — um
+	 * `[BOTAO|...]` ou `**negrito**` pela metade renderizaria cru no chat.
+	 */
+	function fatiaSegura(texto: string, n: number): string {
+		let out = texto.slice(0, n);
+		const abre = out.lastIndexOf('[');
+		if (abre >= 0 && out.indexOf(']', abre) === -1) out = out.slice(0, abre);
+		const asteriscos = out.split('**').length - 1;
+		if (asteriscos % 2 === 1) out = out.slice(0, out.lastIndexOf('**'));
+		return out;
+	}
+
+	$effect(() => {
+		const ultima = messages[messages.length - 1];
+		if (!ultima || ultima.role !== 'assistant' || messages.length <= contagemInicial) return;
+		if (animando !== ultima) {
+			animando = ultima;
+			typingMsg = ultima;
+			typingShown = 0;
+		}
+		const total = ultima.content.length;
+		if (untrack(() => typingShown) >= total) return;
+		const timer = setInterval(() => {
+			typingShown = Math.min(total, typingShown + 4);
+			if (chatViewport) chatViewport.scrollTop = chatViewport.scrollHeight;
+			if (typingShown >= total) clearInterval(timer);
+		}, 18);
+		return () => clearInterval(timer);
+	});
 
 	function enviar() {
 		if (messageInput.trim() === '' || loading) return;
@@ -74,6 +125,12 @@
 
 	// Parser compartilhado: badges de código, blocos [TURMA|...], [BOTAO|...] e **negrito**.
 	function parseMessage(text: string) {
+		// Tipografia: itens de lista viram bullet de verdade e o excesso de linhas
+		// em branco é colapsado — o texto cru do modelo era corrido demais de ler.
+		text = text
+			.replace(/\n{3,}/g, '\n\n')
+			.replace(/^[ \t]*[-*]\s+/gm, '•  ')
+			.replace(/^[ \t]*(\d+)[.)]\s+/gm, '$1.  ');
 		const regex = /(\b[A-Z]{3,4}\d{4}\b)|(\[TURMA\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|\]]+)(?:\|([^\]]+))?\])|(\[BOTAO\|([^|\]]+)(?:\|([^\]]+))?\])|(\*\*([^*\n]+)\*\*)|(\[MONTAR_GRADE\|([^\]]+)\])/g;
 		const blocks: any[] = [];
 		let currentBubble: any[] = [];
@@ -203,7 +260,7 @@
 						{/if}
 
 						{#if promptStarters.length > 0}
-							<div class="mt-6 flex flex-wrap justify-center gap-2 w-full max-w-[340px]">
+							<div class="mt-6 flex flex-wrap justify-center gap-2 w-full max-w-85">
 								{#each promptStarters as starter}
 									<button
 										type="button"
@@ -214,7 +271,7 @@
 										<div class="flex-1 leading-snug">
 											{starter.prefix}
 											{#if starter.badge}
-												<span class="inline-flex items-center rounded-full bg-white/5 border border-white/20 px-1.5 py-px text-[10px] font-mono font-bold tracking-wide text-white mx-1 transition-all duration-300 group-hover:bg-indigo-500/20 group-hover:text-indigo-200 group-hover:border-indigo-400/80 group-hover:shadow-[0_0_12px_rgba(129,140,248,0.5),inset_0_0_8px_rgba(129,140,248,0.3)]">{starter.badge}</span>
+												<span class="inline-flex items-center rounded-full bg-white/5 border border-white/20 px-1.5 py-px text-[10px] font-mono font-bold tracking-wide text-white mx-1 transition-all duration-300 group-hover:bg-indigo-500/20 group-hover:text-indigo-200 group-hover:border-indigo-400/80 group-hover:shadow-[0_0_12px_rgba(129,140,248,0.5),inset_0_0_8px_rgba(129,140,248,0.3)]"><MarqueeText text={starter.badge} maxWidth={150} /></span>
 											{/if}
 											{starter.suffix ?? ''}
 										</div>
@@ -226,22 +283,31 @@
 				</div>
 			{:else}
 				{#each messages as msg (msg)}
-					{#each parseMessage(msg.content) as block, i}
+					{@const conteudo =
+						msg === typingMsg && typingShown < msg.content.length
+							? fatiaSegura(msg.content, typingShown)
+							: msg.content}
+					{#each parseMessage(conteudo) as block, i}
 						{#if block.type === 'bubble'}
 							<ChatBubble role={msg.role} name={i === 0 ? (msg.role === 'user' ? 'Você' : assistantName) : undefined}>
 								{#each block.segments as segment}
 									{#if segment.type === 'badge'}
-										<span class="mx-0.5 inline-flex items-center gap-0.5">
+										{@const nomeChip = nomesMaterias?.get(segment.value)}
+										{@const rotulo = nomeChip ? nomeBonito(nomeChip) : segment.value}
+										<span class="mx-0.5 inline-flex max-w-full items-center gap-0.5">
 											{#if interactiveBadges}
 												<button
 													type="button"
 													onclick={() => enviarTexto(segment.value)}
 													disabled={loading}
-													title={`Ver ${segment.value}`}
-													class="badge-glow inline-flex items-center rounded-md bg-indigo-500/20 px-1.5 py-0.5 text-xs font-mono font-bold tracking-wide text-white border border-indigo-400/60 backdrop-blur-md cursor-pointer transition-all hover:bg-indigo-500/40 hover:border-indigo-300 hover:-translate-y-px active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
-												>{segment.value}</button>
+													title={nomeChip ? segment.value : `Ver ${segment.value}`}
+													class="badge-glow inline-flex items-center rounded-md bg-indigo-500/20 px-1.5 py-0.5 text-xs font-bold tracking-wide text-white border border-indigo-400/60 backdrop-blur-md cursor-pointer transition-all hover:bg-indigo-500/40 hover:border-indigo-300 hover:-translate-y-px active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed {nomeChip ? '' : 'font-mono'}"
+												><MarqueeText text={rotulo} maxWidth={220} /></button>
 											{:else}
-												<span class="inline-flex items-center rounded-md bg-white/10 px-1.5 py-0.5 text-xs font-mono font-bold tracking-wide text-white border border-white/20 shadow-sm backdrop-blur-md">{segment.value}</span>
+												<span
+													title={nomeChip ? segment.value : undefined}
+													class="inline-flex items-center rounded-md bg-white/10 px-1.5 py-0.5 text-xs font-bold tracking-wide text-white border border-white/20 shadow-sm backdrop-blur-md {nomeChip ? '' : 'font-mono'}"
+												><MarqueeText text={rotulo} maxWidth={220} /></span>
 											{/if}
 											{#if onAddToGrade}
 												<button
@@ -260,8 +326,8 @@
 								{/each}
 							</ChatBubble>
 						{:else if block.type === 'turma'}
-							<div class="rounded-3xl border border-indigo-500/40 bg-gradient-to-br from-indigo-500/10 to-fuchsia-500/10 backdrop-blur-2xl p-5 my-2 shadow-2xl flex flex-col gap-4 w-[95%] sm:w-[85%] block self-center relative overflow-hidden">
-								<div class="absolute -top-10 -right-10 w-32 h-32 bg-indigo-500/30 rounded-full blur-[40px] pointer-events-none"></div>
+							<div class="rounded-3xl border border-indigo-500/40 bg-linear-to-br from-indigo-500/10 to-fuchsia-500/10 backdrop-blur-2xl p-5 my-2 shadow-2xl flex flex-col gap-4 w-[95%] sm:w-[85%] self-center relative overflow-hidden">
+								<div class="absolute -top-10 -right-10 w-32 h-32 bg-indigo-500/30 rounded-full blur-2xl pointer-events-none"></div>
 
 								<div class="flex flex-wrap items-center justify-between border-b border-indigo-400/20 pb-3 mb-1 gap-2 relative z-10">
 									<div class="flex items-center gap-2.5">

@@ -2,6 +2,7 @@
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
 	import { Search, Plus } from 'lucide-svelte';
+	import HelpTip from '$lib/components/onboarding/HelpTip.svelte';
 
 	// Adiciona uma matéria da matriz do curso ao pool. A página resolve turmas.
 	let { onAdd }: { onAdd: (codigo: string) => void } = $props();
@@ -27,7 +28,14 @@
 	}
 </script>
 
-<div class="rounded-2xl border border-white/10 bg-zinc-950/78 p-3">
+<div class="rounded-2xl border border-white/10 bg-zinc-950/78 p-3" data-tour="buscar-materia">
+	<div class="mb-2 flex items-center justify-between gap-2">
+		<p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/55">1 · Matérias</p>
+		<HelpTip
+			title="Como achar a matéria"
+			text="Digite o código (ex.: CIC0004) ou parte do nome. Só aparecem matérias da sua matriz que ainda não estão na lista. Precisa de algo fora da matriz? Use “Buscar turmas” no topo."
+		/>
+	</div>
 	<div class="relative">
 		<Search class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-white/40" />
 		<input

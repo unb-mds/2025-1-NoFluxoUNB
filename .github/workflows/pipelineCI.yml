@@ -3,17 +3,59 @@ name: CI
 # Pipeline único de Integração Contínua do NoFluxoUNB.
 # Cada job mapeia para um nível da pirâmide de testes da disciplina FGA0314.
 # Documentação: docs/testes/pipeline-ci.md
+#
+# Desenho de eficiência:
+# - concurrency: push novo no mesmo PR cancela o run antigo (não paga fila dupla);
+# - job "changes" detecta as áreas tocadas e só roda os jobs daquela área no PR
+#   (push em main/dev roda tudo, para o histórico da branch ficar completo);
+# - caches de npm e pip cortam o tempo de instalação;
+# - timeout-minutes impede runner preso de consumir minutos.
 
 on:
   pull_request:
   push:
     branches: [main, dev]
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  # Detecta o que mudou para pular jobs irrelevantes em PRs.
+  changes:
+    name: Detectar mudanças
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      python: ${{ steps.filter.outputs.python }}
+      backend: ${{ steps.filter.outputs.backend }}
+      frontend: ${{ steps.filter.outputs.frontend }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            python:
+              - '**/*.py'
+              - 'tests-python/**'
+              - 'requirements*.txt'
+              - 'setup.cfg'
+              - '.github/workflows/pipelineCI.yml'
+            backend:
+              - 'no_fluxo_backend/**'
+              - '.github/workflows/pipelineCI.yml'
+            frontend:
+              - 'no_fluxo_frontend_svelte/**'
+              - '.github/workflows/pipelineCI.yml'
+
   # Análise estática Python (não é teste funcional: formatação + lint)
   qualidade-python:
     name: Qualidade Python (Black + Flake8)
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: changes
+    if: github.event_name == 'push' || needs.changes.outputs.python == 'true'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -30,11 +72,16 @@ jobs:
   testes-python:
     name: Testes Python (Pytest)
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: changes
+    if: github.event_name == 'push' || needs.changes.outputs.python == 'true'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: tests-python/requirements.txt
       - name: Dependências de sistema (OCR/PDF)
         run: |
           sudo apt-get update
@@ -52,6 +99,9 @@ jobs:
   testes-backend:
     name: Testes Backend TS (Jest)
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: changes
+    if: github.event_name == 'push' || needs.changes.outputs.backend == 'true'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -70,6 +120,16 @@ jobs:
   testes-frontend:
     name: Testes Frontend Svelte (Vitest)
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: changes
+    if: github.event_name == 'push' || needs.changes.outputs.frontend == 'true'
+    env:
+      # Os testes de auth criam o client Supabase no import; no CI não existe
+      # .env, então valores sintéticos evitam o crash (nenhum teste chama a rede).
+      PUBLIC_SUPABASE_URL: https://example.supabase.co
+      PUBLIC_SUPABASE_ANON_KEY: ci-fake-anon-key
+      PUBLIC_API_URL: http://localhost:3000
+      PUBLIC_REDIRECT_URL: http://localhost:5173
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -80,8 +140,6 @@ jobs:
       - name: Instalar dependências
         working-directory: no_fluxo_frontend_svelte
         run: npm ci
-      # Sem arquivos de teste ainda (ver Fase 3 do plano); --passWithNoTests
-      # mantém o job verde e pronto para receber a suíte de componentes.
       - name: Vitest
         working-directory: no_fluxo_frontend_svelte
         run: npx vitest run --passWithNoTests
