@@ -257,6 +257,23 @@
 		return Math.max(0, Math.round(p.chOptativaFaltante));
 	});
 
+	/**
+	 * Horas de optativas RESERVADAS como slots genéricos: o plano guardou o
+	 * espaço, mas o aluno ainda não escolheu quais matérias cursar — sem escolher,
+	 * essas horas continuam pendentes de verdade.
+	 */
+	const chOptativaEmSlots = $derived.by(() => {
+		const p = planoFormaturaStore.plano as { plano?: { materias?: unknown[] }[] } | null;
+		if (!p?.plano) return 0;
+		let total = 0;
+		for (const s of p.plano) {
+			for (const m of s.materias ?? []) {
+				const item = m as { tipo?: string; ch?: number };
+				if (item?.tipo === 'optativa_slot') total += Number(item.ch) || 0;
+			}
+		}
+		return Math.round(total);
+	});
 
 	/** Semestre atual do aluno (ex: 3, 4, etc). */
 	const semestreAtual = $derived(authState.user?.dadosFluxograma?.semestreAtual ?? 1);
@@ -503,20 +520,37 @@
 							Escolher com o Darcy AI
 						</button>
 					</div>
-				{:else}
-					<div class="flex flex-wrap items-center gap-2.5 rounded-xl border border-amber-500/20 bg-amber-600/8 px-4 py-3">
-						<BookOpenCheck class="h-4 w-4 shrink-0 text-amber-400" />
-						<p class="min-w-[200px] flex-1 text-xs text-amber-200/70 leading-relaxed">
-							O plano cobre as matérias <strong class="text-amber-200/90">obrigatórias</strong> e reserva as horas de optativas.
-							Conte seus interesses ao Darcy AI para escolher quais optativas cursar.
+				{:else if chOptativaEmSlots > 0}
+					<div class="flex flex-wrap items-center gap-2.5 rounded-xl border border-amber-500/25 bg-amber-600/10 px-4 py-3">
+						<AlertTriangle class="h-4 w-4 shrink-0 text-amber-400" />
+						<p class="min-w-[200px] flex-1 text-xs text-amber-200/80 leading-relaxed">
+							Faltam <strong class="text-amber-200">{chOptativaEmSlots}h de optativas</strong> para escolher:
+							o plano reservou o espaço nos semestres, mas as matérias ainda não foram definidas.
+							Escolha com o Darcy AI para bater as horas e se formar.
 						</p>
 						<button
 							type="button"
-							onclick={() => handleChatAction('Me ajude a escolher optativas: pergunte quais são meus interesses dentro da minha área e depois sugira matérias optativas da UnB que combinem com eles.')}
+							onclick={() => handleChatAction(`Preciso escolher ${chOptativaEmSlots}h de optativas para completar meu plano. Me pergunte meus interesses dentro da minha área e sugira matérias optativas da UnB que combinem com eles.`)}
 							class="flex shrink-0 touch-manipulation items-center gap-1.5 rounded-lg border border-pink-500/30 bg-pink-500/10 px-3 py-1.5 text-xs font-medium text-pink-300 transition-colors hover:border-pink-500/50 hover:bg-pink-500/20"
 						>
 							<Sparkles class="h-3.5 w-3.5" />
-							Sugerir optativas
+							Escolher com o Darcy AI
+						</button>
+					</div>
+				{:else}
+					<div class="flex flex-wrap items-center gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-600/8 px-4 py-3">
+						<BookOpenCheck class="h-4 w-4 shrink-0 text-emerald-400" />
+						<p class="min-w-[200px] flex-1 text-xs text-emerald-200/70 leading-relaxed">
+							O plano cobre as matérias <strong class="text-emerald-200/90">obrigatórias</strong> e as horas de optativas
+							já estão atendidas pelas suas escolhas. Ainda dá para trocar: converse com o Darcy AI.
+						</p>
+						<button
+							type="button"
+							onclick={() => handleChatAction('Me ajude a revisar as optativas do meu plano: sugira alternativas da UnB que combinem com meus interesses.')}
+							class="flex shrink-0 touch-manipulation items-center gap-1.5 rounded-lg border border-pink-500/30 bg-pink-500/10 px-3 py-1.5 text-xs font-medium text-pink-300 transition-colors hover:border-pink-500/50 hover:bg-pink-500/20"
+						>
+							<Sparkles class="h-3.5 w-3.5" />
+							Revisar optativas
 						</button>
 					</div>
 				{/if}
