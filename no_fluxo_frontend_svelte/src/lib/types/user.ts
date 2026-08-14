@@ -55,6 +55,22 @@ export interface DadosFluxogramaUser {
 	dadosFluxograma: DadosMateria[][];
 	/** Planejamento de optativas no fluxograma (semestre + código). */
 	optativasPlanejadas?: OptativaPlanejadaRef[];
+	/**
+	 * Equivalências declaradas no PRÓPRIO histórico (seção "Equivalências:
+	 * Cumpriu X através de Y"). Guardadas para auditoria — o consumo é feito
+	 * injetando entradas CUMP/equivalencia no dados_fluxograma no upload.
+	 */
+	equivalenciasPdf?: EquivalenciaPdf[];
+}
+
+/** Par de equivalência extraído do histórico do SIGAA (fonte oficial, por aluno). */
+export interface EquivalenciaPdf {
+	/** Código da matéria da matriz dada como cumprida. */
+	cumpriu: string;
+	/** Código da matéria efetivamente cursada. */
+	atravesDe: string;
+	nomeCumpriu?: string | null;
+	nomeEquivalente?: string | null;
 }
 
 export interface OptativaManual {

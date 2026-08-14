@@ -13,7 +13,8 @@ import { ROUTES } from '$lib/config/routes';
 import type { DadosMateria, DadosFluxogramaUser } from '$lib/types/user';
 import {
 	buildDadosFluxogramaUserFromCasarResponse,
-	dadosFluxogramaUserToJson
+	dadosFluxogramaUserToJson,
+	injetarEquivalenciasDoPdf
 } from '$lib/factories';
 import { supabaseDataService } from '$lib/services/supabase-data.service';
 
@@ -314,6 +315,10 @@ function createUploadStore() {
 					meta,
 					{ iraTexto: iraExtraido?.valor_texto ?? null }
 				);
+
+				// Equivalências que o PRÓPRIO histórico declara ("Cumpriu X através de Y"):
+				// fonte oficial do SIGAA — cobre pares que faltem na tabela do banco.
+				injetarEquivalenciasDoPdf(dados, ext?.equivalencias_pdf);
 
 				// Save: atualiza dados_users (estado atual) + registra em historicos_usuarios (acompanhamento ao longo dos anos)
 				await supabaseDataService.saveFluxogramaData(
