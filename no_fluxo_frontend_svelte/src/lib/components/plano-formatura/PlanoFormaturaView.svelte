@@ -22,7 +22,8 @@
 		X,
 		Bot,
 		Download,
-		Sparkles
+		Sparkles,
+		Minus
 	} from 'lucide-svelte';
 	import html2canvas from 'html2canvas-pro';
 
@@ -49,10 +50,54 @@
 	});
 
 	function resetChat() {
-		chatW = 384;
-		chatH = 550;
+		// Abre generoso: texto de resposta fica confortável sem o aluno precisar
+		// redimensionar. Limitado pela janela para não estourar telas menores.
+		// Também é o "restaurar": volta exatamente ao tamanho/posição de abertura.
+		chatW = Math.min(520, window.innerWidth - 48);
+		chatH = Math.min(760, window.innerHeight - 120);
 		chatX = window.innerWidth - chatW - 24;
 		chatY = window.innerHeight - chatH - 24;
+	}
+
+	// Minimizar = voltar ao botão flutuante do bot. Tamanho e posição ficam
+	// guardados, então reabrir volta onde estava.
+	function fecharChat() {
+		isChatOpen = false;
+	}
+
+	// ─── Redimensionar pelo canto superior esquerdo ──────────────────────────
+	// O resize:both nativo só existe no canto inferior direito; esta alça cresce
+	// a janela para cima/esquerda compensando a posição.
+	const CHAT_MIN_W = 320;
+	const CHAT_MIN_H = 380;
+
+	function startResizeTopLeft(e: MouseEvent) {
+		if (isMobile) return;
+		e.preventDefault();
+		e.stopPropagation();
+		let px = e.clientX;
+		let py = e.clientY;
+
+		function move(ev: MouseEvent) {
+			const dx = ev.clientX - px;
+			const dy = ev.clientY - py;
+			px = ev.clientX;
+			py = ev.clientY;
+			const novoW = Math.max(CHAT_MIN_W, chatW - dx);
+			const novoH = Math.max(CHAT_MIN_H, chatH - dy);
+			chatX += chatW - novoW;
+			chatY += chatH - novoH;
+			chatW = novoW;
+			chatH = novoH;
+		}
+
+		function up() {
+			window.removeEventListener('mousemove', move);
+			window.removeEventListener('mouseup', up);
+		}
+
+		window.addEventListener('mousemove', move);
+		window.addEventListener('mouseup', up);
 	}
 
 	$effect(() => {
@@ -211,6 +256,7 @@
 		if (!p || !('chOptativaFaltante' in p)) return 0;
 		return Math.max(0, Math.round(p.chOptativaFaltante));
 	});
+
 
 	/** Semestre atual do aluno (ex: 3, 4, etc). */
 	const semestreAtual = $derived(authState.user?.dadosFluxograma?.semestreAtual ?? 1);
@@ -503,26 +549,48 @@
 		<div 
 			class="fixed z-[100] flex flex-col bg-[#090c12]/90 sm:bg-[#090c12]/60 backdrop-blur-3xl overflow-hidden border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.5)] origin-bottom-right
 				{isMobile ? 'bottom-0 left-0 right-0 w-full h-[85vh] rounded-t-3xl rounded-b-none' : 'rounded-2xl'}" 
-			style={isMobile ? '' : `left: ${chatX}px; top: ${chatY}px; width: ${chatW}px; height: ${chatH}px; resize: both;`}
+			style={isMobile
+				? ''
+				: `left: ${chatX}px; top: ${chatY}px; width: ${chatW}px; height: ${chatH}px; resize: both;`}
 			use:draggable
 			in:scale={{ start: 0.6, duration: 400, easing: backOut }}
 			out:scale={{ start: 0.8, duration: 200, easing: cubicOut }}
 		>
+			{#if !isMobile}
+				<!-- Alça de redimensionar no canto superior esquerdo (espelho do resize nativo) -->
+				<div
+					class="group/resize absolute top-0 left-0 z-50 h-6 w-6 cursor-nwse-resize"
+					onmousedown={startResizeTopLeft}
+					role="presentation"
+					title="Redimensionar"
+				>
+					<div class="absolute top-1.5 left-1.5 h-2.5 w-2.5 rounded-tl border-t-2 border-l-2 border-white/25 transition-colors group-hover/resize:border-white/60"></div>
+				</div>
+			{/if}
 			<div class="absolute top-4 right-4 z-50 flex items-center gap-1">
 				{#if !isMobile}
-					<button 
-						type="button" 
-						onclick={resetChat} 
+					<button
+						type="button"
+						onclick={resetChat}
 						class="p-1 rounded-md text-white/40 hover:text-white/80 hover:bg-white/5 transition-colors cursor-pointer"
 						aria-label="Restaurar tamanho e posição"
 						title="Restaurar tamanho e posição"
 					>
 						<RefreshCw class="h-4 w-4" />
 					</button>
+					<button
+						type="button"
+						onclick={fecharChat}
+						class="p-1 rounded-md text-white/40 hover:text-white/80 hover:bg-white/5 transition-colors cursor-pointer"
+						aria-label="Minimizar chat"
+						title="Minimizar chat"
+					>
+						<Minus class="h-4 w-4" />
+					</button>
 				{/if}
-				<button 
-					type="button" 
-					onclick={() => isChatOpen = false} 
+				<button
+					type="button"
+					onclick={fecharChat}
 					class="p-1 rounded-md text-white/40 hover:text-white/80 hover:bg-white/5 transition-colors cursor-pointer"
 					aria-label="Fechar chat"
 				>

@@ -290,7 +290,49 @@
 <style>
 	/* Botões dos Controls no tamanho mínimo de alvo de toque. */
 	.modo-toque :global(.svelte-flow__controls-button) {
-		width: 32px;
-		height: 32px;
+		width: 36px;
+		height: 36px;
+	}
+
+	/* Controls do xyflow com o acabamento do resto da UI (vidro escuro, borda
+	   sutil, hover suave) em vez do painel branco padrão. */
+	.planner-flow :global(.svelte-flow__controls) {
+		overflow: hidden;
+		border-radius: 12px;
+		border: 1px solid hsl(0 0% 100% / 0.1);
+		background: hsl(222 30% 7% / 0.85);
+		backdrop-filter: blur(12px);
+		box-shadow:
+			0 8px 30px hsl(0 0% 0% / 0.45),
+			inset 0 1px 0 hsl(0 0% 100% / 0.06);
+	}
+	.planner-flow :global(.svelte-flow__controls-button) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 30px;
+		height: 30px;
+		border: none;
+		border-bottom: 1px solid hsl(0 0% 100% / 0.07);
+		background: transparent;
+		transition: background-color 0.15s ease;
+	}
+	.planner-flow :global(.svelte-flow__controls-button:last-child) {
+		border-bottom: none;
+	}
+	.planner-flow :global(.svelte-flow__controls-button:hover) {
+		background: hsl(0 0% 100% / 0.09);
+	}
+	.planner-flow :global(.svelte-flow__controls-button:active) {
+		background: hsl(0 0% 100% / 0.14);
+	}
+	.planner-flow :global(.svelte-flow__controls-button svg) {
+		max-width: 12px;
+		max-height: 12px;
+		fill: hsl(0 0% 100% / 0.6);
+		transition: fill 0.15s ease;
+	}
+	.planner-flow :global(.svelte-flow__controls-button:hover svg) {
+		fill: hsl(0 0% 100% / 0.95);
 	}
 </style>
