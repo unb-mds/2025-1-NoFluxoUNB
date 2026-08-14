@@ -10,15 +10,24 @@
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	import { fade, fly } from 'svelte/transition';
-	import { Sparkles, X, Upload, PartyPopper } from 'lucide-svelte';
+	import { Sparkles, X, Upload, PartyPopper, Heart } from 'lucide-svelte';
 	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
 	import {
 		RELEASE_ID,
 		RELEASE_TITULO,
 		RELEASE_NOVIDADES,
+		RELEASE_NOTA_EQUIPE,
 		FLUXOGRAMA_SCHEMA_VERSION
 	} from '$lib/config/release';
+
+	/** Divide um texto nos trechos entre **asteriscos** para renderizar negrito. */
+	function segmentos(texto: string): { negrito: boolean; valor: string }[] {
+		return texto
+			.split(/\*\*([^*]+)\*\*/g)
+			.map((valor, i) => ({ negrito: i % 2 === 1, valor }))
+			.filter((s) => s.valor !== '');
+	}
 
 	let authState = $derived($authStore);
 	let visivel = $state(false);
@@ -84,7 +93,7 @@
 		></div>
 
 		<div
-			class="relative z-10 w-full max-w-md overflow-hidden rounded-2xl border border-white/10 bg-[#0e1117] shadow-2xl"
+			class="relative z-10 flex max-h-[88vh] w-full max-w-md flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0e1117] shadow-2xl"
 			transition:fly={{ y: 24, duration: 250 }}
 		>
 			<!-- Header -->
@@ -111,7 +120,7 @@
 			</div>
 
 			<!-- Novidades -->
-			<div class="px-6 py-6">
+			<div class="min-h-0 overflow-y-auto px-6 py-6">
 				<ul class="flex flex-col gap-3">
 					{#each RELEASE_NOVIDADES as novidade}
 						<li class="flex items-start gap-2.5">
@@ -127,6 +136,34 @@
 							Seu histórico foi enviado antes dessas melhorias. Para o fluxograma reconhecer
 							<strong class="text-amber-100">módulo livre e equivalências</strong> com os dados
 							novos, reenvie o PDF do histórico — leva menos de um minuto.
+						</p>
+					</div>
+				{/if}
+
+				{#if RELEASE_NOTA_EQUIPE.agradecimento}
+					<!-- Nota da equipe -->
+					<div class="mt-5 rounded-xl border border-purple-500/25 bg-gradient-to-br from-purple-500/10 to-pink-500/10 px-4 py-4">
+						<div class="mb-2.5 flex items-center gap-2">
+							<Heart class="h-3.5 w-3.5 shrink-0 text-pink-400" />
+							<p class="text-[11px] font-semibold uppercase tracking-widest text-pink-300">
+								Uma nota da equipe
+							</p>
+						</div>
+						<p class="text-xs leading-relaxed text-white/75">
+							{#each segmentos(RELEASE_NOTA_EQUIPE.agradecimento) as s}
+								{#if s.negrito}<strong class="text-white">{s.valor}</strong>{:else}{s.valor}{/if}
+							{/each}
+						</p>
+						<p class="my-3 border-l-2 border-pink-400/60 pl-3 text-[13px] font-medium italic leading-relaxed text-purple-100">
+							“{RELEASE_NOTA_EQUIPE.lema}”
+						</p>
+						<p class="text-xs leading-relaxed text-white/75">
+							{#each segmentos(RELEASE_NOTA_EQUIPE.corpo) as s}
+								{#if s.negrito}<strong class="text-white">{s.valor}</strong>{:else}{s.valor}{/if}
+							{/each}
+						</p>
+						<p class="mt-3 text-right text-[11.5px] font-semibold text-pink-200/90">
+							{RELEASE_NOTA_EQUIPE.assinatura}
 						</p>
 					</div>
 				{/if}
