@@ -32,10 +32,12 @@ CORS(app)
 @app.errorhandler(413)
 def too_large(_e):
     return (
-        jsonify({
-            "error": "Arquivo muito grande. O limite é 10MB.",
-            "limit_mb": 10,
-        }),
+        jsonify(
+            {
+                "error": "Arquivo muito grande. O limite é 10MB.",
+                "limit_mb": 10,
+            }
+        ),
         413,
     )
 
@@ -273,7 +275,8 @@ def extrair_curso(texto):
 
         # Procura por linhas que parecem ser nomes de curso com o novo padrão
         if re.match(
-            r"^[A-ZÀ-ÿ\s\-]+(?:DE\s+[A-ZÀ-ÿ\s\-]+)*/[A-Z]+ - [A-ZÀ-ÿ\s\-]+ - [A-ZÀ-ÿ]+", linha
+            r"^[A-ZÀ-ÿ\s\-]+(?:DE\s+[A-ZÀ-ÿ\s\-]+)*/[A-Z]+ - [A-ZÀ-ÿ\s\-]+ - [A-ZÀ-ÿ]+",
+            linha,
         ):
             curso = linha.split("/")[0].strip()
             print(f"[CURSO] Curso extraído (busca direta): {curso}")
@@ -993,7 +996,7 @@ def upload_pdf():
                     {
                         "error": "Nenhuma informação textual pôde ser extraída do PDF via PyMuPDF. O PDF pode ser uma imagem de baixa qualidade, estar vazio ou corrompido. Se for um PDF escaneado, use a variante OCR (pdf_parser_ocr.py) que executa Tesseract sobre as páginas.",
                         "hint": "ocr_fallback_available",
-                        "ocr_endpoint": "pdf_parser_ocr.py"
+                        "ocr_endpoint": "pdf_parser_ocr.py",
                     }
                 ),
                 422,
@@ -1042,19 +1045,23 @@ def upload_pdf():
         if is_pdf_error:
             logger.error(f"PDF read error: {e}")
             return (
-                jsonify({
-                    "error": "Erro ao ler o PDF. Certifique-se de que o arquivo é um PDF válido e não está corrompido.",
-                    "detail": str(e),
-                }),
+                jsonify(
+                    {
+                        "error": "Erro ao ler o PDF. Certifique-se de que o arquivo é um PDF válido e não está corrompido.",
+                        "detail": str(e),
+                    }
+                ),
                 400,
             )
 
         logger.error(f"Unexpected error processing PDF: {e}")
         logger.error(traceback.format_exc())
         return (
-            jsonify({
-                "error": "Ocorreu um erro interno ao processar o PDF. A equipe foi notificada.",
-            }),
+            jsonify(
+                {
+                    "error": "Ocorreu um erro interno ao processar o PDF. A equipe foi notificada.",
+                }
+            ),
             500,
         )
 
@@ -1064,6 +1071,7 @@ if __name__ == "__main__":
     # expõe execução remota de código quando alguém alcança a porta. Para debug
     # local, exporte FLASK_DEBUG=1 explicitamente.
     import os as _os
+
     debug_mode = _os.environ.get("FLASK_DEBUG", "0") == "1"
     logger.info(f"Starting PDF parser service on port 3001 (debug={debug_mode})")
     app.run(debug=debug_mode, port=3001)

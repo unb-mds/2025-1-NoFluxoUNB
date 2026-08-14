@@ -41,7 +41,9 @@ from config import (
 
 DRY_RUN = "--dry-run" in sys.argv
 CHUNK_SIZE = 80
-FETCH_PAGE = 1000  # supabase max is 1000; se > 1000, o len() vem menor e quebra o loop cedo
+FETCH_PAGE = (
+    1000  # supabase max is 1000; se > 1000, o len() vem menor e quebra o loop cedo
+)
 # Padrão legado noturno: id_curso = codigo_base + OFFSET_LEGADO; normalizar para id_curso = codigo_base.
 OFFSET_LEGADO_CURSO = 100000
 SLOW_OP_THRESHOLD_S = 5.0
@@ -384,7 +386,9 @@ def load_cache_matrizes():
     while True:
         r = db(
             supabase.table("matrizes")
-            .select("id_matriz, curriculo_completo, id_curso, versao, ano_vigor, status")
+            .select(
+                "id_matriz, curriculo_completo, id_curso, versao, ano_vigor, status"
+            )
             .order("id_matriz")
             .range(offset, offset + FETCH_PAGE - 1)
             .execute
@@ -406,7 +410,7 @@ def get_or_create_matriz(
     id_curso, curriculo_completo, versao, ano_vigor, prazos_cargas, status=None
 ):
     curriculo_completo = (curriculo_completo or "").strip()
-    
+
     # Função auxiliar para atualizar a linha, se necessário
     def _update_row(row, check_curriculo=False):
         updates = {}
@@ -416,12 +420,15 @@ def get_or_create_matriz(
                 atual.endswith(" - DIURNO") or atual.endswith(" - NOTURNO")
             ):
                 updates["curriculo_completo"] = curriculo_completo
-                
+
         if status is not None and row.get("status") != status:
             updates["status"] = status
-            
+
         if updates:
-            print(f"      [DEBUG] Atualizando matriz {row['id_matriz']} com: {updates}", flush=True)
+            print(
+                f"      [DEBUG] Atualizando matriz {row['id_matriz']} com: {updates}",
+                flush=True,
+            )
             if not DRY_RUN:
                 db(
                     supabase.table("matrizes")
@@ -433,7 +440,7 @@ def get_or_create_matriz(
                 row[k] = v
             if "curriculo_completo" in updates:
                 CACHE_MATRIZ_BY_CURRICULO[curriculo_completo] = row
-                
+
         return row["id_matriz"]
 
     # 1) Cache por curriculo_completo
@@ -614,19 +621,31 @@ def load_cache_materias_por_curso():
     offset = 0
     while True:
         try:
-            r = supabase.table("materias_por_curso").select("id_matriz, id_materia").order("id_materia_curso").range(offset, offset + FETCH_PAGE - 1).execute()
+            r = (
+                supabase.table("materias_por_curso")
+                .select("id_matriz, id_materia")
+                .order("id_materia_curso")
+                .range(offset, offset + FETCH_PAGE - 1)
+                .execute()
+            )
         except Exception as e:
             print(f"[DEBUG] load_cache_mpc error: {e}", flush=True)
             break
-            
+
         data = r.data or []
-        print(f"[DEBUG] load_cache_mpc offset {offset} returned {len(data)} rows", flush=True)
+        print(
+            f"[DEBUG] load_cache_mpc offset {offset} returned {len(data)} rows",
+            flush=True,
+        )
         for row in data:
             if row.get("id_matriz") is not None and row.get("id_materia") is not None:
                 SET_MPC.add((int(row["id_matriz"]), int(row["id_materia"])))
-                
+
         if len(data) < FETCH_PAGE:
-            print(f"[DEBUG] load_cache_mpc breaking because {len(data)} < {FETCH_PAGE}", flush=True)
+            print(
+                f"[DEBUG] load_cache_mpc breaking because {len(data)} < {FETCH_PAGE}",
+                flush=True,
+            )
             break
         offset += FETCH_PAGE
 
