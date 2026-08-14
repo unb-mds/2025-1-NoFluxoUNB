@@ -562,9 +562,12 @@ export function distribuirPorSemestres(
                 desbloqueiaDireto: e.desbloqueiaDireto,
                 desbloqueiaIndireto: e.desbloqueiaIndireto,
                 score: e.score,
-                motivo: isCritica ? (e.materia.nivel < numeroPeriodo ? "pendente há tempo, alta prioridade" : "alta prioridade") : "",
+                motivo: isCritica
+                    ? (e.materia.nivel < numeroPeriodo ? "pendente há tempo, alta prioridade" : "alta prioridade")
+                    : (!e.materia.obrigatoria ? "optativa escolhida por você" : ""),
                 dificuldadeEstimada: e.materia.dificuldadeEstimada,
-                motivoDificuldade: e.materia.motivoDificuldade
+                motivoDificuldade: e.materia.motivoDificuldade,
+                optativa: e.materia.obrigatoria ? undefined : true
             };
         });
 
@@ -994,8 +997,8 @@ function distribuirObrigatorias(
 }
 
 export function gerarPlanoCompletov2(
-    idUser: string,
-    idCurso: string,
+    _idUser: string,
+    _idCurso: string,
     semestreAtual: number,
     cargaHorariaIntegralizada: CargaIntegralizada,
     exigidaMatriz: CargaIntegralizada,
@@ -1073,7 +1076,13 @@ export function gerarPlanoCompletov2(
 
     const materiasFaltantes = materias.filter((m) => !completedPlusMatr.has(norm(m.codigo)));
 
-    const obrigatorias = materiasFaltantes.filter((m) => m.obrigatoria);
+    // Optativas que o aluno pediu para ADICIONAR (via chat) entram na alocacao como
+    // materias concretas, no mesmo pipeline das obrigatorias; a CH delas abate a
+    // reserva de slots e a CH optativa faltante mais abaixo.
+    const adicionadas = new Set((prefs.restricoes?.adicionar ?? []).map(norm));
+    const obrigatorias = materiasFaltantes.filter(
+        (m) => m.obrigatoria || adicionadas.has(norm(m.codigo))
+    );
 
     // Calcular semestre atual como string "2026.1" para preencher labels das colunas
     const semestreBaseStr = calcularSemestreAtualStr();
@@ -1096,15 +1105,56 @@ export function gerarPlanoCompletov2(
         offsetSemestre
     );
 
+    // Optativas com semestre escolhido pelo aluno (adicionarEm): move o card para o
+    // indice pedido. So move para FRENTE do que o alocador escolheu — para tras
+    // esbarraria em pre-requisitos/limite de creditos que o alocador ja respeitou.
+    const adicionarEm = prefs.restricoes?.adicionarEm ?? {};
+    for (const [codRaw, alvoRaw] of Object.entries(adicionarEm)) {
+        const cod = norm(codRaw);
+        if (!adicionadas.has(cod) || semestres.length === 0) continue;
+        const alvo = Math.min(Math.max(0, Math.floor(alvoRaw)), semestres.length - 1);
+        const origemIdx = semestres.findIndex((s) =>
+            s.materias.some((m) => "codigo" in m && norm(m.codigo) === cod)
+        );
+        if (origemIdx < 0 || alvo <= origemIdx) continue;
+        const origem = semestres[origemIdx];
+        const pos = origem.materias.findIndex((m) => "codigo" in m && norm((m as MateriaPlano).codigo) === cod);
+        const [mPlano] = origem.materias.splice(pos, 1) as MateriaPlano[];
+        const destino = semestres[alvo];
+        destino.materias.push(mPlano);
+        const matInfo = materias.find((x) => norm(x.codigo) === cod);
+        const horasReais = matInfo ? getHorasSafely(matInfo) : creditosParaHoras(mPlano.creditos);
+        origem.creditos -= mPlano.creditos;
+        destino.creditos += mPlano.creditos;
+        if (origem._horasInternas != null) origem._horasInternas -= horasReais;
+        if (destino._horasInternas != null) destino._horasInternas += horasReais;
+    }
+
+    // CH das optativas adicionadas que de fato entraram no plano: cobre parte da
+    // CH optativa faltante, entao os slots genericos reservam so o restante.
+    let chOptativaConcreta = 0;
+    if (adicionadas.size > 0) {
+        for (const sem of semestres) {
+            for (const m of sem.materias) {
+                if ("codigo" in m && m.codigo && adicionadas.has(norm(m.codigo))) {
+                    const matInfo = materias.find((x) => norm(x.codigo) === norm(m.codigo));
+                    if (matInfo && !matInfo.obrigatoria) {
+                        chOptativaConcreta += matInfo.carga_horaria ?? creditosParaHoras(getCreditosSafely(matInfo));
+                    }
+                }
+            }
+        }
+    }
+
     const { semestres: semestresComSlots, optativaAlocada, complementarAlocado } = distribuirSlots(
         semestres,
-        chFaltante.optativa,
+        Math.max(0, chFaltante.optativa - chOptativaConcreta),
         chFaltante.complementar,
         prefs.limiteCreditos,
         prefs.restricoes?.limitesPersonalizados
     );
 
-    const chOptativaRestante = Math.max(0, chFaltante.optativa - optativaAlocada);
+    const chOptativaRestante = Math.max(0, chFaltante.optativa - chOptativaConcreta - optativaAlocada);
     const chComplementarRestante = Math.max(0, chFaltante.complementar - complementarAlocado);
 
     // Calcula quantas obrigatórias conseguimos alocar (CH em horas)
@@ -1175,6 +1225,14 @@ export function gerarPlanoCompletov2(
         chObrigatoriaFaltante: Math.max(0, chFaltante.obrigatoria - chObrigatoriaAlocada),
         chOptativaFaltante: chOptativaRestante,
         chComplementarFaltante: chComplementarRestante,
+        integralizacao: {
+            horasIntegralizadas: cargaHorariaIntegralizada.total,
+            horasEmCurso:
+                horasSemestreAtual.obrigatoria +
+                horasSemestreAtual.optativa +
+                horasSemestreAtual.complementar,
+            horasExigidasTotal: exigidaMatriz.total,
+        },
     };
 
     return resultado;

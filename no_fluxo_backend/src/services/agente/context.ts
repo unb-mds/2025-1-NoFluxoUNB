@@ -29,6 +29,10 @@ export interface RestricoesPlanoInternas {
     adiar: string[];
     priorizar: string[];
     limitesPersonalizados: Record<number, number>;
+    /** Optativas que o aluno escolheu adicionar ao plano (codigos normalizados). */
+    adicionar: string[];
+    /** Semestre escolhido por optativa adicionada (codigo -> indice no plano). */
+    adicionarEm: Record<string, number>;
 }
 
 /**
@@ -108,7 +112,7 @@ export function criarContextoLeve(idUser: string = ""): AgenteContexto {
         idCurso: "",
         numeroPeriodo: 0,
         preferencias: { limiteCreditos: 24, objetivo: "equilibrado", trabalha: false },
-        restricoes: { adiar: [], priorizar: [], limitesPersonalizados: {} },
+        restricoes: { adiar: [], priorizar: [], limitesPersonalizados: {}, adicionar: [], adicionarEm: {} },
         codigosComOferta: new Set(),
     };
 }
@@ -128,6 +132,8 @@ export function gerarPlanoDoContexto(ctx: AgenteContexto): PlanoFormaturav2 {
                 adiar: ctx.restricoes.adiar,
                 priorizar: ctx.restricoes.priorizar,
                 limitesPersonalizados: ctx.restricoes.limitesPersonalizados,
+                adicionar: ctx.restricoes.adicionar,
+                adicionarEm: ctx.restricoes.adicionarEm,
             },
         },
         ctx.codigosComOferta
@@ -148,11 +154,37 @@ export function resumoDoPlano(plano: PlanoFormaturav2, ctx: AgenteContexto): Rec
     const integ = ctx.cargaHorariaIntegralizada || {};
     const chRestanteTotalHoras = Math.max(0, Number(exig.total || 0) - Number(integ.total || 0));
 
+    // Optativas que o aluno adicionou e onde cada uma caiu no plano — sem isto o
+    // modelo respondia "nenhuma optativa adicionada" mesmo com o plano cheio delas.
+    const optativasAdicionadas = ctx.restricoes.adicionar.map((cod) => {
+        const sem = plano.plano.find((s) =>
+            s.materias.some((m) => "codigo" in m && norm((m as MateriaPlano).codigo) === cod)
+        );
+        const mat = sem?.materias.find(
+            (m) => "codigo" in m && norm((m as MateriaPlano).codigo) === cod
+        ) as MateriaPlano | undefined;
+        return {
+            codigo: cod,
+            nome: mat?.nome ?? null,
+            semestreIndice: sem?.indice ?? null,
+            semestreLabel: sem?.semestre ?? null,
+        };
+    });
+
+    // Horas de optativas reservadas como SLOTS genéricos: espaço garantido no
+    // plano, mas o aluno ainda não escolheu as matérias — pendência real.
+    const chOptativaReservadaEmSlots = plano.plano
+        .flatMap((s) => s.materias)
+        .filter((m) => "tipo" in m && (m as { tipo?: string }).tipo === "optativa_slot")
+        .reduce((acc, m) => acc + (Number((m as { ch?: number }).ch) || 0), 0);
+
     return {
         semestresRestantes: plano.semestresRestantes,
         formaturaEstimada: plano.formaturaEstimada ?? null,
         materiasCriticas: criticas,
         materiasNaoAlocadas: plano.materiasNaoAlocadas,
+        optativasAdicionadas,
+        chOptativaReservadaEmSlots,
         creditosRestantesTotais: Math.ceil(chRestanteTotalHoras / 15),
         chRestanteTotalHoras,
         chObrigatoriaFaltante: plano.chObrigatoriaFaltante,

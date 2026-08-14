@@ -13,14 +13,12 @@ Rodar:
     source .venv/bin/activate
     pytest tests/test_exploratorio_kauan.py -v
 """
+
 from __future__ import annotations
 
 import json
-import os
-import re
 from pathlib import Path
 
-import pytest
 import requests
 
 BASE = "http://127.0.0.1:3001"
@@ -137,7 +135,7 @@ def test_07_eg_mencao_endash():
     doc.close()
     has_endash = "–" in raw
     r = _post("123_endash.pdf", p)
-    out = _save("07-eg-mencao-endash", r, extra={"endash_no_texto_extraido": has_endash})
+    _save("07-eg-mencao-endash", r, extra={"endash_no_texto_extraido": has_endash})
     assert r.status_code == 200
     body = r.json()
     # Hipótese D1 (atualizada após execução): PyMuPDF normaliza U+2013 para outro
@@ -145,12 +143,13 @@ def test_07_eg_mencao_endash():
     # disciplina NÃO é extraído porque a linha de menção tem texto extra.
     # Verificamos que nenhum item com chave "codigo" (= disciplina) saiu.
     disciplinas = [
-        d for d in body.get("extracted_data", [])
+        d
+        for d in body.get("extracted_data", [])
         if isinstance(d, dict) and "codigo" in d
     ]
-    assert disciplinas == [], (
-        f"D1 rebaixado: bloco com menção fora do regex ainda foi extraído: {disciplinas}"
-    )
+    assert (
+        disciplinas == []
+    ), f"D1 rebaixado: bloco com menção fora do regex ainda foi extraído: {disciplinas}"
 
 
 # ---------------------------------------------------------------- EG8 criptografado
@@ -214,7 +213,7 @@ def test_12_pe_pdf_nao_sigaa_retorna_200_vazio():
     """Particionamento (PE6/D9): PDF válido mas sem marcadores SIGAA → 200 vazio."""
     p = FIX / "sem_underscore.pdf"  # PDF mínimo com texto não-SIGAA
     r = _post("123_naosigaa.pdf", p)
-    out = _save("12-pe-pdf-nao-sigaa", r)
+    _save("12-pe-pdf-nao-sigaa", r)
     assert r.status_code == 200
     body = r.json()
     # D9: silêncio — sem warning, curso/ira nulos, extracted_data vazio

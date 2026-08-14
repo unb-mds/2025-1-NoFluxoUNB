@@ -24,13 +24,12 @@ import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
 import { createControllerLogger } from "../utils/controller_logger";
 import {
-    gerarPlano,
     gerarPlanoCompletov2,
     construirSubstitutosPorCodigo,
     expandirOfertaComEquivalencias,
     calcularSemestreAtualStr,
 } from "../services/plano_formatura.service";
-import { PlanejadorAgenteService, type MensagemChat, type AgenteContexto, type RestricoesPlanoInternas } from "../services/planejador_agente.service";
+import { PlanejadorAgenteService, type MensagemChat, type AgenteContexto } from "../services/planejador_agente.service";
 import { DificuldadeAgenteService } from "../services/dificuldade_agente.service";
 import type {
     MateriaInput,
@@ -47,6 +46,18 @@ import type {
 
 function isObject(v: unknown): v is Record<string, unknown> {
     return typeof v === "object" && v !== null && !Array.isArray(v);
+}
+
+/** Normaliza o mapa codigo -> indice de semestre das optativas adicionadas. */
+function normMapaSemestres(raw: unknown): Record<string, number> {
+    const out: Record<string, number> = {};
+    if (!isObject(raw)) return out;
+    for (const [cod, val] of Object.entries(raw)) {
+        const codigo = cod.trim().toUpperCase();
+        const idx = Number(val);
+        if (codigo && Number.isFinite(idx) && idx >= 0) out[codigo] = Math.floor(idx);
+    }
+    return out;
 }
 
 function validatePreferencias(raw: unknown): PreferenciasPlano | null {
@@ -109,8 +120,17 @@ function parseBody(body: unknown): { input?: PlanoInput; error?: string } {
     if (isObject(rawRestricoes)) {
         const normList = (v: unknown): string[] =>
             Array.isArray(v) ? v.filter((c): c is string => typeof c === "string").map((c) => c.trim().toUpperCase()) : [];
-        const restricoes = { adiar: normList(rawRestricoes.adiar), priorizar: normList(rawRestricoes.priorizar) };
-        if (restricoes.adiar.length > 0 || restricoes.priorizar.length > 0) {
+        const restricoes: RestricoesPlano = {
+            adiar: normList(rawRestricoes.adiar),
+            priorizar: normList(rawRestricoes.priorizar),
+            adicionar: normList(rawRestricoes.adicionar),
+            adicionarEm: normMapaSemestres(rawRestricoes.adicionarEm),
+        };
+        if (
+            restricoes.adiar.length > 0 ||
+            restricoes.priorizar.length > 0 ||
+            (restricoes.adicionar?.length ?? 0) > 0
+        ) {
             if (preferencias) preferencias.restricoes = restricoes;
         }
     }
@@ -176,6 +196,58 @@ export async function resolverPeriodoAtivo(supabase: any): Promise<string> {
 }
 
 /**
+ * Injeta no pool do alocador as optativas que o aluno adicionou via chat e que
+ * não estão na matriz do curso: busca nome/carga/pré-requisitos na tabela
+ * global de matérias e as inclui como optativa (nivel 0). Degrada em silêncio —
+ * sem os dados, a optativa apenas não entra no plano.
+ */
+export async function injetarOptativasAdicionadas(
+    pool: MateriaInput[],
+    codigosRaw: string[] | undefined
+): Promise<void> {
+    const codigos = [...new Set((codigosRaw ?? []).map((c) => c.trim().toUpperCase()).filter(Boolean))];
+    const faltando = codigos.filter(
+        (c) => !pool.some((m) => m.codigo.trim().toUpperCase() === c)
+    );
+    if (faltando.length === 0) return;
+
+    const { data, error } = await SupabaseWrapper.get()
+        .from("materias")
+        .select("id_materia, codigo_materia, nome_materia, carga_horaria")
+        .in("codigo_materia", faltando);
+    if (error || !data) return;
+
+    const ids = (data as any[])
+        .map((r) => r.id_materia)
+        .filter((id): id is number => typeof id === "number");
+    const preByMateria = new Map<number, unknown>();
+    if (ids.length > 0) {
+        const { data: preRows } = await SupabaseWrapper.get()
+            .from("pre_requisitos")
+            .select("id_materia, expressao_logica")
+            .in("id_materia", ids);
+        (preRows ?? []).forEach((r: any) => preByMateria.set(r.id_materia, r.expressao_logica));
+    }
+
+    for (const r of data as any[]) {
+        const codigo = (r.codigo_materia || "").trim().toUpperCase();
+        if (!codigo || pool.some((m) => m.codigo.trim().toUpperCase() === codigo)) continue;
+        const carga = r.carga_horaria ?? 60;
+        pool.push({
+            codigo,
+            nome: r.nome_materia ?? codigo,
+            creditos: Math.round(carga / 15),
+            nivel: 0,
+            obrigatoria: false,
+            tipo_natureza: 1,
+            carga_horaria: carga,
+            preRequisitos: preByMateria.get(r.id_materia) ?? null,
+            coRequisitos: null,
+        });
+    }
+}
+
+/**
  * Monta todos os dados necessários para gerar o plano (busca em banco + processamento).
  * Retorna { dados } se sucesso ou { status, error } se erro.
  */
@@ -199,7 +271,7 @@ export async function montarDadosPlano(
             return { status: 404, error: "Dados do usuário não encontrados" };
         }
 
-        const { curriculoCompleto, completedCodes, numeroPeriodo, preferencias: bodyPreferencias } = input;
+        const { curriculoCompleto, numeroPeriodo, preferencias: bodyPreferencias } = input;
         const matriz = await resolveMatriz(curriculoCompleto);
         if (!matriz) {
             return { status: 404, error: "Matriz curricular não encontrada" };
@@ -229,6 +301,12 @@ export async function montarDadosPlano(
             objetivo: prefs.objetivo === "velocidade" ? "velocidade" : "equilibrado",
             trabalha: Boolean(prefs.trabalha)
         };
+        // Restrições persistidas (adiar/priorizar/adicionar): o body ganha; sem
+        // restrições no body, as salvas continuam valendo — senão as optativas
+        // adicionadas via chat sumiriam do plano no reload da página.
+        if (!preferencias.restricoes && prefs.restricoes && typeof prefs.restricoes === "object") {
+            preferencias.restricoes = prefs.restricoes as RestricoesPlano;
+        }
 
         // 2. Busca materias_por_curso
         const { data: materiasPorCurso, error: erroMPC } = await SupabaseWrapper.get()
@@ -382,6 +460,10 @@ export async function montarDadosPlano(
             codigosComOfertaPropria
         );
 
+        // Optativas adicionadas via chat podem estar FORA da matriz — sem linha em
+        // materias_por_curso não existe MateriaInput para o alocador considerar.
+        await injetarOptativasAdicionadas(materiasMapeadas, preferencias.restricoes?.adicionar);
+
         // 6. LAZY LOADING DA DIFICULDADE
         const materiasSemDificuldade = materiasMapeadas.filter(m => m.dificuldadeEstimada == null);
         if (materiasSemDificuldade.length > 0) {
@@ -423,9 +505,15 @@ export async function montarContextoAgente(
     const { input, error: inputError } = parseBody(planoInputRaw);
     if (inputError) return { status: 400, error: inputError };
 
+    const normCodes = (v: unknown): string[] =>
+        Array.isArray(v)
+            ? v.filter((c): c is string => typeof c === "string").map((c) => c.trim().toUpperCase())
+            : [];
     const restricoes: RestricoesPlano = {
-        adiar: Array.isArray((restricoesRaw as any)?.adiar) ? (restricoesRaw as any).adiar : [],
-        priorizar: Array.isArray((restricoesRaw as any)?.priorizar) ? (restricoesRaw as any).priorizar : [],
+        adiar: normCodes((restricoesRaw as any)?.adiar),
+        priorizar: normCodes((restricoesRaw as any)?.priorizar),
+        adicionar: normCodes((restricoesRaw as any)?.adicionar),
+        adicionarEm: normMapaSemestres((restricoesRaw as any)?.adicionarEm),
         limitesPersonalizados:
             typeof (restricoesRaw as any)?.limitesPersonalizados === "object" && (restricoesRaw as any).limitesPersonalizados !== null
                 ? (restricoesRaw as any).limitesPersonalizados
@@ -435,6 +523,10 @@ export async function montarContextoAgente(
     const { dados, status, error } = await montarDadosPlano(idUser, input!);
     if (error) return { status: status || 500, error };
     if (!dados) return { status: 500, error: "Erro interno ao montar dados do plano" };
+
+    // Optativas já adicionadas em conversas anteriores precisam existir no pool
+    // para o alocador (as persistidas via preferências já foram injetadas).
+    await injetarOptativasAdicionadas(dados.materiasMapeadas, restricoes.adicionar);
 
     const ctx: AgenteContexto = {
         materias: dados.materiasMapeadas,
@@ -449,6 +541,8 @@ export async function montarContextoAgente(
             adiar: restricoes.adiar,
             priorizar: restricoes.priorizar,
             limitesPersonalizados: restricoes.limitesPersonalizados || {},
+            adicionar: restricoes.adicionar ?? [],
+            adicionarEm: restricoes.adicionarEm ?? {},
         },
         codigosComOferta: dados.codigosComOferta,
     };
@@ -511,90 +605,36 @@ async function resolveMatriz(
     return null;
 }
 
-interface MateriaPorCursoRow {
-    id_materia: number;
-    nivel: number;
-    tipo_natureza: number | null;
-    materias: {
-        id_materia: number;
-        codigo_materia: string;
-        nome_materia: string;
-        carga_horaria: number | null;
-    } | null;
-}
 
 /**
- * Busca as materias faltantes do aluno para um determinado curriculo.
- * "Faltante" = pertence ao curriculo E codigo nao esta em `completedCodes`.
+ * Matérias MATR fora da matriz do curso (ex.: cursando a equivalente nova —
+ * FGA0146 no lugar da FGA0147 da matriz) não aparecem na lista de matérias do
+ * plano, e o fluxograma_atual do aluno não guarda nome; sem este lookup o card
+ * do semestre em curso mostraria o próprio código no lugar do nome.
  */
-async function buscarMateriasFaltantes(
-    matriz: MatrizRow,
-    completedCodes: Set<string>
-): Promise<MateriaInput[]> {
-    // Busca todas as materias da matriz via matrizes -> materias_por_curso.
+async function resolverNomesSemestreAtual(plano: PlanoFormaturav2 | undefined): Promise<void> {
+    const pendentes = (plano?.semestreAtual?.materias ?? []).filter(
+        (m) => !m.nome || m.nome.trim().toUpperCase() === m.codigo.trim().toUpperCase()
+    );
+    if (pendentes.length === 0) return;
+
     const { data, error } = await SupabaseWrapper.get()
-        .from("materias_por_curso")
-        .select("id_materia,nivel,tipo_natureza,materias(id_materia,codigo_materia,nome_materia,carga_horaria)")
-        .eq("id_matriz", matriz.id_matriz);
-    if (error) throw new Error(`Erro ao buscar materias_por_curso: ${error.message}`);
-    if (!data || data.length === 0) return [];
+        .from("materias")
+        .select("codigo_materia, nome_materia, carga_horaria")
+        .in("codigo_materia", pendentes.map((m) => m.codigo));
+    // Degrada: sem o lookup, o card segue mostrando o código.
+    if (error || !data) return;
 
-    const mpcRows: MateriaPorCursoRow[] = (data as any) ?? [];
-    const idsMaterias = mpcRows
-        .map((r) => r.materias?.id_materia)
-        .filter((id): id is number => typeof id === "number");
-
-    if (idsMaterias.length === 0) return [];
-
-    // Busca pre-requisitos + co-requisitos das materias do curriculo.
-    const [{ data: preRows }, { data: coRows }] = await Promise.all([
-        SupabaseWrapper.get()
-            .from("pre_requisitos")
-            .select("id_materia, expressao_logica")
-            .in("id_materia", idsMaterias),
-        SupabaseWrapper.get()
-            .from("co_requisitos")
-            .select("id_materia, expressao_logica")
-            .in("id_materia", idsMaterias),
-    ]);
-
-    const preByMateria = new Map<number, unknown>();
-    for (const r of preRows ?? []) {
-        if (typeof (r as any).id_materia === "number") {
-            preByMateria.set((r as any).id_materia, (r as any).expressao_logica);
-        }
+    const porCodigo = new Map<string, { nome_materia: string | null; carga_horaria: number | null }>();
+    for (const r of data as any[]) {
+        const cod = (r.codigo_materia || "").trim().toUpperCase();
+        if (cod) porCodigo.set(cod, r);
     }
-    const coByMateria = new Map<number, unknown>();
-    for (const r of coRows ?? []) {
-        if (typeof (r as any).id_materia === "number") {
-            coByMateria.set((r as any).id_materia, (r as any).expressao_logica);
-        }
+    for (const m of pendentes) {
+        const row = porCodigo.get(m.codigo.trim().toUpperCase());
+        if (row?.nome_materia) m.nome = row.nome_materia;
+        if (row?.carga_horaria != null) m.creditos = Math.round(row.carga_horaria / 15);
     }
-
-    const completedUpper = new Set<string>();
-    for (const c of completedCodes) completedUpper.add(c.trim().toUpperCase());
-
-    const out: MateriaInput[] = [];
-    for (const row of mpcRows) {
-        const mat = row.materias;
-        if (!mat?.codigo_materia) continue;
-        const codigo = mat.codigo_materia.trim().toUpperCase();
-        if (completedUpper.has(codigo)) continue; // ja concluida
-
-        const creditos = mat.carga_horaria != null ? Math.round(mat.carga_horaria / 15) : 4;
-        out.push({
-            codigo,
-            nome: mat.nome_materia ?? codigo,
-            creditos,
-            nivel: row.nivel ?? 0,
-            obrigatoria: (row.tipo_natureza ?? 0) === 0,
-            tipo_natureza: row.tipo_natureza ?? undefined,
-            carga_horaria: mat.carga_horaria ?? 60,
-            preRequisitos: preByMateria.get(mat.id_materia) ?? null,
-            coRequisitos: coByMateria.get(mat.id_materia) ?? null,
-        });
-    }
-    return out;
 }
 
 // =============================================================
@@ -606,7 +646,7 @@ export const PlanejamentoController: EndpointController = {
     routes: {
         "test-db": new Pair(
             RequestType.GET,
-            async (req: Request, res: Response) => {
+            async (_req: Request, res: Response) => {
                 try {
                     console.log("[TEST] Querying matrizes table...");
                     const { data, error } = await SupabaseWrapper.get()
@@ -679,6 +719,8 @@ export const PlanejamentoController: EndpointController = {
                         dados.preferencias,
                         dados.codigosComOferta
                     );
+
+                    await resolverNomesSemestreAtual(plano);
 
                     logger.info(`Plano gerado: ${plano.semestresRestantes} semestres, ${plano.materiasNaoAlocadas.length} não-alocadas`);
 
@@ -759,6 +801,8 @@ export const PlanejamentoController: EndpointController = {
                     const resultado = await svc.conversar(historico, ctx);
 
                     logger.info(`Conversa concluída. Resposta: ${resultado.reply.slice(0, 50)}...`);
+
+                    await resolverNomesSemestreAtual(resultado.plano);
 
                     return res.status(200).json({
                         reply: resultado.reply,

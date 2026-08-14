@@ -28,7 +28,6 @@ sys.path.insert(
 
 from expressao_parser import (  # noqa: E402
     is_expressao_valida,
-    normalize_input,
     parse_expression,
     tokenize,
 )
@@ -152,7 +151,9 @@ class TestIsExpressaoValida:
         assert is_expressao_valida("CCA0105") is True
 
     def test_operador_invalido_e_falso(self):
-        assert is_expressao_valida({"operador": "XOR", "condicoes": ["CCA0105"]}) is False
+        assert (
+            is_expressao_valida({"operador": "XOR", "condicoes": ["CCA0105"]}) is False
+        )
 
     def test_condicoes_vazias_e_falso(self):
         assert is_expressao_valida({"operador": "OU", "condicoes": []}) is False

@@ -14,6 +14,7 @@ const GENERICAS = [
     "consultar_turmas_materia",
     "buscar_materias_unb",
     "buscar_materias_por_local",
+    "consultar_opinioes_disciplina",
 ];
 const DE_PLANO = [
     "consultar_historico_aluno",
@@ -23,6 +24,7 @@ const DE_PLANO = [
     "ajustar_carga",
     "ajustar_carga_semestre",
     "mover_materia",
+    "adicionar_optativa",
 ];
 
 function ctxComPlano(): AgenteContexto {

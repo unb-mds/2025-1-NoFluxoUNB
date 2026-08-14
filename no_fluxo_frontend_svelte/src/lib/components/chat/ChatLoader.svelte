@@ -1,9 +1,41 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+
 	interface Props {
 		text?: string;
 		name?: string;
 	}
-	let { text = 'Processando...', name = 'Darcy AI' }: Props = $props();
+	let { text, name = 'Darcy AI' }: Props = $props();
+
+	// Frases rotativas enquanto o agente pensa — um texto fixo via prop `text`
+	// desliga a rotação (ex.: "Enviando...").
+	const FRASES = [
+		'Pensando...',
+		'Consultando o fluxograma...',
+		'Destrinchando pré-requisitos...',
+		'Contando créditos nos dedos...',
+		'Fuçando as ementas...',
+		'Driblando o SIGAA...',
+		'Conferindo a oferta de turmas...',
+		'Alinhando os semestres...',
+		'Evitando choque de horário...',
+		'Negociando com o algoritmo...',
+		'Passando no RU antes de responder...',
+		'Traçando a rota até a formatura...'
+	];
+
+	let idx = $state(Math.floor(Math.random() * FRASES.length));
+
+	$effect(() => {
+		if (text) return;
+		const timer = setInterval(() => {
+			// Pula uma quantidade aleatória para não ficar previsível, sem repetir a atual.
+			idx = (idx + 1 + Math.floor(Math.random() * (FRASES.length - 1))) % FRASES.length;
+		}, 2600);
+		return () => clearInterval(timer);
+	});
+
+	const exibido = $derived(text ?? FRASES[idx]);
 </script>
 
 <div class="flex flex-col items-start mb-4 relative z-10">
@@ -15,7 +47,9 @@
 			<div class="liquid-blob-1"></div>
 			<div class="liquid-blob-2"></div>
 		</div>
-		<span class="text-[13px] text-white/50 animate-pulse font-medium">{text}</span>
+		{#key exibido}
+			<span class="text-[13px] text-white/50 animate-pulse font-medium" in:fade={{ duration: 300 }}>{exibido}</span>
+		{/key}
 	</div>
 </div>
 

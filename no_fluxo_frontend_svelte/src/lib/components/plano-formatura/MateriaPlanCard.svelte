@@ -45,9 +45,17 @@
 		<span class="font-mono text-[12px] font-black tracking-widest text-white">
 			{materia.codigo}
 		</span>
-		<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-bold text-white">
-			{displayUnit === 'horas' ? `${materia.creditos * 15}h` : `${materia.creditos} cr`}
-		</span>
+		<div class="flex items-center gap-1.5">
+			{#if materia.optativa}
+				<span
+					class="rounded bg-blue-500/85 px-1.5 py-0.5 text-[9px] font-medium text-white"
+					title="Optativa adicionada por você: conta para a carga horária optativa"
+				>opt.</span>
+			{/if}
+			<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-bold text-white">
+				{displayUnit === 'horas' ? `${materia.creditos * 15}h` : `${materia.creditos} cr`}
+			</span>
+		</div>
 	</div>
 
 	<!-- Body: nome da matéria -->
@@ -109,13 +117,22 @@
 			>
 				<Sparkles class="w-3 h-3 text-indigo-400" /> Turmas
 			</button>
-			<button 
+			<button
 				type="button"
 				onclick={(e) => { e.stopPropagation(); onChatAction?.(`Adie a matéria ${materia.codigo}`); }}
-				class="px-3 py-1.5 text-[10px] font-bold text-white/80 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
+				class="px-3 py-1.5 text-[10px] font-bold text-white/80 hover:bg-white/10 hover:text-white transition-colors cursor-pointer {materia.optativa ? 'border-r border-slate-600' : ''}"
 			>
 				Adiar
 			</button>
+			{#if materia.optativa}
+				<button
+					type="button"
+					onclick={(e) => { e.stopPropagation(); onChatAction?.(`Quero remover a optativa ${materia.codigo} do meu plano`); }}
+					class="px-3 py-1.5 text-[10px] font-bold text-red-300/80 hover:bg-red-500/15 hover:text-red-200 transition-colors cursor-pointer"
+				>
+					Remover
+				</button>
+			{/if}
 		</div>
 	{/if}
 </div>
