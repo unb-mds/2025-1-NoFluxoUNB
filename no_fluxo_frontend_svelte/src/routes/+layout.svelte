@@ -10,6 +10,7 @@
 	import Navbar from '$lib/components/layout/Navbar.svelte';
 	import LoadingBar from '$lib/components/layout/LoadingBar.svelte';
 	import SuporteFab from '$lib/components/support/SuporteFab.svelte';
+	import ReleaseNotesModal from '$lib/components/layout/ReleaseNotesModal.svelte';
 	import { Toaster } from 'svelte-sonner';
 	import '../app.css';
 
@@ -120,6 +121,11 @@
 
 {#if $isAuthenticated && !$isAnonymous && showNavbar}
 	<SuporteFab />
+{/if}
+
+<!-- Novidades do release: 1x por usuário; pede reenvio do histórico se o dado for antigo -->
+{#if $isAuthenticated && showNavbar}
+	<ReleaseNotesModal />
 {/if}
 
 <Toaster richColors position="top-right" />

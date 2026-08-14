@@ -157,7 +157,13 @@ export function createDadosFluxogramaUserFromJson(
 		),
 		equivalenciasPdf: parseEquivalenciasPdfFromJson(
 			json.equivalencias_pdf ?? json.equivalenciasPdf
-		)
+		),
+		schemaVersion:
+			json.schema_version != null
+				? Number(json.schema_version)
+				: json.schemaVersion != null
+					? Number(json.schemaVersion)
+					: undefined
 	};
 }
 
@@ -216,7 +222,8 @@ export function dadosFluxogramaUserToJson(
 						...(e.nomeEquivalente ? { nome_equivalente: e.nomeEquivalente } : {})
 					}))
 				}
-			: {})
+			: {}),
+		...(dados.schemaVersion != null ? { schema_version: dados.schemaVersion } : {})
 	};
 }
 

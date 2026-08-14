@@ -16,6 +16,7 @@ import {
 	dadosFluxogramaUserToJson,
 	injetarEquivalenciasDoPdf
 } from '$lib/factories';
+import { FLUXOGRAMA_SCHEMA_VERSION } from '$lib/config/release';
 import { supabaseDataService } from '$lib/services/supabase-data.service';
 
 export type UploadState = 'initial' | 'uploading' | 'processing' | 'success' | 'error';
@@ -319,6 +320,10 @@ function createUploadStore() {
 				// Equivalências que o PRÓPRIO histórico declara ("Cumpriu X através de Y"):
 				// fonte oficial do SIGAA — cobre pares que faltem na tabela do banco.
 				injetarEquivalenciasDoPdf(dados, ext?.equivalencias_pdf);
+
+				// Carimba a versão do schema: o modal de novidades usa isso para saber
+				// quem precisa reenviar o histórico para ativar recursos novos.
+				dados.schemaVersion = FLUXOGRAMA_SCHEMA_VERSION;
 
 				// Save: atualiza dados_users (estado atual) + registra em historicos_usuarios (acompanhamento ao longo dos anos)
 				await supabaseDataService.saveFluxogramaData(

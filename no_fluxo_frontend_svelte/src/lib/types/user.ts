@@ -61,6 +61,12 @@ export interface DadosFluxogramaUser {
 	 * injetando entradas CUMP/equivalencia no dados_fluxograma no upload.
 	 */
 	equivalenciasPdf?: EquivalenciaPdf[];
+	/**
+	 * Versão do schema com que o upload gerou este dado (ver
+	 * FLUXOGRAMA_SCHEMA_VERSION em $lib/config/release). Ausente = upload
+	 * antigo, anterior ao versionamento.
+	 */
+	schemaVersion?: number;
 }
 
 /** Par de equivalência extraído do histórico do SIGAA (fonte oficial, por aluno). */
