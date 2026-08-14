@@ -24,13 +24,12 @@ import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
 import { createControllerLogger } from "../utils/controller_logger";
 import {
-    gerarPlano,
     gerarPlanoCompletov2,
     construirSubstitutosPorCodigo,
     expandirOfertaComEquivalencias,
     calcularSemestreAtualStr,
 } from "../services/plano_formatura.service";
-import { PlanejadorAgenteService, type MensagemChat, type AgenteContexto, type RestricoesPlanoInternas } from "../services/planejador_agente.service";
+import { PlanejadorAgenteService, type MensagemChat, type AgenteContexto } from "../services/planejador_agente.service";
 import { DificuldadeAgenteService } from "../services/dificuldade_agente.service";
 import type {
     MateriaInput,
@@ -272,7 +271,7 @@ export async function montarDadosPlano(
             return { status: 404, error: "Dados do usuário não encontrados" };
         }
 
-        const { curriculoCompleto, completedCodes, numeroPeriodo, preferencias: bodyPreferencias } = input;
+        const { curriculoCompleto, numeroPeriodo, preferencias: bodyPreferencias } = input;
         const matriz = await resolveMatriz(curriculoCompleto);
         if (!matriz) {
             return { status: 404, error: "Matriz curricular não encontrada" };
@@ -606,91 +605,6 @@ async function resolveMatriz(
     return null;
 }
 
-interface MateriaPorCursoRow {
-    id_materia: number;
-    nivel: number;
-    tipo_natureza: number | null;
-    materias: {
-        id_materia: number;
-        codigo_materia: string;
-        nome_materia: string;
-        carga_horaria: number | null;
-    } | null;
-}
-
-/**
- * Busca as materias faltantes do aluno para um determinado curriculo.
- * "Faltante" = pertence ao curriculo E codigo nao esta em `completedCodes`.
- */
-async function buscarMateriasFaltantes(
-    matriz: MatrizRow,
-    completedCodes: Set<string>
-): Promise<MateriaInput[]> {
-    // Busca todas as materias da matriz via matrizes -> materias_por_curso.
-    const { data, error } = await SupabaseWrapper.get()
-        .from("materias_por_curso")
-        .select("id_materia,nivel,tipo_natureza,materias(id_materia,codigo_materia,nome_materia,carga_horaria)")
-        .eq("id_matriz", matriz.id_matriz);
-    if (error) throw new Error(`Erro ao buscar materias_por_curso: ${error.message}`);
-    if (!data || data.length === 0) return [];
-
-    const mpcRows: MateriaPorCursoRow[] = (data as any) ?? [];
-    const idsMaterias = mpcRows
-        .map((r) => r.materias?.id_materia)
-        .filter((id): id is number => typeof id === "number");
-
-    if (idsMaterias.length === 0) return [];
-
-    // Busca pre-requisitos + co-requisitos das materias do curriculo.
-    const [{ data: preRows }, { data: coRows }] = await Promise.all([
-        SupabaseWrapper.get()
-            .from("pre_requisitos")
-            .select("id_materia, expressao_logica")
-            .in("id_materia", idsMaterias),
-        SupabaseWrapper.get()
-            .from("co_requisitos")
-            .select("id_materia, expressao_logica")
-            .in("id_materia", idsMaterias),
-    ]);
-
-    const preByMateria = new Map<number, unknown>();
-    for (const r of preRows ?? []) {
-        if (typeof (r as any).id_materia === "number") {
-            preByMateria.set((r as any).id_materia, (r as any).expressao_logica);
-        }
-    }
-    const coByMateria = new Map<number, unknown>();
-    for (const r of coRows ?? []) {
-        if (typeof (r as any).id_materia === "number") {
-            coByMateria.set((r as any).id_materia, (r as any).expressao_logica);
-        }
-    }
-
-    const completedUpper = new Set<string>();
-    for (const c of completedCodes) completedUpper.add(c.trim().toUpperCase());
-
-    const out: MateriaInput[] = [];
-    for (const row of mpcRows) {
-        const mat = row.materias;
-        if (!mat?.codigo_materia) continue;
-        const codigo = mat.codigo_materia.trim().toUpperCase();
-        if (completedUpper.has(codigo)) continue; // ja concluida
-
-        const creditos = mat.carga_horaria != null ? Math.round(mat.carga_horaria / 15) : 4;
-        out.push({
-            codigo,
-            nome: mat.nome_materia ?? codigo,
-            creditos,
-            nivel: row.nivel ?? 0,
-            obrigatoria: (row.tipo_natureza ?? 0) === 0,
-            tipo_natureza: row.tipo_natureza ?? undefined,
-            carga_horaria: mat.carga_horaria ?? 60,
-            preRequisitos: preByMateria.get(mat.id_materia) ?? null,
-            coRequisitos: coByMateria.get(mat.id_materia) ?? null,
-        });
-    }
-    return out;
-}
 
 /**
  * Matérias MATR fora da matriz do curso (ex.: cursando a equivalente nova —
@@ -732,7 +646,7 @@ export const PlanejamentoController: EndpointController = {
     routes: {
         "test-db": new Pair(
             RequestType.GET,
-            async (req: Request, res: Response) => {
+            async (_req: Request, res: Response) => {
                 try {
                     console.log("[TEST] Querying matrizes table...");
                     const { data, error } = await SupabaseWrapper.get()

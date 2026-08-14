@@ -997,8 +997,8 @@ function distribuirObrigatorias(
 }
 
 export function gerarPlanoCompletov2(
-    idUser: string,
-    idCurso: string,
+    _idUser: string,
+    _idCurso: string,
     semestreAtual: number,
     cargaHorariaIntegralizada: CargaIntegralizada,
     exigidaMatriz: CargaIntegralizada,
