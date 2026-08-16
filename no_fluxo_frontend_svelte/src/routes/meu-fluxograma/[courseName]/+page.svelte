@@ -10,7 +10,6 @@
 	import OptativasModal from '$lib/components/fluxograma/OptativasModal.svelte';
 	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
 	import ProgressSummaryBar from '$lib/components/fluxograma/ProgressSummaryBar.svelte';
-	import MudancaCursoLauncher from '$lib/components/fluxograma/MudancaCursoLauncher.svelte';
 	import OptativasAdicionadasSection from '$lib/components/fluxograma/OptativasAdicionadasSection.svelte';
 	import PrerequisiteChainDialog from '$lib/components/fluxograma/PrerequisiteChainDialog.svelte';
 	import RequisitosMudancaCursoBanner from '$lib/components/fluxograma/RequisitosMudancaCursoBanner.svelte';
@@ -431,8 +430,8 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 							showFluxogramViewMenu={true}
 							onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
 						/>
-						<div class="flex flex-wrap items-center justify-start gap-2">
-							{#if userFluxograma}
+						{#if userFluxograma}
+							<div class="flex flex-wrap items-center justify-start gap-2">
 								<button
 									type="button"
 									onclick={() => (showMateriasConcluidasModal = true)}
@@ -441,9 +440,8 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 									<ListChecks class="h-4 w-4" />
 									Concluidas do historico
 								</button>
-							{/if}
-							<MudancaCursoLauncher />
-						</div>
+							</div>
+						{/if}
 					</div>
 				{/if}
 
