@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ChatPanel from '$lib/components/chat/ChatPanel.svelte';
-	import { assistenteChatStore } from '$lib/stores/assistente-chat.store.svelte';
+	import { montadorChatStore } from '$lib/stores/assistente-chat.store.svelte';
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { Bot, X, RefreshCw } from 'lucide-svelte';
@@ -30,12 +30,12 @@
 	// Um controle fora deste componente (ex.: "Pedir pra Darcy" no card de uma
 	// matéria) pode pedir a abertura do chat já com um texto começado.
 	$effect(() => {
-		const pedido = assistenteChatStore.pedidoAbertura;
+		const pedido = montadorChatStore.pedidoAbertura;
 		if (!pedido) return;
 		isChatOpen = true;
 		prefillText = pedido.texto;
 		prefillNonce = pedido.nonce;
-		assistenteChatStore.consumirPedidoAbertura();
+		montadorChatStore.consumirPedidoAbertura();
 	});
 
 	let chatW = $state(384);
@@ -151,7 +151,7 @@
 
 	function onSend(msg: string) {
 		const curriculoCompleto = fluxogramaStore.state.courseData?.curriculoCompleto ?? undefined;
-		assistenteChatStore.enviarMensagem(msg, {
+		montadorChatStore.enviarMensagem(msg, {
 			contexto: 'montador',
 			curriculoCompleto,
 			horarioLivre: gradeStore.freeMask.toString(),
@@ -201,8 +201,8 @@
 		</div>
 
 		<ChatPanel
-			messages={assistenteChatStore.chatMessages}
-			loading={assistenteChatStore.chatLoading}
+			messages={montadorChatStore.chatMessages}
+			loading={montadorChatStore.chatLoading}
 			{promptStarters}
 			draggable={true}
 			title="Darcy AI"

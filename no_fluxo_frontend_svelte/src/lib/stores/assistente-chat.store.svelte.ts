@@ -144,4 +144,15 @@ function createAssistenteChatStore() {
 	};
 }
 
+/**
+ * Uma instância POR CONTEXTO — os dois chats do Darcy conversam com backends
+ * diferentes (`/assistente/chat` legado vs. `/chat/send`, que mantém a sessão
+ * no servidor). Com um singleton compartilhado, o histórico de um vazava no
+ * corpo da requisição do outro e o assistente respondia fora de contexto.
+ */
+
+/** Chat da página /assistente. */
 export const assistenteChatStore = createAssistenteChatStore();
+
+/** Chat do Montador de Grade (FAB flutuante). */
+export const montadorChatStore = createAssistenteChatStore();
