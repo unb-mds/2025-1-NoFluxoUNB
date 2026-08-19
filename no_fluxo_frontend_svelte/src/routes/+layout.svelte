@@ -9,6 +9,7 @@
 	import { isAuthRoute } from '$lib/config/routes';
 	import Navbar from '$lib/components/layout/Navbar.svelte';
 	import LoadingBar from '$lib/components/layout/LoadingBar.svelte';
+	import PageTransition from '$lib/components/layout/PageTransition.svelte';
 	import SuporteFab from '$lib/components/support/SuporteFab.svelte';
 	import ReleaseNotesModal from '$lib/components/layout/ReleaseNotesModal.svelte';
 	import { Toaster } from 'svelte-sonner';
@@ -90,6 +91,7 @@
 </svelte:head>
 
 <LoadingBar />
+<PageTransition />
 
 <div class="flex min-h-screen flex-col overflow-x-hidden">
 	{#if showNavbar}
