@@ -144,12 +144,6 @@ function mergeFluxogramaComOptativasManuais(
 	return { ...base, dadosFluxograma: nextGrid };
 }
 
-/** Mobile começa com optativas/módulo livre ocultos (tela pequena, menos ruído). */
-function defaultShowExtras(): boolean {
-	if (typeof window === 'undefined') return true;
-	return !window.matchMedia('(max-width: 767px)').matches;
-}
-
 function createFluxogramaStore() {
 	let state = $state<FluxogramaState>({
 		courseData: null,
@@ -158,8 +152,8 @@ function createFluxogramaStore() {
 		zoomLevel: 0.6,
 		connectionMode: 'direct' as ConnectionMode,
 		displayUnit: 'horas' as DisplayUnit,
-		showOptativas: defaultShowExtras(),
-		showModulosLivres: defaultShowExtras(),
+		showOptativas: true,
+		showModulosLivres: true,
 		isAnonymous: false,
 		hoveredSubjectCode: null,
 		hoverPreviewSubjectCode: null,
@@ -967,8 +961,8 @@ function createFluxogramaStore() {
 			state.zoomLevel = 0.6;
 			state.connectionMode = 'direct';
 			state.displayUnit = 'horas';
-			state.showOptativas = defaultShowExtras();
-			state.showModulosLivres = defaultShowExtras();
+			state.showOptativas = true;
+			state.showModulosLivres = true;
 			state.isAnonymous = false;
 			state.hoveredSubjectCode = null;
 			state.hoverPreviewSubjectCode = null;

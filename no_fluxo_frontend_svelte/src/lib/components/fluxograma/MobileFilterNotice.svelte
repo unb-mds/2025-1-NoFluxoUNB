@@ -4,10 +4,16 @@
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 
 	/**
-	 * Aviso (só mobile) de que optativas/módulos livres começam ocultos para
-	 * uma visualização melhor — o fluxograma completo fica a um toque no ⚙.
-	 * Some ao dispensar (persistido em localStorage) ou quando o usuário
-	 * ativa os dois filtros.
+	 * Aviso (só mobile) de que o fluxograma está mostrando TUDO — obrigatórias,
+	 * optativas e módulos livres — e de que dá para enxugar a tela escondendo
+	 * os dois últimos no menu de exibição (⚙).
+	 *
+	 * O padrão é mostrar tudo: esconder matéria por conta própria confunde mais
+	 * do que ajuda (o aluno acha que o fluxograma dele está incompleto). Quem
+	 * quiser menos ruído decide, e o aviso ensina como.
+	 *
+	 * Some ao ser dispensado (localStorage) ou assim que o aluno desliga algum
+	 * dos filtros — nesse ponto ele já sabe onde eles ficam.
 	 */
 
 	const DISMISS_KEY = 'nf-fluxo-aviso-filtros-mobile';
@@ -24,21 +30,21 @@
 		localStorage.setItem(DISMISS_KEY, '1');
 	}
 
-	let filtrosAtivos = $derived(store.state.showOptativas && store.state.showModulosLivres);
+	/** Enquanto os dois estiverem ligados, o aviso tem o que ensinar. */
+	let mostrandoTudo = $derived(store.state.showOptativas && store.state.showModulosLivres);
 </script>
 
-{#if !dismissed && !filtrosAtivos}
+{#if !dismissed && mostrandoTudo}
 	<div
 		class="mb-2 flex items-start gap-2.5 rounded-xl border border-primary/30 bg-primary/[0.12] px-3 py-2.5 text-xs leading-relaxed text-white/85 backdrop-blur-md md:hidden"
 		role="note"
 	>
 		<Settings2 class="mt-0.5 h-4 w-4 shrink-0 text-purple-300" aria-hidden="true" />
 		<p class="min-w-0 flex-1">
-			Para uma melhor experiência e visualização no celular, mostramos só as
-			<strong class="text-white">obrigatórias e optatórias</strong>. Ative
-			<strong class="text-white">Optativas</strong> e
-			<strong class="text-white">Módulos livres</strong> no menu de exibição (⚙) para ver o
-			fluxograma completo.
+			Estamos mostrando seu fluxograma completo, com
+			<strong class="text-white">optativas</strong> e
+			<strong class="text-white">módulos livres</strong>. Para uma visualização mais limpa no
+			celular, você pode ocultá-los no menu de exibição (⚙).
 		</p>
 		<button
 			type="button"
