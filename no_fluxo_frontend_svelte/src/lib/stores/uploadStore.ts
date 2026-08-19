@@ -119,6 +119,12 @@ export interface UploadStoreState {
 	disciplinasCasadas: CasarDisciplinasResponse | null;
 	courseSelectionError: CourseSelectionError | null;
 	showCourseSelection: boolean;
+	/**
+	 * O aluno fechou o modal de escolha de curso sem escolher (Esc, clique
+	 * fora, X). O histórico já processado continua em `extractedData` — dá para
+	 * reabrir o modal em vez de mandá-lo subir o PDF de novo do zero.
+	 */
+	courseSelectionPending: boolean;
 }
 
 const initialState: UploadStoreState = {
@@ -129,7 +135,8 @@ const initialState: UploadStoreState = {
 	extractedData: null,
 	disciplinasCasadas: null,
 	courseSelectionError: null,
-	showCourseSelection: false
+	showCourseSelection: false,
+	courseSelectionPending: false
 };
 
 function createUploadStore() {
@@ -199,7 +206,8 @@ function createUploadStore() {
 						progress: 60,
 						state: 'processing',
 						courseSelectionError: result as CourseSelectionError,
-						showCourseSelection: true
+						showCourseSelection: true,
+						courseSelectionPending: false
 					}));
 					return;
 				}
@@ -259,6 +267,7 @@ function createUploadStore() {
 						...s,
 						courseSelectionError: result as CourseSelectionError,
 						showCourseSelection: true,
+						courseSelectionPending: false,
 						progress: 60
 					}));
 					return;
@@ -363,13 +372,36 @@ function createUploadStore() {
 			}
 		},
 
+		/**
+		 * Fechar o modal NÃO joga fora o histórico já lido: o PDF continua
+		 * processado em `extractedData` e `reopenCourseSelection` retoma de onde
+		 * parou. Antes daqui saía um `state:'error'` cujo único botão chamava
+		 * reset(), e um clique fora do modal custava o upload inteiro.
+		 */
 		dismissCourseSelection() {
 			update((s) => ({
 				...s,
 				showCourseSelection: false,
 				state: 'error',
-				error: 'Seleção de curso cancelada. Tente novamente.'
+				courseSelectionPending: !!s.extractedData && !!s.courseSelectionError,
+				error: s.extractedData
+					? 'Falta escolher a matriz do seu curso para continuar.'
+					: 'Seleção de curso cancelada. Tente novamente.'
 			}));
+		},
+
+		/** Reabre o modal de escolha de curso mantendo o histórico já processado. */
+		reopenCourseSelection() {
+			update((s) => {
+				if (!s.extractedData || !s.courseSelectionError) return s;
+				return {
+					...s,
+					showCourseSelection: true,
+					courseSelectionPending: false,
+					state: 'processing',
+					error: null
+				};
+			});
 		},
 
 		async startManualMode(course: { nomeCurso: string; matrizCurricular: string }) {
