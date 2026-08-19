@@ -46,7 +46,7 @@
 
 	const stepTitles = [
 		'Você trabalha ou estagia?',
-		'Quantos créditos por semestre?',
+		'Quantas matérias por semestre?',
 		'Qual é o seu objetivo?'
 	];
 </script>
@@ -165,9 +165,11 @@
 					</div>
 
 				{:else if step === 2}
-					<!-- Question 2: limite de créditos -->
+					<!-- Question 2: limite de créditos (exibido como matérias/horas) -->
 					<div class="flex flex-col gap-3">
 						{#each ([16, 24, 32] as const) as limite}
+							{@const materias = limite / 4}
+							{@const horas = limite * 15}
 							{@const labels: Record<number, { subtitle: string }> = {
 								16: { subtitle: 'Leve — mais fôlego no semestre' },
 								24: { subtitle: 'Moderado — equilíbrio recomendado' },
@@ -183,10 +185,13 @@
 							>
 								<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg font-mono text-sm font-bold
 									{limiteCreditos === limite ? 'bg-blue-500/20 text-blue-300' : 'bg-white/6 text-white/50 group-hover:text-white/70'}">
-									{limite}
+									{materias}
 								</div>
 								<div>
-									<p class="text-sm font-medium text-white">{limite} créditos</p>
+									<p class="text-sm font-medium text-white">
+										~{materias} matérias
+										<span class="font-normal text-white/40">(≈{horas}h no semestre)</span>
+									</p>
 									<p class="mt-0.5 text-xs text-white/45">{labels[limite].subtitle}</p>
 								</div>
 								{#if limiteCreditos === limite}
