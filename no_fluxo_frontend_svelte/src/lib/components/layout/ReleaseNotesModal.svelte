@@ -21,12 +21,28 @@
 		FLUXOGRAMA_SCHEMA_VERSION
 	} from '$lib/config/release';
 
-	/** Divide um texto nos trechos entre **asteriscos** para renderizar negrito. */
-	function segmentos(texto: string): { negrito: boolean; valor: string }[] {
+	type Segmento = { negrito: boolean; valor: string; href?: string };
+
+	function segmentosNegrito(texto: string): Segmento[] {
 		return texto
 			.split(/\*\*([^*]+)\*\*/g)
 			.map((valor, i) => ({ negrito: i % 2 === 1, valor }))
 			.filter((s) => s.valor !== '');
+	}
+
+	/** Trechos entre **asteriscos** viram negrito; [texto](url) vira link em negrito. */
+	function segmentos(texto: string): Segmento[] {
+		const out: Segmento[] = [];
+		const linkRe = /\[([^\]]+)\]\(([^)]+)\)/g;
+		let ultimo = 0;
+		let m: RegExpExecArray | null;
+		while ((m = linkRe.exec(texto)) !== null) {
+			if (m.index > ultimo) out.push(...segmentosNegrito(texto.slice(ultimo, m.index)));
+			out.push({ negrito: true, valor: m[1], href: m[2] });
+			ultimo = m.index + m[0].length;
+		}
+		if (ultimo < texto.length) out.push(...segmentosNegrito(texto.slice(ultimo)));
+		return out;
 	}
 
 	let authState = $derived($authStore);
@@ -135,7 +151,7 @@
 						<p class="text-xs leading-relaxed text-amber-200/85">
 							Seu histórico foi enviado antes dessas melhorias. Para o fluxograma reconhecer
 							<strong class="text-amber-100">módulo livre e equivalências</strong> com os dados
-							novos, reenvie o PDF do histórico — leva menos de um minuto.
+							novos, reenvie o PDF do histórico: leva menos de um minuto.
 						</p>
 					</div>
 				{/if}
@@ -151,7 +167,13 @@
 						</div>
 						<p class="text-xs leading-relaxed text-white/75">
 							{#each segmentos(RELEASE_NOTA_EQUIPE.agradecimento) as s}
-								{#if s.negrito}<strong class="text-white">{s.valor}</strong>{:else}{s.valor}{/if}
+								{#if s.href}<a
+										href={s.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="font-semibold text-pink-300 underline decoration-pink-400/50 underline-offset-2 hover:text-pink-200"
+										>{s.valor}</a
+									>{:else if s.negrito}<strong class="text-white">{s.valor}</strong>{:else}{s.valor}{/if}
 							{/each}
 						</p>
 						<p class="my-3 border-l-2 border-pink-400/60 pl-3 text-[13px] font-medium italic leading-relaxed text-purple-100">
