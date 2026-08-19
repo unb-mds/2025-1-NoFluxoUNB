@@ -47,6 +47,10 @@ export interface FluxogramaState {
 	connectionMode: ConnectionMode;
 	/** Exibição das badges por semestre: créditos ou horas */
 	displayUnit: DisplayUnit;
+	/** Filtro: exibir optativas (matriz, planejadas e cursadas) no fluxograma */
+	showOptativas: boolean;
+	/** Filtro: exibir módulos livres (cursados fora da matriz) no fluxograma */
+	showModulosLivres: boolean;
 	isAnonymous: boolean;
 	hoveredSubjectCode: string | null;
 	/** No modo "Todas" as conexões: pré-visualização do card sob o rato (clique continua fixando `hoveredSubjectCode`). */
@@ -140,6 +144,12 @@ function mergeFluxogramaComOptativasManuais(
 	return { ...base, dadosFluxograma: nextGrid };
 }
 
+/** Mobile começa com optativas/módulo livre ocultos (tela pequena, menos ruído). */
+function defaultShowExtras(): boolean {
+	if (typeof window === 'undefined') return true;
+	return !window.matchMedia('(max-width: 767px)').matches;
+}
+
 function createFluxogramaStore() {
 	let state = $state<FluxogramaState>({
 		courseData: null,
@@ -148,6 +158,8 @@ function createFluxogramaStore() {
 		zoomLevel: 0.6,
 		connectionMode: 'direct' as ConnectionMode,
 		displayUnit: 'horas' as DisplayUnit,
+		showOptativas: defaultShowExtras(),
+		showModulosLivres: defaultShowExtras(),
 		isAnonymous: false,
 		hoveredSubjectCode: null,
 		hoverPreviewSubjectCode: null,
@@ -870,6 +882,16 @@ function createFluxogramaStore() {
 			state.displayUnit = unit;
 		},
 
+		toggleShowOptativas() {
+			state.showOptativas = !state.showOptativas;
+			bumpDiagramLayout();
+		},
+
+		toggleShowModulosLivres() {
+			state.showModulosLivres = !state.showModulosLivres;
+			bumpDiagramLayout();
+		},
+
 		setConnectionDensity(density: Map<number, number>) {
 			connectionDensityBySemester = density;
 		},
@@ -945,6 +967,8 @@ function createFluxogramaStore() {
 			state.zoomLevel = 0.6;
 			state.connectionMode = 'direct';
 			state.displayUnit = 'horas';
+			state.showOptativas = defaultShowExtras();
+			state.showModulosLivres = defaultShowExtras();
 			state.isAnonymous = false;
 			state.hoveredSubjectCode = null;
 			state.hoverPreviewSubjectCode = null;

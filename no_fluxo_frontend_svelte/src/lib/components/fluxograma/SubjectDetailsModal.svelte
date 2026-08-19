@@ -343,11 +343,14 @@ import { ROUTES } from '$lib/config/routes';
 																{@const prereqMateria = courseData.materias.find((p) => p.codigoMateria.toUpperCase() === cod.toUpperCase())}
 																{#if prereqMateria}
 																	{@const prereqStatus = store.getSubjectStatus(prereqMateria)}
-																	<div class="inline-flex items-center gap-1.5 rounded-lg border border-[#7f9cf5]/35 bg-[#7f9cf5]/10 px-2.5 py-1 text-xs text-[#b8adff]">
+																	<div
+																		class="inline-flex max-w-full items-center gap-1.5 rounded-lg border border-[#7f9cf5]/35 bg-[#7f9cf5]/10 px-2.5 py-1 text-xs text-[#b8adff]"
+																		title={cod}
+																	>
 																		<span class="h-1.5 w-1.5 shrink-0 rounded-full {statusDotColor[prereqStatus]}"></span>
-																		<span class="font-mono font-medium">{cod}</span>
-																		<span class="hidden sm:inline text-white/60">· {prereqMateria.nomeMateria}</span>
-																		<span class="text-white/50">· {getStatusLabel(prereqStatus)}</span>
+																		<span class="min-w-0 truncate text-white/85">{prereqMateria.nomeMateria}</span>
+																		<span class="hidden shrink-0 font-mono font-medium sm:inline">· {cod}</span>
+																		<span class="shrink-0 text-white/50">· {getStatusLabel(prereqStatus)}</span>
 																	</div>
 																{:else}
 																	<div class="inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/5 px-2.5 py-1 text-xs text-white/80">

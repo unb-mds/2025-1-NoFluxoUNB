@@ -4,6 +4,7 @@ import { Bot, GraduationCap, Info } from 'lucide-svelte';
 	import { ROUTES } from '$lib/config/routes';
 	import { SubjectStatusEnum, getStatusLabel } from '$lib/types/materia';
 	import FluxogramViewMenu from './FluxogramViewMenu.svelte';
+	import MobileFilterNotice from './MobileFilterNotice.svelte';
 
 	/** Cores dos cartões — mesma legenda que existia no modal (?), agora fixa nesta barra */
 	const statusLegendItems = [
@@ -22,6 +23,9 @@ import { Bot, GraduationCap, Info } from 'lucide-svelte';
 
 	let { onOpenFluxogramHelp, showFluxogramViewMenu = false }: Props = $props();
 
+	/** Botão "Assistente" oculto por enquanto — reative mudando para true */
+	const showAssistente = false;
+
 	const store = fluxogramaStore;
 
 	let hasPrimaryActions = $derived(!store.state.isAnonymous);
@@ -34,6 +38,9 @@ import { Bot, GraduationCap, Info } from 'lucide-svelte';
 	Legenda de status no topo; abaixo: Assistente, Optativas; no desktop também ? e ⚙.
 	No mobile, ? e ⚙ continuam no header (FluxogramaHeader).
 -->
+<!-- Mobile: filtros de optativas/mód. livre começam desativados — avisa como reativar -->
+<MobileFilterNotice />
+
 {#if hasPrimaryActions || hasViewActions}
 	<div
 		class="flex min-w-0 flex-col gap-2 overflow-visible rounded-xl border border-white/12 px-2.5 py-2 sm:gap-2.5 sm:px-3 sm:py-2.5 [@media(orientation:landscape)_and_(max-height:560px)]:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:px-2 [@media(orientation:landscape)_and_(max-height:560px)]:py-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:gap-2 [@media(orientation:landscape)_and_(max-height:560px)]:sm:px-2 [@media(orientation:landscape)_and_(max-height:560px)]:sm:py-2 [@media(orientation:landscape)_and_(max-height:560px)]:[&>div:first-child]:hidden {viewOnlyOnDesktop
@@ -69,13 +76,15 @@ import { Bot, GraduationCap, Info } from 'lucide-svelte';
 				<GraduationCap class="h-3.5 w-3.5 shrink-0" />
 				Planejar formatura
 			</a>
-			<a
-				href={ROUTES.ASSISTENTE}
-				class="inline-flex min-h-9 flex-1 items-center justify-center gap-1.5 rounded-lg border border-primary/40 bg-primary/[0.12] px-3 py-1.5 text-xs font-medium text-purple-200 transition-colors hover:border-primary/55 hover:bg-primary/[0.22] sm:min-h-0 sm:flex-none sm:justify-center"
-			>
-				<Bot class="h-3.5 w-3.5 shrink-0" />
-				Assistente
-			</a>
+			{#if showAssistente}
+				<a
+					href={ROUTES.ASSISTENTE}
+					class="inline-flex min-h-9 flex-1 items-center justify-center gap-1.5 rounded-lg border border-primary/40 bg-primary/[0.12] px-3 py-1.5 text-xs font-medium text-purple-200 transition-colors hover:border-primary/55 hover:bg-primary/[0.22] sm:min-h-0 sm:flex-none sm:justify-center"
+				>
+					<Bot class="h-3.5 w-3.5 shrink-0" />
+					Assistente
+				</a>
+			{/if}
 		{/if}
 
 		<div class="hidden items-center gap-2 md:ml-auto md:flex md:shrink-0">

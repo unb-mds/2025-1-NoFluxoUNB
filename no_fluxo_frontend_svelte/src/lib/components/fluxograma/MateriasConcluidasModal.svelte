@@ -23,6 +23,8 @@
 
 	type MateriaConcluidaItem = {
 		codigoMateria: string;
+		/** Nome resolvido pela matriz do curso (null quando fora da matriz). */
+		nomeMateria: string | null;
 		status: string;
 		mencao: string;
 		anoPeriodo: string;
@@ -66,10 +68,13 @@
 
 	function buildConcluidas(dados: DadosFluxogramaUser, materias: MateriaModel[]): MateriaConcluidaItem[] {
 		const categoriaByCode = new Map<string, 'obrigatoria' | 'optativa'>();
+		const nomeByCode = new Map<string, string>();
 		for (const m of materias) {
 			const cod = String(m.codigoMateria ?? '').trim().toUpperCase();
 			if (!cod) continue;
 			categoriaByCode.set(cod, isOptativa(m) ? 'optativa' : 'obrigatoria');
+			const nome = String(m.nomeMateria ?? '').trim();
+			if (nome) nomeByCode.set(cod, nome);
 		}
 		const byCode = new Map<string, MateriaConcluidaItem>();
 		let orderIndex = 0;
@@ -89,6 +94,7 @@
 
 				const candidato: MateriaConcluidaItem = {
 					codigoMateria,
+					nomeMateria: nomeByCode.get(codigoMateria) ?? null,
 					status: String(item.status ?? '').trim().toUpperCase() || '-',
 					mencao: String(item.mencao ?? '-').trim().toUpperCase() || '-',
 					anoPeriodo: String(item.anoPeriodo ?? '').trim(),
@@ -120,7 +126,7 @@
 		const q = searchQuery.trim().toUpperCase();
 		if (!q) return concluidas;
 		return concluidas.filter((m) => {
-			const base = `${m.codigoMateria} ${m.codigoEquivalente ?? ''} ${m.nomeEquivalente ?? ''}`.toUpperCase();
+			const base = `${m.codigoMateria} ${m.nomeMateria ?? ''} ${m.codigoEquivalente ?? ''} ${m.nomeEquivalente ?? ''}`.toUpperCase();
 			return base.includes(q);
 		});
 	});
@@ -138,6 +144,7 @@
 		return equivalenciasSimulacaoFiltradas
 			.map((e) => ({
 				codigoMateria: String(e.origem ?? '').trim().toUpperCase(),
+				nomeMateria: String(e.nomeOrigem ?? '').trim() || null,
 				status: 'APR',
 				mencao: '-',
 				anoPeriodo: '',
@@ -248,7 +255,12 @@
 									<div class="rounded-lg border border-emerald-400/25 bg-gradient-to-r from-emerald-500/10 to-transparent px-3 py-2.5">
 										<div class="flex flex-wrap items-center justify-between gap-2">
 											<div class="min-w-0">
-												<p class="font-mono text-sm font-semibold text-white">{materia.codigoMateria}</p>
+												{#if materia.nomeMateria}
+													<p class="text-sm font-semibold text-white" title={materia.codigoMateria}>{materia.nomeMateria}</p>
+													<p class="font-mono text-[11px] text-white/45">{materia.codigoMateria}</p>
+												{:else}
+													<p class="font-mono text-sm font-semibold text-white">{materia.codigoMateria}</p>
+												{/if}
 												<p class="text-xs text-white/60">
 													{materia.status}
 													{#if materia.mencao !== '-'}
@@ -312,7 +324,12 @@
 									<div class="rounded-lg border border-violet-400/25 bg-gradient-to-r from-violet-500/10 to-transparent px-3 py-2.5">
 										<div class="flex flex-wrap items-center justify-between gap-2">
 											<div class="min-w-0">
-												<p class="font-mono text-sm font-semibold text-white">{materia.codigoMateria}</p>
+												{#if materia.nomeMateria}
+													<p class="text-sm font-semibold text-white" title={materia.codigoMateria}>{materia.nomeMateria}</p>
+													<p class="font-mono text-[11px] text-white/45">{materia.codigoMateria}</p>
+												{:else}
+													<p class="font-mono text-sm font-semibold text-white">{materia.codigoMateria}</p>
+												{/if}
 												<p class="text-xs text-white/60">
 													{materia.status}
 													{#if materia.mencao !== '-'}
@@ -374,7 +391,12 @@
 								<div class="rounded-lg border border-amber-400/25 bg-gradient-to-r from-amber-500/10 to-transparent px-3 py-2.5">
 									<div class="flex flex-wrap items-center justify-between gap-2">
 										<div class="min-w-0">
-											<p class="font-mono text-sm font-semibold text-white">{materia.codigoMateria}</p>
+											{#if materia.nomeMateria}
+													<p class="text-sm font-semibold text-white" title={materia.codigoMateria}>{materia.nomeMateria}</p>
+													<p class="font-mono text-[11px] text-white/45">{materia.codigoMateria}</p>
+												{:else}
+													<p class="font-mono text-sm font-semibold text-white">{materia.codigoMateria}</p>
+												{/if}
 											<p class="text-xs text-white/60">
 													{materia.status}
 													{#if materia.mencao !== '-'}

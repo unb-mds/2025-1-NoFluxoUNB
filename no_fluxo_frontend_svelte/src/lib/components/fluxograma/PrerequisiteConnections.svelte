@@ -996,7 +996,7 @@
 				stroke-opacity={isDimmed ? '0.2' : isAllMode ? '0.5' : '0.85'}
 				stroke-dasharray={line.type === 'corequisite' ? '8,5' : 'none'}
 				marker-end={markerUrl}
-				style="transition: stroke-opacity 0.2s ease, stroke-width 0.2s ease; will-change: stroke-opacity, stroke-width;"
+				style="transition: stroke-opacity 0.2s ease, stroke-width 0.2s ease;"
 			/>
 		{/each}
 	</svg>

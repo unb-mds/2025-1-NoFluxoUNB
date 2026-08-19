@@ -4,6 +4,7 @@
 	import FluxogramaHeader from '$lib/components/fluxograma/FluxogramaHeader.svelte';
 	import FluxogramaLegendControls from '$lib/components/fluxograma/FluxogramaLegendControls.svelte';
 	import FluxogramViewportChrome from '$lib/components/fluxograma/FluxogramViewportChrome.svelte';
+	import SemesterNavChips from '$lib/components/fluxograma/SemesterNavChips.svelte';
 	import FluxogramContainer from '$lib/components/fluxograma/FluxogramContainer.svelte';
 	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
 	import SubjectDetailsModal from '$lib/components/fluxograma/SubjectDetailsModal.svelte';
@@ -11,6 +12,7 @@
 	import ProgressToolsSection from '$lib/components/fluxograma/ProgressToolsSection.svelte';
 	import PrerequisiteChainDialog from '$lib/components/fluxograma/PrerequisiteChainDialog.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
+	import { matchesFluxogramCompactTouchMode } from '$lib/utils/fluxogram-viewport';
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';
 	import { supabaseDataService } from '$lib/services/supabase-data.service';
 	import { goto } from '$app/navigation';
@@ -156,10 +158,20 @@
 			scrollRoot.scrollLeft = 0;
 			return;
 		}
-		const sorted = [...columns].sort((a, b) => a.offsetLeft - b.offsetLeft);
-		const primeiraColuna = sorted[0];
 		const margemEsquerda = Math.max(16, Math.round(scrollRoot.clientWidth * 0.08));
-		const targetLeft = primeiraColuna.offsetLeft - margemEsquerda;
+		// Mobile: abre no semestre atual do aluno — a pergunta nº 1 é "onde estou agora?"
+		const semestreAtual = store.userFluxograma?.semestreAtual;
+		let alvo: HTMLElement | null = null;
+		if (semestreAtual && matchesFluxogramCompactTouchMode()) {
+			alvo = scrollRoot.querySelector<HTMLElement>(`[data-semester="${semestreAtual}"]`);
+		}
+		if (!alvo) {
+			alvo = [...columns].sort((a, b) => a.offsetLeft - b.offsetLeft)[0];
+		}
+		// getBoundingClientRect independe da mecânica do zoom (CSS zoom vs transform)
+		const rootRect = scrollRoot.getBoundingClientRect();
+		const alvoRect = alvo.getBoundingClientRect();
+		const targetLeft = scrollRoot.scrollLeft + (alvoRect.left - rootRect.left) - margemEsquerda;
 		scrollRoot.scrollLeft = Math.max(0, targetLeft);
 	}
 
@@ -190,6 +202,21 @@
 			};
 		}
 		delete document.body.dataset.fluxogramaFocusMode;
+	});
+
+	// Mobile: primeiro paint já posicionado no semestre atual do aluno (fora do modo foco).
+	let didInitialMobileCenter = false;
+	$effect(() => {
+		if (didInitialMobileCenter) return;
+		if (!store.state.courseData) return;
+		void store.diagramLayoutRevision;
+		if (!store.userFluxograma) return;
+		if (!matchesFluxogramCompactTouchMode()) {
+			didInitialMobileCenter = true;
+			return;
+		}
+		didInitialMobileCenter = true;
+		requestAnimationFrame(() => scheduleCenterFluxogramaViewport());
 	});
 
 	$effect(() => {
@@ -333,6 +360,11 @@
 						toggleFocusMode={() => (fluxogramaFocusMode = !fluxogramaFocusMode)}
 					/>
 				</div>
+
+				<!-- Mobile: navegação por semestre entre o fluxograma e a integralização -->
+				{#if !fluxogramaFocusMode}
+					<SemesterNavChips />
+				{/if}
 			</div>
 
 			{#if !fluxogramaFocusMode && !store.state.isAnonymous}

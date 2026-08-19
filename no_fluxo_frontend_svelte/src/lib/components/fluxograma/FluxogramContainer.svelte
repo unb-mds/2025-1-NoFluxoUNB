@@ -3,7 +3,11 @@
 	import { browser } from '$app/environment';
 	import type { MateriaModel } from '$lib/types/materia';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
-	import { matchesFluxogramCompactTouchMode } from '$lib/utils/fluxogram-viewport';
+	import {
+		matchesFluxogramCompactTouchMode,
+		FLUXOGRAM_NARROW_QUERY,
+		FLUXOGRAM_COMPACT_LANDSCAPE_QUERY
+	} from '$lib/utils/fluxogram-viewport';
 	import SemesterColumn from './SemesterColumn.svelte';
 	import PrerequisiteConnections from './PrerequisiteConnections.svelte';
 
@@ -29,14 +33,6 @@
 	let containerRef: HTMLElement | null = $state(null);
 	let innerRef: HTMLElement | null = $state(null);
 
-	// Scroll offset for sticky semester headers (compensates for transform: scale)
-	let headerOffsetY = $state(0);
-
-	function handleScroll() {
-		if (!containerRef) return;
-		headerOffsetY = containerRef.scrollTop / store.state.zoomLevel;
-	}
-
 	// Pan/drag state
 	let isDragging = $state(false);
 	let dragStartX = $state(0);
@@ -47,8 +43,17 @@
 	// Touch state
 	let lastTouchX = $state(0);
 	let lastTouchY = $state(0);
+	/** Origem do toque — deslocamento ACUMULADO decide tap vs. arrasto (não delta por evento). */
+	let touchOriginX = $state(0);
+	let touchOriginY = $state(0);
 	let initialPinchDistance = $state(0);
 	let initialPinchZoom = $state(0);
+	/** Pinça em andamento: ancora o zoom no ponto do gesto e pausa o snap por semestre. */
+	let pinchActive = $state(false);
+	let pinchMidX = 0;
+	let pinchMidY = 0;
+	let pinchScrollStartX = 0;
+	let pinchScrollStartY = 0;
 	let touchMoved = $state(false);
 	/** Mobile: toque iniciou em um card — atrasa scroll para permitir tap/long-press */
 	let touchStartedOnCard = $state(false);
@@ -65,8 +70,8 @@
 			useNativeTouchScroll = matchesFluxogramCompactTouchMode();
 		};
 		apply();
-		const mqNarrow = window.matchMedia('(max-width: 768px)');
-		const mqLand = window.matchMedia('(orientation: landscape) and (max-height: 560px)');
+		const mqNarrow = window.matchMedia(FLUXOGRAM_NARROW_QUERY);
+		const mqLand = window.matchMedia(FLUXOGRAM_COMPACT_LANDSCAPE_QUERY);
 		mqNarrow.addEventListener('change', apply);
 		mqLand.addEventListener('change', apply);
 		window.addEventListener('resize', apply);
@@ -159,23 +164,32 @@
 			}
 			lastTouchX = e.touches[0].clientX;
 			lastTouchY = e.touches[0].clientY;
+			touchOriginX = e.touches[0].clientX;
+			touchOriginY = e.touches[0].clientY;
 			if (containerRef) {
 				scrollStartX = containerRef.scrollLeft;
 				scrollStartY = containerRef.scrollTop;
 			}
-		} else if (e.touches.length === 2) {
+		} else if (e.touches.length === 2 && containerRef) {
 			isDragging = false;
 			const dx = e.touches[0].clientX - e.touches[1].clientX;
 			const dy = e.touches[0].clientY - e.touches[1].clientY;
 			initialPinchDistance = Math.sqrt(dx * dx + dy * dy);
 			initialPinchZoom = store.state.zoomLevel;
+			// Âncora: ponto médio dos dedos relativo ao container — o conteúdo sob os dedos fica sob os dedos.
+			const rect = containerRef.getBoundingClientRect();
+			pinchMidX = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;
+			pinchMidY = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top;
+			pinchScrollStartX = containerRef.scrollLeft;
+			pinchScrollStartY = containerRef.scrollTop;
+			pinchActive = true;
 		}
 	}
 
 	function handleTouchMove(e: TouchEvent) {
 		if (e.touches.length === 1) {
-			const dxTouch = Math.abs(e.touches[0].clientX - lastTouchX);
-			const dyTouch = Math.abs(e.touches[0].clientY - lastTouchY);
+			const dxTouch = Math.abs(e.touches[0].clientX - touchOriginX);
+			const dyTouch = Math.abs(e.touches[0].clientY - touchOriginY);
 			if (dxTouch > 6 || dyTouch > 6) touchMoved = true;
 		}
 		if (useNativeTouchScroll && e.touches.length === 1) {
@@ -198,9 +212,6 @@
 				}
 			}
 			if (isDragging && containerRef) {
-				// Importante: em alguns navegadores esse handler pode ser considerado `passive`,
-				// então `preventDefault()` dispara warning no console. O `touch-action: none`
-				// no container já evita a rolagem nativa para o gesto de arrasto/pan.
 				const ddx = lastTouchX - e.touches[0].clientX;
 				const ddy = lastTouchY - e.touches[0].clientY;
 				containerRef.scrollLeft += ddx;
@@ -208,19 +219,24 @@
 				lastTouchX = e.touches[0].clientX;
 				lastTouchY = e.touches[0].clientY;
 			}
-		} else if (e.touches.length === 2) {
-			// Pinch: em mobile com rolagem nativa, pinch-zoom do SO pode competir; zoom fino continua no painel FAB.
+		} else if (e.touches.length === 2 && containerRef) {
+			// Listener non-passive: preventDefault impede o pinch nativo da página — o diagrama é o único dono do gesto.
+			e.preventDefault();
 			const dx = e.touches[0].clientX - e.touches[1].clientX;
 			const dy = e.touches[0].clientY - e.touches[1].clientY;
 			const distance = Math.sqrt(dx * dx + dy * dy);
 			const scale = distance / initialPinchDistance;
 			store.setZoom(initialPinchZoom * scale);
+			const ratio = store.state.zoomLevel / initialPinchZoom;
+			containerRef.scrollLeft = (pinchScrollStartX + pinchMidX) * ratio - pinchMidX;
+			containerRef.scrollTop = (pinchScrollStartY + pinchMidY) * ratio - pinchMidY;
 		}
 	}
 
 	function handleTouchEnd(e: TouchEvent) {
 		isDragging = false;
 		touchStartedOnCard = false;
+		if (e.touches.length < 2) pinchActive = false;
 		const target = e.target as HTMLElement;
 		const endedOnCard = !!target.closest('.subject-card');
 		const isBackgroundTap = !endedOnCard && !touchMoved;
@@ -230,6 +246,37 @@
 		}
 		touchMoved = false;
 	}
+
+	// touchmove precisa ser non-passive para o preventDefault do pinch funcionar
+	// (handlers de markup do Svelte são passivos para touchmove).
+	$effect(() => {
+		const el = containerRef;
+		if (!el) return;
+		el.addEventListener('touchmove', handleTouchMove, { passive: false });
+		return () => el.removeEventListener('touchmove', handleTouchMove);
+	});
+
+	/**
+	 * Zoom vindo do slider/botões (fora do pinch): reancora o scroll no centro do
+	 * viewport para a região visível não "fugir" — com CSS zoom o scrollWidth/Height
+	 * acompanham a escala, então basta reescalar pela razão novo/velho.
+	 */
+	let prevZoomForAnchor = store.state.zoomLevel;
+	$effect(() => {
+		const z = store.state.zoomLevel;
+		const el = containerRef;
+		if (!el || z === prevZoomForAnchor) {
+			prevZoomForAnchor = z;
+			return;
+		}
+		const ratio = z / prevZoomForAnchor;
+		prevZoomForAnchor = z;
+		if (pinchActive) return; // pinça ancora no ponto do gesto
+		const cx = el.scrollLeft + el.clientWidth / 2;
+		const cy = el.scrollTop + el.clientHeight / 2;
+		el.scrollLeft = cx * ratio - el.clientWidth / 2;
+		el.scrollTop = cy * ratio - el.clientHeight / 2;
+	});
 
 	// Sync bind_container
 	$effect(() => {
@@ -249,27 +296,28 @@
 	class="fluxogram-container relative h-full min-h-0 w-full flex-1 select-none overflow-auto [overflow-anchor:none] {focusMode
 		? 'rounded-2xl border border-primary/24 bg-[hsl(var(--background)/0.93)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_0_0_1px_rgba(124,58,237,0.11),0_0_14px_rgba(124,58,237,0.12),0_16px_48px_rgba(0,0,0,0.52)]'
 		: 'rounded-xl border border-white/10 bg-black/30'} {useNativeTouchScroll
-		? 'overscroll-y-auto'
+		? 'overscroll-y-auto [overscroll-behavior-x:contain]'
 		: ''}"
 	style:cursor="grab"
-	style:touch-action={useNativeTouchScroll ? 'pan-x pan-y pinch-zoom' : 'none'}
+	style:touch-action={useNativeTouchScroll ? 'pan-x pan-y' : 'none'}
 	style:-webkit-overflow-scrolling={useNativeTouchScroll ? 'touch' : undefined}
+	style:scroll-snap-type={useNativeTouchScroll && !pinchActive ? 'x proximity' : undefined}
 	role="application"
 	aria-label="Fluxograma interativo — arraste o fundo para mover"
 	onmousedown={handleMouseDown}
 	onmouseup={handleMouseUp}
 	onwheel={handleWheel}
 	ontouchstart={handleTouchStart}
-	ontouchmove={handleTouchMove}
 	ontouchend={handleTouchEnd}
-	onscroll={handleScroll}
 >
 	<div
 		bind:this={innerRef}
 		class="relative inline-flex {focusMode
 			? 'p-[max(18vh,6rem)] pb-[max(24vh,8rem)]'
-			: 'p-4 pb-[5.75rem] pt-4 md:pb-14'}"
-		style="gap: {store.state.connectionMode === 'all' ? '6rem' : '3rem'}; transform: scale({store.state.zoomLevel}); transform-origin: top left; transition: gap 0.3s ease;"
+			: 'p-4 pb-[6.5rem] pt-4 md:pb-14'}"
+		style="gap: {store.state.connectionMode === 'all' && !useNativeTouchScroll
+			? '6rem'
+			: '3rem'}; zoom: {store.state.zoomLevel}; transition: gap 0.3s ease;"
 	>
 		<!-- Prerequisite connection lines -->
 		<PrerequisiteConnections container={innerRef} />
@@ -293,7 +341,6 @@
 				{onSubjectClick}
 				{onSubjectOpenChain}
 				{onSubjectLongPress}
-				{headerOffsetY}
 			/>
 		{/each}
 	</div>

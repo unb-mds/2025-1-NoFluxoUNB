@@ -28,6 +28,11 @@
 
 	const store = fluxogramaStore;
 	let status = $derived(store.getSubjectStatus(materia));
+	/** Chips transitivos mostram o NOME; tap/click revela o código (hover usa title). */
+	let codigoVisivel = $state<string | null>(null);
+	function toggleCodigo(key: string) {
+		codigoVisivel = codigoVisivel === key ? null : key;
+	}
 
 	let canTake = $derived(
 		status === SubjectStatusEnum.AVAILABLE ||
@@ -436,13 +441,18 @@
 								Precisa cursar antes (transitivo na grade)
 							</h4>
 							<div class="flex flex-wrap gap-1.5">
-								{#each transitive.ancestors as a}
-									<span
-										class="inline-flex max-w-full items-center rounded-full border border-purple-400/35 bg-purple-500/10 px-2.5 py-1 font-mono text-[10px] text-purple-100/95"
-										title={a.nomeMateria}
+								{#each transitive.ancestors as a (a.codigoMateria)}
+									<button
+										type="button"
+										onclick={() => toggleCodigo(`a-${a.codigoMateria}`)}
+										class="inline-flex max-w-full items-center gap-1.5 rounded-full border border-purple-400/35 bg-purple-500/10 px-2.5 py-1 text-left text-[10px] leading-tight text-purple-100/95 transition-colors hover:bg-purple-500/20"
+										title={a.codigoMateria}
 									>
-										{a.codigoMateria}
-									</span>
+										<span class="truncate">{a.nomeMateria}</span>
+										{#if codigoVisivel === `a-${a.codigoMateria}`}
+											<span class="shrink-0 font-mono text-purple-200/75">{a.codigoMateria}</span>
+										{/if}
+									</button>
 								{/each}
 							</div>
 						</div>
@@ -453,13 +463,18 @@
 								Desbloqueia depois (transitivo na grade)
 							</h4>
 							<div class="flex flex-wrap gap-1.5">
-								{#each transitive.descendants as d}
-									<span
-										class="inline-flex max-w-full items-center rounded-full border border-teal-400/35 bg-teal-500/10 px-2.5 py-1 font-mono text-[10px] text-teal-100/95"
-										title={d.nomeMateria}
+								{#each transitive.descendants as d (d.codigoMateria)}
+									<button
+										type="button"
+										onclick={() => toggleCodigo(`d-${d.codigoMateria}`)}
+										class="inline-flex max-w-full items-center gap-1.5 rounded-full border border-teal-400/35 bg-teal-500/10 px-2.5 py-1 text-left text-[10px] leading-tight text-teal-100/95 transition-colors hover:bg-teal-500/20"
+										title={d.codigoMateria}
 									>
-										{d.codigoMateria}
-									</span>
+										<span class="truncate">{d.nomeMateria}</span>
+										{#if codigoVisivel === `d-${d.codigoMateria}`}
+											<span class="shrink-0 font-mono text-teal-200/75">{d.codigoMateria}</span>
+										{/if}
+									</button>
 								{/each}
 							</div>
 						</div>

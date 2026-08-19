@@ -1,12 +1,16 @@
 <script lang="ts">
-import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle, Maximize2, Minimize2, Network, GraduationCap, Calendar, TrendingUp } from 'lucide-svelte';
+import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle, Maximize2, Minimize2, GraduationCap, Calendar, TrendingUp, SlidersHorizontal } from 'lucide-svelte';
 	import { browser } from '$app/environment';
 	import { fluxogramaStore, type ConnectionMode } from '$lib/stores/fluxograma.store.svelte';
 	import { getTotalCreditsCompleted } from '$lib/types/user';
 	import { isOptativa } from '$lib/types/materia';
 	import { formatarIraParaExibicao } from '$lib/utils/ira';
 	import { portal } from '$lib/actions/portal';
-	import { matchesFluxogramCompactTouchMode } from '$lib/utils/fluxogram-viewport';
+	import {
+		matchesFluxogramCompactTouchMode,
+		FLUXOGRAM_NARROW_QUERY,
+		FLUXOGRAM_COMPACT_LANDSCAPE_QUERY
+	} from '$lib/utils/fluxogram-viewport';
 
 	interface Props {
 		/** Sincronizado com o botão “Legenda e regras” (?) no header */
@@ -80,16 +84,31 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode }: Props =
 
 	/** Mobile + landscape estreito: FAB e faixa de conexões (evita barra “desktop” em tela deitada). */
 	let compactTouch = $state(false);
-	/** Mobile: painel do FAB ferramentas (zoom + conexões) */
+	/** Mobile: painel de controle (zoom, conexões, exibição, filtros, legenda) */
 	let fabMenuOpen = $state(false);
-	/** Mobile: menu vertical para modos de conexão (mais fácil em tela vertical). */
-	let mobileConnectionsMenuOpen = $state(false);
 
-	let connectionModeLabel = $derived.by(() => {
-		if (store.state.connectionMode === 'all') return 'Todas';
-		if (store.state.connectionMode === 'off') return 'Off';
-		return 'Diretas';
+	/** Semestres com conteúdo — chips de navegação rápida no rodapé mobile. */
+	let semesterList = $derived.by(() => {
+		const keys = new Set<number>();
+		for (const k of store.subjectsBySemester.keys()) if (k > 0) keys.add(k);
+		for (const k of store.optativasBySemester.keys()) if (k > 0) keys.add(k);
+		for (const k of store.extrasCursadasBySemester.keys()) if (k > 0) keys.add(k);
+		return Array.from(keys).sort((a, b) => a - b);
 	});
+
+	let semestreAtualAluno = $derived(userFluxograma?.semestreAtual ?? null);
+
+	function scrollToSemester(n: number) {
+		const root = document.querySelector<HTMLElement>('[data-fluxogram-scroll-root]');
+		const col = root?.querySelector<HTMLElement>(`[data-semester="${n}"]`);
+		if (!root || !col) return;
+		const rootRect = root.getBoundingClientRect();
+		const colRect = col.getBoundingClientRect();
+		root.scrollTo({
+			left: Math.max(0, root.scrollLeft + (colRect.left - rootRect.left) - 16),
+			behavior: 'smooth'
+		});
+	}
 
 	$effect(() => {
 		if (!browser) return;
@@ -97,8 +116,8 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode }: Props =
 			compactTouch = matchesFluxogramCompactTouchMode();
 		};
 		apply();
-		const mqNarrow = window.matchMedia('(max-width: 768px)');
-		const mqLand = window.matchMedia('(orientation: landscape) and (max-height: 560px)');
+		const mqNarrow = window.matchMedia(FLUXOGRAM_NARROW_QUERY);
+		const mqLand = window.matchMedia(FLUXOGRAM_COMPACT_LANDSCAPE_QUERY);
 		mqNarrow.addEventListener('change', apply);
 		mqLand.addEventListener('change', apply);
 		window.addEventListener('resize', apply);
@@ -112,18 +131,16 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode }: Props =
 	$effect(() => {
 		if (!compactTouch) {
 			fabMenuOpen = false;
-			mobileConnectionsMenuOpen = false;
 		}
 	});
 
 	function selectMode(mode: ConnectionMode) {
 		store.setConnectionMode(mode);
-		mobileConnectionsMenuOpen = false;
 	}
 
-	function toggleMobileConnectionsMenu() {
-		mobileConnectionsMenuOpen = !mobileConnectionsMenuOpen;
-		if (mobileConnectionsMenuOpen) fabMenuOpen = false;
+	function openHelpFromPanel() {
+		fabMenuOpen = false;
+		helpOpen = true;
 	}
 
 function handleToggleFocusMode() {
@@ -134,13 +151,12 @@ function handleToggleFocusMode() {
 		if (e.key === 'Escape') {
 			helpOpen = false;
 			fabMenuOpen = false;
-			mobileConnectionsMenuOpen = false;
 			if (focusMode) toggleFocusMode?.();
 		}
 	}
 
 	$effect(() => {
-		if (helpOpen || fabMenuOpen || mobileConnectionsMenuOpen) {
+		if (helpOpen || fabMenuOpen) {
 			const prev = document.body.style.overflow;
 			document.body.style.overflow = 'hidden';
 			return () => {
@@ -310,33 +326,48 @@ function handleToggleFocusMode() {
 		Mobile / touch compacto: ações principais no rodapé + menu vertical de conexões.
 	-->
 	{#if compactTouch}
+		<!-- Scrim: os cards desvanecem sob os controles do rodapé em vez de ficarem cortados -->
 		<div
-			class="pointer-events-none absolute inset-x-0 bottom-[max(1rem,env(safe-area-inset-bottom,0px))] z-40 flex items-end justify-between gap-3 pl-[max(0.75rem,env(safe-area-inset-left,0px))] pr-[max(0.75rem,env(safe-area-inset-right,0px))]"
+			class="pointer-events-none absolute inset-x-0 bottom-0 z-30 bg-gradient-to-t from-[hsl(240_12%_2.4%/0.92)] via-[hsl(240_12%_2.4%/0.55)] to-transparent {focusMode
+				? 'h-40'
+				: 'h-24'}"
+			aria-hidden="true"
+		></div>
+		<div
+			class="pointer-events-none absolute inset-x-0 bottom-[max(1rem,env(safe-area-inset-bottom,0px))] z-40 flex flex-col gap-2 pl-[max(0.75rem,env(safe-area-inset-left,0px))] pr-[max(0.75rem,env(safe-area-inset-right,0px))]"
 		>
+			<!-- Mapa-índice: chips de semestre — no modo foco ficam no overlay;
+			     fora dele vivem no fluxo da página (SemesterNavChips) -->
+			{#if focusMode && semesterList.length > 1}
+				<div class="semester-chips pointer-events-auto -mx-1 flex gap-1.5 overflow-x-auto px-1 pb-0.5">
+					{#each semesterList as sem (sem)}
+						<button
+							type="button"
+							onclick={() => scrollToSemester(sem)}
+							class="h-9 min-w-[2.5rem] shrink-0 rounded-full border px-2.5 text-xs font-semibold backdrop-blur-md transition-colors active:scale-95 {sem === semestreAtualAluno
+								? 'border-primary/70 bg-primary/85 text-primary-foreground shadow-lg shadow-primary/25'
+								: 'border-white/15 bg-black/45 text-white/80'}"
+							aria-label="Ir para o semestre {sem}"
+						>
+							{sem}º
+						</button>
+					{/each}
+				</div>
+			{/if}
+			<div class="flex items-end justify-between gap-3">
 			<div class="pointer-events-auto shrink-0">
 				<button
 					type="button"
 					onclick={() => (fabMenuOpen = !fabMenuOpen)}
-					class="flex h-14 w-14 items-center justify-center rounded-full border border-primary/35 bg-primary text-primary-foreground shadow-lg shadow-primary/25 transition-transform active:scale-95"
+					class="flex h-11 w-11 items-center justify-center rounded-full border border-primary/35 bg-primary text-primary-foreground shadow-lg shadow-primary/25 transition-transform active:scale-95"
 					aria-expanded={fabMenuOpen}
-					aria-label="Zoom do fluxograma"
-					title="Zoom"
+					aria-label="Painel de controle do fluxograma"
+					title="Painel de controle"
 				>
-					<HelpCircle class="h-6 w-6" />
+					<SlidersHorizontal class="h-5 w-5" />
 				</button>
 			</div>
 			<div class="pointer-events-auto flex min-w-0 shrink-0 items-center justify-end gap-2 pb-0.5">
-				<button
-					type="button"
-					onclick={toggleMobileConnectionsMenu}
-					class="inline-flex h-11 items-center gap-1.5 rounded-full border border-purple-500/45 bg-black/45 px-3 text-[11px] font-medium text-white shadow-lg backdrop-blur-md transition-colors active:scale-95"
-					aria-expanded={mobileConnectionsMenuOpen}
-					aria-label="Abrir modos de conexões"
-					title="Modos de conexões"
-				>
-					<Network class="h-4 w-4" />
-					<span>{connectionModeLabel}</span>
-				</button>
 				<button
 					type="button"
 					onclick={handleToggleFocusMode}
@@ -351,6 +382,7 @@ function handleToggleFocusMode() {
 					{/if}
 				</button>
 			</div>
+			</div>
 		</div>
 	{:else}
 		<!--
@@ -364,55 +396,7 @@ function handleToggleFocusMode() {
 	{/if}
 </div>
 
-<!-- Mobile: menu vertical de conexões -->
-{#if mobileConnectionsMenuOpen && compactTouch}
-	<div
-		use:portal
-		class="fixed inset-0 z-[505] bg-black/35"
-		onclick={() => (mobileConnectionsMenuOpen = false)}
-		role="presentation"
-	></div>
-	<div
-		use:portal
-		class="fixed bottom-[max(5.2rem,env(safe-area-inset-bottom,0px))] right-[max(0.75rem,env(safe-area-inset-right,0px))] z-[515] w-[min(220px,88vw)] rounded-2xl border border-purple-400/35 bg-black/70 p-2.5 shadow-2xl backdrop-blur-xl"
-		role="dialog"
-		aria-modal="true"
-		aria-label="Modos de conexões"
-	>
-		<p class="mb-2 px-1 text-[10px] font-semibold uppercase tracking-wide text-white/55">Conexões</p>
-		<div class="flex flex-col gap-1.5">
-			<button
-				type="button"
-				onclick={() => selectMode('direct')}
-				class="w-full rounded-xl border px-3 py-2 text-left text-sm font-medium transition-colors {store.state.connectionMode === 'direct'
-					? 'border-purple-300/65 bg-purple-500/35 text-white'
-					: 'border-white/15 bg-white/5 text-white/80 hover:bg-white/10'}"
-			>
-				Diretas
-			</button>
-			<button
-				type="button"
-				onclick={() => selectMode('all')}
-				class="w-full rounded-xl border px-3 py-2 text-left text-sm font-medium transition-colors {store.state.connectionMode === 'all'
-					? 'border-purple-300/65 bg-purple-500/35 text-white'
-					: 'border-white/15 bg-white/5 text-white/80 hover:bg-white/10'}"
-			>
-				Todas
-			</button>
-			<button
-				type="button"
-				onclick={() => selectMode('off')}
-				class="w-full rounded-xl border px-3 py-2 text-left text-sm font-medium transition-colors {store.state.connectionMode === 'off'
-					? 'border-purple-300/65 bg-purple-500/35 text-white'
-					: 'border-white/15 bg-white/5 text-white/80 hover:bg-white/10'}"
-			>
-				Off
-			</button>
-		</div>
-	</div>
-{/if}
-
-<!-- Mobile: sheet ferramentas (portal → body: fora do stacking context z-0 do diagrama) -->
+<!-- Mobile: painel de controle (portal → body: fora do stacking context z-0 do diagrama) -->
 {#if fabMenuOpen && compactTouch}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<div
@@ -429,7 +413,7 @@ function handleToggleFocusMode() {
 		aria-labelledby="fab-tools-title"
 	>
 		<div class="flex items-center justify-between border-b border-white/10 px-4 py-3">
-			<h2 id="fab-tools-title" class="text-sm font-semibold text-white">Ferramentas</h2>
+			<h2 id="fab-tools-title" class="text-sm font-semibold text-white">Painel de controle</h2>
 			<button
 				type="button"
 				onclick={() => (fabMenuOpen = false)}
@@ -446,7 +430,7 @@ function handleToggleFocusMode() {
 					<button
 						type="button"
 						onclick={() => store.zoomOut()}
-						class="rounded-lg p-2 text-white/80 hover:bg-white/10"
+						class="rounded-lg p-2.5 text-white/80 hover:bg-white/10"
 						aria-label="Diminuir zoom"
 					>
 						<ZoomOut class="h-5 w-5" />
@@ -462,7 +446,7 @@ function handleToggleFocusMode() {
 					<button
 						type="button"
 						onclick={() => store.zoomIn()}
-						class="rounded-lg p-2 text-white/80 hover:bg-white/10"
+						class="rounded-lg p-2.5 text-white/80 hover:bg-white/10"
 						aria-label="Aumentar zoom"
 					>
 						<ZoomIn class="h-5 w-5" />
@@ -473,7 +457,7 @@ function handleToggleFocusMode() {
 							inputmode="numeric"
 							autocomplete="off"
 							maxlength="3"
-							class="w-11 rounded-lg border border-white/20 bg-black/40 py-1 text-center text-sm font-medium text-white tabular-nums outline-none focus:border-purple-400/60 focus:ring-1 focus:ring-purple-400/40"
+							class="w-12 rounded-lg border border-white/20 bg-black/40 py-1 text-center text-base font-medium text-white tabular-nums outline-none focus:border-purple-400/60 focus:ring-1 focus:ring-purple-400/40"
 							value={zoomDraft}
 							oninput={onZoomDraftInput}
 							onfocus={() => (zoomInputFocused = true)}
@@ -496,11 +480,94 @@ function handleToggleFocusMode() {
 					</button>
 				</div>
 			</div>
-			<p class="text-center text-[11px] text-white/50">
-				Use o botão <strong class="text-purple-300/90">Conexões</strong> no rodapé para alternar entre
-				<strong class="text-purple-300/90">Diretas, Todas e Off</strong>. Legenda completa: ícone
-				<strong class="text-cyan-300/90">(?)</strong> no topo.
-			</p>
+			<div>
+				<p class="mb-2 text-[10px] font-semibold uppercase tracking-wide text-white/45">Conexões de pré-requisito</p>
+				<div class="flex gap-0 overflow-hidden rounded-xl border border-white/10 bg-white/5">
+					{#each [{ mode: 'direct', label: 'Diretas' }, { mode: 'all', label: 'Todas' }, { mode: 'off', label: 'Off' }] as opt, i (opt.mode)}
+						<button
+							type="button"
+							onclick={() => selectMode(opt.mode as ConnectionMode)}
+							class="min-h-[44px] flex-1 px-2 text-sm font-medium transition-colors {i > 0 ? 'border-l border-white/10' : ''} {store.state.connectionMode === opt.mode
+								? 'bg-purple-500/35 text-white'
+								: 'text-white/75 hover:bg-white/10'}"
+						>
+							{opt.label}
+						</button>
+					{/each}
+				</div>
+			</div>
+			<div>
+				<p class="mb-2 text-[10px] font-semibold uppercase tracking-wide text-white/45">Totais por semestre</p>
+				<div class="flex gap-0 overflow-hidden rounded-xl border border-white/10 bg-white/5">
+					<button
+						type="button"
+						onclick={() => store.setDisplayUnit('creditos')}
+						class="min-h-[44px] flex-1 px-2 text-sm font-medium transition-colors {store.state.displayUnit === 'creditos'
+							? 'bg-cyan-500/25 text-cyan-200'
+							: 'text-white/75 hover:bg-white/10'}"
+					>
+						Créditos
+					</button>
+					<button
+						type="button"
+						onclick={() => store.setDisplayUnit('horas')}
+						class="min-h-[44px] flex-1 border-l border-white/10 px-2 text-sm font-medium transition-colors {store.state.displayUnit === 'horas'
+							? 'bg-cyan-500/25 text-cyan-200'
+							: 'text-white/75 hover:bg-white/10'}"
+					>
+						Horas
+					</button>
+				</div>
+			</div>
+			<div>
+				<p class="mb-2 text-[10px] font-semibold uppercase tracking-wide text-white/45">Mostrar no fluxograma</p>
+				<div class="flex flex-col gap-1.5">
+					<button
+						type="button"
+						role="switch"
+						aria-checked={store.state.showOptativas}
+						onclick={() => store.toggleShowOptativas()}
+						class="flex min-h-[44px] items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm font-medium transition-colors hover:bg-white/10"
+					>
+						<span class="flex items-center gap-2 text-white/85">
+							Optativas
+							<span class="rounded bg-blue-500/80 px-1.5 py-0.5 text-[9px] font-medium text-white">opt.</span>
+						</span>
+						<span
+							class="relative h-5 w-9 shrink-0 rounded-full transition-colors {store.state.showOptativas ? 'bg-cyan-500/70' : 'bg-white/15'}"
+							aria-hidden="true"
+						>
+							<span class="absolute top-0.5 h-4 w-4 rounded-full bg-white transition-[left] {store.state.showOptativas ? 'left-[18px]' : 'left-0.5'}"></span>
+						</span>
+					</button>
+					<button
+						type="button"
+						role="switch"
+						aria-checked={store.state.showModulosLivres}
+						onclick={() => store.toggleShowModulosLivres()}
+						class="flex min-h-[44px] items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm font-medium transition-colors hover:bg-white/10"
+					>
+						<span class="flex items-center gap-2 text-white/85">
+							Módulos livres
+							<span class="rounded bg-teal-400/90 px-1.5 py-0.5 text-[9px] font-medium text-black">mód. livre</span>
+						</span>
+						<span
+							class="relative h-5 w-9 shrink-0 rounded-full transition-colors {store.state.showModulosLivres ? 'bg-cyan-500/70' : 'bg-white/15'}"
+							aria-hidden="true"
+						>
+							<span class="absolute top-0.5 h-4 w-4 rounded-full bg-white transition-[left] {store.state.showModulosLivres ? 'left-[18px]' : 'left-0.5'}"></span>
+						</span>
+					</button>
+				</div>
+			</div>
+			<button
+				type="button"
+				onclick={openHelpFromPanel}
+				class="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl border border-cyan-500/35 bg-cyan-500/10 px-3 py-2 text-sm font-medium text-cyan-200 transition-colors hover:bg-cyan-500/20"
+			>
+				<HelpCircle class="h-4 w-4" />
+				Legenda e regras
+			</button>
 		</div>
 	</div>
 {/if}
@@ -535,7 +602,7 @@ function handleToggleFocusMode() {
 			<div class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 text-sm">
 				<p class="mb-4 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/65">
 					<strong class="text-white/85">Status</strong> (Aprovado, Matriculado, etc.): as cores estão na
-					<strong class="text-white/90">barra acima do fluxograma</strong>, junto de Assistente e Optativas.
+					<strong class="text-white/90">barra acima do fluxograma</strong>, junto de Planejar formatura.
 				</p>
 				<section class="mt-4 border-t border-white/10 pt-4">
 					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">
@@ -657,6 +724,12 @@ function handleToggleFocusMode() {
 {/if}
 
 <style>
+	.semester-chips {
+		scrollbar-width: none;
+	}
+	.semester-chips::-webkit-scrollbar {
+		display: none;
+	}
 	.zoom-slider-desktop::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		appearance: none;

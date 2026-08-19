@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { MateriaModel, OptativaAdicionada } from '$lib/types/materia';
+	import { isOptativa, type MateriaModel, type OptativaAdicionada } from '$lib/types/materia';
 	import type { DadosMateria } from '$lib/types/user';
 	import SubjectCard from './SubjectCard.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
@@ -14,7 +14,6 @@
 		onSubjectClick?: (materia: MateriaModel) => void;
 		onSubjectOpenChain?: (materia: MateriaModel) => void;
 		onSubjectLongPress?: (materia: MateriaModel) => void;
-		headerOffsetY?: number;
 		/** Label customizado para o header. Se não fornecido, usa "Semestre {semester}". */
 		headerLabel?: string;
 	}
@@ -27,11 +26,35 @@
 		onSubjectClick,
 		onSubjectOpenChain,
 		onSubjectLongPress,
-		headerOffsetY = 0,
 		headerLabel
 	}: Props = $props();
 
 	const store = fluxogramaStore;
+
+	/**
+	 * Filtros de exibição (menu ⚙): optativas e módulos livres podem ser
+	 * ocultados — no mobile começam ocultos. Módulo livre = card sintetizado
+	 * pelo store com idMateria negativo (cursado fora da matriz).
+	 * Optatórias (optativas exigidas como pré-requisito de obrigatória) nunca
+	 * são ocultadas: o aluno precisa delas para destravar o curso.
+	 */
+	function ehOptatoria(m: MateriaModel): boolean {
+		return store.optatorias.has(m.codigoMateria.trim().toUpperCase());
+	}
+	let subjectsVisiveis = $derived(
+		store.state.showOptativas
+			? subjects
+			: subjects.filter((m) => !isOptativa(m) || ehOptatoria(m))
+	);
+	let optPlannedVisiveis = $derived(
+		store.state.showOptativas ? optPlanned : optPlanned.filter((o) => ehOptatoria(o.materia))
+	);
+	let extrasVisiveis = $derived(
+		extrasCursadas.filter((e) => {
+			if (e.materia.idMateria < 0) return store.state.showModulosLivres;
+			return store.state.showOptativas || ehOptatoria(e.materia);
+		})
+	);
 
 	/** Espaço vertical entre cards — mais ar para leitura confortável. */
 	const BASE_GAP_REM = 1; // conexões off / diretas
@@ -61,21 +84,21 @@
 		void store.userFluxograma;
 		const completed = store.completedCodes;
 		const totalCredits =
-			subjects.reduce((s, m) => s + (m.creditos ?? 0), 0) +
-			optPlanned.reduce((s, o) => s + (o.materia.creditos ?? 0), 0) +
-			extrasCursadas.reduce((s, e) => s + (e.materia.creditos ?? 0), 0);
+			subjectsVisiveis.reduce((s, m) => s + (m.creditos ?? 0), 0) +
+			optPlannedVisiveis.reduce((s, o) => s + (o.materia.creditos ?? 0), 0) +
+			extrasVisiveis.reduce((s, e) => s + (e.materia.creditos ?? 0), 0);
 		const totalHours = Math.round(totalCredits * 15);
 		const completedCredits =
-			subjects.reduce(
+			subjectsVisiveis.reduce(
 				(s, m) => (codeConcluido(m.codigoMateria, completed) ? s + (m.creditos ?? 0) : s),
 				0
 			) +
-			optPlanned.reduce(
+			optPlannedVisiveis.reduce(
 				(s, o) =>
 					codeConcluido(o.materia.codigoMateria, completed) ? s + (o.materia.creditos ?? 0) : s,
 				0
 			) +
-			extrasCursadas.reduce(
+			extrasVisiveis.reduce(
 				(s, e) =>
 					codeConcluido(e.materia.codigoMateria, completed) ? s + (e.materia.creditos ?? 0) : s,
 				0
@@ -105,19 +128,21 @@
 </script>
 
 <div
-	class="semester-column flex min-w-[130px] max-w-[220px] flex-col gap-3 sm:min-w-[160px] sm:max-w-[240px]"
+	data-semester={semester}
+	class="semester-column flex min-w-[130px] max-w-[220px] snap-start scroll-ml-4 flex-col gap-3 sm:min-w-[160px] sm:max-w-[240px]"
 >
+	<!-- sticky funciona porque o zoom (CSS zoom) não cria containing block como transform criava -->
 	<div
-		class="z-10 rounded-[10px] border border-primary/35 px-3 py-1.5 text-center"
-		style="transform: translateY({headerOffsetY}px); position: relative; background: hsl(var(--primary) / 0.18); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 0 12px hsl(var(--primary) / 0.15);"
+		class="sticky top-0 z-10 rounded-[10px] border border-primary/35 px-3 py-1.5 text-center"
+		style="background: hsl(var(--primary) / 0.18); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 0 12px hsl(var(--primary) / 0.15);"
 	>
-		<span class="text-[11px] font-bold uppercase tracking-wider text-white/95">
+		<span class="text-xs font-bold uppercase tracking-wider text-white/95">
 			{headerLabel ?? `Semestre ${semester}`}
 		</span>
 	</div>
 
 	<!-- Badge: horas/créditos no topo (menos transparência para fácil leitura) -->
-	{#if subjects.length > 0 || optPlanned.length > 0 || extrasCursadas.length > 0}
+	{#if subjectsVisiveis.length > 0 || optPlannedVisiveis.length > 0 || extrasVisiveis.length > 0}
 		<div
 			class="flex justify-center rounded-lg border border-white/15 bg-white/[0.06] px-2 py-1.5 text-center shadow-sm backdrop-blur-sm"
 			title={displayUnit === 'creditos'
@@ -129,7 +154,7 @@
 	{/if}
 
 	<div class="flex flex-col" style="gap: {verticalGap}; transition: gap 0.3s ease;">
-		{#each subjects as materia (materia.idMateria)}
+		{#each subjectsVisiveis as materia (materia.idMateria)}
 			<SubjectCard
 				{materia}
 				onOpenDetails={() => onSubjectClick?.(materia)}
@@ -137,7 +162,7 @@
 				onlongpress={() => onSubjectLongPress?.(materia)}
 			/>
 		{/each}
-		{#each optPlanned as opt (`opt-${opt.materia.codigoMateria}-${semester}`)}
+		{#each optPlannedVisiveis as opt (`opt-${opt.materia.codigoMateria}-${semester}`)}
 			<SubjectCard
 				materia={opt.materia}
 				showOptBadge={true}
@@ -147,7 +172,7 @@
 			/>
 		{/each}
 		<!-- Optativas/eletivas do histórico (cursadas, cursando ou aproveitadas) -->
-		{#each extrasCursadas as extra (`extra-${extra.materia.codigoMateria}-${extra.dados.anoPeriodo ?? 'cump'}-${semester}`)}
+		{#each extrasVisiveis as extra (`extra-${extra.materia.codigoMateria}-${extra.dados.anoPeriodo ?? 'cump'}-${semester}`)}
 			<SubjectCard
 				materia={extra.materia}
 				showOptBadge={true}
