@@ -215,6 +215,13 @@ export interface MateriaTurmas<T> {
 	peso?: number;
 }
 
+/**
+ * Teto de nós explorados na montagem automática. Com a poda sensível ao acumulado
+ * um pool real resolve em centenas de nós; o teto existe só para garantir que
+ * nenhuma entrada inesperada trave a aba do aluno.
+ */
+const MAX_NOS_MONTAGEM = 200_000;
+
 export interface AutoMontarResult<T> {
 	/** Turma escolhida por matéria (chave → turma selecionada). */
 	selecao: Map<string, TurmaCandidata<T>>;
@@ -225,10 +232,15 @@ export interface AutoMontarResult<T> {
 	 * matéria — ou seja, a preferência declarada teve de ceder para caber na grade.
 	 */
 	preferenciasNaoAtendidas: string[];
+	/**
+	 * A busca bateu no teto de nós e parou antes de esgotar as combinações. A grade
+	 * devolvida é válida e sem conflito, mas pode não ser a melhor possível.
+	 */
+	truncado: boolean;
 }
 
 /**
- * Escolhe, via backtracking, uma turma por matéria de modo que nenhuma
+ * Escolhe, via *branch and bound*, uma turma por matéria de modo que nenhuma
  * sobreponha horário com outra, **maximizando** o número de matérias alocadas.
  *
  * Preferências de horário/professor entram como `bonus` por turma e funcionam só
@@ -236,9 +248,13 @@ export interface AutoMontarResult<T> {
  * máxima de bônus, encaixar mais uma matéria sempre ganha de agradar uma
  * preferência. Quem teve de ceder volta em `preferenciasNaoAtendidas`.
  *
- * Para um semestre típico (~5–7 matérias × poucas turmas) o espaço de busca é
- * minúsculo e a resposta é instantânea. Matérias sem turma disponível — ou que
- * não couberam — voltam em `naoAlocadas`.
+ * A poda de `limiteSuperior` é o que mantém isso viável: sem ela, qualquer pool em
+ * que o ótimo teórico seja inalcançável — uma matéria sem oferta no semestre, ou
+ * turmas descartadas pelo filtro de turno — varre o espaço de busca inteiro
+ * (~10 matérias × ~12 turmas passa de 10⁸ nós) e trava a thread principal por
+ * minutos.
+ *
+ * Matérias sem turma disponível — ou que não couberam — voltam em `naoAlocadas`.
  */
 export function autoMontarGrade<T>(materias: Array<MateriaTurmas<T>>): AutoMontarResult<T> {
 	const pesoDe = (m: MateriaTurmas<T>) => m.peso ?? 1;
@@ -246,20 +262,56 @@ export function autoMontarGrade<T>(materias: Array<MateriaTurmas<T>>): AutoMonta
 	const melhorBonusDe = (m: MateriaTurmas<T>) =>
 		m.turmas.reduce((max, t) => Math.max(max, bonusDe(t)), 0);
 
-	// Cota superior do que é alcançável: toda matéria alocada na sua melhor turma.
-	// Atingi-la significa ótimo — permite cortar a busca cedo.
-	const pesoTotal = materias.reduce((s, m) => s + pesoDe(m) + melhorBonusDe(m), 0);
-
 	// Matérias de maior peso primeiro e, dentro de cada uma, as turmas que mais
-	// atendem à preferência — melhora a poda e faz o ótimo aparecer antes.
+	// atendem à preferência — assim o primeiro mergulho já encontra uma solução boa
+	// e a poda descarta o resto cedo.
+	//
+	// Turmas com a mesma máscara são intercambiáveis para o encaixe (só o horário
+	// importa), então basta manter a de maior bônus: corta um fator de ramificação
+	// grande, já que é comum a matéria ter várias turmas no mesmo horário.
 	const ordenadas = [...materias]
 		.sort((a, b) => pesoDe(b) - pesoDe(a))
-		.map((m) => ({ ...m, turmas: [...m.turmas].sort((x, y) => bonusDe(y) - bonusDe(x)) }));
+		.map((m) => {
+			const porMask = new Map<bigint, TurmaCandidata<T>>();
+			for (const t of [...m.turmas].sort((x, y) => bonusDe(y) - bonusDe(x))) {
+				if (!porMask.has(t.mask)) porMask.set(t.mask, t);
+			}
+			return { ...m, turmas: [...porMask.values()] };
+		});
 
 	let melhorSelecao: Map<string, TurmaCandidata<T>> = new Map();
 	let melhorPeso = -1;
 	const atual = new Map<string, TurmaCandidata<T>>();
 	let pesoAtual = 0;
+	let nos = 0;
+	let truncado = false;
+
+	/**
+	 * Limite superior do que ainda dá para somar do índice `i` em diante, dado o
+	 * horário já ocupado (`accMask`).
+	 *
+	 * O ponto crucial é ele ser **sensível ao acumulado**: uma matéria cujas turmas
+	 * já colidem todas com `accMask` não pode mais entrar (a máscara só cresce), e
+	 * por isso não conta. Um limite estático — "toda matéria na sua melhor turma" —
+	 * fica frouxo demais justo nos casos que interessam: basta uma matéria sem
+	 * oferta para o ótimo teórico virar inalcançável, nenhuma poda disparar e a
+	 * busca varrer o espaço inteiro.
+	 *
+	 * As turmas estão ordenadas por bônus decrescente, então a primeira compatível
+	 * já é a de maior bônus da matéria.
+	 */
+	function limiteSuperior(i: number, accMask: bigint): number {
+		let total = 0;
+		for (let j = i; j < ordenadas.length; j++) {
+			const m = ordenadas[j];
+			for (const t of m.turmas) {
+				if (hasConflict(t.mask, accMask)) continue;
+				total += pesoDe(m) + bonusDe(t);
+				break;
+			}
+		}
+		return total;
+	}
 
 	function recurse(i: number, accMask: bigint): void {
 		// Maximiza a soma dos pesos alocados (não só a contagem).
@@ -267,8 +319,17 @@ export function autoMontarGrade<T>(materias: Array<MateriaTurmas<T>>): AutoMonta
 			melhorPeso = pesoAtual;
 			melhorSelecao = new Map(atual);
 		}
-		if (melhorPeso === pesoTotal) return; // ótimo já atingido
 		if (i >= ordenadas.length) return;
+		// Rede de segurança: isto roda síncrono no clique do aluno. Num pool
+		// patológico, para a busca e devolve a melhor grade encontrada até aqui —
+		// que é sempre válida e sem conflito, só não comprovadamente ótima.
+		if (nos >= MAX_NOS_MONTAGEM) {
+			truncado = true;
+			return;
+		}
+		nos++;
+		// Poda: nem alocando tudo o que ainda cabe dá para superar o melhor achado.
+		if (pesoAtual + limiteSuperior(i, accMask) <= melhorPeso) return;
 
 		const m = ordenadas[i];
 
@@ -280,7 +341,6 @@ export function autoMontarGrade<T>(materias: Array<MateriaTurmas<T>>): AutoMonta
 			recurse(i + 1, accMask | t.mask);
 			pesoAtual -= pesoDe(m) + bonusDe(t);
 			atual.delete(m.chave);
-			if (melhorPeso === pesoTotal) return;
 		}
 
 		// Opção B: deixar esta matéria de fora e seguir.
@@ -302,5 +362,5 @@ export function autoMontarGrade<T>(materias: Array<MateriaTurmas<T>>): AutoMonta
 		if (melhor > 0 && bonusDe(escolhida) < melhor) preferenciasNaoAtendidas.push(m.chave);
 	}
 
-	return { selecao: melhorSelecao, naoAlocadas, preferenciasNaoAtendidas };
+	return { selecao: melhorSelecao, naoAlocadas, preferenciasNaoAtendidas, truncado };
 }

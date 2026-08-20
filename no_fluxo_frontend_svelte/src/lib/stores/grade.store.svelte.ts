@@ -52,6 +52,8 @@ export interface MontagemResultado {
 	naoAlocadas: string[];
 	/** Matérias que couberam, mas numa turma fora da preferência declarada. */
 	preferenciasNaoAtendidas: string[];
+	/** A busca parou no teto de nós: grade válida, mas talvez não a melhor possível. */
+	truncado: boolean;
 }
 
 /**
@@ -598,7 +600,8 @@ function createGradeStore() {
 			grades = grades.map((g) => (g.id === activeId ? { ...g, selecao: novaSel } : g));
 			ultimaMontagem = {
 				naoAlocadas: r.naoAlocadas,
-				preferenciasNaoAtendidas: r.preferenciasNaoAtendidas
+				preferenciasNaoAtendidas: r.preferenciasNaoAtendidas,
+				truncado: r.truncado
 			};
 			persistCenarios();
 			return ultimaMontagem;

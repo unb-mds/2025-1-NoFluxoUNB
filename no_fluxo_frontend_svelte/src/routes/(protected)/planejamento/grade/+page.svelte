@@ -550,6 +550,16 @@
 		</div>
 	{/if}
 
+	{#if gradeStore.ultimaMontagem?.truncado}
+		<div class="mb-3 flex items-start gap-2 rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-xs text-white/70">
+			<Info class="mt-0.5 h-3.5 w-3.5 shrink-0" />
+			<span>
+				São muitas combinações possíveis — paramos numa grade boa, sem conflito, mas talvez não
+				a melhor. Marque estrela nas matérias essenciais e rearranje de novo.
+			</span>
+		</div>
+	{/if}
+
 	{#if status === 'loading'}
 		<div class="flex items-center justify-center gap-2 py-20 text-white/60">
 			<Loader2 class="h-5 w-5 animate-spin" /> Carregando matérias e turmas...
