@@ -494,12 +494,18 @@ async def recomendar_materias(consulta: Consulta):
         u = getattr(resp, "usage", None)
         if u is None:
             return
+        prompt_tokens = getattr(u, "prompt_tokens", 0) or 0
+        completion_tokens = getattr(u, "completion_tokens", 0) or 0
+        # A Maritaca nem sempre preenche `total_tokens` no objeto de usage
+        # (fica None), então cai no fallback `or 0` e zera mesmo com
+        # prompt/completion > 0. Recalcula a partir da soma quando ausente.
+        total_tokens = getattr(u, "total_tokens", 0) or (prompt_tokens + completion_tokens)
         usage_calls.append(
             {
                 "model": modelo,
-                "prompt_tokens": getattr(u, "prompt_tokens", 0) or 0,
-                "completion_tokens": getattr(u, "completion_tokens", 0) or 0,
-                "total_tokens": getattr(u, "total_tokens", 0) or 0,
+                "prompt_tokens": prompt_tokens,
+                "completion_tokens": completion_tokens,
+                "total_tokens": total_tokens,
             }
         )
 
@@ -612,12 +618,17 @@ async def recomendar_materias_stream(consulta: Consulta):
             u = getattr(resp, "usage", None)
             if u is None:
                 return
+            prompt_tokens = getattr(u, "prompt_tokens", 0) or 0
+            completion_tokens = getattr(u, "completion_tokens", 0) or 0
+            # Mesma ressalva do endpoint não-stream: `total_tokens` pode vir
+            # None da Maritaca, então recalcula a partir da soma quando ausente.
+            total_tokens = getattr(u, "total_tokens", 0) or (prompt_tokens + completion_tokens)
             usage_calls.append(
                 {
                     "model": modelo,
-                    "prompt_tokens": getattr(u, "prompt_tokens", 0) or 0,
-                    "completion_tokens": getattr(u, "completion_tokens", 0) or 0,
-                    "total_tokens": getattr(u, "total_tokens", 0) or 0,
+                    "prompt_tokens": prompt_tokens,
+                    "completion_tokens": completion_tokens,
+                    "total_tokens": total_tokens,
                 }
             )
 

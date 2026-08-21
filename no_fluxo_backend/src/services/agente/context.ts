@@ -15,6 +15,7 @@ import type {
     PreferenciasPlano,
     MateriaPlano,
 } from "../../types/planejamento";
+import type { LlmUsage } from "../../utils/ai_usage_logger";
 
 // =========================================================
 // Tipos Públicos
@@ -65,6 +66,8 @@ export interface AgenteResultado {
     reply: string;
     plano?: PlanoFormaturav2;
     restricoes: RestricoesPlanoInternas;
+    /** Uso de tokens por chamada ao LLM (tracking de custo no dashboard admin). */
+    usage?: LlmUsage[];
 }
 
 export interface LlmMessage {
