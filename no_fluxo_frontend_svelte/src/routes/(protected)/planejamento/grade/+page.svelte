@@ -13,20 +13,16 @@
 	import { authStore } from '$lib/stores/auth';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { planoFormaturaStore } from '$lib/stores/plano-formatura.store.svelte';
+	import { gradeStore, lerPoolSalvo, lerRemovidasSalvo } from '$lib/stores/grade.store.svelte';
 	import {
-		gradeStore,
-		lerPoolSalvo,
-		lerRemovidasSalvo,
-		slotMaskFromHorario,
-		type MateriaGrade
-	} from '$lib/stores/grade.store.svelte';
+		construirMateriasGrade,
+		motivoParaNaoAdicionar,
+		invalidarContextoGrade
+	} from '$lib/services/grade-pool.service';
 	import type { Turno } from '$lib/utils/horario-slots';
 	import { vagaAssinaturasStore } from '$lib/stores/vaga-assinaturas.store.svelte';
 	import { getPeriodoAtivo } from '$lib/services/turmas.service';
-	import { getMateriasByCodigos } from '$lib/services/materias.service';
-	import { getOfertaComEquivalencia } from '$lib/services/oferta-turmas.service';
-	import { satisfazPreRequisitos } from '$lib/types/curso';
-	import { setHasCodeIgnoreCase, filtrarNaoCursados } from '$lib/utils/subject-codes';
+	import { filtrarNaoCursados } from '$lib/utils/subject-codes';
 	import { ROUTES } from '$lib/config/routes';
 	import type { SemestrePlano, ItemSemestre, MateriaPlano } from '$lib/types/plano-formatura';
 	import {
@@ -73,104 +69,6 @@
 		);
 	}
 
-	/**
-	 * Requisitos da matéria a partir do courseData: aviso de pré-requisito pendente
-	 * (não bloqueia) e lista de co-requisitos. Só resolve p/ matérias da matriz —
-	 * optativas de fora não têm essas regras no courseData e passam sem aviso.
-	 */
-	function calcularRequisitos(idMateria: number): {
-		avisoPreRequisito: string | null;
-		coRequisitos: string[];
-	} {
-		const curso = fluxogramaStore.state.courseData;
-		const completed = fluxogramaStore.completedCodes;
-		const current = fluxogramaStore.currentCodes ?? new Set<string>();
-
-		const prereqs = (curso?.preRequisitos ?? []).filter((pr) => pr.idMateria === idMateria);
-		let avisoPreRequisito: string | null = null;
-		if (prereqs.length > 0 && !satisfazPreRequisitos(prereqs, completed)) {
-			const partes = new Set<string>();
-			for (const pr of prereqs) {
-				const code = pr.codigoMateriaRequisito?.trim();
-				if (code) {
-					if (!setHasCodeIgnoreCase(completed, code)) partes.add(code);
-				} else if (pr.expressaoOriginal?.trim()) {
-					partes.add(pr.expressaoOriginal.trim());
-				}
-			}
-			avisoPreRequisito = partes.size > 0 ? [...partes].slice(0, 3).join(' · ') : 'requisitos não cumpridos';
-		}
-
-		const coRequisitos = [
-			...new Set(
-				(curso?.coRequisitos ?? [])
-					.filter((cr) => cr.idMateria === idMateria)
-					.map((cr) => cr.codigoMateriaCoRequisito?.trim())
-					.filter((c): c is string => !!c && !setHasCodeIgnoreCase(completed, c) && !current.has(c))
-			)
-		];
-
-		return { avisoPreRequisito, coRequisitos };
-	}
-
-	/** Resolve códigos → matéria + turmas (courseData primeiro; senão banco). */
-	async function construirMaterias(codigos: string[], per: string): Promise<MateriaGrade[]> {
-		const cods = [...new Set(codigos.map((c) => c.trim().toUpperCase()).filter(Boolean))];
-		if (cods.length === 0) return [];
-
-		const courseMap = new Map(
-			(fluxogramaStore.state.courseData?.materias ?? []).map((m) => [
-				m.codigoMateria.trim().toUpperCase(),
-				m
-			])
-		);
-
-		const resolved = new Map<string, { idMateria: number; nome: string; creditos: number }>();
-		const faltantes: string[] = [];
-		for (const c of cods) {
-			const mm = courseMap.get(c);
-			if (mm) resolved.set(c, { idMateria: mm.idMateria, nome: mm.nomeMateria, creditos: mm.creditos });
-			else faltantes.push(c);
-		}
-		if (faltantes.length > 0) {
-			const extra = await getMateriasByCodigos(faltantes);
-			for (const e of extra) {
-				resolved.set(e.codigo.trim().toUpperCase(), {
-					idMateria: e.idMateria,
-					nome: e.nome,
-					creditos: e.creditos
-				});
-			}
-		}
-
-		// Equivalência (matéria que mudou de código) resolvida no serviço compartilhado —
-		// mesma regra que a aba Turmas do fluxograma e o painel de /disciplinas usam.
-		const ofertaPorCodigo = await getOfertaComEquivalencia(
-			[...resolved].map(([codigo, r]) => ({ codigo, idMateria: r.idMateria })),
-			fluxogramaStore.state.courseData?.equivalencias ?? [],
-			per
-		);
-
-		const out: MateriaGrade[] = [];
-		for (const [codigo, r] of resolved) {
-			const { avisoPreRequisito, coRequisitos } = calcularRequisitos(r.idMateria);
-			out.push({
-				codigo,
-				nome: r.nome,
-				creditos: r.creditos,
-				idMateria: r.idMateria,
-				avisoPreRequisito,
-				coRequisitos,
-				turmas: (ofertaPorCodigo.get(codigo) ?? []).map(({ turma, codigoOfertado }) => ({
-					turma,
-					mask: slotMaskFromHorario(turma.horario),
-					codigoOfertado
-				}))
-			});
-		}
-		return out;
-	}
-
 	async function montar(): Promise<void> {
 		status = 'loading';
 		erro = null;
@@ -206,8 +104,9 @@
 				fluxogramaStore.currentCodes ?? new Set<string>()
 			);
 
-			const pool = await construirMaterias(todos, periodo);
+			const pool = await construirMateriasGrade(todos, periodo);
 			gradeStore.init(pool, { idUser, periodo });
+			invalidarContextoGrade();
 			status = 'ready';
 			// Carrega assinaturas de vaga em background (habilita "seguir turma lotada").
 			void vagaAssinaturasStore.load();
@@ -255,18 +154,13 @@
 		const c = codigo.trim().toUpperCase();
 		if (!periodo) return;
 		if (gradeStore.hasMateria(c)) return;
-		// Avisa em vez de adicionar em silêncio: o aluno pode estar buscando pelo nome e
-		// não perceber que é a mesma matéria que já cursou (ou que está cursando agora).
-		if (setHasCodeIgnoreCase(fluxogramaStore.completedCodes, c)) {
-			avisoAdd = `Você já foi aprovado em ${c}.`;
-			return;
-		}
-		if (setHasCodeIgnoreCase(fluxogramaStore.currentCodes ?? new Set<string>(), c)) {
-			avisoAdd = `Você já está cursando ${c} neste semestre.`;
+		const impedimento = motivoParaNaoAdicionar(c);
+		if (impedimento) {
+			avisoAdd = impedimento;
 			return;
 		}
 		try {
-			const [m] = await construirMaterias([c], periodo);
+			const [m] = await construirMateriasGrade([c], periodo);
 			if (m) {
 				gradeStore.addMateriaAoPool(m);
 			} else {

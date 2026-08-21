@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
-	import { formatHorarioSigaa, compactarFaixasHorarias } from '$lib/utils/sigaa';
+	import { horarioLegivel } from '$lib/utils/sigaa';
 	import { X, ListChecks, TriangleAlert } from 'lucide-svelte';
 	import HelpTip from '$lib/components/onboarding/HelpTip.svelte';
 
@@ -9,11 +9,6 @@
 	}
 	function creditosMateria(codigo: string): number {
 		return gradeStore.pool.find((m) => m.codigo === codigo)?.creditos ?? 0;
-	}
-	function horarioLegivel(horario: string | null): string {
-		const linhas = formatHorarioSigaa(horario ?? '');
-		if (linhas.length === 0) return 'Horário a definir';
-		return linhas.map((l) => `${l.dia} ${compactarFaixasHorarias(l.faixas)}`).join(' · ');
 	}
 </script>
 

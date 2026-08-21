@@ -43,6 +43,22 @@ export function isOptativa(materia: MateriaModel): boolean {
 	return materia.nivel === 0;
 }
 
+/**
+ * Natureza de uma matéria em relação à matriz do aluno — mesma regra que o
+ * fluxograma usa para etiquetar os cards.
+ *
+ * "Módulo livre" é definido por **ausência**: componente que não existe na matriz
+ * do curso (monitoria, eletiva de outro curso). É por isso que a função recebe a
+ * matéria já resolvida (ou `null`/`undefined` quando não foi encontrada na matriz)
+ * em vez do código — quem busca é o chamador, que já tem o índice em mãos.
+ */
+export function classificarNatureza(
+	materiaDaMatriz: MateriaModel | null | undefined
+): 'obrigatoria' | 'optativa' | 'modulo_livre' {
+	if (!materiaDaMatriz) return 'modulo_livre';
+	return isOptativa(materiaDaMatriz) ? 'optativa' : 'obrigatoria';
+}
+
 export function getPrerequisiteCodes(materia: MateriaModel): string[] {
 	return materia.preRequisitos?.map((m) => m.codigoMateria) ?? [];
 }

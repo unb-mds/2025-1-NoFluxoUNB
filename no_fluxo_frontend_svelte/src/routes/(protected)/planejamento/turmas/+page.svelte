@@ -4,8 +4,18 @@
 	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import { searchTurmas, getPeriodoAtivo, type TurmaComMateria } from '$lib/services/turmas.service';
 	import { vagaAssinaturasStore } from '$lib/stores/vaga-assinaturas.store.svelte';
-	import { formatHorarioSigaa, compactarFaixasHorarias, formatLocalCompacto } from '$lib/utils/sigaa';
-	import { Search, Loader2, CalendarClock, MapPin, Users, Bell, BellOff, X } from 'lucide-svelte';
+	import { authStore } from '$lib/stores/auth';
+	import { gradeStore, slotMaskFromHorario } from '$lib/stores/grade.store.svelte';
+	import {
+		garantirContextoGrade,
+		construirMateriasGrade,
+		motivoParaNaoAdicionar,
+		naturezaDoCodigo
+	} from '$lib/services/grade-pool.service';
+	import TurmaOption from '$lib/components/planejamento/TurmaOption.svelte';
+	import MateriaNaturezaBadge from '$lib/components/materia/MateriaNaturezaBadge.svelte';
+	import { ROUTES } from '$lib/config/routes';
+	import { Search, Loader2, X, CalendarPlus, TriangleAlert } from 'lucide-svelte';
 
 	let termo = $state('');
 	let resultados = $state<TurmaComMateria[]>([]);
@@ -15,12 +25,74 @@
 	/** Termo que gerou os resultados atuais — evita mostrar "nada encontrado" antes da 1ª busca. */
 	let termoBuscado = $state('');
 
+	// Montador em rollout gradual: só admin adiciona à grade daqui.
+	const isAdmin = $derived(authStore.getUser()?.isAdmin ?? false);
+	/** Contexto do montador pronto — até lá os cartões ficam só de leitura. */
+	let gradePronta = $state(false);
+	let avisoGrade = $state<string | null>(null);
+	/** Códigos sendo resolvidos (busca da oferta completa) — evita clique duplo. */
+	let adicionando = $state<Set<string>>(new Set());
+
 	onMount(() => {
 		void getPeriodoAtivo()
 			.then((p) => (periodo = p))
 			.catch(() => (periodo = null));
 		if (!vagaAssinaturasStore.carregado) void vagaAssinaturasStore.load();
+		// O montador precisa do pool salvo hidratado para saber o que conflita.
+		if (authStore.getUser()?.isAdmin) {
+			void garantirContextoGrade().then((ctx) => (gradePronta = ctx !== null));
+		}
 	});
+
+	/**
+	 * Põe a turma na grade (ou tira, se já for a selecionada).
+	 *
+	 * A matéria entra no pool com a **oferta completa** do período, não com os
+	 * resultados da busca: procurar pelo nome de um professor devolve só as turmas
+	 * dele, e o montador precisa de todas para conseguir rearranjar depois.
+	 */
+	async function toggleNaGrade(codigo: string, t: TurmaComMateria): Promise<void> {
+		avisoGrade = null;
+		const c = codigo.trim().toUpperCase();
+		if (adicionando.has(c)) return;
+
+		if (gradeStore.turmaSelecionada(c)?.turma.id_turmas === t.id_turmas) {
+			gradeStore.removerTurma(c);
+			return;
+		}
+
+		if (!gradeStore.hasMateria(c)) {
+			const impedimento = motivoParaNaoAdicionar(c);
+			if (impedimento) {
+				avisoGrade = impedimento;
+				return;
+			}
+			if (!periodo) return;
+			adicionando = new Set(adicionando).add(c);
+			try {
+				const [m] = await construirMateriasGrade([c], periodo);
+				if (!m) {
+					avisoGrade = `Não encontrei a matéria ${c}.`;
+					return;
+				}
+				gradeStore.addMateriaAoPool(m);
+			} catch {
+				avisoGrade = `Erro ao adicionar ${c}.`;
+				return;
+			} finally {
+				const n = new Set(adicionando);
+				n.delete(c);
+				adicionando = n;
+			}
+		}
+
+		const r = gradeStore.selecionarTurma(c, t.id_turmas);
+		if (!r.ok) {
+			avisoGrade = r.conflitaCom
+				? `${c} entrou no montador, mas a turma ${t.turma} conflita com ${r.conflitaCom} — use o Rearranjar ou escolha outra.`
+				: `A turma ${t.turma} não está na oferta de ${c} deste período.`;
+		}
+	}
 
 	// Debounce: a busca dispara sozinha enquanto o aluno digita, mas só depois da pausa.
 	let debounce: ReturnType<typeof setTimeout> | null = null;
@@ -82,11 +154,6 @@
 		return [...grupos.values()];
 	});
 
-	function horarioLegivel(horario: string | null): string {
-		const linhas = formatHorarioSigaa(horario ?? '');
-		if (linhas.length === 0) return 'Horário a definir';
-		return linhas.map((l) => `${l.dia} ${compactarFaixasHorarias(l.faixas)}`).join(' · ');
-	}
 </script>
 
 <PageMeta
@@ -151,68 +218,41 @@
 		<p class="mb-2 text-[11px] text-white/35">
 			{resultados.length} turma(s) em {porMateria.length} matéria(s)
 		</p>
+		{#if avisoGrade}
+			<div class="mb-2 flex items-start gap-2 rounded-xl border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-100">
+				<TriangleAlert class="mt-0.5 h-3.5 w-3.5 shrink-0" />
+				<span>{avisoGrade}</span>
+				<a href={ROUTES.MONTADOR_GRADE} class="ml-auto shrink-0 underline underline-offset-2 hover:text-white">
+					Abrir montador
+				</a>
+			</div>
+		{/if}
 		<div class="space-y-3">
 			{#each porMateria as grupo (grupo.codigo)}
 				<section class="rounded-2xl border border-white/10 bg-zinc-950/78 p-3 sm:p-4">
 					<header class="mb-2.5 border-b border-white/10 pb-2">
-						<p class="flex flex-wrap items-baseline gap-x-2">
+						<p class="flex flex-wrap items-center gap-x-2 gap-y-1">
 							<span class="font-mono text-sm font-semibold text-purple-200">{grupo.codigo}</span>
 							<span class="text-xs text-white/60">{grupo.nome}</span>
+							{#if isAdmin && gradePronta}
+								<MateriaNaturezaBadge natureza={naturezaDoCodigo(grupo.codigo)} />
+							{/if}
 						</p>
+						{#if isAdmin && gradePronta}
+							<p class="mt-1 flex items-center gap-1 text-[10px] text-white/35">
+								<CalendarPlus class="h-3 w-3 shrink-0" />
+								Clique numa turma para pôr na sua grade; clicar de novo tira.
+							</p>
+						{/if}
 					</header>
 					<div class="space-y-2">
 						{#each grupo.turmas as t (t.id_turmas)}
-							{@const local = formatLocalCompacto(t.local)}
-							{@const lotada = t.vagas_sobrando != null && t.vagas_sobrando <= 0}
-							{@const seguindo = vagaAssinaturasStore.isSeguindo(t.id_materia, t.turma, t.ano_periodo)}
-							{@const seguirBusy = vagaAssinaturasStore.isBusy(t.id_materia, t.turma, t.ano_periodo)}
-							<div class="rounded-xl border border-white/10 bg-black/25 px-3 py-2.5">
-								<div class="flex flex-wrap items-center justify-between gap-2">
-									<span class="font-mono text-xs font-semibold text-white/90">Turma {t.turma}</span>
-									{#if t.vagas_sobrando != null}
-										<span
-											class="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-semibold {lotada
-												? 'border-red-300/40 bg-red-500/15 text-red-200'
-												: 'border-emerald-300/45 bg-emerald-500/18 text-emerald-100'}"
-										>
-											<Users class="h-2.5 w-2.5" />
-											{lotada ? 'Sem vagas' : `${t.vagas_sobrando} vaga(s)`}
-										</span>
-									{/if}
-								</div>
-								<p class="mt-1 truncate text-[11px] text-white/65">
-									{t.docente ?? 'Docente não informado'}
-								</p>
-								<p class="mt-0.5 flex flex-wrap items-center gap-x-2.5 gap-y-0.5 text-[11px] text-white/45">
-									<span class="inline-flex items-center gap-1">
-										<CalendarClock class="h-3 w-3 shrink-0" />{horarioLegivel(t.horario)}
-									</span>
-									{#if local}
-										<span class="inline-flex items-center gap-1">
-											<MapPin class="h-3 w-3 shrink-0" />{local}
-										</span>
-									{/if}
-								</p>
-								{#if lotada && vagaAssinaturasStore.carregado}
-									<button
-										type="button"
-										disabled={seguirBusy}
-										onclick={() => vagaAssinaturasStore.toggle(t.id_materia, t.turma, t.ano_periodo)}
-										class="mt-2 inline-flex touch-manipulation items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-medium transition-colors disabled:opacity-50 {seguindo
-											? 'border-purple-300/45 bg-purple-500/18 text-purple-100 hover:bg-purple-500/25'
-											: 'border-white/15 bg-white/5 text-white/60 hover:bg-white/10'}"
-									>
-										{#if seguirBusy}
-											<Loader2 class="h-3 w-3 animate-spin" />
-										{:else if seguindo}
-											<Bell class="h-3 w-3" />
-										{:else}
-											<BellOff class="h-3 w-3" />
-										{/if}
-										{seguindo ? 'Seguindo — aviso quando abrir vaga' : 'Avisar quando abrir vaga'}
-									</button>
-								{/if}
-							</div>
+							<TurmaOption
+								codigo={grupo.codigo}
+								tg={{ turma: t, mask: slotMaskFromHorario(t.horario) }}
+								interativa={isAdmin && gradePronta}
+								onToggle={() => void toggleNaGrade(grupo.codigo, t)}
+							/>
 						{/each}
 					</div>
 				</section>
