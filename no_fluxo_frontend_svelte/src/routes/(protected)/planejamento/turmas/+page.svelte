@@ -15,7 +15,7 @@
 	import TurmaOption from '$lib/components/planejamento/TurmaOption.svelte';
 	import MateriaNaturezaBadge from '$lib/components/materia/MateriaNaturezaBadge.svelte';
 	import { ROUTES } from '$lib/config/routes';
-	import { Search, Loader2, X, CalendarPlus, TriangleAlert } from 'lucide-svelte';
+	import { Search, Loader2, X, CalendarPlus, TriangleAlert, ArrowLeft } from 'lucide-svelte';
 
 	let termo = $state('');
 	let resultados = $state<TurmaComMateria[]>([]);
@@ -25,8 +25,7 @@
 	/** Termo que gerou os resultados atuais — evita mostrar "nada encontrado" antes da 1ª busca. */
 	let termoBuscado = $state('');
 
-	// Montador em rollout gradual: só admin adiciona à grade daqui.
-	const isAdmin = $derived(authStore.getUser()?.isAdmin ?? false);
+
 	/** Contexto do montador pronto — até lá os cartões ficam só de leitura. */
 	let gradePronta = $state(false);
 	let avisoGrade = $state<string | null>(null);
@@ -39,9 +38,7 @@
 			.catch(() => (periodo = null));
 		if (!vagaAssinaturasStore.carregado) void vagaAssinaturasStore.load();
 		// O montador precisa do pool salvo hidratado para saber o que conflita.
-		if (authStore.getUser()?.isAdmin) {
-			void garantirContextoGrade().then((ctx) => (gradePronta = ctx !== null));
-		}
+		void garantirContextoGrade().then((ctx) => (gradePronta = ctx !== null));
 	});
 
 	/**
@@ -166,6 +163,12 @@
 
 <div class="relative z-10 mx-auto w-full max-w-4xl px-3 py-5 sm:px-5 sm:py-6">
 	<header class="mb-4">
+		<a
+			href={ROUTES.MONTADOR_GRADE}
+			class="mb-3 inline-flex touch-manipulation items-center gap-1.5 text-xs font-medium text-white/50 transition-colors hover:text-white/80"
+		>
+			<ArrowLeft class="h-3.5 w-3.5" /> Voltar ao montador
+		</a>
 		<div class="flex items-center gap-2.5">
 			<Search class="h-6 w-6 shrink-0 text-purple-300" />
 			<div>
@@ -234,11 +237,11 @@
 						<p class="flex flex-wrap items-center gap-x-2 gap-y-1">
 							<span class="font-mono text-sm font-semibold text-purple-200">{grupo.codigo}</span>
 							<span class="text-xs text-white/60">{grupo.nome}</span>
-							{#if isAdmin && gradePronta}
+							{#if gradePronta}
 								<MateriaNaturezaBadge natureza={naturezaDoCodigo(grupo.codigo)} />
 							{/if}
 						</p>
-						{#if isAdmin && gradePronta}
+						{#if gradePronta}
 							<p class="mt-1 flex items-center gap-1 text-[10px] text-white/35">
 								<CalendarPlus class="h-3 w-3 shrink-0" />
 								Clique numa turma para pôr na sua grade; clicar de novo tira.
@@ -250,7 +253,7 @@
 							<TurmaOption
 								codigo={grupo.codigo}
 								tg={{ turma: t, mask: slotMaskFromHorario(t.horario) }}
-								interativa={isAdmin && gradePronta}
+								interativa={gradePronta}
 								onToggle={() => void toggleNaGrade(grupo.codigo, t)}
 							/>
 						{/each}

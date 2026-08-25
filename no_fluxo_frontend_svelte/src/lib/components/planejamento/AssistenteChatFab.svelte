@@ -15,10 +15,24 @@
 		onMontarGrade
 	}: {
 		onAddToGrade: (codigo: string) => void;
-		onMontarGrade: (codigos: string[], turnos?: string[]) => void;
+		onMontarGrade: (codigos: string[], turnos?: string[], docentes?: Record<string, string>) => void;
 	} = $props();
 
 	let isChatOpen = $state(false);
+	let prefillText = $state('');
+	let prefillNonce = $state(0);
+
+	// Um controle fora deste componente (ex.: "Pedir pra Darcy" no card de uma
+	// matéria) pode pedir a abertura do chat já com um texto começado.
+	$effect(() => {
+		const pedido = assistenteChatStore.pedidoAbertura;
+		if (!pedido) return;
+		isChatOpen = true;
+		prefillText = pedido.texto;
+		prefillNonce = pedido.nonce;
+		assistenteChatStore.consumirPedidoAbertura();
+	});
+
 	let chatW = $state(384);
 	let chatH = $state(550);
 	let chatX = $state(0);
@@ -93,9 +107,13 @@
 	}
 
 	const promptStarters = [
-		{ prefix: 'Recomenda', badge: 'optativas', suffix: 'sobre um tema', message: 'Recomende optativas sobre inteligência artificial' },
+		// populateOnly: o badge é uma variável (tema/matéria) que o aluno precisa
+		// completar — clicar só preenche e foca o campo, não envia um exemplo fixo
+		// (ex.: "inteligência artificial") como se fosse a escolha dele.
+		{ prefix: 'Recomenda', badge: 'optativas', suffix: 'sobre um tema', message: 'Recomende optativas sobre ', populateOnly: true },
 		{ prefix: 'Optativas mais', badge: 'tranquilas', suffix: '', message: 'Quais optativas mais tranquilas para o próximo semestre?' },
-		{ prefix: 'Ver turmas de', badge: 'uma matéria', suffix: '', message: 'Quais as turmas de MAT0025?' }
+		{ prefix: 'Recomenda', badge: 'módulo livre', suffix: 'por área', message: 'Quero sugestões de módulo livre' },
+		{ prefix: 'Ver turmas de', badge: 'uma matéria', suffix: '', message: 'Quais as turmas de ', populateOnly: true }
 	];
 
 	function onSend(msg: string) {
@@ -157,6 +175,8 @@
 			{onSend}
 			{onAddToGrade}
 			{onMontarGrade}
+			{prefillText}
+			{prefillNonce}
 		>
 			{#snippet emptyState()}
 				<div class="mb-4 flex h-16 w-16 shrink-0 items-center justify-center rounded-3xl border border-pink-500/50 bg-pink-500/10 shadow-[0_0_30px_rgba(236,72,153,0.15)] backdrop-blur-md">
@@ -164,8 +184,9 @@
 				</div>
 				<h3 class="text-xl font-semibold tracking-tight text-white">Recomende e monte</h3>
 				<p class="mt-2 max-w-[280px] text-[12px] leading-relaxed text-white/50">
-					Peça optativas por tema — mostro só as que <span class="font-bold text-emerald-200">têm turma</span> neste
-					semestre. Toque em <span class="font-bold text-emerald-200">+ grade</span> pra jogar na sua grade.
+					Peça optativas por tema, ou <span class="font-bold text-emerald-200">módulo livre</span> por área de
+					interesse — mostro só o que <span class="font-bold text-emerald-200">tem turma</span> neste semestre.
+					Toque em <span class="font-bold text-emerald-200">+ grade</span> pra jogar na sua grade.
 				</p>
 			{/snippet}
 		</ChatPanel>

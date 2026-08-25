@@ -1,16 +1,16 @@
 <script lang="ts">
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import PageBackground from '$lib/components/effects/PageBackground.svelte';
-	import FluxogramaHeader from '$lib/components/fluxograma/FluxogramaHeader.svelte';
-	import FluxogramaLegendControls from '$lib/components/fluxograma/FluxogramaLegendControls.svelte';
-	import FluxogramViewportChrome from '$lib/components/fluxograma/FluxogramViewportChrome.svelte';
-	import SemesterNavChips from '$lib/components/fluxograma/SemesterNavChips.svelte';
-	import FluxogramContainer from '$lib/components/fluxograma/FluxogramContainer.svelte';
-	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
-	import SubjectDetailsModal from '$lib/components/fluxograma/SubjectDetailsModal.svelte';
-		import OptativasAdicionadasSection from '$lib/components/fluxograma/OptativasAdicionadasSection.svelte';
-	import ProgressToolsSection from '$lib/components/fluxograma/ProgressToolsSection.svelte';
-	import PrerequisiteChainDialog from '$lib/components/fluxograma/PrerequisiteChainDialog.svelte';
+	import FluxogramaHeader from '$lib/components/fluxograma/controls/FluxogramaHeader.svelte';
+	import FluxogramaLegendControls from '$lib/components/fluxograma/controls/FluxogramaLegendControls.svelte';
+	import FluxogramViewportChrome from '$lib/components/fluxograma/layout/FluxogramViewportChrome.svelte';
+	import SemesterNavChips from '$lib/components/fluxograma/layout/SemesterNavChips.svelte';
+	import FluxogramContainer from '$lib/components/fluxograma/layout/FluxogramContainer.svelte';
+	import ProgressSummarySection from '$lib/components/fluxograma/dashboard/ProgressSummarySection.svelte';
+	import SubjectDetailsModal from '$lib/components/fluxograma/modal/SubjectDetailsModal.svelte';
+		import OptativasAdicionadasSection from '$lib/components/fluxograma/dashboard/OptativasAdicionadasSection.svelte';
+	import ProgressToolsSection from '$lib/components/fluxograma/dashboard/ProgressToolsSection.svelte';
+	import PrerequisiteChainDialog from '$lib/components/fluxograma/modal/PrerequisiteChainDialog.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { matchesFluxogramCompactTouchMode } from '$lib/utils/fluxogram-viewport';
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ArrowRightLeft } from 'lucide-svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
-	import MudancaCursoModal from './MudancaCursoModal.svelte';
+	import MudancaCursoModal from '$lib/components/fluxograma/modal/MudancaCursoModal.svelte';
 
 	const store = fluxogramaStore;
 

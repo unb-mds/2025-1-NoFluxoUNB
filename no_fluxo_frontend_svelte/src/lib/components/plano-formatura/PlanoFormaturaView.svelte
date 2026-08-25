@@ -4,7 +4,7 @@
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import PlannerSvelteFlow from './PlannerSvelteFlow.svelte';
-	import SemesterColumn from '../fluxograma/SemesterColumn.svelte';
+	import SemesterColumn from '../fluxograma/layout/SemesterColumn.svelte';
 	import SemestrePlanCard from './SemestrePlanCard.svelte';
 	import RestricoesChips from './RestricoesChips.svelte';
 	import SemestreAtualColumn from './SemestreAtualColumn.svelte';

@@ -372,6 +372,53 @@ function createUploadStore() {
 			}));
 		},
 
+		async startManualMode(course: { nomeCurso: string; matrizCurricular: string }) {
+			const user = authStore.getUser();
+			if (!user) {
+				toast.error('Você precisa estar logado.');
+				return;
+			}
+			
+			const dados: DadosFluxogramaUser = {
+				nomeCurso: course.nomeCurso,
+				ira: 0,
+				matricula: 'Manual',
+				horasIntegralizadas: 0,
+				suspensoes: [],
+				anoAtual: new Date().getFullYear() + '.1',
+				matrizCurricular: course.matrizCurricular,
+				semestreAtual: 1,
+				dadosFluxograma: [],
+				schemaVersion: FLUXOGRAMA_SCHEMA_VERSION
+			};
+			
+			try {
+				await supabaseDataService.saveFluxogramaData(
+					user.idUser,
+					dadosFluxogramaUserToJson(dados),
+					1,
+					undefined,
+					{
+						curso_extraido: course.nomeCurso,
+						matriz_curricular: course.matrizCurricular,
+						matricula: 'Manual',
+						ira: 0,
+						media_ponderada: 0,
+						carga_horaria_integralizada: null,
+						suspensoes: [],
+						resumo: null
+					}
+				);
+				
+				authStore.updateDadosFluxograma(dados, undefined);
+				toast.success('Modo manual iniciado! Você pode alterar o status das matérias clicando nelas.');
+				goto(ROUTES.MEU_FLUXOGRAMA);
+			} catch (err) {
+				console.error(err);
+				toast.error('Erro ao iniciar preenchimento manual.');
+			}
+		},
+
 		reset() {
 			stopProgressSimulation();
 			set({ ...initialState });

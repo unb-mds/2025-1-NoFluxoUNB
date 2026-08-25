@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ArrowLeft, Camera, RefreshCw, Home, LayoutGrid, Info } from 'lucide-svelte';
-	import FluxogramViewMenu from './FluxogramViewMenu.svelte';
-	import ScreenshotChoiceModal from './ScreenshotChoiceModal.svelte';
+	import FluxogramViewMenu from '$lib/components/fluxograma/controls/FluxogramViewMenu.svelte';
+	import ScreenshotChoiceModal from '$lib/components/fluxograma/modal/ScreenshotChoiceModal.svelte';
 	import { goto } from '$app/navigation';
 	import { ROUTES } from '$lib/config/routes';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';

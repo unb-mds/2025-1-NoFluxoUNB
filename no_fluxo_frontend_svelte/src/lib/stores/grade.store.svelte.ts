@@ -50,35 +50,9 @@ export interface SelecaoResultado {
 
 export interface MontagemResultado {
 	naoAlocadas: string[];
-	/** Matérias que couberam, mas numa turma fora da preferência declarada. */
-	preferenciasNaoAtendidas: string[];
 	/** A busca parou no teto de nós: grade válida, mas talvez não a melhor possível. */
 	truncado: boolean;
 }
-
-/**
- * Preferência do aluno para uma matéria específica: ele quer a matéria, mas de
- * preferência num certo turno e/ou com um certo professor. É desejo, não filtro —
- * ver `montarAutomatico`.
- */
-export interface PreferenciaMateria {
-	/** Turnos preferidos. Vazio = tanto faz. */
-	turnos: Turno[];
-	/** Nome do docente exatamente como vem em `turmas.docente`. Null = tanto faz. */
-	docente: string | null;
-}
-
-const PREFERENCIA_VAZIA: PreferenciaMateria = { turnos: [], docente: null };
-
-/**
- * Bônus por preferência atendida. São valores pequenos de propósito: o peso de uma
- * matéria é calculado em `montarAutomatico` como `BONUS_MAX * pool + 1`, garantindo
- * que encaixar mais uma matéria sempre supere qualquer soma de preferências. Ou seja,
- * preferência desempata — nunca custa uma matéria.
- */
-const BONUS_TURNO = 2;
-const BONUS_DOCENTE = 3;
-const BONUS_MAX = BONUS_TURNO + BONUS_DOCENTE;
 
 /** Docentes comparáveis: sem espaços redundantes, caixa alta. */
 function normDocente(nome: string | null | undefined): string {
@@ -89,7 +63,11 @@ function normDocente(nome: string | null | undefined): string {
 export const MATERIA_CORES: ReadonlyArray<{ cell: string; dot: string; text: string }> = [
 	{ cell: 'bg-purple-500/25 border-purple-400/50', dot: 'bg-purple-400', text: 'text-purple-100' },
 	{ cell: 'bg-sky-500/25 border-sky-400/50', dot: 'bg-sky-400', text: 'text-sky-100' },
-	{ cell: 'bg-emerald-500/25 border-emerald-400/50', dot: 'bg-emerald-400', text: 'text-emerald-100' },
+	{
+		cell: 'bg-emerald-500/25 border-emerald-400/50',
+		dot: 'bg-emerald-400',
+		text: 'text-emerald-100'
+	},
 	{ cell: 'bg-amber-500/25 border-amber-400/50', dot: 'bg-amber-400', text: 'text-amber-100' },
 	{ cell: 'bg-pink-500/25 border-pink-400/50', dot: 'bg-pink-400', text: 'text-pink-100' },
 	{ cell: 'bg-cyan-500/25 border-cyan-400/50', dot: 'bg-cyan-400', text: 'text-cyan-100' },
@@ -144,14 +122,34 @@ function createGradeStore() {
 	let ultimaMontagem = $state<MontagemResultado | null>(null);
 	/** Matéria sob o mouse (lista/resumo) — o calendário destaca os blocos dela. */
 	let hoverCodigo = $state<string | null>(null);
-	/** Códigos priorizados: o "Rearranjar" (montarAutomatico) tenta encaixá-los primeiro. */
+	/** Códigos priorizados: a montagem automática tenta encaixá-los primeiro. */
 	let prioritarias = $state<Set<string>>(new Set());
-	/** Preferência de turno/professor por matéria (código → preferência). */
-	let preferencias = $state<Record<string, PreferenciaMateria>>({});
-	/** Turnos permitidos ao rearranjar (M/T/N). Os 3 = sem filtro. */
+	/** Turnos permitidos ao montar a grade (M/T/N). Os 3 = sem filtro. */
 	let turnosPermitidos = $state<Set<Turno>>(new Set<Turno>(['M', 'T', 'N']));
 	/** Códigos que o aluno removeu — não voltam ao re-semear o recomendado. */
 	let removidas = $state<Set<string>>(new Set());
+	/**
+	 * Professor obrigatório por matéria, confirmado numa sessão anterior (vem do
+	 * banco — tabela `preferencias_grade`) e reaplicado em toda montagem automática,
+	 * não só na que veio do chat. Quem carrega é a rota (`definirDocentesPersistidos`);
+	 * o store só guarda e usa como filtro rígido.
+	 */
+	let docentesPersistidos = $state<Record<string, string>>({});
+	/**
+	 * Códigos que o aluno já está cursando agora (fora do pool "próximo semestre" —
+	 * vem do fluxograma atual). Entram na lista sozinhos pra não conflitar com o que
+	 * o aluno for adicionar, mas sem turma pré-escolhida — o app não sabe qual é a
+	 * turma real. Quem define é a rota (`definirCursandoAtual`), logo depois do init.
+	 */
+	let cursandoAtual = $state<Set<string>>(new Set());
+	/**
+	 * Códigos travados: `montarAutomatico` nunca reatribui a turma deles, só ocupa o
+	 * horário pras outras matérias otimizarem em volta. Uma matéria de `cursandoAtual`
+	 * trava sozinha assim que o aluno escolhe a turma real dela (`selecionarTurma`) —
+	 * sem isso, "Montar grade" poderia trocar a turma de uma matéria que ele já está
+	 * cursando de verdade, o que não faz sentido (a matrícula real já aconteceu).
+	 */
+	let travadas = $state<Set<string>>(new Set());
 
 	const indicePorCodigo = $derived.by(() => {
 		const m = new Map<string, number>();
@@ -216,8 +214,7 @@ function createGradeStore() {
 				activeId,
 				prioritarias: [...prioritarias],
 				turnos: [...turnosPermitidos],
-				removidas: [...removidas],
-				preferencias
+				removidas: [...removidas]
 			})
 		);
 	}
@@ -227,7 +224,9 @@ function createGradeStore() {
 		const out: Record<string, number> = {};
 		let acc = 0n;
 		for (const [codigo, idTurma] of Object.entries(sel)) {
-			const tg = pool.find((m) => m.codigo === codigo)?.turmas.find((t) => t.turma.id_turmas === idTurma);
+			const tg = pool
+				.find((m) => m.codigo === codigo)
+				?.turmas.find((t) => t.turma.id_turmas === idTurma);
 			if (tg && !hasConflict(tg.mask, acc)) {
 				out[codigo] = idTurma;
 				acc |= tg.mask;
@@ -307,91 +306,52 @@ function createGradeStore() {
 			return prioritarias.size > 0;
 		},
 
-		// ─── Preferência de turno / professor ────────────────────────────────────
-		/** Preferência declarada da matéria (nunca null — vazia significa "tanto faz"). */
-		preferenciaDe(codigo: string): PreferenciaMateria {
-			return preferencias[codigo] ?? PREFERENCIA_VAZIA;
-		},
-
-		temPreferencia(codigo: string): boolean {
-			const p = preferencias[codigo];
-			return !!p && (p.turnos.length > 0 || p.docente !== null);
-		},
-
-		get totalComPreferencia() {
-			return Object.keys(preferencias).length;
-		},
-
-		/** Docentes distintos que oferecem a matéria, em ordem alfabética. */
+		/**
+		 * Docentes distintos que oferecem a matéria, em ordem alfabética — usado pelo
+		 * botão "Perguntar pra Darcy" pra o aluno escolher um nome real em vez de
+		 * digitar de cabeça.
+		 */
 		docentesDe(codigo: string): string[] {
 			const mat = pool.find((m) => m.codigo === codigo);
 			if (!mat) return [];
 			const vistos = new Map<string, string>();
 			for (const t of mat.turmas) {
 				const nome = (t.turma.docente ?? '').trim();
-				if (nome) vistos.set(normDocente(nome), nome);
+				if (nome) vistos.set(nome.toUpperCase(), nome);
 			}
 			return [...vistos.values()].sort((a, b) => a.localeCompare(b, 'pt-BR'));
 		},
 
-		/** Liga/desliga um turno preferido da matéria. */
-		togglePreferenciaTurno(codigo: string, t: Turno): void {
-			const atual = preferencias[codigo] ?? PREFERENCIA_VAZIA;
-			const turnos = atual.turnos.includes(t)
-				? atual.turnos.filter((x) => x !== t)
-				: [...atual.turnos, t];
-			this.setPreferencia(codigo, { turnos, docente: atual.docente });
+		get docentesPersistidos() {
+			return docentesPersistidos;
 		},
 
-		setPreferenciaDocente(codigo: string, docente: string | null): void {
-			const atual = preferencias[codigo] ?? PREFERENCIA_VAZIA;
-			this.setPreferencia(codigo, { turnos: atual.turnos, docente: docente || null });
+		/** Carrega as preferências de professor confirmadas antes (vêm do banco). */
+		definirDocentesPersistidos(mapa: Record<string, string>): void {
+			docentesPersistidos = mapa;
 		},
 
-		/** Grava a preferência; preferência vazia é removida em vez de guardada. */
-		setPreferencia(codigo: string, pref: PreferenciaMateria): void {
-			const limpa: PreferenciaMateria = {
-				turnos: [...new Set(pref.turnos)],
-				docente: pref.docente || null
-			};
-			const proximas = { ...preferencias };
-			if (limpa.turnos.length === 0 && limpa.docente === null) delete proximas[codigo];
-			else proximas[codigo] = limpa;
-			preferencias = proximas;
-			persistCenarios();
+		/** Foto da seleção atual — pra poder voltar se o aluno recusar um rearranjo. */
+		snapshotSelecao(): Record<string, number> {
+			return { ...(cenarioAtivo?.selecao ?? {}) };
 		},
 
-		limparPreferencia(codigo: string): void {
-			if (!(codigo in preferencias)) return;
-			const proximas = { ...preferencias };
-			delete proximas[codigo];
-			preferencias = proximas;
-			persistCenarios();
-		},
-
-		/**
-		 * Quanto a turma atende à preferência da matéria (0 = nada, BONUS_MAX = tudo).
-		 * A UI usa para marcar as turmas que combinam; o montador, como desempate.
-		 */
-		bonusPreferencia(codigo: string, tg: TurmaComMask<TurmaOferta>): number {
-			const pref = preferencias[codigo];
-			if (!pref) return 0;
-			let bonus = 0;
-			if (
-				pref.turnos.length > 0 &&
-				pref.turnos.length < 3 &&
-				turmaRespeitaTurnos(tg.mask, new Set(pref.turnos))
-			) {
-				bonus += BONUS_TURNO;
-			}
-			if (pref.docente && normDocente(tg.turma.docente) === normDocente(pref.docente)) {
-				bonus += BONUS_DOCENTE;
-			}
-			return bonus;
+		/** Restaura uma seleção tirada por `snapshotSelecao`. */
+		restaurarSelecao(snapshot: Record<string, number>): void {
+			updateAtivo(() => ({ ...snapshot }));
 		},
 
 		get turnosPermitidos() {
 			return turnosPermitidos;
+		},
+
+		/**
+		 * Códigos que o aluno tirou da lista na mão. Exposto porque quem re-semeia o
+		 * pool (a rota, ao montar a grade automaticamente) precisa respeitar essa
+		 * escolha — `addMateriaAoPool` limpa a marca, então filtrar é com o chamador.
+		 */
+		get removidas() {
+			return removidas;
 		},
 
 		/** Filtro de turno ativo (1 ou 2 turnos selecionados; 0 ou 3 = sem filtro). */
@@ -436,16 +396,13 @@ function createGradeStore() {
 			ultimaMontagem = null;
 
 			const key = cenariosKey(idUser, periodo);
-			let restaurado:
-				| {
-						grades: Cenario[];
-						activeId: string;
-						prioritarias?: string[];
-						turnos?: Turno[];
-						removidas?: string[];
-						preferencias?: Record<string, PreferenciaMateria>;
-				  }
-				| null = null;
+			let restaurado: {
+				grades: Cenario[];
+				activeId: string;
+				prioritarias?: string[];
+				turnos?: Turno[];
+				removidas?: string[];
+			} | null = null;
 			if (key && typeof localStorage !== 'undefined') {
 				try {
 					const raw = localStorage.getItem(key);
@@ -464,17 +421,6 @@ function createGradeStore() {
 					: ['M', 'T', 'N']
 			);
 			removidas = new Set(Array.isArray(restaurado?.removidas) ? restaurado!.removidas : []);
-
-			// Saneia o que veio do localStorage: turnos inválidos ou formato antigo viram
-			// "sem preferência" em vez de envenenar o cálculo de bônus.
-			preferencias = {};
-			for (const [codigo, p] of Object.entries(restaurado?.preferencias ?? {})) {
-				const turnos = (Array.isArray(p?.turnos) ? p.turnos : []).filter(
-					(t): t is Turno => t === 'M' || t === 'T' || t === 'N'
-				);
-				const docente = typeof p?.docente === 'string' && p.docente.trim() ? p.docente : null;
-				if (turnos.length > 0 || docente) preferencias[codigo] = { turnos, docente };
-			}
 
 			if (restaurado && Array.isArray(restaurado.grades) && restaurado.grades.length > 0) {
 				grades = restaurado.grades.map((g) => ({
@@ -525,10 +471,15 @@ function createGradeStore() {
 				np.delete(codigo);
 				prioritarias = np;
 			}
-			if (codigo in preferencias) {
-				const pp = { ...preferencias };
-				delete pp[codigo];
-				preferencias = pp;
+			if (cursandoAtual.has(codigo)) {
+				const nc = new Set(cursandoAtual);
+				nc.delete(codigo);
+				cursandoAtual = nc;
+			}
+			if (travadas.has(codigo)) {
+				const nt = new Set(travadas);
+				nt.delete(codigo);
+				travadas = nt;
 			}
 			const nr = new Set(removidas);
 			nr.add(codigo);
@@ -559,7 +510,11 @@ function createGradeStore() {
 			return null;
 		},
 
-		/** Seleciona/troca a turma; retorna feedback de conflito p/ o "tenta inserir". */
+		/**
+		 * Seleciona/troca a turma; retorna feedback de conflito p/ o "tenta inserir".
+		 * Matéria de `cursandoAtual` trava sozinha aqui: assim que o aluno escolhe a
+		 * turma real dele, "Montar grade" para de poder reatribuir essa matéria.
+		 */
 		selecionarTurma(codigo: string, idTurma: number): SelecaoResultado {
 			const tg = pool
 				.find((m) => m.codigo === codigo)
@@ -568,39 +523,103 @@ function createGradeStore() {
 			const conflito = this.conflitaCom(codigo, tg);
 			if (conflito) return { ok: false, conflitaCom: conflito };
 			updateAtivo((sel) => ({ ...sel, [codigo]: idTurma }));
+			if (cursandoAtual.has(codigo) && !travadas.has(codigo)) {
+				travadas = new Set([...travadas, codigo]);
+			}
 			return { ok: true, conflitaCom: null };
 		},
 
+		/** Tira a turma escolhida — e destrava, se era uma matéria travada. */
 		removerTurma(codigo: string): void {
 			updateAtivo((sel) => {
 				const { [codigo]: _omit, ...rest } = sel;
 				return rest;
 			});
+			if (travadas.has(codigo)) {
+				const nt = new Set(travadas);
+				nt.delete(codigo);
+				travadas = nt;
+			}
 		},
 
-		montarAutomatico(): MontagemResultado {
-			// Peso de uma matéria > soma máxima de bônus de todo o pool. Assim a
-			// preferência de horário/professor só desempata entre soluções que alocam o
-			// mesmo tanto de matérias — nunca deixa uma matéria de fora para agradar uma
-			// preferência (ver autoMontarGrade).
-			const pesoBase = BONUS_MAX * pool.length + 1;
+		isCursandoAtual(codigo: string): boolean {
+			return cursandoAtual.has(codigo);
+		},
+
+		isTravada(codigo: string): boolean {
+			return travadas.has(codigo);
+		},
+
+		/**
+		 * Marca quais códigos do pool já são matérias que o aluno está cursando agora
+		 * — a rota chama isso logo depois do `init`. Se a turma já estava escolhida
+		 * (restaurada do localStorage), trava de novo — sem isso a trava se perderia
+		 * a cada reload mesmo com a seleção intacta.
+		 */
+		definirCursandoAtual(codigos: Iterable<string>): void {
+			cursandoAtual = new Set([...codigos].map((c) => c.trim().toUpperCase()));
+			const jaEscolhidas = [...cursandoAtual].filter((c) => selecaoAtiva.has(c));
+			if (jaEscolhidas.length > 0) travadas = new Set([...travadas, ...jaEscolhidas]);
+		},
+
+		/** Destrava manualmente — o aluno quer que "Montar grade" mexa nessa também. */
+		destravar(codigo: string): void {
+			if (!travadas.has(codigo)) return;
+			const nt = new Set(travadas);
+			nt.delete(codigo);
+			travadas = nt;
+		},
+
+		/**
+		 * `docentesObrigatorios` (código → nome) é um filtro RÍGIDO, não bônus: a
+		 * matéria só considera turmas daquele professor e pode ficar de fora se
+		 * nenhuma bater — diferente do antigo bônus de desempate, que nunca deixava
+		 * uma matéria fora por causa de preferência. Mescla com `docentesPersistidos`
+		 * (confirmados numa sessão anterior); o argumento vence em caso de conflito.
+		 *
+		 * Matérias travadas (`travadas` — cursando agora, turma real já escolhida)
+		 * ficam de fora do solver: a turma delas é fixa, só o horário conta como já
+		 * ocupado pras outras otimizarem em volta (`mascaraInicial` do `autoMontarGrade`).
+		 */
+		montarAutomatico(opts?: { docentesObrigatorios?: Record<string, string> }): MontagemResultado {
+			// Peso de matéria fixo — a montagem só maximiza quantas cabem.
+			const pesoBase = 1;
+			const docentesEfetivos = { ...docentesPersistidos, ...(opts?.docentesObrigatorios ?? {}) };
+
+			const mascaraTravada = [...travadas].reduce((acc, codigo) => {
+				const tg = selecaoAtiva.get(codigo);
+				return tg ? acc | tg.mask : acc;
+			}, 0n);
 
 			const r = autoMontarGrade(
-				pool.map((m) => ({
-					chave: m.codigo,
-					// Só considera turmas dentro dos turnos permitidos.
-					turmas: m.turmas
-						.filter((t) => turmaRespeitaTurnos(t.mask, turnosPermitidos))
-						.map((t) => ({ ...t, bonus: this.bonusPreferencia(m.codigo, t) })),
-					peso: prioritarias.has(m.codigo) ? pesoBase * 1000 : pesoBase
-				}))
+				pool
+					.filter((m) => !travadas.has(m.codigo))
+					.map((m) => {
+						const docenteAlvo = docentesEfetivos[m.codigo];
+						// Só considera turmas dentro dos turnos permitidos e, se houver
+						// professor obrigatório pra essa matéria, só as turmas dele.
+						let turmas = m.turmas.filter((t) => turmaRespeitaTurnos(t.mask, turnosPermitidos));
+						if (docenteAlvo) {
+							const alvoNorm = normDocente(docenteAlvo);
+							turmas = turmas.filter((t) => normDocente(t.turma.docente).includes(alvoNorm));
+						}
+						return {
+							chave: m.codigo,
+							turmas,
+							peso: prioritarias.has(m.codigo) ? pesoBase * 1000 : pesoBase
+						};
+					}),
+				mascaraTravada
 			);
 			const novaSel: Record<string, number> = {};
+			for (const codigo of travadas) {
+				const tg = selecaoAtiva.get(codigo);
+				if (tg) novaSel[codigo] = tg.turma.id_turmas;
+			}
 			for (const [codigo, t] of r.selecao) novaSel[codigo] = t.turma.id_turmas;
 			grades = grades.map((g) => (g.id === activeId ? { ...g, selecao: novaSel } : g));
 			ultimaMontagem = {
 				naoAlocadas: r.naoAlocadas,
-				preferenciasNaoAtendidas: r.preferenciasNaoAtendidas,
 				truncado: r.truncado
 			};
 			persistCenarios();
@@ -609,6 +628,48 @@ function createGradeStore() {
 
 		limpar(): void {
 			updateAtivo(() => ({}));
+		},
+
+		/**
+		 * Tira matérias da seleção até caber em `limite` créditos — usado pelo slider
+		 * de créditos: puramente aditivo em relação ao que já está selecionado, nunca
+		 * roda o solver de novo (arrastar o slider não deveria trocar turmas que o
+		 * aluno já escolheu, só encolher a lista). Não-prioritárias saem primeiro, e
+		 * entre elas a de mais crédito primeiro — sai menos matéria pra abrir espaço.
+		 * Só quando sobram só prioritárias é que elas também podem sair. Travada
+		 * (cursando agora, turma real já escolhida) nunca é candidata — o slider não
+		 * desmatricula o aluno de uma matéria que ele já está cursando de verdade.
+		 */
+		ajustarParaLimite(limite: number): void {
+			if (creditosSelecionados <= limite) return;
+			const candidatos = [...selecaoAtiva.keys()]
+				.filter((codigo) => !travadas.has(codigo))
+				.map((codigo) => ({
+					codigo,
+					prioritaria: prioritarias.has(codigo),
+					creditos: pool.find((m) => m.codigo === codigo)?.creditos ?? 0
+				}))
+				.sort(
+					(a, b) =>
+						Number(a.prioritaria) - Number(b.prioritaria) ||
+						b.creditos - a.creditos ||
+						a.codigo.localeCompare(b.codigo)
+				);
+
+			let atual = creditosSelecionados;
+			const remover = new Set<string>();
+			for (const c of candidatos) {
+				if (atual <= limite) break;
+				remover.add(c.codigo);
+				atual -= c.creditos;
+			}
+			if (remover.size === 0) return;
+			updateAtivo((sel) => {
+				const out = { ...sel };
+				for (const codigo of remover) delete out[codigo];
+				return out;
+			});
+			ultimaMontagem = null;
 		},
 
 		// ─── Cenários ────────────────────────────────────────────────────────────

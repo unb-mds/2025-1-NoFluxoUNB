@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
+	import { isOptativa } from '$lib/types/materia';
 	import { X, BookOpen, Save, Loader2, History } from 'lucide-svelte';
 
 	const store = fluxogramaStore;
@@ -44,7 +45,7 @@ let temPendenciaSalvar = $derived(store.precisaSalvarPerfil);
 			<div class="flex items-center gap-2">
 				<BookOpen class="h-4 w-4 text-amber-400" />
 				<h3 class="text-sm font-semibold uppercase tracking-wider text-white/80">
-					{temPendenciaSalvar ? 'Alterações para salvar' : 'Optativas planejadas'}
+					{temPendenciaSalvar ? 'Alterações para salvar' : 'Disciplinas planejadas'}
 				</h3>
 			</div>
 			{#if !store.state.isAnonymous && temPendenciaSalvar}
@@ -137,7 +138,7 @@ let temPendenciaSalvar = $derived(store.precisaSalvarPerfil);
 									</span>
 									<span
 										class="rounded-full bg-purple-500/35 px-2 py-0.5 text-[9px] font-semibold text-purple-100"
-									>(opt)</span>
+									>({isOptativa(opt.materia) ? 'opt' : 'obrig'})</span>
 								</div>
 							</div>
 							<button
@@ -146,7 +147,7 @@ let temPendenciaSalvar = $derived(store.precisaSalvarPerfil);
 								onclick={() => removerOptativa(opt.materia.codigoMateria)}
 								class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-white/30 opacity-0 transition-all hover:bg-red-500/20 hover:text-red-400 group-hover:opacity-100 disabled:cursor-wait disabled:opacity-60"
 								title={store.state.isAnonymous ? 'Remover só neste aparelho' : 'Remover do fluxograma e salvar no perfil'}
-								aria-label="Remover optativa do fluxograma"
+								aria-label="Remover disciplina do fluxograma"
 							>
 								{#if removendoCodigo === opt.materia.codigoMateria}
 									<Loader2 class="h-3.5 w-3.5 animate-spin text-red-300" />
@@ -162,7 +163,7 @@ let temPendenciaSalvar = $derived(store.precisaSalvarPerfil);
 
 		{#if historicoItens.length === 0 && store.optativasAdicionadas.length === 0 && !store.historicoManualPendenteSalvar}
 			<p class="text-xs text-white/50">
-				Planejamento de optativas alterado (ex.: removeu todas). Salve para atualizar o perfil.
+				Planejamento de disciplinas alterado (ex.: removeu todas). Salve para atualizar o perfil.
 			</p>
 		{/if}
 	</div>

@@ -186,7 +186,7 @@
 				<!-- Cabeçalho de dias -->
 				{#each diasVisiveis as dia, di (dia.cod)}
 					<div
-						class="pb-1.5 text-center text-xs font-semibold uppercase tracking-wide text-white/70"
+						class="pb-1.5 text-center text-xs font-semibold tracking-wide text-white/70 uppercase"
 						style="grid-column: {di + 2}; grid-row: 1;"
 					>
 						{dia.label}
@@ -202,7 +202,7 @@
 							: ''}"
 						style="grid-column: 1; grid-row: {vi + 2};"
 					>
-						<span class="hora-inicio font-semibold tabular-nums text-white/70">{slot.inicio}</span>
+						<span class="hora-inicio font-semibold text-white/70 tabular-nums">{slot.inicio}</span>
 						<span class="hora-modulo font-mono text-white/30">{slot.label}</span>
 					</div>
 				{/each}
@@ -248,10 +248,13 @@
 										     linha só seria truncado ("CIC00…") ou minúsculo. No desktop as partes
 										     voltam a ser inline e o código sai inteiro, como antes — daí não haver
 										     espaço em branco entre os spans. -->
-										<span class="bloco-codigo font-mono font-bold leading-none"><span
-												class="cod-parte">{partes[0]}</span><span class="cod-parte">{partes[1]}</span></span>
+										<span class="bloco-codigo font-mono leading-none font-bold"
+											><span class="cod-parte">{partes[0]}</span><span class="cod-parte"
+												>{partes[1]}</span
+											></span
+										>
 									{:else}
-										<span class="bloco-codigo truncate font-mono font-bold leading-tight">
+										<span class="bloco-codigo truncate font-mono leading-tight font-bold">
 											{bloco.codigo}
 										</span>
 									{/if}
@@ -281,7 +284,7 @@
 			{#each agendaPorDia as coluna (coluna.dia.cod)}
 				<section>
 					<p
-						class="mb-1.5 px-0.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/45"
+						class="mb-1.5 px-0.5 text-[11px] font-semibold tracking-[0.14em] text-white/45 uppercase"
 					>
 						{DIA_LONGO[coluna.dia.cod]}
 					</p>
@@ -318,12 +321,14 @@
 													>T. {sel.turma.turma}</span
 												>
 											{/if}
+											<!-- Módulo SIGAA (M1–M2) na mesma linha do código: numa lista de uma
+											     aula por card, cada linha extra custa meia tela de rolagem. -->
+											<span class="font-mono text-[10px] text-white/30">
+												{faixaModulos(bloco.offsetStart, bloco.span)}
+											</span>
 										</span>
 										<span class="mt-0.5 block truncate text-[11px] leading-snug text-white/55">
 											{nomeMateria(bloco.codigo)}
-										</span>
-										<span class="mt-0.5 block font-mono text-[10px] text-white/30">
-											{faixaModulos(bloco.offsetStart, bloco.span)}
 										</span>
 									</span>
 								</button>
@@ -337,7 +342,9 @@
 
 	<!-- Rodapé: legenda + alternar visão + expandir turnos -->
 	{#if temAlgo}
-		<div class="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-white/10 pt-2.5">
+		<div
+			class="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-white/10 pt-2.5"
+		>
 			<div class="flex flex-wrap items-center gap-1.5">
 				{#each legenda as m (m.codigo)}
 					{@const cor = gradeStore.corDaMateria(m.codigo)}
@@ -389,7 +396,7 @@
 	{:else}
 		<p class="mt-3 flex items-center justify-center gap-2 py-6 text-center text-xs text-white/40">
 			<CalendarClock class="h-4 w-4" />
-			Escolha turmas nas matérias (ou clique em "Rearranjar", no topo) para ver sua grade.
+			Escolha turmas nas matérias (ou clique em “Montar grade”, no topo) para ver sua grade.
 		</p>
 	{/if}
 </div>

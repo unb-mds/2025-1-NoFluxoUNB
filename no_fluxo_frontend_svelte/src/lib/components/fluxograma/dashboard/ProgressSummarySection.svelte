@@ -6,7 +6,7 @@
 	import { getTotalCreditsCompleted, getCurrentSubjectCodes } from '$lib/types/user';
 	import { GraduationCap, Calendar, X, Loader2 } from 'lucide-svelte';
 	import { formatarIraParaExibicao } from '$lib/utils/ira';
-	import IntegralizacaoSection from './IntegralizacaoSection.svelte';
+	import IntegralizacaoSection from '$lib/components/fluxograma/dashboard/IntegralizacaoSection.svelte';
 	import { portal } from '$lib/actions/portal';
 
 	interface Props {

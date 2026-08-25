@@ -746,6 +746,70 @@ function createFluxogramaStore() {
 			toast.info('Clique em "Salvar no perfil" para persistir as alterações.');
 		},
 
+		async registrarDisciplinaManual(
+			materia: MateriaModel,
+			status: string,
+			semestreDestino?: number,
+			opcionais?: { mencao?: string; professor?: string; equivalencia?: string }
+		) {
+			const user = authStore.getUser();
+			if (state.isAnonymous || !user?.dadosFluxograma) {
+				toast.error('Entre na conta para alterar o status da disciplina manualmente.');
+				return;
+			}
+
+			const fluxo = user.dadosFluxograma;
+			const semAlocado = normalizarSemestreDestino(semestreDestino, fluxo.semestreAtual || 1);
+			const nomeMateria = await resolverNomeMateria(materia.codigoMateria, materia.nomeMateria);
+			const atuais = getOptativasManuaisAtuais();
+			
+			// If it was already planned as an optativa, we can replace it.
+			const next = upsertOptativaManual(atuais, {
+				codigo: materia.codigoMateria.trim(),
+				nivelAlocado: semAlocado,
+				status: status,
+				nome: nomeMateria,
+				...(opcionais && {
+					mencao: opcionais.mencao,
+					professor: opcionais.professor,
+					codigoEquivalente: opcionais.equivalencia
+				})
+			} as any);
+
+			optativasAdicionadas = [
+				...optativasAdicionadas.filter(
+					(o) => o.materia.codigoMateria.trim().toUpperCase() !== materia.codigoMateria.trim().toUpperCase()
+				)
+			];
+			// Add back if it's an optativa and we are planning it, but for manual history overrides, 
+			// `mergeFluxogramaComOptativasManuais` handles rendering it in the flowchart correctly.
+			if (isOptativa(materia) && status === 'PLANEJADO') {
+				optativasAdicionadas.push({ materia, semestre: semAlocado });
+			}
+
+			authStore.setUser({ ...user, optativasManuais: next });
+			historicoManualPendenteSalvar = true;
+			bumpDiagramLayout();
+			toast.success(`Status de ${materia.codigoMateria} atualizado.`);
+		},
+
+		async removerDisciplinaManual(codigoMateria: string) {
+			const user = authStore.getUser();
+			if (state.isAnonymous || !user?.dadosFluxograma) return;
+			const u = codigoMateria.trim().toUpperCase();
+			const atuais = getOptativasManuaisAtuais();
+			const next = atuais.filter((o) => o.codigo.trim().toUpperCase() !== u);
+			
+			optativasAdicionadas = optativasAdicionadas.filter(
+				(o) => o.materia.codigoMateria.trim().toUpperCase() !== u
+			);
+			
+			authStore.setUser({ ...user, optativasManuais: next });
+			historicoManualPendenteSalvar = true;
+			bumpDiagramLayout();
+			toast.success(`Status manual removido.`);
+		},
+
 		async removeOptativa(codigoMateria: string) {
 			const u = codigoMateria.trim().toUpperCase();
 			const opt = optativasAdicionadas.find(

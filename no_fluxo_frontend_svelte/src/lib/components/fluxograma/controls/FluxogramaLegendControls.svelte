@@ -3,8 +3,8 @@ import { Bot, GraduationCap, Info } from 'lucide-svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { ROUTES } from '$lib/config/routes';
 	import { SubjectStatusEnum, getStatusLabel } from '$lib/types/materia';
-	import FluxogramViewMenu from './FluxogramViewMenu.svelte';
-	import MobileFilterNotice from './MobileFilterNotice.svelte';
+	import FluxogramViewMenu from '$lib/components/fluxograma/controls/FluxogramViewMenu.svelte';
+	import MobileFilterNotice from '$lib/components/fluxograma/controls/MobileFilterNotice.svelte';
 
 	/** Cores dos cartões — mesma legenda que existia no modal (?), agora fixa nesta barra */
 	const statusLegendItems = [

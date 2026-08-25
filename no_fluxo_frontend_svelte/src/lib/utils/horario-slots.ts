@@ -255,8 +255,16 @@ export interface AutoMontarResult<T> {
  * minutos.
  *
  * Matérias sem turma disponível — ou que não couberam — voltam em `naoAlocadas`.
+ *
+ * `mascaraInicial` é horário já ocupado por fora de `materias` — matérias travadas
+ * (ex.: o aluno já está cursando e escolheu a turma real) que o solver não pode
+ * mexer nem sobrepor, mas conta pra poda de conflito como se fosse mais uma turma
+ * escolhida desde o nó raiz (ver `gradeStore.montarAutomatico`).
  */
-export function autoMontarGrade<T>(materias: Array<MateriaTurmas<T>>): AutoMontarResult<T> {
+export function autoMontarGrade<T>(
+	materias: Array<MateriaTurmas<T>>,
+	mascaraInicial: bigint = 0n
+): AutoMontarResult<T> {
 	const pesoDe = (m: MateriaTurmas<T>) => m.peso ?? 1;
 	const bonusDe = (t: TurmaCandidata<T>) => t.bonus ?? 0;
 	const melhorBonusDe = (m: MateriaTurmas<T>) =>
@@ -347,7 +355,7 @@ export function autoMontarGrade<T>(materias: Array<MateriaTurmas<T>>): AutoMonta
 		recurse(i + 1, accMask);
 	}
 
-	recurse(0, 0n);
+	recurse(0, mascaraInicial);
 
 	const naoAlocadas: string[] = [];
 	const preferenciasNaoAtendidas: string[] = [];

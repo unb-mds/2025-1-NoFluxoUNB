@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { BookOpen, CheckCircle, AlertTriangle, Star } from 'lucide-svelte';
 	import DisciplinaList from './DisciplinaList.svelte';
-	import IntegralizacaoSection from '$lib/components/fluxograma/IntegralizacaoSection.svelte';
+	import IntegralizacaoSection from '$lib/components/fluxograma/dashboard/IntegralizacaoSection.svelte';
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';
 	import { formatarIraParaExibicao } from '$lib/utils/ira';
 	import type { CasarDisciplinasResponse, UploadPdfResponse } from '$lib/services/upload.service';

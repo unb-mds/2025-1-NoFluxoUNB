@@ -185,6 +185,7 @@
 	{isAuthenticated}
 	{isAnonymous}
 	{user}
+	{isAdmin}
 	onClose={closeMobileMenu}
 	onLogout={handleLogout}
 />

@@ -637,6 +637,21 @@ async function resolverNomesSemestreAtual(plano: PlanoFormaturav2 | undefined): 
     }
 }
 
+/** Uma preferência de turno/professor por matéria (tabela `preferencias_grade`). */
+interface PreferenciaGradeRow {
+    codigo_materia: string;
+    turnos: string[];
+    docente: string | null;
+}
+
+const TURNOS_VALIDOS = new Set(["M", "T", "N"]);
+
+/** Normaliza os turnos vindos do body: só M/T/N, maiúsculo, sem duplicata. */
+function normalizarTurnos(raw: unknown): string[] {
+    if (!Array.isArray(raw)) return [];
+    return [...new Set(raw.map((t) => String(t).trim().toUpperCase()).filter((t) => TURNOS_VALIDOS.has(t)))];
+}
+
 // =============================================================
 // Endpoint
 // =============================================================
@@ -816,6 +831,114 @@ export const PlanejamentoController: EndpointController = {
                     return res.status(500).json({
                         error: err?.message || "Erro ao processar mensagem do chat",
                     });
+                }
+            }
+        ),
+        // ==========================================================
+        // Preferências de turno/professor por matéria — tabela dedicada
+        // `preferencias_grade` (docs/superpowers/specs — Montador de Grade).
+        // Confirmadas pelo aluno no chat da Darcy ("Aceitar" no banner de
+        // rearranjo) e reaplicadas automaticamente nas próximas montagens.
+        // ==========================================================
+        "preferencias-grade-listar": new Pair(
+            RequestType.GET,
+            async (req: Request, res: Response) => {
+                const logger = createControllerLogger("PlanejamentoController", "preferencias-grade-listar");
+                try {
+                    if (!await Utils.checkAuthorization(req as Request)) {
+                        return res.status(401).json({ error: "Usuário não autorizado" });
+                    }
+                    const id_user = req.headers["user-id"] || req.headers["User-ID"];
+                    if (!id_user) return res.status(401).json({ error: "User-ID não informado" });
+
+                    const { data, error } = await SupabaseWrapper.get()
+                        .from("preferencias_grade")
+                        .select("codigo_materia, turnos, docente")
+                        .eq("id_user", id_user);
+                    if (error) {
+                        logger.error(`Erro ao listar preferências: ${error.message}`);
+                        return res.status(500).json({ error: error.message });
+                    }
+                    return res.status(200).json({ preferencias: (data ?? []) as PreferenciaGradeRow[] });
+                } catch (err: any) {
+                    logger.error(`Erro ao listar preferências: ${err?.message || String(err)}`);
+                    return res.status(500).json({ error: err?.message || "Erro ao listar preferências" });
+                }
+            }
+        ),
+        "preferencias-grade-salvar": new Pair(
+            RequestType.POST,
+            async (req: Request, res: Response) => {
+                const logger = createControllerLogger("PlanejamentoController", "preferencias-grade-salvar");
+                try {
+                    if (!await Utils.checkAuthorization(req as Request)) {
+                        return res.status(401).json({ error: "Usuário não autorizado" });
+                    }
+                    const id_user = req.headers["user-id"] || req.headers["User-ID"];
+                    if (!id_user) return res.status(401).json({ error: "User-ID não informado" });
+
+                    const body = req.body;
+                    if (!isObject(body) || typeof body.codigo !== "string" || !body.codigo.trim()) {
+                        return res.status(400).json({ error: "codigo é obrigatório" });
+                    }
+                    const codigo_materia = body.codigo.trim().toUpperCase();
+                    const turnos = normalizarTurnos(body.turnos);
+                    const docente =
+                        typeof body.docente === "string" && body.docente.trim() ? body.docente.trim() : null;
+
+                    const { error } = await SupabaseWrapper.get()
+                        .from("preferencias_grade")
+                        .upsert(
+                            {
+                                id_user,
+                                codigo_materia,
+                                turnos,
+                                docente,
+                                updated_at: new Date().toISOString(),
+                            },
+                            { onConflict: "id_user,codigo_materia" }
+                        );
+                    if (error) {
+                        logger.error(`Erro ao salvar preferência: ${error.message}`);
+                        return res.status(500).json({ error: error.message });
+                    }
+                    return res.status(200).json({ ok: true });
+                } catch (err: any) {
+                    logger.error(`Erro ao salvar preferência: ${err?.message || String(err)}`);
+                    return res.status(500).json({ error: err?.message || "Erro ao salvar preferência" });
+                }
+            }
+        ),
+        "preferencias-grade-remover": new Pair(
+            RequestType.POST,
+            async (req: Request, res: Response) => {
+                const logger = createControllerLogger("PlanejamentoController", "preferencias-grade-remover");
+                try {
+                    if (!await Utils.checkAuthorization(req as Request)) {
+                        return res.status(401).json({ error: "Usuário não autorizado" });
+                    }
+                    const id_user = req.headers["user-id"] || req.headers["User-ID"];
+                    if (!id_user) return res.status(401).json({ error: "User-ID não informado" });
+
+                    const body = req.body;
+                    if (!isObject(body) || typeof body.codigo !== "string" || !body.codigo.trim()) {
+                        return res.status(400).json({ error: "codigo é obrigatório" });
+                    }
+                    const codigo_materia = body.codigo.trim().toUpperCase();
+
+                    const { error } = await SupabaseWrapper.get()
+                        .from("preferencias_grade")
+                        .delete()
+                        .eq("id_user", id_user)
+                        .eq("codigo_materia", codigo_materia);
+                    if (error) {
+                        logger.error(`Erro ao remover preferência: ${error.message}`);
+                        return res.status(500).json({ error: error.message });
+                    }
+                    return res.status(200).json({ ok: true });
+                } catch (err: any) {
+                    logger.error(`Erro ao remover preferência: ${err?.message || String(err)}`);
+                    return res.status(500).json({ error: err?.message || "Erro ao remover preferência" });
                 }
             }
         ),

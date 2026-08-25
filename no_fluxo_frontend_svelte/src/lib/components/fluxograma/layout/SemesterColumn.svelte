@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { isOptativa, type MateriaModel, type OptativaAdicionada } from '$lib/types/materia';
 	import type { DadosMateria } from '$lib/types/user';
-	import SubjectCard from './SubjectCard.svelte';
+	import SubjectCard from '$lib/components/fluxograma/cards/SubjectCard.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 
 	interface Props {

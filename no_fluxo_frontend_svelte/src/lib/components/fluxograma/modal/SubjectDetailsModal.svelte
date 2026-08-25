@@ -8,14 +8,9 @@
 	import { X, BookOpen, GitBranch, GraduationCap, Repeat2, Loader2, Trash2, CalendarClock } from 'lucide-svelte';
 		import { portal } from '$lib/actions/portal';
 import { ROUTES } from '$lib/config/routes';
-	import { getCodigosFromExpressaoLogica, getLogicalCodeGroups } from '$lib/utils/expressao-logica';
-	import {
-		getOfertaDeMateria,
-		type TurmaResolvida
-	} from '$lib/services/oferta-turmas.service';
 	import { formatLocalSigaa, formatVagas, horarioLegivel } from '$lib/utils/sigaa';
-	import { vagaAssinaturasStore } from '$lib/stores/vaga-assinaturas.store.svelte';
-	import SeguirVagaButton from '$lib/components/materia/SeguirVagaButton.svelte';
+	import ManualStatusEditor from './ManualStatusEditor.svelte';
+	import SubjectClassesTab from './SubjectClassesTab.svelte';
 
 	interface Props {
 		materia: MateriaModel;
@@ -25,42 +20,10 @@ import { ROUTES } from '$lib/config/routes';
 
 	let { materia, courseData, onclose }: Props = $props();
 
-	const store = fluxogramaStore;
 	let activeTab = $state<'info' | 'prereqs' | 'equivalencias' | 'turmas'>('info');
 	let removendoPlanejada = $state(false);
 
-	// Turmas ofertadas no período letivo ativo — carrega sob demanda (só quando a aba é
-	// aberta). Passa pelo serviço de oferta para cair na equivalência quando a matéria
-	// mudou de código: antes a busca era só por id_materia e a aba dizia "nenhuma turma"
-	// para matérias que tinham oferta sob o código novo.
-	let turmas = $state<TurmaResolvida[]>([]);
-	let turmasLoading = $state(false);
-	let turmasError = $state<string | null>(null);
-	let turmasCarregadasPara = $state<number | null>(null);
-
-	$effect(() => {
-		if (activeTab !== 'turmas' || turmasCarregadasPara === materia.idMateria) return;
-		turmasLoading = true;
-		turmasError = null;
-		getOfertaDeMateria(materia.codigoMateria, materia.idMateria, courseData.equivalencias ?? [])
-			.then((rows) => {
-				turmas = rows;
-				turmasCarregadasPara = materia.idMateria;
-			})
-			.catch(() => {
-				turmasError = 'Não foi possível carregar as turmas agora.';
-			})
-			.finally(() => {
-				turmasLoading = false;
-			});
-		if (!vagaAssinaturasStore.carregado) void vagaAssinaturasStore.load();
-	});
-
-
-	function localLegivel(local: string | null): string {
-		const linhas = formatLocalSigaa(local ?? '');
-		return linhas.length > 0 ? linhas.join(' · ') : 'Local a definir';
-	}
+	const store = fluxogramaStore;
 
 	let status = $derived(store.getSubjectStatus(materia));
 	let optativaPlanejada = $derived.by(() => {
@@ -270,7 +233,7 @@ import { ROUTES } from '$lib/config/routes';
 		</div>
 
 		<!-- Tab content -->
-		<div class="max-h-[50vh] overflow-y-auto px-6 py-4">
+		<div class="custom-scrollbar max-h-[50vh] overflow-y-auto px-6 py-4 [scrollbar-width:thin]">
 			{#if activeTab === 'info'}
 				<div class="space-y-4">
 					{#if materia.ementa}
@@ -414,57 +377,17 @@ import { ROUTES } from '$lib/config/routes';
 					{/if}
 				</div>
 			{:else if activeTab === 'turmas'}
-				<div class="space-y-2">
-					{#if turmasLoading}
-						<div class="flex items-center justify-center gap-2 py-6 text-sm text-white/50">
-							<Loader2 class="h-4 w-4 animate-spin" />
-							Carregando turmas...
-						</div>
-					{:else if turmasError}
-						<p class="py-4 text-center text-sm text-red-300/80">{turmasError}</p>
-					{:else if turmas.length === 0}
-						<p class="py-4 text-center text-sm text-white/50">
-							Nenhuma turma ofertada no período letivo atual.
-						</p>
-					{:else}
-						{#if turmas[0]?.codigoOfertado}
-							<p
-								class="rounded-lg border border-sky-300/25 bg-sky-500/10 px-3 py-2 text-xs leading-snug text-sky-200/90"
-							>
-								Esta matéria é ofertada como
-								<span class="font-mono font-semibold">{turmas[0].codigoOfertado}</span> neste período —
-								é nesse código que você se matricula.
-							</p>
-						{/if}
-						{#each turmas as { turma: t } (t.id_turmas)}
-							<div class="rounded-lg bg-white/5 px-3 py-2.5">
-								<div class="flex items-center justify-between gap-2">
-									<span class="text-sm font-semibold text-white/90">Turma {t.turma}</span>
-									<span class="rounded-full bg-white/10 px-2 py-0.5 text-xs text-white/70">
-										{formatVagas(t.vagas_sobrando, t.vagas_ofertadas, t.vagas_ocupadas)} vaga(s)
-									</span>
-								</div>
-								{#if t.docente}
-									<p class="mt-1 text-xs text-white/60">{t.docente}</p>
-								{/if}
-								<p class="mt-1 text-xs text-white/50">{horarioLegivel(t.horario)}</p>
-								<p class="text-xs text-white/50">{localLegivel(t.local)}</p>
-								<div class="mt-2">
-									<SeguirVagaButton turma={t} />
-								</div>
-							</div>
-						{/each}
-					{/if}
-				</div>
+				<SubjectClassesTab {materia} {courseData} isActive={activeTab === 'turmas'} />
 			{/if}
-		</div>
 
-			<!-- Planejamento de optativa: remover localmente -->
+			<!-- Ações de edição manual e planejamento (Movido para DENTRO do scroll) -->
+			{#if !store.state.isAnonymous}
+				<ManualStatusEditor {materia} />
+			{/if}
+
 			{#if !store.state.isAnonymous && optativaPlanejada}
-				<div class="border-t border-white/10 px-6 py-3">
-					<p class="mb-2 text-xs text-white/50">
-						Disciplina planejada no fluxograma — a remoção fica local até clicar em salvar.
-					</p>
+				<div class="mt-4 rounded-xl border border-white/10 bg-black/20 p-4">
+					<p class="mb-2 text-center text-xs text-white/50">Disciplina planejada no fluxograma.</p>
 					<button
 						type="button"
 						disabled={removendoPlanejada}
@@ -477,7 +400,7 @@ import { ROUTES } from '$lib/config/routes';
 								removendoPlanejada = false;
 							}
 						}}
-						class="flex w-full items-center justify-center gap-2 rounded-lg border border-red-500/35 bg-red-500/15 px-4 py-2.5 text-sm font-medium text-red-100 transition-colors hover:bg-red-500/25 disabled:cursor-not-allowed disabled:opacity-50"
+						class="flex w-full items-center justify-center gap-2 rounded-lg border border-red-500/35 bg-red-500/15 px-4 py-2 text-sm font-medium text-red-100 transition-colors hover:bg-red-500/25 disabled:cursor-not-allowed disabled:opacity-50"
 					>
 						{#if removendoPlanejada}
 							<Loader2 class="h-4 w-4 animate-spin" />
@@ -488,36 +411,49 @@ import { ROUTES } from '$lib/config/routes';
 						{/if}
 					</button>
 				</div>
+			{:else if !store.state.isAnonymous && materia.idMateria > 0 && isOptativa(materia) && (status === SubjectStatusEnum.AVAILABLE || status === SubjectStatusEnum.NOT_STARTED || status === SubjectStatusEnum.LOCKED)}
+				<div class="mt-4">
+					<a
+						href={ROUTES.PLANO_FORMATURA}
+						class="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-3 text-sm font-medium text-white transition-colors hover:from-purple-500 hover:to-purple-600"
+					>
+						<GraduationCap class="h-4 w-4" />
+						Adicionar à previsão de formatura
+					</a>
+				</div>
 			{:else if store.state.isAnonymous && optativaPlanejada}
-				<div class="border-t border-white/10 px-6 py-3">
+				<div class="mt-4">
 					<button
 						type="button"
 						onclick={() => {
 							store.removeOptativa(materia.codigoMateria);
 							onclose?.();
 						}}
-						class="flex w-full items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/80 transition-colors hover:bg-white/10"
+						class="flex w-full items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm font-medium text-white/80 transition-colors hover:bg-white/10"
 					>
 						<Trash2 class="h-4 w-4" />
 						Remover do fluxograma (sessão anônima)
 					</button>
 				</div>
-			{:else if !store.state.isAnonymous && materia.idMateria > 0 && isOptativa(materia) && (status === SubjectStatusEnum.AVAILABLE || status === SubjectStatusEnum.NOT_STARTED || status === SubjectStatusEnum.LOCKED)}
-				<!-- Quer cursar esta optativa? O lugar de encaixá-la é a previsão de
-				     formatura, onde o Darcy também sugere outras do mesmo interesse. -->
-				<div class="border-t border-white/10 px-6 py-3">
-					<a
-						href={ROUTES.PLANO_FORMATURA}
-						class="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:from-purple-500 hover:to-purple-600"
-					>
-						<GraduationCap class="h-4 w-4" />
-						Adicionar à previsão de formatura
-					</a>
-					<p class="mt-1.5 text-center text-[11px] leading-relaxed text-white/45">
-						No Planejador você encaixa esta optativa no semestre certo e o Darcy sugere outras
-						do seu interesse.
-					</p>
-				</div>
 			{/if}
+
+		</div>
 	</div>
 </div>
+
+<style>
+	.custom-scrollbar::-webkit-scrollbar {
+		width: 6px;
+	}
+	.custom-scrollbar::-webkit-scrollbar-track {
+		background: rgba(255, 255, 255, 0.02);
+		border-radius: 4px;
+	}
+	.custom-scrollbar::-webkit-scrollbar-thumb {
+		background: rgba(255, 255, 255, 0.15);
+		border-radius: 4px;
+	}
+	.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+		background: rgba(255, 255, 255, 0.25);
+	}
+</style>

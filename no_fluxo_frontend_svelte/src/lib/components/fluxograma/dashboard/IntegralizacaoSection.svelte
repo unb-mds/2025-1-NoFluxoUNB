@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { IntegralizacaoResult } from '$lib/types/matriz';
 	import { parseCurriculoCompleto } from '$lib/types/matriz';
-	import CargaHorariaDashboard from './CargaHorariaDashboard.svelte';
+	import CargaHorariaDashboard from '$lib/components/fluxograma/dashboard/CargaHorariaDashboard.svelte';
 
 	interface Props {
 		integralizacao: IntegralizacaoResult | null;

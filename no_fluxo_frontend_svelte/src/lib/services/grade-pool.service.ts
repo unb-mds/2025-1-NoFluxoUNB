@@ -19,8 +19,9 @@ import { getPeriodoAtivo } from '$lib/services/turmas.service';
 import { getMateriasByCodigos } from '$lib/services/materias.service';
 import { getOfertaComEquivalencia } from '$lib/services/oferta-turmas.service';
 import { satisfazPreRequisitos } from '$lib/types/curso';
-import { classificarNatureza } from '$lib/types/materia';
-import { setHasCodeIgnoreCase } from '$lib/utils/subject-codes';
+import { classificarNatureza, isOptativa } from '$lib/types/materia';
+import { setHasCodeIgnoreCase, filtrarNaoCursados } from '$lib/utils/subject-codes';
+import { hasConflict, turmaRespeitaTurnos } from '$lib/utils/horario-slots';
 
 /**
  * Requisitos da matéria a partir do courseData: aviso de pré-requisito pendente
@@ -94,7 +95,8 @@ export async function construirMateriasGrade(
 	const faltantes: string[] = [];
 	for (const c of cods) {
 		const mm = courseMap.get(c);
-		if (mm) resolved.set(c, { idMateria: mm.idMateria, nome: mm.nomeMateria, creditos: mm.creditos });
+		if (mm)
+			resolved.set(c, { idMateria: mm.idMateria, nome: mm.nomeMateria, creditos: mm.creditos });
 		else faltantes.push(c);
 	}
 	if (faltantes.length > 0) {
@@ -135,6 +137,102 @@ export async function construirMateriasGrade(
 		});
 	}
 	return out;
+}
+
+/** O que a semeadura conseguiu trazer para a lista, por procedência. */
+export interface SemeaduraResultado {
+	/** Códigos vindos do semestre recomendado do plano de formatura. */
+	doPlano: string[];
+	/** Códigos puxados da matriz porque o plano não tinha matéria concreta a semear. */
+	daMatriz: string[];
+}
+
+/**
+ * Candidatas da matriz, para quando o plano não tem matéria concreta a semear.
+ *
+ * Acontece mais do que parece: o semestre recomendado pode vir só com
+ * `optativa_slot`/`complementar_slot` (que não têm código), o `gerar()` do plano
+ * pode ter falhado, ou tudo que ele recomendou já foi cursado. Sem uma segunda
+ * fonte, "Montar grade" não tem o que montar e o aluno leva um aviso no lugar de
+ * uma grade.
+ *
+ * Só volta matéria **com turma no período** — sem oferta ela não entra na grade de
+ * jeito nenhum. A ordem é a de utilidade para quem quer se formar: requisito
+ * cumprido antes de pendente, obrigatória antes de optativa e, dentro disso, o
+ * nível mais baixo primeiro (a matéria mais atrasada).
+ */
+export async function candidatosDaMatriz(
+	periodo: string,
+	excluir: Iterable<string> = []
+): Promise<MateriaGrade[]> {
+	const matriz = fluxogramaStore.state.courseData?.materias ?? [];
+	if (matriz.length === 0) return [];
+
+	const fora = new Set([...excluir].map((c) => c.trim().toUpperCase()));
+	const codigos = filtrarNaoCursados(
+		matriz.map((m) => m.codigoMateria).filter((c) => !fora.has(c.trim().toUpperCase())),
+		fluxogramaStore.completedCodes,
+		fluxogramaStore.currentCodes ?? new Set<string>()
+	);
+	if (codigos.length === 0) return [];
+
+	const daMatriz = new Map(matriz.map((m) => [m.codigoMateria.trim().toUpperCase(), m]));
+
+	return (await construirMateriasGrade(codigos, periodo))
+		.filter((m) => m.turmas.length > 0)
+		.map((m) => {
+			const info = daMatriz.get(m.codigo);
+			return {
+				materia: m,
+				requisitoPendente: m.avisoPreRequisito ? 1 : 0,
+				optativa: info && isOptativa(info) ? 1 : 0,
+				// Optativa tem nivel 0 na matriz; o critério anterior já a separou.
+				nivel: info?.nivel ?? 99
+			};
+		})
+		.sort(
+			(a, b) =>
+				a.requisitoPendente - b.requisitoPendente ||
+				a.optativa - b.optativa ||
+				a.nivel - b.nivel ||
+				a.materia.codigo.localeCompare(b.materia.codigo)
+		)
+		.map((x) => x.materia);
+}
+
+/**
+ * Escolhe, na ordem recebida, o maior prefixo viável: matérias que cabem na grade
+ * atual sem conflito de horário e sem estourar o limite de créditos do aluno.
+ *
+ * Existe para a semeadura não jogar a matriz inteira na lista. `montarAutomatico`
+ * maximiza matérias e **não** conhece limite de créditos — semear 70 matérias faria
+ * ele empacotar a semana toda e devolver o dobro do limite. Escolhendo aqui um
+ * conjunto que já é comprovadamente compatível (mesma máscara, mesmos turnos), a
+ * montagem seguinte consegue alocar todas: o ótimo dela é, no mínimo, este conjunto.
+ *
+ * Parte do que já está selecionado — assim a semeadura complementa a grade em vez
+ * de ignorá-la.
+ */
+export function escolherAteOLimite(
+	candidatos: MateriaGrade[],
+	limiteCreditos: number
+): MateriaGrade[] {
+	const escolhidas: MateriaGrade[] = [];
+	let mask = gradeStore.combinedMask;
+	let creditos = gradeStore.creditosSelecionados;
+
+	for (const m of candidatos) {
+		if (creditos + m.creditos > limiteCreditos) continue; // pode caber uma menor adiante
+		const turma = m.turmas.find(
+			(t) => turmaRespeitaTurnos(t.mask, gradeStore.turnosPermitidos) && !hasConflict(t.mask, mask)
+		);
+		if (!turma) continue;
+		mask |= turma.mask;
+		creditos += m.creditos;
+		escolhidas.push(m);
+	}
+
+	return escolhidas;
 }
 
 /**

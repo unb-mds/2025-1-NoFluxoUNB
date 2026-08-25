@@ -8,8 +8,8 @@
 		FLUXOGRAM_NARROW_QUERY,
 		FLUXOGRAM_COMPACT_LANDSCAPE_QUERY
 	} from '$lib/utils/fluxogram-viewport';
-	import SemesterColumn from './SemesterColumn.svelte';
-	import PrerequisiteConnections from './PrerequisiteConnections.svelte';
+	import SemesterColumn from '$lib/components/fluxograma/layout/SemesterColumn.svelte';
+	import PrerequisiteConnections from '$lib/components/fluxograma/layout/PrerequisiteConnections.svelte';
 
 	interface Props {
 		onSubjectClick?: (materia: MateriaModel) => void;

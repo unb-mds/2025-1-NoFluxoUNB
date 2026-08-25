@@ -13,6 +13,13 @@
 		badge?: string;
 		suffix?: string;
 		message: string;
+		/**
+		 * Quando true, o clique só preenche o campo de mensagem (e foca nele) em vez
+		 * de enviar direto — usado nos starters cujo badge representa uma variável
+		 * que o usuário precisa completar (ex: "sobre um tema", "de uma matéria"),
+		 * pra não mandar o exemplo fixo do `message` como se fosse a escolha dele.
+		 */
+		populateOnly?: boolean;
 	}
 	interface ChatMsg {
 		role: 'user' | 'assistant';
@@ -32,7 +39,9 @@
 		onAddToGrade,
 		onMontarGrade,
 		nomesMaterias,
-		emptyState
+		emptyState,
+		prefillText,
+		prefillNonce
 	}: {
 		messages: ChatMsg[];
 		loading?: boolean;
@@ -46,11 +55,19 @@
 		onSend: (msg: string) => void;
 		/** Quando definido, cada badge de código ganha um botão "+ grade". */
 		onAddToGrade?: (codigo: string) => void;
-		/** Quando definido, o marcador [MONTAR_GRADE|COD,...|TURNOS] vira um botão de ação. */
-		onMontarGrade?: (codigos: string[], turnos?: string[]) => void;
+		/** Quando definido, o marcador [MONTAR_GRADE|COD,...|TURNOS|DOCENTES] vira um botão de ação. */
+		onMontarGrade?: (codigos: string[], turnos?: string[], docentes?: Record<string, string>) => void;
 		/** Mapa código→nome: chips de matéria exibem o nome (código vira tooltip). */
 		nomesMaterias?: Map<string, string>;
 		emptyState?: Snippet;
+		/**
+		 * Texto pra preencher o campo de mensagem sem enviar — usado por quem abre o
+		 * chat de fora (ex.: botão "Pedir pra Darcy" numa matéria) já com um começo de
+		 * frase. Só some efeito quando `prefillNonce` muda, pra dar pra pedir o mesmo
+		 * texto duas vezes seguidas.
+		 */
+		prefillText?: string;
+		prefillNonce?: number;
 	} = $props();
 
 	/** "INTRODUÇÃO A COMPUTAÇÃO GRÁFICA" → "Introdução A Computação Gráfica". */
@@ -61,6 +78,14 @@
 	let messageInput = $state('');
 	let inputRef: HTMLInputElement;
 	let chatViewport = $state<HTMLElement | null>(null);
+
+	// Pré-preenchimento vindo de fora (ex.: "Pedir pra Darcy" numa matéria): só reage
+	// à mudança do nonce, não do texto — permite pedir o mesmo texto de novo.
+	$effect(() => {
+		if (!prefillNonce) return;
+		messageInput = prefillText ?? '';
+		inputRef?.focus();
+	});
 
 	// ─── Animação de digitação da resposta ────────────────────────────────────
 	// A última resposta do assistente é revelada progressivamente (estilo
@@ -180,7 +205,8 @@
 				currentBubble.push({ type: 'bold', value: match[13] });
 			} else if (match[14]) {
 				flushBubble();
-				// [MONTAR_GRADE|COD1,COD2|M,N] → códigos (1º campo) + turnos (2º, opcional)
+				// [MONTAR_GRADE|COD1,COD2|M,N|COD3=Fulano] → códigos (1º) + turnos (2º) +
+				// professor por matéria (3º, opcional — "CODIGO=Nome" separados por ;).
 				const partes = (match[15] ?? '').split('|');
 				const codigos = (partes[0] ?? '')
 					.split(',')
@@ -190,8 +216,15 @@
 					.split(',')
 					.map((t) => t.trim().toUpperCase())
 					.filter((t) => t === 'M' || t === 'T' || t === 'N');
-				if (codigos.length > 0 || turnos.length > 0)
-					blocks.push({ type: 'montarGrade', codigos, turnos });
+				const docentes: Record<string, string> = {};
+				for (const par of (partes[2] ?? '').split(';')) {
+					const [cod, ...resto] = par.split('=');
+					const codigo = (cod ?? '').trim().toUpperCase();
+					const nome = resto.join('=').trim();
+					if (codigo && nome) docentes[codigo] = nome;
+				}
+				if (codigos.length > 0 || turnos.length > 0 || Object.keys(docentes).length > 0)
+					blocks.push({ type: 'montarGrade', codigos, turnos, docentes });
 			}
 			lastIndex = regex.lastIndex;
 		}
@@ -264,7 +297,14 @@
 								{#each promptStarters as starter}
 									<button
 										type="button"
-										onclick={() => { messageInput = starter.message; enviar(); }}
+										onclick={() => {
+											messageInput = starter.message;
+											if (starter.populateOnly) {
+												inputRef?.focus();
+											} else {
+												enviar();
+											}
+										}}
 										class="group flex items-center px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-indigo-500/40 backdrop-blur-md rounded-full text-[12px] font-medium text-white/80 transition-all cursor-pointer shadow-sm hover:shadow-[0_0_15px_rgba(99,102,241,0.15)] hover:text-white shrink-0"
 									>
 										<Sparkles class="w-3 h-3 mr-1.5 text-white/30 group-hover:text-indigo-400 transition-colors shrink-0" />
@@ -395,16 +435,25 @@
 								{/each}
 							</div>
 						{:else if block.type === 'montarGrade' && onMontarGrade}
+							{@const nomesDocentes = Object.values(block.docentes ?? {})}
 							<div class="mt-2 ml-10 mr-4 self-start w-[85%]">
 								<button
 									type="button"
-									onclick={() => onMontarGrade?.(block.codigos, block.turnos)}
+									onclick={() => onMontarGrade?.(block.codigos, block.turnos, block.docentes)}
 									class="flex w-full items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-600/25 px-4 py-2.5 text-left text-sm font-semibold text-emerald-50 shadow-[0_0_15px_rgba(16,185,129,0.15)] backdrop-blur-md transition-all hover:bg-emerald-600/45 active:scale-[0.98]"
 								>
 									<CalendarPlus class="h-4 w-4 shrink-0" />
 									<span>
-										Montar grade{#if block.codigos.length > 0} priorizando {block.codigos.join(', ')}{/if}{#if block.turnos.length > 0}
-											· {block.turnos.map((t: string) => ({ M: 'manhã', T: 'tarde', N: 'noite' })[t] ?? t).join(' e ')}{/if}
+										{[
+											'Montar grade',
+											block.codigos.length > 0 ? `priorizando ${block.codigos.join(', ')}` : null,
+											block.turnos.length > 0
+												? `· ${block.turnos.map((t: string) => ({ M: 'manhã', T: 'tarde', N: 'noite' })[t] ?? t).join(' e ')}`
+												: null,
+											nomesDocentes.length > 0 ? `· com ${nomesDocentes.join(', ')}` : null
+										]
+											.filter(Boolean)
+											.join(' ')}
 									</span>
 								</button>
 							</div>
