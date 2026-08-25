@@ -158,7 +158,9 @@
 			}
 
 			const antes = assinaturaSelecao();
-			const resultado = gradeStore.montarAutomatico();
+			// `limiteSessao` (o slider), não o limite do plano: o aluno pode estar
+			// testando "e se eu quisesse menos" e a montagem tem que obedecer isso.
+			const resultado = gradeStore.montarAutomatico({ limiteCreditos: limiteSessao });
 			const mudou = assinaturaSelecao() !== antes;
 
 			const materias = gradeStore.selecao.size;
@@ -168,7 +170,7 @@
 			if (materias === 0) {
 				toast.warning(
 					naoCoube > 0
-						? `Nenhuma matéria coube nos turnos escolhidos (${resultado.naoAlocadas.join(', ')}).`
+						? `Nenhuma matéria coube em ${limiteSessao} créditos e nos turnos escolhidos (${resultado.naoAlocadas.join(', ')}).`
 						: 'Nenhuma turma disponível para as matérias da lista.'
 				);
 				return;
@@ -184,9 +186,17 @@
 						? `Puxei ${semeadas.doPlano.length} ${plural(semeadas.doPlano.length)} do seu plano. `
 						: '';
 			const resumo = `${materias} ${plural(materias)} · ${creditos} ${creditos === 1 ? 'crédito' : 'créditos'}`;
+			// Depois que a montagem passou a respeitar o teto, estourar só sobra quando
+			// são matérias que o aluno JÁ cursa (MATR): elas entram por obrigação e não
+			// podem ser cortadas. Dizer "passa do seu limite" seco soaria como erro do
+			// app, quando na verdade é a matrícula real dele.
 			const excedeu =
-				creditos > limiteCreditos ? ` Isso passa do seu limite de ${limiteCreditos} créditos.` : '';
-			const faltou = naoCoube > 0 ? ` Ficou de fora: ${resultado.naoAlocadas.join(', ')}.` : '';
+				creditos > limiteSessao
+					? ` São ${creditos} créditos porque as matérias que você já cursa não podem sair da grade.`
+					: '';
+			// `naoAlocadas` tem duas causas agora — conflito de horário/turno e teto de
+			// créditos —, e o motor não distingue. Não afirme a causa.
+			const faltou = naoCoube > 0 ? ` Não coube: ${resultado.naoAlocadas.join(', ')}.` : '';
 
 			if (mudou || puxadas > 0) {
 				toast.success(`${prefixo}Grade montada: ${resumo}.${excedeu}${faltou}`);

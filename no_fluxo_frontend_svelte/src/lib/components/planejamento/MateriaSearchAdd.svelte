@@ -4,6 +4,11 @@
 	import { setHasCodeIgnoreCase } from '$lib/utils/subject-codes';
 	import { Search, Plus } from 'lucide-svelte';
 	import HelpTip from '$lib/components/onboarding/HelpTip.svelte';
+	import PreRequisitoConfirmDialog from './PreRequisitoConfirmDialog.svelte';
+	import {
+		pendenciaPreRequisito,
+		type PendenciaPreRequisito
+	} from '$lib/services/grade-pool.service';
 
 	// Adiciona uma matéria da matriz do curso ao pool. A página resolve turmas.
 	// `compacto` = coluna única (celular): a aba já se chama "Matérias", então o
@@ -33,9 +38,36 @@
 			.slice(0, 8);
 	});
 
+	// Pendência aguardando confirmação — o código fica guardado à parte porque a
+	// pendência traz o código já normalizado e `onAdd` deve receber o original.
+	let pendencias = $state<PendenciaPreRequisito[]>([]);
+	let aguardando = $state<string | null>(null);
+
 	function adicionar(codigo: string) {
+		const p = pendenciaPreRequisito(codigo);
+		if (p) {
+			pendencias = [p];
+			aguardando = codigo;
+			return;
+		}
+		confirmar(codigo);
+	}
+
+	function confirmar(codigo: string) {
 		onAdd(codigo);
 		query = '';
+	}
+
+	function aoConfirmar() {
+		const codigo = aguardando;
+		pendencias = [];
+		aguardando = null;
+		if (codigo) confirmar(codigo);
+	}
+
+	function aoCancelar() {
+		pendencias = [];
+		aguardando = null;
 	}
 </script>
 
@@ -86,3 +118,5 @@
 		</p>
 	{/if}
 </div>
+
+<PreRequisitoConfirmDialog {pendencias} onConfirmar={aoConfirmar} onCancelar={aoCancelar} />

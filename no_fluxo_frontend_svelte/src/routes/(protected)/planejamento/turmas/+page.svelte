@@ -10,8 +10,11 @@
 		garantirContextoGrade,
 		construirMateriasGrade,
 		motivoParaNaoAdicionar,
-		naturezaDoCodigo
+		pendenciasPreRequisito,
+		naturezaDoCodigo,
+		type PendenciaPreRequisito
 	} from '$lib/services/grade-pool.service';
+	import PreRequisitoConfirmDialog from '$lib/components/planejamento/PreRequisitoConfirmDialog.svelte';
 	import TurmaOption from '$lib/components/planejamento/TurmaOption.svelte';
 	import MateriaNaturezaBadge from '$lib/components/materia/MateriaNaturezaBadge.svelte';
 	import { ROUTES } from '$lib/config/routes';
@@ -48,7 +51,32 @@
 	 * resultados da busca: procurar pelo nome de um professor devolve só as turmas
 	 * dele, e o montador precisa de todas para conseguir rearranjar depois.
 	 */
-	async function toggleNaGrade(codigo: string, t: TurmaComMateria): Promise<void> {
+	/**
+	 * Pré-requisito pendente vira confirmação antes de a matéria entrar no pool.
+	 *
+	 * `courseData` já está carregado aqui — `gradePronta` só vira true depois do
+	 * `garantirContextoGrade()`, e é ele que libera o botão que chama esta função.
+	 */
+	let pendencias = $state<PendenciaPreRequisito[]>([]);
+	let acaoPendente = $state<(() => Promise<void>) | null>(null);
+
+	async function confirmarPendencias(): Promise<void> {
+		const acao = acaoPendente;
+		pendencias = [];
+		acaoPendente = null;
+		if (acao) await acao();
+	}
+
+	function descartarPendencias(): void {
+		pendencias = [];
+		acaoPendente = null;
+	}
+
+	async function toggleNaGrade(
+		codigo: string,
+		t: TurmaComMateria,
+		jaConfirmado = false
+	): Promise<void> {
 		avisoGrade = null;
 		const c = codigo.trim().toUpperCase();
 		if (adicionando.has(c)) return;
@@ -63,6 +91,16 @@
 			if (impedimento) {
 				avisoGrade = impedimento;
 				return;
+			}
+			if (!jaConfirmado) {
+				const p = pendenciasPreRequisito([c]);
+				if (p.length > 0) {
+					pendencias = p;
+					// Retoma o toggle inteiro (pool + seleção da turma), não só o pool:
+					// o aluno clicou numa turma específica e é ela que ele espera ver.
+					acaoPendente = () => toggleNaGrade(codigo, t, true);
+					return;
+				}
 			}
 			if (!periodo) return;
 			adicionando = new Set(adicionando).add(c);
@@ -271,3 +309,9 @@
 		</div>
 	{/if}
 </div>
+
+<PreRequisitoConfirmDialog
+	{pendencias}
+	onConfirmar={confirmarPendencias}
+	onCancelar={descartarPendencias}
+/>
