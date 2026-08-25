@@ -118,7 +118,7 @@
 				</button>
 				<div class="min-w-0 flex-1 overflow-hidden">
 					<h1 class="truncate text-base font-black leading-tight text-white sm:text-lg md:text-xl lg:text-2xl">{courseName}</h1>
-					<div class="mt-0 flex flex-wrap items-center gap-1 sm:gap-1.5">
+					<div class="mt-1.5 flex flex-wrap items-center gap-x-1.5 gap-y-1">
 						{#if tipoCurso?.trim()}
 							<span
 								class="inline-flex shrink-0 items-center rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-xs font-medium text-white/90 backdrop-blur-sm"

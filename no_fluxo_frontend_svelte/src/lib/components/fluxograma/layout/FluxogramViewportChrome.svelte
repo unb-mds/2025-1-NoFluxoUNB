@@ -19,9 +19,16 @@ import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle, Maximize2, Minimize2, Gradua
 	focusMode?: boolean;
 	/** Callback para alternar o modo foco no container pai. */
 	toggleFocusMode?: () => void;
+	/** Painel de controle mobile — bindable para o botão da barra abaixo do fluxograma. */
+	controlsOpen?: boolean;
 	}
 
-let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode }: Props = $props();
+let {
+	helpOpen = $bindable(false),
+	focusMode = false,
+	toggleFocusMode,
+	controlsOpen = $bindable(false)
+}: Props = $props();
 
 	const store = fluxogramaStore;
 
@@ -84,8 +91,6 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode }: Props =
 
 	/** Mobile + landscape estreito: FAB e faixa de conexões (evita barra “desktop” em tela deitada). */
 	let compactTouch = $state(false);
-	/** Mobile: painel de controle (zoom, conexões, exibição, filtros, legenda) */
-	let fabMenuOpen = $state(false);
 
 	/** Semestres com conteúdo — chips de navegação rápida no rodapé mobile. */
 	let semesterList = $derived.by(() => {
@@ -110,6 +115,19 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode }: Props =
 		});
 	}
 
+	let overlayChipsEl: HTMLElement | null = $state(null);
+
+	// Ao entrar no modo foco, a faixa de chips abre centralizada no semestre atual.
+	$effect(() => {
+		const n = semestreAtualAluno;
+		void semesterList.length;
+		const el = overlayChipsEl;
+		if (!el || n == null) return;
+		const chip = el.querySelector<HTMLElement>(`[data-chip="${n}"]`);
+		if (!chip) return;
+		el.scrollLeft = Math.max(0, chip.offsetLeft - (el.clientWidth - chip.offsetWidth) / 2);
+	});
+
 	$effect(() => {
 		if (!browser) return;
 		const apply = () => {
@@ -130,7 +148,7 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode }: Props =
 
 	$effect(() => {
 		if (!compactTouch) {
-			fabMenuOpen = false;
+			controlsOpen = false;
 		}
 	});
 
@@ -139,7 +157,7 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode }: Props =
 	}
 
 	function openHelpFromPanel() {
-		fabMenuOpen = false;
+		controlsOpen = false;
 		helpOpen = true;
 	}
 
@@ -150,13 +168,13 @@ function handleToggleFocusMode() {
 	function handleLegendKeydown(e: KeyboardEvent) {
 		if (e.key === 'Escape') {
 			helpOpen = false;
-			fabMenuOpen = false;
+			controlsOpen = false;
 			if (focusMode) toggleFocusMode?.();
 		}
 	}
 
 	$effect(() => {
-		if (helpOpen || fabMenuOpen) {
+		if (helpOpen || controlsOpen) {
 			const prev = document.body.style.overflow;
 			document.body.style.overflow = 'hidden';
 			return () => {
@@ -325,12 +343,12 @@ function handleToggleFocusMode() {
 	<!--
 		Mobile / touch compacto: ações principais no rodapé + menu vertical de conexões.
 	-->
-	{#if compactTouch}
+	{#if compactTouch && focusMode}
+		<!-- Modo foco: controles no overlay (não há fluxo de página). Fora dele,
+		     a barra de controles vive abaixo do fluxograma (SemesterNavChips). -->
 		<!-- Scrim: os cards desvanecem sob os controles do rodapé em vez de ficarem cortados -->
 		<div
-			class="pointer-events-none absolute inset-x-0 bottom-0 z-30 bg-gradient-to-t from-[hsl(240_12%_2.4%/0.92)] via-[hsl(240_12%_2.4%/0.55)] to-transparent {focusMode
-				? 'h-40'
-				: 'h-24'}"
+			class="pointer-events-none absolute inset-x-0 bottom-0 z-30 h-40 bg-gradient-to-t from-[hsl(240_12%_2.4%/0.92)] via-[hsl(240_12%_2.4%/0.55)] to-transparent"
 			aria-hidden="true"
 		></div>
 		<div
@@ -339,10 +357,14 @@ function handleToggleFocusMode() {
 			<!-- Mapa-índice: chips de semestre — no modo foco ficam no overlay;
 			     fora dele vivem no fluxo da página (SemesterNavChips) -->
 			{#if focusMode && semesterList.length > 1}
-				<div class="semester-chips pointer-events-auto -mx-1 flex gap-1.5 overflow-x-auto px-1 pb-0.5">
+				<div
+					bind:this={overlayChipsEl}
+					class="semester-chips pointer-events-auto -mx-1 flex gap-1.5 overflow-x-auto px-1 pb-0.5"
+				>
 					{#each semesterList as sem (sem)}
 						<button
 							type="button"
+							data-chip={sem}
 							onclick={() => scrollToSemester(sem)}
 							class="h-9 min-w-[2.5rem] shrink-0 rounded-full border px-2.5 text-xs font-semibold backdrop-blur-md transition-colors active:scale-95 {sem === semestreAtualAluno
 								? 'border-primary/70 bg-primary/85 text-primary-foreground shadow-lg shadow-primary/25'
@@ -358,9 +380,9 @@ function handleToggleFocusMode() {
 			<div class="pointer-events-auto shrink-0">
 				<button
 					type="button"
-					onclick={() => (fabMenuOpen = !fabMenuOpen)}
+					onclick={() => (controlsOpen = !controlsOpen)}
 					class="flex h-11 w-11 items-center justify-center rounded-full border border-primary/35 bg-primary text-primary-foreground shadow-lg shadow-primary/25 transition-transform active:scale-95"
-					aria-expanded={fabMenuOpen}
+					aria-expanded={controlsOpen}
 					aria-label="Painel de controle do fluxograma"
 					title="Painel de controle"
 				>
@@ -384,7 +406,7 @@ function handleToggleFocusMode() {
 			</div>
 			</div>
 		</div>
-	{:else}
+	{:else if !compactTouch}
 		<!--
 			Desktop: conexões fixas no canto inferior direito (zoom continua à esquerda).
 		-->
@@ -397,12 +419,12 @@ function handleToggleFocusMode() {
 </div>
 
 <!-- Mobile: painel de controle (portal → body: fora do stacking context z-0 do diagrama) -->
-{#if fabMenuOpen && compactTouch}
+{#if controlsOpen && compactTouch}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<div
 		use:portal
 		class="fixed inset-0 z-[500] bg-black/55 backdrop-blur-[2px]"
-		onclick={() => (fabMenuOpen = false)}
+		onclick={() => (controlsOpen = false)}
 		role="presentation"
 	></div>
 	<div
@@ -416,7 +438,7 @@ function handleToggleFocusMode() {
 			<h2 id="fab-tools-title" class="text-sm font-semibold text-white">Painel de controle</h2>
 			<button
 				type="button"
-				onclick={() => (fabMenuOpen = false)}
+				onclick={() => (controlsOpen = false)}
 				class="rounded-lg p-2 text-white/60 hover:bg-white/10"
 				aria-label="Fechar"
 			>
@@ -673,7 +695,7 @@ function handleToggleFocusMode() {
 						<li class="flex flex-wrap items-center gap-2">
 							<div class="h-0.5 w-6 shrink-0 border-t-2 border-dashed border-green-400"></div>
 							<span>
-								Co-requisito: com conexões ativas, aparece ao focar a disciplina (Diretas) ou no modo
+								Co-requisito: aparece no modo
 								<strong class="text-white/85">Todas</strong>
 							</span>
 						</li>
@@ -684,7 +706,7 @@ function handleToggleFocusMode() {
 					<ul class="space-y-2 text-sm text-white/90">
 						<li>
 							<strong>1 toque</strong> na disciplina (com conexões ativas) <strong class="text-white"
-								>seleciona e destaca a cadeia</strong> no diagrama.
+								>seleciona e destaca as matérias que ela libera</strong> no diagrama.
 						</li>
 						<li>
 							<strong>2º toque</strong> na mesma disciplina abre a
@@ -704,7 +726,7 @@ function handleToggleFocusMode() {
 					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">Desktop</h3>
 					<ul class="space-y-1.5 text-white/90">
 						<li>
-							<strong>Conexões diretas:</strong> <strong>hover</strong> destaca a cadeia no diagrama e
+							<strong>Conexões diretas:</strong> <strong>hover</strong> destaca as matérias que a disciplina libera e
 							<strong class="text-white">clique esquerdo</strong> abre o
 							<strong class="text-white">modal da disciplina</strong> (detalhes).
 						</li>

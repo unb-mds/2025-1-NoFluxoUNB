@@ -49,13 +49,13 @@ import { Bot, GraduationCap, Info } from 'lucide-svelte';
 		style="background: hsl(var(--card) / 0.75); backdrop-filter: blur(14px) saturate(1.3); -webkit-backdrop-filter: blur(14px) saturate(1.3); box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.06), 0 0 0 1px hsl(var(--primary) / 0.06);"
 	>
 		<div
-			class="flex flex-wrap items-center gap-x-2.5 gap-y-1 border-b border-white/8 pb-2 sm:gap-x-3"
+			class="flex flex-wrap items-center gap-x-3 gap-y-1.5 border-b border-white/8 pb-2"
 			role="group"
 			aria-label="Legenda de status das disciplinas no fluxograma"
 		>
 			{#each statusLegendItems as item}
 				<span
-					class="inline-flex items-center gap-1.5 text-[10px] leading-tight font-medium text-white/95 sm:text-[11px]"
+					class="inline-flex items-center gap-1.5 text-xs leading-tight font-medium text-white/95"
 				>
 					<span class="h-3 w-3 shrink-0 rounded-md {item.color}" aria-hidden="true"></span>
 					{item.label}

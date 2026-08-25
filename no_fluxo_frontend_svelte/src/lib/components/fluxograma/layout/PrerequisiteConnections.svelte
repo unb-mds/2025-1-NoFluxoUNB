@@ -1,11 +1,7 @@
 <script lang="ts">
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { browser } from '$app/environment';
-	import {
-		CHAIN_VISUAL,
-		classifyChainPrereqStroke,
-		getSubjectChain
-	} from '$lib/utils/curriculum-graph';
+	import { CHAIN_VISUAL, getDirectDependentCodes } from '$lib/utils/curriculum-graph';
 
 	const store = fluxogramaStore;
 
@@ -38,7 +34,7 @@
 		x2: number;
 		y2: number;
 		type: 'prerequisite' | 'dependent' | 'corequisite';
-		/** Modo diretas + cadeia transitiva no hover */
+		/** Modo diretas: liberadas diretas no hover */
 		chainStroke?: 'pre' | 'desc' | 'core';
 		isAllMode?: boolean;
 		fromCode: string;
@@ -326,73 +322,24 @@
 		const newLines: ConnectionLine[] = [];
 
 		if (hoveredCode && connectionMode === 'direct') {
-			const chain = getSubjectChain(courseData, hoveredCode);
-			if (!chain) {
-				lines = [];
-				if (allowFollowUp) {
-					followUpGeneration++;
-					cancelScheduledFollowUps();
-				}
-				return;
-			}
-
-			const S = chain.chainNodeSet;
-			const M = chain.focusCode;
-			const P = chain.precursors;
-			const D = chain.descendants;
-
-			for (const materia of courseData.materias) {
-				const v = normSubjectCode(materia.codigoMateria);
-				if (!S.has(v)) continue;
-				for (const prereq of materia.preRequisitos ?? []) {
-					const u = normSubjectCode(prereq.codigoMateria);
-					if (!S.has(u)) continue;
-					const stroke = classifyChainPrereqStroke(u, v, M, P, D);
-					const line = getLineBetweenCards(
-						prereq.codigoMateria,
-						materia.codigoMateria,
-						container,
-						containerRect,
-						stroke === 'desc' ? 'dependent' : 'prerequisite',
-						false,
-						cardCache,
-						rectCache
-					);
-					if (line) {
-						line.chainStroke = stroke;
-						newLines.push(line);
-					}
-				}
-			}
-
-			if (courseData.coRequisitos?.length) {
-				const materiaMap = new Map(courseData.materias.map((m) => [m.idMateria, m]));
-				const drawnPairs = new Set<string>();
-				for (const coReq of courseData.coRequisitos) {
-					const fromMateria = materiaMap.get(coReq.idMateria);
-					if (!fromMateria) continue;
-					const a = normSubjectCode(fromMateria.codigoMateria);
-					const b = coReq.codigoMateriaCoRequisito
-						? normSubjectCode(coReq.codigoMateriaCoRequisito)
-						: '';
-					if (!b || !S.has(a) || !S.has(b)) continue;
-					const pairKey = [a, b].sort().join('\0');
-					if (drawnPairs.has(pairKey)) continue;
-					drawnPairs.add(pairKey);
-					const line = getLineBetweenCards(
-						fromMateria.codigoMateria,
-						coReq.codigoMateriaCoRequisito,
-						container,
-						containerRect,
-						'corequisite',
-						false,
-						cardCache,
-						rectCache
-					);
-					if (line) {
-						line.chainStroke = 'core';
-						newLines.push(line);
-					}
+			// Só as liberadas DIRETAS (1 nível): uma seta foco→dependente por matéria
+			// que tem o foco como pré-requisito imediato (cadeia transitiva completa
+			// fica no roadmap por clique-direito/long-press).
+			const deps = getDirectDependentCodes(courseData, hoveredCode);
+			for (const depCode of deps) {
+				const line = getLineBetweenCards(
+					hoveredCode,
+					depCode,
+					container,
+					containerRect,
+					'dependent',
+					false,
+					cardCache,
+					rectCache
+				);
+				if (line) {
+					line.chainStroke = 'desc';
+					newLines.push(line);
 				}
 			}
 		} else if (connectionMode === 'all') {
@@ -912,7 +859,7 @@
 			>
 				<polygon points="0 0, 9 4, 0 8" fill="#10b981" />
 			</marker>
-			<!-- Modo diretas: cadeia transitiva (cores alinhadas ao painel de referência) -->
+			<!-- Modo diretas: liberadas diretas no hover (cores alinhadas ao painel de referência) -->
 			<marker
 				id="arrow-chain-pre"
 				markerUnits="userSpaceOnUse"

@@ -257,6 +257,34 @@
 	});
 
 	/**
+	 * Zoom inicial adaptativo (one-shot por montagem): desktop ajusta para a coluna
+	 * mais alta caber inteira na vertical (teto 1.0 — eixo de navegação é o horizontal);
+	 * modo compacto mira ~2 colunas visíveis na largura. Precisa rodar ANTES do efeito
+	 * de reancoragem e atualizar `prevZoomForAnchor`, senão a fórmula do centro com
+	 * scroll (0,0) deslocaria o viewport no primeiro frame.
+	 */
+	let initialZoomApplied = false;
+	$effect(() => {
+		if (initialZoomApplied) return;
+		const scroller = containerRef;
+		const inner = innerRef;
+		if (!scroller || !inner || sortedSemesters.length === 0) return;
+		let target: number;
+		if (useNativeTouchScroll) {
+			const pitch = 220 + 48; // w-[220px] da coluna + gap 3rem (mobile usa conexões 'direct')
+			target = Math.min(0.8, Math.max(0.5, scroller.clientWidth / (2 * pitch)));
+		} else {
+			// getBoundingClientRect reflete o CSS zoom; dividir pelo zoom vigente dá o tamanho natural
+			const naturalH = inner.getBoundingClientRect().height / store.state.zoomLevel;
+			if (naturalH <= 0) return;
+			target = Math.min(1.0, scroller.clientHeight / naturalH);
+		}
+		initialZoomApplied = true;
+		store.applyAdaptiveZoom(target);
+		prevZoomForAnchor = store.state.zoomLevel; // valor já clampado pelo store
+	});
+
+	/**
 	 * Zoom vindo do slider/botões (fora do pinch): reancora o scroll no centro do
 	 * viewport para a região visível não "fugir" — com CSS zoom o scrollWidth/Height
 	 * acompanham a escala, então basta reescalar pela razão novo/velho.

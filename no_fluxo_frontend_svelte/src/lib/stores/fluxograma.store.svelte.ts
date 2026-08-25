@@ -44,6 +44,8 @@ export interface FluxogramaState {
 	loading: boolean;
 	error: string | null;
 	zoomLevel: number;
+	/** Zoom base calculado no mount para caber na tela — alvo do resetZoom. */
+	defaultZoom: number;
 	connectionMode: ConnectionMode;
 	/** Exibição das badges por semestre: créditos ou horas */
 	displayUnit: DisplayUnit;
@@ -150,6 +152,7 @@ function createFluxogramaStore() {
 		loading: false,
 		error: null,
 		zoomLevel: 0.6,
+		defaultZoom: 0.6,
 		connectionMode: 'direct' as ConnectionMode,
 		displayUnit: 'horas' as DisplayUnit,
 		showOptativas: true,
@@ -920,6 +923,13 @@ function createFluxogramaStore() {
 			state.zoomLevel = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, level));
 		},
 
+		/** Zoom inicial adaptativo: aplica e memoriza como padrão para o resetZoom. */
+		applyAdaptiveZoom(level: number) {
+			const z = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, level));
+			state.defaultZoom = z;
+			state.zoomLevel = z;
+		},
+
 		zoomIn() {
 			this.setZoom(state.zoomLevel + ZOOM_STEP);
 		},
@@ -929,7 +939,7 @@ function createFluxogramaStore() {
 		},
 
 		resetZoom() {
-			state.zoomLevel = 0.6;
+			state.zoomLevel = state.defaultZoom;
 		},
 
 		setConnectionMode(mode: ConnectionMode) {
@@ -1023,6 +1033,7 @@ function createFluxogramaStore() {
 			state.loading = false;
 			state.error = null;
 			state.zoomLevel = 0.6;
+			state.defaultZoom = 0.6;
 			state.connectionMode = 'direct';
 			state.displayUnit = 'horas';
 			state.showOptativas = true;

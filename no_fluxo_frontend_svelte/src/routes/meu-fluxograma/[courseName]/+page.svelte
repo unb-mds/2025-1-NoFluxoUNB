@@ -45,6 +45,7 @@ import {
 	let fluxogramHelpOpen = $state(false);
 	let showMateriasConcluidasModal = $state(false);
 	let fluxogramaFocusMode = $state(false);
+	let fluxogramaControlsOpen = $state(false);
 	let progressSummaryRef: HTMLElement | null = $state(null);
 
 	function scrollToSummary() {
@@ -427,7 +428,7 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 			<div
 				class="{fluxogramaFocusMode
 					? 'fluxograma-focus-shell fixed inset-0 z-[2147483000] flex min-h-0 flex-col overflow-hidden rounded-none'
-					: 'flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden [overflow-anchor:none] sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:sm:max-h-[calc(100dvh-0.5rem)]'}"
+					: 'flex min-h-0 flex-col gap-2 [overflow-anchor:none] md:h-[calc(100dvh-3.75rem)] md:max-h-[calc(100dvh-3.75rem)] md:overflow-hidden [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:overflow-hidden [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5'}"
 			>
 				{#if !fluxogramaFocusMode}
 					<div
@@ -478,7 +479,10 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 					</div>
 				{/if}
 
-				<div class="relative z-0 min-h-0 flex-1 basis-0 overflow-hidden" bind:this={fluxogramaViewportRef}>
+				<div
+					class="relative z-0 h-[calc(100dvh-9.5rem)] shrink-0 overflow-hidden md:h-auto md:min-h-0 md:flex-1 md:shrink md:basis-0 [@media(orientation:landscape)_and_(max-height:560px)]:h-auto [@media(orientation:landscape)_and_(max-height:560px)]:min-h-0 [@media(orientation:landscape)_and_(max-height:560px)]:flex-1 [@media(orientation:landscape)_and_(max-height:560px)]:shrink [@media(orientation:landscape)_and_(max-height:560px)]:basis-0"
+					bind:this={fluxogramaViewportRef}
+				>
 					<FluxogramContainer
 						onSubjectClick={handleSubjectClick}
 						onSubjectOpenChain={handleSubjectOpenChain}
@@ -487,6 +491,7 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 					/>
 					<FluxogramViewportChrome
 						bind:helpOpen={fluxogramHelpOpen}
+						bind:controlsOpen={fluxogramaControlsOpen}
 						focusMode={fluxogramaFocusMode}
 						toggleFocusMode={() => (fluxogramaFocusMode = !fluxogramaFocusMode)}
 					/>
@@ -503,9 +508,13 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 					{/if}
 				</div>
 
-				<!-- Mobile: navegação por semestre entre o fluxograma e a integralização -->
+				<!-- Mobile: barra de controles + navegação por semestre abaixo do fluxograma -->
 				{#if !fluxogramaFocusMode}
-					<SemesterNavChips />
+					<SemesterNavChips
+						onOpenControls={() => (fluxogramaControlsOpen = true)}
+						onToggleFocus={() => (fluxogramaFocusMode = !fluxogramaFocusMode)}
+						focusMode={fluxogramaFocusMode}
+					/>
 				{/if}
 			</div>
 
