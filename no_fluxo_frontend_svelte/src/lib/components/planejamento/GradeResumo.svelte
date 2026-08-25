@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
+	import { unidadeCargaStore } from '$lib/stores/unidade-carga.store.svelte';
 	import { horarioLegivel } from '$lib/utils/sigaa';
 	import { X, ListChecks, TriangleAlert } from 'lucide-svelte';
 	import HelpTip from '$lib/components/onboarding/HelpTip.svelte';
@@ -31,7 +32,7 @@
 		<span
 			class="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] text-white/60"
 		>
-			{gradeStore.creditosSelecionados} créditos
+			{unidadeCargaStore.formatar(gradeStore.creditosSelecionados)}
 		</span>
 	</header>
 
@@ -52,7 +53,9 @@
 						<p class="flex items-baseline gap-1.5">
 							<span class="font-mono text-xs font-semibold text-white/90">{codigo}</span>
 							<span class="text-[10px] text-white/45"
-								>T. {tg.turma.turma} · {creditosMateria(codigo)}cr</span
+								>T. {tg.turma.turma} · {unidadeCargaStore.formatarCurto(
+									creditosMateria(codigo)
+								)}</span
 							>
 						</p>
 						<p class="truncate text-[11px] text-white/60">{nomeMateria(codigo)}</p>
