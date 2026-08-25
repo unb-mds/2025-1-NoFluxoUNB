@@ -61,7 +61,7 @@
 	class:top-0={variant === 'bar'}
 >
 	<nav
-		class="nf-nav-root mx-auto flex min-h-[3rem] w-full max-w-full items-center gap-3 px-[max(0.75rem,env(safe-area-inset-left))] py-2 pt-[max(0.5rem,env(safe-area-inset-top))] pr-[max(0.75rem,env(safe-area-inset-right))] md:min-h-0 md:gap-5 md:px-8 md:py-3 md:pt-3"
+		class="nf-nav-root mx-auto flex min-h-[2.5rem] w-full max-w-full items-center gap-3 px-[max(0.75rem,env(safe-area-inset-left))] py-1 pt-[max(0.25rem,env(safe-area-inset-top))] pr-[max(0.75rem,env(safe-area-inset-right))] md:min-h-0 md:gap-5 md:px-8 md:py-3 md:pt-3"
 	>
 		<a
 			href="/"
@@ -198,10 +198,17 @@
 		-webkit-backdrop-filter: blur(18px) saturate(1.5);
 		border: 1px solid hsl(var(--border) / 0.9);
 		border-radius: 999px;
-		padding: 12px 28px;
+		/* Mobile: pílula mais baixa — o espaço vertical é do fluxograma */
+		padding: 4px 20px;
 		box-shadow:
 			0 0 0 1px hsl(var(--primary) / 0.12),
 			0 8px 32px hsl(0 0% 0% / 0.4);
+	}
+
+	@media (min-width: 768px) {
+		header.navbar-floating-pill {
+			padding: 12px 28px;
+		}
 	}
 
 	:global(.nf-wordmark--floating .nf-wordmark-noflx),

@@ -95,7 +95,7 @@
 
 <div class="flex min-h-screen flex-col overflow-x-hidden">
 	{#if showNavbar}
-		<div class="navbar-glass sticky top-0 z-50 px-4 pt-3 md:px-6 md:pt-4">
+		<div class="navbar-glass sticky top-0 z-50 px-4 pb-2 pt-3 md:px-6 md:pb-2.5 md:pt-4">
 			<div class="mx-auto w-full">
 				<Navbar
 					user={$currentUser}
