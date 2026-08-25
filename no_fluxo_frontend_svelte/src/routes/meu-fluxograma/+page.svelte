@@ -358,6 +358,8 @@
 						bind:helpOpen={fluxogramHelpOpen}
 						focusMode={fluxogramaFocusMode}
 						toggleFocusMode={() => (fluxogramaFocusMode = !fluxogramaFocusMode)}
+						{integralizacao}
+						{integralizacaoLoading}
 					/>
 				</div>
 

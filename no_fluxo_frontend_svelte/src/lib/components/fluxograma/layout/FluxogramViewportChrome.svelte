@@ -1,9 +1,10 @@
 <script lang="ts">
-import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle, Maximize2, Minimize2, GraduationCap, Calendar, TrendingUp, SlidersHorizontal } from 'lucide-svelte';
+import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle, Maximize2, Minimize2, GraduationCap, Calendar, TrendingUp, SlidersHorizontal, Loader2 } from 'lucide-svelte';
 	import { browser } from '$app/environment';
 	import { fluxogramaStore, type ConnectionMode } from '$lib/stores/fluxograma.store.svelte';
 	import { getTotalCreditsCompleted } from '$lib/types/user';
 	import { isOptativa } from '$lib/types/materia';
+	import type { IntegralizacaoResult } from '$lib/types/matriz';
 	import { formatarIraParaExibicao } from '$lib/utils/ira';
 	import { portal } from '$lib/actions/portal';
 	import {
@@ -19,9 +20,11 @@ import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle, Maximize2, Minimize2, Gradua
 	focusMode?: boolean;
 	/** Callback para alternar o modo foco no container pai. */
 	toggleFocusMode?: () => void;
+		integralizacao?: IntegralizacaoResult | null;
+		integralizacaoLoading?: boolean;
 	}
 
-let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode }: Props = $props();
+let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode, integralizacao = null, integralizacaoLoading = false }: Props = $props();
 
 	const store = fluxogramaStore;
 
@@ -49,7 +52,17 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode }: Props =
 		return getTotalCreditsCompleted(userFluxograma, creditsMap);
 	});
     
-    let progressPct = $derived(totalCredits > 0 ? Math.round((completedCredits / totalCredits) * 100) : 0);
+	let usaHoras = $derived(!!integralizacao && integralizacao.exigido.chTotal > 0);
+
+    let progressPct = $derived(
+		integralizacaoLoading
+			? null
+			: usaHoras && integralizacao
+				? Math.round((integralizacao.realizado.chTotal / integralizacao.exigido.chTotal) * 100)
+				: totalCredits > 0
+					? Math.round((completedCredits / totalCredits) * 100)
+					: 0
+	);
 
 	$effect(() => {
 		const p = zoomPercent;
@@ -184,8 +197,13 @@ function handleToggleFocusMode() {
 		<div class="pointer-events-none absolute left-0 right-0 top-[max(0.75rem,env(safe-area-inset-top,0px))] z-[40] flex justify-center {compactTouch ? 'px-16' : ''}">
 			<div class="pointer-events-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 rounded-full border border-white/10 bg-black/50 px-4 py-2 text-xs backdrop-blur-md sm:text-sm">
 				<div class="flex items-center gap-1.5 text-white">
-					<GraduationCap class="h-4 w-4 text-green-400" />
-					<span class="font-medium">{progressPct}% <span class="hidden sm:inline text-white/50">concluído</span></span>
+					{#if integralizacaoLoading}
+						<Loader2 class="h-4 w-4 shrink-0 animate-spin text-green-400" />
+						<span class="font-medium">— <span class="hidden sm:inline text-white/50">concluído</span></span>
+					{:else}
+						<GraduationCap class="h-4 w-4 text-green-400" />
+						<span class="font-medium">{progressPct}% <span class="hidden sm:inline text-white/50">concluído</span></span>
+					{/if}
 				</div>
 				<div class="h-3 w-px bg-white/20"></div>
 				<div class="flex items-center gap-1.5 text-white">
