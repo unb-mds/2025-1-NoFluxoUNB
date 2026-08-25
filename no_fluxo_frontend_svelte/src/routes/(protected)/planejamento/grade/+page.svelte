@@ -156,9 +156,50 @@
 				(c) => !removidas.has(c)
 			);
 
+			// [DIAG-MATR] instrumentacao temporaria — remover depois de achar a causa.
+			{
+				const df = authStore.getUser()?.dadosFluxograma ?? null;
+				const brutas: { codigo: unknown; status: unknown; anoPeriodo: unknown }[] = [];
+				for (const sem of df?.dadosFluxograma ?? []) {
+					for (const m of sem) {
+						if (String((m as { status?: unknown }).status ?? '').trim().toUpperCase() === 'MATR') {
+							brutas.push({
+								codigo: (m as { codigoMateria?: unknown }).codigoMateria,
+								status: (m as { status?: unknown }).status,
+								anoPeriodo: (m as { anoPeriodo?: unknown }).anoPeriodo
+							});
+						}
+					}
+				}
+				const naMatriz = new Set(
+					(fluxogramaStore.state.courseData?.materias ?? []).map((m) =>
+						m.codigoMateria.trim().toUpperCase()
+					)
+				);
+				console.log('[DIAG-MATR] periodo ativo =', periodo);
+				console.log('[DIAG-MATR] tem dadosFluxograma?', !!df, '| semestres =', df?.dadosFluxograma?.length ?? 0);
+				console.log('[DIAG-MATR] entradas MATR cruas no historico =', brutas.length, brutas);
+				console.log('[DIAG-MATR] fluxogramaStore.currentCodes =', [...(fluxogramaStore.currentCodes ?? [])]);
+				console.log('[DIAG-MATR] removidas (localStorage) =', [...removidas]);
+				console.log('[DIAG-MATR] cursandoCodigos (entram no pool) =', cursandoCodigos);
+				console.log(
+					'[DIAG-MATR] cursando que existem na matriz/courseData =',
+					cursandoCodigos.map((c) => `${c}:${naMatriz.has(c.trim().toUpperCase()) ? 'matriz' : 'FORA-da-matriz'}`)
+				);
+			}
+
 			const pool = await construirMateriasGrade([...new Set([...todos, ...cursandoCodigos])], periodo);
 			gradeStore.init(pool, { idUser, periodo });
 			gradeStore.definirCursandoAtual(cursandoCodigos);
+			// [DIAG-MATR] o que sobreviveu ate o pool.
+			console.log(
+				'[DIAG-MATR] pool final =',
+				pool.map((m) => `${m.codigo} (${m.turmas.length} turmas)`)
+			);
+			console.log(
+				'[DIAG-MATR] cursando que NAO chegaram no pool =',
+				cursandoCodigos.filter((c) => !pool.some((m) => m.codigo === c.trim().toUpperCase()))
+			);
 			invalidarContextoGrade();
 			status = 'ready';
 			// Carrega assinaturas de vaga em background (habilita "seguir turma lotada").
