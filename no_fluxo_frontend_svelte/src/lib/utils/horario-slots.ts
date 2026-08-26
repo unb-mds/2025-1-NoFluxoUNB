@@ -213,6 +213,18 @@ export interface MateriaTurmas<T> {
 	 * o montador prefere encaixá-la quando nem tudo cabe sem conflito.
 	 */
 	peso?: number;
+	/**
+	 * Quanto a matéria consome do `orcamentoCreditos` (default 0). Sem orçamento o
+	 * campo é ignorado.
+	 */
+	creditos?: number;
+	/**
+	 * Matéria que entra de qualquer jeito: gasta do orçamento, mas nunca é barrada
+	 * por ele. É o caso da matrícula que já aconteceu de verdade (MATR) — deixá-la
+	 * de fora pra caber no teto de créditos não muda a realidade do aluno, só
+	 * esconde a matéria da grade.
+	 */
+	obrigatoria?: boolean;
 }
 
 /**
@@ -225,7 +237,7 @@ const MAX_NOS_MONTAGEM = 200_000;
 export interface AutoMontarResult<T> {
 	/** Turma escolhida por matéria (chave → turma selecionada). */
 	selecao: Map<string, TurmaCandidata<T>>;
-	/** Chaves das matérias que não couberam sem conflito. */
+	/** Chaves das matérias que não couberam — por conflito ou por teto de créditos. */
 	naoAlocadas: string[];
 	/**
 	 * Chaves alocadas numa turma que não atinge o melhor bônus disponível para a
@@ -260,13 +272,28 @@ export interface AutoMontarResult<T> {
  * (ex.: o aluno já está cursando e escolheu a turma real) que o solver não pode
  * mexer nem sobrepor, mas conta pra poda de conflito como se fosse mais uma turma
  * escolhida desde o nó raiz (ver `gradeStore.montarAutomatico`).
+ *
+ * `orcamentoCreditos` (opcional) é o teto de créditos da grade: matéria comum só é
+ * alocada se couber no que sobra, e matéria `obrigatoria` entra de qualquer forma —
+ * gastando do orçamento, o que pode saturá-lo e barrar todas as outras. Sem o
+ * argumento os créditos são ignorados por completo.
  */
 export function autoMontarGrade<T>(
 	materias: Array<MateriaTurmas<T>>,
-	mascaraInicial: bigint = 0n
+	mascaraInicial: bigint = 0n,
+	orcamentoCreditos?: number
 ): AutoMontarResult<T> {
 	const pesoDe = (m: MateriaTurmas<T>) => m.peso ?? 1;
+	const creditosDe = (m: MateriaTurmas<T>) => m.creditos ?? 0;
 	const bonusDe = (t: TurmaCandidata<T>) => t.bonus ?? 0;
+	/**
+	 * Cabe no teto de créditos, dado o quanto já foi gasto? Obrigatória sempre cabe
+	 * (ela é a realidade, o teto é a preferência). Sem orçamento, todo mundo cabe.
+	 */
+	const cabeNoOrcamento = (m: MateriaTurmas<T>, gasto: number): boolean =>
+		orcamentoCreditos === undefined || m.obrigatoria === true
+			? true
+			: gasto + creditosDe(m) <= orcamentoCreditos;
 	const melhorBonusDe = (m: MateriaTurmas<T>) =>
 		m.turmas.reduce((max, t) => Math.max(max, bonusDe(t)), 0);
 
@@ -291,6 +318,8 @@ export function autoMontarGrade<T>(
 	let melhorPeso = -1;
 	const atual = new Map<string, TurmaCandidata<T>>();
 	let pesoAtual = 0;
+	/** Créditos já comprometidos no ramo em exploração. */
+	let creditosAtual = 0;
 	let nos = 0;
 	let truncado = false;
 
@@ -307,11 +336,17 @@ export function autoMontarGrade<T>(
 	 *
 	 * As turmas estão ordenadas por bônus decrescente, então a primeira compatível
 	 * já é a de maior bônus da matéria.
+	 *
+	 * O orçamento entra pelo mesmo motivo: quem sozinha já não cabe no que sobra de
+	 * crédito não pode mais entrar em ramo nenhum. É uma relaxação da mochila (ignora
+	 * que duas que cabem sozinhas podem não caber juntas), então continua sendo um
+	 * limite superior legítimo — só bem mais apertado que ignorar créditos.
 	 */
-	function limiteSuperior(i: number, accMask: bigint): number {
+	function limiteSuperior(i: number, accMask: bigint, gasto: number): number {
 		let total = 0;
 		for (let j = i; j < ordenadas.length; j++) {
 			const m = ordenadas[j];
+			if (!cabeNoOrcamento(m, gasto)) continue;
 			for (const t of m.turmas) {
 				if (hasConflict(t.mask, accMask)) continue;
 				total += pesoDe(m) + bonusDe(t);
@@ -337,18 +372,23 @@ export function autoMontarGrade<T>(
 		}
 		nos++;
 		// Poda: nem alocando tudo o que ainda cabe dá para superar o melhor achado.
-		if (pesoAtual + limiteSuperior(i, accMask) <= melhorPeso) return;
+		if (pesoAtual + limiteSuperior(i, accMask, creditosAtual) <= melhorPeso) return;
 
 		const m = ordenadas[i];
 
-		// Opção A: tentar alocar uma turma que não conflite com o acumulado.
-		for (const t of m.turmas) {
-			if (hasConflict(t.mask, accMask)) continue;
-			atual.set(m.chave, t);
-			pesoAtual += pesoDe(m) + bonusDe(t);
-			recurse(i + 1, accMask | t.mask);
-			pesoAtual -= pesoDe(m) + bonusDe(t);
-			atual.delete(m.chave);
+		// Opção A: tentar alocar uma turma que não conflite com o acumulado — só se
+		// a matéria ainda couber no orçamento de créditos.
+		if (cabeNoOrcamento(m, creditosAtual)) {
+			for (const t of m.turmas) {
+				if (hasConflict(t.mask, accMask)) continue;
+				atual.set(m.chave, t);
+				pesoAtual += pesoDe(m) + bonusDe(t);
+				creditosAtual += creditosDe(m);
+				recurse(i + 1, accMask | t.mask);
+				creditosAtual -= creditosDe(m);
+				pesoAtual -= pesoDe(m) + bonusDe(t);
+				atual.delete(m.chave);
+			}
 		}
 
 		// Opção B: deixar esta matéria de fora e seguir.

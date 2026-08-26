@@ -586,8 +586,17 @@ function createGradeStore() {
 		 * Matérias travadas (`travadas` — cursando agora, turma real já escolhida)
 		 * ficam de fora do solver: a turma delas é fixa, só o horário conta como já
 		 * ocupado pras outras otimizarem em volta (`mascaraInicial` do `autoMontarGrade`).
+		 *
+		 * `limiteCreditos` é o teto de créditos do semestre (o slider da tela). Sem
+		 * ele a montagem enche a grade como sempre fez. Com ele, as matérias que o
+		 * aluno já está cursando (`cursandoAtual`) entram primeiro e comem o
+		 * orçamento — se elas sozinhas já estouram o teto, ninguém mais entra, mas
+		 * nenhuma delas sai: a matrícula já aconteceu de verdade.
 		 */
-		montarAutomatico(opts?: { docentesObrigatorios?: Record<string, string> }): MontagemResultado {
+		montarAutomatico(opts?: {
+			docentesObrigatorios?: Record<string, string>;
+			limiteCreditos?: number;
+		}): MontagemResultado {
 			// Peso de matéria fixo — a montagem só maximiza quantas cabem.
 			const pesoBase = 1;
 			const docentesEfetivos = { ...docentesPersistidos, ...(opts?.docentesObrigatorios ?? {}) };
@@ -596,6 +605,15 @@ function createGradeStore() {
 				const tg = selecaoAtiva.get(codigo);
 				return tg ? acc | tg.mask : acc;
 			}, 0n);
+
+			// As travadas continuam na grade final, então o crédito delas já está gasto
+			// antes do solver começar — o orçamento que sobra é o do resto.
+			const creditosTravados = [...travadas].reduce((acc, codigo) => {
+				if (!selecaoAtiva.has(codigo)) return acc;
+				return acc + (pool.find((m) => m.codigo === codigo)?.creditos ?? 0);
+			}, 0);
+			const orcamento =
+				opts?.limiteCreditos === undefined ? undefined : opts.limiteCreditos - creditosTravados;
 
 			const r = autoMontarGrade(
 				pool
@@ -609,13 +627,24 @@ function createGradeStore() {
 							const alvoNorm = normDocente(docenteAlvo);
 							turmas = turmas.filter((t) => normDocente(t.turma.docente).includes(alvoNorm));
 						}
+						// Cursando agora vale mais que qualquer estrela: uma matéria dessas
+						// nunca deve ser sacrificada pra encaixar mais uma opcional, nem no
+						// horário nem no crédito.
+						const obrigatoria = cursandoAtual.has(m.codigo);
 						return {
 							chave: m.codigo,
 							turmas,
-							peso: prioritarias.has(m.codigo) ? pesoBase * 1000 : pesoBase
+							creditos: m.creditos,
+							obrigatoria,
+							peso: obrigatoria
+								? pesoBase * 1_000_000
+								: prioritarias.has(m.codigo)
+									? pesoBase * 1000
+									: pesoBase
 						};
 					}),
-				mascaraTravada
+				mascaraTravada,
+				orcamento
 			);
 			const novaSel: Record<string, number> = {};
 			for (const codigo of travadas) {
@@ -684,14 +713,18 @@ function createGradeStore() {
 		 * roda o solver de novo (arrastar o slider não deveria trocar turmas que o
 		 * aluno já escolheu, só encolher a lista). Não-prioritárias saem primeiro, e
 		 * entre elas a de mais crédito primeiro — sai menos matéria pra abrir espaço.
-		 * Só quando sobram só prioritárias é que elas também podem sair. Travada
-		 * (cursando agora, turma real já escolhida) nunca é candidata — o slider não
-		 * desmatricula o aluno de uma matéria que ele já está cursando de verdade.
+		 * Só quando sobram só prioritárias é que elas também podem sair.
+		 *
+		 * Matéria que o aluno já está cursando (`cursandoAtual`) nunca é candidata — o
+		 * slider não desmatricula ninguém de uma matéria de matrícula já efetivada.
+		 * Repare que a trava não basta pra isso: ela só nasce quando o aluno escolhe a
+		 * turma real na mão, então logo depois de "Montar grade" o conjunto `travadas`
+		 * está vazio e era justamente aí que o slider jogava MATR fora.
 		 */
 		ajustarParaLimite(limite: number): void {
 			if (creditosSelecionados <= limite) return;
 			const candidatos = [...selecaoAtiva.keys()]
-				.filter((codigo) => !travadas.has(codigo))
+				.filter((codigo) => !travadas.has(codigo) && !cursandoAtual.has(codigo))
 				.map((codigo) => ({
 					codigo,
 					prioritaria: prioritarias.has(codigo),

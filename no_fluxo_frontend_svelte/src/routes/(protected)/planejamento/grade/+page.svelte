@@ -14,9 +14,12 @@
 		candidatosDaMatriz,
 		escolherAteOLimite,
 		motivoParaNaoAdicionar,
+		pendenciasPreRequisito,
 		invalidarContextoGrade,
-		type SemeaduraResultado
+		type SemeaduraResultado,
+		type PendenciaPreRequisito
 	} from '$lib/services/grade-pool.service';
+	import PreRequisitoConfirmDialog from '$lib/components/planejamento/PreRequisitoConfirmDialog.svelte';
 	import { vagaAssinaturasStore } from '$lib/stores/vaga-assinaturas.store.svelte';
 	import { getPeriodoAtivo } from '$lib/services/turmas.service';
 	import { preferenciasGradeService } from '$lib/services/preferencias-grade.service';
@@ -197,66 +200,12 @@
 				(c) => !removidas.has(c)
 			);
 
-			// [DIAG-MATR] instrumentacao temporaria — remover depois de achar a causa.
-			{
-				const df = authStore.getUser()?.dadosFluxograma ?? null;
-				const brutas: { codigo: unknown; status: unknown; anoPeriodo: unknown }[] = [];
-				for (const sem of df?.dadosFluxograma ?? []) {
-					for (const m of sem) {
-						if (
-							String((m as { status?: unknown }).status ?? '')
-								.trim()
-								.toUpperCase() === 'MATR'
-						) {
-							brutas.push({
-								codigo: (m as { codigoMateria?: unknown }).codigoMateria,
-								status: (m as { status?: unknown }).status,
-								anoPeriodo: (m as { anoPeriodo?: unknown }).anoPeriodo
-							});
-						}
-					}
-				}
-				const naMatriz = new Set(
-					(fluxogramaStore.state.courseData?.materias ?? []).map((m) =>
-						m.codigoMateria.trim().toUpperCase()
-					)
-				);
-				console.log('[DIAG-MATR] periodo ativo =', periodo);
-				console.log(
-					'[DIAG-MATR] tem dadosFluxograma?',
-					!!df,
-					'| semestres =',
-					df?.dadosFluxograma?.length ?? 0
-				);
-				console.log('[DIAG-MATR] entradas MATR cruas no historico =', brutas.length, brutas);
-				console.log('[DIAG-MATR] fluxogramaStore.currentCodes =', [
-					...(fluxogramaStore.currentCodes ?? [])
-				]);
-				console.log('[DIAG-MATR] removidas (localStorage) =', [...removidas]);
-				console.log('[DIAG-MATR] cursandoCodigos (entram no pool) =', cursandoCodigos);
-				console.log(
-					'[DIAG-MATR] cursando que existem na matriz/courseData =',
-					cursandoCodigos.map(
-						(c) => `${c}:${naMatriz.has(c.trim().toUpperCase()) ? 'matriz' : 'FORA-da-matriz'}`
-					)
-				);
-			}
-
 			const pool = await construirMateriasGrade(
 				[...new Set([...todos, ...cursandoCodigos])],
 				periodo
 			);
 			gradeStore.init(pool, { idUser, periodo });
 			gradeStore.definirCursandoAtual(cursandoCodigos);
-			// [DIAG-MATR] o que sobreviveu ate o pool.
-			console.log(
-				'[DIAG-MATR] pool final =',
-				pool.map((m) => `${m.codigo} (${m.turmas.length} turmas)`)
-			);
-			console.log(
-				'[DIAG-MATR] cursando que NAO chegaram no pool =',
-				cursandoCodigos.filter((c) => !pool.some((m) => m.codigo === c.trim().toUpperCase()))
-			);
 			preencherTurmasReais();
 			invalidarContextoGrade();
 			status = 'ready';
@@ -304,6 +253,57 @@
 	}
 
 	/**
+	 * Pré-requisito pendente vira confirmação explícita antes de entrar no pool.
+	 *
+	 * A busca (`MateriaSearchAdd`) já faz esse guard sozinha; aqui cobrimos os
+	 * caminhos que passam pela rota — a Darcy sugerindo uma matéria e a ação
+	 * [MONTAR_GRADE|...], que chega com vários códigos de uma vez. O aviso não
+	 * bloqueia: o aluno pode estar cursando o pré-requisito agora (MATR) e ter
+	 * motivo legítimo para se inscrever mesmo assim.
+	 */
+	let pendencias = $state<PendenciaPreRequisito[]>([]);
+	/** Códigos represados esperando o "Adicionar mesmo assim". */
+	let aguardando = $state<string[]>([]);
+	/** O que rodar depois de o lote entrar no pool (montagem do chat). */
+	let aposConfirmar = $state<(() => Promise<void>) | null>(null);
+
+	async function adicionarCodigos(codigos: string[]): Promise<void> {
+		for (const raw of codigos) {
+			const c = raw.trim().toUpperCase();
+			if (!c) continue;
+			await adicionarAoPool(c);
+		}
+	}
+
+	async function resolverPendencias(): Promise<void> {
+		const codigos = aguardando;
+		const depois = aposConfirmar;
+		pendencias = [];
+		aguardando = [];
+		aposConfirmar = null;
+		if (codigos.length > 0) await adicionarCodigos(codigos);
+		if (depois) await depois();
+	}
+
+	function descartarPendencias(): void {
+		pendencias = [];
+		aguardando = [];
+		aposConfirmar = null;
+	}
+
+	/** Caminho de uma matéria só — a Darcy sugerindo no chat. */
+	async function adicionarComAviso(codigo: string): Promise<void> {
+		const p = pendenciasPreRequisito([codigo]);
+		if (p.length > 0) {
+			pendencias = p;
+			aguardando = [codigo];
+			aposConfirmar = null;
+			return;
+		}
+		await adicionarAoPool(codigo);
+	}
+
+	/**
 	 * Ação vinda do chat ([MONTAR_GRADE|...]): garante as matérias no pool, marca-as
 	 * como prioritárias e monta — mantendo as demais que couberem sem conflito.
 	 *
@@ -318,10 +318,29 @@
 	): Promise<void> {
 		if (turnos && turnos.length > 0) gradeStore.setTurnos(turnos);
 		const todosCodigos = [...new Set([...codigos, ...Object.keys(docentes ?? {})])];
+
+		// Um diálogo agregado para o lote inteiro — uma fila de pop-ups, um por
+		// matéria, seria insuportável quando a Darcy sugere meia grade.
+		const p = pendenciasPreRequisito(todosCodigos);
+		if (p.length > 0) {
+			pendencias = p;
+			aguardando = todosCodigos;
+			aposConfirmar = () => aplicarMontagemDoChat(todosCodigos, docentes);
+			return;
+		}
+
+		await adicionarCodigos(todosCodigos);
+		await aplicarMontagemDoChat(todosCodigos, docentes);
+	}
+
+	/** Prioriza o que o chat pediu e monta — já com o lote garantido no pool. */
+	async function aplicarMontagemDoChat(
+		todosCodigos: string[],
+		docentes?: Record<string, string>
+	): Promise<void> {
 		for (const raw of todosCodigos) {
 			const c = raw.trim().toUpperCase();
 			if (!c) continue;
-			await adicionarAoPool(c);
 			if (gradeStore.hasMateria(c) && !gradeStore.isPrioritaria(c)) {
 				gradeStore.togglePrioridade(c);
 			}
@@ -329,13 +348,13 @@
 
 		if (docentes && Object.keys(docentes).length > 0) {
 			const snapshot = gradeStore.snapshotSelecao();
-			gradeStore.montarAutomatico({ docentesObrigatorios: docentes });
+			gradeStore.montarAutomatico({ docentesObrigatorios: docentes, limiteCreditos });
 			const resumo = Object.entries(docentes)
 				.map(([c, nome]) => `${c} com ${nome}`)
 				.join(', ');
 			confirmacaoProfessor = { resumo, snapshot, docentes };
 		} else {
-			gradeStore.montarAutomatico();
+			gradeStore.montarAutomatico({ limiteCreditos });
 		}
 	}
 
@@ -400,5 +419,11 @@
 	/>
 
 	<!-- Chatbot flutuante (Darcy) — recomenda optativas com turma e insere na grade -->
-	<AssistenteChatFab onAddToGrade={adicionarAoPool} onMontarGrade={montarGradeComPrioridade} />
+	<AssistenteChatFab onAddToGrade={adicionarComAviso} onMontarGrade={montarGradeComPrioridade} />
+
+	<PreRequisitoConfirmDialog
+		{pendencias}
+		onConfirmar={resolverPendencias}
+		onCancelar={descartarPendencias}
+	/>
 {/if}

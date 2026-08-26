@@ -24,6 +24,33 @@ import { setHasCodeIgnoreCase, filtrarNaoCursados } from '$lib/utils/subject-cod
 import { hasConflict, turmaRespeitaTurnos } from '$lib/utils/horario-slots';
 
 /**
+ * Partes de pré-requisito ainda não cumpridas (código ou, quando o registro não
+ * traz código, a expressão do SIGAA). `null` = nada pendente.
+ *
+ * Vive separado de `calcularRequisitos` porque o aviso inline corta em 3 partes
+ * enquanto o pop-up de confirmação precisa da lista inteira — e a avaliação da
+ * expressão lógica (AND/OR) não pode ficar duplicada nos dois lugares.
+ */
+function partesPreRequisitoPendentes(idMateria: number): string[] | null {
+	const curso = fluxogramaStore.state.courseData;
+	const completed = fluxogramaStore.completedCodes;
+
+	const prereqs = (curso?.preRequisitos ?? []).filter((pr) => pr.idMateria === idMateria);
+	if (prereqs.length === 0 || satisfazPreRequisitos(prereqs, completed)) return null;
+
+	const partes = new Set<string>();
+	for (const pr of prereqs) {
+		const code = pr.codigoMateriaRequisito?.trim();
+		if (code) {
+			if (!setHasCodeIgnoreCase(completed, code)) partes.add(code);
+		} else if (pr.expressaoOriginal?.trim()) {
+			partes.add(pr.expressaoOriginal.trim());
+		}
+	}
+	return [...partes];
+}
+
+/**
  * Requisitos da matéria a partir do courseData: aviso de pré-requisito pendente
  * (não bloqueia) e lista de co-requisitos. Só resolve p/ matérias da matriz —
  * optativas de fora não têm essas regras no courseData e passam sem aviso.
@@ -36,21 +63,13 @@ export function calcularRequisitos(idMateria: number): {
 	const completed = fluxogramaStore.completedCodes;
 	const current = fluxogramaStore.currentCodes ?? new Set<string>();
 
-	const prereqs = (curso?.preRequisitos ?? []).filter((pr) => pr.idMateria === idMateria);
-	let avisoPreRequisito: string | null = null;
-	if (prereqs.length > 0 && !satisfazPreRequisitos(prereqs, completed)) {
-		const partes = new Set<string>();
-		for (const pr of prereqs) {
-			const code = pr.codigoMateriaRequisito?.trim();
-			if (code) {
-				if (!setHasCodeIgnoreCase(completed, code)) partes.add(code);
-			} else if (pr.expressaoOriginal?.trim()) {
-				partes.add(pr.expressaoOriginal.trim());
-			}
-		}
-		avisoPreRequisito =
-			partes.size > 0 ? [...partes].slice(0, 3).join(' · ') : 'requisitos não cumpridos';
-	}
+	const pendentes = partesPreRequisitoPendentes(idMateria);
+	const avisoPreRequisito =
+		pendentes === null
+			? null
+			: pendentes.length > 0
+				? pendentes.slice(0, 3).join(' · ')
+				: 'requisitos não cumpridos';
 
 	const coRequisitos = [
 		...new Set(
@@ -250,6 +269,108 @@ export function motivoParaNaoAdicionar(codigo: string): string | null {
 		return `Você já está cursando ${c} neste semestre.`;
 	}
 	return null;
+}
+
+/** Pré-requisitos que o aluno ainda não cumpriu para uma matéria. */
+export interface PendenciaPreRequisito {
+	/** Código normalizado da matéria que ele quer adicionar. */
+	codigo: string;
+	/** Nome da matéria, quando conhecido (vem do courseData). */
+	nome: string;
+	/** Códigos — ou expressões, quando o registro não tem código — ainda não cumpridos. */
+	faltantes: string[];
+	/** Regra como o SIGAA escreve, ex.: "CIC0004 E MAT0025". */
+	expressaoOriginal: string | null;
+}
+
+/**
+ * Nome da matéria pelo código, para exibição.
+ *
+ * Consulta a matriz primeiro e, se o código não estiver nela, cai no
+ * `nomeMateriaRequisito` dos pré-requisitos — pré-requisito de outro
+ * departamento costuma não fazer parte da matriz do aluno.
+ */
+export function nomeDoCodigo(codigo: string): string | null {
+	const alvo = codigo.trim().toUpperCase();
+	if (!alvo) return null;
+
+	const curso = fluxogramaStore.state.courseData;
+	const materia = (curso?.materias ?? []).find(
+		(m) => m.codigoMateria.trim().toUpperCase() === alvo
+	);
+	if (materia?.nomeMateria?.trim()) return materia.nomeMateria.trim();
+
+	const pr = (curso?.preRequisitos ?? []).find(
+		(p) => p.codigoMateriaRequisito?.trim().toUpperCase() === alvo
+	);
+	return pr?.nomeMateriaRequisito?.trim() || null;
+}
+
+/**
+ * Pendência de pré-requisito da matéria, ou `null` quando não há o que avisar.
+ *
+ * Serve a todos os caminhos de adição (busca do montador, chat da Darcy, busca de
+ * turmas): o aviso é advisory de propósito — quem está cursando o pré-requisito
+ * agora tem motivo legítimo para seguir —, então quem chama decide o que fazer
+ * com o resultado em vez de receber um bloqueio.
+ *
+ * Devolve `null` para matéria fora da matriz (módulo livre): o courseData não tem
+ * as regras dela e afirmar "faltam pré-requisitos" ali seria mentira.
+ */
+export function pendenciaPreRequisito(codigo: string): PendenciaPreRequisito | null {
+	const alvo = codigo.trim().toUpperCase();
+	if (!alvo) return null;
+
+	const curso = fluxogramaStore.state.courseData;
+	const materia = (curso?.materias ?? []).find(
+		(m) => m.codigoMateria.trim().toUpperCase() === alvo
+	);
+	if (!materia) return null;
+
+	const faltantes = partesPreRequisitoPendentes(materia.idMateria);
+	if (faltantes === null) return null;
+
+	// Um mesmo idMateria pode ter vários registros repetindo a mesma expressão
+	// (o backend devolve a regra expandida) — daí o dedupe.
+	const expressoes = [
+		...new Set(
+			(curso?.preRequisitos ?? [])
+				.filter((pr) => pr.idMateria === materia.idMateria)
+				.map((pr) => pr.expressaoOriginal?.trim())
+				.filter((e): e is string => !!e)
+		)
+	];
+
+	return {
+		codigo: alvo,
+		nome: materia.nomeMateria?.trim() || alvo,
+		faltantes,
+		expressaoOriginal: expressoes.length > 0 ? expressoes.join(' · ') : null
+	};
+}
+
+/**
+ * Versão em lote, para quem adiciona várias matérias de uma vez (ação
+ * `[MONTAR_GRADE|...]` do chat, semeadura).
+ *
+ * Um diálogo por matéria seria uma fila de pop-ups; devolvendo tudo junto o aluno
+ * vê de uma vez o que está pendente. Preserva a ordem de entrada, ignora código
+ * repetido e já descarta quem não tem pendência.
+ */
+export function pendenciasPreRequisito(codigos: string[]): PendenciaPreRequisito[] {
+	const vistos = new Set<string>();
+	const out: PendenciaPreRequisito[] = [];
+
+	for (const codigo of codigos) {
+		const alvo = codigo?.trim().toUpperCase();
+		if (!alvo || vistos.has(alvo)) continue;
+		vistos.add(alvo);
+
+		const pendencia = pendenciaPreRequisito(alvo);
+		if (pendencia) out.push(pendencia);
+	}
+
+	return out;
 }
 
 /** Estado do contexto compartilhado do montador. */
