@@ -8,6 +8,7 @@
 	import TrocarTurmaDialog from './TrocarTurmaDialog.svelte';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
+	import { unidadeCargaStore } from '$lib/stores/unidade-carga.store.svelte';
 	import type { SemeaduraResultado } from '$lib/services/grade-pool.service';
 	import type { Turno } from '$lib/utils/horario-slots';
 	import { ROUTES } from '$lib/config/routes';
@@ -46,6 +47,7 @@
 		limiteCreditos,
 		onAdd,
 		onSemear,
+		onVoltarInicio,
 		aviso = $bindable(null),
 		confirmacaoProfessor = null,
 		onAceitarConfirmacaoProfessor,
@@ -61,6 +63,12 @@
 		 * Quem sabe do plano e da matriz é a rota, não a view.
 		 */
 		onSemear?: () => Promise<SemeaduraResultado>;
+		/**
+		 * Refaz o preenchimento automático da primeira visita (recomendadas do plano
+		 * + matrículas reais do histórico), descartando edições. Quem sabe do
+		 * histórico e do plano é a rota; o harness de dev não passa e o botão some.
+		 */
+		onVoltarInicio?: () => void | Promise<void>;
 		aviso?: string | null;
 		/** Prévia pendente de rearranjo por professor (pedido via chat) — ver a rota. */
 		confirmacaoProfessor?: { resumo: string } | null;
@@ -86,6 +94,13 @@
 	);
 	const creditosAcima = $derived(gradeStore.creditosSelecionados > limiteSessao);
 
+	// Contadores e slider exibem na unidade que o aluno escolheu (horas por padrão,
+	// créditos se preferir) — o estado interno segue sempre em créditos.
+	const unidadeOposta = $derived(unidadeCargaStore.unidade === 'horas' ? 'créditos' : 'horas');
+	const contadorTexto = $derived(
+		`${unidadeCargaStore.emUnidade(gradeStore.creditosSelecionados)}/${unidadeCargaStore.emUnidade(limiteSessao)}`
+	);
+
 	// Arrastar o slider reajusta a grade ao vivo, mas só depois de soltar um pouco —
 	// chamar ajustarParaLimite a cada pixel arrastado tiraria matéria demais de uma
 	// vez só, sem o aluno conseguir ver o que está acontecendo.
@@ -94,6 +109,24 @@
 		limiteSessao = valor;
 		clearTimeout(debounceLimite);
 		debounceLimite = setTimeout(() => gradeStore.ajustarParaLimite(valor), 250);
+	}
+
+	// "Voltar ao início" refaz a semeadura na rede — trava o botão enquanto roda.
+	let voltando = $state(false);
+	async function voltarAoInicio(): Promise<void> {
+		if (!onVoltarInicio || voltando) return;
+		voltando = true;
+		try {
+			await onVoltarInicio();
+		} finally {
+			voltando = false;
+		}
+	}
+
+	/** Esvazia lista e grade; o toast aponta o caminho de volta. */
+	function limparTudo(): void {
+		gradeStore.limparTudo();
+		toast.info('Tudo limpo. "Voltar ao início" refaz o preenchimento automático.');
 	}
 
 	// Calendário em tela cheia (só faz diferença no desktop; no compacto já é 1 coluna).
@@ -185,14 +218,14 @@
 					: semeadas.doPlano.length > 0
 						? `Puxei ${semeadas.doPlano.length} ${plural(semeadas.doPlano.length)} do seu plano. `
 						: '';
-			const resumo = `${materias} ${plural(materias)} · ${creditos} ${creditos === 1 ? 'crédito' : 'créditos'}`;
+			const resumo = `${materias} ${plural(materias)} · ${unidadeCargaStore.formatar(creditos)}`;
 			// Depois que a montagem passou a respeitar o teto, estourar só sobra quando
 			// são matérias que o aluno JÁ cursa (MATR): elas entram por obrigação e não
 			// podem ser cortadas. Dizer "passa do seu limite" seco soaria como erro do
 			// app, quando na verdade é a matrícula real dele.
 			const excedeu =
 				creditos > limiteSessao
-					? ` São ${creditos} créditos porque as matérias que você já cursa não podem sair da grade.`
+					? ` São ${unidadeCargaStore.formatar(creditos)} porque as matérias que você já cursa não podem sair da grade.`
 					: '';
 			// `naoAlocadas` tem duas causas agora — conflito de horário/turno e teto de
 			// créditos —, e o motor não distingue. Não afirme a causa.
@@ -288,7 +321,7 @@
 			title: '4. Confira e exporte',
 			description:
 				'O resumo lista tudo que está na grade com turma e horário. Quando estiver do jeito que você quer, use “Exportar imagem” para baixar a grade e levar pro dia da matrícula.',
-			hint: 'O contador de créditos na barra de cima compara sua seleção com o limite do seu plano.'
+			hint: 'O contador de carga na barra de cima compara sua seleção com o limite do seu plano — em horas ou créditos, você escolhe.'
 		},
 		{
 			target: 'assistente-ia',
@@ -387,9 +420,23 @@
 						<Compass class="mr-2 h-4 w-4" />
 						Como funciona
 					</DropdownMenu.Item>
+					{#if onVoltarInicio}
+						<DropdownMenu.Item onclick={voltarAoInicio} disabled={voltando}>
+							{#if voltando}
+								<Loader2 class="mr-2 h-4 w-4 animate-spin" />
+							{:else}
+								<Undo2 class="mr-2 h-4 w-4" />
+							{/if}
+							Voltar ao início
+						</DropdownMenu.Item>
+					{/if}
 					<DropdownMenu.Item onclick={() => gradeStore.limpar()}>
 						<Trash2 class="mr-2 h-4 w-4" />
 						Limpar a grade
+					</DropdownMenu.Item>
+					<DropdownMenu.Item onclick={limparTudo}>
+						<Trash2 class="mr-2 h-4 w-4 text-red-300" />
+						Limpar tudo
 					</DropdownMenu.Item>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
@@ -405,17 +452,19 @@
 		<div
 			class="-mx-3 mb-3 flex items-center gap-2 border-y border-white/10 bg-white/[0.03] px-3 py-2 sm:-mx-5 sm:px-5"
 		>
-			<div
-				class="flex shrink-0 items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1"
+			<button
+				type="button"
+				onclick={() => unidadeCargaStore.alternar()}
+				class="flex shrink-0 touch-manipulation items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 transition-colors hover:bg-white/10"
 				data-tour="creditos"
-				title="Créditos escolhidos contra o limite do seu plano"
+				title="Carga escolhida contra o limite do seu plano — toque para ver em {unidadeOposta}"
 			>
 				<span
 					class="text-[11px] tabular-nums {creditosAcima
 						? 'font-semibold text-red-300'
 						: 'text-white/70'}"
 				>
-					{gradeStore.creditosSelecionados}/{limiteSessao}
+					{contadorTexto}{unidadeCargaStore.sufixo}
 				</span>
 				<!-- Abaixo de 380px a barrinha some para o rótulo do botão principal
 				     caber inteiro; o próprio número já fica vermelho ao estourar. -->
@@ -431,7 +480,7 @@
 						style="width: {creditosPct}%"
 					></span>
 				</span>
-			</div>
+			</button>
 
 			<div
 				class="flex shrink-0 items-center gap-0.5 rounded-full border border-white/10 bg-white/5 p-0.5"
@@ -496,15 +545,19 @@
 			<div class="flex w-full flex-wrap items-center gap-2 sm:w-auto">
 				<HelpTip
 					side="bottom"
-					title="Créditos do semestre"
-					text="Soma dos créditos das turmas já escolhidas contra o limite do seu plano. A barra fica amarela perto do limite e vermelha se passar."
+					title="Carga do semestre"
+					text="Soma da carga das turmas já escolhidas contra o limite do seu plano. A barra fica amarela perto do limite e vermelha se passar. Clique no contador para alternar entre horas e créditos."
 				>
-					<div
-						class="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1"
+					<button
+						type="button"
+						onclick={() => unidadeCargaStore.alternar()}
+						class="flex touch-manipulation items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 transition-colors hover:bg-white/10"
 						data-tour="creditos"
+						title="Mostrar em {unidadeOposta}"
 					>
 						<span class="text-xs {creditosAcima ? 'font-semibold text-red-300' : 'text-white/70'}">
-							{gradeStore.creditosSelecionados}/{limiteSessao} cr
+							{contadorTexto}
+							{unidadeCargaStore.sufixo}
 						</span>
 						<span class="h-1.5 w-16 overflow-hidden rounded-full bg-white/10">
 							<span
@@ -516,7 +569,7 @@
 								style="width: {creditosPct}%"
 							></span>
 						</span>
-					</div>
+					</button>
 				</HelpTip>
 				<div
 					class="flex items-center gap-0.5 rounded-full border border-white/10 bg-white/5 p-0.5"
@@ -591,13 +644,47 @@
 						<Search class="h-3.5 w-3.5" /> Buscar turmas
 					</a>
 				</HelpTip>
-				<button
-					type="button"
-					onclick={() => gradeStore.limpar()}
-					class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/70 transition-colors hover:bg-white/10"
-				>
-					<Trash2 class="h-3.5 w-3.5" /> Limpar
-				</button>
+				{#if onVoltarInicio}
+					<HelpTip
+						side="bottom"
+						title="Voltar ao início"
+						text="Refaz o preenchimento automático da primeira visita: as matérias em que você já está matriculado (com a turma real do SIGAA) e as recomendadas do seu plano. Descarta as edições feitas aqui."
+					>
+						<button
+							type="button"
+							onclick={voltarAoInicio}
+							disabled={voltando}
+							class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/70 transition-colors hover:bg-white/10 disabled:opacity-60"
+						>
+							{#if voltando}<Loader2 class="h-3.5 w-3.5 animate-spin" />{:else}<Undo2
+									class="h-3.5 w-3.5"
+								/>{/if} Voltar ao início
+						</button>
+					</HelpTip>
+				{/if}
+				<DropdownMenu.Root>
+					<DropdownMenu.Trigger
+						class="inline-flex touch-manipulation items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/70 transition-colors hover:bg-white/10"
+					>
+						<Trash2 class="h-3.5 w-3.5" /> Limpar
+					</DropdownMenu.Trigger>
+					<DropdownMenu.Content class="w-64" align="end">
+						<DropdownMenu.Item onclick={() => gradeStore.limpar()}>
+							<Trash2 class="mr-2 h-4 w-4" />
+							<div class="flex flex-col">
+								<span>Limpar a grade</span>
+								<span class="text-[11px] text-white/45">Tira só as turmas escolhidas</span>
+							</div>
+						</DropdownMenu.Item>
+						<DropdownMenu.Item onclick={limparTudo}>
+							<Trash2 class="mr-2 h-4 w-4 text-red-300" />
+							<div class="flex flex-col">
+								<span>Limpar tudo</span>
+								<span class="text-[11px] text-white/45">Esvazia a lista de matérias e a grade</span>
+							</div>
+						</DropdownMenu.Item>
+					</DropdownMenu.Content>
+				</DropdownMenu.Root>
 				<HelpTip
 					side="bottom"
 					title="Tour guiado"
@@ -626,8 +713,8 @@
 	>
 		<HelpTip
 			side="bottom"
-			title="Limite de créditos desta montagem"
-			text="Arraste pra ver o que cabe com menos créditos — a grade se ajusta na hora, tirando primeiro as matérias sem estrela (a de maior carga primeiro). Vale só nesta tela; não muda o limite do seu plano de formatura."
+			title="Limite de carga desta montagem"
+			text="Arraste pra ver o que cabe com menos carga — a grade se ajusta na hora, tirando primeiro as matérias sem estrela (a de maior carga primeiro). Vale só nesta tela; não muda o limite do seu plano de formatura. Clique na unidade ao lado pra alternar entre horas e créditos."
 		>
 			<span class="shrink-0 text-[11px] font-semibold tracking-[0.08em] text-white/50 uppercase"
 				>Limite</span
@@ -641,15 +728,23 @@
 			value={limiteSessao}
 			oninput={(e) => moverSliderCreditos(Number((e.currentTarget as HTMLInputElement).value))}
 			class="h-1.5 min-w-[8rem] flex-1 touch-manipulation accent-purple-400"
-			aria-label="Limite de créditos desta montagem"
+			aria-label="Limite de carga desta montagem"
 		/>
 		<span
 			class="shrink-0 text-xs tabular-nums {creditosAcima
 				? 'font-semibold text-red-300'
 				: 'text-white/70'}"
 		>
-			{gradeStore.creditosSelecionados}/{limiteSessao} créditos
+			{contadorTexto}
 		</span>
+		<button
+			type="button"
+			onclick={() => unidadeCargaStore.alternar()}
+			class="shrink-0 touch-manipulation rounded text-xs text-white/45 underline decoration-dotted underline-offset-2 transition-colors hover:text-white/80"
+			title="Mostrar em {unidadeOposta}"
+		>
+			{unidadeCargaStore.unidade}
+		</button>
 	</div>
 
 	<div class="mb-3">

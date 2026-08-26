@@ -24,12 +24,11 @@
 	import { getPeriodoAtivo } from '$lib/services/turmas.service';
 	import { preferenciasGradeService } from '$lib/services/preferencias-grade.service';
 	import { filtrarNaoCursados } from '$lib/utils/subject-codes';
+	import { turmasReaisDoHistorico, encontrarTurmaReal } from '$lib/utils/turmas-reais';
 	import { ROUTES } from '$lib/config/routes';
 	import type { SemestrePlano, ItemSemestre, MateriaPlano } from '$lib/types/plano-formatura';
 	import { CalendarDays, Loader2 } from 'lucide-svelte';
 	import { toast } from 'svelte-sonner';
-
-
 
 	let status = $state<'loading' | 'ready' | 'error'>('loading');
 	let erro = $state<string | null>(null);
@@ -67,6 +66,48 @@
 	function codigosRecomendados(): string[] {
 		const recomendado = extrairRecomendado();
 		return recomendado ? recomendado.materias.filter(isMateriaPlano).map((m) => m.codigo) : [];
+	}
+
+	/**
+	 * Pré-seleciona a turma em que o aluno já está matriculado (histórico SIGAA)
+	 * para cada matéria em curso que ainda está sem turma na grade ativa — o
+	 * calendário abre já espelhando a matrícula real, e `selecionarTurma` trava a
+	 * matéria para "Montar grade" não trocar uma matrícula que já aconteceu.
+	 * Matéria que já tem turma escolhida (salva ou manual) fica como está.
+	 */
+	function preencherTurmasReais(): void {
+		if (!periodo) return;
+		const reais = turmasReaisDoHistorico(authStore.getUser()?.dadosFluxograma, periodo);
+		if (reais.size === 0) return;
+		for (const m of gradeStore.pool) {
+			if (!gradeStore.isCursandoAtual(m.codigo) || gradeStore.turmaSelecionada(m.codigo)) continue;
+			const idTurma = encontrarTurmaReal(m, reais);
+			if (idTurma != null) gradeStore.selecionarTurma(m.codigo, idTurma);
+		}
+	}
+
+	/**
+	 * Volta o montador ao estado de início: só o semestre recomendado do plano +
+	 * as matérias em que o aluno já está matriculado (com a turma real do SIGAA),
+	 * como na primeira visita — o que foi removido na lixeira também volta.
+	 */
+	async function voltarAoInicio(): Promise<void> {
+		if (!periodo) return;
+		avisoAdd = null;
+		const cursandoCodigos = [...(fluxogramaStore.currentCodes ?? new Set<string>())];
+		const recomendados = filtrarNaoCursados(
+			codigosRecomendados(),
+			fluxogramaStore.completedCodes,
+			fluxogramaStore.currentCodes ?? new Set<string>()
+		);
+		const pool = await construirMateriasGrade(
+			[...new Set([...recomendados, ...cursandoCodigos])],
+			periodo
+		);
+		gradeStore.resetarParaInicio(pool);
+		gradeStore.definirCursandoAtual(cursandoCodigos);
+		preencherTurmasReais();
+		toast.success('Grade de volta ao estado inicial.');
 	}
 
 	/**
@@ -159,9 +200,13 @@
 				(c) => !removidas.has(c)
 			);
 
-			const pool = await construirMateriasGrade([...new Set([...todos, ...cursandoCodigos])], periodo);
+			const pool = await construirMateriasGrade(
+				[...new Set([...todos, ...cursandoCodigos])],
+				periodo
+			);
 			gradeStore.init(pool, { idUser, periodo });
 			gradeStore.definirCursandoAtual(cursandoCodigos);
+			preencherTurmasReais();
 			invalidarContextoGrade();
 			status = 'ready';
 			// Carrega assinaturas de vaga em background (habilita "seguir turma lotada").
@@ -366,6 +411,7 @@
 		{limiteCreditos}
 		onAdd={adicionarAoPool}
 		onSemear={semear}
+		onVoltarInicio={voltarAoInicio}
 		bind:aviso={avisoAdd}
 		{confirmacaoProfessor}
 		onAceitarConfirmacaoProfessor={aceitarConfirmacaoProfessor}

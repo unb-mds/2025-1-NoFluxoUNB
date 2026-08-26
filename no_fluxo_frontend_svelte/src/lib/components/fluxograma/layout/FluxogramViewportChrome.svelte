@@ -1,5 +1,18 @@
 <script lang="ts">
-import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle, Maximize2, Minimize2, GraduationCap, Calendar, TrendingUp, SlidersHorizontal, Loader2 } from 'lucide-svelte';
+	import {
+		ZoomIn,
+		ZoomOut,
+		RotateCcw,
+		X,
+		HelpCircle,
+		Maximize2,
+		Minimize2,
+		GraduationCap,
+		Calendar,
+		TrendingUp,
+		SlidersHorizontal,
+		Loader2
+	} from 'lucide-svelte';
 	import { browser } from '$app/environment';
 	import { fluxogramaStore, type ConnectionMode } from '$lib/stores/fluxograma.store.svelte';
 	import { getTotalCreditsCompleted } from '$lib/types/user';
@@ -16,15 +29,24 @@ import { ZoomIn, ZoomOut, RotateCcw, X, HelpCircle, Maximize2, Minimize2, Gradua
 	interface Props {
 		/** Sincronizado com o botão “Legenda e regras” (?) no header */
 		helpOpen?: boolean;
-	/** Modo foco: expande apenas o container do fluxograma. */
-	focusMode?: boolean;
-	/** Callback para alternar o modo foco no container pai. */
-	toggleFocusMode?: () => void;
+		/** Modo foco: expande apenas o container do fluxograma. */
+		focusMode?: boolean;
+		/** Callback para alternar o modo foco no container pai. */
+		toggleFocusMode?: () => void;
+		/** Painel de controle mobile — bindable para o botão da barra abaixo do fluxograma. */
+		controlsOpen?: boolean;
 		integralizacao?: IntegralizacaoResult | null;
 		integralizacaoLoading?: boolean;
 	}
 
-let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode, integralizacao = null, integralizacaoLoading = false }: Props = $props();
+	let {
+		helpOpen = $bindable(false),
+		focusMode = false,
+		toggleFocusMode,
+		controlsOpen = $bindable(false),
+		integralizacao = null,
+		integralizacaoLoading = false
+	}: Props = $props();
 
 	const store = fluxogramaStore;
 
@@ -37,7 +59,7 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode, integrali
 	let userFluxograma = $derived(store.userFluxograma);
 
 	let totalCredits = $derived.by(() => {
-        if (!courseData) return 0;
+		if (!courseData) return 0;
 		if (courseData.totalCreditos != null && courseData.totalCreditos > 0) {
 			return courseData.totalCreditos;
 		}
@@ -51,10 +73,10 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode, integrali
 		const creditsMap = new Map(courseData.materias.map((m) => [m.codigoMateria, m.creditos]));
 		return getTotalCreditsCompleted(userFluxograma, creditsMap);
 	});
-    
+
 	let usaHoras = $derived(!!integralizacao && integralizacao.exigido.chTotal > 0);
 
-    let progressPct = $derived(
+	let progressPct = $derived(
 		integralizacaoLoading
 			? null
 			: usaHoras && integralizacao
@@ -97,8 +119,6 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode, integrali
 
 	/** Mobile + landscape estreito: FAB e faixa de conexões (evita barra “desktop” em tela deitada). */
 	let compactTouch = $state(false);
-	/** Mobile: painel de controle (zoom, conexões, exibição, filtros, legenda) */
-	let fabMenuOpen = $state(false);
 
 	/** Semestres com conteúdo — chips de navegação rápida no rodapé mobile. */
 	let semesterList = $derived.by(() => {
@@ -123,6 +143,19 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode, integrali
 		});
 	}
 
+	let overlayChipsEl: HTMLElement | null = $state(null);
+
+	// Ao entrar no modo foco, a faixa de chips abre centralizada no semestre atual.
+	$effect(() => {
+		const n = semestreAtualAluno;
+		void semesterList.length;
+		const el = overlayChipsEl;
+		if (!el || n == null) return;
+		const chip = el.querySelector<HTMLElement>(`[data-chip="${n}"]`);
+		if (!chip) return;
+		el.scrollLeft = Math.max(0, chip.offsetLeft - (el.clientWidth - chip.offsetWidth) / 2);
+	});
+
 	$effect(() => {
 		if (!browser) return;
 		const apply = () => {
@@ -143,7 +176,7 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode, integrali
 
 	$effect(() => {
 		if (!compactTouch) {
-			fabMenuOpen = false;
+			controlsOpen = false;
 		}
 	});
 
@@ -152,24 +185,24 @@ let { helpOpen = $bindable(false), focusMode = false, toggleFocusMode, integrali
 	}
 
 	function openHelpFromPanel() {
-		fabMenuOpen = false;
+		controlsOpen = false;
 		helpOpen = true;
 	}
 
-function handleToggleFocusMode() {
-	toggleFocusMode?.();
+	function handleToggleFocusMode() {
+		toggleFocusMode?.();
 	}
 
 	function handleLegendKeydown(e: KeyboardEvent) {
 		if (e.key === 'Escape') {
 			helpOpen = false;
-			fabMenuOpen = false;
+			controlsOpen = false;
 			if (focusMode) toggleFocusMode?.();
 		}
 	}
 
 	$effect(() => {
-		if (helpOpen || fabMenuOpen) {
+		if (helpOpen || controlsOpen) {
 			const prev = document.body.style.overflow;
 			document.body.style.overflow = 'hidden';
 			return () => {
@@ -177,7 +210,6 @@ function handleToggleFocusMode() {
 			};
 		}
 	});
-
 </script>
 
 <svelte:window onkeydown={handleLegendKeydown} />
@@ -194,27 +226,42 @@ function handleToggleFocusMode() {
 >
 	<!-- HUD no modo tela cheia -->
 	{#if focusMode && courseData && userFluxograma}
-		<div class="pointer-events-none absolute left-0 right-0 top-[max(0.75rem,env(safe-area-inset-top,0px))] z-[40] flex justify-center {compactTouch ? 'px-16' : ''}">
-			<div class="pointer-events-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 rounded-full border border-white/10 bg-black/50 px-4 py-2 text-xs backdrop-blur-md sm:text-sm">
+		<div
+			class="pointer-events-none absolute top-[max(0.75rem,env(safe-area-inset-top,0px))] right-0 left-0 z-[40] flex justify-center {compactTouch
+				? 'px-16'
+				: ''}"
+		>
+			<div
+				class="pointer-events-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 rounded-full border border-white/10 bg-black/50 px-4 py-2 text-xs backdrop-blur-md sm:text-sm"
+			>
 				<div class="flex items-center gap-1.5 text-white">
 					{#if integralizacaoLoading}
 						<Loader2 class="h-4 w-4 shrink-0 animate-spin text-green-400" />
-						<span class="font-medium">— <span class="hidden sm:inline text-white/50">concluído</span></span>
+						<span class="font-medium"
+							>— <span class="hidden text-white/50 sm:inline">concluído</span></span
+						>
 					{:else}
 						<GraduationCap class="h-4 w-4 text-green-400" />
-						<span class="font-medium">{progressPct}% <span class="hidden sm:inline text-white/50">concluído</span></span>
+						<span class="font-medium"
+							>{progressPct}% <span class="hidden text-white/50 sm:inline">concluído</span></span
+						>
 					{/if}
 				</div>
 				<div class="h-3 w-px bg-white/20"></div>
 				<div class="flex items-center gap-1.5 text-white">
 					<Calendar class="h-4 w-4 text-amber-400" />
-					<span class="font-medium">{userFluxograma.semestreAtual}º <span class="hidden sm:inline text-white/50">sem.</span></span>
+					<span class="font-medium"
+						>{userFluxograma.semestreAtual}º
+						<span class="hidden text-white/50 sm:inline">sem.</span></span
+					>
 				</div>
 				{#if userFluxograma.ira != null}
 					<div class="h-3 w-px bg-white/20"></div>
 					<div class="flex items-center gap-1.5 text-white">
 						<TrendingUp class="h-4 w-4 text-purple-400" />
-						<span class="font-medium">IRA: {formatarIraParaExibicao(userFluxograma.ira, userFluxograma.iraTexto)}</span>
+						<span class="font-medium"
+							>IRA: {formatarIraParaExibicao(userFluxograma.ira, userFluxograma.iraTexto)}</span
+						>
 					</div>
 				{/if}
 			</div>
@@ -222,13 +269,17 @@ function handleToggleFocusMode() {
 	{/if}
 
 	<div
-		class="pointer-events-none absolute right-[max(0.75rem,env(safe-area-inset-right,0px))] top-[max(0.75rem,env(safe-area-inset-top,0px))] z-[46] {compactTouch ? 'hidden' : ''}"
+		class="pointer-events-none absolute top-[max(0.75rem,env(safe-area-inset-top,0px))] right-[max(0.75rem,env(safe-area-inset-right,0px))] z-[46] {compactTouch
+			? 'hidden'
+			: ''}"
 	>
 		<button
 			type="button"
 			onclick={handleToggleFocusMode}
 			class="pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-cyan-500/35 bg-cyan-500/15 text-cyan-100 shadow-lg backdrop-blur-md transition-colors hover:bg-cyan-500/25 hover:text-white"
-			aria-label={focusMode ? 'Sair do modo foco do fluxograma' : 'Entrar no modo foco do fluxograma'}
+			aria-label={focusMode
+				? 'Sair do modo foco do fluxograma'
+				: 'Entrar no modo foco do fluxograma'}
 			title={focusMode ? 'Sair do modo foco' : 'Modo foco'}
 		>
 			{#if focusMode}
@@ -273,13 +324,16 @@ function handleToggleFocusMode() {
 				>
 					<ZoomIn class="h-4 w-4" />
 				</button>
-				<label class="flex shrink-0 items-center gap-0.5 text-white/55" title="Zoom de 30% a 200%. Enter ou clique fora para aplicar">
+				<label
+					class="flex shrink-0 items-center gap-0.5 text-white/55"
+					title="Zoom de 30% a 200%. Enter ou clique fora para aplicar"
+				>
 					<input
 						type="text"
 						inputmode="numeric"
 						autocomplete="off"
 						maxlength="3"
-						class="w-[2.65rem] rounded border border-white/20 bg-black/50 px-1 py-0.5 text-center text-[11px] font-medium tabular-nums text-white outline-none focus:border-purple-400/50 focus:ring-1 focus:ring-inset focus:ring-purple-400/25"
+						class="w-[2.65rem] rounded border border-white/20 bg-black/50 px-1 py-0.5 text-center text-[11px] font-medium text-white tabular-nums outline-none focus:border-purple-400/50 focus:ring-1 focus:ring-purple-400/25 focus:ring-inset"
 						value={zoomDraft}
 						oninput={onZoomDraftInput}
 						onfocus={() => (zoomInputFocused = true)}
@@ -313,17 +367,22 @@ function handleToggleFocusMode() {
 			<button
 				type="button"
 				onclick={() => selectMode('direct')}
-				class="rounded-l-full px-1.5 py-1 text-[10px] font-medium sm:px-2 sm:text-[11px] {store.state.connectionMode === 'direct'
+				class="rounded-l-full px-1.5 py-1 text-[10px] font-medium sm:px-2 sm:text-[11px] {store
+					.state.connectionMode === 'direct'
 					? 'bg-purple-500/45 text-white'
 					: 'text-white/70 hover:bg-white/10'}"
 			>
 				Diretas
 			</button>
-			<span class="flex items-center self-stretch border-x border-white/15 px-0.5 text-[9px] leading-none text-white/35">|</span>
+			<span
+				class="flex items-center self-stretch border-x border-white/15 px-0.5 text-[9px] leading-none text-white/35"
+				>|</span
+			>
 			<button
 				type="button"
 				onclick={() => selectMode('all')}
-				class="px-1.5 py-1 text-[10px] font-medium sm:px-2 sm:text-[11px] {store.state.connectionMode === 'all'
+				class="px-1.5 py-1 text-[10px] font-medium sm:px-2 sm:text-[11px] {store.state
+					.connectionMode === 'all'
 					? 'bg-purple-500/45 text-white'
 					: 'text-white/70 hover:bg-white/10'}"
 			>
@@ -343,27 +402,32 @@ function handleToggleFocusMode() {
 	<!--
 		Mobile / touch compacto: ações principais no rodapé + menu vertical de conexões.
 	-->
-	{#if compactTouch}
+	{#if compactTouch && focusMode}
+		<!-- Modo foco: controles no overlay (não há fluxo de página). Fora dele,
+		     a barra de controles vive abaixo do fluxograma (SemesterNavChips). -->
 		<!-- Scrim: os cards desvanecem sob os controles do rodapé em vez de ficarem cortados -->
 		<div
-			class="pointer-events-none absolute inset-x-0 bottom-0 z-30 bg-gradient-to-t from-[hsl(240_12%_2.4%/0.92)] via-[hsl(240_12%_2.4%/0.55)] to-transparent {focusMode
-				? 'h-40'
-				: 'h-24'}"
+			class="pointer-events-none absolute inset-x-0 bottom-0 z-30 h-40 bg-gradient-to-t from-[hsl(240_12%_2.4%/0.92)] via-[hsl(240_12%_2.4%/0.55)] to-transparent"
 			aria-hidden="true"
 		></div>
 		<div
-			class="pointer-events-none absolute inset-x-0 bottom-[max(1rem,env(safe-area-inset-bottom,0px))] z-40 flex flex-col gap-2 pl-[max(0.75rem,env(safe-area-inset-left,0px))] pr-[max(0.75rem,env(safe-area-inset-right,0px))]"
+			class="pointer-events-none absolute inset-x-0 bottom-[max(1rem,env(safe-area-inset-bottom,0px))] z-40 flex flex-col gap-2 pr-[max(0.75rem,env(safe-area-inset-right,0px))] pl-[max(0.75rem,env(safe-area-inset-left,0px))]"
 		>
 			<!-- Mapa-índice: chips de semestre — no modo foco ficam no overlay;
 			     fora dele vivem no fluxo da página (SemesterNavChips) -->
 			{#if focusMode && semesterList.length > 1}
-				<div class="semester-chips pointer-events-auto -mx-1 flex gap-1.5 overflow-x-auto px-1 pb-0.5">
+				<div
+					bind:this={overlayChipsEl}
+					class="semester-chips pointer-events-auto -mx-1 flex gap-1.5 overflow-x-auto px-1 pb-0.5"
+				>
 					{#each semesterList as sem (sem)}
 						<button
 							type="button"
+							data-chip={sem}
 							onclick={() => scrollToSemester(sem)}
-							class="h-9 min-w-[2.5rem] shrink-0 rounded-full border px-2.5 text-xs font-semibold backdrop-blur-md transition-colors active:scale-95 {sem === semestreAtualAluno
-								? 'border-primary/70 bg-primary/85 text-primary-foreground shadow-lg shadow-primary/25'
+							class="h-9 min-w-[2.5rem] shrink-0 rounded-full border px-2.5 text-xs font-semibold backdrop-blur-md transition-colors active:scale-95 {sem ===
+							semestreAtualAluno
+								? 'border-primary/70 bg-primary/85 text-primary-foreground shadow-primary/25 shadow-lg'
 								: 'border-white/15 bg-black/45 text-white/80'}"
 							aria-label="Ir para o semestre {sem}"
 						>
@@ -373,41 +437,43 @@ function handleToggleFocusMode() {
 				</div>
 			{/if}
 			<div class="flex items-end justify-between gap-3">
-			<div class="pointer-events-auto shrink-0">
-				<button
-					type="button"
-					onclick={() => (fabMenuOpen = !fabMenuOpen)}
-					class="flex h-11 w-11 items-center justify-center rounded-full border border-primary/35 bg-primary text-primary-foreground shadow-lg shadow-primary/25 transition-transform active:scale-95"
-					aria-expanded={fabMenuOpen}
-					aria-label="Painel de controle do fluxograma"
-					title="Painel de controle"
+				<div class="pointer-events-auto shrink-0">
+					<button
+						type="button"
+						onclick={() => (controlsOpen = !controlsOpen)}
+						class="border-primary/35 bg-primary text-primary-foreground shadow-primary/25 flex h-11 w-11 items-center justify-center rounded-full border shadow-lg transition-transform active:scale-95"
+						aria-expanded={controlsOpen}
+						aria-label="Painel de controle do fluxograma"
+						title="Painel de controle"
+					>
+						<SlidersHorizontal class="h-5 w-5" />
+					</button>
+				</div>
+				<div
+					class="pointer-events-auto flex min-w-0 shrink-0 items-center justify-end gap-2 pb-0.5"
 				>
-					<SlidersHorizontal class="h-5 w-5" />
-				</button>
-			</div>
-			<div class="pointer-events-auto flex min-w-0 shrink-0 items-center justify-end gap-2 pb-0.5">
-				<button
-					type="button"
-					onclick={handleToggleFocusMode}
-					class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-cyan-500/35 bg-cyan-500/15 text-cyan-100 shadow-lg backdrop-blur-md transition-colors active:scale-95"
-					aria-label={focusMode ? 'Sair do modo foco do fluxograma' : 'Modo foco do fluxograma'}
-					title={focusMode ? 'Sair do modo foco' : 'Modo foco'}
-				>
-					{#if focusMode}
-						<Minimize2 class="h-5 w-5" />
-					{:else}
-						<Maximize2 class="h-5 w-5" />
-					{/if}
-				</button>
-			</div>
+					<button
+						type="button"
+						onclick={handleToggleFocusMode}
+						class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-cyan-500/35 bg-cyan-500/15 text-cyan-100 shadow-lg backdrop-blur-md transition-colors active:scale-95"
+						aria-label={focusMode ? 'Sair do modo foco do fluxograma' : 'Modo foco do fluxograma'}
+						title={focusMode ? 'Sair do modo foco' : 'Modo foco'}
+					>
+						{#if focusMode}
+							<Minimize2 class="h-5 w-5" />
+						{:else}
+							<Maximize2 class="h-5 w-5" />
+						{/if}
+					</button>
+				</div>
 			</div>
 		</div>
-	{:else}
+	{:else if !compactTouch}
 		<!--
 			Desktop: conexões fixas no canto inferior direito (zoom continua à esquerda).
 		-->
 		<div
-			class="pointer-events-none absolute bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] right-[max(0.75rem,env(safe-area-inset-right,0px))] z-[35]"
+			class="pointer-events-none absolute right-[max(0.75rem,env(safe-area-inset-right,0px))] bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] z-[35]"
 		>
 			{@render connectionModePill()}
 		</div>
@@ -415,17 +481,17 @@ function handleToggleFocusMode() {
 </div>
 
 <!-- Mobile: painel de controle (portal → body: fora do stacking context z-0 do diagrama) -->
-{#if fabMenuOpen && compactTouch}
+{#if controlsOpen && compactTouch}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<div
 		use:portal
 		class="fixed inset-0 z-[500] bg-black/55 backdrop-blur-[2px]"
-		onclick={() => (fabMenuOpen = false)}
+		onclick={() => (controlsOpen = false)}
 		role="presentation"
 	></div>
 	<div
 		use:portal
-		class="fixed bottom-0 left-0 right-0 z-[510] max-h-[min(72dvh,520px)] overflow-hidden rounded-t-2xl border border-white/15 bg-gray-950/98 shadow-2xl backdrop-blur-xl [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[min(85dvh,100dvh-2rem)]"
+		class="fixed right-0 bottom-0 left-0 z-[510] max-h-[min(72dvh,520px)] overflow-hidden rounded-t-2xl border border-white/15 bg-gray-950/98 shadow-2xl backdrop-blur-xl [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[min(85dvh,100dvh-2rem)]"
 		role="dialog"
 		aria-modal="true"
 		aria-labelledby="fab-tools-title"
@@ -434,7 +500,7 @@ function handleToggleFocusMode() {
 			<h2 id="fab-tools-title" class="text-sm font-semibold text-white">Painel de controle</h2>
 			<button
 				type="button"
-				onclick={() => (fabMenuOpen = false)}
+				onclick={() => (controlsOpen = false)}
 				class="rounded-lg p-2 text-white/60 hover:bg-white/10"
 				aria-label="Fechar"
 			>
@@ -443,7 +509,7 @@ function handleToggleFocusMode() {
 		</div>
 		<div class="max-h-[min(60dvh,440px)] space-y-4 overflow-y-auto overscroll-contain px-4 py-4">
 			<div>
-				<p class="mb-2 text-[10px] font-semibold uppercase tracking-wide text-white/45">Zoom</p>
+				<p class="mb-2 text-[10px] font-semibold tracking-wide text-white/45 uppercase">Zoom</p>
 				<div class="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-2 py-2">
 					<button
 						type="button"
@@ -469,7 +535,10 @@ function handleToggleFocusMode() {
 					>
 						<ZoomIn class="h-5 w-5" />
 					</button>
-					<label class="flex shrink-0 items-center gap-1 text-white/70" title="30 a 200%. Enter ou fora do campo para aplicar">
+					<label
+						class="flex shrink-0 items-center gap-1 text-white/70"
+						title="30 a 200%. Enter ou fora do campo para aplicar"
+					>
 						<input
 							type="text"
 							inputmode="numeric"
@@ -499,13 +568,17 @@ function handleToggleFocusMode() {
 				</div>
 			</div>
 			<div>
-				<p class="mb-2 text-[10px] font-semibold uppercase tracking-wide text-white/45">Conexões de pré-requisito</p>
+				<p class="mb-2 text-[10px] font-semibold tracking-wide text-white/45 uppercase">
+					Conexões de pré-requisito
+				</p>
 				<div class="flex gap-0 overflow-hidden rounded-xl border border-white/10 bg-white/5">
 					{#each [{ mode: 'direct', label: 'Diretas' }, { mode: 'all', label: 'Todas' }, { mode: 'off', label: 'Off' }] as opt, i (opt.mode)}
 						<button
 							type="button"
 							onclick={() => selectMode(opt.mode as ConnectionMode)}
-							class="min-h-[44px] flex-1 px-2 text-sm font-medium transition-colors {i > 0 ? 'border-l border-white/10' : ''} {store.state.connectionMode === opt.mode
+							class="min-h-[44px] flex-1 px-2 text-sm font-medium transition-colors {i > 0
+								? 'border-l border-white/10'
+								: ''} {store.state.connectionMode === opt.mode
 								? 'bg-purple-500/35 text-white'
 								: 'text-white/75 hover:bg-white/10'}"
 						>
@@ -515,12 +588,15 @@ function handleToggleFocusMode() {
 				</div>
 			</div>
 			<div>
-				<p class="mb-2 text-[10px] font-semibold uppercase tracking-wide text-white/45">Totais por semestre</p>
+				<p class="mb-2 text-[10px] font-semibold tracking-wide text-white/45 uppercase">
+					Totais por semestre
+				</p>
 				<div class="flex gap-0 overflow-hidden rounded-xl border border-white/10 bg-white/5">
 					<button
 						type="button"
 						onclick={() => store.setDisplayUnit('creditos')}
-						class="min-h-[44px] flex-1 px-2 text-sm font-medium transition-colors {store.state.displayUnit === 'creditos'
+						class="min-h-[44px] flex-1 px-2 text-sm font-medium transition-colors {store.state
+							.displayUnit === 'creditos'
 							? 'bg-cyan-500/25 text-cyan-200'
 							: 'text-white/75 hover:bg-white/10'}"
 					>
@@ -529,7 +605,8 @@ function handleToggleFocusMode() {
 					<button
 						type="button"
 						onclick={() => store.setDisplayUnit('horas')}
-						class="min-h-[44px] flex-1 border-l border-white/10 px-2 text-sm font-medium transition-colors {store.state.displayUnit === 'horas'
+						class="min-h-[44px] flex-1 border-l border-white/10 px-2 text-sm font-medium transition-colors {store
+							.state.displayUnit === 'horas'
 							? 'bg-cyan-500/25 text-cyan-200'
 							: 'text-white/75 hover:bg-white/10'}"
 					>
@@ -538,7 +615,9 @@ function handleToggleFocusMode() {
 				</div>
 			</div>
 			<div>
-				<p class="mb-2 text-[10px] font-semibold uppercase tracking-wide text-white/45">Mostrar no fluxograma</p>
+				<p class="mb-2 text-[10px] font-semibold tracking-wide text-white/45 uppercase">
+					Mostrar no fluxograma
+				</p>
 				<div class="flex flex-col gap-1.5">
 					<button
 						type="button"
@@ -549,13 +628,23 @@ function handleToggleFocusMode() {
 					>
 						<span class="flex items-center gap-2 text-white/85">
 							Optativas
-							<span class="rounded bg-blue-500/80 px-1.5 py-0.5 text-[9px] font-medium text-white">opt.</span>
+							<span class="rounded bg-blue-500/80 px-1.5 py-0.5 text-[9px] font-medium text-white"
+								>opt.</span
+							>
 						</span>
 						<span
-							class="relative h-5 w-9 shrink-0 rounded-full transition-colors {store.state.showOptativas ? 'bg-cyan-500/70' : 'bg-white/15'}"
+							class="relative h-5 w-9 shrink-0 rounded-full transition-colors {store.state
+								.showOptativas
+								? 'bg-cyan-500/70'
+								: 'bg-white/15'}"
 							aria-hidden="true"
 						>
-							<span class="absolute top-0.5 h-4 w-4 rounded-full bg-white transition-[left] {store.state.showOptativas ? 'left-[18px]' : 'left-0.5'}"></span>
+							<span
+								class="absolute top-0.5 h-4 w-4 rounded-full bg-white transition-[left] {store.state
+									.showOptativas
+									? 'left-[18px]'
+									: 'left-0.5'}"
+							></span>
 						</span>
 					</button>
 					<button
@@ -567,13 +656,23 @@ function handleToggleFocusMode() {
 					>
 						<span class="flex items-center gap-2 text-white/85">
 							Módulos livres
-							<span class="rounded bg-teal-400/90 px-1.5 py-0.5 text-[9px] font-medium text-black">mód. livre</span>
+							<span class="rounded bg-teal-400/90 px-1.5 py-0.5 text-[9px] font-medium text-black"
+								>mód. livre</span
+							>
 						</span>
 						<span
-							class="relative h-5 w-9 shrink-0 rounded-full transition-colors {store.state.showModulosLivres ? 'bg-cyan-500/70' : 'bg-white/15'}"
+							class="relative h-5 w-9 shrink-0 rounded-full transition-colors {store.state
+								.showModulosLivres
+								? 'bg-cyan-500/70'
+								: 'bg-white/15'}"
 							aria-hidden="true"
 						>
-							<span class="absolute top-0.5 h-4 w-4 rounded-full bg-white transition-[left] {store.state.showModulosLivres ? 'left-[18px]' : 'left-0.5'}"></span>
+							<span
+								class="absolute top-0.5 h-4 w-4 rounded-full bg-white transition-[left] {store.state
+									.showModulosLivres
+									? 'left-[18px]'
+									: 'left-0.5'}"
+							></span>
 						</span>
 					</button>
 				</div>
@@ -618,36 +717,61 @@ function handleToggleFocusMode() {
 				</button>
 			</div>
 			<div class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 text-sm">
-				<p class="mb-4 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/65">
-					<strong class="text-white/85">Status</strong> (Aprovado, Matriculado, etc.): as cores estão na
-					<strong class="text-white/90">barra acima do fluxograma</strong>, junto de Planejar formatura.
+				<p
+					class="mb-4 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/65"
+				>
+					<strong class="text-white/85">Status</strong> (Aprovado, Matriculado, etc.): as cores
+					estão na
+					<strong class="text-white/90">barra acima do fluxograma</strong>, junto de Planejar
+					formatura.
 				</p>
 				<section class="mt-4 border-t border-white/10 pt-4">
-					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">
+					<h3 class="mb-2 text-xs font-semibold tracking-wide text-white/55 uppercase">
 						Etiquetas nos cards
 					</h3>
 					<ul class="space-y-1.5 text-white/90">
 						<li class="flex items-center gap-2">
-							<span class="shrink-0 rounded bg-blue-500/85 px-1.5 py-0.5 text-[9px] font-medium text-white">opt.</span>
-							<span>Optativa: não é exigida individualmente, mas conta para a carga horária optativa</span>
+							<span
+								class="shrink-0 rounded bg-blue-500/85 px-1.5 py-0.5 text-[9px] font-medium text-white"
+								>opt.</span
+							>
+							<span
+								>Optativa: não é exigida individualmente, mas conta para a carga horária optativa</span
+							>
 						</li>
 						<li class="flex items-center gap-2">
-							<span class="shrink-0 rounded bg-amber-500/90 px-1.5 py-0.5 text-[9px] font-medium text-black">optatória</span>
+							<span
+								class="shrink-0 rounded bg-amber-500/90 px-1.5 py-0.5 text-[9px] font-medium text-black"
+								>optatória</span
+							>
 							<span>
-								Optativa no SIGAA que é <strong class="text-white">pré-requisito de obrigatória</strong>.
-								Na prática, você vai precisar dela
+								Optativa no SIGAA que é <strong class="text-white"
+									>pré-requisito de obrigatória</strong
+								>. Na prática, você vai precisar dela
 							</span>
 						</li>
 						<li class="flex items-center gap-2">
-							<span class="shrink-0 rounded bg-purple-500/90 px-1.5 py-0.5 text-[9px] font-medium text-white">equiv.</span>
-							<span>Concluída por equivalência: você cursou outra disciplina que vale por esta</span>
+							<span
+								class="shrink-0 rounded bg-purple-500/90 px-1.5 py-0.5 text-[9px] font-medium text-white"
+								>equiv.</span
+							>
+							<span>Concluída por equivalência: você cursou outra disciplina que vale por esta</span
+							>
 						</li>
 						<li class="flex items-center gap-2">
-							<span class="shrink-0 rounded bg-zinc-50/95 px-1.5 py-0.5 text-[9px] font-semibold text-emerald-900">aprov.</span>
-							<span>Aproveitamento de estudos: ganha por disciplina de outra instituição ou curso</span>
+							<span
+								class="shrink-0 rounded bg-zinc-50/95 px-1.5 py-0.5 text-[9px] font-semibold text-emerald-900"
+								>aprov.</span
+							>
+							<span
+								>Aproveitamento de estudos: ganha por disciplina de outra instituição ou curso</span
+							>
 						</li>
 						<li class="flex items-center gap-2">
-							<span class="shrink-0 rounded bg-teal-400/90 px-1.5 py-0.5 text-[9px] font-medium text-black">mód. livre</span>
+							<span
+								class="shrink-0 rounded bg-teal-400/90 px-1.5 py-0.5 text-[9px] font-medium text-black"
+								>mód. livre</span
+							>
 							<span>
 								Cursada fora da matriz do curso (monitoria, eletiva de outro curso). Conta para a
 								carga horária de módulo livre
@@ -657,14 +781,24 @@ function handleToggleFocusMode() {
 				</section>
 				{#if !store.state.isAnonymous}
 					<section class="mt-4 border-t border-white/10 pt-4">
-						<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">Indicadores</h3>
+						<h3 class="mb-2 text-xs font-semibold tracking-wide text-white/55 uppercase">
+							Indicadores
+						</h3>
 						<ul class="space-y-1.5 text-white/90">
 							<li class="flex items-center gap-2">
-								<div class="flex h-5 w-5 items-center justify-center rounded-full bg-green-500/80 text-[10px] font-bold text-white">✓</div>
+								<div
+									class="flex h-5 w-5 items-center justify-center rounded-full bg-green-500/80 text-[10px] font-bold text-white"
+								>
+									✓
+								</div>
 								Pré-requisitos cumpridos
 							</li>
 							<li class="flex items-center gap-2">
-								<div class="flex h-5 w-5 items-center justify-center rounded-full bg-amber-500/80 text-[10px] font-bold text-white">!</div>
+								<div
+									class="flex h-5 w-5 items-center justify-center rounded-full bg-amber-500/80 text-[10px] font-bold text-white"
+								>
+									!
+								</div>
 								Falta cumprir pré-requisito
 							</li>
 							<li class="text-white/60">
@@ -674,10 +808,13 @@ function handleToggleFocusMode() {
 					</section>
 				{/if}
 				<section class="mt-4 border-t border-white/10 pt-4">
-					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">Conexões (linhas)</h3>
+					<h3 class="mb-2 text-xs font-semibold tracking-wide text-white/55 uppercase">
+						Conexões (linhas)
+					</h3>
 					<p class="mb-2 text-xs text-white/55">
-						O modo das linhas é alterado pelo botão <strong class="text-white/85">Conexões</strong> no
-						rodapé do diagrama (abre a lista com <strong class="text-white/85">Diretas · Todas · Off</strong>).
+						O modo das linhas é alterado pelo botão <strong class="text-white/85">Conexões</strong>
+						no rodapé do diagrama (abre a lista com
+						<strong class="text-white/85">Diretas · Todas · Off</strong>).
 					</p>
 					<ul class="space-y-1.5 text-white/90">
 						<li class="flex items-center gap-2">
@@ -691,38 +828,43 @@ function handleToggleFocusMode() {
 						<li class="flex flex-wrap items-center gap-2">
 							<div class="h-0.5 w-6 shrink-0 border-t-2 border-dashed border-green-400"></div>
 							<span>
-								Co-requisito: com conexões ativas, aparece ao focar a disciplina (Diretas) ou no modo
+								Co-requisito: aparece no modo
 								<strong class="text-white/85">Todas</strong>
 							</span>
 						</li>
 					</ul>
 				</section>
 				<section class="mt-4 rounded-lg border border-purple-500/30 bg-purple-500/10 p-3">
-					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-purple-300">Mobile / toque</h3>
+					<h3 class="mb-2 text-xs font-semibold tracking-wide text-purple-300 uppercase">
+						Mobile / toque
+					</h3>
 					<ul class="space-y-2 text-sm text-white/90">
 						<li>
-							<strong>1 toque</strong> na disciplina (com conexões ativas) <strong class="text-white"
-								>seleciona e destaca a cadeia</strong> no diagrama.
+							<strong>1 toque</strong> na disciplina (com conexões ativas)
+							<strong class="text-white">seleciona e destaca as matérias que ela libera</strong> no diagrama.
 						</li>
 						<li>
 							<strong>2º toque</strong> na mesma disciplina abre a
 							<strong class="text-white">ficha da disciplina</strong> (ementa/detalhes).
 						</li>
 						<li>
-							<strong>Segurar</strong> o dedo no card abre a <strong class="text-white">cadeia topológica</strong>
+							<strong>Segurar</strong> o dedo no card abre a
+							<strong class="text-white">cadeia topológica</strong>
 							(roadmap da disciplina).
 						</li>
 						<li><strong>Toque na área vazia</strong> esconde as conexões</li>
 						<li class="border-t border-white/10 pt-2 text-white/80">
-							<strong>Deslizar</strong> com um dedo rola o diagrama e, no fim da área, segue rolando a página · Zoom: botão flutuante ou pinça (quando disponível)
+							<strong>Deslizar</strong> com um dedo rola o diagrama e, no fim da área, segue rolando a
+							página · Zoom: botão flutuante ou pinça (quando disponível)
 						</li>
 					</ul>
 				</section>
 				<section class="mt-4">
-					<h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-white/55">Desktop</h3>
+					<h3 class="mb-2 text-xs font-semibold tracking-wide text-white/55 uppercase">Desktop</h3>
 					<ul class="space-y-1.5 text-white/90">
 						<li>
-							<strong>Conexões diretas:</strong> <strong>hover</strong> destaca a cadeia no diagrama e
+							<strong>Conexões diretas:</strong> <strong>hover</strong> destaca as matérias que a
+							disciplina libera e
 							<strong class="text-white">clique esquerdo</strong> abre o
 							<strong class="text-white">modal da disciplina</strong> (detalhes).
 						</li>

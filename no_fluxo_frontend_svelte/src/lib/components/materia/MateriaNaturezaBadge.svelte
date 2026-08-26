@@ -19,17 +19,17 @@
 
 {#if natureza === 'modulo_livre'}
 	<span
-		class="rounded bg-teal-400/90 px-1.5 py-0.5 text-[9px] font-medium text-black"
+		class="rounded bg-teal-400/90 px-1.5 py-0.5 text-[length:var(--materia-badge-fs,9px)] font-medium text-black"
 		title="Módulo livre: componente cursado fora da matriz do curso (monitoria, eletiva de outro curso). Conta para a carga horária de módulo livre"
 	>mód. livre</span>
 {:else if natureza === 'optatoria'}
 	<span
-		class="rounded bg-amber-500/90 px-1.5 py-0.5 text-[9px] font-medium text-black"
+		class="rounded bg-amber-500/90 px-1.5 py-0.5 text-[length:var(--materia-badge-fs,9px)] font-medium text-black"
 		title={`Optatória: consta como optativa no SIGAA, mas é pré-requisito de ${nomesQueExigem.join(', ')}. Na prática você vai precisar dela`}
 	>optatória</span>
 {:else if natureza === 'optativa'}
 	<span
-		class="rounded bg-blue-500/85 px-1.5 py-0.5 text-[9px] font-medium text-white"
+		class="rounded bg-blue-500/85 px-1.5 py-0.5 text-[length:var(--materia-badge-fs,9px)] font-medium text-white"
 		title="Optativa: não é exigida individualmente, mas conta para a carga horária optativa"
 	>opt.</span>
 {/if}

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { MateriaModel } from '$lib/types/materia';
 	import { planoFormaturaStore } from '$lib/stores/plano-formatura.store.svelte';
+	import { unidadeCargaStore } from '$lib/stores/unidade-carga.store.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import PlannerSvelteFlow from './PlannerSvelteFlow.svelte';
@@ -28,7 +29,8 @@
 	import html2canvas from 'html2canvas-pro';
 
 	let isChangingCredits = $state(false);
-	let displayUnit = $state<'creditos' | 'horas'>('creditos');
+	// Preferência compartilhada com o montador de grade e persistida no navegador.
+	let displayUnit = $derived(unidadeCargaStore.unidade);
 	let hoveredCode = $state<string | null>(null);
 	let isChatOpen = $state(false);
 	let authState = $derived($authStore);
@@ -441,7 +443,7 @@
 		<div class="flex items-center gap-2">
 			<button
 				type="button"
-				onclick={() => { displayUnit = 'creditos'; }}
+				onclick={() => unidadeCargaStore.set('creditos')}
 				class="touch-manipulation rounded-lg px-3 py-2 text-xs font-semibold transition-all sm:py-1.5
 					{displayUnit === 'creditos'
 						? 'border border-blue-500/60 bg-blue-600/20 text-blue-200 ring-1 ring-blue-500/30'
@@ -451,7 +453,7 @@
 			</button>
 			<button
 				type="button"
-				onclick={() => { displayUnit = 'horas'; }}
+				onclick={() => unidadeCargaStore.set('horas')}
 				class="touch-manipulation rounded-lg px-3 py-2 text-xs font-semibold transition-all sm:py-1.5
 					{displayUnit === 'horas'
 						? 'border border-blue-500/60 bg-blue-600/20 text-blue-200 ring-1 ring-blue-500/30'

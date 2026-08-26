@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
+	import { unidadeCargaStore } from '$lib/stores/unidade-carga.store.svelte';
 	import { assistenteChatStore } from '$lib/stores/assistente-chat.store.svelte';
 	import TurmaOption from './TurmaOption.svelte';
 	import type { Turno } from '$lib/utils/horario-slots';
@@ -86,7 +87,7 @@
 						<span class="truncate text-xs text-white/60">{materia.nome}</span>
 					</p>
 					<p class="mt-0.5 text-[11px] text-white/40">
-						{materia.creditos} créditos ·
+						{unidadeCargaStore.formatar(materia.creditos)} ·
 						{#if selecionada}
 							<span class="text-white/70">Turma {selecionada.turma.turma} selecionada</span>
 						{:else if materia.turmas.length === 0}

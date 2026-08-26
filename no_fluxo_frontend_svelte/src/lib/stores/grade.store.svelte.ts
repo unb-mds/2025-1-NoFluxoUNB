@@ -169,8 +169,9 @@ function createGradeStore() {
 	/**
 	 * Códigos que o aluno já está cursando agora (fora do pool "próximo semestre" —
 	 * vem do fluxograma atual). Entram na lista sozinhos pra não conflitar com o que
-	 * o aluno for adicionar, mas sem turma pré-escolhida — o app não sabe qual é a
-	 * turma real. Quem define é a rota (`definirCursandoAtual`), logo depois do init.
+	 * o aluno for adicionar; quando o histórico traz a turma real da matrícula, a
+	 * rota também a pré-seleciona. Quem define é a rota (`definirCursandoAtual`),
+	 * logo depois do init.
 	 */
 	let cursandoAtual = $state<Set<string>>(new Set());
 	/**
@@ -425,6 +426,11 @@ function createGradeStore() {
 			idUser = ctx.idUser;
 			periodo = ctx.periodo;
 			ultimaMontagem = null;
+			// Não persistem no localStorage: um init novo (navegação SPA de volta ao
+			// montador) não pode herdar travas/cursando da sessão anterior do store —
+			// quem sabe o estado atual é a rota, via `definirCursandoAtual` logo após.
+			cursandoAtual = new Set();
+			travadas = new Set();
 
 			const key = cenariosKey(idUser, periodo);
 			let restaurado: {
@@ -689,6 +695,48 @@ function createGradeStore() {
 
 		limpar(): void {
 			updateAtivo(() => ({}));
+		},
+
+		/**
+		 * Esvazia tudo — lista de matérias e grade — e marca cada código como
+		 * removido, para o recarregamento da página não re-semear o que o aluno
+		 * acabou de apagar. "Voltar ao início" é o caminho de volta: ele zera as
+		 * `removidas` e refaz o preenchimento automático.
+		 */
+		limparTudo(): void {
+			const nr = new Set(removidas);
+			for (const m of pool) nr.add(m.codigo);
+			removidas = nr;
+			pool = [];
+			prioritarias = new Set();
+			travadas = new Set();
+			const id = novoId();
+			grades = [{ id, nome: 'Grade 1', selecao: {} }];
+			activeId = id;
+			ultimaMontagem = null;
+			persistPool();
+			persistCenarios();
+		},
+
+		/**
+		 * Volta o montador ao estado de início: pool recém-semeado, um único cenário
+		 * "Grade 1" com a seleção dada (turmas reais das matérias em curso), sem
+		 * removidas/prioridades/travas/filtro de turno de sessões passadas. Quem
+		 * calcula pool e seleção é a rota — o store só aplica e persiste.
+		 */
+		resetarParaInicio(poolInicial: MateriaGrade[], selecao: Record<string, number> = {}): void {
+			pool = poolInicial;
+			removidas = new Set();
+			prioritarias = new Set();
+			travadas = new Set();
+			cursandoAtual = new Set();
+			turnosPermitidos = new Set<Turno>(['M', 'T', 'N']);
+			const id = novoId();
+			grades = [{ id, nome: 'Grade 1', selecao: reconciliar(selecao) }];
+			activeId = id;
+			ultimaMontagem = null;
+			persistPool();
+			persistCenarios();
 		},
 
 		/**

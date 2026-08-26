@@ -129,14 +129,14 @@
 
 <div
 	data-semester={semester}
-	class="semester-column flex min-w-[130px] max-w-[220px] snap-start scroll-ml-4 flex-col gap-3 sm:min-w-[160px] sm:max-w-[240px]"
+	class="semester-column flex w-[220px] shrink-0 snap-start scroll-ml-4 flex-col gap-3 [container-type:inline-size] sm:w-[240px]"
 >
 	<!-- sticky funciona porque o zoom (CSS zoom) não cria containing block como transform criava -->
 	<div
 		class="sticky top-0 z-10 rounded-[10px] border border-primary/35 px-3 py-1.5 text-center"
 		style="background: hsl(var(--primary) / 0.18); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 0 12px hsl(var(--primary) / 0.15);"
 	>
-		<span class="text-xs font-bold uppercase tracking-wider text-white/95">
+		<span class="text-[length:clamp(12px,5.8cqw,14px)] font-bold uppercase tracking-wider text-white/95">
 			{headerLabel ?? `Semestre ${semester}`}
 		</span>
 	</div>
@@ -149,7 +149,7 @@
 				? `${stats.completedCredits} de ${stats.totalCredits} créditos do semestre`
 				: `${stats.completedHours} de ${stats.totalHours}h do semestre`}
 		>
-			<span class="text-xs font-semibold text-white/90">{badgeLabel}</span>
+			<span class="text-[length:clamp(12px,5.6cqw,13.5px)] font-semibold text-white/90">{badgeLabel}</span>
 		</div>
 	{/if}
 

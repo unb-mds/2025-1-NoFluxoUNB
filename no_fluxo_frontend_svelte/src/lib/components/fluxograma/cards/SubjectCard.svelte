@@ -9,7 +9,10 @@
 	} from '$lib/types/materia';
 	import { satisfazPreRequisitos } from '$lib/types/curso';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
-	import { getSubjectChain } from '$lib/utils/curriculum-graph';
+	import {
+		getDirectDependentCodes,
+		getDirectPrerequisiteAndCoreqCodes
+	} from '$lib/utils/curriculum-graph';
 	import MateriaNaturezaBadge from '$lib/components/materia/MateriaNaturezaBadge.svelte';
 
 	interface Props {
@@ -89,7 +92,7 @@
 	let isAllConnectionsMode = $derived(store.state.connectionMode === 'all');
 	let isDirectConnectionsMode = $derived(store.state.connectionMode === 'direct');
 
-	/** Matéria sob a qual calculamos pré-requisitos/dependentes (transitivo no grafo da grade). */
+	/** Matéria sob a qual calculamos as liberadas diretas (1 nível no grafo da grade). */
 	let focusSubjectCode = $derived.by(() => {
 		void store.state.hoverPreviewSubjectCode;
 		void store.state.hoveredSubjectCode;
@@ -101,36 +104,47 @@
 	/** Isolamento visual da cadeia só quando conexões estão visíveis. */
 	let chainHighlightActive = $derived(connectionsEnabled && focusSubjectCode !== null);
 
-	let subjectChain = $derived.by(() => {
+	/** Só as liberadas DIRETAS (1 nível) — cadeia transitiva fica no roadmap/ficha. */
+	let directDependents = $derived.by(() => {
 		void store.state.hoverPreviewSubjectCode;
 		void store.state.hoveredSubjectCode;
 		const curso = store.state.courseData;
 		const focus = focusSubjectCode;
 		if (!curso || !focus) return null;
-		return getSubjectChain(curso, focus);
+		return getDirectDependentCodes(curso, focus);
+	});
+
+	/**
+	 * No modo "Todas", o hover realça também as setas que ENTRAM no foco
+	 * (pré-requisitos) e as de co-requisito (isLineRelatedToHovered em
+	 * PrerequisiteConnections); os cards nessas pontas não podem esmaecer.
+	 */
+	let allModeInboundNeighbors = $derived.by(() => {
+		void store.state.hoverPreviewSubjectCode;
+		void store.state.hoveredSubjectCode;
+		const curso = store.state.courseData;
+		const focus = focusSubjectCode;
+		if (!isAllConnectionsMode || !curso || !focus) return null;
+		return getDirectPrerequisiteAndCoreqCodes(curso, focus);
 	});
 
 	let highlightRole = $derived.by(() => {
-		void store.state.hoverPreviewSubjectCode;
-		void store.state.hoveredSubjectCode;
 		const focus = focusSubjectCode;
-		const chain = subjectChain;
-		if (!focus || !chain) return null;
+		const deps = directDependents;
+		if (!focus || !deps) return null;
 		const self = materia.codigoMateria.trim().toUpperCase();
-		const f = chain.focusCode;
-		if (self === f) return 'focus' as const;
-		if (chain.precursors.has(self)) return 'precursor' as const;
-		if (chain.descendants.has(self)) return 'descendant' as const;
-		if (chain.corequisites.has(self)) return 'corequisite' as const;
+		if (self === focus.trim().toUpperCase()) return 'focus' as const;
+		if (deps.has(self)) return 'descendant' as const;
+		const inbound = allModeInboundNeighbors;
+		if (inbound?.precursors.has(self)) return 'precursor' as const;
+		if (inbound?.corequisites.has(self)) return 'corequisite' as const;
 		return null;
 	});
 
 	// Prerequisite indicator: count dependents
 	let dependentCount = $derived.by(() => {
 		if (!store.state.courseData) return 0;
-		return store.state.courseData.materias.filter(
-			(m) => m.preRequisitos?.some((p) => p.codigoMateria === materia.codigoMateria)
-		).length;
+		return getDirectDependentCodes(store.state.courseData, materia.codigoMateria).size;
 	});
 
 	let hasPrereqs = $derived(hasPrerequisites(materia));
@@ -257,7 +271,7 @@
 
 		if (!didDrag && !didLongPress) {
 			// Tap rápido (mobile):
-			// 1º toque seleciona/destaca cadeia; 2º toque na mesma matéria abre detalhes.
+			// 1º toque seleciona/destaca as liberadas diretas; 2º toque na mesma matéria abre detalhes.
 			if (connectionsEnabled) {
 				const current = (store.state.hoveredSubjectCode ?? '').trim().toUpperCase();
 				const mine = materia.codigoMateria.trim().toUpperCase();
@@ -332,11 +346,11 @@
 	tabindex="0"
 >
 	<div class="mb-1 flex shrink-0 items-center justify-between gap-1">
-		<span class="text-[11px] font-semibold uppercase tracking-wider {textColor} opacity-100">
+		<span class="text-[length:clamp(11px,5.8cqw,13.5px)] font-semibold uppercase tracking-wider {textColor} opacity-100">
 			{materia.codigoMateria}
 		</span>
 		<div class="flex items-center gap-1">
-			<span class="rounded-md bg-black/25 px-1.5 py-0.5 text-[10px] font-bold {textColor} opacity-90">
+			<span class="rounded-md bg-black/25 px-1.5 py-0.5 text-[length:clamp(10px,5.2cqw,12px)] font-bold {textColor} opacity-90">
 				{materia.creditos}cr
 			</span>
 		</div>
@@ -344,36 +358,33 @@
 	<!-- Bloco do nome com altura fixa: não estica o card; nome completo no tooltip -->
 	<div class="h-[2.5rem] shrink-0 overflow-hidden">
 		<p
-			class="line-clamp-2 break-words text-[11px] font-semibold leading-[1.2rem] {textColor}"
+			class="line-clamp-2 break-words text-[length:clamp(11px,6.2cqw,14px)] font-semibold leading-[1.25] {textColor}"
 			title={materia.nomeMateria}
 		>
 			{materia.nomeMateria}
 		</p>
 	</div>
 
-	{#if highlightRole === 'focus' && chainHighlightActive && subjectChain}
-		<p class="mt-1 text-[9px] font-medium leading-snug text-white/75" aria-live="polite">
-			{subjectChain.precursors.size} antes · {subjectChain.descendants.size} desbloqueia
-			{#if subjectChain.corequisites.size > 0}
-				· {subjectChain.corequisites.size} co-req
-			{/if}
+	{#if highlightRole === 'focus' && chainHighlightActive && directDependents}
+		<p class="mt-1 text-[length:clamp(9px,4.8cqw,11px)] font-medium leading-snug text-white/75" aria-live="polite">
+			libera {directDependents.size}
 		</p>
 	{/if}
 
 	<!-- Etiquetas no canto inferior direito: natureza (opt./optatória) empilha
 	     com a de conquista (equiv./aprov.) quando o card tem as duas. -->
 	{#if ehModuloLivre || ehOptatoria || ehOptativa || concluidaPorEquivalencia || concluidaPorAproveitamento}
-		<div class="absolute right-0 -bottom-1.5 flex items-center gap-0.5">
+		<div class="absolute right-0 -bottom-1.5 flex items-center gap-0.5" style="--materia-badge-fs: clamp(9px, 5cqw, 11px)">
 			<MateriaNaturezaBadge natureza={naturezaBadge} {nomesQueExigem} />
 			{#if concluidaPorEquivalencia}
 				<span
-					class="rounded bg-purple-500/90 px-1.5 py-0.5 text-[9px] font-medium text-white"
+					class="rounded bg-purple-500/90 px-1.5 py-0.5 text-[length:clamp(9px,5cqw,11px)] font-medium text-white"
 					title="Concluída por equivalência"
 				>equiv.</span>
 			{:else if concluidaPorAproveitamento}
 				<!-- Branco com texto escuro: o verde-esmeralda sumia sobre o card verde de Aprovado. -->
 				<span
-					class="rounded bg-zinc-50/95 px-1.5 py-0.5 text-[9px] font-semibold text-emerald-900"
+					class="rounded bg-zinc-50/95 px-1.5 py-0.5 text-[length:clamp(9px,5cqw,11px)] font-semibold text-emerald-900"
 					title="Aproveitamento de estudos: componente ganho por disciplina de outra instituição/curso"
 				>aprov.</span>
 			{/if}
@@ -382,7 +393,7 @@
 
 	<!-- Prerequisite indicator badge -->
 	{#if !store.state.isAnonymous && (hasPrereqs || dependentCount > 0)}
-		<div class="absolute left-0 -bottom-1.5 flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[9px] font-bold {prereqsCompleted ? 'bg-green-500/72 text-white/95' : 'bg-amber-500/72 text-white/95'}">
+		<div class="absolute left-0 -bottom-1.5 flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[length:clamp(9px,5cqw,11px)] font-bold {prereqsCompleted ? 'bg-green-500/72 text-white/95' : 'bg-amber-500/72 text-white/95'}">
 			{#if hasPrereqs}
 				<span>{prereqsCompleted ? '✓' : '!'}</span>
 			{/if}
@@ -396,6 +407,8 @@
 
 <style>
 	:global(.subject-card) {
+		/* Card é container de tamanho: os textos internos escalam em cqw junto com a largura */
+		container-type: inline-size;
 		box-shadow:
 			inset 0 1px 0 rgba(255, 255, 255, 0.14),
 			inset 1px 0 0 rgba(255, 255, 255, 0.06),

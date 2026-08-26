@@ -36,7 +36,7 @@ export const RELEASE_NOVIDADES: string[] = [
  */
 export const RELEASE_NOTA_EQUIPE = {
 	agradecimento:
-		'Esta atualização é dedicada a cada estudante que já usou o NoFluxo, mandou feedback, fez parte da nossa história e sonhou com a gente. [Viramos manchete na UnB](https://share.google/smvnCGSIFKXlWqnjS), e nada disso seria possível sem a oportunidade que cada um de vocês deu de organizar a vida acadêmica por aqui.',
+		'Esta atualização é dedicada a cada estudante que já usou o NoFluxo, mandou feedback, fez parte da nossa história e sonhou com a gente. [Viramos manchete na UnB](https://noticias.unb.br/pesquisas-estudos-e-projetos/8676-estudantes-desenvolvem-plataforma-para-facilitar-planejamento-da-vida-academica), e nada disso seria possível sem a oportunidade que cada um de vocês deu de organizar a vida acadêmica por aqui.',
 	lema: 'A vida do estudante não é linear. Cada estudante tem o seu próprio fluxo.',
 	corpo:
 		'Acreditando nisso, seguimos empenhados em melhorar o software e trazer mais qualidade de vida para os estudantes da UnB. Hoje somos cerca de **2.800 estudantes na plataforma**, e crescendo. Se ainda não testou, a **Beta do Plano de Formatura** está no ar, e (spoiler) vem aí o **Montador de Grade** e muito mais. Continue divulgando e mandando sugestões: é assim que vocês levam a gente para outro nível.',

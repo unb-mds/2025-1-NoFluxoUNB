@@ -549,6 +549,16 @@
 		animation-delay: calc(120ms + var(--stagger, 0ms));
 	}
 
+	/* Mobile (grid de 2 colunas): card órfão de linha ímpar centraliza na própria linha,
+	   com a largura de uma coluna — sem deixar "buraco" ao lado. */
+	@media (max-width: 767.98px) {
+		.team-grid > .team-grid-item:last-child:nth-child(odd) {
+			grid-column: 1 / -1;
+			justify-self: center;
+			width: calc(50% - 0.5rem);
+		}
+	}
+
 	/* menção honrosa — card "diamante" */
 	.honor-card {
 		position: relative;
