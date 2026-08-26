@@ -33,16 +33,24 @@ import { hasConflict, turmaRespeitaTurnos } from '$lib/utils/horario-slots';
  */
 function partesPreRequisitoPendentes(idMateria: number): string[] | null {
 	const curso = fluxogramaStore.state.courseData;
-	const completed = fluxogramaStore.completedCodes;
+	// O montador planeja o PRÓXIMO semestre, então o que está em curso agora já terá
+	// sido cursado quando essas turmas começarem. É a mesma conta que o Motor 2 faz
+	// para recomendar (`completedPlusMatr` em plano_formatura.service.ts): sem isso o
+	// frontend carimbava "pré-requisito pendente" na própria recomendação que acabou
+	// de receber do backend — ex.: FGA0240 exige FGA0238, que o aluno está cursando.
+	const cumpridos = new Set([
+		...fluxogramaStore.completedCodes,
+		...(fluxogramaStore.currentCodes ?? [])
+	]);
 
 	const prereqs = (curso?.preRequisitos ?? []).filter((pr) => pr.idMateria === idMateria);
-	if (prereqs.length === 0 || satisfazPreRequisitos(prereqs, completed)) return null;
+	if (prereqs.length === 0 || satisfazPreRequisitos(prereqs, cumpridos)) return null;
 
 	const partes = new Set<string>();
 	for (const pr of prereqs) {
 		const code = pr.codigoMateriaRequisito?.trim();
 		if (code) {
-			if (!setHasCodeIgnoreCase(completed, code)) partes.add(code);
+			if (!setHasCodeIgnoreCase(cumpridos, code)) partes.add(code);
 		} else if (pr.expressaoOriginal?.trim()) {
 			partes.add(pr.expressaoOriginal.trim());
 		}
@@ -148,6 +156,9 @@ export async function construirMateriasGrade(
 			idMateria: r.idMateria,
 			avisoPreRequisito,
 			coRequisitos,
+			// Sem isto a montagem automática não distingue obrigatória de optativa e
+			// vira um maximizador de contagem — ver a escada de pesos em grade.store.
+			natureza: naturezaDoCodigo(codigo),
 			turmas: (ofertaPorCodigo.get(codigo) ?? []).map(({ turma, codigoOfertado }) => ({
 				turma,
 				mask: slotMaskFromHorario(turma.horario),

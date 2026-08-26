@@ -211,7 +211,10 @@ async function montarGradeDoAluno(
 	let semeadas: MateriaGrade[] = [];
 	if (forcarSemeadura || !gradeStore.pool.some((m) => m.turmas.length > 0)) {
 		semeadas = escolherAteOLimite(
-			await candidatosDaMatriz(periodo, gradeStore.pool.map((m) => m.codigo)),
+			await candidatosDaMatriz(
+				periodo,
+				gradeStore.pool.map((m) => m.codigo)
+			),
 			limiteCreditos
 		);
 		for (const m of semeadas) gradeStore.addMateriaAoPool(m);
@@ -223,6 +226,60 @@ async function montarGradeDoAluno(
 	gradeStore.montarAutomatico({ limiteCreditos });
 	const msSolver = Math.round(performance.now() - t0);
 	return { cursando, poolInicial: pool, semeadas, msSolver };
+}
+
+/**
+ * Pool AMPLO: obrigatórias e optativas da matriz disputando as mesmas vagas.
+ *
+ * `montarGradeDoAluno` semeia por `escolherAteOLimite`, que já ordena
+ * obrigatória-primeiro e corta no teto de créditos — o pool sai quase 100%
+ * obrigatório e o solver nunca precisa escolher entre naturezas. Isso é fiel à
+ * semeadura de emergência pela matriz, mas NÃO ao caso comum: em produção o pool
+ * vem do semestre recomendado do plano de formatura (que resolve slots de
+ * optativa) somado ao que o aluno adicionou na busca, sem pré-filtro nenhum.
+ *
+ * Aqui montamos esse pool de propósito, equilibrado entre as duas naturezas, que
+ * é onde o relato "adiciona optativa demais" vive.
+ */
+async function montarComPoolAmplo(
+	limiteCreditos: number,
+	/**
+	 * Em que ordem as candidatas entram no pool.
+	 *
+	 * Não é detalhe: `candidatosDaMatriz` devolve obrigatória-primeiro e o solver
+	 * ordena por peso com sort ESTÁVEL, então com pesos empatados a ordem de entrada
+	 * decidia sozinha o resultado — e mascarava por completo a falta de prioridade
+	 * por natureza. A ordem real do pool em produção é a de inserção (plano de
+	 * formatura, busca do aluno, chat da Darcy), que não tem garantia nenhuma.
+	 * `optativasPrimeiro` é essa realidade no seu pior caso.
+	 */
+	ordem: 'candidatos' | 'optativasPrimeiro' = 'candidatos',
+	maxPorNatureza = 12
+): Promise<{ msSolver: number }> {
+	const periodo = fx.periodo;
+	const cursando = [...(fluxogramaStore.currentCodes ?? new Set<string>())];
+
+	const pool = await construirMateriasGrade(cursando, periodo);
+	gradeStore.init(pool, { idUser: null, periodo });
+	gradeStore.definirCursandoAtual(cursando);
+
+	const candidatos = await candidatosDaMatriz(
+		periodo,
+		gradeStore.pool.map((m) => m.codigo)
+	);
+	// Amostra equilibrada: sem o teto por natureza, cursos com centenas de optativas
+	// afogariam as obrigatórias no pool e o teto de nós do solver mascararia o eixo.
+	const obrigatorias = candidatos
+		.filter((m) => m.natureza === 'obrigatoria')
+		.slice(0, maxPorNatureza);
+	const demais = candidatos.filter((m) => m.natureza !== 'obrigatoria').slice(0, maxPorNatureza);
+	const entrada =
+		ordem === 'optativasPrimeiro' ? [...demais, ...obrigatorias] : [...obrigatorias, ...demais];
+	for (const m of entrada) gradeStore.addMateriaAoPool(m);
+
+	const t0 = performance.now();
+	gradeStore.montarAutomatico({ limiteCreditos });
+	return { msSolver: Math.round(performance.now() - t0) };
 }
 
 interface Linha {
@@ -285,7 +342,11 @@ describe.skipIf(!TEM_FIXTURES)('Montador de Grade — históricos reais', () => 
 					aluno.dados_fluxograma
 						.flat()
 						.filter((m) => String(m.status ?? '').toUpperCase() === 'MATR')
-						.map((m) => String(m.codigo ?? '').trim().toUpperCase())
+						.map((m) =>
+							String(m.codigo ?? '')
+								.trim()
+								.toUpperCase()
+						)
 						.filter(Boolean)
 				);
 				const noPool = gradeStore.pool.filter((m) => matrNoHistorico.has(m.codigo));
@@ -295,9 +356,7 @@ describe.skipIf(!TEM_FIXTURES)('Montador de Grade — históricos reais', () => 
 				// Diagnóstico do sintoma "MATR nem aparece na lista": quais códigos
 				// sumiram, e em que etapa.
 				const poolSet = new Set(gradeStore.pool.map((m) => m.codigo));
-				const naMatriz = new Set(
-					curso.materias.map((m) => m.codigoMateria.trim().toUpperCase())
-				);
+				const naMatriz = new Set(curso.materias.map((m) => m.codigoMateria.trim().toUpperCase()));
 				for (const c of matrNoHistorico) {
 					if (poolSet.has(c)) continue;
 					sumidas.push({
@@ -371,8 +430,7 @@ describe.skipIf(!TEM_FIXTURES)('Montador de Grade — históricos reais', () => 
 				// ── INVARIANTE 3: nada já aprovado entra no pool ────────────────────
 				for (const m of gradeStore.pool) {
 					const jaAprovada =
-						fluxogramaStore.completedCodes.has(m.codigo) &&
-						!matrNoHistorico.has(m.codigo);
+						fluxogramaStore.completedCodes.has(m.codigo) && !matrNoHistorico.has(m.codigo);
 					expect(jaAprovada, `aluno ${aluno.id_user}: ${m.codigo} já concluída no pool`).toBe(
 						false
 					);
@@ -388,7 +446,9 @@ describe.skipIf(!TEM_FIXTURES)('Montador de Grade — históricos reais', () => 
 			console.log('\n=== MATR QUE NAO CHEGARAM AO POOL ===');
 			if (sumidas.length === 0) console.log('(nenhuma)');
 			else console.table(sumidas);
-		});
+			// Um histórico real por iteração, com resolução de equivalência e solver:
+			// os 5s padrão do vitest estouram e o relatório nunca chega a ser impresso.
+		}, 60_000);
 	});
 
 	describe('eixo: turnos', () => {
@@ -475,6 +535,202 @@ describe.skipIf(!TEM_FIXTURES)('Montador de Grade — históricos reais', () => 
 		}, 60_000);
 	});
 
+	describe('eixo: natureza (obrigatória vence optativa)', () => {
+		/** Quantas do pool entraram na grade, separadas por natureza. */
+		function contarPorNatureza(): { obrig: number; optativas: number; obrigDeFora: number } {
+			const doPool = new Map(gradeStore.pool.map((m) => [m.codigo, m]));
+			const turnos = gradeStore.turnosPermitidos;
+			const naGrade = [...gradeStore.selecao.keys()];
+			return {
+				obrig: naGrade.filter((c) => doPool.get(c)?.natureza === 'obrigatoria').length,
+				optativas: naGrade.filter(
+					(c) => doPool.get(c)?.natureza !== 'obrigatoria' && !gradeStore.isCursandoAtual(c)
+				).length,
+				obrigDeFora: gradeStore.pool.filter(
+					(m) =>
+						m.natureza === 'obrigatoria' &&
+						!gradeStore.selecao.has(m.codigo) &&
+						m.turmas.some((t) => turmaRespeitaTurnos(t.mask, turnos))
+				).length
+			};
+		}
+
+		/**
+		 * A propriedade que de fato pega o defeito: **a ordem do pool não pode mudar
+		 * quantas obrigatórias entram**.
+		 *
+		 * Sem peso por natureza o solver empata tudo em 1 e, como o sort por peso é
+		 * estável, quem chegou primeiro no pool vence. Isso deixava a montagem correta
+		 * por acidente sempre que a lista vinha de `candidatosDaMatriz` (que já ordena
+		 * obrigatória-primeiro) e errada quando vinha do plano de formatura ou das
+		 * buscas do aluno — o caminho real, e o do relato.
+		 */
+		it('a quantidade de obrigatórias na grade não depende da ordem do pool', async () => {
+			const linhas: Record<string, unknown>[] = [];
+			for (const aluno of fx.alunos) {
+				const limite = 20;
+
+				carregarAluno(aluno);
+				await montarComPoolAmplo(limite, 'candidatos');
+				const ordenado = contarPorNatureza();
+
+				carregarAluno(aluno);
+				await montarComPoolAmplo(limite, 'optativasPrimeiro');
+				const invertido = contarPorNatureza();
+
+				linhas.push({
+					aluno: aluno.id_user,
+					curso: aluno.nome_curso.slice(0, 22),
+					obrigOrdenado: ordenado.obrig,
+					obrigOptPrimeiro: invertido.obrig,
+					optOrdenado: ordenado.optativas,
+					optOptPrimeiro: invertido.optativas,
+					obrigDeFora: invertido.obrigDeFora
+				});
+
+				expect(
+					invertido.obrig,
+					`aluno ${aluno.id_user}: com as optativas entrando primeiro no pool a grade caiu de ` +
+						`${ordenado.obrig} para ${invertido.obrig} obrigatórias — a ordem do pool está ` +
+						`decidindo no lugar da prioridade por natureza`
+				).toBe(ordenado.obrig);
+			}
+			console.log('\n=== NATUREZA: INDEPENDÊNCIA DE ORDEM (limite 20) ===');
+			console.table(linhas);
+		}, 60_000);
+
+		/**
+		 * Aceitação direta do relato, agora no pior caso de ordem: se existe obrigatória
+		 * fora da grade cujas únicas colisões são com optativas selecionadas, e o
+		 * crédito da troca fecha, a montagem deixou formatura na mesa por optativa.
+		 *
+		 * Mais forte que contar obrigatórias, porque não depende de quantas o aluno
+		 * ainda tem a cursar — só de a escolha ter sido a melhor possível no pool dado.
+		 * Ignora travada/cursando: turma fixa, matrícula já efetivada.
+		 */
+		it('nenhuma optativa selecionada podia dar lugar a uma obrigatória de fora', async () => {
+			const linhas: Record<string, unknown>[] = [];
+			for (const aluno of fx.alunos) {
+				carregarAluno(aluno);
+				const limite = 20;
+				await montarComPoolAmplo(limite, 'optativasPrimeiro');
+
+				const turnos = gradeStore.turnosPermitidos;
+				const naGrade = new Map(gradeStore.selecao);
+				const doPool = new Map(gradeStore.pool.map((m) => [m.codigo, m]));
+				const contagem = contarPorNatureza();
+
+				const optativasNaGrade = [...naGrade.keys()].filter(
+					(c) => doPool.get(c)?.natureza !== 'obrigatoria' && !gradeStore.isCursandoAtual(c)
+				);
+				const obrigDeFora = gradeStore.pool.filter(
+					(m) =>
+						m.natureza === 'obrigatoria' &&
+						!naGrade.has(m.codigo) &&
+						m.turmas.some((t) => turmaRespeitaTurnos(t.mask, turnos))
+				);
+
+				const trocasPerdidas: string[] = [];
+				for (const fora of obrigDeFora) {
+					for (const t of fora.turmas) {
+						if (!turmaRespeitaTurnos(t.mask, turnos)) continue;
+
+						const colideCom = [...naGrade].filter(([, tg]) => hasConflict(t.mask, tg.mask));
+						// Só é troca perdida se TUDO que ela derruba for optativa livre —
+						// esbarrar em cursando/travada/prioritária é bloqueio legítimo.
+						const podeCeder = colideCom.every(
+							([codigo]) =>
+								optativasNaGrade.includes(codigo) &&
+								!gradeStore.isTravada(codigo) &&
+								!gradeStore.isPrioritaria(codigo)
+						);
+						if (!podeCeder) continue;
+
+						const creditosLiberados = colideCom.reduce(
+							(acc, [codigo]) => acc + (doPool.get(codigo)?.creditos ?? 0),
+							0
+						);
+						if (gradeStore.creditosSelecionados - creditosLiberados + fora.creditos > limite) {
+							continue;
+						}
+
+						trocasPerdidas.push(
+							`${fora.codigo}(obrig) podia entrar no lugar de ` +
+								`${colideCom.map(([c]) => c).join('+') || '(nada)'}`
+						);
+						break;
+					}
+				}
+
+				linhas.push({
+					aluno: aluno.id_user,
+					curso: aluno.nome_curso.slice(0, 22),
+					poolTotal: gradeStore.pool.length,
+					obrigNaGrade: contagem.obrig,
+					optativasNaGrade: contagem.optativas,
+					obrigDeFora: obrigDeFora.length,
+					creditos: gradeStore.creditosSelecionados,
+					trocasPerdidas: trocasPerdidas.length
+				});
+
+				expect(
+					trocasPerdidas,
+					`aluno ${aluno.id_user}: obrigatória preterida por optativa — ${trocasPerdidas.join(' | ')}`
+				).toEqual([]);
+			}
+			console.log('\n=== NATUREZA: OBRIGATÓRIA vs OPTATIVA (limite 20) ===');
+			console.table(linhas);
+		}, 60_000);
+
+		/**
+		 * O outro lado da moeda: priorizar obrigatória não pode virar "só obrigatória".
+		 * Se sobrou horário e crédito, a optativa tem de ocupar — senão o aluno perde
+		 * carga horária à toa e a correção teria trocado um defeito por outro.
+		 */
+		it('optativa ainda preenche o espaço que sobra depois das obrigatórias', async () => {
+			const linhas: Record<string, unknown>[] = [];
+			for (const aluno of fx.alunos) {
+				carregarAluno(aluno);
+				const limite = 24;
+				await montarComPoolAmplo(limite, 'optativasPrimeiro');
+
+				const doPool = new Map(gradeStore.pool.map((m) => [m.codigo, m]));
+				const naGrade = [...gradeStore.selecao];
+				const turnos = gradeStore.turnosPermitidos;
+				const combinada = gradeStore.combinedMask;
+
+				// Cabe mais alguém sem conflito e dentro do teto? Então deveria estar lá:
+				// no solver, encaixar mais uma matéria SEMPRE soma peso.
+				const sobrando = gradeStore.pool.filter(
+					(m) =>
+						!gradeStore.selecao.has(m.codigo) &&
+						gradeStore.creditosSelecionados + m.creditos <= limite &&
+						m.turmas.some(
+							(t) =>
+								t.mask !== 0n &&
+								turmaRespeitaTurnos(t.mask, turnos) &&
+								!hasConflict(t.mask, combinada)
+						)
+				);
+
+				linhas.push({
+					aluno: aluno.id_user,
+					naGrade: naGrade.length,
+					obrig: naGrade.filter(([c]) => doPool.get(c)?.natureza === 'obrigatoria').length,
+					creditos: gradeStore.creditosSelecionados,
+					limite,
+					cabiaMais: sobrando.length
+				});
+
+				expect(
+					sobrando.map((m) => m.codigo),
+					`aluno ${aluno.id_user}: sobrou horário e crédito, mas essas ficaram de fora`
+				).toEqual([]);
+			}
+			console.log('\n=== APROVEITAMENTO DO ESPAÇO LIVRE (limite 24) ===');
+			console.table(linhas);
+		}, 60_000);
+	});
 	describe('eixo: equivalências ao adicionar matéria', () => {
 		it('não deixa adicionar matéria já concluída por equivalência', async () => {
 			const linhas: Record<string, unknown>[] = [];
@@ -486,7 +742,11 @@ describe.skipIf(!TEM_FIXTURES)('Montador de Grade — históricos reais', () => 
 				const crus = new Set(
 					aluno.dados_fluxograma
 						.flat()
-						.map((m) => String(m.codigo ?? '').trim().toUpperCase())
+						.map((m) =>
+							String(m.codigo ?? '')
+								.trim()
+								.toUpperCase()
+						)
 						.filter(Boolean)
 				);
 				const porEquiv = [...fluxogramaStore.completedCodes].filter((c) => !crus.has(c));

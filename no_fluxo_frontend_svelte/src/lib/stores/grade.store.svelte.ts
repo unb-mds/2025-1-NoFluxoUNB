@@ -33,6 +33,13 @@ export interface MateriaGrade {
 	avisoPreRequisito?: string | null;
 	/** Códigos de co-requisitos (matérias que precisam ser cursadas juntas). */
 	coRequisitos?: string[];
+	/**
+	 * Natureza na matriz do aluno — é o que faz `montarAutomatico` preferir
+	 * obrigatória a optativa quando as duas disputam o mesmo horário. Ausente
+	 * (`undefined`) quando quem montou a matéria não resolveu a matriz; nesse caso
+	 * a montagem trata como optativa, que é o comportamento antigo.
+	 */
+	natureza?: 'obrigatoria' | 'optativa' | 'modulo_livre';
 }
 
 interface Cenario {
@@ -53,6 +60,30 @@ export interface MontagemResultado {
 	/** A busca parou no teto de nós: grade válida, mas talvez não a melhor possível. */
 	truncado: boolean;
 }
+
+/**
+ * Escada de prioridade da montagem automática.
+ *
+ * `autoMontarGrade` maximiza a SOMA dos pesos, então a razão entre dois degraus é
+ * o que decide quantas matérias do degrau de baixo valem uma do degrau de cima.
+ * Com fator 1000 entre eles a ordem é, na prática, lexicográfica: nenhum pool real
+ * (dezenas de matérias) chega perto de somar mil optativas para roubar o lugar de
+ * uma obrigatória. Encaixar optativa no buraco que sobra continua valendo — ela
+ * sempre soma, só nunca desloca quem está acima.
+ *
+ * Por que nesta ordem:
+ * - `CURSANDO`: a matrícula já aconteceu. Tirá-la da grade não desmatricula
+ *   ninguém, só esconde a matéria do aluno.
+ * - `PRIORITARIA`: o aluno marcou a estrela. Escolha explícita ganha de heurística
+ *   nossa — senão a estrela numa optativa não serviria para nada.
+ * - `OBRIGATORIA`: é o que atrasa formatura quando fica de fora. Era justamente o
+ *   degrau que não existia: obrigatória e optativa saíam ambas com peso 1 e a
+ *   montagem virava um maximizador de contagem.
+ */
+const PESO_CURSANDO = 1_000_000_000;
+const PESO_PRIORITARIA = 1_000_000;
+const PESO_OBRIGATORIA = 1_000;
+const PESO_PADRAO = 1;
 
 /** Docentes comparáveis: sem espaços redundantes, caixa alta. */
 function normDocente(nome: string | null | undefined): string {
@@ -591,8 +622,6 @@ function createGradeStore() {
 			docentesObrigatorios?: Record<string, string>;
 			limiteCreditos?: number;
 		}): MontagemResultado {
-			// Peso de matéria fixo — a montagem só maximiza quantas cabem.
-			const pesoBase = 1;
 			const docentesEfetivos = { ...docentesPersistidos, ...(opts?.docentesObrigatorios ?? {}) };
 
 			const mascaraTravada = [...travadas].reduce((acc, codigo) => {
@@ -621,20 +650,23 @@ function createGradeStore() {
 							const alvoNorm = normDocente(docenteAlvo);
 							turmas = turmas.filter((t) => normDocente(t.turma.docente).includes(alvoNorm));
 						}
-						// Cursando agora vale mais que qualquer estrela: uma matéria dessas
-						// nunca deve ser sacrificada pra encaixar mais uma opcional, nem no
-						// horário nem no crédito.
-						const obrigatoria = cursandoAtual.has(m.codigo);
+						// CUIDADO com o nome: o campo `obrigatoria` de `MateriaTurmas` NÃO é
+						// "obrigatória da matriz" — é "não pode ser barrada pelo teto de
+						// créditos", e isso só vale para a matrícula que já aconteceu. A
+						// natureza da matriz entra pelo `peso`, logo abaixo.
+						const matriculaReal = cursandoAtual.has(m.codigo);
 						return {
 							chave: m.codigo,
 							turmas,
 							creditos: m.creditos,
-							obrigatoria,
-							peso: obrigatoria
-								? pesoBase * 1_000_000
+							obrigatoria: matriculaReal,
+							peso: matriculaReal
+								? PESO_CURSANDO
 								: prioritarias.has(m.codigo)
-									? pesoBase * 1000
-									: pesoBase
+									? PESO_PRIORITARIA
+									: m.natureza === 'obrigatoria'
+										? PESO_OBRIGATORIA
+										: PESO_PADRAO
 						};
 					}),
 				mascaraTravada,
@@ -663,9 +695,17 @@ function createGradeStore() {
 		 * Tira matérias da seleção até caber em `limite` créditos — usado pelo slider
 		 * de créditos: puramente aditivo em relação ao que já está selecionado, nunca
 		 * roda o solver de novo (arrastar o slider não deveria trocar turmas que o
-		 * aluno já escolheu, só encolher a lista). Não-prioritárias saem primeiro, e
-		 * entre elas a de mais crédito primeiro — sai menos matéria pra abrir espaço.
-		 * Só quando sobram só prioritárias é que elas também podem sair.
+		 * aluno já escolheu, só encolher a lista).
+		 *
+		 * A ordem de corte é a MESMA escada de prioridade da montagem (`PESO_*`),
+		 * invertida: sai primeiro a optativa, depois a obrigatória da matriz, e a
+		 * prioritária só quando não sobra mais nada. Dentro de cada degrau, a de mais
+		 * crédito primeiro — sai menos matéria para abrir o mesmo espaço.
+		 *
+		 * A natureza precisa entrar aqui também, e não só no solver: ordenar apenas por
+		 * crédito cortava a obrigatória de 4 créditos e preservava duas optativas de 2,
+		 * desfazendo pelo slider exatamente a priorização que a montagem tinha acabado
+		 * de fazer.
 		 *
 		 * Matéria que o aluno já está cursando (`cursandoAtual`) nunca é candidata — o
 		 * slider não desmatricula ninguém de uma matéria de matrícula já efetivada.
@@ -675,18 +715,20 @@ function createGradeStore() {
 		 */
 		ajustarParaLimite(limite: number): void {
 			if (creditosSelecionados <= limite) return;
+			/** Quanto vale manter: 0 sai primeiro, 2 sai por último. */
+			const valorDe = (codigo: string): number => {
+				if (prioritarias.has(codigo)) return 2;
+				return pool.find((m) => m.codigo === codigo)?.natureza === 'obrigatoria' ? 1 : 0;
+			};
 			const candidatos = [...selecaoAtiva.keys()]
 				.filter((codigo) => !travadas.has(codigo) && !cursandoAtual.has(codigo))
 				.map((codigo) => ({
 					codigo,
-					prioritaria: prioritarias.has(codigo),
+					valor: valorDe(codigo),
 					creditos: pool.find((m) => m.codigo === codigo)?.creditos ?? 0
 				}))
 				.sort(
-					(a, b) =>
-						Number(a.prioritaria) - Number(b.prioritaria) ||
-						b.creditos - a.creditos ||
-						a.codigo.localeCompare(b.codigo)
+					(a, b) => a.valor - b.valor || b.creditos - a.creditos || a.codigo.localeCompare(b.codigo)
 				);
 
 			let atual = creditosSelecionados;
