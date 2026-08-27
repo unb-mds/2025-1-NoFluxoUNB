@@ -8,6 +8,7 @@
 	import type { MinimalCursoModel } from '$lib/types/curso';
 	import { Search, Filter, ChevronLeft, ChevronRight, Loader2, AlertTriangle, GraduationCap } from 'lucide-svelte';
 	import { onMount } from 'svelte';
+	import Error from '../+error.svelte';
 
 	// Agora cada item representa uma MATRIZ (curso + currículo).
 	let courses = $state<MinimalCursoModel[]>([]);
@@ -88,16 +89,28 @@
 		currentPage = 1;
 	}
 
+	// onMount(async () => {
+	// 	try {
+	// 		// Lista TODAS as matrizes com informações de curso
+	// 		courses = await fluxogramaService.getAllMatrizesIndex();
+	// 	} catch (err) {
+	// 		error = err instanceof Error ? err.message : 'Erro ao carregar cursos';
+	// 	} finally {
+	// 		loading = false;
+	// 	}
+	// });
+
 	onMount(async () => {
-		try {
-			// Lista TODAS as matrizes com informações de curso
-			courses = await fluxogramaService.getAllMatrizesIndex();
+	    try {
+		    // Lista todos os cursos únicos
+		    courses = await fluxogramaService.getAllCursos();
 		} catch (err) {
-			error = err instanceof Error ? err.message : 'Erro ao carregar cursos';
+		    error = err instanceof Error ? err.message : 'Erro ao carregar cursos';
+		    console.error('FluxogramaService.getAllCursos error:', err);
 		} finally {
-			loading = false;
+		    loading = false;
 		}
-	});
+    });
 
 	function navigateToCourse(curso: MinimalCursoModel) {
 		const url = ROUTES.meuFluxograma(curso.nomeCurso);

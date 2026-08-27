@@ -2433,3 +2433,12 @@ CREATE POLICY "users_select_own" ON public."users" AS PERMISSIVE FOR SELECT TO a
 CREATE POLICY "users_update_own" ON public."users" AS PERMISSIVE FOR UPDATE TO authenticated USING ((auth_id = auth.uid())) WITH CHECK ((auth_id = auth.uid()));
 
 COMMIT;
+
+
+-- View creditos_por_curso - lists all courses with their calculated creditos obrigatorios
+CREATE OR REPLACE VIEW public."creditos_por_curso" AS
+SELECT 
+    c."id_curso",
+    public.calcular_creditos_por_curso(c."id_curso") AS creditos_obrigatorios
+FROM public.cursos c
+WHERE c."id_curso" IS NOT NULL;
