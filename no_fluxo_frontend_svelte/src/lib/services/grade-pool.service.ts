@@ -21,7 +21,7 @@ import { getOfertaComEquivalencia } from '$lib/services/oferta-turmas.service';
 import { satisfazPreRequisitos } from '$lib/types/curso';
 import { classificarNatureza, isOptativa } from '$lib/types/materia';
 import { setHasCodeIgnoreCase, filtrarNaoCursados } from '$lib/utils/subject-codes';
-import { hasConflict, turmaRespeitaTurnos } from '$lib/utils/horario-slots';
+import { hasConflict, turmaRespeitaTurnos, type Turno } from '$lib/utils/horario-slots';
 
 /**
  * Partes de pré-requisito ainda não cumpridas (código ou, quando o registro não
@@ -31,31 +31,62 @@ import { hasConflict, turmaRespeitaTurnos } from '$lib/utils/horario-slots';
  * enquanto o pop-up de confirmação precisa da lista inteira — e a avaliação da
  * expressão lógica (AND/OR) não pode ficar duplicada nos dois lugares.
  */
-function partesPreRequisitoPendentes(idMateria: number): string[] | null {
+export type NivelPreRequisito = 'em-curso' | 'pendente';
+
+/**
+ * Estado do pré-requisito em três níveis, com as partes que faltam.
+ *
+ * `docs/unb-domain.md:26` diz que MATR não desbloqueia pré-requisito; o Motor 2
+ * monta `completedPlusMatr` e recomenda com base nisso. Os dois estão certos no
+ * próprio quadro, e escolher um em silêncio foi o erro anterior: ora o app dizia
+ * "pendente" numa recomendação legítima do backend, ora não dizia nada sobre uma
+ * dependência que ainda pode falhar.
+ *
+ * O padrão é não decidir escondido:
+ * - `null`  → cumprido só com aprovadas (inclui equivalência)
+ * - `em-curso` → só fecha contando o que ele cursa agora; depende de passar
+ * - `pendente` → não fecha nem assim
+ *
+ * Nenhum bloqueia: quem chama decide o que fazer com o aviso.
+ */
+function estadoPreRequisito(
+	idMateria: number
+): { nivel: NivelPreRequisito; partes: string[] } | null {
 	const curso = fluxogramaStore.state.courseData;
-	// O montador planeja o PRÓXIMO semestre, então o que está em curso agora já terá
-	// sido cursado quando essas turmas começarem. É a mesma conta que o Motor 2 faz
-	// para recomendar (`completedPlusMatr` em plano_formatura.service.ts): sem isso o
-	// frontend carimbava "pré-requisito pendente" na própria recomendação que acabou
-	// de receber do backend — ex.: FGA0240 exige FGA0238, que o aluno está cursando.
-	const cumpridos = new Set([
-		...fluxogramaStore.completedCodes,
-		...(fluxogramaStore.currentCodes ?? [])
-	]);
+	const concluidas = fluxogramaStore.completedCodes;
+	const emCurso = fluxogramaStore.currentCodes ?? new Set<string>();
+	const comEmCurso = new Set([...concluidas, ...emCurso]);
 
 	const prereqs = (curso?.preRequisitos ?? []).filter((pr) => pr.idMateria === idMateria);
-	if (prereqs.length === 0 || satisfazPreRequisitos(prereqs, cumpridos)) return null;
+	if (prereqs.length === 0 || satisfazPreRequisitos(prereqs, concluidas)) return null;
+
+	// Fecha quando entram as em curso? Então é dependência encaminhada, não pendência.
+	const nivel: NivelPreRequisito = satisfazPreRequisitos(prereqs, comEmCurso)
+		? 'em-curso'
+		: 'pendente';
+	// No nível "em curso" o que interessa mostrar é a matéria de que ele depende;
+	// no "pendente", o que ainda falta por completo.
+	const base = nivel === 'em-curso' ? concluidas : comEmCurso;
 
 	const partes = new Set<string>();
 	for (const pr of prereqs) {
 		const code = pr.codigoMateriaRequisito?.trim();
 		if (code) {
-			if (!setHasCodeIgnoreCase(cumpridos, code)) partes.add(code);
+			if (!setHasCodeIgnoreCase(base, code)) partes.add(code);
 		} else if (pr.expressaoOriginal?.trim()) {
 			partes.add(pr.expressaoOriginal.trim());
 		}
 	}
-	return [...partes];
+	return { nivel, partes: [...partes] };
+}
+
+/**
+ * Partes ainda não cumpridas, contando o que ele cursa agora — é a lista que o
+ * pop-up de confirmação mostra. `null` = nada a avisar.
+ */
+function partesPreRequisitoPendentes(idMateria: number): string[] | null {
+	const estado = estadoPreRequisito(idMateria);
+	return estado === null || estado.nivel === 'em-curso' ? null : estado.partes;
 }
 
 /**
@@ -65,18 +96,19 @@ function partesPreRequisitoPendentes(idMateria: number): string[] | null {
  */
 export function calcularRequisitos(idMateria: number): {
 	avisoPreRequisito: string | null;
+	nivelPreRequisito: NivelPreRequisito | null;
 	coRequisitos: string[];
 } {
 	const curso = fluxogramaStore.state.courseData;
 	const completed = fluxogramaStore.completedCodes;
 	const current = fluxogramaStore.currentCodes ?? new Set<string>();
 
-	const pendentes = partesPreRequisitoPendentes(idMateria);
+	const estado = estadoPreRequisito(idMateria);
 	const avisoPreRequisito =
-		pendentes === null
+		estado === null
 			? null
-			: pendentes.length > 0
-				? pendentes.slice(0, 3).join(' · ')
+			: estado.partes.length > 0
+				? estado.partes.slice(0, 3).join(' · ')
 				: 'requisitos não cumpridos';
 
 	const coRequisitos = [
@@ -88,7 +120,7 @@ export function calcularRequisitos(idMateria: number): {
 		)
 	];
 
-	return { avisoPreRequisito, coRequisitos };
+	return { avisoPreRequisito, nivelPreRequisito: estado?.nivel ?? null, coRequisitos };
 }
 
 /**
@@ -148,13 +180,14 @@ export async function construirMateriasGrade(
 
 	const out: MateriaGrade[] = [];
 	for (const [codigo, r] of resolved) {
-		const { avisoPreRequisito, coRequisitos } = calcularRequisitos(r.idMateria);
+		const { avisoPreRequisito, nivelPreRequisito, coRequisitos } = calcularRequisitos(r.idMateria);
 		out.push({
 			codigo,
 			nome: r.nome,
 			creditos: r.creditos,
 			idMateria: r.idMateria,
 			avisoPreRequisito,
+			nivelPreRequisito,
 			coRequisitos,
 			// Sem isto a montagem automática não distingue obrigatória de optativa e
 			// vira um maximizador de contagem — ver a escada de pesos em grade.store.
@@ -169,12 +202,17 @@ export async function construirMateriasGrade(
 	return out;
 }
 
-/** O que a semeadura conseguiu trazer para a lista, por procedência. */
+/**
+ * O que a semeadura trouxe para a lista — e o que não pôde trazer.
+ *
+ * Já não separa "do plano" de "da matriz": a fonte agora é sempre a matriz do
+ * aluno, e o plano de formatura só desempata a ordem.
+ */
 export interface SemeaduraResultado {
-	/** Códigos vindos do semestre recomendado do plano de formatura. */
-	doPlano: string[];
-	/** Códigos puxados da matriz porque o plano não tinha matéria concreta a semear. */
-	daMatriz: string[];
+	/** Códigos que entraram na lista agora. */
+	adicionadas: string[];
+	/** Obrigatórias que faltam ao aluno e não têm turma neste período. */
+	obrigatoriasSemOferta: string[];
 }
 
 /**
@@ -195,8 +233,56 @@ export async function candidatosDaMatriz(
 	periodo: string,
 	excluir: Iterable<string> = []
 ): Promise<MateriaGrade[]> {
+	const { obrigatorias, optativas } = await candidatosClassificados(periodo, excluir);
+	return [...obrigatorias, ...optativas].map((c) => c.materia);
+}
+
+/**
+ * Posição de quem o plano não citou. Um número grande e FINITO de propósito:
+ * `Infinity - Infinity` é `NaN`, e um `NaN` no comparador só não estraga a ordem
+ * por acidente (é falsy, então o `||` cai no critério seguinte).
+ */
+const SEM_PLANO = Number.MAX_SAFE_INTEGER;
+
+/** Uma candidata da matriz com tudo que a ordenação precisa saber sobre ela. */
+interface CandidatoMatriz {
+	materia: MateriaGrade;
+	/** Pendente de verdade vai para o fim; dependência em curso fica no meio. */
+	requisitoPendente: 0 | 1 | 2;
+	/** Optativa que é pré-requisito de obrigatória — na prática, obrigatória disfarçada. */
+	optatoria: boolean;
+	/** Semestre esperado na matriz; a mais atrasada primeiro. */
+	nivel: number;
+	/** Posição no semestre recomendado do plano, ou `SEM_PLANO` se ele não citou. */
+	ordemPlano: number;
+}
+
+/**
+ * As matérias da matriz que ainda faltam, separadas por natureza e já ordenadas
+ * por utilidade para quem quer se formar.
+ *
+ * Só volta matéria **com turma no período** — sem oferta ela não vira bloco no
+ * calendário. As obrigatórias que caem por esse filtro saem em
+ * `obrigatoriasSemOferta` em vez de sumirem caladas: "a obrigatória que te falta
+ * não é ofertada neste semestre" é informação que muda o planejamento do aluno.
+ *
+ * `ordemDoPlano` é o semestre recomendado do plano de formatura. Ele NÃO decide
+ * quem entra — só desempata entre matérias do mesmo grupo. Foi de lá que saíam as
+ * "matérias nada a ver": o plano pode recomendar código que não está na matriz do
+ * aluno, e isso entrava na lista como módulo livre.
+ */
+async function candidatosClassificados(
+	periodo: string,
+	excluir: Iterable<string> = [],
+	ordemDoPlano: string[] = []
+): Promise<{
+	obrigatorias: CandidatoMatriz[];
+	optativas: CandidatoMatriz[];
+	obrigatoriasSemOferta: string[];
+}> {
+	const vazio = () => ({ obrigatorias: [], optativas: [], obrigatoriasSemOferta: [] });
 	const matriz = fluxogramaStore.state.courseData?.materias ?? [];
-	if (matriz.length === 0) return [];
+	if (matriz.length === 0) return vazio();
 
 	const fora = new Set([...excluir].map((c) => c.trim().toUpperCase()));
 	const codigos = filtrarNaoCursados(
@@ -204,30 +290,50 @@ export async function candidatosDaMatriz(
 		fluxogramaStore.completedCodes,
 		fluxogramaStore.currentCodes ?? new Set<string>()
 	);
-	if (codigos.length === 0) return [];
+	if (codigos.length === 0) return vazio();
 
 	const daMatriz = new Map(matriz.map((m) => [m.codigoMateria.trim().toUpperCase(), m]));
+	// Nem todo consumidor do store expõe `optatorias` (os testes antigos, por
+	// exemplo) — sem ela a regra degrada para "toda optativa vale o mesmo".
+	const destravam = fluxogramaStore.optatorias ?? new Map<string, string[]>();
+	const posicaoNoPlano = new Map(
+		ordemDoPlano.map((c, i) => [c.trim().toUpperCase(), i] as const)
+	);
 
-	return (await construirMateriasGrade(codigos, periodo))
-		.filter((m) => m.turmas.length > 0)
-		.map((m) => {
-			const info = daMatriz.get(m.codigo);
-			return {
-				materia: m,
-				requisitoPendente: m.avisoPreRequisito ? 1 : 0,
-				optativa: info && isOptativa(info) ? 1 : 0,
-				// Optativa tem nivel 0 na matriz; o critério anterior já a separou.
-				nivel: info?.nivel ?? 99
-			};
-		})
-		.sort(
-			(a, b) =>
-				a.requisitoPendente - b.requisitoPendente ||
-				a.optativa - b.optativa ||
-				a.nivel - b.nivel ||
-				a.materia.codigo.localeCompare(b.materia.codigo)
-		)
-		.map((x) => x.materia);
+	const obrigatorias: CandidatoMatriz[] = [];
+	const optativas: CandidatoMatriz[] = [];
+	const obrigatoriasSemOferta: string[] = [];
+
+	for (const m of await construirMateriasGrade(codigos, periodo)) {
+		const info = daMatriz.get(m.codigo);
+		const optativa = !!info && isOptativa(info);
+		if (m.turmas.length === 0) {
+			// Optativa sem oferta é rotina e não vale aviso; obrigatória é notícia.
+			if (!optativa) obrigatoriasSemOferta.push(m.codigo);
+			continue;
+		}
+		(optativa ? optativas : obrigatorias).push({
+			materia: m,
+			requisitoPendente:
+				m.nivelPreRequisito === 'pendente' ? 2 : m.nivelPreRequisito === 'em-curso' ? 1 : 0,
+			optatoria: optativa && destravam.has(m.codigo),
+			// Optativa tem nivel 0 na matriz; a separação por natureza já cuidou disso.
+			nivel: info?.nivel ?? 99,
+			ordemPlano: posicaoNoPlano.get(m.codigo) ?? SEM_PLANO
+		});
+	}
+
+	const porUtilidade = (a: CandidatoMatriz, b: CandidatoMatriz): number =>
+		a.requisitoPendente - b.requisitoPendente ||
+		Number(b.optatoria) - Number(a.optatoria) ||
+		a.ordemPlano - b.ordemPlano ||
+		a.nivel - b.nivel ||
+		a.materia.codigo.localeCompare(b.materia.codigo);
+
+	obrigatorias.sort(porUtilidade);
+	optativas.sort(porUtilidade);
+
+	return { obrigatorias, optativas, obrigatoriasSemOferta };
 }
 
 /**
@@ -247,14 +353,46 @@ export function escolherAteOLimite(
 	candidatos: MateriaGrade[],
 	limiteCreditos: number
 ): MateriaGrade[] {
+	return escolherComOrcamento(candidatos, limiteCreditos, {
+		mask: gradeStore.combinedMask,
+		creditos: gradeStore.creditosSelecionados,
+		turnos: gradeStore.turnosPermitidos
+	});
+}
+
+/** Ponto de partida da escolha: o que a grade já ocupa e o filtro de turno. */
+export interface OrcamentoInicial {
+	/** Horários já tomados. */
+	mask: bigint;
+	/** Créditos já gastos. */
+	creditos: number;
+	/** Turnos que o aluno aceita. */
+	turnos: Set<Turno>;
+}
+
+const TODOS_OS_TURNOS = new Set<Turno>(['M', 'T', 'N']);
+
+/**
+ * O mesmo prefixo viável de `escolherAteOLimite`, mas partindo de um orçamento
+ * explícito em vez do estado do `gradeStore`.
+ *
+ * A semeadura precisa disso porque roda ANTES do `init` do store, na primeira
+ * carga da página: ali não existe seleção nem filtro de turno de onde partir, e
+ * ler o store devolveria o estado da visita anterior.
+ */
+function escolherComOrcamento(
+	candidatos: MateriaGrade[],
+	limiteCreditos: number,
+	base: OrcamentoInicial
+): MateriaGrade[] {
 	const escolhidas: MateriaGrade[] = [];
-	let mask = gradeStore.combinedMask;
-	let creditos = gradeStore.creditosSelecionados;
+	let mask = base.mask;
+	let creditos = base.creditos;
 
 	for (const m of candidatos) {
 		if (creditos + m.creditos > limiteCreditos) continue; // pode caber uma menor adiante
 		const turma = m.turmas.find(
-			(t) => turmaRespeitaTurnos(t.mask, gradeStore.turnosPermitidos) && !hasConflict(t.mask, mask)
+			(t) => turmaRespeitaTurnos(t.mask, base.turnos) && !hasConflict(t.mask, mask)
 		);
 		if (!turma) continue;
 		mask |= turma.mask;
@@ -263,6 +401,79 @@ export function escolherAteOLimite(
 	}
 
 	return escolhidas;
+}
+
+/** O que a semeadura devolve: a lista pronta e o que ficou de fora, com o motivo. */
+export interface PoolRecomendado {
+	/** Em curso primeiro, depois obrigatórias, depois optativas — na ordem de entrada. */
+	materias: MateriaGrade[];
+	/** Obrigatórias pendentes da matriz que não têm turma no período. */
+	obrigatoriasSemOferta: string[];
+}
+
+/**
+ * Monta a lista que o Montador recomenda — direto da **matriz do aluno**.
+ *
+ * A ordem não é arbitrária, é a de quem quer se formar:
+ *
+ * 1. **Matérias em curso (MATR).** Entram sempre, antes de tudo e sem passar por
+ *    filtro nenhum: matrícula é fato consumado, não recomendação. O crédito delas
+ *    é debitado do orçamento antes de o app sugerir qualquer coisa — recomendar 24
+ *    créditos por cima de 12 já cursados dá uma grade impossível de se matricular.
+ * 2. **Obrigatórias pendentes** com turma no período, requisito cumprido antes de
+ *    pendente e a mais atrasada (menor `nivel`) primeiro.
+ * 3. **Optativas**, só com o crédito que sobrar — e entre elas, primeiro as que
+ *    destravam alguma obrigatória (as "optatórias").
+ *
+ * O plano de formatura entra apenas como desempate (`ordemDoPlano`). Ele era a
+ * fonte da semeadura e é de lá que vinham as "matérias nada a ver": o plano pode
+ * recomendar código fora da matriz, que entrava na lista como módulo livre. Agora
+ * matéria de fora só entra se o aluno adicionar na mão.
+ */
+export async function montarPoolRecomendado(
+	periodo: string,
+	opts: {
+		limiteCreditos: number;
+		/** Semestre recomendado do plano de formatura — só desempata a ordem. */
+		ordemDoPlano?: string[];
+		/** Códigos que não devem voltar (lixeira do aluno) ou que já estão na lista. */
+		excluir?: Iterable<string>;
+		/** O que a grade já ocupa. Ausente = lista partindo do zero. */
+		base?: OrcamentoInicial;
+	}
+): Promise<PoolRecomendado> {
+	const base = opts.base ?? { mask: 0n, creditos: 0, turnos: TODOS_OS_TURNOS };
+	const fora = new Set([...(opts.excluir ?? [])].map((c) => c.trim().toUpperCase()));
+
+	// Em curso: entram inteiras, mesmo sem oferta no período. Uma MATR sem turma
+	// publicada continua sendo uma matéria que o aluno cursa — escondê-la da lista
+	// é justamente o bug que este caminho existe para não repetir.
+	const emCurso = [...(fluxogramaStore.currentCodes ?? new Set<string>())].filter(
+		(c) => !fora.has(c.trim().toUpperCase())
+	);
+	const materiasEmCurso = await construirMateriasGrade(emCurso, periodo);
+
+	// Só o crédito é debitado, não o horário: a turma real da matrícula é escolhida
+	// depois (`preencherTurmasReais`), então travar a máscara numa turma qualquer
+	// bloquearia horários que a matéria talvez nem ocupe.
+	const creditosEmCurso = materiasEmCurso.reduce((acc, m) => acc + m.creditos, 0);
+
+	const { obrigatorias, optativas, obrigatoriasSemOferta } = await candidatosClassificados(
+		periodo,
+		[...fora, ...emCurso],
+		opts.ordemDoPlano ?? []
+	);
+
+	const recomendadas = escolherComOrcamento(
+		[...obrigatorias, ...optativas].map((c) => c.materia),
+		opts.limiteCreditos,
+		{ ...base, creditos: base.creditos + creditosEmCurso }
+	);
+
+	return {
+		materias: [...materiasEmCurso, ...recomendadas],
+		obrigatoriasSemOferta
+	};
 }
 
 /**

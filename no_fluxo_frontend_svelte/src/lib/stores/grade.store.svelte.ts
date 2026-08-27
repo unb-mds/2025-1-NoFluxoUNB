@@ -31,6 +31,12 @@ export interface MateriaGrade {
 	turmas: Array<TurmaComMask<TurmaOferta> & { codigoOfertado?: string }>;
 	/** Aviso quando o aluno ainda não satisfaz os pré-requisitos (não bloqueia). */
 	avisoPreRequisito?: string | null;
+	/**
+	 * Quão grave é o aviso: `em-curso` é dependência encaminhada (o pré-requisito é
+	 * matéria que ele cursa agora, então depende de passar); `pendente` é o que não
+	 * fecha nem assim. Ausente/`null` = cumprido. Ver `estadoPreRequisito`.
+	 */
+	nivelPreRequisito?: 'em-curso' | 'pendente' | null;
 	/** Códigos de co-requisitos (matérias que precisam ser cursadas juntas). */
 	coRequisitos?: string[];
 	/**
@@ -167,11 +173,11 @@ function createGradeStore() {
 	 */
 	let docentesPersistidos = $state<Record<string, string>>({});
 	/**
-	 * Códigos que o aluno já está cursando agora (fora do pool "próximo semestre" —
-	 * vem do fluxograma atual). Entram na lista sozinhos pra não conflitar com o que
-	 * o aluno for adicionar; quando o histórico traz a turma real da matrícula, a
-	 * rota também a pré-seleciona. Quem define é a rota (`definirCursandoAtual`),
-	 * logo depois do init.
+	 * Códigos que o aluno já está cursando agora, vindos do fluxograma. Entram na
+	 * lista sozinhos pra não conflitar com o que o aluno for adicionar; quando o
+	 * histórico traz a turma real da matrícula, a rota também a pré-seleciona. Quem
+	 * define é a rota (`definirCursandoAtual`), logo depois do init. Se elas ocupam
+	 * a grade é decisão do aluno — ver `incluirCursando`.
 	 */
 	let cursandoAtual = $state<Set<string>>(new Set());
 	/**
@@ -182,6 +188,35 @@ function createGradeStore() {
 	 * cursando de verdade, o que não faz sentido (a matrícula real já aconteceu).
 	 */
 	let travadas = $state<Set<string>>(new Set());
+	/**
+	 * As matérias que o aluno já cursa entram na grade? Ligado por padrão.
+	 *
+	 * O Montador não diz mais qual semestre está montando — ele monta uma grade com a
+	 * oferta real mais recente. Com isso, "matrícula em curso é intocável" deixou de
+	 * ser lei e virou escolha: ligado, o aluno vê a semana inteira dele; desligado,
+	 * ele olha o que dá pra pegar depois, e a matrícula atual só ocuparia espaço.
+	 *
+	 * Medido em 24 alunos reais antes desta opção existir: 67% das matérias montadas
+	 * eram matérias já em curso, e num deles a grade era 100% disso — com 13
+	 * obrigatórias ofertadas de fora.
+	 */
+	let incluirCursando = $state(true);
+
+	/**
+	 * Matérias em curso que valem para esta montagem. Desligado o modo, o conjunto é
+	 * vazio: elas não pontuam, não gastam crédito e não ocupam horário — mas
+	 * `cursandoAtual` continua intacto, então religar devolve tudo sem recarregar.
+	 */
+	const cursandoAtivo = $derived(incluirCursando ? cursandoAtual : new Set<string>());
+
+	/**
+	 * Travas que valem para esta montagem. Só matéria em curso trava, então com o
+	 * modo desligado não sobra nenhuma.
+	 */
+	const travadasAtivas = $derived.by(() => {
+		if (incluirCursando) return travadas;
+		return new Set([...travadas].filter((c) => !cursandoAtual.has(c)));
+	});
 
 	const indicePorCodigo = $derived.by(() => {
 		const m = new Map<string, number>();
@@ -246,7 +281,8 @@ function createGradeStore() {
 				activeId,
 				prioritarias: [...prioritarias],
 				turnos: [...turnosPermitidos],
-				removidas: [...removidas]
+				removidas: [...removidas],
+				incluirCursando
 			})
 		);
 	}
@@ -412,6 +448,31 @@ function createGradeStore() {
 			persistCenarios();
 		},
 
+		get incluirCursando() {
+			return incluirCursando;
+		},
+
+		/**
+		 * O aluno tem matrícula em curso nesta lista? Sem isso o botão de ligar/desligar
+		 * não tem o que ligar — some da barra em vez de virar enfeite.
+		 */
+		get temCursando() {
+			return cursandoAtual.size > 0;
+		},
+
+		/**
+		 * Liga/desliga a entrada das matérias em curso na montagem.
+		 *
+		 * Não mexe em `cursandoAtual`: a informação de que o aluno cursa aquilo continua
+		 * valendo (etiqueta na lista, pré-requisito satisfeito). O que muda é só se elas
+		 * disputam vaga na grade.
+		 */
+		setIncluirCursando(valor: boolean): void {
+			if (incluirCursando === valor) return;
+			incluirCursando = valor;
+			persistCenarios();
+		},
+
 		/** Co-requisitos da matéria que NÃO estão na grade atual (só p/ selecionadas). */
 		coReqsFaltando(codigo: string): string[] {
 			const mat = pool.find((m) => m.codigo === codigo);
@@ -439,6 +500,7 @@ function createGradeStore() {
 				prioritarias?: string[];
 				turnos?: Turno[];
 				removidas?: string[];
+				incluirCursando?: boolean;
 			} | null = null;
 			if (key && typeof localStorage !== 'undefined') {
 				try {
@@ -458,6 +520,10 @@ function createGradeStore() {
 					: ['M', 'T', 'N']
 			);
 			removidas = new Set(Array.isArray(restaurado?.removidas) ? restaurado!.removidas : []);
+			// Ausente no storage (cenário salvo antes desta opção existir) = ligado, que
+			// é o comportamento de sempre.
+			incluirCursando =
+				typeof restaurado?.incluirCursando === 'boolean' ? restaurado.incluirCursando : true;
 
 			if (restaurado && Array.isArray(restaurado.grades) && restaurado.grades.length > 0) {
 				grades = restaurado.grades.map((g) => ({
@@ -549,8 +615,15 @@ function createGradeStore() {
 
 		/**
 		 * Seleciona/troca a turma; retorna feedback de conflito p/ o "tenta inserir".
-		 * Matéria de `cursandoAtual` trava sozinha aqui: assim que o aluno escolhe a
-		 * turma real dele, "Montar grade" para de poder reatribuir essa matéria.
+		 *
+		 * A matéria trava sozinha aqui. Escolher turma na mão é uma decisão do aluno —
+		 * "Montar grade" passa a respeitá-la e a só preencher o que sobrou, em vez de
+		 * remontar tudo do zero por cima dela. O cadeado fica visível na lista e o
+		 * aluno solta quando quiser que o solver remexa naquela matéria.
+		 *
+		 * Só o caminho manual passa por aqui: `montarAutomatico` escreve a seleção
+		 * direto, então o resultado do solver NÃO sai travado — senão a segunda
+		 * montagem já não teria o que otimizar.
 		 */
 		selecionarTurma(codigo: string, idTurma: number): SelecaoResultado {
 			const tg = pool
@@ -560,9 +633,7 @@ function createGradeStore() {
 			const conflito = this.conflitaCom(codigo, tg);
 			if (conflito) return { ok: false, conflitaCom: conflito };
 			updateAtivo((sel) => ({ ...sel, [codigo]: idTurma }));
-			if (cursandoAtual.has(codigo) && !travadas.has(codigo)) {
-				travadas = new Set([...travadas, codigo]);
-			}
+			if (!travadas.has(codigo)) travadas = new Set([...travadas, codigo]);
 			return { ok: true, conflitaCom: null };
 		},
 
@@ -584,7 +655,7 @@ function createGradeStore() {
 		},
 
 		isTravada(codigo: string): boolean {
-			return travadas.has(codigo);
+			return travadasAtivas.has(codigo);
 		},
 
 		/**
@@ -630,14 +701,14 @@ function createGradeStore() {
 		}): MontagemResultado {
 			const docentesEfetivos = { ...docentesPersistidos, ...(opts?.docentesObrigatorios ?? {}) };
 
-			const mascaraTravada = [...travadas].reduce((acc, codigo) => {
+			const mascaraTravada = [...travadasAtivas].reduce((acc, codigo) => {
 				const tg = selecaoAtiva.get(codigo);
 				return tg ? acc | tg.mask : acc;
 			}, 0n);
 
 			// As travadas continuam na grade final, então o crédito delas já está gasto
 			// antes do solver começar — o orçamento que sobra é o do resto.
-			const creditosTravados = [...travadas].reduce((acc, codigo) => {
+			const creditosTravados = [...travadasAtivas].reduce((acc, codigo) => {
 				if (!selecaoAtiva.has(codigo)) return acc;
 				return acc + (pool.find((m) => m.codigo === codigo)?.creditos ?? 0);
 			}, 0);
@@ -646,7 +717,10 @@ function createGradeStore() {
 
 			const r = autoMontarGrade(
 				pool
-					.filter((m) => !travadas.has(m.codigo))
+					// Modo desligado: a matéria em curso não é candidata — sai da grade e
+					// devolve o horário e o crédito dela para as outras.
+					.filter((m) => !travadasAtivas.has(m.codigo))
+					.filter((m) => incluirCursando || !cursandoAtual.has(m.codigo))
 					.map((m) => {
 						const docenteAlvo = docentesEfetivos[m.codigo];
 						// Só considera turmas dentro dos turnos permitidos e, se houver
@@ -660,7 +734,7 @@ function createGradeStore() {
 						// "obrigatória da matriz" — é "não pode ser barrada pelo teto de
 						// créditos", e isso só vale para a matrícula que já aconteceu. A
 						// natureza da matriz entra pelo `peso`, logo abaixo.
-						const matriculaReal = cursandoAtual.has(m.codigo);
+						const matriculaReal = cursandoAtivo.has(m.codigo);
 						return {
 							chave: m.codigo,
 							turmas,
@@ -679,7 +753,7 @@ function createGradeStore() {
 				orcamento
 			);
 			const novaSel: Record<string, number> = {};
-			for (const codigo of travadas) {
+			for (const codigo of travadasAtivas) {
 				const tg = selecaoAtiva.get(codigo);
 				if (tg) novaSel[codigo] = tg.turma.id_turmas;
 			}
@@ -693,8 +767,16 @@ function createGradeStore() {
 			return ultimaMontagem;
 		},
 
+		/**
+		 * Esvazia a grade (a lista de matérias continua).
+		 *
+		 * Destrava tudo junto: matéria travada fica fora do solver — a turma dela seria
+		 * fixa — e, sem seleção, também fica fora da grade. Deixar trava órfã aqui fazia
+		 * a matéria sumir da montagem seguinte sem nenhum aviso.
+		 */
 		limpar(): void {
 			updateAtivo(() => ({}));
+			travadas = new Set();
 		},
 
 		/**
@@ -705,7 +787,11 @@ function createGradeStore() {
 		 */
 		limparTudo(): void {
 			const nr = new Set(removidas);
-			for (const m of pool) nr.add(m.codigo);
+			// Matrícula em curso nunca entra em `removidas`: ela é fato consumado, não
+			// sugestão do app. A rota filtra as em curso por `removidas` ao carregar, então
+			// marcá-las aqui fazia "Limpar tudo" apagar em definitivo, de todo carregamento
+			// seguinte, as matérias em que o aluno JÁ está matriculado.
+			for (const m of pool) if (!cursandoAtual.has(m.codigo)) nr.add(m.codigo);
 			removidas = nr;
 			pool = [];
 			prioritarias = new Set();
@@ -757,9 +843,13 @@ function createGradeStore() {
 		 *
 		 * Matéria que o aluno já está cursando (`cursandoAtual`) nunca é candidata — o
 		 * slider não desmatricula ninguém de uma matéria de matrícula já efetivada.
-		 * Repare que a trava não basta pra isso: ela só nasce quando o aluno escolhe a
-		 * turma real na mão, então logo depois de "Montar grade" o conjunto `travadas`
-		 * está vazio e era justamente aí que o slider jogava MATR fora.
+		 * É `cursandoAtivo` que garante isso, e não a trava: a trava só nasce quando o
+		 * aluno escolhe turma na mão, então logo depois de "Montar grade" o conjunto
+		 * `travadas` está vazio e era justamente aí que o slider jogava MATR fora.
+		 *
+		 * Matéria travada na mão, essa SAI: o slider é o aluno pedindo menos créditos,
+		 * e alguma coisa tem de ceder. Sai destravando junto — trava sem seleção deixa
+		 * a matéria fora do solver e fora da grade, isto é, some sem aviso.
 		 */
 		ajustarParaLimite(limite: number): void {
 			if (creditosSelecionados <= limite) return;
@@ -769,7 +859,7 @@ function createGradeStore() {
 				return pool.find((m) => m.codigo === codigo)?.natureza === 'obrigatoria' ? 1 : 0;
 			};
 			const candidatos = [...selecaoAtiva.keys()]
-				.filter((codigo) => !travadas.has(codigo) && !cursandoAtual.has(codigo))
+				.filter((codigo) => !cursandoAtivo.has(codigo))
 				.map((codigo) => ({
 					codigo,
 					valor: valorDe(codigo),
@@ -792,6 +882,9 @@ function createGradeStore() {
 				for (const codigo of remover) delete out[codigo];
 				return out;
 			});
+			if ([...remover].some((c) => travadas.has(c))) {
+				travadas = new Set([...travadas].filter((c) => !remover.has(c)));
+			}
 			ultimaMontagem = null;
 		},
 

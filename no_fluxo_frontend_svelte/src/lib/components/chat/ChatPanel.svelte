@@ -56,7 +56,12 @@
 		/** Quando definido, cada badge de código ganha um botão "+ grade". */
 		onAddToGrade?: (codigo: string) => void;
 		/** Quando definido, o marcador [MONTAR_GRADE|COD,...|TURNOS|DOCENTES] vira um botão de ação. */
-		onMontarGrade?: (codigos: string[], turnos?: string[], docentes?: Record<string, string>) => void;
+		onMontarGrade?: (
+			codigos: string[],
+			turnos?: string[],
+			docentes?: Record<string, string>,
+			incluirCursando?: boolean
+		) => void;
 		/** Mapa código→nome: chips de matéria exibem o nome (código vira tooltip). */
 		nomesMaterias?: Map<string, string>;
 		emptyState?: Snippet;
@@ -156,7 +161,8 @@
 			.replace(/\n{3,}/g, '\n\n')
 			.replace(/^[ \t]*[-*]\s+/gm, '•  ')
 			.replace(/^[ \t]*(\d+)[.)]\s+/gm, '$1.  ');
-		const regex = /(\b[A-Z]{3,4}\d{4}\b)|(\[TURMA\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|\]]+)(?:\|([^\]]+))?\])|(\[BOTAO\|([^|\]]+)(?:\|([^\]]+))?\])|(\*\*([^*\n]+)\*\*)|(\[MONTAR_GRADE\|([^\]]+)\])/g;
+		const regex =
+			/(\b[A-Z]{3,4}\d{4}\b)|(\[TURMA\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|\]]+)(?:\|([^\]]+))?\])|(\[BOTAO\|([^|\]]+)(?:\|([^\]]+))?\])|(\*\*([^*\n]+)\*\*)|(\[MONTAR_GRADE\|([^\]]+)\])/g;
 		const blocks: any[] = [];
 		let currentBubble: any[] = [];
 		let lastIndex = 0;
@@ -165,7 +171,8 @@
 		function flushBubble() {
 			if (currentBubble.length > 0) {
 				const hasContent = currentBubble.some(
-					(s) => s.type === 'badge' || s.type === 'bold' || (s.type === 'text' && s.value.trim() !== '')
+					(s) =>
+						s.type === 'badge' || s.type === 'bold' || (s.type === 'text' && s.value.trim() !== '')
 				);
 				if (hasContent) {
 					blocks.push({ type: 'bubble', segments: currentBubble });
@@ -205,8 +212,10 @@
 				currentBubble.push({ type: 'bold', value: match[13] });
 			} else if (match[14]) {
 				flushBubble();
-				// [MONTAR_GRADE|COD1,COD2|M,N|COD3=Fulano] → códigos (1º) + turnos (2º) +
-				// professor por matéria (3º, opcional — "CODIGO=Nome" separados por ;).
+				// [MONTAR_GRADE|COD1,COD2|M,N|COD3=Fulano|0] → códigos (1º) + turnos (2º) +
+				// professor por matéria (3º, opcional — "CODIGO=Nome" separados por ;) +
+				// incluir as matérias em curso (4º, opcional: "0" = montar sem elas).
+				// Campos ausentes são tolerados: a variante antiga de 2 campos segue válida.
 				const partes = (match[15] ?? '').split('|');
 				const codigos = (partes[0] ?? '')
 					.split(',')
@@ -223,8 +232,15 @@
 					const nome = resto.join('=').trim();
 					if (codigo && nome) docentes[codigo] = nome;
 				}
-				if (codigos.length > 0 || turnos.length > 0 || Object.keys(docentes).length > 0)
-					blocks.push({ type: 'montarGrade', codigos, turnos, docentes });
+				// Só "0" desliga; ausente ou qualquer outra coisa mantém o padrão (ligado).
+				const incluirCursando = (partes[3] ?? '').trim() === '0' ? false : undefined;
+				if (
+					codigos.length > 0 ||
+					turnos.length > 0 ||
+					Object.keys(docentes).length > 0 ||
+					incluirCursando === false
+				)
+					blocks.push({ type: 'montarGrade', codigos, turnos, docentes, incluirCursando });
 			}
 			lastIndex = regex.lastIndex;
 		}
@@ -268,32 +284,44 @@
 <ChatWrapper>
 	<!-- Header -->
 	<div
-		class="relative z-10 px-4 py-3 border-b border-white/5 flex items-center shrink-0 bg-black/20 backdrop-blur-xl {draggable ? 'chat-drag-handle cursor-move select-none pr-20' : ''}"
+		class="relative z-10 flex shrink-0 items-center border-b border-white/5 bg-black/20 px-4 py-3 backdrop-blur-xl {draggable
+			? 'chat-drag-handle cursor-move pr-20 select-none'
+			: ''}"
 	>
-		<div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 shadow-sm backdrop-blur-md max-w-full overflow-hidden">
-			<Sparkles class="h-3.5 w-3.5 text-pink-400 shrink-0" />
-			<span class="text-[11px] font-bold tracking-[0.16em] text-white uppercase shrink-0">{title.toUpperCase()}</span>
-			<span class="text-[10.5px] text-white/40 font-normal truncate min-w-0">Powered by Maritaca AI</span>
+		<div
+			class="inline-flex max-w-full items-center gap-2 overflow-hidden rounded-full border border-white/10 bg-white/5 px-3 py-1 shadow-sm backdrop-blur-md"
+		>
+			<Sparkles class="h-3.5 w-3.5 shrink-0 text-pink-400" />
+			<span class="shrink-0 text-[11px] font-bold tracking-[0.16em] text-white uppercase"
+				>{title.toUpperCase()}</span
+			>
+			<span class="min-w-0 truncate text-[10.5px] font-normal text-white/40"
+				>Powered by Maritaca AI</span
+			>
 		</div>
 	</div>
 
-	<div class="relative z-10 flex-1 flex flex-col p-0 overflow-hidden">
+	<div class="relative z-10 flex flex-1 flex-col overflow-hidden p-0">
 		<!-- Mensagens -->
-		<div class="flex-1 p-5 space-y-4 overflow-y-auto" bind:this={chatViewport}>
+		<div class="flex-1 space-y-4 overflow-y-auto p-5" bind:this={chatViewport}>
 			{#if messages.length === 0}
-				<div class="flex flex-col items-center text-center px-2 sm:px-6 relative z-10 w-full pt-8 pb-4">
-					<div class="flex flex-col items-center w-full">
+				<div
+					class="relative z-10 flex w-full flex-col items-center px-2 pt-8 pb-4 text-center sm:px-6"
+				>
+					<div class="flex w-full flex-col items-center">
 						{#if emptyState}
 							{@render emptyState()}
 						{:else}
-							<div class="w-16 h-16 rounded-3xl bg-pink-500/10 border border-pink-500/50 flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(236,72,153,0.15)] backdrop-blur-md shrink-0">
+							<div
+								class="mb-4 flex h-16 w-16 shrink-0 items-center justify-center rounded-3xl border border-pink-500/50 bg-pink-500/10 shadow-[0_0_30px_rgba(236,72,153,0.15)] backdrop-blur-md"
+							>
 								<Bot class="h-8 w-8 text-pink-400" />
 							</div>
-							<h3 class="text-xl font-semibold text-white tracking-tight">Pergunte à nossa IA</h3>
+							<h3 class="text-xl font-semibold tracking-tight text-white">Pergunte à nossa IA</h3>
 						{/if}
 
 						{#if promptStarters.length > 0}
-							<div class="mt-6 flex flex-wrap justify-center gap-2 w-full max-w-85">
+							<div class="mt-6 flex w-full max-w-85 flex-wrap justify-center gap-2">
 								{#each promptStarters as starter}
 									<button
 										type="button"
@@ -305,13 +333,18 @@
 												enviar();
 											}
 										}}
-										class="group flex items-center px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-indigo-500/40 backdrop-blur-md rounded-full text-[12px] font-medium text-white/80 transition-all cursor-pointer shadow-sm hover:shadow-[0_0_15px_rgba(99,102,241,0.15)] hover:text-white shrink-0"
+										class="group flex shrink-0 cursor-pointer items-center rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[12px] font-medium text-white/80 shadow-sm backdrop-blur-md transition-all hover:border-indigo-500/40 hover:bg-white/10 hover:text-white hover:shadow-[0_0_15px_rgba(99,102,241,0.15)]"
 									>
-										<Sparkles class="w-3 h-3 mr-1.5 text-white/30 group-hover:text-indigo-400 transition-colors shrink-0" />
+										<Sparkles
+											class="mr-1.5 h-3 w-3 shrink-0 text-white/30 transition-colors group-hover:text-indigo-400"
+										/>
 										<div class="flex-1 leading-snug">
 											{starter.prefix}
 											{#if starter.badge}
-												<span class="inline-flex items-center rounded-full bg-white/5 border border-white/20 px-1.5 py-px text-[10px] font-mono font-bold tracking-wide text-white mx-1 transition-all duration-300 group-hover:bg-indigo-500/20 group-hover:text-indigo-200 group-hover:border-indigo-400/80 group-hover:shadow-[0_0_12px_rgba(129,140,248,0.5),inset_0_0_8px_rgba(129,140,248,0.3)]"><MarqueeText text={starter.badge} maxWidth={150} /></span>
+												<span
+													class="mx-1 inline-flex items-center rounded-full border border-white/20 bg-white/5 px-1.5 py-px font-mono text-[10px] font-bold tracking-wide text-white transition-all duration-300 group-hover:border-indigo-400/80 group-hover:bg-indigo-500/20 group-hover:text-indigo-200 group-hover:shadow-[0_0_12px_rgba(129,140,248,0.5),inset_0_0_8px_rgba(129,140,248,0.3)]"
+													><MarqueeText text={starter.badge} maxWidth={150} /></span
+												>
 											{/if}
 											{starter.suffix ?? ''}
 										</div>
@@ -329,7 +362,10 @@
 							: msg.content}
 					{#each parseMessage(conteudo) as block, i}
 						{#if block.type === 'bubble'}
-							<ChatBubble role={msg.role} name={i === 0 ? (msg.role === 'user' ? 'Você' : assistantName) : undefined}>
+							<ChatBubble
+								role={msg.role}
+								name={i === 0 ? (msg.role === 'user' ? 'Você' : assistantName) : undefined}
+							>
 								{#each block.segments as segment}
 									{#if segment.type === 'badge'}
 										{@const nomeChip = nomesMaterias?.get(segment.value)}
@@ -341,13 +377,17 @@
 													onclick={() => enviarTexto(segment.value)}
 													disabled={loading}
 													title={nomeChip ? segment.value : `Ver ${segment.value}`}
-													class="badge-glow inline-flex items-center rounded-md bg-indigo-500/20 px-1.5 py-0.5 text-xs font-bold tracking-wide text-white border border-indigo-400/60 backdrop-blur-md cursor-pointer transition-all hover:bg-indigo-500/40 hover:border-indigo-300 hover:-translate-y-px active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed {nomeChip ? '' : 'font-mono'}"
-												><MarqueeText text={rotulo} maxWidth={220} /></button>
+													class="badge-glow inline-flex cursor-pointer items-center rounded-md border border-indigo-400/60 bg-indigo-500/20 px-1.5 py-0.5 text-xs font-bold tracking-wide text-white backdrop-blur-md transition-all hover:-translate-y-px hover:border-indigo-300 hover:bg-indigo-500/40 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 {nomeChip
+														? ''
+														: 'font-mono'}"><MarqueeText text={rotulo} maxWidth={220} /></button
+												>
 											{:else}
 												<span
 													title={nomeChip ? segment.value : undefined}
-													class="inline-flex items-center rounded-md bg-white/10 px-1.5 py-0.5 text-xs font-bold tracking-wide text-white border border-white/20 shadow-sm backdrop-blur-md {nomeChip ? '' : 'font-mono'}"
-												><MarqueeText text={rotulo} maxWidth={220} /></span>
+													class="inline-flex items-center rounded-md border border-white/20 bg-white/10 px-1.5 py-0.5 text-xs font-bold tracking-wide text-white shadow-sm backdrop-blur-md {nomeChip
+														? ''
+														: 'font-mono'}"><MarqueeText text={rotulo} maxWidth={220} /></span
+												>
 											{/if}
 											{#if onAddToGrade}
 												<button
@@ -355,7 +395,8 @@
 													onclick={() => onAddToGrade?.(segment.value)}
 													title={`Adicionar ${segment.value} à grade`}
 													class="inline-flex items-center rounded-md border border-emerald-400/50 bg-emerald-500/15 px-1 py-0.5 text-[10px] font-semibold text-emerald-100 transition-colors hover:bg-emerald-500/30 active:scale-95"
-												>+ grade</button>
+													>+ grade</button
+												>
 											{/if}
 										</span>
 									{:else if segment.type === 'bold'}
@@ -366,69 +407,102 @@
 								{/each}
 							</ChatBubble>
 						{:else if block.type === 'turma'}
-							<div class="rounded-3xl border border-indigo-500/40 bg-linear-to-br from-indigo-500/10 to-fuchsia-500/10 backdrop-blur-2xl p-5 my-2 shadow-2xl flex flex-col gap-4 w-[95%] sm:w-[85%] self-center relative overflow-hidden">
-								<div class="absolute -top-10 -right-10 w-32 h-32 bg-indigo-500/30 rounded-full blur-2xl pointer-events-none"></div>
+							<div
+								class="relative my-2 flex w-[95%] flex-col gap-4 self-center overflow-hidden rounded-3xl border border-indigo-500/40 bg-linear-to-br from-indigo-500/10 to-fuchsia-500/10 p-5 shadow-2xl backdrop-blur-2xl sm:w-[85%]"
+							>
+								<div
+									class="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-indigo-500/30 blur-2xl"
+								></div>
 
-								<div class="flex flex-wrap items-center justify-between border-b border-indigo-400/20 pb-3 mb-1 gap-2 relative z-10">
+								<div
+									class="relative z-10 mb-1 flex flex-wrap items-center justify-between gap-2 border-b border-indigo-400/20 pb-3"
+								>
 									<div class="flex items-center gap-2.5">
-										<span class="text-xl font-black text-white tracking-tight">Turma {block.value.turma}</span>
+										<span class="text-xl font-black tracking-tight text-white"
+											>Turma {block.value.turma}</span
+										>
 										{#if block.value.periodo}
-											<span class="text-indigo-200 text-xs font-bold bg-indigo-500/25 border border-indigo-400/40 px-2.5 py-0.5 rounded-full shadow-sm">{block.value.periodo}</span>
+											<span
+												class="rounded-full border border-indigo-400/40 bg-indigo-500/25 px-2.5 py-0.5 text-xs font-bold text-indigo-200 shadow-sm"
+												>{block.value.periodo}</span
+											>
 										{/if}
 									</div>
-									<span class="text-white text-[11px] font-bold tracking-widest bg-indigo-500/30 border border-indigo-400/30 px-3 py-1.5 rounded-full shadow-inner">{block.value.vagas} VAGAS</span>
+									<span
+										class="rounded-full border border-indigo-400/30 bg-indigo-500/30 px-3 py-1.5 text-[11px] font-bold tracking-widest text-white shadow-inner"
+										>{block.value.vagas} VAGAS</span
+									>
 								</div>
 
-								<div class="space-y-4 relative z-10">
+								<div class="relative z-10 space-y-4">
 									<div>
-										<p class="text-indigo-200 text-[11px] font-bold uppercase tracking-widest mb-1">Professor</p>
-										<p class="text-white font-bold text-base drop-shadow-md">{block.value.prof}</p>
+										<p class="mb-1 text-[11px] font-bold tracking-widest text-indigo-200 uppercase">
+											Professor
+										</p>
+										<p class="text-base font-bold text-white drop-shadow-md">{block.value.prof}</p>
 									</div>
 
-									<div class="flex flex-col sm:flex-row gap-5 sm:gap-8">
+									<div class="flex flex-col gap-5 sm:flex-row sm:gap-8">
 										<div class="flex-1">
-											<p class="text-indigo-200 text-[11px] font-bold uppercase tracking-widest mb-1.5">Horário</p>
+											<p
+												class="mb-1.5 text-[11px] font-bold tracking-widest text-indigo-200 uppercase"
+											>
+												Horário
+											</p>
 											{#if formatHorarioSigaa(block.value.horario).length > 0}
 												<div class="space-y-1.5">
 													{#each formatHorarioSigaa(block.value.horario) as linha}
 														<div class="flex items-center gap-3 text-[14px]">
-															<span class="text-white font-bold w-8">{linha.dia}</span>
-															<span class="text-white/90 font-medium">{compactarFaixasHorarias(linha.faixas)}</span>
+															<span class="w-8 font-bold text-white">{linha.dia}</span>
+															<span class="font-medium text-white/90"
+																>{compactarFaixasHorarias(linha.faixas)}</span
+															>
 														</div>
 													{/each}
 												</div>
 											{:else}
-												<p class="text-white/90 font-medium text-[14px]">{block.value.horario}</p>
+												<p class="text-[14px] font-medium text-white/90">{block.value.horario}</p>
 											{/if}
 										</div>
 
 										<div class="flex-1">
-											<p class="text-indigo-200 text-[11px] font-bold uppercase tracking-widest mb-1.5">Local</p>
+											<p
+												class="mb-1.5 text-[11px] font-bold tracking-widest text-indigo-200 uppercase"
+											>
+												Local
+											</p>
 											{#if formatLocalSigaa(block.value.local).length > 0}
 												<div class="space-y-1.5">
 													{#each formatLocalSigaa(block.value.local) as localLinha}
-														<p class="text-white/90 font-medium text-[14px] leading-snug">{localLinha}</p>
+														<p class="text-[14px] leading-snug font-medium text-white/90">
+															{localLinha}
+														</p>
 													{/each}
 												</div>
 											{:else}
-												<p class="text-white/90 font-medium text-[14px]">{block.value.local}</p>
+												<p class="text-[14px] font-medium text-white/90">{block.value.local}</p>
 											{/if}
 										</div>
 									</div>
 								</div>
 							</div>
 						{:else if block.type === 'buttonGroup'}
-							<div class="flex flex-col gap-2 mt-2 ml-10 mr-4 self-start w-[85%]">
+							<div class="mt-2 mr-4 ml-10 flex w-[85%] flex-col gap-2 self-start">
 								{#each block.buttons as btn}
 									<button
 										type="button"
-										onclick={() => { messageInput = btn.message; enviar(); }}
-										class="w-full px-4 py-2.5 text-left rounded-xl text-sm font-medium tracking-wide transition-all shadow-md active:scale-[0.98] cursor-pointer border backdrop-blur-md
+										onclick={() => {
+											messageInput = btn.message;
+											enviar();
+										}}
+										class="w-full cursor-pointer rounded-xl border px-4 py-2.5 text-left text-sm font-medium tracking-wide shadow-md backdrop-blur-md transition-all active:scale-[0.98]
 											{btn.label.toLowerCase() === 'sim' || btn.label.toLowerCase().includes('aplicar')
-												? 'bg-emerald-600/30 text-emerald-50 hover:bg-emerald-600/50 border-emerald-500/40 shadow-[0_0_15px_rgba(16,185,129,0.15)]'
-												: btn.label.toLowerCase() === 'não' || btn.label.toLowerCase() === 'nao' || btn.label.toLowerCase().includes('cancelar')
-												? 'bg-rose-600/30 text-rose-50 hover:bg-rose-600/50 border-rose-500/40 shadow-[0_0_15px_rgba(244,63,94,0.15)]'
-												: 'bg-indigo-600/30 text-indigo-50 hover:bg-indigo-600/50 border-indigo-500/40 shadow-[0_0_15px_rgba(99,102,241,0.15)]'}"
+											? 'border-emerald-500/40 bg-emerald-600/30 text-emerald-50 shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:bg-emerald-600/50'
+											: btn.label.toLowerCase() === 'não' ||
+												  btn.label.toLowerCase() === 'nao' ||
+												  btn.label.toLowerCase().includes('cancelar')
+												? 'border-rose-500/40 bg-rose-600/30 text-rose-50 shadow-[0_0_15px_rgba(244,63,94,0.15)] hover:bg-rose-600/50'
+												: 'border-indigo-500/40 bg-indigo-600/30 text-indigo-50 shadow-[0_0_15px_rgba(99,102,241,0.15)] hover:bg-indigo-600/50'}"
 									>
 										{btn.label}
 									</button>
@@ -436,10 +510,16 @@
 							</div>
 						{:else if block.type === 'montarGrade' && onMontarGrade}
 							{@const nomesDocentes = Object.values(block.docentes ?? {})}
-							<div class="mt-2 ml-10 mr-4 self-start w-[85%]">
+							<div class="mt-2 mr-4 ml-10 w-[85%] self-start">
 								<button
 									type="button"
-									onclick={() => onMontarGrade?.(block.codigos, block.turnos, block.docentes)}
+									onclick={() =>
+										onMontarGrade?.(
+											block.codigos,
+											block.turnos,
+											block.docentes,
+											block.incluirCursando
+										)}
 									class="flex w-full items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-600/25 px-4 py-2.5 text-left text-sm font-semibold text-emerald-50 shadow-[0_0_15px_rgba(16,185,129,0.15)] backdrop-blur-md transition-all hover:bg-emerald-600/45 active:scale-[0.98]"
 								>
 									<CalendarPlus class="h-4 w-4 shrink-0" />
@@ -468,8 +548,8 @@
 		</div>
 
 		<!-- Input -->
-		<div class="p-5 pt-3 bg-transparent relative z-10 pb-6">
-			<div class="relative flex items-center w-full shadow-2xl">
+		<div class="relative z-10 bg-transparent p-5 pt-3 pb-6">
+			<div class="relative flex w-full items-center shadow-2xl">
 				<input
 					type="text"
 					bind:value={messageInput}
@@ -477,16 +557,16 @@
 					{placeholder}
 					disabled={loading}
 					onkeydown={handleKeydown}
-					class="w-full bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full pl-5 pr-12 py-3.5 text-[14.5px] text-white placeholder:text-white/50 focus:outline-none focus:border-white/30 focus:bg-white/15 transition-all shadow-inner disabled:opacity-50"
+					class="w-full rounded-full border border-white/20 bg-white/10 py-3.5 pr-12 pl-5 text-[14.5px] text-white shadow-inner backdrop-blur-2xl transition-all placeholder:text-white/50 focus:border-white/30 focus:bg-white/15 focus:outline-none disabled:opacity-50"
 				/>
 				<button
 					type="button"
 					onclick={enviar}
 					disabled={loading || messageInput.trim() === ''}
-					class="absolute right-2 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-white/40 transition-all cursor-pointer border border-white/10 shadow-sm"
+					class="absolute right-2 cursor-pointer rounded-full border border-white/10 bg-white/10 p-2 text-white shadow-sm transition-all hover:bg-white/20 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-white/40"
 					aria-label="Enviar"
 				>
-					<SendHorizontal class="w-4 h-4" />
+					<SendHorizontal class="h-4 w-4" />
 				</button>
 			</div>
 		</div>
@@ -496,19 +576,28 @@
 <style>
 	/* Glow pulsante nos códigos de matéria clicáveis — deixa óbvio que dá pra apertar. */
 	.badge-glow {
-		box-shadow: 0 0 8px rgba(129, 140, 248, 0.55), inset 0 0 6px rgba(129, 140, 248, 0.25);
+		box-shadow:
+			0 0 8px rgba(129, 140, 248, 0.55),
+			inset 0 0 6px rgba(129, 140, 248, 0.25);
 		animation: badgePulse 2s ease-in-out infinite;
 	}
 	.badge-glow:hover {
 		animation: none;
-		box-shadow: 0 0 18px rgba(129, 140, 248, 0.95), inset 0 0 8px rgba(129, 140, 248, 0.4);
+		box-shadow:
+			0 0 18px rgba(129, 140, 248, 0.95),
+			inset 0 0 8px rgba(129, 140, 248, 0.4);
 	}
 	@keyframes badgePulse {
-		0%, 100% {
-			box-shadow: 0 0 6px rgba(129, 140, 248, 0.4), inset 0 0 5px rgba(129, 140, 248, 0.2);
+		0%,
+		100% {
+			box-shadow:
+				0 0 6px rgba(129, 140, 248, 0.4),
+				inset 0 0 5px rgba(129, 140, 248, 0.2);
 		}
 		50% {
-			box-shadow: 0 0 15px rgba(129, 140, 248, 0.9), inset 0 0 8px rgba(129, 140, 248, 0.4);
+			box-shadow:
+				0 0 15px rgba(129, 140, 248, 0.9),
+				inset 0 0 8px rgba(129, 140, 248, 0.4);
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {

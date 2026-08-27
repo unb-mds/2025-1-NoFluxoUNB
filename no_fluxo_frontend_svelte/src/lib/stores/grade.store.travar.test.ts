@@ -89,4 +89,48 @@ describe('gradeStore — matéria travada (já cursando, turma real escolhida)',
 		expect(gradeStore.turmaSelecionada('L')?.turma.id_turmas).toBe(1);
 		expect(gradeStore.creditosSelecionados).toBe(10);
 	});
+
+	/**
+	 * O relato: "escolho as turmas certas, aperto Montar grade e ele apaga tudo".
+	 * A trava valia só para matéria em curso, então tudo que o aluno escolhia na mão
+	 * para uma matéria nova era matéria-prima livre para o solver reatribuir.
+	 */
+	it('trava sozinha ao escolher a turma na mão, mesmo sem estar cursando', () => {
+		gradeStore.init([materiaComTurmas('N', 4, [0], 1)], { idUser: null, periodo: '2026.1' });
+
+		expect(gradeStore.isCursandoAtual('N')).toBe(false);
+		gradeStore.selecionarTurma('N', 1);
+
+		expect(gradeStore.isTravada('N')).toBe(true);
+	});
+
+	it('"Montar grade" preserva a escolha manual e só preenche o que sobrou', () => {
+		// N: escolhida na mão na turma do bit 1 (id 2), tendo também a do bit 0.
+		// O solver, solto, preferiria remexer; e C só cabe no bit 5.
+		const materias = [materiaComTurmas('N', 4, [0, 1], 1), materiaComTurmas('C', 4, [5], 10)];
+		gradeStore.init(materias, { idUser: null, periodo: '2026.1' });
+		gradeStore.selecionarTurma('N', 2);
+
+		gradeStore.montarAutomatico();
+
+		expect(gradeStore.turmaSelecionada('N')?.turma.id_turmas).toBe(2);
+		expect(gradeStore.turmaSelecionada('C')?.turma.id_turmas).toBe(10);
+	});
+
+	/**
+	 * "Limpar" esvaziava a grade mas deixava `travadas` cheio. Matéria travada fica
+	 * FORA do solver (a turma dela seria fixa) e, sem seleção, também fora da grade:
+	 * ela sumia da montagem seguinte sem deixar rastro.
+	 */
+	it('limpar destrava tudo, senão a matéria some da montagem seguinte', () => {
+		gradeStore.init([materiaComTurmas('N', 4, [0], 1)], { idUser: null, periodo: '2026.1' });
+		gradeStore.selecionarTurma('N', 1);
+		expect(gradeStore.isTravada('N')).toBe(true);
+
+		gradeStore.limpar();
+		expect(gradeStore.isTravada('N')).toBe(false);
+
+		gradeStore.montarAutomatico();
+		expect(gradeStore.turmaSelecionada('N')?.turma.id_turmas).toBe(1);
+	});
 });

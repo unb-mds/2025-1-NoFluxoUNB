@@ -34,19 +34,21 @@ ele reenviar informação que já está na conversa.`;
 const PROTOCOLO_MONTAR_GRADE = `
 
 ## Contexto: Montador de Grade
-O aluno está montando a GRADE HORÁRIA do próximo semestre nesta tela.
+O aluno está montando uma GRADE HORÁRIA nesta tela, com as turmas realmente ofertadas no período. A tela NÃO planeja um semestre específico — quem estima o que pegar até formar é o Plano de Formatura, que é outra tela.
 - Só recomende matérias que TENHAM turma ofertada neste período (a tool buscar_optativas já filtra por isso).
 - Se o aluno disser que tem um horário livre / buraco na grade e pedir recomendação (ex: "tenho segunda de manhã livre, me recomenda algo"), delegue para a tool "recomendar_por_horario_livre" em vez de buscar_optativas — ela já sabe o que cabe no horário e o que é parecido com o histórico do aluno.
 - MONTAR/REARRANJAR A GRADE: quando o aluno pedir para montar ou rearranjar a grade garantindo/priorizando matérias, restringindo TURNOS e/ou pedindo um PROFESSOR específico numa matéria, confirme em UMA frase curta e inclua no FINAL da resposta o marcador EXATO:
-[MONTAR_GRADE|CODIGOS|TURNOS|DOCENTES]
+[MONTAR_GRADE|CODIGOS|TURNOS|DOCENTES|INCLUIR_CURSANDO]
 - CODIGOS: códigos a priorizar (UPPERCASE, separados por vírgula, sem espaços). Pode ficar VAZIO se o aluno só falou de turno/professor.
 - TURNOS (opcional): letras dos turnos permitidos — M=manhã, T=tarde, N=noite — separadas por vírgula. Omita (ou o campo todo) se o aluno não restringiu turno.
 - DOCENTES (opcional): quando o aluno quiser um professor específico numa matéria, um par CODIGO=Nome do professor (como o aluno disse); vários pares separados por ponto e vírgula. Omita (ou o campo todo) se ninguém foi pedido. O CODIGO aqui também conta como priorizado — não precisa repetir no 1º campo.
+- INCLUIR_CURSANDO (opcional): use "0" APENAS quando o aluno pedir para montar SEM as matérias que ele já está cursando (ex.: "monta sem as que já tô fazendo", "ignora as matriculadas", "quero ver só o que posso pegar a mais"). Nesse modo a grade é montada como se ele não estivesse matriculado em nada, liberando horário e créditos. Omita o campo em qualquer outro caso — o padrão é incluir.
 O app adiciona as matérias como PRIORITÁRIAS, aplica o filtro de turno, e para as com DOCENTE só considera turmas daquele professor — rearranjando o resto da grade pra abrir espaço se precisar. Isso é uma PRÉVIA: o app mostra um botão pro aluno aceitar ou manter a grade de antes, então diga que vai "tentar" encaixar, não que já está garantido. Se a matéria não tiver turma nenhuma daquele professor, ela pode ficar de fora — avise que isso pode acontecer quando o pedido for de professor. Não descreva o passo a passo. Exemplos:
 "Beleza, vou priorizar FGA0060 e reorganizar o resto. [MONTAR_GRADE|FGA0060||]"
 "Fechou, só de manhã e à noite. [MONTAR_GRADE|||M,N]"
 "Vou tentar encaixar FGA0060 só nos horários da manhã. [MONTAR_GRADE|FGA0060|M|]"
 "Vou tentar rearranjar pra encaixar FGA0060 com a professora Maria — se não der pra caber sem conflito, ela pode ficar de fora dessa prévia. [MONTAR_GRADE|||FGA0060=Maria]"
+"Beleza, montando como se você não estivesse cursando nada agora. [MONTAR_GRADE||||0]"
 - MÓDULO LIVRE: se o aluno pedir sugestão de módulo livre (matéria fora da matriz do curso, nem obrigatória nem optativa) e a área de interesse ainda não apareceu na conversa, pergunte em UMA frase curta ANTES de delegar — sem chamar tool ainda (ex: "Qual área te interessa pra módulo livre? Ex: economia, música, gestão..."). Use sempre o histórico da conversa: se a área já foi dita antes (nesse turno ou em qualquer mensagem anterior), não pergunte de novo — delegue direto pra tool "buscar_modulo_livre" com o tema/área como input.`;
 
 function montarInstrucoes(apenasComOferta: boolean): string {

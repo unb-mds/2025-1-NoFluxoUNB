@@ -28,7 +28,8 @@
 		ListChecks,
 		BookMarked,
 		Check,
-		Undo2
+		Undo2,
+		GraduationCap
 	} from 'lucide-svelte';
 	import OnboardingTour from '$lib/components/onboarding/OnboardingTour.svelte';
 	import HelpTip from '$lib/components/onboarding/HelpTip.svelte';
@@ -43,18 +44,17 @@
 	 */
 	let {
 		periodo,
-		semestreLabel,
 		limiteCreditos,
 		onAdd,
 		onSemear,
 		onVoltarInicio,
 		aviso = $bindable(null),
+		obrigatoriasSemOferta = [],
 		confirmacaoProfessor = null,
 		onAceitarConfirmacaoProfessor,
 		onRecusarConfirmacaoProfessor
 	}: {
 		periodo: string | null;
-		semestreLabel: string | null;
 		limiteCreditos: number;
 		onAdd: (codigo: string) => void;
 		/**
@@ -70,6 +70,8 @@
 		 */
 		onVoltarInicio?: () => void | Promise<void>;
 		aviso?: string | null;
+		/** Obrigatórias que faltam ao aluno e não têm turma neste período. */
+		obrigatoriasSemOferta?: string[];
 		/** Prévia pendente de rearranjo por professor (pedido via chat) — ver a rota. */
 		confirmacaoProfessor?: { resumo: string } | null;
 		onAceitarConfirmacaoProfessor?: () => void;
@@ -165,8 +167,8 @@
 
 	/**
 	 * Ação principal da tela: monta a grade do zero. Primeiro enche a lista com o que
-	 * falta — do plano de formatura, ou da matriz se o plano não render nada (por isso
-	 * é async) —, depois encaixa tudo sem conflito de horário.
+	 * falta na matriz do aluno — em curso, obrigatórias e, com o que sobrar,
+	 * optativas (por isso é async) —, depois encaixa tudo sem conflito de horário.
 	 *
 	 * Termina sempre num toast. O motor costuma acertar de primeira, e a partir daí
 	 * o clique não muda um pixel — sem uma resposta explícita isso é
@@ -176,8 +178,8 @@
 		if (montando) return;
 		montando = true;
 		try {
-			const semeadas = (await onSemear?.()) ?? { doPlano: [], daMatriz: [] };
-			const puxadas = semeadas.doPlano.length + semeadas.daMatriz.length;
+			const semeadas = (await onSemear?.()) ?? { adicionadas: [], obrigatoriasSemOferta: [] };
+			const puxadas = semeadas.adicionadas.length;
 
 			// Só sobra avisar quando não existe oferta nenhuma para o aluno neste
 			// período — a semeadura já tentou o plano e a matriz antes de chegar aqui.
@@ -213,11 +215,7 @@
 			// A procedência importa: puxar da matriz é um palpite nosso, não o plano de
 			// formatura do aluno — ele precisa saber para conferir antes da matrícula.
 			const prefixo =
-				semeadas.daMatriz.length > 0
-					? `Seu plano não indicou matérias, então puxei ${semeadas.daMatriz.length} ${plural(semeadas.daMatriz.length)} da sua matriz. `
-					: semeadas.doPlano.length > 0
-						? `Puxei ${semeadas.doPlano.length} ${plural(semeadas.doPlano.length)} do seu plano. `
-						: '';
+				puxadas > 0 ? `Puxei ${puxadas} ${plural(puxadas)} da sua matriz. ` : '';
 			const resumo = `${materias} ${plural(materias)} · ${unidadeCargaStore.formatar(creditos)}`;
 			// Depois que a montagem passou a respeitar o teto, estourar só sobra quando
 			// são matérias que o aluno JÁ cursa (MATR): elas entram por obrigação e não
@@ -281,7 +279,7 @@
 		{
 			title: 'Bem-vindo ao Montador de Grade 👋',
 			description:
-				'Em 1 minuto você monta a grade do próximo semestre sem conflito de horário. Já deixamos as matérias recomendadas pelo seu plano na lista — é só escolher as turmas.',
+				'Em 1 minuto você monta uma grade sem conflito de horário, com as turmas realmente ofertadas. Já deixamos as matérias recomendadas pelo seu plano na lista — é só escolher as turmas.',
 			hint: 'Dá pra navegar com as setas ← → do teclado e sair com Esc.'
 		},
 		{
@@ -362,17 +360,24 @@
 
 	const semTurmaEscolhida = $derived(gradeStore.selecao.size === 0);
 
+	const rotuloCursando = $derived(
+		gradeStore.incluirCursando
+			? 'As matérias que você já cursa estão na grade — clique para montar sem elas'
+			: 'Montando sem as matérias que você já cursa — clique para trazê-las de volta'
+	);
+
 	/**
-	 * Subtítulo do cabeçalho compacto. O semestre do plano e o período das turmas
-	 * quase sempre são o mesmo texto — repetir os dois vira ruído numa linha só.
+	 * Alterna e já remonta: sem remontar, o botão muda de cor e a grade continua a
+	 * mesma, o que faz o controle parecer quebrado. Remontar é o que o aluno quer
+	 * dizer ao clicar.
 	 */
-	const subtitulo = $derived.by(() => {
-		if (periodo && semestreLabel && periodo !== semestreLabel) {
-			return `${semestreLabel} · turmas de ${periodo}`;
-		}
-		if (periodo) return `Turmas de ${periodo}`;
-		return semestreLabel ?? 'Próximo semestre';
-	});
+	function alternarCursando(): void {
+		gradeStore.setIncluirCursando(!gradeStore.incluirCursando);
+		void montarGrade();
+	}
+
+	/** Subtítulo do cabeçalho compacto: só a oferta que está sendo usada. */
+	const subtitulo = $derived(periodo ? `Turmas de ${periodo}` : 'Oferta atual');
 </script>
 
 <!--
@@ -503,6 +508,21 @@
 				{/each}
 			</div>
 
+			{#if gradeStore.temCursando}
+				<button
+					type="button"
+					onclick={alternarCursando}
+					aria-pressed={gradeStore.incluirCursando}
+					aria-label={rotuloCursando}
+					title={rotuloCursando}
+					class="flex h-7 shrink-0 touch-manipulation items-center gap-1 rounded-full border px-2.5 text-[11px] font-medium transition-colors {gradeStore.incluirCursando
+						? 'border-emerald-400/40 bg-emerald-500/15 text-emerald-100'
+						: 'border-white/10 bg-white/5 text-white/40'}"
+				>
+					<GraduationCap class="h-3 w-3" />
+					<span>Cursando</span>
+				</button>
+			{/if}
 			<!-- Único botão preenchido da tela: é a ação principal, não mais uma pílula. -->
 			<button
 				type="button"
@@ -534,10 +554,12 @@
 					<h1 class="text-lg font-bold text-white sm:text-xl">Montador de Grade</h1>
 					<!-- `&nbsp;` porque o Svelte come o espaço no começo do bloco `{#if}` e
 					     o texto saía grudado ("semestre· 2026.1"). -->
+					<!-- O Montador não diz mais qual semestre monta. Ele monta uma grade com a
+					     oferta real publicada; quem estima o que pegar em cada semestre até
+					     formar é o Plano de Formatura. Prometer "próximo semestre" aqui era o
+					     que fazia a grade brigar com as matérias já matriculadas. -->
 					<p class="text-xs text-white/50">
-						Próximo semestre{#if semestreLabel}&nbsp;· <span class="font-semibold text-white/70"
-								>{semestreLabel}</span
-							>{/if}{#if periodo}&nbsp;· turmas de <span class="font-mono">{periodo}</span>{/if}
+						{#if periodo}Turmas de <span class="font-mono">{periodo}</span>{:else}Oferta atual{/if}
 					</p>
 				</div>
 			</div>
@@ -590,6 +612,26 @@
 						</button>
 					{/each}
 				</div>
+
+				{#if gradeStore.temCursando}
+					<HelpTip
+						side="bottom"
+						title="Matérias que você já cursa"
+						text="Ligado, elas ocupam a grade e não podem ser cortadas — é a sua semana de verdade. Desligado, a grade é montada como se elas não existissem, liberando horário e créditos para o que você ainda vai pegar. Nos dois casos elas seguem valendo como pré-requisito cumprido."
+					>
+						<button
+							type="button"
+							onclick={alternarCursando}
+							aria-pressed={gradeStore.incluirCursando}
+							class="flex touch-manipulation items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors {gradeStore.incluirCursando
+								? 'border-emerald-400/40 bg-emerald-500/15 text-emerald-100'
+								: 'border-white/10 bg-white/5 text-white/40 hover:text-white/70'}"
+						>
+							<GraduationCap class="h-3.5 w-3.5" />
+							<span>{gradeStore.incluirCursando ? 'Incluindo cursando' : 'Sem as cursando'}</span>
+						</button>
+					</HelpTip>
+				{/if}
 				<HelpTip
 					side="bottom"
 					title="Montar grade"
@@ -816,6 +858,23 @@
 				class="rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-[11px] text-amber-100"
 			>
 				{aviso}
+			</p>
+		{/if}
+
+		<!--
+			Obrigatória que falta e não é ofertada não entra na lista (sem turma não vira
+			bloco no calendário), mas some calada seria pior: é informação que muda o
+			planejamento do aluno — ele precisa saber que não adianta esperar por ela.
+		-->
+		{#if obrigatoriasSemOferta.length > 0}
+			<p
+				class="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-[11px] text-white/60"
+			>
+				{obrigatoriasSemOferta.length === 1 ? 'Uma obrigatória sua não tem' : `${obrigatoriasSemOferta.length} obrigatórias suas não têm`}
+				turma em {periodo ?? 'neste semestre'}: {obrigatoriasSemOferta.slice(0, 6).join(' · ')}{obrigatoriasSemOferta.length >
+				6
+					? ` e mais ${obrigatoriasSemOferta.length - 6}`
+					: ''}.
 			</p>
 		{/if}
 		{#if gradeStore.pool.length === 0}

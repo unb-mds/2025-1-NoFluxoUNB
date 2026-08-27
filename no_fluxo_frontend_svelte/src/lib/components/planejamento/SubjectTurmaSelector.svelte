@@ -115,6 +115,26 @@
 								<span>Já cursando — escolha a turma real que você está abaixo.</span>
 							{/if}
 						</p>
+						{:else if gradeStore.isTravada(materia.codigo)}
+							<!--
+								Trava de escolha manual. Sem este aviso o cadeado ficaria invisível
+								para quem não está cursando a matéria: o aluno escolheria a turma,
+								"Montar grade" (com razão) não mexeria mais nela, e ele não teria
+								como saber por quê nem como soltar.
+							-->
+							<p class="mt-1 flex items-start gap-1 text-[10px] font-medium text-white/60">
+								<Lock class="mt-px h-2.5 w-2.5 shrink-0" />
+								<span class="flex items-center gap-1">
+									Turma escolhida por você — "Montar grade" não troca.
+									<button
+										type="button"
+										onclick={() => gradeStore.destravar(materia.codigo)}
+										class="underline decoration-dotted underline-offset-2 hover:text-white/90"
+									>
+										Destravar
+									</button>
+								</span>
+							</p>
 					{/if}
 					{#if codigoOfertado}
 						<p class="mt-1 flex items-start gap-1 text-[10px] font-medium text-sky-300/90">

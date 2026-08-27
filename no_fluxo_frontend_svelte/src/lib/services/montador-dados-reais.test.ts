@@ -17,7 +17,7 @@
  * Só as DUAS funções que fazem rede (`getTurmasPorMaterias`, `getMateriasByCodigos`),
  * alimentadas pelo fixture. Tudo acima disso — `construirMateriasGrade`,
  * `getOfertaComEquivalencia`, `construirSubstitutosPorCodigo`,
- * `candidatosDaMatriz`, `escolherAteOLimite`, `montarAutomatico` — é o código
+ * `candidatosDaMatriz`, `montarPoolRecomendado`, `montarAutomatico` — é o código
  * de produção rodando de verdade.
  */
 import { describe, it, expect, beforeAll, beforeEach, vi } from 'vitest';
@@ -66,10 +66,9 @@ import { gradeStore, type MateriaGrade } from '$lib/stores/grade.store.svelte';
 import {
 	construirMateriasGrade,
 	candidatosDaMatriz,
-	escolherAteOLimite,
+	montarPoolRecomendado,
 	motivoParaNaoAdicionar
 } from '$lib/services/grade-pool.service';
-import { filtrarNaoCursados } from '$lib/utils/subject-codes';
 import { hasConflict, turmaRespeitaTurnos } from '$lib/utils/horario-slots';
 import { satisfazPreRequisitos } from '$lib/types/curso';
 import {
@@ -174,21 +173,15 @@ function selecionadas(): { codigo: string; mask: bigint }[] {
 }
 
 /**
- * Reproduz o fluxo da rota `/planejamento/grade`: pool inicial (só as MATR,
- * porque não há plano de formatura no fixture) → semeadura pela matriz →
- * montagem automática.
+ * Reproduz o fluxo da rota `/planejamento/grade`: pool inicial com as MATR →
+ * semeadura pela matriz (`montarPoolRecomendado`) → montagem automática.
+ *
+ * A semeadura roda SEMPRE, como na rota: ela complementa a lista em vez de só
+ * socorrer quando o pool está vazio. Era esse "só se não sobrou nada" que deixava
+ * o aluno com meia dúzia de matérias e treze obrigatórias ofertadas de fora.
  */
 async function montarGradeDoAluno(
-	limiteCreditos: number,
-	/**
-	 * Semeia da matriz mesmo quando as MATR já enchem o pool.
-	 *
-	 * Sem isso o pool do fixture é 100% MATR — ou seja, tudo obrigatório — e o teto
-	 * de créditos nunca chega a morder. Na rota real o plano de formatura contribui
-	 * matérias opcionais; como o fixture não tem plano, forçar a semeadura é o que
-	 * reproduz aquele cenário.
-	 */
-	forcarSemeadura = false
+	limiteCreditos: number
 ): Promise<{
 	cursando: string[];
 	poolInicial: MateriaGrade[];
@@ -198,27 +191,18 @@ async function montarGradeDoAluno(
 	const periodo = fx.periodo;
 	const cursando = [...(fluxogramaStore.currentCodes ?? new Set<string>())];
 
-	const todos = filtrarNaoCursados(
-		[],
-		fluxogramaStore.completedCodes,
-		fluxogramaStore.currentCodes ?? new Set<string>()
-	);
-	const pool = await construirMateriasGrade([...new Set([...todos, ...cursando])], periodo);
+	const pool = await construirMateriasGrade(cursando, periodo);
 	gradeStore.init(pool, { idUser: null, periodo });
 	gradeStore.definirCursandoAtual(cursando);
 
-	// Semeadura: sem plano, a rota cai na matriz (grade/+page.svelte:97).
-	let semeadas: MateriaGrade[] = [];
-	if (forcarSemeadura || !gradeStore.pool.some((m) => m.turmas.length > 0)) {
-		semeadas = escolherAteOLimite(
-			await candidatosDaMatriz(
-				periodo,
-				gradeStore.pool.map((m) => m.codigo)
-			),
-			limiteCreditos
-		);
-		for (const m of semeadas) gradeStore.addMateriaAoPool(m);
-	}
+	// Semeadura da rota: a lista sai da matriz do aluno, em curso primeiro
+	// (grade/+page.svelte → `semear`). Sem plano de formatura no fixture, a
+	// `ordemDoPlano` fica vazia e sobra a ordenação por utilidade.
+	const { materias: semeadas } = await montarPoolRecomendado(periodo, {
+		limiteCreditos,
+		excluir: gradeStore.pool.map((m) => m.codigo).filter((c) => !cursando.includes(c))
+	});
+	for (const m of semeadas) gradeStore.addMateriaAoPool(m);
 
 	// Só o solver — é ele que roda na thread principal a cada "Montar grade".
 	// A semeadura acima custa bem mais, mas é I/O + construção de pool, não busca.
@@ -501,7 +485,7 @@ describe.skipIf(!TEM_FIXTURES)('Montador de Grade — históricos reais', () => 
 			for (const aluno of fx.alunos) {
 				carregarAluno(aluno);
 				const limite = 20;
-				const { msSolver } = await montarGradeDoAluno(limite, true);
+				const { msSolver } = await montarGradeDoAluno(limite);
 
 				const cursando = fluxogramaStore.currentCodes ?? new Set<string>();
 				let creditosObrigatorios = 0;

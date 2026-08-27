@@ -11,8 +11,7 @@
 	import { gradeStore, lerPoolSalvo, lerRemovidasSalvo } from '$lib/stores/grade.store.svelte';
 	import {
 		construirMateriasGrade,
-		candidatosDaMatriz,
-		escolherAteOLimite,
+		montarPoolRecomendado,
 		motivoParaNaoAdicionar,
 		pendenciasPreRequisito,
 		invalidarContextoGrade,
@@ -33,8 +32,9 @@
 	let status = $state<'loading' | 'ready' | 'error'>('loading');
 	let erro = $state<string | null>(null);
 	let periodo = $state<string | null>(null);
-	let semestreLabel = $state<string | null>(null);
 	let avisoAdd = $state<string | null>(null);
+	/** Obrigatórias que faltam ao aluno e não são ofertadas neste período. */
+	let semOferta = $state<string[]>([]);
 
 	/**
 	 * Prévia pendente de um rearranjo pedido por professor via chat: já aplicada no
@@ -46,6 +46,16 @@
 		snapshot: Record<string, number>;
 		docentes: Record<string, string>;
 	} | null>(null);
+
+	/**
+	 * Tira da lista de exclusão o que o aluno está cursando agora. Matrícula é fato
+	 * consumado: nem a lixeira nem "Limpar tudo" podem apagá-la da lista — era assim
+	 * que as MATR sumiam de vez do montador depois de um clique em "Limpar tudo".
+	 */
+	function semExcluirCursando(codigos: string[]): string[] {
+		const cursando = fluxogramaStore.currentCodes ?? new Set<string>();
+		return codigos.filter((c) => !cursando.has(c.trim().toUpperCase()));
+	}
 
 	function isMateriaPlano(item: ItemSemestre): item is MateriaPlano {
 		return 'codigo' in item;
@@ -95,16 +105,12 @@
 		if (!periodo) return;
 		avisoAdd = null;
 		const cursandoCodigos = [...(fluxogramaStore.currentCodes ?? new Set<string>())];
-		const recomendados = filtrarNaoCursados(
-			codigosRecomendados(),
-			fluxogramaStore.completedCodes,
-			fluxogramaStore.currentCodes ?? new Set<string>()
-		);
-		const pool = await construirMateriasGrade(
-			[...new Set([...recomendados, ...cursandoCodigos])],
-			periodo
-		);
-		gradeStore.resetarParaInicio(pool);
+		const { materias, obrigatoriasSemOferta } = await montarPoolRecomendado(periodo, {
+			limiteCreditos,
+			ordemDoPlano: codigosRecomendados()
+		});
+		semOferta = obrigatoriasSemOferta;
+		gradeStore.resetarParaInicio(materias);
 		gradeStore.definirCursandoAtual(cursandoCodigos);
 		preencherTurmasReais();
 		toast.success('Grade de volta ao estado inicial.');
@@ -113,44 +119,40 @@
 	/**
 	 * Traz para a lista o que "Montar grade" precisa montar.
 	 *
-	 * Primeiro o semestre recomendado do plano de formatura. Se ele não render nada
-	 * montável — semestre só com slots de optativa, plano que falhou ao gerar, ou
-	 * tudo já cursado —, cai na matriz e pega o que cabe no limite de créditos, para
-	 * o clique nunca terminar sem grade.
+	 * A fonte é a **matriz do aluno**: matérias em curso primeiro, depois as
+	 * obrigatórias pendentes com turma no período e, com o crédito que sobrar,
+	 * optativas. O semestre recomendado do plano de formatura entra só como ordem
+	 * de preferência — antes ele ERA a fonte, e era por ali que entrava matéria que
+	 * não pertence à matriz do aluno.
 	 *
 	 * Roda a cada montagem e é idempotente: só entra o que falta na lista, o que o
 	 * aluno tirou na lixeira não volta, e matéria já cursada nunca entra.
 	 */
 	async function semear(): Promise<SemeaduraResultado> {
-		if (!periodo) return { doPlano: [], daMatriz: [] };
+		if (!periodo) return { adicionadas: [], obrigatoriasSemOferta: [] };
 
-		const candidatos = filtrarNaoCursados(
-			codigosRecomendados().filter(
-				(c) => !gradeStore.removidas.has(c) && !gradeStore.hasMateria(c)
-			),
-			fluxogramaStore.completedCodes,
-			fluxogramaStore.currentCodes ?? new Set<string>()
-		);
-		const doPlano = candidatos.length > 0 ? await construirMateriasGrade(candidatos, periodo) : [];
-		for (const m of doPlano) gradeStore.addMateriaAoPool(m);
-
-		// A matriz só entra quando não há NADA montável na lista: quem curou a própria
-		// seleção não quer meia matriz despejada em cima dela. Matéria sem turma no
-		// período não conta como montável — ela não vira bloco no calendário.
-		if (gradeStore.pool.some((m) => m.turmas.length > 0)) {
-			return { doPlano: doPlano.map((m) => m.codigo), daMatriz: [] };
-		}
-
-		const daMatriz = escolherAteOLimite(
-			await candidatosDaMatriz(periodo, [
+		const { materias, obrigatoriasSemOferta } = await montarPoolRecomendado(periodo, {
+			limiteCreditos,
+			ordemDoPlano: codigosRecomendados(),
+			// A lixeira não vale para matrícula em curso: quem quer a MATR fora da grade
+			// usa o botão "matérias em curso", que a esconde sem perder a informação.
+			excluir: semExcluirCursando([
 				...gradeStore.removidas,
 				...gradeStore.pool.map((m) => m.codigo)
 			]),
-			limiteCreditos
-		);
-		for (const m of daMatriz) gradeStore.addMateriaAoPool(m);
+			// Complementa a lista que já existe em vez de ignorá-la: o que o aluno já
+			// selecionou ocupa horário e crédito antes de recomendarmos o resto.
+			base: {
+				mask: gradeStore.combinedMask,
+				creditos: gradeStore.creditosSelecionados,
+				turnos: gradeStore.turnosPermitidos
+			}
+		});
 
-		return { doPlano: doPlano.map((m) => m.codigo), daMatriz: daMatriz.map((m) => m.codigo) };
+		for (const m of materias) gradeStore.addMateriaAoPool(m);
+		semOferta = obrigatoriasSemOferta;
+
+		return { adicionadas: materias.map((m) => m.codigo), obrigatoriasSemOferta };
 	}
 
 	async function montar(): Promise<void> {
@@ -174,35 +176,42 @@
 			if (!planoFormaturaStore.plano) {
 				avisoAdd = planoFormaturaStore.error
 					? `Não consegui carregar seu plano de formatura (${planoFormaturaStore.error}). "Montar grade" vai puxar da sua matriz.`
-					: 'Seu plano de formatura não indicou matérias para o próximo semestre. "Montar grade" vai puxar da sua matriz.';
+					: 'Seu plano de formatura não indicou matérias para montar. "Montar grade" vai puxar da sua matriz.';
 			}
-
-			semestreLabel = extrairRecomendado()?.semestre ?? null;
-			const recomendadoCodigos = codigosRecomendados();
 
 			const idUser = authStore.getUser()?.idUser ?? null;
 			periodo = await getPeriodoAtivo();
 			const salvos = lerPoolSalvo(idUser, periodo);
 			const removidas = new Set(lerRemovidasSalvo(idUser, periodo));
-			// Salvos vêm primeiro (não re-adiciona removidas); recomendado só o que não foi removido.
-			// O filtro de já-cursadas vale também para os `salvos`: matéria concluída depois de
-			// ter entrado no pool some sozinha no próximo carregamento, sem o aluno ter que remover.
-			const todos = filtrarNaoCursados(
-				[...new Set([...salvos, ...recomendadoCodigos])].filter((c) => !removidas.has(c)),
+
+			// O que o aluno já tinha na lista da visita anterior. O filtro de já-cursadas
+			// vale também aqui: matéria concluída depois de ter entrado no pool some
+			// sozinha no próximo carregamento, sem ele ter que remover na mão.
+			const salvosVivos = filtrarNaoCursados(
+				salvos.filter((c) => !removidas.has(c)),
 				fluxogramaStore.completedCodes,
 				fluxogramaStore.currentCodes ?? new Set<string>()
 			);
+			const doStorage = await construirMateriasGrade(salvosVivos, periodo);
 
-			// Matérias que o aluno já está cursando agora entram à parte — o filtro
-			// acima existe justamente pra tirar quem já está "em curso", então elas
-			// nunca passariam por ele. Aqui só respeita o que ele já tirou na lixeira.
-			const cursandoCodigos = [...(fluxogramaStore.currentCodes ?? new Set<string>())].filter(
-				(c) => !removidas.has(c)
+			// Matérias em curso NÃO são filtradas por `removidas`: matrícula é fato
+			// consumado. Antes elas eram, e um "Limpar tudo" fazia o aluno recarregar a
+			// página sem as matérias em que ele está de fato matriculado.
+			const cursandoCodigos = [...(fluxogramaStore.currentCodes ?? new Set<string>())];
+
+			const { materias: recomendadas, obrigatoriasSemOferta } = await montarPoolRecomendado(
+				periodo,
+				{
+					limiteCreditos,
+					ordemDoPlano: codigosRecomendados(),
+					excluir: semExcluirCursando([...removidas, ...salvosVivos])
+				}
 			);
+			semOferta = obrigatoriasSemOferta;
 
-			const pool = await construirMateriasGrade(
-				[...new Set([...todos, ...cursandoCodigos])],
-				periodo
+			const vistos = new Set<string>();
+			const pool = [...doStorage, ...recomendadas].filter((m) =>
+				vistos.has(m.codigo) ? false : (vistos.add(m.codigo), true)
 			);
 			gradeStore.init(pool, { idUser, periodo });
 			gradeStore.definirCursandoAtual(cursandoCodigos);
@@ -314,9 +323,13 @@
 	async function montarGradeComPrioridade(
 		codigos: string[],
 		turnos?: string[],
-		docentes?: Record<string, string>
+		docentes?: Record<string, string>,
+		incluirCursando?: boolean
 	): Promise<void> {
 		if (turnos && turnos.length > 0) gradeStore.setTurnos(turnos);
+		// A Darcy pode pedir a grade sem as matérias em curso — mesmo efeito do botão
+		// na barra, e o estado fica visível lá depois.
+		if (typeof incluirCursando === 'boolean') gradeStore.setIncluirCursando(incluirCursando);
 		const todosCodigos = [...new Set([...codigos, ...Object.keys(docentes ?? {})])];
 
 		// Um diálogo agregado para o lote inteiro — uma fila de pop-ups, um por
@@ -386,7 +399,7 @@
 
 <PageMeta
 	title="Montador de Grade | NoFluxo UNB"
-	description="Monte e simule sua grade horária do próximo semestre sem conflito de horário."
+	description="Monte e simule sua grade horária sem conflito de horário, com as turmas realmente ofertadas."
 	noIndex={true}
 />
 
@@ -407,12 +420,12 @@
 {:else}
 	<MontadorGradeView
 		{periodo}
-		{semestreLabel}
 		{limiteCreditos}
 		onAdd={adicionarAoPool}
 		onSemear={semear}
 		onVoltarInicio={voltarAoInicio}
 		bind:aviso={avisoAdd}
+		obrigatoriasSemOferta={semOferta}
 		{confirmacaoProfessor}
 		onAceitarConfirmacaoProfessor={aceitarConfirmacaoProfessor}
 		onRecusarConfirmacaoProfessor={recusarConfirmacaoProfessor}

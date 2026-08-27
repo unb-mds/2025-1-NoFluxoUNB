@@ -52,10 +52,28 @@ describe('gradeStore — limparTudo e resetarParaInicio', () => {
 		expect(gradeStore.selecao.size).toBe(0);
 		expect(gradeStore.grades).toHaveLength(1);
 		// Removida: o reload da página não pode re-semear o que o aluno apagou.
-		expect(gradeStore.removidas.has('A')).toBe(true);
+		// 'A' é matrícula em curso e fica de fora — ver o teste dedicado abaixo.
 		expect(gradeStore.removidas.has('B')).toBe(true);
 		expect(gradeStore.temPrioritarias).toBe(false);
 		expect(gradeStore.isTravada('A')).toBe(false);
+	});
+
+	/**
+	 * Matrícula em curso é fato consumado, não sugestão: "Limpar tudo" esvazia a
+	 * tela, mas não pode apagar do próximo carregamento uma matéria em que o aluno
+	 * JÁ está matriculado. Antes disso, `removidas` engolia as MATR e a rota
+	 * (`montar()`) as filtrava para sempre — o aluno recarregava a página e as
+	 * matérias que ele cursa de verdade simplesmente não estavam mais na lista.
+	 */
+	it('limparTudo não marca como removida uma matéria que o aluno está cursando', () => {
+		const materias = [materiaComTurmas('A', 4, [0], 1), materiaComTurmas('B', 4, [1], 10)];
+		gradeStore.init(materias, { idUser: null, periodo: '2026.1' });
+		gradeStore.definirCursandoAtual(['A']);
+
+		gradeStore.limparTudo();
+
+		expect(gradeStore.removidas.has('A')).toBe(false);
+		expect(gradeStore.removidas.has('B')).toBe(true);
 	});
 
 	it('resetarParaInicio zera removidas/prioridades/turnos e aplica pool + seleção reconciliada', () => {

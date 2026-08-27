@@ -55,8 +55,7 @@ import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 import { gradeStore, type MateriaGrade } from '$lib/stores/grade.store.svelte';
 import {
 	construirMateriasGrade,
-	candidatosDaMatriz,
-	escolherAteOLimite
+	montarPoolRecomendado
 } from '$lib/services/grade-pool.service';
 import { filtrarNaoCursados } from '$lib/utils/subject-codes';
 import {
@@ -160,38 +159,24 @@ function codigosRecomendados(): string[] {
 	return (rec?.materias ?? []).filter((m) => m.codigo).map((m) => m.codigo!);
 }
 
-/** Réplica de `semear()` da rota, passo a passo e instrumentada. */
+/**
+ * Réplica de `semear()` da rota. A fonte é a matriz do aluno; o semestre
+ * recomendado do plano entra só como ordem de preferência.
+ */
 async function semear(limiteCreditos: number) {
-	const periodo = fx.periodo;
-	const recomendados = codigosRecomendados();
+	const cursando = fluxogramaStore.currentCodes ?? new Set<string>();
+	const ordemDoPlano = codigosRecomendados();
 
-	const aposRemovidasEPool = recomendados.filter(
-		(c) => !gradeStore.removidas.has(c) && !gradeStore.hasMateria(c)
-	);
-	const aposNaoCursados = filtrarNaoCursados(
-		aposRemovidasEPool,
-		fluxogramaStore.completedCodes,
-		fluxogramaStore.currentCodes ?? new Set<string>()
-	);
-	const doPlano =
-		aposNaoCursados.length > 0 ? await construirMateriasGrade(aposNaoCursados, periodo) : [];
-	for (const m of doPlano) gradeStore.addMateriaAoPool(m);
+	const { materias, obrigatoriasSemOferta } = await montarPoolRecomendado(fx.periodo, {
+		limiteCreditos,
+		ordemDoPlano,
+		excluir: [...gradeStore.removidas, ...gradeStore.pool.map((m) => m.codigo)].filter(
+			(c) => !cursando.has(c)
+		)
+	});
+	for (const m of materias) gradeStore.addMateriaAoPool(m);
 
-	let daMatriz: MateriaGrade[] = [];
-	let caiuNoFallback = false;
-	if (!gradeStore.pool.some((m) => m.turmas.length > 0)) {
-		caiuNoFallback = true;
-		daMatriz = escolherAteOLimite(
-			await candidatosDaMatriz(
-				periodo,
-				gradeStore.pool.map((m) => m.codigo)
-			),
-			limiteCreditos
-		);
-		for (const m of daMatriz) gradeStore.addMateriaAoPool(m);
-	}
-
-	return { recomendados, aposRemovidasEPool, aposNaoCursados, doPlano, daMatriz, caiuNoFallback };
+	return { ordemDoPlano, materias, obrigatoriasSemOferta };
 }
 
 describe.skipIf(!TEM)('Montador — chamado do aluno 318', () => {
@@ -208,38 +193,88 @@ describe.skipIf(!TEM)('Montador — chamado do aluno 318', () => {
 		carregarAluno();
 	});
 
-	it('diagnóstico: onde cada recomendada do plano se perde', async () => {
+	it('diagnóstico: o que a matriz oferece e o que o plano recomendava', async () => {
 		gradeStore.init([], { idUser: null, periodo: fx.periodo });
 		const r = await semear(24);
 
-		const linhas = r.recomendados.map((c) => {
-			const construida = r.doPlano.find((m) => m.codigo === c);
-			return {
+		const naMatriz = new Set(
+			(fluxogramaStore.state.courseData?.materias ?? []).map((m) =>
+				m.codigoMateria.trim().toUpperCase()
+			)
+		);
+		const noPool = new Set(gradeStore.pool.map((m) => m.codigo));
+		console.log('\n=== ALUNO 318 · O QUE O PLANO RECOMENDAVA ===');
+		console.table(
+			r.ordemDoPlano.map((c) => ({
 				codigo: c,
-				noPlano: true,
-				passouRemovidas: r.aposRemovidasEPool.includes(c),
-				passouNaoCursados: r.aposNaoCursados.includes(c),
-				construida: !!construida,
-				turmas: construida?.turmas.length ?? 0,
-				natureza: construida?.natureza ?? '-'
-			};
-		});
-		console.log('\n=== ALUNO 318 · CADA RECOMENDADA DO PLANO ===');
-		console.table(linhas);
-		console.log('caiu no fallback da matriz?', r.caiuNoFallback);
+				daMatriz: naMatriz.has(c.trim().toUpperCase()),
+				entrouNaLista: noPool.has(c.trim().toUpperCase())
+			}))
+		);
 		console.log(
 			'pool final:',
-			gradeStore.pool.map((m) => `${m.codigo}(${m.turmas.length}t)`).join(', ')
+			gradeStore.pool.map((m) => `${m.codigo}(${m.turmas.length}t·${m.natureza})`).join(', ')
 		);
+		console.log('obrigatórias sem oferta:', r.obrigatoriasSemOferta.join(', ') || '(nenhuma)');
 
-		expect(r.recomendados.length).toBeGreaterThan(0);
+		expect(r.ordemDoPlano.length).toBeGreaterThan(0);
 	}, 60_000);
 
+	/**
+	 * "botou matéria que nem é do meu curso": EST0161 vinha no semestre recomendado
+	 * do plano, não está na matriz 6360/1 e entrava na lista como módulo livre. Com
+	 * a matriz como fonte, o plano pode citá-la à vontade — ela não entra.
+	 */
+	it('nenhuma matéria de fora da matriz entra na lista', async () => {
+		gradeStore.init([], { idUser: null, periodo: fx.periodo });
+		await semear(24);
+
+		const naMatriz = new Set(
+			(fluxogramaStore.state.courseData?.materias ?? []).map((m) =>
+				m.codigoMateria.trim().toUpperCase()
+			)
+		);
+		const forasteiras = gradeStore.pool
+			.filter((m) => !naMatriz.has(m.codigo.trim().toUpperCase()))
+			.map((m) => m.codigo);
+
+		expect(forasteiras, `entraram sem ser da matriz: ${forasteiras.join(', ')}`).toEqual([]);
+	}, 60_000);
+
+	/** O outro lado do mesmo chamado: "não trouxe as obrigatórias do meu curso". */
+	it('traz mais obrigatórias do que o plano sozinho recomendava', async () => {
+		gradeStore.init([], { idUser: null, periodo: fx.periodo });
+		const r = await semear(24);
+
+		const obrigatorias = gradeStore.pool.filter((m) => m.natureza === 'obrigatoria');
+		console.log(
+			'obrigatórias na lista:',
+			obrigatorias.map((m) => `${m.codigo}:${m.creditos}cr`).join(', ')
+		);
+		console.log(
+			'em curso:',
+			[...(fluxogramaStore.currentCodes ?? [])].join(', '),
+			'| créditos no pool:',
+			gradeStore.pool.reduce((a, m) => a + m.creditos, 0)
+		);
+
+		expect(obrigatorias.length).toBeGreaterThanOrEqual(r.ordemDoPlano.length);
+	}, 60_000);
+
+	/**
+	 * O aluno cursa 4 matérias de 4 créditos AGORA (16 dos 24 do teto). Sobram 8, e
+	 * é só isso que dá para recomendar — daí o teto de 28 aqui: com folga para uma a
+	 * mais, as três obrigatórias verificadas no banco têm de entrar todas.
+	 *
+	 * Com o teto em 24 a grade fecha em FGA0211 + IFD0171 e FGA0060 fica de fora,
+	 * o que está CERTO: recomendar 24 créditos por cima de 16 já matriculados dá uma
+	 * grade em que ninguém consegue se inscrever. É o caso do teste seguinte.
+	 */
 	it('as obrigatórias pendentes COM oferta entram na grade', async () => {
 		gradeStore.init([], { idUser: null, periodo: fx.periodo });
 		gradeStore.definirCursandoAtual([...(fluxogramaStore.currentCodes ?? [])]);
-		await semear(24);
-		gradeStore.montarAutomatico({ limiteCreditos: 24 });
+		await semear(28);
+		gradeStore.montarAutomatico({ limiteCreditos: 28 });
 
 		// Verificadas no banco: têm turma em 2026.2 e o aluno não cursou nem cursa.
 		const ESPERADAS = ['IFD0171', 'FGA0060', 'FGA0211'];
@@ -255,15 +290,32 @@ describe.skipIf(!TEM)('Montador — chamado do aluno 318', () => {
 		).toEqual([]);
 	}, 60_000);
 
+	/**
+	 * A outra metade da mesma regra: o que ele já cursa gasta o orçamento primeiro.
+	 * Sem isso o montador entregava 24 créditos de recomendação para quem já estava
+	 * matriculado em 16 — 40 no total.
+	 */
+	it('a recomendação cabe no teto contando o que ele já cursa', async () => {
+		gradeStore.init([], { idUser: null, periodo: fx.periodo });
+		gradeStore.definirCursandoAtual([...(fluxogramaStore.currentCodes ?? [])]);
+		await semear(24);
+
+		const total = gradeStore.pool.reduce((acc, m) => acc + m.creditos, 0);
+
+		expect(total, `a lista somou ${total} créditos com teto de 24`).toBeLessThanOrEqual(24);
+	}, 60_000);
+
 	it('nenhuma matéria da grade tem pré-requisito não cumprido', async () => {
 		gradeStore.init([], { idUser: null, periodo: fx.periodo });
 		gradeStore.definirCursandoAtual([...(fluxogramaStore.currentCodes ?? [])]);
 		await semear(24);
 		gradeStore.montarAutomatico({ limiteCreditos: 24 });
 
+		// Só "pendente" conta como defeito: "em curso" é dependência encaminhada, que
+		// o plano de formatura recomenda de propósito.
 		const comPendencia = [...gradeStore.selecao.keys()].filter((c) => {
 			const m = gradeStore.pool.find((x) => x.codigo === c);
-			return !!m?.avisoPreRequisito;
+			return m?.nivelPreRequisito === 'pendente';
 		});
 
 		expect(
@@ -326,10 +378,9 @@ describe.skipIf(!TEM)('Montador — pré-requisito em curso conta para o próxim
 		expect(fluxogramaStore.currentCodes?.has('FGA0238'), 'FGA0238 deveria estar em curso').toBe(
 			true
 		);
-		expect(
-			fga240?.avisoPreRequisito,
-			'FGA0238 está em curso — para 2027.1 o pré-requisito está encaminhado'
-		).toBeNull();
+		// Não é "pendente" — é dependência encaminhada, com rótulo próprio. O aviso
+		// existe de propósito: ainda depende de ele passar em FGA0238.
+		expect(fga240?.nivelPreRequisito).toBe('em-curso');
 	}, 60_000);
 
 	it('pré-requisito que ele NÃO cursou nem está cursando continua avisando', async () => {
@@ -346,5 +397,71 @@ describe.skipIf(!TEM)('Montador — pré-requisito em curso conta para o próxim
 				'FGA0170 não cursado: o aviso tem de aparecer'
 			).toBeTruthy();
 		}
+	}, 60_000);
+});
+
+/**
+ * Três estados de pré-requisito, com os dados reais do aluno 318.
+ *
+ * `docs/unb-domain.md:26` diz que MATR não desbloqueia pré-requisito; o Motor 2
+ * monta `completedPlusMatr` e recomenda com base nisso. Os dois estão certos no
+ * próprio quadro, e escolher um em silêncio foi o erro anterior — ora o app dizia
+ * "pendente" numa recomendação legítima, ora não dizia nada sobre uma dependência
+ * que ainda pode falhar.
+ *
+ * O padrão único é não decidir escondido: quem depende de matéria em curso recebe
+ * rótulo próprio. Nenhum dos dois bloqueia — o aviso segue advisory.
+ */
+describe.skipIf(!TEM)('Montador — três estados de pré-requisito', () => {
+	beforeAll(() => {
+		fx = JSON.parse(fs.readFileSync(CAMINHO, 'utf8')) as Fixture;
+		dados.periodo = fx.periodo;
+		dados.turmas = fx.turmas;
+		dados.materias = fx.materiasPorCodigo;
+	});
+
+	beforeEach(() => {
+		gradeStore.definirCursandoAtual([]);
+		gradeStore.init([], { idUser: null, periodo: 'reset' });
+		carregarAluno();
+	});
+
+	it('cumprido: sem aviso quando o pré-requisito já foi aprovado', async () => {
+		// FGA0060 exige FGA0137, em que ele já foi aprovado.
+		const [m] = await construirMateriasGrade(['FGA0060'], fx.periodo);
+
+		expect(m.nivelPreRequisito).toBeNull();
+		expect(m.avisoPreRequisito).toBeNull();
+	}, 60_000);
+
+	it('em curso: FGA0240 depende de FGA0238, que ele cursa agora', async () => {
+		const [m] = await construirMateriasGrade(['FGA0240'], fx.periodo);
+
+		expect(fluxogramaStore.currentCodes?.has('FGA0238')).toBe(true);
+		expect(m.nivelPreRequisito).toBe('em-curso');
+		expect(m.avisoPreRequisito).toContain('FGA0238');
+	}, 60_000);
+
+	it('pendente: CIC0197 depende de CIC0090, que ele não cursou nem cursa', async () => {
+		// CIC0197 é uma das que apareceram na grade do relato original.
+		const [m] = await construirMateriasGrade(['CIC0197'], fx.periodo);
+
+		const tem =
+			fluxogramaStore.completedCodes.has('CIC0090') ||
+			(fluxogramaStore.currentCodes?.has('CIC0090') ?? false);
+		expect(tem, 'fixture mudou: CIC0090 deixou de ser o caso pendente').toBe(false);
+		expect(m.nivelPreRequisito).toBe('pendente');
+		expect(m.avisoPreRequisito).toContain('CIC0090');
+	}, 60_000);
+
+	it('nenhum dos dois bloqueia: as duas continuam entrando na grade', async () => {
+		gradeStore.init([], { idUser: null, periodo: fx.periodo });
+		gradeStore.definirCursandoAtual([...(fluxogramaStore.currentCodes ?? [])]);
+		const pool = await construirMateriasGrade(['FGA0240', 'CIC0197'], fx.periodo);
+		for (const m of pool) gradeStore.addMateriaAoPool(m);
+
+		gradeStore.montarAutomatico({ limiteCreditos: 24 });
+
+		expect([...gradeStore.selecao.keys()].sort()).toEqual(['CIC0197', 'FGA0240']);
 	}, 60_000);
 });

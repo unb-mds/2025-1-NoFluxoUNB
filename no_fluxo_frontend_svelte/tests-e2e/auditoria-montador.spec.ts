@@ -10,7 +10,8 @@
  *
  * Pré-requisitos:
  *   - frontend em :5173 (o webServer do playwright.config sobe se faltar)
- *   - backend em :3325 com NODE_ENV != production (bypass X-Dev-Impersonate)
+ *   - backend do app em :3333 e uma 2ª instância em :3334 com NODE_ENV != production
+ *     (é a de :3334 que aceita o bypass X-Dev-Impersonate; ver AUDITORIA_API abaixo)
  *   - node <scratchpad>/exportar-sessoes.cjs  → sessoes-auditoria.json
  *
  * Saída: resultado-auditoria.json no scratchpad, consumido por auditar.cjs.
@@ -25,7 +26,13 @@ const SCRATCH =
 	'C:/Users/FELIPE~1/AppData/Local/Temp/claude/C--Users-Felipe-Pedroza-Documents-UnB-nofluxo-2025-1-NoFluxoUNB/b9ea3c94-f2b4-4264-8e97-2f43a0a91c1c/scratchpad';
 
 const ARQ_SESSOES = path.join(SCRATCH, 'sessoes-auditoria.json');
-const ARQ_SAIDA = path.join(SCRATCH, 'resultado-auditoria.json');
+/**
+ * Modo da auditoria: `com-matr` (padrão do app) ou `sem-matr` (o aluno desligou as
+ * matérias em curso). Rodar os dois e comparar é o que prova a mudança: o modo
+ * padrão TEM de reproduzir os números de antes, e o outro TEM de zerar as em curso.
+ */
+const MODO = process.env.AUDITORIA_MODO === 'sem-matr' ? 'sem-matr' : 'com-matr';
+const ARQ_SAIDA = path.join(SCRATCH, `resultado-auditoria-${MODO}.json`);
 const DIR_SHOTS = path.join(SCRATCH, 'shots');
 
 interface Sessao {
@@ -109,6 +116,16 @@ for (const s of ALVOS) {
 			await resumo.waitFor({ state: 'visible', timeout: 45_000 });
 			// O `onMount` só SEMEIA a lista; quem dispara o solver é o aluno clicando
 			// em "Montar grade". A auditoria faz exatamente esse clique.
+			if (MODO === 'sem-matr') {
+				// Mesmo caminho do aluno: o botão na barra. Ele já remonta sozinho.
+				const alternar = page
+					.getByRole('button', { name: /Incluindo cursando|Sem as cursando/i })
+					.first();
+				if (await alternar.isVisible().catch(() => false)) {
+					await alternar.click();
+					await page.waitForTimeout(2500);
+				}
+			}
 			const botao = page.getByRole('button', { name: /Montar grade/i }).first();
 			await botao.waitFor({ state: 'visible', timeout: 20_000 });
 			await botao.click();
@@ -129,7 +146,12 @@ for (const s of ALVOS) {
 		})();
 
 		// Pool: a lista de matérias/turmas da coluna esquerda.
-		const textoPagina = (await page.locator('main').first().textContent().catch(() => '')) ?? '';
+		const textoPagina =
+			(await page
+				.locator('main')
+				.first()
+				.textContent()
+				.catch(() => '')) ?? '';
 		const codigosPagina = [...new Set(textoPagina.match(/[A-Z]{2,4}\d{4}/g) ?? [])];
 
 		// Avisos que a própria tela mostra.
@@ -139,11 +161,12 @@ for (const s of ALVOS) {
 		const semGrade = /Nenhuma matéria na grade ainda/i.test(textoResumo);
 
 		await page.screenshot({
-			path: path.join(DIR_SHOTS, `aluno-${s.idUser}.png`),
+			path: path.join(DIR_SHOTS, `aluno-${s.idUser}-${MODO}.png`),
 			fullPage: false
 		});
 
 		resultados.push({
+			modo: MODO,
 			idUser: s.idUser,
 			nomeCurso: s.nomeCurso,
 			matriz: s.matriz,

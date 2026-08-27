@@ -81,4 +81,33 @@ describe('gradeStore.ajustarParaLimite', () => {
 		expect(gradeStore.turmaSelecionada('E')).toBeUndefined();
 		expect(gradeStore.turmaSelecionada('F')).toBeUndefined();
 	});
+
+	/**
+	 * Escolher turma na mão trava a matéria para o solver não remexer. O slider é
+	 * outra coisa: é o aluno dizendo "quero menos créditos", e aí alguma coisa TEM de
+	 * sair — só a matrícula real é intocável. E o que sai precisa destravar junto:
+	 * matéria travada sem seleção fica fora do solver e fora da grade, ou seja, some.
+	 */
+	it('tira matéria travada na mão e destrava o que tirou', () => {
+		montarCenario([materia('A', 4, 0), materia('B', 6, 1)]);
+		expect(gradeStore.isTravada('B')).toBe(true);
+
+		gradeStore.ajustarParaLimite(4);
+
+		expect(gradeStore.turmaSelecionada('B')).toBeUndefined();
+		expect(gradeStore.isTravada('B')).toBe(false);
+		expect(gradeStore.creditosSelecionados).toBe(4);
+	});
+
+	it('nem o slider tira uma matéria que o aluno já cursa', () => {
+		const materias = [materia('A', 4, 0), materia('M', 10, 1)];
+		gradeStore.init(materias, { idUser: null, periodo: '2026.1' });
+		gradeStore.definirCursandoAtual(['M']);
+		for (const m of materias) gradeStore.selecionarTurma(m.codigo, m.turmas[0].turma.id_turmas);
+
+		gradeStore.ajustarParaLimite(4);
+
+		expect(gradeStore.turmaSelecionada('M')).toBeDefined();
+		expect(gradeStore.turmaSelecionada('A')).toBeUndefined();
+	});
 });

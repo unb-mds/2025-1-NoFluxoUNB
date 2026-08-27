@@ -15,7 +15,12 @@
 		onMontarGrade
 	}: {
 		onAddToGrade: (codigo: string) => void;
-		onMontarGrade: (codigos: string[], turnos?: string[], docentes?: Record<string, string>) => void;
+		onMontarGrade: (
+			codigos: string[],
+			turnos?: string[],
+			docentes?: Record<string, string>,
+			incluirCursando?: boolean
+		) => void;
 	} = $props();
 
 	let isChatOpen = $state(false);
@@ -110,10 +115,38 @@
 		// populateOnly: o badge é uma variável (tema/matéria) que o aluno precisa
 		// completar — clicar só preenche e foca o campo, não envia um exemplo fixo
 		// (ex.: "inteligência artificial") como se fosse a escolha dele.
-		{ prefix: 'Recomenda', badge: 'optativas', suffix: 'sobre um tema', message: 'Recomende optativas sobre ', populateOnly: true },
-		{ prefix: 'Optativas mais', badge: 'tranquilas', suffix: '', message: 'Quais optativas mais tranquilas para o próximo semestre?' },
-		{ prefix: 'Recomenda', badge: 'módulo livre', suffix: 'por área', message: 'Quero sugestões de módulo livre' },
-		{ prefix: 'Ver turmas de', badge: 'uma matéria', suffix: '', message: 'Quais as turmas de ', populateOnly: true }
+		{
+			prefix: 'Recomenda',
+			badge: 'optativas',
+			suffix: 'sobre um tema',
+			message: 'Recomende optativas sobre ',
+			populateOnly: true
+		},
+		{
+			prefix: 'Optativas mais',
+			badge: 'tranquilas',
+			suffix: '',
+			message: 'Quais optativas mais tranquilas?'
+		},
+		{
+			prefix: 'Montar grade',
+			badge: 'sem as cursando',
+			suffix: '',
+			message: 'Monte a grade sem considerar as matérias que eu já estou cursando (MATR)'
+		},
+		{
+			prefix: 'Recomenda',
+			badge: 'módulo livre',
+			suffix: 'por área',
+			message: 'Quero sugestões de módulo livre'
+		},
+		{
+			prefix: 'Ver turmas de',
+			badge: 'uma matéria',
+			suffix: '',
+			message: 'Quais as turmas de ',
+			populateOnly: true
+		}
 	];
 
 	function onSend(msg: string) {
@@ -135,13 +168,17 @@
 {#if isChatOpen}
 	<div
 		class="fixed z-[100] flex flex-col overflow-hidden border border-white/10 bg-[#090c12]/90 shadow-[0_8px_30px_rgb(0,0,0,0.5)] backdrop-blur-3xl sm:bg-[#090c12]/60
-			{isMobile ? 'bottom-0 left-0 right-0 h-[85vh] w-full rounded-t-3xl' : 'origin-bottom-right rounded-2xl'}"
-		style={isMobile ? '' : `left: ${chatX}px; top: ${chatY}px; width: ${chatW}px; height: ${chatH}px; resize: both;`}
+			{isMobile
+			? 'right-0 bottom-0 left-0 h-[85vh] w-full rounded-t-3xl'
+			: 'origin-bottom-right rounded-2xl'}"
+		style={isMobile
+			? ''
+			: `left: ${chatX}px; top: ${chatY}px; width: ${chatW}px; height: ${chatH}px; resize: both;`}
 		use:draggable
 		in:scale={{ start: 0.6, duration: 400, easing: backOut }}
 		out:scale={{ start: 0.8, duration: 200, easing: cubicOut }}
 	>
-		<div class="absolute right-4 top-4 z-50 flex items-center gap-1">
+		<div class="absolute top-4 right-4 z-50 flex items-center gap-1">
 			{#if !isMobile}
 				<button
 					type="button"
@@ -179,14 +216,18 @@
 			{prefillNonce}
 		>
 			{#snippet emptyState()}
-				<div class="mb-4 flex h-16 w-16 shrink-0 items-center justify-center rounded-3xl border border-pink-500/50 bg-pink-500/10 shadow-[0_0_30px_rgba(236,72,153,0.15)] backdrop-blur-md">
+				<div
+					class="mb-4 flex h-16 w-16 shrink-0 items-center justify-center rounded-3xl border border-pink-500/50 bg-pink-500/10 shadow-[0_0_30px_rgba(236,72,153,0.15)] backdrop-blur-md"
+				>
 					<Bot class="h-8 w-8 text-pink-400" />
 				</div>
 				<h3 class="text-xl font-semibold tracking-tight text-white">Recomende e monte</h3>
 				<p class="mt-2 max-w-[280px] text-[12px] leading-relaxed text-white/50">
-					Peça optativas por tema, ou <span class="font-bold text-emerald-200">módulo livre</span> por área de
-					interesse — mostro só o que <span class="font-bold text-emerald-200">tem turma</span> neste semestre.
-					Toque em <span class="font-bold text-emerald-200">+ grade</span> pra jogar na sua grade.
+					Peça optativas por tema, ou <span class="font-bold text-emerald-200">módulo livre</span>
+					por área de interesse — mostro só o que
+					<span class="font-bold text-emerald-200">tem turma</span>
+					neste semestre. Toque em <span class="font-bold text-emerald-200">+ grade</span> pra jogar na
+					sua grade.
 				</p>
 			{/snippet}
 		</ChatPanel>
@@ -199,7 +240,7 @@
 		type="button"
 		onclick={() => (isChatOpen = true)}
 		class="fixed z-[90] flex items-center justify-center border border-pink-500/50 bg-[#1e1e24]/80 shadow-[0_8px_30px_rgba(236,72,153,0.3)] backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-pink-400 hover:bg-[#2a2a32] active:scale-95
-			{isMobile ? 'bottom-4 right-4 h-14 w-14 rounded-full' : 'bottom-6 right-6 h-12 w-12 rounded-xl'}"
+			{isMobile ? 'right-4 bottom-4 h-14 w-14 rounded-full' : 'right-6 bottom-6 h-12 w-12 rounded-xl'}"
 		aria-label="Abrir assistente IA"
 		data-tour="assistente-ia"
 		in:scale={{ start: 0.5, duration: 400, easing: backOut, delay: 100 }}

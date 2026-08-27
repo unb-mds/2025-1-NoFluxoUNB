@@ -103,24 +103,18 @@
 	/**
 	 * Faz o papel do plano de formatura: devolve o que falta na lista, com a mesma
 	 * semântica da rota real (só entra o que ainda não está lá). O harness não tem
-	 * matriz, então nunca exercita o caminho `daMatriz` — para isso use a rota real.
+	 * matriz, então nunca exercita a semeadura real — para isso use a rota real.
 	 */
 	async function onSemear(): Promise<SemeaduraResultado> {
 		const faltando = pool.filter((m) => !gradeStore.hasMateria(m.codigo));
 		for (const m of faltando) gradeStore.addMateriaAoPool(m);
-		return { doPlano: faltando.map((m) => m.codigo), daMatriz: [] };
+		return { adicionadas: faltando.map((m) => m.codigo), obrigatoriasSemOferta: [] };
 	}
 </script>
 
 <PageBackground />
 
-<MontadorGradeView
-	periodo={PERIODO}
-	semestreLabel="2026.1"
-	limiteCreditos={24}
-	{onAdd}
-	{onSemear}
-/>
+<MontadorGradeView periodo={PERIODO} limiteCreditos={24} {onAdd} {onSemear} />
 
 <!-- Presente na tela real: flutua sobre o rodapé e precisa de folga embaixo. -->
 <AssistenteChatFab onAddToGrade={onAdd} onMontarGrade={() => {}} />
