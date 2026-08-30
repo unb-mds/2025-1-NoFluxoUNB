@@ -20,16 +20,19 @@ import { Pair } from "../utils";
 import { Request, Response } from "express";
 import { run } from "@openai/agents";
 import { createControllerLogger } from "../utils/controller_logger";
+import { logAiUsage } from "../utils/ai_usage_logger";
 import { SupabaseWrapper } from "../supabase_wrapper";
 import { SupabaseSession } from "../services/chat/supabase_session";
 import { createOrquestradorAgent } from "../services/chat/orquestrador_agent";
 import { isMaritacaConfigured } from "../services/chat/model_provider";
+import { MARITACA_MODELS } from "../config/maritaca";
 
 export const ChatController: EndpointController = {
     name: "chat",
     routes: {
         send: new Pair(RequestType.POST, async (req: Request, res: Response) => {
             const logger = createControllerLogger("ChatController", "send");
+            const startTime = Date.now();
 
             const authorization = req.headers["authorization"];
             if (!authorization || typeof authorization !== "string") {
@@ -85,6 +88,26 @@ export const ChatController: EndpointController = {
                     horarioLivreResolvido
                 );
                 const resultado = await run(orquestrador, message, { session });
+
+                // Usage acumulado do run inteiro (todas as chamadas ao LLM feitas
+                // pelo orquestrador + atuadores) — tracking de custo no dashboard admin.
+                // O @openai/agents-openai (openaiChatCompletionsModel.js) confia cegamente
+                // em `usage.total_tokens ?? 0` da resposta, sem recalcular — mesma falha já
+                // vista na Maritaca via mcp_agent/api_producao.py. Recalcula aqui também.
+                const usage = resultado.state.usage;
+                const totalTokens = usage.totalTokens || (usage.inputTokens + usage.outputTokens);
+                logAiUsage({
+                    endpoint: "chat-send",
+                    durationMs: Date.now() - startTime,
+                    success: true,
+                    requestExcerpt: message,
+                    usage: [{
+                        model: MARITACA_MODELS.AGENTE,
+                        prompt_tokens: usage.inputTokens,
+                        completion_tokens: usage.outputTokens,
+                        total_tokens: totalTokens,
+                    }],
+                });
 
                 return res.status(200).json({ reply: resultado.finalOutput });
             } catch (error) {

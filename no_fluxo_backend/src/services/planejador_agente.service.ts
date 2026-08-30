@@ -22,6 +22,7 @@ import {
     type LlmMessage,
     type ChamarLlmFn,
 } from "./agente/context";
+import type { LlmUsage } from "../utils/ai_usage_logger";
 import { montarSystemPrompt } from "./agente/system_prompt";
 import { consultarTurmasMateria } from "./agente/tools/materia_tools";
 import { defaultRegistry } from "./agente/tools";
@@ -64,6 +65,11 @@ export async function executarTool(
 
 export class PlanejadorAgenteService {
     private chamarLlm: ChamarLlmFn;
+    // Uso de tokens acumulado ao longo do loop de tool calling de UMA
+    // chamada a conversar() — resetado no início dela (tracking de custo no
+    // dashboard admin). Só é preenchido quando o LLM é o Maritaca de verdade
+    // (this.chamarLlmMaritaca); um chamarLlm injetado (testes) não populariza.
+    private usageCalls: LlmUsage[] = [];
 
     constructor(chamarLlm?: ChamarLlmFn) {
         this.chamarLlm = chamarLlm || this.chamarLlmMaritaca.bind(this);
@@ -108,6 +114,21 @@ export class PlanejadorAgenteService {
         const choice = data.choices?.[0];
         if (!choice) throw new Error("Nenhuma resposta do LLM");
 
+        const u = data.usage;
+        if (u) {
+            const prompt_tokens = u.prompt_tokens ?? 0;
+            const completion_tokens = u.completion_tokens ?? 0;
+            // Mesma ressalva já vista no agente Sabiá (mcp_agent/api_producao.py):
+            // a Maritaca às vezes não preenche total_tokens — recalcula da soma.
+            const total_tokens = u.total_tokens ?? (prompt_tokens + completion_tokens);
+            this.usageCalls.push({
+                model: MARITACA_MODELS.AGENTE,
+                prompt_tokens,
+                completion_tokens,
+                total_tokens,
+            });
+        }
+
         return choice.message as LlmMessage;
     }
 
@@ -115,6 +136,9 @@ export class PlanejadorAgenteService {
         historico: MensagemChat[],
         ctx: AgenteContexto
     ): Promise<AgenteResultado> {
+        // Reseta o acumulador de tokens desta chamada (tracking de custo).
+        this.usageCalls = [];
+
         // Truncar histórico nas últimas MAX_HISTORICO mensagens
         const historicoTruncado = historico.slice(-MAX_HISTORICO);
 
@@ -124,19 +148,21 @@ export class PlanejadorAgenteService {
             const codigo = lastUserMsg.content.trim().substring(8).trim().toUpperCase();
             const turmasJson = await consultarTurmasMateria({ codigo });
             const turmasData = JSON.parse(turmasJson);
-            
+
             if (turmasData.erro) {
                 return {
                     reply: turmasData.erro,
-                    restricoes: ctx.restricoes
+                    restricoes: ctx.restricoes,
+                    usage: this.usageCalls
                 };
             }
-            
+
             const periodoStr = turmasData.periodo ? ` (${turmasData.periodo})` : '';
             const reply = `Aqui estão as turmas que encontrei para **${turmasData.codigo} - ${turmasData.nome_materia}**${periodoStr}:\n\n` + turmasData.turmas_recentes.join('\n');
             return {
                 reply,
-                restricoes: ctx.restricoes
+                restricoes: ctx.restricoes,
+                usage: this.usageCalls
             };
         }
 
@@ -178,6 +204,7 @@ export class PlanejadorAgenteService {
                     reply: resposta.content,
                     plano: planoAtualizado,
                     restricoes: ctx.restricoes,
+                    usage: this.usageCalls,
                 };
             }
 
@@ -238,6 +265,7 @@ export class PlanejadorAgenteService {
                 reply: "Desculpe, não consegui processar sua pergunta.",
                 plano: planoAtualizado,
                 restricoes: ctx.restricoes,
+                usage: this.usageCalls,
             };
         }
 
@@ -249,6 +277,7 @@ export class PlanejadorAgenteService {
             reply: `Desculpe, não consegui concluir sua solicitação após ${MAX_ITERACOES} tentativas. Tente reformular sua pergunta.`,
             plano: planoAtualizado,
             restricoes: ctx.restricoes,
+            usage: this.usageCalls,
         };
     }
 }

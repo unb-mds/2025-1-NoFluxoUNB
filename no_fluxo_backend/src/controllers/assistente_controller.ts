@@ -15,6 +15,7 @@ import { SabiaService } from '../services/sabia.service';
 import { removeAccents } from '../utils/text.utils';
 import { formatRanking } from '../utils/ranking.formatter';
 import { createControllerLogger } from '../utils/controller_logger';
+import { logAiUsage } from '../utils/ai_usage_logger';
 import { SupabaseWrapper } from '../supabase_wrapper';
 import { PlanejadorAgenteService, type MensagemChat } from '../services/planejador_agente.service';
 import { criarContextoLeve } from '../services/agente/context';
@@ -22,40 +23,6 @@ import { montarContextoAgente } from './PlanejamentoController';
 
 const ragflow = new RagflowService();
 const sabia = new SabiaService();
-
-/**
- * Registra uso de IA em ai_usage_log (custo no dashboard admin).
- * Fire-and-forget: nunca lança nem bloqueia a resposta ao usuário.
- */
-function logAiUsage(params: {
-    endpoint: string;
-    durationMs: number;
-    success: boolean;
-    requestExcerpt: string;
-    usage?: { model: string; prompt_tokens: number; completion_tokens: number; total_tokens: number }[];
-}): void {
-    void (async () => {
-        try {
-            const calls = params.usage && params.usage.length > 0
-                ? params.usage
-                : [{ model: 'desconhecido', prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 }];
-            const rows = calls.map((u) => ({
-                endpoint: params.endpoint,
-                model: u.model,
-                prompt_tokens: u.prompt_tokens ?? 0,
-                completion_tokens: u.completion_tokens ?? 0,
-                total_tokens: u.total_tokens ?? 0,
-                duration_ms: params.durationMs,
-                success: params.success,
-                request_excerpt: params.requestExcerpt.slice(0, 120)
-            }));
-            const { error } = await SupabaseWrapper.get().from('ai_usage_log').insert(rows);
-            if (error) console.error('[logAiUsage] insert falhou:', error.message);
-        } catch (e) {
-            console.error('[logAiUsage] erro inesperado:', e);
-        }
-    })();
-}
 
 export const AssistenteController: EndpointController = {
     name: 'assistente',
@@ -113,6 +80,7 @@ export const AssistenteController: EndpointController = {
         // => todas as tools; anônimo/sem plano => só as tools genéricas.
         chat: new Pair(RequestType.POST, async (req: Request, res: Response) => {
             const logger = createControllerLogger('AssistenteController', 'chat');
+            const startTime = Date.now();
             try {
                 const svc = new PlanejadorAgenteService();
                 if (!svc.isAvailable()) {
@@ -148,6 +116,16 @@ export const AssistenteController: EndpointController = {
                 ctx.apenasComOferta = body.contexto === 'montador';
 
                 const resultado = await svc.conversar(historico, ctx);
+
+                const ultimaMsgUsuario = historico.slice().reverse().find((m) => m.role === 'user');
+                logAiUsage({
+                    endpoint: 'assistente-chat',
+                    durationMs: Date.now() - startTime,
+                    success: true,
+                    requestExcerpt: ultimaMsgUsuario?.content ?? '',
+                    usage: resultado.usage,
+                });
+
                 return res.status(200).json({
                     reply: resultado.reply,
                     plano: resultado.plano ?? undefined,
