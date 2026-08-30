@@ -231,7 +231,23 @@ async function candidatosJaCumpridos(
     return jaCumpridos;
 }
 
-export async function buscarModuloLivre(
+/**
+ * O que a busca de módulo livre encontrou — ou por que não encontrou nada.
+ *
+ * Existe porque a busca passou a ter dois consumidores com necessidades opostas:
+ * a tool do chat quer texto para o LLM repassar, e o endpoint do Montador quer
+ * uma lista que vira botão "Incluir" na tela. `buscarModuloLivre` continua
+ * devolvendo JSON string (o contrato que o agente espera) serializando isto.
+ */
+export interface ResultadoModuloLivre {
+    materias: MateriaBusca[];
+    /** Explicação para lista vazia — texto pronto para mostrar ao aluno. */
+    aviso?: string;
+    /** Falha que impede a busca (matriz não resolvida, catálogo indisponível). */
+    erro?: string;
+}
+
+export async function sugerirModuloLivre(
     termosBusca: string[],
     apenasComOferta: boolean,
     /**
@@ -245,16 +261,17 @@ export async function buscarModuloLivre(
      * (tudo que já é obrigatória ou optativa do curso).
      */
     curriculoCompleto: string
-): Promise<string> {
+): Promise<ResultadoModuloLivre> {
     if (termosBusca.length === 0) {
-        return JSON.stringify({ erro: "Informe ao menos um termo de busca." });
+        return { materias: [], erro: "Informe ao menos um termo de busca." };
     }
 
     const idMatriz = await resolveIdMatriz(curriculoCompleto);
     if (idMatriz == null) {
-        return JSON.stringify({
+        return {
+            materias: [],
             erro: "Não foi possível identificar a matriz curricular do aluno para calcular o módulo livre.",
-        });
+        };
     }
 
     let codigosMatriz: Set<string>;
@@ -264,9 +281,10 @@ export async function buscarModuloLivre(
         // Falha ao consultar materias_por_curso/materias: não dá pra saber o
         // que excluir com segurança, então recusa em vez de arriscar vazar
         // matéria da própria matriz do aluno como "módulo livre".
-        return JSON.stringify({
+        return {
+            materias: [],
             erro: "Não foi possível calcular a matriz curricular do aluno para o módulo livre agora.",
-        });
+        };
     }
 
     let materias = await sabia.buscarMaterias(termosBusca);
@@ -293,16 +311,34 @@ export async function buscarModuloLivre(
     }
 
     if (materias.length === 0) {
-        return JSON.stringify({
+        return {
+            materias: [],
             aviso: filtrouPorHistorico
                 ? "As matérias de módulo livre encontradas sobre esse tema você já cursou (ou está cursando)."
                 : apenasComOferta
                   ? "Nenhuma matéria de módulo livre sobre esse tema tem turma ofertada no período atual."
                   : "Nenhuma matéria de módulo livre encontrada para esse tema.",
-            materias: [],
-        });
+        };
     }
-    return JSON.stringify({ materias });
+    return { materias };
+}
+
+/**
+ * Mesma busca, serializada — é o contrato que a tool do agente espera receber.
+ *
+ * Mantida com a assinatura e o formato de saída de sempre para o chat não mudar
+ * de comportamento por causa do endpoint novo.
+ */
+export async function buscarModuloLivre(
+    termosBusca: string[],
+    apenasComOferta: boolean,
+    email: string | undefined,
+    curriculoCompleto: string
+): Promise<string> {
+    const r = await sugerirModuloLivre(termosBusca, apenasComOferta, email, curriculoCompleto);
+    if (r.erro) return JSON.stringify({ erro: r.erro });
+    if (r.aviso) return JSON.stringify({ aviso: r.aviso, materias: [] });
+    return JSON.stringify({ materias: r.materias });
 }
 
 export function createModuloLivreAgent(

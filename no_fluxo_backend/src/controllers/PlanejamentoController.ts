@@ -30,6 +30,7 @@ import {
     calcularSemestreAtualStr,
 } from "../services/plano_formatura.service";
 import { PlanejadorAgenteService, type MensagemChat, type AgenteContexto } from "../services/planejador_agente.service";
+import { sugerirModuloLivre } from "../services/chat/actuators/modulo_livre_actuator";
 import { DificuldadeAgenteService } from "../services/dificuldade_agente.service";
 import type {
     MateriaInput,
@@ -549,6 +550,42 @@ export async function montarContextoAgente(
     return { ctx };
 }
 
+/**
+ * Quem é o aluno, para a busca de módulo livre: e-mail (usado para excluir o que
+ * ele já cursou) e a matriz dele (usada para excluir o que já é do curso).
+ *
+ * Resolvido no servidor a partir do `id_user` autenticado, e não aceito do
+ * corpo da requisição de propósito: a matriz é justamente o que define o que
+ * NÃO é módulo livre, então deixar o cliente escolhê-la seria deixá-lo receber
+ * como "de fora do curso" as próprias obrigatórias de outro currículo.
+ *
+ * A matriz vem de `historicos_usuarios` (a entrada mais recente) porque é lá que
+ * o upload do histórico a grava — `dados_users` não tem essa coluna.
+ */
+async function identificarAluno(
+    idUser: string
+): Promise<{ email: string | undefined; curriculoCompleto: string } | null> {
+    const supabase = SupabaseWrapper.get();
+
+    const [{ data: user }, { data: historico }] = await Promise.all([
+        supabase.from("users").select("email").eq("id_user", idUser).maybeSingle(),
+        supabase
+            .from("historicos_usuarios")
+            .select("matriz_curricular")
+            .eq("id_user", idUser)
+            .order("created_at", { ascending: false })
+            .limit(1)
+            .maybeSingle(),
+    ]);
+
+    const curriculoCompleto = (historico?.matriz_curricular ?? "").trim();
+    if (!curriculoCompleto) return null;
+
+    // E-mail é opcional: sem ele a busca só deixa de filtrar o que o aluno já
+    // cursou, o que é bem melhor do que não responder.
+    return { email: user?.email ?? undefined, curriculoCompleto };
+}
+
 interface MatrizRow {
     id_matriz: number;
     id_curso: number;
@@ -840,6 +877,53 @@ export const PlanejamentoController: EndpointController = {
         // Confirmadas pelo aluno no chat da Darcy ("Aceitar" no banner de
         // rearranjo) e reaplicadas automaticamente nas próximas montagens.
         // ==========================================================
+        // ==========================================================
+        // Sugestões de módulo livre por tema, para o painel "Situação" do
+        // Montador de Grade. Usa a MESMA busca semântica do chat da Darcy
+        // (`sugerirModuloLivre`) — o Montador precisa da lista estruturada para
+        // montar botões "Incluir", e não do texto que o agente devolveria.
+        // ==========================================================
+        "modulo-livre-sugestoes": new Pair(
+            RequestType.POST,
+            async (req: Request, res: Response) => {
+                const logger = createControllerLogger("PlanejamentoController", "modulo-livre-sugestoes");
+                try {
+                    if (!await Utils.checkAuthorization(req as Request)) {
+                        return res.status(401).json({ error: "Usuário não autorizado" });
+                    }
+                    const id_user = req.headers["user-id"] || req.headers["User-ID"];
+                    if (!id_user) return res.status(401).json({ error: "User-ID não informado" });
+
+                    const body = req.body;
+                    const tema = isObject(body) && typeof body.tema === "string" ? body.tema.trim() : "";
+                    // Sem tema não há o que procurar: módulo livre é o catálogo
+                    // inteiro da UnB, e "liste tudo" devolveria milhares de linhas
+                    // em ordem de código fingindo ser recomendação.
+                    if (tema.length < 2) {
+                        return res.status(400).json({ error: "Informe um tema com ao menos 2 caracteres" });
+                    }
+
+                    const aluno = await identificarAluno(String(id_user));
+                    if (!aluno) {
+                        return res.status(404).json({
+                            error: "Não encontrei sua matriz curricular. Envie seu histórico para usar o módulo livre.",
+                        });
+                    }
+
+                    // A busca semântica aceita sinônimos para ampliar o recall; o
+                    // Montador manda um tema só, então o termo vai sozinho.
+                    const r = await sugerirModuloLivre([tema], true, aluno.email, aluno.curriculoCompleto);
+                    if (r.erro) {
+                        logger.warn(`Busca de módulo livre falhou: ${r.erro}`);
+                        return res.status(200).json({ materias: [], aviso: r.erro });
+                    }
+                    return res.status(200).json({ materias: r.materias, aviso: r.aviso ?? null });
+                } catch (err: any) {
+                    logger.error(`Erro ao buscar módulo livre: ${err?.message || String(err)}`);
+                    return res.status(500).json({ error: err?.message || "Erro ao buscar módulo livre" });
+                }
+            }
+        ),
         "preferencias-grade-listar": new Pair(
             RequestType.GET,
             async (req: Request, res: Response) => {
