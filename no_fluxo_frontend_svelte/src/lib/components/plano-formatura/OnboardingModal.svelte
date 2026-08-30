@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PreferenciasPlano } from '$lib/types/plano-formatura';
-	import { DEFAULT_PREFERENCIAS } from '$lib/types/plano-formatura';
+	import { DEFAULT_PREFERENCIAS, LIMITE_CREDITOS_MAX } from '$lib/types/plano-formatura';
 	import { GraduationCap, Briefcase, Zap, Scale, ChevronRight, X, Sparkles } from 'lucide-svelte';
 	import { fade, fly } from 'svelte/transition';
 
@@ -167,7 +167,8 @@
 				{:else if step === 2}
 					<!-- Question 2: limite de créditos (exibido como matérias/horas) -->
 					<div class="flex flex-col gap-3">
-						{#each ([16, 24, 32] as const) as limite}
+						<!-- Presets: leve, o padrão, e o teto do sistema. -->
+					{#each [16, DEFAULT_PREFERENCIAS.limiteCreditos, LIMITE_CREDITOS_MAX] as limite}
 							{@const materias = limite / 4}
 							{@const horas = limite * 15}
 							{@const labels: Record<number, { subtitle: string }> = {

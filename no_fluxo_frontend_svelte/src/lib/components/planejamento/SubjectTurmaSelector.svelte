@@ -3,6 +3,7 @@
 	import { unidadeCargaStore } from '$lib/stores/unidade-carga.store.svelte';
 	import { assistenteChatStore } from '$lib/stores/assistente-chat.store.svelte';
 	import TurmaOption from './TurmaOption.svelte';
+	import MateriaNaturezaBadge from '$lib/components/materia/MateriaNaturezaBadge.svelte';
 	import type { Turno } from '$lib/utils/horario-slots';
 	import { TriangleAlert, Star, Trash2, Info, Bot, GraduationCap, Lock } from 'lucide-svelte';
 
@@ -82,8 +83,17 @@
 			<header class="mb-2.5 flex items-start gap-2.5 border-b border-white/10 pb-2.5">
 				<span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full {cor.dot}"></span>
 				<div class="min-w-0 flex-1">
-					<p class="flex flex-wrap items-baseline gap-x-2">
+					<p class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
 						<span class="font-mono text-sm font-semibold text-white/90">{materia.codigo}</span>
+						<!--
+							Sem a etiqueta o aluno não distingue o que a montagem priorizou:
+							obrigatória, optativa e módulo livre saíam com a mesma cara na lista,
+							e a ordem parecia arbitrária.
+						-->
+						<MateriaNaturezaBadge
+							natureza={materia.optatoria ? 'optatoria' : (materia.natureza ?? 'obrigatoria')}
+							nomesQueExigem={gradeStore.obrigatoriasQueExigem(materia.codigo)}
+						/>
 						<span class="truncate text-xs text-white/60">{materia.nome}</span>
 					</p>
 					<p class="mt-0.5 text-[11px] text-white/40">

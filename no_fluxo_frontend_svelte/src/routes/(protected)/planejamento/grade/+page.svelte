@@ -15,9 +15,14 @@
 		motivoParaNaoAdicionar,
 		pendenciasPreRequisito,
 		invalidarContextoGrade,
+		candidatosModuloLivre,
 		type SemeaduraResultado,
 		type PendenciaPreRequisito
 	} from '$lib/services/grade-pool.service';
+	import {
+		carregarSituacao,
+		type SituacaoAcademica
+	} from '$lib/services/situacao-academica.service';
 	import PreRequisitoConfirmDialog from '$lib/components/planejamento/PreRequisitoConfirmDialog.svelte';
 	import { vagaAssinaturasStore } from '$lib/stores/vaga-assinaturas.store.svelte';
 	import { getPeriodoAtivo } from '$lib/services/turmas.service';
@@ -35,6 +40,16 @@
 	let avisoAdd = $state<string | null>(null);
 	/** Obrigatórias que faltam ao aluno e não são ofertadas neste período. */
 	let semOferta = $state<string[]>([]);
+	/**
+	 * O que ainda falta ao aluno, por natureza. Carregado em segundo plano: a
+	 * montagem funciona sem isto, só menos informada, então uma falha aqui não pode
+	 * atrasar nem derrubar a tela.
+	 */
+	let situacao = $state<SituacaoAcademica | null>(null);
+	let situacaoCarregando = $state(true);
+	/** Sugestões de módulo livre para o tema que o aluno pediu. */
+	let sugestoesModuloLivre = $state<Array<{ codigo: string; nome: string; creditos: number }>>([]);
+	let buscandoModuloLivre = $state(false);
 
 	/**
 	 * Prévia pendente de um rearranjo pedido por professor via chat: já aplicada no
@@ -107,7 +122,8 @@
 		const cursandoCodigos = [...(fluxogramaStore.currentCodes ?? new Set<string>())];
 		const { materias, obrigatoriasSemOferta } = await montarPoolRecomendado(periodo, {
 			limiteCreditos,
-			ordemDoPlano: codigosRecomendados()
+			ordemDoPlano: codigosRecomendados(),
+			situacao: situacao ?? undefined
 		});
 		semOferta = obrigatoriasSemOferta;
 		gradeStore.resetarParaInicio(materias);
@@ -131,7 +147,8 @@
 	async function semear(): Promise<SemeaduraResultado> {
 		if (!periodo) return { adicionadas: [], obrigatoriasSemOferta: [] };
 
-		const { materias, obrigatoriasSemOferta } = await montarPoolRecomendado(periodo, {
+		const { materias, obrigatoriasSemOferta, naturezasSaturadas, pendentesSemOferta } =
+			await montarPoolRecomendado(periodo, {
 			limiteCreditos,
 			ordemDoPlano: codigosRecomendados(),
 			// A lixeira não vale para matrícula em curso: quem quer a MATR fora da grade
@@ -146,13 +163,23 @@
 				mask: gradeStore.combinedMask,
 				creditos: gradeStore.creditosSelecionados,
 				turnos: gradeStore.turnosPermitidos
-			}
+			},
+			situacao: situacao ?? undefined,
+			// Com as em curso fora da montagem elas não ocupam vaga, então também não
+			// podem consumir o orçamento — senão quem já cursa perto do teto desliga
+			// o modo para ver o que mais pegar e não recebe sugestão nenhuma.
+			cursandoOcupaOrcamento: gradeStore.incluirCursando
 		});
 
 		for (const m of materias) gradeStore.addMateriaAoPool(m);
 		semOferta = obrigatoriasSemOferta;
 
-		return { adicionadas: materias.map((m) => m.codigo), obrigatoriasSemOferta };
+		return {
+			adicionadas: materias.map((m) => m.codigo),
+			obrigatoriasSemOferta,
+			naturezasSaturadas,
+			pendentesSemOferta
+		};
 	}
 
 	async function montar(): Promise<void> {
@@ -204,7 +231,8 @@
 				{
 					limiteCreditos,
 					ordemDoPlano: codigosRecomendados(),
-					excluir: semExcluirCursando([...removidas, ...salvosVivos])
+					excluir: semExcluirCursando([...removidas, ...salvosVivos]),
+					situacao: situacao ?? undefined
 				}
 			);
 			semOferta = obrigatoriasSemOferta;
@@ -218,6 +246,18 @@
 			preencherTurmasReais();
 			invalidarContextoGrade();
 			status = 'ready';
+			// Situação do aluno em background: a grade já está montável sem ela, e
+			// nenhuma falha desta camada pode segurar a tela. Quando chega, o store
+			// passa a pesar as matérias pelo que de fato falta.
+			void carregarSituacao()
+				.then((s) => {
+					situacao = s;
+					gradeStore.definirSituacao(s);
+				})
+				.finally(() => {
+					situacaoCarregando = false;
+				});
+
 			// Carrega assinaturas de vaga em background (habilita "seguir turma lotada").
 			void vagaAssinaturasStore.load();
 			// Preferência de professor confirmada numa sessão anterior — carrega em
@@ -371,6 +411,57 @@
 		}
 	}
 
+	/**
+	 * Resposta do aluno sobre módulo livre.
+	 *
+	 * Persiste porque a pergunta não deve voltar a cada visita — nem para quem
+	 * disse sim, nem para quem disse não. Falha de gravação não bloqueia nada: a
+	 * escolha vale nesta sessão de qualquer jeito.
+	 */
+	async function responderModuloLivre(quer: boolean, tema?: string): Promise<void> {
+		const anterior = planoFormaturaStore.preferencias?.moduloLivre;
+		await planoFormaturaStore.setPreferenciaModuloLivre({
+			quer,
+			tema: tema ?? anterior?.tema,
+			curriculoCompleto: authStore.getUser()?.dadosFluxograma?.matrizCurricular ?? undefined
+		});
+		// Dispensar limpa as sugestões da tela; o saldo continua aparecendo, porque
+		// recusar a sugestão não faz as horas deixarem de faltar.
+		if (!quer) sugestoesModuloLivre = [];
+	}
+
+	/**
+	 * Procura módulo livre sobre o tema que o aluno deu.
+	 *
+	 * Guarda o tema junto: da próxima visita ele reencontra a busca de onde parou,
+	 * em vez de ter de lembrar o que tinha digitado.
+	 */
+	async function buscarModuloLivre(tema: string): Promise<void> {
+		if (!periodo) return;
+		buscandoModuloLivre = true;
+		try {
+			const achados = await candidatosModuloLivre(
+				tema,
+				periodo,
+				gradeStore.pool.map((m) => m.codigo)
+			);
+			sugestoesModuloLivre = achados.map((m) => ({
+				codigo: m.codigo,
+				nome: m.nome,
+				creditos: m.creditos
+			}));
+			await planoFormaturaStore.setPreferenciaModuloLivre({
+				quer: true,
+				tema,
+				curriculoCompleto: authStore.getUser()?.dadosFluxograma?.matrizCurricular ?? undefined
+			});
+		} catch {
+			sugestoesModuloLivre = [];
+		} finally {
+			buscandoModuloLivre = false;
+		}
+	}
+
 	/** Confirma o rearranjo pedido por professor: persiste no banco pra próxima vez. */
 	async function aceitarConfirmacaoProfessor(): Promise<void> {
 		if (!confirmacaoProfessor) return;
@@ -429,6 +520,14 @@
 		{confirmacaoProfessor}
 		onAceitarConfirmacaoProfessor={aceitarConfirmacaoProfessor}
 		onRecusarConfirmacaoProfessor={recusarConfirmacaoProfessor}
+		{situacao}
+		{situacaoCarregando}
+		moduloLivre={planoFormaturaStore.preferencias?.moduloLivre ?? null}
+		{sugestoesModuloLivre}
+		{buscandoModuloLivre}
+		onResponderModuloLivre={responderModuloLivre}
+		onBuscarModuloLivre={buscarModuloLivre}
+		onLimiteCreditos={(creditos) => void planoFormaturaStore.salvarLimiteCreditos(creditos)}
 	/>
 
 	<!-- Chatbot flutuante (Darcy) — recomenda optativas com turma e insere na grade -->
