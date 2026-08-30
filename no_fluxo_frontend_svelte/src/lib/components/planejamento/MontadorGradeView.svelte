@@ -4,17 +4,14 @@
 	import SubjectTurmaSelector from './SubjectTurmaSelector.svelte';
 	import MateriaSearchAdd from './MateriaSearchAdd.svelte';
 	import GradeResumo from './GradeResumo.svelte';
-	import SituacaoPanel from './SituacaoPanel.svelte';
 	import CenarioSwitcher from './CenarioSwitcher.svelte';
 	import TrocarTurmaDialog from './TrocarTurmaDialog.svelte';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
 	import { unidadeCargaStore } from '$lib/stores/unidade-carga.store.svelte';
 	import type { SemeaduraResultado } from '$lib/services/grade-pool.service';
-	import type { SituacaoAcademica } from '$lib/services/situacao-academica.service';
 	import type { Turno } from '$lib/utils/horario-slots';
 	import { ROUTES } from '$lib/config/routes';
-	import { LIMITE_CREDITOS_MAX, LIMITE_CREDITOS_MIN } from '$lib/types/plano-formatura';
 	import {
 		CalendarDays,
 		Wand2,
@@ -55,15 +52,7 @@
 		obrigatoriasSemOferta = [],
 		confirmacaoProfessor = null,
 		onAceitarConfirmacaoProfessor,
-		onRecusarConfirmacaoProfessor,
-		situacao = null,
-		situacaoCarregando = false,
-		moduloLivre = null,
-		sugestoesModuloLivre = [],
-		buscandoModuloLivre = false,
-		onResponderModuloLivre,
-		onBuscarModuloLivre,
-		onLimiteCreditos
+		onRecusarConfirmacaoProfessor
 	}: {
 		periodo: string | null;
 		limiteCreditos: number;
@@ -87,38 +76,20 @@
 		confirmacaoProfessor?: { resumo: string } | null;
 		onAceitarConfirmacaoProfessor?: () => void;
 		onRecusarConfirmacaoProfessor?: () => void;
-		/** O que ainda falta ao aluno. `null` = não carregou (a tela segue funcionando). */
-		situacao?: SituacaoAcademica | null;
-		situacaoCarregando?: boolean;
-		/** Resposta do aluno sobre módulo livre; `null` = ainda não perguntamos. */
-		moduloLivre?: { quer: boolean | null; tema?: string } | null;
-		sugestoesModuloLivre?: Array<{ codigo: string; nome: string; creditos: number }>;
-		buscandoModuloLivre?: boolean;
-		onResponderModuloLivre?: (quer: boolean, tema?: string) => void;
-		onBuscarModuloLivre?: (tema: string) => void;
-		/**
-		 * O aluno mudou o limite de carga. Quem persiste é a rota — o harness de dev
-		 * não passa nada e o slider segue valendo só para a sessão.
-		 */
-		onLimiteCreditos?: (creditos: number) => void;
 	} = $props();
 
 	let materiaDialog = $state<string | null>(null);
 
 	/**
-	 * Limite de créditos em uso na tela. Começa no do plano e é o que a montagem
-	 * obedece; mexer no slider salva a escolha (`onLimiteCreditos`), porque limite
-	 * de carga por semestre é uma preferência do aluno, não um estado de sessão —
-	 * voltar ao padrão a cada recarga desfazia a escolha dele em silêncio.
+	 * Limite de créditos desta sessão do montador — começa igual ao do plano, mas o
+	 * slider deixa o aluno testar "e se eu quisesse menos" sem mexer no plano de
+	 * formatura salvo (ver histórico de decisão: só vale aqui, reinicia a cada
+	 * carregamento da tela).
 	 */
 	let limiteSessao = $state(limiteCreditos);
 	$effect(() => {
 		limiteSessao = limiteCreditos;
 	});
-
-	// A régua vai do piso ao teto do sistema — os mesmos que o Motor 2 aplica —, e
-	// é fixa: derivá-la do valor atual, agora que ele persiste, faria a barra
-	// crescer enquanto o aluno arrasta, mudando o fim da escala no meio do gesto.
 
 	const creditosPct = $derived(
 		limiteSessao > 0 ? Math.min(100, (gradeStore.creditosSelecionados / limiteSessao) * 100) : 0
@@ -139,12 +110,7 @@
 	function moverSliderCreditos(valor: number): void {
 		limiteSessao = valor;
 		clearTimeout(debounceLimite);
-		debounceLimite = setTimeout(() => {
-			gradeStore.ajustarParaLimite(valor);
-			// Persiste junto com o reajuste, e no mesmo debounce: sem isso o valor
-			// vivia só nesta sessão e voltava ao padrão na recarga seguinte.
-			onLimiteCreditos?.(valor);
-		}, 250);
+		debounceLimite = setTimeout(() => gradeStore.ajustarParaLimite(valor), 250);
 	}
 
 	// "Voltar ao início" refaz a semeadura na rede — trava o botão enquanto roda.
@@ -187,25 +153,7 @@
 		return () => mq.removeEventListener('change', aplicar);
 	});
 
-	let painel = $state<'materias' | 'resumo' | 'situacao'>('materias');
-
-	/**
-	 * O snippet do painel de situação, para o compacto (aba) e o desktop (coluna)
-	 * renderizarem exatamente a mesma coisa sem duplicar a lista de props.
-	 */
-	const naGrade = $derived(new Set(gradeStore.pool.map((m) => m.codigo)));
-
-	/**
-	 * Há pergunta de módulo livre esperando resposta? Só então a aba ganha o ponto
-	 * de aviso — badge permanente vira ruído e o aluno para de enxergar.
-	 */
-	const temPerguntaModuloLivre = $derived(
-		!!situacao &&
-			situacao.exigeModuloLivre &&
-			situacao.faltam.modulo_livre !== null &&
-			situacao.faltam.modulo_livre > 0 &&
-			(moduloLivre?.quer ?? null) === null
-	);
+	let painel = $state<'materias' | 'resumo'>('materias');
 
 	/** Assinatura da seleção atual — para saber se a montagem mudou alguma coisa. */
 	function assinaturaSelecao(): string {
@@ -230,18 +178,8 @@
 		if (montando) return;
 		montando = true;
 		try {
-			const semeadas = (await onSemear?.()) ?? {
-				adicionadas: [],
-				obrigatoriasSemOferta: [],
-				pendentesSemOferta: 0
-			};
+			const semeadas = (await onSemear?.()) ?? { adicionadas: [], obrigatoriasSemOferta: [] };
 			const puxadas = semeadas.adicionadas.length;
-			/**
-			 * Por que a lista não trouxe optativa (ou módulo livre): a carga já está
-			 * cumprida. Sem dizer isso, a ausência parece bug — e o aluno que quiser uma
-			 * assim mesmo não descobre que pode buscá-la na mão.
-			 */
-			const saturadas = semeadas.naturezasSaturadas ?? [];
 
 			// Só sobra avisar quando não existe oferta nenhuma para o aluno neste
 			// período — a semeadura já tentou o plano e a matriz antes de chegar aqui.
@@ -265,25 +203,10 @@
 			const naoCoube = resultado.naoAlocadas.length;
 
 			if (materias === 0) {
-				// Quatro causas distintas terminam aqui. Chamar todas de "não há turma"
-				// mandava o aluno procurar defeito na oferta quando o problema era
-				// outro — e uma versão anterior chegou a mandá-lo apertar um botão que
-				// não mudaria nada. A ordem abaixo vai da causa mais forte para a mais
-				// fraca; `candidatas` separa "ninguém concorreu" de "ninguém coube".
-				const semOferta = semeadas.pendentesSemOferta ?? 0;
 				toast.warning(
-					resultado.candidatas === 0
-						? semOferta > 0
-							? // Fim de curso: a matriz ainda tem pendências, mas nenhuma é
-								// ofertada agora. Religar as em curso não muda isso, e este é o
-								// número que de fato altera o planejamento do aluno.
-								`Nenhuma das suas ${semOferta} matérias pendentes tem turma em ${periodo ?? 'neste período'}. Só o que você já cursa está ofertado — use “Buscar turmas” para procurar fora da matriz.`
-							: gradeStore.temCursando && !gradeStore.incluirCursando
-								? 'Sua lista só tem matérias que você já cursa, e elas estão fora da montagem. Ligue de volta o botão das matérias em curso para vê-las na grade.'
-								: 'Não sobrou nenhuma matéria para montar. Busque uma acima ou use “Voltar ao início”.'
-						: naoCoube > 0
-							? `Nenhuma matéria coube em ${limiteSessao} créditos e nos turnos escolhidos (${resultado.naoAlocadas.join(', ')}).`
-							: 'Nenhuma turma disponível para as matérias da lista.'
+					naoCoube > 0
+						? `Nenhuma matéria coube em ${limiteSessao} créditos e nos turnos escolhidos (${resultado.naoAlocadas.join(', ')}).`
+						: 'Nenhuma turma disponível para as matérias da lista.'
 				);
 				return;
 			}
@@ -294,16 +217,6 @@
 			const prefixo =
 				puxadas > 0 ? `Puxei ${puxadas} ${plural(puxadas)} da sua matriz. ` : '';
 			const resumo = `${materias} ${plural(materias)} · ${unidadeCargaStore.formatar(creditos)}`;
-			const NOME_NATUREZA: Record<string, string> = {
-				optativa: 'optativa',
-				modulo_livre: 'de módulo livre'
-			};
-			const porque =
-				saturadas.length > 0
-					? ` Priorizei o que ainda te falta — sua carga ${saturadas
-							.map((n) => NOME_NATUREZA[n] ?? n)
-							.join(' e ')} já está cumprida.`
-					: '';
 			// Depois que a montagem passou a respeitar o teto, estourar só sobra quando
 			// são matérias que o aluno JÁ cursa (MATR): elas entram por obrigação e não
 			// podem ser cortadas. Dizer "passa do seu limite" seco soaria como erro do
@@ -317,7 +230,7 @@
 			const faltou = naoCoube > 0 ? ` Não coube: ${resultado.naoAlocadas.join(', ')}.` : '';
 
 			if (mudou || puxadas > 0) {
-				toast.success(`${prefixo}Grade montada: ${resumo}.${porque}${excedeu}${faltou}`);
+				toast.success(`${prefixo}Grade montada: ${resumo}.${excedeu}${faltou}`);
 			} else {
 				toast.info(
 					`Nada mudou: sua grade já é o melhor encaixe possível (${resumo}).${excedeu}${faltou}`
@@ -851,8 +764,8 @@
 		</HelpTip>
 		<input
 			type="range"
-			min={LIMITE_CREDITOS_MIN}
-			max={LIMITE_CREDITOS_MAX}
+			min="0"
+			max={Math.max(limiteCreditos + 8, 32)}
 			step="1"
 			value={limiteSessao}
 			oninput={(e) => moverSliderCreditos(Number((e.currentTarget as HTMLInputElement).value))}
@@ -938,23 +851,6 @@
 		direita (ordem 1→2→3→4 do tour); ampliado ele ocupa a largura toda; no
 		compacto ele abre a tela e matérias/resumo viram abas logo abaixo.
 	-->
-	{#snippet painelSituacao(ehCompacto: boolean)}
-		<SituacaoPanel
-			{situacao}
-			carregando={situacaoCarregando}
-			compacto={ehCompacto}
-			{obrigatoriasSemOferta}
-			{periodo}
-			{moduloLivre}
-			{buscandoModuloLivre}
-			sugestoes={sugestoesModuloLivre}
-			{naGrade}
-			{onResponderModuloLivre}
-			{onBuscarModuloLivre}
-			onIncluir={onAdd}
-		/>
-	{/snippet}
-
 	{#snippet colunaMaterias()}
 		<MateriaSearchAdd {onAdd} {compacto} />
 		{#if aviso}
@@ -966,10 +862,21 @@
 		{/if}
 
 		<!--
-			O aviso de obrigatória sem oferta vive no painel de Situação: é informação
-			sobre a formatura do aluno, não sobre a lista de turmas, e repeti-la nos
-			dois lugares só faria o mesmo texto competir consigo mesmo.
+			Obrigatória que falta e não é ofertada não entra na lista (sem turma não vira
+			bloco no calendário), mas some calada seria pior: é informação que muda o
+			planejamento do aluno — ele precisa saber que não adianta esperar por ela.
 		-->
+		{#if obrigatoriasSemOferta.length > 0}
+			<p
+				class="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-[11px] text-white/60"
+			>
+				{obrigatoriasSemOferta.length === 1 ? 'Uma obrigatória sua não tem' : `${obrigatoriasSemOferta.length} obrigatórias suas não têm`}
+				turma em {periodo ?? 'neste semestre'}: {obrigatoriasSemOferta.slice(0, 6).join(' · ')}{obrigatoriasSemOferta.length >
+				6
+					? ` e mais ${obrigatoriasSemOferta.length - 6}`
+					: ''}.
+			</p>
+		{/if}
 		{#if gradeStore.pool.length === 0}
 			<div class="rounded-2xl border border-white/10 bg-zinc-950/78 px-3 py-6 text-center">
 				<p class="text-xs text-white/50">
@@ -1072,34 +979,10 @@
 						{gradeStore.selecao.size}
 					</span>
 				</button>
-				<!--
-					Só ícone: com três abas em `flex-1`, "Situação" por extenso não cabe
-					abaixo de 380px sem espremer os outros dois rótulos.
-				-->
-				<button
-					type="button"
-					role="tab"
-					aria-selected={painel === 'situacao'}
-					onclick={() => (painel = 'situacao')}
-					aria-label="Situação — o que falta para você se formar"
-					title="Situação — o que falta para você se formar"
-					class="flex touch-manipulation items-center justify-center gap-1 rounded-full px-3 py-2 text-xs font-semibold transition-colors {painel ===
-					'situacao'
-						? 'bg-purple-500/22 text-purple-100'
-						: 'text-white/45'}"
-				>
-					<GraduationCap class="h-3.5 w-3.5" />
-					{#if temPerguntaModuloLivre}
-						<!-- Um ponto, não um "1": não é contagem, é "tem coisa aqui pra você". -->
-						<span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>
-					{/if}
-				</button>
 			</div>
 
 			{#if painel === 'materias'}
 				<div class="space-y-3">{@render colunaMaterias()}</div>
-			{:else if painel === 'situacao'}
-				{@render painelSituacao(true)}
 			{:else}
 				<GradeResumo compacto />
 			{/if}
@@ -1109,10 +992,7 @@
 			<div>{@render calendario()}</div>
 			<div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]">
 				<div class="space-y-3">{@render colunaMaterias()}</div>
-				<div class="space-y-3">
-					{@render painelSituacao(false)}
-					<GradeResumo />
-				</div>
+				<div><GradeResumo /></div>
 			</div>
 		</div>
 	{:else}
@@ -1127,13 +1007,8 @@
 			<!-- Centro: calendário -->
 			<div class="order-1 lg:order-2">{@render calendario()}</div>
 
-			<!--
-				Direita: situação e resumo. A situação vem primeiro porque é contexto —
-				o que falta para se formar se lê antes do que a grade ficou. No desktop
-				não há abas: as duas ficam visíveis ao mesmo tempo.
-			-->
-			<div class="order-3 space-y-3">
-				{@render painelSituacao(false)}
+			<!-- Direita: resumo -->
+			<div class="order-3">
 				<GradeResumo />
 			</div>
 		</div>

@@ -18,7 +18,6 @@
 	} from '$lib/stores/grade.store.svelte';
 	import type { TurmaOferta } from '$lib/services/turmas.service';
 	import type { SemeaduraResultado } from '$lib/services/grade-pool.service';
-	import type { SituacaoAcademica } from '$lib/services/situacao-academica.service';
 	import { page } from '$app/stores';
 	import { get } from 'svelte/store';
 
@@ -76,48 +75,17 @@
 			[turma(3, 'A', '35M34', 'VINICIUS BORGES', 3), turma(3, 'B', '24T45', null, 0)],
 			{ avisoPreRequisito: 'CIC0004' }
 		),
-		materia(
-			4,
-			'FGA0158',
-			'Engenharia de Software',
-			4,
-			[turma(4, 'A', '35T34', 'RICARDO MATOS', 15)],
-			{ natureza: 'optativa' }
-		),
+		materia(4, 'FGA0158', 'Engenharia de Software', 4, [
+			turma(4, 'A', '35T34', 'RICARDO MATOS', 15)
+		]),
 		materia(5, 'CIC0202', 'Sistemas Operacionais', 4, [
 			turma(5, 'A', '24N12', 'ALETEIA ARAUJO', 9),
 			turma(5, 'B', '6T12', 'PEDRO GARCIA', 30)
 		]),
-		materia(6, 'CIC0197', 'Teoria da Computação', 4, [turma(6, 'A', '35M12', 'DIBIO BORGES', 6)], {
-			natureza: 'optativa',
-			optatoria: true
-		}),
-		materia(7, 'MUS0033', 'Percepção Musical', 2, [turma(7, 'A', '2T12', 'ANA LUISA', 18)], {
-			natureza: 'modulo_livre'
-		})
+		materia(6, 'CIC0197', 'Teoria da Computação', 4, [turma(6, 'A', '35M12', 'DIBIO BORGES', 6)])
 	];
 
-	/**
-	 * Situação de exemplo: obrigatória faltando, optativa CUMPRIDA e módulo livre
-	 * ainda em aberto. É o caso que exercita a tela inteira de uma vez — a barra
-	 * verde de cumprida, a etiqueta de saturada e a pergunta de módulo livre.
-	 * `?situacao=0` tira, para conferir o degrade sem integralização.
-	 */
-	const SITUACAO_EXEMPLO: SituacaoAcademica = {
-		faltam: { obrigatoria: 480, optativa: 0, modulo_livre: 120 },
-		exigido: { obrigatoria: 2400, optativa: 360, modulo_livre: 120 },
-		realizado: { obrigatoria: 1920, optativa: 360, modulo_livre: 0 },
-		exigeModuloLivre: true,
-		complementarConfiavel: true
-	};
-
 	const comecarVazio = get(page).url.searchParams.has('vazio');
-	const semSituacao = get(page).url.searchParams.get('situacao') === '0';
-	const situacao = semSituacao ? null : SITUACAO_EXEMPLO;
-	gradeStore.definirSituacao(situacao);
-
-	let moduloLivre = $state<{ quer: boolean | null; tema?: string } | null>(null);
-	let sugestoes = $state<Array<{ codigo: string; nome: string; creditos: number }>>([]);
 
 	gradeStore.init(comecarVazio ? [] : pool, { idUser: null, periodo: PERIODO });
 	if (!comecarVazio) {
@@ -146,26 +114,7 @@
 
 <PageBackground />
 
-<MontadorGradeView
-	periodo={PERIODO}
-	limiteCreditos={24}
-	{onAdd}
-	{onSemear}
-	{situacao}
-	{moduloLivre}
-	sugestoesModuloLivre={sugestoes}
-	onResponderModuloLivre={(quer, tema) => {
-		moduloLivre = { quer, tema };
-		if (!quer) sugestoes = [];
-	}}
-	onBuscarModuloLivre={(tema) => {
-		console.log('[harness] buscar módulo livre', tema);
-		sugestoes = [
-			{ codigo: 'MUS0033', nome: 'Percepção Musical 1', creditos: 2 },
-			{ codigo: 'LIP0096', nome: 'Língua de Sinais Brasileira', creditos: 4 }
-		];
-	}}
-/>
+<MontadorGradeView periodo={PERIODO} limiteCreditos={24} {onAdd} {onSemear} />
 
 <!-- Presente na tela real: flutua sobre o rodapé e precisa de folga embaixo. -->
 <AssistenteChatFab onAddToGrade={onAdd} onMontarGrade={() => {}} />

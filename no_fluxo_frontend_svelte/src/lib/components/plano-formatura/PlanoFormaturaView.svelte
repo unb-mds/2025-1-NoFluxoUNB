@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { MateriaModel } from '$lib/types/materia';
-	import { LIMITE_CREDITOS_MAX, LIMITE_CREDITOS_MIN } from '$lib/types/plano-formatura';
 	import { planoFormaturaStore } from '$lib/stores/plano-formatura.store.svelte';
 	import { unidadeCargaStore } from '$lib/stores/unidade-carga.store.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
@@ -416,8 +415,8 @@
 			</span>
 			<input
 				type="range"
-				min={LIMITE_CREDITOS_MIN}
-				max={LIMITE_CREDITOS_MAX}
+				min={8}
+				max={32}
 				step={1}
 				disabled={isChangingCredits}
 				value={planoFormaturaStore.preferencias.limiteCreditos}
