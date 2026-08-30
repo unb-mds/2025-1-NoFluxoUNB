@@ -18,13 +18,16 @@ import {
 	getCompletedSubjectCodes,
 	getCurrentSubjectCodes,
 	isMateriaAprovada,
+	isMateriaCurrent,
 	type DadosFluxogramaUser,
+	type DadosMateria,
 	type OptativaPlanejadaRef,
 	type OptativaManual,
 	findSubjectInFluxograma
 } from '$lib/types/user';
 import {
 	getCompletedByEquivalenceCodes,
+	getCurrentByEquivalenceCodes,
 	findEquivalenceSourceCodes
 } from '$lib/types/equivalencia';
 import { getSubjectsBySemester } from '$lib/types/curso';
@@ -41,9 +44,15 @@ export interface FluxogramaState {
 	loading: boolean;
 	error: string | null;
 	zoomLevel: number;
+	/** Zoom base calculado no mount para caber na tela — alvo do resetZoom. */
+	defaultZoom: number;
 	connectionMode: ConnectionMode;
 	/** Exibição das badges por semestre: créditos ou horas */
 	displayUnit: DisplayUnit;
+	/** Filtro: exibir optativas (matriz, planejadas e cursadas) no fluxograma */
+	showOptativas: boolean;
+	/** Filtro: exibir módulos livres (cursados fora da matriz) no fluxograma */
+	showModulosLivres: boolean;
 	isAnonymous: boolean;
 	hoveredSubjectCode: string | null;
 	/** No modo "Todas" as conexões: pré-visualização do card sob o rato (clique continua fixando `hoveredSubjectCode`). */
@@ -143,8 +152,11 @@ function createFluxogramaStore() {
 		loading: false,
 		error: null,
 		zoomLevel: 0.6,
+		defaultZoom: 0.6,
 		connectionMode: 'direct' as ConnectionMode,
 		displayUnit: 'horas' as DisplayUnit,
+		showOptativas: true,
+		showModulosLivres: true,
 		isAnonymous: false,
 		hoveredSubjectCode: null,
 		hoverPreviewSubjectCode: null,
@@ -288,10 +300,205 @@ function createFluxogramaStore() {
 		return new Set([...base, ...byEquiv]);
 	});
 
-	// Computed: current subject codes
+	// Computed: current subject codes (matrículas diretas + "Matriculado em
+	// Equivalente" — ex.: cursando FGA0146/ED1 nova marca FGA0147 da matriz como
+	// em curso, espelhando a expansão que completedCodes já faz para concluídas).
 	const currentCodes = $derived.by(() => {
 		if (!userFluxograma) return new Set<string>();
-		return getCurrentSubjectCodes(userFluxograma);
+		const base = getCurrentSubjectCodes(userFluxograma);
+		const courseData = state.courseData;
+		// Passa as concluídas EXPANDIDAS (com equivalências): se outra equivalência
+		// da mesma matéria já está satisfeita só com concluídas, ela é concluída —
+		// não deve reaparecer como "cursando" por uma segunda expressão.
+		const byEquiv =
+			courseData?.equivalencias && courseData.equivalencias.length > 0
+				? getCurrentByEquivalenceCodes(courseData.equivalencias, completedCodes, base)
+				: new Set<string>();
+		return new Set([...base, ...byEquiv]);
+	});
+
+	// ── "Optatórias": optativas que são pré-requisito de obrigatória ────────────
+	// No SIGAA elas constam como Optativa, mas na prática o aluno PRECISA delas
+	// para destravar obrigatórias. Mapa: código da optativa → obrigatórias que a
+	// exigem (para a etiqueta e o tooltip explicarem a transparência ao aluno).
+	const optatorias = $derived.by(() => {
+		const map = new Map<string, string[]>();
+		const course = state.courseData;
+		if (!course) return map;
+		const byId = new Map(course.materias.map((m) => [m.idMateria, m]));
+		const byCode = new Map(
+			course.materias.map((m) => [m.codigoMateria.trim().toUpperCase(), m])
+		);
+		for (const pr of course.preRequisitos ?? []) {
+			const alvo = byId.get(pr.idMateria);
+			// Só conta quando a matéria que EXIGE o requisito é obrigatória da matriz.
+			if (!alvo || isOptativa(alvo)) continue;
+			const reqCode = pr.codigoMateriaRequisito?.trim().toUpperCase();
+			if (!reqCode) continue;
+			const req = byCode.get(reqCode);
+			if (!req || !isOptativa(req)) continue;
+			if (!map.has(reqCode)) map.set(reqCode, []);
+			const list = map.get(reqCode)!;
+			if (!list.includes(alvo.codigoMateria)) list.push(alvo.codigoMateria);
+		}
+		return map;
+	});
+
+	// Nome/créditos resolvidos da tabela global `materias` para extras cujo dado
+	// persistido não tem nome (uploads antigos, antes do schema guardar). Cache
+	// simples: cada código é buscado uma única vez por sessão.
+	let materiasResolvidas = $state<Map<string, { nome: string; creditos: number }>>(new Map());
+	const materiasJaBuscadas = new Set<string>();
+	async function resolverNomesExtras(codigos: string[]): Promise<void> {
+		const novos = codigos.filter((c) => !materiasJaBuscadas.has(c));
+		if (novos.length === 0) return;
+		for (const c of novos) materiasJaBuscadas.add(c);
+		try {
+			const { getMateriasByCodigos } = await import('$lib/services/materias.service');
+			const encontradas = await getMateriasByCodigos(novos);
+			if (encontradas.length === 0) return;
+			const next = new Map(materiasResolvidas);
+			for (const m of encontradas) {
+				next.set(m.codigo.trim().toUpperCase(), { nome: m.nome, creditos: m.creditos });
+			}
+			materiasResolvidas = next;
+		} catch {
+			/* sem rede/erro: cards ficam com o código, como antes */
+		}
+	}
+
+	// ── Extras cursadas: optativas/eletivas do histórico fora das obrigatórias ──
+	// O histórico traz matérias que não são obrigatórias da matriz (optativas,
+	// módulo livre, aproveitamentos como Inteligência Artificial/CUMP). Elas eram
+	// invisíveis no fluxograma; aqui viram cards na coluna do semestre em que
+	// foram cursadas (ano/período → ordinal do aluno). CUMP sem período (ganhas
+	// no ingresso) caem no 1º semestre.
+	const extrasCursadasBySemester = $derived.by(() => {
+		void diagramLayoutRevision;
+		const out = new Map<number, { materia: MateriaModel; dados: DadosMateria }[]>();
+		const fluxo = userFluxograma;
+		const course = state.courseData;
+		if (!fluxo) return out;
+
+		// Códigos que já têm card na grade: obrigatórias da matriz (nivel > 0)…
+		const obrigatorias = new Set<string>();
+		if (course) {
+			for (const [sem, mats] of getSubjectsBySemester(course)) {
+				if (sem <= 0) continue;
+				for (const m of mats) obrigatorias.add(m.codigoMateria.trim().toUpperCase());
+			}
+		}
+		// …e optativas planejadas (renderizadas como optPlanned).
+		const planejadas = new Set(
+			optativasAdicionadas.map((o) => o.materia.codigoMateria.trim().toUpperCase())
+		);
+
+		// Matérias cujo status já foi "consumido" por uma obrigatória da matriz via
+		// equivalência (ex.: FGA0146/ED1 nova → FGA0147 roxa) não viram card extra —
+		// senão a mesma disciplina aparece duas vezes no fluxograma.
+		const consumidasPorEquivalencia = new Set<string>();
+		if (course?.equivalencias?.length) {
+			const compCur = new Set(
+				[...completedCodes, ...currentCodes].map((c) => c.trim().toUpperCase())
+			);
+			for (const eq of course.equivalencias) {
+				const origem = (eq.codigoMateriaOrigem || '').trim().toUpperCase();
+				if (!obrigatorias.has(origem) || !compCur.has(origem)) continue;
+				for (const src of findEquivalenceSourceCodes(origem, [eq], compCur)) {
+					consumidasPorEquivalencia.add(src.trim().toUpperCase());
+				}
+			}
+		}
+
+		// Ordinal do semestre: sequência CONTÍNUA do primeiro ao último período do
+		// histórico (2022.2→1, 2023.1→2, …), casando com o "semestre atual" do
+		// SIGAA. Não dá para usar só os períodos presentes: a consolidação remove
+		// períodos em que o aluno só teve tentativas superadas (REP/TRANC), e o
+		// ordinal encolheria.
+		const periodos = new Set<string>();
+		for (const sem of fluxo.dadosFluxograma) {
+			for (const m of sem) {
+				const p = String(m.anoPeriodo ?? '').trim();
+				if (/^\d{4}\.\d$/.test(p)) periodos.add(p);
+			}
+		}
+		const ordemPeriodos: string[] = [];
+		if (periodos.size > 0) {
+			const sorted = [...periodos].sort();
+			let [ano, per] = sorted[0].split('.').map(Number);
+			const [anoF, perF] = sorted[sorted.length - 1].split('.').map(Number);
+			while (ano < anoF || (ano === anoF && per <= perF)) {
+				ordemPeriodos.push(`${ano}.${per}`);
+				if (per === 1) per = 2;
+				else {
+					per = 1;
+					ano++;
+				}
+			}
+		}
+		const ordinalDe = (p: string | null | undefined): number => {
+			const idx = ordemPeriodos.indexOf(String(p ?? '').trim());
+			return idx >= 0 ? idx + 1 : 1;
+		};
+
+		const courseByCode = course
+			? new Map(course.materias.map((m) => [m.codigoMateria.trim().toUpperCase(), m]))
+			: new Map<string, MateriaModel>();
+
+		// Dedup por código+período (não só código): repetíveis aprovadas mais de
+		// uma vez (ex.: extensão para créditos de optativa) geram um card por
+		// semestre cursado — e cada um soma nas horas da coluna.
+		const seen = new Set<string>();
+		let syntheticId = -1;
+		for (const sem of fluxo.dadosFluxograma) {
+			for (const dados of sem) {
+				const codeU = dados.codigoMateria.trim().toUpperCase();
+				if (!codeU) continue;
+				const chave = `${codeU}|${String(dados.anoPeriodo ?? '').trim()}`;
+				if (seen.has(chave)) continue;
+				if (obrigatorias.has(codeU) || planejadas.has(codeU)) continue;
+				if (consumidasPorEquivalencia.has(codeU)) continue;
+				if (dados.isManual) continue; // manuais já rendem via optativasAdicionadas
+				const st = String(dados.status ?? '').toUpperCase();
+				if (st !== 'APR' && st !== 'CUMP' && st !== 'DISP' && st !== 'MATR') continue;
+				seen.add(chave);
+
+				const daMatriz = courseByCode.get(codeU);
+				const resolvida = materiasResolvidas.get(codeU);
+				const materia: MateriaModel = daMatriz ?? {
+					// Fora da matriz (módulo livre/eletiva): sintetiza o card com os
+					// dados do histórico (ou da tabela global de matérias, para
+					// uploads antigos que não persistiram nome). id negativo estável
+					// só para keys do Svelte.
+					ementa: '',
+					idMateria: syntheticId--,
+					codigoMateria: dados.codigoMateria.trim(),
+					nomeMateria:
+						dados.nomeMateria?.trim() || resolvida?.nome || dados.codigoMateria.trim(),
+					creditos: dados.creditos ?? resolvida?.creditos ?? 0,
+					nivel: 0,
+					tipoNatureza: 1
+				};
+
+				const semestre = st === 'CUMP' ? 1 : ordinalDe(dados.anoPeriodo);
+				if (!out.has(semestre)) out.set(semestre, []);
+				out.get(semestre)!.push({ materia, dados });
+			}
+		}
+
+		// Busca (uma vez) nome/créditos dos extras sem nome persistido — quando a
+		// resposta chegar, materiasResolvidas muda e este derived recalcula.
+		const pendentesNome: string[] = [];
+		for (const list of out.values()) {
+			for (const { materia, dados } of list) {
+				if (materia.idMateria < 0 && !dados.nomeMateria && !materiasResolvidas.has(materia.codigoMateria.trim().toUpperCase())) {
+					pendentesNome.push(materia.codigoMateria.trim().toUpperCase());
+				}
+			}
+		}
+		if (pendentesNome.length > 0) void resolverNomesExtras(pendentesNome);
+
+		return out;
 	});
 
 	// Computed: failed subject codes
@@ -360,6 +567,12 @@ function createFluxogramaStore() {
 		get optativasBySemester() {
 			return optativasBySemester;
 		},
+		get extrasCursadasBySemester() {
+			return extrasCursadasBySemester;
+		},
+		get optatorias() {
+			return optatorias;
+		},
 		get optativaPlanejadaSemestrePorCodigo() {
 			return optativaPlanejadaSemestrePorCodigo;
 		},
@@ -409,6 +622,30 @@ function createFluxogramaStore() {
 				for (const sourceCode of sourceCodes) {
 					const origem = findSubjectInFluxograma(userFluxograma, sourceCode);
 					if (origem && isMateriaAprovada(origem)) {
+						const nomeOrigem = state.courseData?.materias.find(
+							(m) => m.codigoMateria.trim().toUpperCase() === sourceCode
+						)?.nomeMateria;
+						return {
+							...origem,
+							codigoMateria,
+							tipoDado: 'equivalencia',
+							codigoEquivalente: origem.codigoMateria,
+							nomeEquivalente: origem.nomeEquivalente || nomeOrigem || sourceCode
+						};
+					}
+				}
+
+				// "Matriculado em Equivalente": cursando uma equivalente agora — mostra
+				// os dados da turma em curso, e não uma tentativa direta reprovada
+				// antiga (que pintaria o anel vermelho num card já roxo).
+				const sourceCodesCursando = findEquivalenceSourceCodes(
+					codigoMateria,
+					equivalencias,
+					currentCodes
+				);
+				for (const sourceCode of sourceCodesCursando) {
+					const origem = findSubjectInFluxograma(userFluxograma, sourceCode);
+					if (origem && isMateriaCurrent(origem)) {
 						const nomeOrigem = state.courseData?.materias.find(
 							(m) => m.codigoMateria.trim().toUpperCase() === sourceCode
 						)?.nomeMateria;
@@ -510,6 +747,70 @@ function createFluxogramaStore() {
 			bumpDiagramLayout();
 			toast.success(`${materia.nomeMateria} registrada como concluída.`);
 			toast.info('Clique em "Salvar no perfil" para persistir as alterações.');
+		},
+
+		async registrarDisciplinaManual(
+			materia: MateriaModel,
+			status: string,
+			semestreDestino?: number,
+			opcionais?: { mencao?: string; professor?: string; equivalencia?: string }
+		) {
+			const user = authStore.getUser();
+			if (state.isAnonymous || !user?.dadosFluxograma) {
+				toast.error('Entre na conta para alterar o status da disciplina manualmente.');
+				return;
+			}
+
+			const fluxo = user.dadosFluxograma;
+			const semAlocado = normalizarSemestreDestino(semestreDestino, fluxo.semestreAtual || 1);
+			const nomeMateria = await resolverNomeMateria(materia.codigoMateria, materia.nomeMateria);
+			const atuais = getOptativasManuaisAtuais();
+			
+			// If it was already planned as an optativa, we can replace it.
+			const next = upsertOptativaManual(atuais, {
+				codigo: materia.codigoMateria.trim(),
+				nivelAlocado: semAlocado,
+				status: status,
+				nome: nomeMateria,
+				...(opcionais && {
+					mencao: opcionais.mencao,
+					professor: opcionais.professor,
+					codigoEquivalente: opcionais.equivalencia
+				})
+			} as any);
+
+			optativasAdicionadas = [
+				...optativasAdicionadas.filter(
+					(o) => o.materia.codigoMateria.trim().toUpperCase() !== materia.codigoMateria.trim().toUpperCase()
+				)
+			];
+			// Add back if it's an optativa and we are planning it, but for manual history overrides, 
+			// `mergeFluxogramaComOptativasManuais` handles rendering it in the flowchart correctly.
+			if (isOptativa(materia) && status === 'PLANEJADO') {
+				optativasAdicionadas.push({ materia, semestre: semAlocado });
+			}
+
+			authStore.setUser({ ...user, optativasManuais: next });
+			historicoManualPendenteSalvar = true;
+			bumpDiagramLayout();
+			toast.success(`Status de ${materia.codigoMateria} atualizado.`);
+		},
+
+		async removerDisciplinaManual(codigoMateria: string) {
+			const user = authStore.getUser();
+			if (state.isAnonymous || !user?.dadosFluxograma) return;
+			const u = codigoMateria.trim().toUpperCase();
+			const atuais = getOptativasManuaisAtuais();
+			const next = atuais.filter((o) => o.codigo.trim().toUpperCase() !== u);
+			
+			optativasAdicionadas = optativasAdicionadas.filter(
+				(o) => o.materia.codigoMateria.trim().toUpperCase() !== u
+			);
+			
+			authStore.setUser({ ...user, optativasManuais: next });
+			historicoManualPendenteSalvar = true;
+			bumpDiagramLayout();
+			toast.success(`Status manual removido.`);
 		},
 
 		async removeOptativa(codigoMateria: string) {
@@ -622,6 +923,13 @@ function createFluxogramaStore() {
 			state.zoomLevel = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, level));
 		},
 
+		/** Zoom inicial adaptativo: aplica e memoriza como padrão para o resetZoom. */
+		applyAdaptiveZoom(level: number) {
+			const z = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, level));
+			state.defaultZoom = z;
+			state.zoomLevel = z;
+		},
+
 		zoomIn() {
 			this.setZoom(state.zoomLevel + ZOOM_STEP);
 		},
@@ -631,7 +939,7 @@ function createFluxogramaStore() {
 		},
 
 		resetZoom() {
-			state.zoomLevel = 0.6;
+			state.zoomLevel = state.defaultZoom;
 		},
 
 		setConnectionMode(mode: ConnectionMode) {
@@ -640,6 +948,16 @@ function createFluxogramaStore() {
 
 		setDisplayUnit(unit: DisplayUnit) {
 			state.displayUnit = unit;
+		},
+
+		toggleShowOptativas() {
+			state.showOptativas = !state.showOptativas;
+			bumpDiagramLayout();
+		},
+
+		toggleShowModulosLivres() {
+			state.showModulosLivres = !state.showModulosLivres;
+			bumpDiagramLayout();
 		},
 
 		setConnectionDensity(density: Map<number, number>) {
@@ -715,8 +1033,11 @@ function createFluxogramaStore() {
 			state.loading = false;
 			state.error = null;
 			state.zoomLevel = 0.6;
+			state.defaultZoom = 0.6;
 			state.connectionMode = 'direct';
 			state.displayUnit = 'horas';
+			state.showOptativas = true;
+			state.showModulosLivres = true;
 			state.isAnonymous = false;
 			state.hoveredSubjectCode = null;
 			state.hoverPreviewSubjectCode = null;

@@ -1,8 +1,13 @@
 <script lang="ts">
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
-	import { formatHorarioSigaa, compactarFaixasHorarias } from '$lib/utils/sigaa';
+	import { unidadeCargaStore } from '$lib/stores/unidade-carga.store.svelte';
+	import { horarioLegivel } from '$lib/utils/sigaa';
 	import { X, ListChecks, TriangleAlert } from 'lucide-svelte';
 	import HelpTip from '$lib/components/onboarding/HelpTip.svelte';
+
+	// `compacto` = coluna única (celular): o resumo já vem rotulado pela aba, então
+	// o "4 ·" da sequência do desktop viraria numeração mentindo sobre a ordem.
+	let { compacto = false }: { compacto?: boolean } = $props();
 
 	function nomeMateria(codigo: string): string {
 		return gradeStore.pool.find((m) => m.codigo === codigo)?.nome ?? codigo;
@@ -10,24 +15,24 @@
 	function creditosMateria(codigo: string): number {
 		return gradeStore.pool.find((m) => m.codigo === codigo)?.creditos ?? 0;
 	}
-	function horarioLegivel(horario: string | null): string {
-		const linhas = formatHorarioSigaa(horario ?? '');
-		if (linhas.length === 0) return 'Horário a definir';
-		return linhas.map((l) => `${l.dia} ${compactarFaixasHorarias(l.faixas)}`).join(' · ');
-	}
 </script>
 
 <section class="rounded-2xl border border-white/10 bg-zinc-950/78 p-3" data-tour="resumo">
 	<header class="mb-2.5 flex items-center justify-between border-b border-white/10 pb-2">
-		<p class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white/80">
-			<ListChecks class="h-3.5 w-3.5" /> 4 · Resumo
+		<p
+			class="flex items-center gap-1.5 text-xs font-semibold tracking-[0.12em] text-white/80 uppercase"
+		>
+			<ListChecks class="h-3.5 w-3.5" />
+			{compacto ? 'Resumo' : '4 · Resumo'}
 			<HelpTip
 				title="Sua grade em lista"
 				text="Tudo que está no calendário aparece aqui com turma, professor e horário. Passe o mouse para destacar a matéria na grade e use o X para tirá-la."
 			/>
 		</p>
-		<span class="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] text-white/60">
-			{gradeStore.creditosSelecionados} créditos
+		<span
+			class="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] text-white/60"
+		>
+			{unidadeCargaStore.formatar(gradeStore.creditosSelecionados)}
 		</span>
 	</header>
 
@@ -47,7 +52,11 @@
 					<div class="min-w-0 flex-1">
 						<p class="flex items-baseline gap-1.5">
 							<span class="font-mono text-xs font-semibold text-white/90">{codigo}</span>
-							<span class="text-[10px] text-white/45">T. {tg.turma.turma} · {creditosMateria(codigo)}cr</span>
+							<span class="text-[10px] text-white/45"
+								>T. {tg.turma.turma} · {unidadeCargaStore.formatarCurto(
+									creditosMateria(codigo)
+								)}</span
+							>
 						</p>
 						<p class="truncate text-[11px] text-white/60">{nomeMateria(codigo)}</p>
 						<p class="truncate text-[10px] text-white/40">{horarioLegivel(tg.turma.horario)}</p>

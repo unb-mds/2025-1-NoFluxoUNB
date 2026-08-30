@@ -1,12 +1,12 @@
 <script lang="ts">
 	import type { PreferenciasPlano } from '$lib/types/plano-formatura';
-	import { DEFAULT_PREFERENCIAS } from '$lib/types/plano-formatura';
-	import { GraduationCap, Briefcase, Zap, Scale, ChevronRight, X } from 'lucide-svelte';
+	import { DEFAULT_PREFERENCIAS, LIMITE_CREDITOS_MAX } from '$lib/types/plano-formatura';
+	import { GraduationCap, Briefcase, Zap, Scale, ChevronRight, X, Sparkles } from 'lucide-svelte';
 	import { fade, fly } from 'svelte/transition';
 
 	interface Props {
 		open: boolean;
-		onConfirm: (prefs: PreferenciasPlano) => void;
+		onConfirm: (prefs: PreferenciasPlano, interesses?: string) => void;
 		onClose: () => void;
 	}
 
@@ -18,6 +18,7 @@
 	let trabalha = $state(DEFAULT_PREFERENCIAS.trabalha);
 	let limiteCreditos = $state<number>(DEFAULT_PREFERENCIAS.limiteCreditos);
 	let objetivo = $state<'velocidade' | 'equilibrio'>(DEFAULT_PREFERENCIAS.objetivo);
+	let interesses = $state('');
 
 	function next() {
 		if (step < TOTAL_STEPS) step++;
@@ -28,12 +29,15 @@
 	}
 
 	function confirm() {
-		onConfirm({
-			trabalha,
-			limiteCreditos,
-			objetivo,
-			onboardingConcluido: true
-		});
+		onConfirm(
+			{
+				trabalha,
+				limiteCreditos,
+				objetivo,
+				onboardingConcluido: true
+			},
+			interesses.trim() || undefined
+		);
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
@@ -42,7 +46,7 @@
 
 	const stepTitles = [
 		'Você trabalha ou estagia?',
-		'Quantos créditos por semestre?',
+		'Quantas matérias por semestre?',
 		'Qual é o seu objetivo?'
 	];
 </script>
@@ -161,9 +165,12 @@
 					</div>
 
 				{:else if step === 2}
-					<!-- Question 2: limite de créditos -->
+					<!-- Question 2: limite de créditos (exibido como matérias/horas) -->
 					<div class="flex flex-col gap-3">
-						{#each ([16, 24, 32] as const) as limite}
+						<!-- Presets: leve, o padrão, e o teto do sistema. -->
+					{#each [16, DEFAULT_PREFERENCIAS.limiteCreditos, LIMITE_CREDITOS_MAX] as limite}
+							{@const materias = limite / 4}
+							{@const horas = limite * 15}
 							{@const labels: Record<number, { subtitle: string }> = {
 								16: { subtitle: 'Leve — mais fôlego no semestre' },
 								24: { subtitle: 'Moderado — equilíbrio recomendado' },
@@ -179,10 +186,13 @@
 							>
 								<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg font-mono text-sm font-bold
 									{limiteCreditos === limite ? 'bg-blue-500/20 text-blue-300' : 'bg-white/6 text-white/50 group-hover:text-white/70'}">
-									{limite}
+									{materias}
 								</div>
 								<div>
-									<p class="text-sm font-medium text-white">{limite} créditos</p>
+									<p class="text-sm font-medium text-white">
+										~{materias} matérias
+										<span class="font-normal text-white/40">(≈{horas}h no semestre)</span>
+									</p>
 									<p class="mt-0.5 text-xs text-white/45">{labels[limite].subtitle}</p>
 								</div>
 								{#if limiteCreditos === limite}
@@ -236,6 +246,26 @@
 								<div class="ml-auto h-2 w-2 rounded-full bg-blue-400"></div>
 							{/if}
 						</button>
+
+						<!-- Interesses (opcional): dispara sugestão de optativas pelo Darcy AI após gerar o plano -->
+						<div class="mt-2 rounded-xl border border-pink-500/25 bg-pink-500/6 px-4 py-4">
+							<div class="flex items-center gap-2">
+								<Sparkles class="h-4 w-4 shrink-0 text-pink-400" />
+								<p class="text-sm font-medium text-white">Quer sugestões de optativas?</p>
+								<span class="ml-auto text-[10px] font-medium uppercase tracking-wider text-white/30">Opcional</span>
+							</div>
+							<p class="mt-1.5 text-xs leading-relaxed text-white/45">
+								Conte seus interesses dentro da sua área (ex.: games, IA, segurança) e o
+								<span class="font-semibold text-pink-300">Darcy AI</span> sugere optativas da UnB que combinam com você, junto do seu plano.
+							</p>
+							<input
+								type="text"
+								bind:value={interesses}
+								placeholder="Ex.: desenvolvimento de games, inteligência artificial..."
+								maxlength="120"
+								class="mt-3 w-full rounded-lg border border-white/10 bg-white/4 px-3 py-2 text-sm text-white placeholder:text-white/25 outline-none transition-colors focus:border-pink-500/50 focus:bg-white/6"
+							/>
+						</div>
 					</div>
 				{/if}
 			</div>

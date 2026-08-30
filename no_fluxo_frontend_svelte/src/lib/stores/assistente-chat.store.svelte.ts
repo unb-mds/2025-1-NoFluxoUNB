@@ -23,6 +23,15 @@ function createAssistenteChatStore() {
 	let chatLoading = $state(false);
 	let error = $state<string | null>(null);
 
+	/**
+	 * Pedido de abertura do chat com um texto pré-preenchido — usado por controles
+	 * fora do próprio painel (ex.: botão "Pedir pra Darcy" no card de uma matéria do
+	 * Montador de Grade) para abrir o `AssistenteChatFab`, que vive num componente
+	 * irmão na árvore, com o campo de mensagem já começado.
+	 * `nonce` garante que pedir a mesma matéria duas vezes seguidas dispare de novo.
+	 */
+	let pedidoAbertura = $state<{ texto: string; nonce: number } | null>(null);
+
 	let authState = $state<AuthState>({
 		user: null,
 		isAuthenticated: false,
@@ -71,6 +80,17 @@ function createAssistenteChatStore() {
 		get chatMessages() { return chatMessages; },
 		get chatLoading() { return chatLoading; },
 		get error() { return error; },
+		get pedidoAbertura() { return pedidoAbertura; },
+
+		/** Pede pra abrir o chat com `texto` já no campo de mensagem (não envia sozinho). */
+		pedirAbertura(texto: string): void {
+			pedidoAbertura = { texto, nonce: (pedidoAbertura?.nonce ?? 0) + 1 };
+		},
+
+		/** Consumido por quem atendeu o pedido (abriu o painel e aplicou o texto). */
+		consumirPedidoAbertura(): void {
+			pedidoAbertura = null;
+		},
 
 		async enviarMensagem(
 			mensagem: string,

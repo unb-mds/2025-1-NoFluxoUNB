@@ -407,7 +407,7 @@ def load_cache_matrizes():
 
 
 def get_or_create_matriz(
-    id_curso, curriculo_completo, versao, ano_vigor, prazos_cargas, status=None
+    id_curso, curriculo_completo, versao, ano_vigor, prazos_cargas, status=None, formatura=None
 ):
     curriculo_completo = (curriculo_completo or "").strip()
 
@@ -464,6 +464,8 @@ def get_or_create_matriz(
         "ch_total_exigida": ch.get("total_minima"),
         "ch_optativa_exigida": ch.get("ch_optativa_minima"),
         "ch_complementar_exigida": ch.get("ch_complementar_minima"),
+        "ch_maxima_componentes_eletivos": ch.get("carga_horaria_maxima_componentes_eletivos"),
+        "formatura": formatura,
     }
     insert_data = {
         k: v
@@ -786,6 +788,7 @@ def main():
         )
         versao, ano_vigor = build_versao_ano(curriculo_str, periodo_letivo)
         prazos = data.get("prazos_cargas") or {}
+        conclusao = data.get("conclusao")
 
         t_curso = time.time()
         id_curso = get_or_create_curso(codigo_base, nome_curso, tipo_curso, turno)
@@ -800,7 +803,7 @@ def main():
         t_matriz = time.time()
         status_matriz = data.get("status")
         id_matriz = get_or_create_matriz(
-            id_curso, curriculo_completo, versao, ano_vigor, prazos, status_matriz
+            id_curso, curriculo_completo, versao, ano_vigor, prazos, status_matriz, conclusao
         )
         if id_matriz is None and not DRY_RUN:
             print(f"      [ARQ {idx + 1}] Ignorado: matriz não resolvida.", flush=True)

@@ -8,12 +8,22 @@
 process.env.MARITACA_API_KEY = "test-key";
 
 type Row = Record<string, any>;
-const db: { materias: Row[]; turmas: Row[]; users: Row[]; dados_users: Row[]; equivalencias: Row[] } = {
+const db: {
+    materias: Row[];
+    turmas: Row[];
+    users: Row[];
+    dados_users: Row[];
+    equivalencias: Row[];
+    matrizes: Row[];
+    materias_por_curso: Row[];
+} = {
     materias: [],
     turmas: [],
     users: [],
     dados_users: [],
     equivalencias: [],
+    matrizes: [],
+    materias_por_curso: [],
 };
 
 function makeTable(rows: Row[]) {
@@ -21,7 +31,10 @@ function makeTable(rows: Row[]) {
         select(_cols: string) {
             const filtrosIn: Array<[string, any[]]> = [];
             const filtrosEq: Array<[string, any]> = [];
+            const filtrosLike: Array<[string, string]> = [];
             let modoSingle: "maybe" | null = null;
+            let orderCol: string | null = null;
+            let limitN: number | null = null;
             const builder: any = {
                 in(col: string, vals: any[]) {
                     filtrosIn.push([col, vals]);
@@ -31,16 +44,37 @@ function makeTable(rows: Row[]) {
                     filtrosEq.push([col, val]);
                     return builder;
                 },
+                like(col: string, pattern: string) {
+                    filtrosLike.push([col, pattern]);
+                    return builder;
+                },
+                order(col: string) {
+                    orderCol = col;
+                    return builder;
+                },
+                limit(n: number) {
+                    limitN = n;
+                    return builder;
+                },
                 maybeSingle() {
                     modoSingle = "maybe";
                     return builder;
                 },
                 then(resolve: (v: any) => any) {
-                    const out = rows.filter(
+                    let out = rows.filter(
                         (r) =>
                             filtrosEq.every(([c, v]) => r[c] === v) &&
-                            filtrosIn.every(([c, vals]) => vals.includes(r[c]))
+                            filtrosIn.every(([c, vals]) => vals.includes(r[c])) &&
+                            filtrosLike.every(([c, pattern]) => {
+                                const prefix = pattern.endsWith("%") ? pattern.slice(0, -1) : pattern;
+                                return String(r[c] ?? "").startsWith(prefix);
+                            })
                     );
+                    if (orderCol) {
+                        const col = orderCol as string;
+                        out = [...out].sort((a, b) => String(a[col]).localeCompare(String(b[col])));
+                    }
+                    if (limitN != null) out = out.slice(0, limitN);
                     if (modoSingle === "maybe") return resolve({ data: out[0] ?? null, error: null });
                     return resolve({ data: out, error: null });
                 },
@@ -198,6 +232,107 @@ describe("buscarOptativas — filtro por histórico do aluno", () => {
         ]);
 
         const out = JSON.parse(await buscarOptativas(["algoritmos"], false, "aluno@unb.br"));
+        expect(out.materias).toEqual([]);
+        expect(String(out.aviso)).toMatch(/já/i);
+    });
+});
+
+describe("buscarOptativas — filtro por matriz do aluno (curriculoCompleto)", () => {
+    beforeEach(() => {
+        // Matriz 7: só FGA0009 é optativa cadastrada (tipo_natureza = 1).
+        db.matrizes.push({ id_matriz: 7, curriculo_completo: "8117/-2 - 2018.2" });
+        db.materias_por_curso.push({ id_materia: 500, id_matriz: 7, tipo_natureza: 1 });
+        // FGA0124 existe na matriz mas como obrigatória (tipo_natureza = 0) — não deve
+        // contar como optativa da matriz.
+        db.materias_por_curso.push({ id_materia: 501, id_matriz: 7, tipo_natureza: 0 });
+    });
+
+    it("resolve a matriz por match exato e descarta resultado que não é optativa dela", async () => {
+        mockBuscarMaterias.mockResolvedValue([
+            { codigo: "FGA0009", nome: "É OPTATIVA DA MATRIZ", similaridade: 0.9 },
+            { codigo: "FGA0124", nome: "NÃO É OPTATIVA DA MATRIZ", similaridade: 0.8 },
+        ]);
+
+        const out = JSON.parse(
+            await buscarOptativas(["tema"], false, undefined, "8117/-2 - 2018.2")
+        );
+        expect(out.materias.map((m: any) => m.codigo)).toEqual(["FGA0009"]);
+    });
+
+    it("resolve a matriz por fallback de prefixo quando não há match exato", async () => {
+        // curriculoCompleto do aluno vem sem o sufixo " - 2018.2".
+        mockBuscarMaterias.mockResolvedValue([
+            { codigo: "FGA0009", nome: "É OPTATIVA DA MATRIZ", similaridade: 0.9 },
+            { codigo: "FGA0124", nome: "NÃO É OPTATIVA DA MATRIZ", similaridade: 0.8 },
+        ]);
+
+        const out = JSON.parse(await buscarOptativas(["tema"], false, undefined, "8117/-2"));
+        expect(out.materias.map((m: any) => m.codigo)).toEqual(["FGA0009"]);
+    });
+
+    it("curriculoCompleto ausente — comportamento antigo sem restrição de matriz, inalterado", async () => {
+        mockBuscarMaterias.mockResolvedValue([
+            { codigo: "FGA0009", nome: "É OPTATIVA DA MATRIZ", similaridade: 0.9 },
+            { codigo: "FGA0124", nome: "NÃO É OPTATIVA DA MATRIZ", similaridade: 0.8 },
+        ]);
+
+        const out = JSON.parse(await buscarOptativas(["tema"], false));
+        expect(out.materias.map((m: any) => m.codigo).sort()).toEqual(["FGA0009", "FGA0124"]);
+    });
+
+    it("curriculoCompleto não resolve pra nenhuma matriz — degrada pra sem restrição", async () => {
+        mockBuscarMaterias.mockResolvedValue([
+            { codigo: "FGA0009", nome: "É OPTATIVA DA MATRIZ", similaridade: 0.9 },
+            { codigo: "FGA0124", nome: "NÃO É OPTATIVA DA MATRIZ", similaridade: 0.8 },
+        ]);
+
+        const out = JSON.parse(
+            await buscarOptativas(["tema"], false, undefined, "0000/-0 - 1999.1")
+        );
+        expect(out.materias.map((m: any) => m.codigo).sort()).toEqual(["FGA0009", "FGA0124"]);
+    });
+
+    it("matriz encontrada mas sem nenhuma optativa cadastrada — degrada pra sem restrição", async () => {
+        db.matrizes.push({ id_matriz: 8, curriculo_completo: "9999/-1 - 2020.1" });
+        // Nenhuma linha em materias_por_curso com id_matriz = 8.
+        mockBuscarMaterias.mockResolvedValue([
+            { codigo: "FGA0009", nome: "É OPTATIVA DA MATRIZ", similaridade: 0.9 },
+            { codigo: "FGA0124", nome: "NÃO É OPTATIVA DA MATRIZ", similaridade: 0.8 },
+        ]);
+
+        const out = JSON.parse(
+            await buscarOptativas(["tema"], false, undefined, "9999/-1 - 2020.1")
+        );
+        expect(out.materias.map((m: any) => m.codigo).sort()).toEqual(["FGA0009", "FGA0124"]);
+    });
+
+    it("aviso diferencia 'não é da sua matriz' de 'já cursou' e de 'sem oferta'", async () => {
+        mockBuscarMaterias.mockResolvedValue([
+            { codigo: "FGA0124", nome: "NÃO É OPTATIVA DA MATRIZ", similaridade: 0.8 },
+        ]);
+
+        const out = JSON.parse(
+            await buscarOptativas(["tema"], false, undefined, "8117/-2 - 2018.2")
+        );
+        expect(out.materias).toEqual([]);
+        expect(String(out.aviso)).toMatch(/matriz/i);
+        expect(String(out.aviso)).not.toMatch(/já cursou|já cursado|oferta/i);
+    });
+
+    it("filtro de matriz roda antes do filtro de já-cursadas: se já-cursadas esvazia o resto, o aviso dele prevalece", async () => {
+        // FGA0009 é optativa da matriz, mas o aluno já a cursou (equivalência com CIC0004).
+        db.equivalencias.push({
+            id_materia: 500,
+            expressao_logica: { operador: "OU", condicoes: ["CIC0004"] },
+        });
+        mockBuscarMaterias.mockResolvedValue([
+            { codigo: "FGA0009", nome: "OPTATIVA DA MATRIZ MAS JÁ CURSADA", similaridade: 0.9 },
+            { codigo: "FGA0124", nome: "NÃO É OPTATIVA DA MATRIZ", similaridade: 0.8 },
+        ]);
+
+        const out = JSON.parse(
+            await buscarOptativas(["tema"], false, "aluno@unb.br", "8117/-2 - 2018.2")
+        );
         expect(out.materias).toEqual([]);
         expect(String(out.aviso)).toMatch(/já/i);
     });

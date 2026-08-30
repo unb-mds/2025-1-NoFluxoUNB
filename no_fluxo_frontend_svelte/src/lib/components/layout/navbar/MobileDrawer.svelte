@@ -4,7 +4,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
-	import { X, LogOut, GitBranch, BookOpen } from 'lucide-svelte';
+	import { X, LogOut, GitBranch, BookOpen, ShieldCheck } from 'lucide-svelte';
 	import { type NavEntry, isEntryActive, isLinkActive } from './nav-config';
 	import type { UserModel } from '$lib/types';
 
@@ -15,11 +15,12 @@
 		isAuthenticated: boolean;
 		isAnonymous: boolean;
 		user: UserModel | null;
+		isAdmin: boolean;
 		onClose: () => void;
 		onLogout: () => void;
 	}
 
-	let { open, entries, pathname, isAuthenticated, isAnonymous, user, onClose, onLogout }: Props =
+	let { open, entries, pathname, isAuthenticated, isAnonymous, user, isAdmin, onClose, onLogout }: Props =
 		$props();
 
 	// Backdrop is not keyboard-focusable (tabindex="-1") and nothing auto-focuses it, so
@@ -98,6 +99,18 @@
 				{/each}
 
 				<hr class="my-3 border-white/10" />
+
+				{#if isAdmin}
+					<a
+						href={ROUTES.ADMIN_TICKETS}
+						class="mobile-nav-item"
+						class:active={isLinkActive(ROUTES.ADMIN_TICKETS, pathname)}
+						onclick={onClose}
+					>
+						<ShieldCheck class="h-5 w-5" />
+						<span>Admin</span>
+					</a>
+				{/if}
 
 				{#if isAnonymous}
 					<button

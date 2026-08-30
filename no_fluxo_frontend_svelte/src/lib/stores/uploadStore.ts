@@ -13,8 +13,10 @@ import { ROUTES } from '$lib/config/routes';
 import type { DadosMateria, DadosFluxogramaUser } from '$lib/types/user';
 import {
 	buildDadosFluxogramaUserFromCasarResponse,
-	dadosFluxogramaUserToJson
+	dadosFluxogramaUserToJson,
+	injetarEquivalenciasDoPdf
 } from '$lib/factories';
+import { FLUXOGRAMA_SCHEMA_VERSION } from '$lib/config/release';
 import { supabaseDataService } from '$lib/services/supabase-data.service';
 
 export type UploadState = 'initial' | 'uploading' | 'processing' | 'success' | 'error';
@@ -315,6 +317,14 @@ function createUploadStore() {
 					{ iraTexto: iraExtraido?.valor_texto ?? null }
 				);
 
+				// Equivalências que o PRÓPRIO histórico declara ("Cumpriu X através de Y"):
+				// fonte oficial do SIGAA — cobre pares que faltem na tabela do banco.
+				injetarEquivalenciasDoPdf(dados, ext?.equivalencias_pdf);
+
+				// Carimba a versão do schema: o modal de novidades usa isso para saber
+				// quem precisa reenviar o histórico para ativar recursos novos.
+				dados.schemaVersion = FLUXOGRAMA_SCHEMA_VERSION;
+
 				// Save: atualiza dados_users (estado atual) + registra em historicos_usuarios (acompanhamento ao longo dos anos)
 				await supabaseDataService.saveFluxogramaData(
 					user.idUser,
@@ -360,6 +370,53 @@ function createUploadStore() {
 				state: 'error',
 				error: 'Seleção de curso cancelada. Tente novamente.'
 			}));
+		},
+
+		async startManualMode(course: { nomeCurso: string; matrizCurricular: string }) {
+			const user = authStore.getUser();
+			if (!user) {
+				toast.error('Você precisa estar logado.');
+				return;
+			}
+			
+			const dados: DadosFluxogramaUser = {
+				nomeCurso: course.nomeCurso,
+				ira: 0,
+				matricula: 'Manual',
+				horasIntegralizadas: 0,
+				suspensoes: [],
+				anoAtual: new Date().getFullYear() + '.1',
+				matrizCurricular: course.matrizCurricular,
+				semestreAtual: 1,
+				dadosFluxograma: [],
+				schemaVersion: FLUXOGRAMA_SCHEMA_VERSION
+			};
+			
+			try {
+				await supabaseDataService.saveFluxogramaData(
+					user.idUser,
+					dadosFluxogramaUserToJson(dados),
+					1,
+					undefined,
+					{
+						curso_extraido: course.nomeCurso,
+						matriz_curricular: course.matrizCurricular,
+						matricula: 'Manual',
+						ira: 0,
+						media_ponderada: 0,
+						carga_horaria_integralizada: null,
+						suspensoes: [],
+						resumo: null
+					}
+				);
+				
+				authStore.updateDadosFluxograma(dados, undefined);
+				toast.success('Modo manual iniciado! Você pode alterar o status das matérias clicando nelas.');
+				goto(ROUTES.MEU_FLUXOGRAMA);
+			} catch (err) {
+				console.error(err);
+				toast.error('Erro ao iniciar preenchimento manual.');
+			}
 		},
 
 		reset() {

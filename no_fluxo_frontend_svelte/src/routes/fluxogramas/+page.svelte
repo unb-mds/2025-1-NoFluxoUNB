@@ -1,7 +1,7 @@
 <script lang="ts">
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import PageBackground from '$lib/components/effects/PageBackground.svelte';
-	import CourseCard from '$lib/components/fluxograma/CourseCard.svelte';
+	import CourseCard from '$lib/components/fluxograma/cards/CourseCard.svelte';
 	import { fluxogramaService } from '$lib/services/fluxograma.service';
 	import { ROUTES } from '$lib/config/routes';
 	import { goto } from '$app/navigation';

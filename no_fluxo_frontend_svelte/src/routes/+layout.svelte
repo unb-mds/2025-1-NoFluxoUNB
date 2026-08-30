@@ -9,7 +9,9 @@
 	import { isAuthRoute } from '$lib/config/routes';
 	import Navbar from '$lib/components/layout/Navbar.svelte';
 	import LoadingBar from '$lib/components/layout/LoadingBar.svelte';
+	import PageTransition from '$lib/components/layout/PageTransition.svelte';
 	import SuporteFab from '$lib/components/support/SuporteFab.svelte';
+	import ReleaseNotesModal from '$lib/components/layout/ReleaseNotesModal.svelte';
 	import { Toaster } from 'svelte-sonner';
 	import '../app.css';
 
@@ -89,10 +91,11 @@
 </svelte:head>
 
 <LoadingBar />
+<PageTransition />
 
 <div class="flex min-h-screen flex-col overflow-x-hidden">
 	{#if showNavbar}
-		<div class="navbar-glass sticky top-0 z-50 px-4 pt-3 md:px-6 md:pt-4">
+		<div class="navbar-glass sticky top-0 z-50 px-4 pb-2 pt-3 md:px-6 md:pb-2.5 md:pt-4">
 			<div class="mx-auto w-full">
 				<Navbar
 					user={$currentUser}
@@ -120,6 +123,11 @@
 
 {#if $isAuthenticated && !$isAnonymous && showNavbar}
 	<SuporteFab />
+{/if}
+
+<!-- Novidades do release: 1x por usuário; pede reenvio do histórico se o dado for antigo -->
+{#if $isAuthenticated && showNavbar}
+	<ReleaseNotesModal />
 {/if}
 
 <Toaster richColors position="top-right" />

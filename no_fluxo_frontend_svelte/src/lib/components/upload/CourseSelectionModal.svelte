@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { X } from 'lucide-svelte';
+	import { X, Search } from 'lucide-svelte';
 	import { clickOutside } from '$lib/actions/clickOutside';
 	import { fade, fly } from 'svelte/transition';
 	import type { CourseSelectionError } from '$lib/services/upload.service';
@@ -20,6 +20,17 @@
 	let { open, courseError, onselect, onclose }: Props = $props();
 
 	let selectedCourse = $state<SelectedCourse | null>(null);
+	let selectedOptionKey = $state<string | null>(null);
+	let searchQuery = $state('');
+
+	let filteredCourses = $derived.by(() => {
+		if (!searchQuery) return courseError.cursos_disponiveis;
+		const normalize = (str: string) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+		const query = normalize(searchQuery);
+		return courseError.cursos_disponiveis.filter(curso => 
+			normalize(curso.nome_curso).includes(query)
+		);
+	});
 
 	function handleConfirm() {
 		if (selectedCourse) {
@@ -48,34 +59,57 @@
 			transition:fly={{ y: 30, duration: 250 }}
 		>
 			<!-- Header -->
-			<div class="border-b border-white/10 px-6 py-4">
-				<h2 class="text-lg font-bold text-white">Selecionar Curso</h2>
-				<p class="mt-1 text-sm text-gray-400">
-					{courseError.message || 'Encontramos mais de um curso possível. Selecione o correto:'}
-				</p>
+			<div class="border-b border-white/10 px-6 py-4 flex items-start justify-between gap-4">
+				<div>
+					<h2 class="text-lg font-bold text-white">Selecionar Curso</h2>
+					<p class="mt-1 text-sm text-gray-400">
+						{courseError.message || 'Encontramos mais de um curso possível. Selecione o correto:'}
+					</p>
+				</div>
+				<button type="button" onclick={onclose} class="rounded-full p-1 text-gray-400 hover:bg-white/10 hover:text-white transition-colors" aria-label="Fechar">
+					<X class="h-5 w-5" />
+				</button>
+			</div>
+
+			<div class="border-b border-white/10 px-6 py-3">
+				<div class="relative">
+					<Search class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+					<input 
+						type="text" 
+						bind:value={searchQuery}
+						placeholder="Pesquisar curso..."
+						class="w-full rounded-lg border border-white/10 bg-white/5 py-2 pl-9 pr-4 text-sm text-white placeholder-gray-500 transition-all focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+					/>
+				</div>
 			</div>
 
 			<!-- Course List -->
 			<div class="max-h-64 overflow-y-auto px-6 py-4">
 				<div class="space-y-2">
-					{#each courseError.cursos_disponiveis as curso}
+					{#if filteredCourses.length === 0}
+						<p class="text-center text-sm text-gray-500 py-4">Nenhum curso encontrado.</p>
+					{/if}
+					{#each filteredCourses as curso}
 						{@const option = { nome_curso: curso.nome_curso, id_curso: curso.id_curso, matriz_curricular: curso.matriz_curricular }}
 						{@const optionKey = curso.id_curso != null ? String(curso.id_curso) : `${curso.nome_curso}|${curso.matriz_curricular ?? ''}`}
 						<label
 							class="course-option"
-							class:selected={selectedCourse?.id_curso === curso.id_curso || (selectedCourse?.nome_curso === curso.nome_curso && selectedCourse?.matriz_curricular === curso.matriz_curricular)}
+							class:selected={selectedOptionKey === optionKey}
 						>
 							<input
 								type="radio"
 								name="course"
 								value={optionKey}
 								class="sr-only"
-								checked={selectedCourse?.id_curso === curso.id_curso || (selectedCourse?.nome_curso === curso.nome_curso && selectedCourse?.matriz_curricular === curso.matriz_curricular)}
-								onchange={() => selectedCourse = option}
+								checked={selectedOptionKey === optionKey}
+								onchange={() => {
+									selectedOptionKey = optionKey;
+									selectedCourse = option;
+								}}
 							/>
 							<div
 								class="radio-dot"
-								class:active={selectedCourse?.id_curso === curso.id_curso || (selectedCourse?.nome_curso === curso.nome_curso && selectedCourse?.matriz_curricular === curso.matriz_curricular)}
+								class:active={selectedOptionKey === optionKey}
 							></div>
 							<span class="text-sm text-gray-200">
 								{curso.nome_curso}{#if curso.turno}

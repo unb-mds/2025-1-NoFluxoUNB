@@ -152,6 +152,59 @@ export function getCompletedByEquivalenceCodes(
 }
 
 /**
+ * Espelho de getCompletedByEquivalenceCodes para matérias EM CURSO: retorna os
+ * códigos de matriz (codigoMateriaOrigem) cuja expressão de equivalência é
+ * satisfeita quando as matérias MATR do aluno entram na base — ou seja, o aluno
+ * está "Matriculado em Equivalente" (ex.: cursa FGA0146/ED1 nova → FGA0147 da
+ * matriz aparece como matriculada, não vermelha por um REP antigo).
+ *
+ * Regras:
+ * - a expressão avalia contra (concluídas ∪ cursando) — cobre equivalências
+ *   compostas onde parte já foi concluída e parte está em curso;
+ * - só entra no resultado se a expressão NÃO se satisfaz apenas com concluídas
+ *   (senão é caso de getCompletedByEquivalenceCodes, e concluída > cursando);
+ * - passe único, sem transitividade — mesma razão documentada acima.
+ */
+export function getCurrentByEquivalenceCodes(
+	equivalencias: EquivalenciaModel[],
+	completedCodes: Set<string>,
+	currentCodes: Set<string>
+): Set<string> {
+	const result = new Set<string>();
+	const norm = (s: Set<string>) =>
+		new Set([...s].map((c) => c.trim().toUpperCase()).filter((c) => c.length > 0));
+	const concluidas = norm(completedCodes);
+	const cursando = norm(currentCodes);
+	if (cursando.size === 0) return result;
+	const base = new Set([...concluidas, ...cursando]);
+
+	for (const equiv of equivalencias) {
+		const origemRaw = (equiv.codigoMateriaOrigem || '').trim();
+		if (!origemRaw) continue;
+		const origemUpper = origemRaw.toUpperCase();
+		// Já cursou (direto) ou já está matriculado no próprio código da matriz.
+		if (concluidas.has(origemUpper) || cursando.has(origemUpper)) continue;
+
+		const satisfazComCursando =
+			equiv.expressaoLogica != null
+				? evaluateExpressaoLogica(equiv.expressaoLogica, base)
+				: evaluateExpression((equiv.expressao || '').trim(), base);
+		if (!satisfazComCursando) continue;
+
+		// Se concluídas sozinhas já satisfazem, é concluída-por-equivalência.
+		const satisfazSoConcluidas =
+			equiv.expressaoLogica != null
+				? evaluateExpressaoLogica(equiv.expressaoLogica, concluidas)
+				: evaluateExpression((equiv.expressao || '').trim(), concluidas);
+		if (satisfazSoConcluidas) continue;
+
+		result.add(origemRaw);
+	}
+
+	return result;
+}
+
+/**
  * Para um código já sabido como "concluído por equivalência" (ver
  * getCompletedByEquivalenceCodes), retorna os códigos das disciplinas
  * efetivamente cursadas que satisfizeram alguma expressão de equivalência

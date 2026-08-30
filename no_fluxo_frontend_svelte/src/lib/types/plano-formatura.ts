@@ -37,6 +37,25 @@ export interface PlannerChatResponse {
 
 export type ObjetivoPlano = 'velocidade' | 'equilibrio';
 
+/**
+ * Resposta do aluno sobre módulo livre no Montador de Grade.
+ *
+ * `quer: null` é "ainda não perguntamos" e é diferente de `false` ("não quero"):
+ * só o primeiro autoriza a tela a perguntar. Sem essa distinção o card voltaria a
+ * cada visita para quem já disse não.
+ */
+export interface PreferenciaModuloLivre {
+	/** `null` = ainda não perguntamos. */
+	quer: boolean | null;
+	/** Assunto que o aluno procura. Sem ele não há o que buscar no catálogo. */
+	tema?: string;
+	/**
+	 * Matriz em que a resposta foi dada. Quem muda de curso tem outra exigência de
+	 * carga complementar, então a pergunta volta em vez de herdar a resposta antiga.
+	 */
+	curriculoCompleto?: string;
+}
+
 export interface PreferenciasPlano {
 	/** Limite de créditos por semestre — slider de 8 a 32 (valor em créditos). */
 	limiteCreditos: number;
@@ -48,7 +67,34 @@ export interface PreferenciasPlano {
 	onboardingConcluido: boolean;
 	/** Restrições ativas (adiar/priorizar). */
 	restricoes?: RestricoesPlano;
+	/** Resposta sobre módulo livre no Montador. Ausente = ainda não perguntamos. */
+	moduloLivre?: PreferenciaModuloLivre;
 }
+
+/**
+ * Teto de carga por semestre: 32 créditos (480 horas).
+ *
+ * É o mesmo teto que o Motor 2 aplica no backend (`Math.min(..., 480)` em
+ * `plano_formatura.service.ts`) e o que o agente do chat aceita ("entre 8 e 32").
+ * Aqui ele existe para o slider não oferecer ao aluno uma carga que o resto do
+ * sistema recusaria depois.
+ *
+ * Não é regra publicada da UnB — `docs/unb-domain.md` não documenta teto de
+ * matrícula, e o 480 do backend é empírico. É um limite nosso, e o comentário
+ * fica para quem um dia encontrar a norma real.
+ */
+export const LIMITE_CREDITOS_MAX = 32;
+
+/**
+ * Piso de carga por semestre: 8 créditos (120 horas).
+ *
+ * Mesmo piso que o Motor 2 usa ao distribuir (`Math.max(120, ...)`). Vale
+ * sobretudo porque o limite passou a ser PERSISTIDO: sem piso, um arraste até
+ * zero viraria a preferência salva do aluno, e a visita seguinte abriria com
+ * limite zero — nenhuma matéria semeada e uma tela vazia sem explicação. Para
+ * esvaziar a grade existe o botão "Limpar".
+ */
+export const LIMITE_CREDITOS_MIN = 8;
 
 export const DEFAULT_PREFERENCIAS: PreferenciasPlano = {
 	limiteCreditos: 24,

@@ -2,19 +2,21 @@
 	import { page } from '$app/stores';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import PageBackground from '$lib/components/effects/PageBackground.svelte';
-	import FluxogramaHeader from '$lib/components/fluxograma/FluxogramaHeader.svelte';
-	import FluxogramaLegendControls from '$lib/components/fluxograma/FluxogramaLegendControls.svelte';
-	import FluxogramViewportChrome from '$lib/components/fluxograma/FluxogramViewportChrome.svelte';
-	import FluxogramContainer from '$lib/components/fluxograma/FluxogramContainer.svelte';
-	import SubjectDetailsModal from '$lib/components/fluxograma/SubjectDetailsModal.svelte';
-	import OptativasModal from '$lib/components/fluxograma/OptativasModal.svelte';
-	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
-	import ProgressSummaryBar from '$lib/components/fluxograma/ProgressSummaryBar.svelte';
-	import OptativasAdicionadasSection from '$lib/components/fluxograma/OptativasAdicionadasSection.svelte';
-	import PrerequisiteChainDialog from '$lib/components/fluxograma/PrerequisiteChainDialog.svelte';
-	import RequisitosMudancaCursoBanner from '$lib/components/fluxograma/RequisitosMudancaCursoBanner.svelte';
-	import MateriasConcluidasModal from '$lib/components/fluxograma/MateriasConcluidasModal.svelte';
+	import FluxogramaHeader from '$lib/components/fluxograma/controls/FluxogramaHeader.svelte';
+	import FluxogramaLegendControls from '$lib/components/fluxograma/controls/FluxogramaLegendControls.svelte';
+	import FluxogramViewportChrome from '$lib/components/fluxograma/layout/FluxogramViewportChrome.svelte';
+	import SemesterNavChips from '$lib/components/fluxograma/layout/SemesterNavChips.svelte';
+	import FluxogramContainer from '$lib/components/fluxograma/layout/FluxogramContainer.svelte';
+	import SubjectDetailsModal from '$lib/components/fluxograma/modal/SubjectDetailsModal.svelte';
+		import ProgressSummarySection from '$lib/components/fluxograma/dashboard/ProgressSummarySection.svelte';
+	import ProgressSummaryBar from '$lib/components/fluxograma/dashboard/ProgressSummaryBar.svelte';
+	import MudancaCursoLauncher from '$lib/components/fluxograma/controls/MudancaCursoLauncher.svelte';
+	import OptativasAdicionadasSection from '$lib/components/fluxograma/dashboard/OptativasAdicionadasSection.svelte';
+	import PrerequisiteChainDialog from '$lib/components/fluxograma/modal/PrerequisiteChainDialog.svelte';
+	import RequisitosMudancaCursoBanner from '$lib/components/fluxograma/controls/RequisitosMudancaCursoBanner.svelte';
+	import MateriasConcluidasModal from '$lib/components/fluxograma/modal/MateriasConcluidasModal.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
+	import { matchesFluxogramCompactTouchMode } from '$lib/utils/fluxogram-viewport';
 	import { authStore } from '$lib/stores/auth';
 	import { getIntegralizacao } from '$lib/services/integralizacao.service';
 	import { supabaseDataService } from '$lib/services/supabase-data.service';
@@ -37,13 +39,13 @@ import {
 	let fluxogramaViewportRef: HTMLElement | null = $state(null);
 	let selectedSubject = $state<MateriaModel | null>(null);
 	let chainDialogSubject = $state<MateriaModel | null>(null);
-	let showOptativas = $state(false);
 	let integralizacao = $state<IntegralizacaoResult | null>(null);
 	let integralizacaoLoading = $state(false);
 	let matrizes = $state<Array<{ curriculoCompleto: string }>>([]);
 	let fluxogramHelpOpen = $state(false);
 	let showMateriasConcluidasModal = $state(false);
 	let fluxogramaFocusMode = $state(false);
+	let fluxogramaControlsOpen = $state(false);
 	let progressSummaryRef: HTMLElement | null = $state(null);
 
 	function scrollToSummary() {
@@ -115,12 +117,6 @@ type EquivalenciaSimulacaoItem = {
 			if (courseSubjectCodes.has(code)) count++;
 		}
 		return count;
-	});
-
-	// Optativas do curso (modal); sem coluna pool no fluxograma.
-	let optativas = $derived.by(() => {
-		if (!store.state.courseData) return [];
-		return store.state.courseData.materias.filter((m) => isOptativa(m));
 	});
 
 let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
@@ -229,7 +225,9 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 
 	onMount(() => {
 		if (courseName) {
-			store.setConnectionMode('all');
+			// Mobile abre em modo leitura: 'Diretas' evita centenas de paths SVG e o gap
+			// largo do modo 'all' no primeiro paint; 'Todas' continua a um toque no rodapé.
+			store.setConnectionMode(matchesFluxogramCompactTouchMode() ? 'direct' : 'all');
 			const user = authStore.getUser();
 			const anonymous = !user?.dadosFluxograma;
 			// If a specific matriz was requested via query param, load it directly
@@ -306,10 +304,20 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 			scrollRoot.scrollLeft = 0;
 			return;
 		}
-		const sorted = [...columns].sort((a, b) => a.offsetLeft - b.offsetLeft);
-		const primeiraColuna = sorted[0];
 		const margemEsquerda = Math.max(16, Math.round(scrollRoot.clientWidth * 0.08));
-		const targetLeft = primeiraColuna.offsetLeft - margemEsquerda;
+		// Mobile: abre no semestre atual do aluno — a pergunta nº 1 é "onde estou agora?"
+		const semestreAtual = store.userFluxograma?.semestreAtual;
+		let alvo: HTMLElement | null = null;
+		if (semestreAtual && matchesFluxogramCompactTouchMode()) {
+			alvo = scrollRoot.querySelector<HTMLElement>(`[data-semester="${semestreAtual}"]`);
+		}
+		if (!alvo) {
+			alvo = [...columns].sort((a, b) => a.offsetLeft - b.offsetLeft)[0];
+		}
+		// getBoundingClientRect independe da mecânica do zoom (CSS zoom vs transform)
+		const rootRect = scrollRoot.getBoundingClientRect();
+		const alvoRect = alvo.getBoundingClientRect();
+		const targetLeft = scrollRoot.scrollLeft + (alvoRect.left - rootRect.left) - margemEsquerda;
 		scrollRoot.scrollLeft = Math.max(0, targetLeft);
 	}
 
@@ -340,6 +348,21 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 			};
 		}
 		delete document.body.dataset.fluxogramaFocusMode;
+	});
+
+	// Mobile: primeiro paint já posicionado no semestre atual do aluno (fora do modo foco).
+	let didInitialMobileCenter = false;
+	$effect(() => {
+		if (didInitialMobileCenter) return;
+		if (!store.state.courseData) return;
+		void store.diagramLayoutRevision;
+		if (!store.userFluxograma && !store.state.isAnonymous) return;
+		if (!matchesFluxogramCompactTouchMode()) {
+			didInitialMobileCenter = true;
+			return;
+		}
+		didInitialMobileCenter = true;
+		requestAnimationFrame(() => scheduleCenterFluxogramaViewport());
 	});
 
 	$effect(() => {
@@ -405,7 +428,7 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 			<div
 				class="{fluxogramaFocusMode
 					? 'fluxograma-focus-shell fixed inset-0 z-[2147483000] flex min-h-0 flex-col overflow-hidden rounded-none'
-					: 'flex h-[calc(100dvh-3.25rem)] max-h-[calc(100dvh-3.25rem)] min-h-0 flex-col gap-1 overflow-hidden [overflow-anchor:none] sm:h-[calc(100dvh-3.75rem)] sm:max-h-[calc(100dvh-3.75rem)] sm:gap-1.5 [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5 [@media(orientation:landscape)_and_(max-height:560px)]:sm:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:sm:max-h-[calc(100dvh-0.5rem)]'}"
+					: 'flex min-h-0 flex-col gap-2 [overflow-anchor:none] md:h-[calc(100dvh-3.75rem)] md:max-h-[calc(100dvh-3.75rem)] md:overflow-hidden [@media(orientation:landscape)_and_(max-height:560px)]:h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:max-h-[calc(100dvh-0.5rem)] [@media(orientation:landscape)_and_(max-height:560px)]:overflow-hidden [@media(orientation:landscape)_and_(max-height:560px)]:gap-0.5'}"
 			>
 				{#if !fluxogramaFocusMode}
 					<div
@@ -426,7 +449,6 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 						/>
 
 						<FluxogramaLegendControls
-							onOpenOptativas={optativas.length > 0 ? () => (showOptativas = true) : undefined}
 							showFluxogramViewMenu={true}
 							onOpenFluxogramHelp={() => (fluxogramHelpOpen = true)}
 						/>
@@ -456,7 +478,10 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 					</div>
 				{/if}
 
-				<div class="relative z-0 min-h-0 flex-1 basis-0 overflow-hidden" bind:this={fluxogramaViewportRef}>
+				<div
+					class="relative z-0 h-[calc(100dvh-9.5rem)] shrink-0 overflow-hidden md:h-auto md:min-h-0 md:flex-1 md:shrink md:basis-0 [@media(orientation:landscape)_and_(max-height:560px)]:h-auto [@media(orientation:landscape)_and_(max-height:560px)]:min-h-0 [@media(orientation:landscape)_and_(max-height:560px)]:flex-1 [@media(orientation:landscape)_and_(max-height:560px)]:shrink [@media(orientation:landscape)_and_(max-height:560px)]:basis-0"
+					bind:this={fluxogramaViewportRef}
+				>
 					<FluxogramContainer
 						onSubjectClick={handleSubjectClick}
 						onSubjectOpenChain={handleSubjectOpenChain}
@@ -465,6 +490,7 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 					/>
 					<FluxogramViewportChrome
 						bind:helpOpen={fluxogramHelpOpen}
+						bind:controlsOpen={fluxogramaControlsOpen}
 						focusMode={fluxogramaFocusMode}
 						toggleFocusMode={() => (fluxogramaFocusMode = !fluxogramaFocusMode)}
 					/>
@@ -472,14 +498,23 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 						<button
 							type="button"
 							onclick={scrollToSummary}
-							class="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1 rounded-full border border-white/10 bg-black/60 px-3 py-1.5 text-xs font-medium text-white/70 backdrop-blur-md transition-colors hover:bg-black/80 hover:text-white"
+							class="absolute bottom-3 left-1/2 z-20 hidden -translate-x-1/2 items-center gap-1 rounded-full border border-white/10 bg-black/60 px-3 py-1.5 text-xs font-medium text-white/70 backdrop-blur-md transition-colors hover:bg-black/80 hover:text-white md:flex"
 							aria-label="Ver resumo de progresso abaixo"
 						>
-							<span class="hidden sm:inline">Ver progresso</span>
+							<span>Ver progresso</span>
 							<ChevronDown class="h-4 w-4 animate-bounce" />
 						</button>
 					{/if}
 				</div>
+
+				<!-- Mobile: barra de controles + navegação por semestre abaixo do fluxograma -->
+				{#if !fluxogramaFocusMode}
+					<SemesterNavChips
+						onOpenControls={() => (fluxogramaControlsOpen = true)}
+						onToggleFocus={() => (fluxogramaFocusMode = !fluxogramaFocusMode)}
+						focusMode={fluxogramaFocusMode}
+					/>
+				{/if}
 			</div>
 
 			{#if !fluxogramaFocusMode && !store.state.isAnonymous}
@@ -555,14 +590,6 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 				materia={chainDialogSubject}
 				courseData={store.state.courseData}
 				onclose={closeChainDialog}
-			/>
-		{/if}
-
-		<!-- Optativas modal -->
-		{#if showOptativas}
-			<OptativasModal
-				{optativas}
-				onclose={() => (showOptativas = false)}
 			/>
 		{/if}
 
