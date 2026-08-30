@@ -16,6 +16,8 @@ import {
 	type Turno
 } from '$lib/utils/horario-slots';
 import type { TurmaOferta } from '$lib/services/turmas.service';
+import { saturada, type SituacaoAcademica } from '$lib/services/situacao-academica.service';
+import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 
 export interface MateriaGrade {
 	codigo: string;
@@ -46,6 +48,14 @@ export interface MateriaGrade {
 	 * a montagem trata como optativa, que é o comportamento antigo.
 	 */
 	natureza?: 'obrigatoria' | 'optativa' | 'modulo_livre';
+	/**
+	 * Optativa que é pré-requisito de uma obrigatória que o aluno AINDA deve.
+	 *
+	 * Fato sobre a matéria, não sobre a situação dele: por isso mora aqui, e não
+	 * é recalculado a cada montagem. É o que impede a montagem de descartá-la
+	 * junto com as outras optativas quando a carga optativa já está cumprida.
+	 */
+	optatoria?: boolean;
 }
 
 interface Cenario {
@@ -65,31 +75,105 @@ export interface MontagemResultado {
 	naoAlocadas: string[];
 	/** A busca parou no teto de nós: grade válida, mas talvez não a melhor possível. */
 	truncado: boolean;
+	/**
+	 * Quantas matérias chegaram a ser candidatas — depois dos filtros de travada e
+	 * de "matérias em curso", antes do solver.
+	 *
+	 * Sem isto a tela não distingue "havia candidatas e nenhuma coube" de "não
+	 * havia candidata nenhuma", e as duas terminam com `naoAlocadas` vazio quando o
+	 * filtro esvaziou a lista. O aviso então culpava a oferta de turmas — que nesse
+	 * caso está intacta, o que manda o aluno procurar defeito no lugar errado.
+	 */
+	candidatas: number;
 }
 
 /**
- * Escada de prioridade da montagem automática.
+ * Fator entre dois degraus vizinhos da escada de pesos.
  *
- * `autoMontarGrade` maximiza a SOMA dos pesos, então a razão entre dois degraus é
- * o que decide quantas matérias do degrau de baixo valem uma do degrau de cima.
- * Com fator 1000 entre eles a ordem é, na prática, lexicográfica: nenhum pool real
- * (dezenas de matérias) chega perto de somar mil optativas para roubar o lugar de
- * uma obrigatória. Encaixar optativa no buraco que sobra continua valendo — ela
- * sempre soma, só nunca desloca quem está acima.
+ * `autoMontarGrade` maximiza a SOMA dos pesos, então um degrau só é de fato
+ * superior ao seguinte se nem uma grade inteira cheia do degrau de baixo
+ * alcançar uma única matéria do de cima: `fator > N`, com N = máximo de matérias
+ * que cabem juntas numa solução.
+ *
+ * N **não** é o teto de créditos dividido pela menor matéria, embora seja
+ * tentador: `montarAutomatico` pode rodar sem `limiteCreditos` nenhum (o
+ * argumento é opcional), o slider da tela vai a 40 créditos, e matéria EAD ou
+ * "A DEFINIR" tem máscara `0n` — não conflita com ninguém e não é limitada pela
+ * geometria dos 96 slots da semana. O único limite honesto é `N ≤ pool.length`.
+ *
+ * Daí 1000: um pool que cabe na tela tem dezenas de matérias, e quebrar a ordem
+ * exigiria mil de um degrau colidindo com uma do degrau acima. No pior caso de
+ * soma (200 matérias no degrau mais alto) dá 2e14, bem abaixo de
+ * `Number.MAX_SAFE_INTEGER` — a aritmética continua exata.
+ */
+export const FATOR_ENTRE_DEGRAUS = 1000;
+
+/**
+ * Escada de prioridade da montagem automática.
  *
  * Por que nesta ordem:
  * - `CURSANDO`: a matrícula já aconteceu. Tirá-la da grade não desmatricula
  *   ninguém, só esconde a matéria do aluno.
  * - `PRIORITARIA`: o aluno marcou a estrela. Escolha explícita ganha de heurística
  *   nossa — senão a estrela numa optativa não serviria para nada.
- * - `OBRIGATORIA`: é o que atrasa formatura quando fica de fora. Era justamente o
- *   degrau que não existia: obrigatória e optativa saíam ambas com peso 1 e a
- *   montagem virava um maximizador de contagem.
+ * - `OBRIGATORIA`: é o que atrasa formatura quando fica de fora. Inclui a
+ *   "optatória" (optativa que destrava obrigatória pendente), que é obrigatória
+ *   disfarçada de optativa no SIGAA.
+ * - `NECESSARIA`: carga optativa ou de módulo livre que ainda falta. Conta para a
+ *   formatura, mas nenhuma quantidade dela substitui uma obrigatória.
+ * - `SATURADO`: a carga dessa natureza já está cumprida. Continua entrando num
+ *   buraco livre — cursar a mais é escolha legítima do aluno —, mas nunca tira da
+ *   grade uma matéria de que ele ainda precisa.
+ *
+ * Encaixar no buraco que sobra sempre vale: quem está embaixo soma, só não desloca.
+ *
+ * Se um dia entrar `bonus` por turma (o solver aceita), a invariante documentada
+ * em `horario-slots.ts` continua valendo: a soma máxima de bônus tem de ficar
+ * abaixo de `PESO_SATURADO`, ou preferência passa a deslocar necessidade.
  */
-const PESO_CURSANDO = 1_000_000_000;
-const PESO_PRIORITARIA = 1_000_000;
-const PESO_OBRIGATORIA = 1_000;
-const PESO_PADRAO = 1;
+const PESO_CURSANDO = 1_000_000_000_000;
+export const PESO_PRIORITARIA = 1_000_000_000;
+export const PESO_OBRIGATORIA = 1_000_000;
+export const PESO_NECESSARIA = 1_000;
+export const PESO_SATURADO = 1;
+
+/**
+ * Quanto vale encaixar esta matéria, dado o que ainda falta ao aluno.
+ *
+ * Pura e exportada para ser testável sozinha: aqui mora a POLÍTICA (quem vale
+ * mais), enquanto `montarAutomatico` cuida do EFEITO dela sobre a grade.
+ *
+ * `situacao` nula — integralização que falhou, aluno sem matriz, PDF sem carga —
+ * cai no mesmo par de degraus de antes (obrigatória acima do resto). É o que faz
+ * toda falha desta camada degradar para o montador anterior, nunca para um pior.
+ */
+export function pesoDaNatureza(
+	natureza: MateriaGrade['natureza'],
+	situacao: SituacaoAcademica | null,
+	ehOptatoria: boolean
+): number {
+	// Optatória: o SIGAA a lista como optativa, mas ela é pré-requisito de uma
+	// obrigatória que o aluno ainda deve. Descartá-la junto com as demais quando a
+	// carga optativa fecha o deixaria travado numa obrigatória por causa de uma
+	// conta de horas que já está satisfeita.
+	if (ehOptatoria) return PESO_OBRIGATORIA;
+
+	// Obrigatória NUNCA satura por carga horária, e isto é deliberado: quem decide
+	// se ainda falta obrigatória é a lista de pendentes da matriz, não a conta de
+	// horas. As duas divergem de verdade — quem mudou de matriz ou cumpriu matéria
+	// por equivalência tem um `carga_horaria_integralizada` que fala de outro
+	// currículo. Entre esconder uma obrigatória pendente e sugerir uma a mais, o
+	// erro barato é o segundo.
+	if (natureza === 'obrigatoria') return PESO_OBRIGATORIA;
+
+	// Matéria cuja matriz não foi resolvida chega sem natureza. Tratá-la como
+	// optativa era o comportamento antigo; o que não pode é sumir por falta de dado.
+	if (!natureza) return PESO_NECESSARIA;
+
+	if (!situacao) return PESO_NECESSARIA;
+
+	return saturada(situacao, natureza) ? PESO_SATURADO : PESO_NECESSARIA;
+}
 
 /** Docentes comparáveis: sem espaços redundantes, caixa alta. */
 function normDocente(nome: string | null | undefined): string {
@@ -172,6 +256,14 @@ function createGradeStore() {
 	 * o store só guarda e usa como filtro rígido.
 	 */
 	let docentesPersistidos = $state<Record<string, string>>({});
+	/**
+	 * O que ainda falta ao aluno, por natureza. Quem carrega é a rota
+	 * (`definirSituacao`), em segundo plano — o store só guarda e usa para pesar.
+	 *
+	 * `null` é o estado normal enquanto não chega, e o estado final quando a
+	 * integralização falha: nesse caso a montagem é exatamente a de antes.
+	 */
+	let situacao = $state<SituacaoAcademica | null>(null);
 	/**
 	 * Códigos que o aluno já está cursando agora, vindos do fluxograma. Entram na
 	 * lista sozinhos pra não conflitar com o que o aluno for adicionar; quando o
@@ -395,6 +487,18 @@ function createGradeStore() {
 		},
 
 		/** Carrega as preferências de professor confirmadas antes (vêm do banco). */
+		get situacao() {
+			return situacao;
+		},
+
+		/**
+		 * Informa o saldo de carga horária do aluno. Chamado pela rota depois de a
+		 * tela já estar de pé — a montagem funciona sem isto, só menos informada.
+		 */
+		definirSituacao(s: SituacaoAcademica | null): void {
+			situacao = s;
+		},
+
 		definirDocentesPersistidos(mapa: Record<string, string>): void {
 			docentesPersistidos = mapa;
 		},
@@ -474,6 +578,14 @@ function createGradeStore() {
 		},
 
 		/** Co-requisitos da matéria que NÃO estão na grade atual (só p/ selecionadas). */
+		/**
+		 * Obrigatórias que exigem esta optativa — o "por que" da etiqueta de
+		 * optatória. Lista vazia quando ela não destrava nada.
+		 */
+		obrigatoriasQueExigem(codigo: string): string[] {
+			return fluxogramaStore.optatorias?.get(codigo) ?? [];
+		},
+
 		coReqsFaltando(codigo: string): string[] {
 			const mat = pool.find((m) => m.codigo === codigo);
 			if (!mat?.coRequisitos?.length || !selecaoAtiva.has(codigo)) return [];
@@ -715,12 +827,14 @@ function createGradeStore() {
 			const orcamento =
 				opts?.limiteCreditos === undefined ? undefined : opts.limiteCreditos - creditosTravados;
 
+			const candidatas = pool
+				// Modo desligado: a matéria em curso não é candidata — sai da grade e
+				// devolve o horário e o crédito dela para as outras.
+				.filter((m) => !travadasAtivas.has(m.codigo))
+				.filter((m) => incluirCursando || !cursandoAtual.has(m.codigo));
+
 			const r = autoMontarGrade(
-				pool
-					// Modo desligado: a matéria em curso não é candidata — sai da grade e
-					// devolve o horário e o crédito dela para as outras.
-					.filter((m) => !travadasAtivas.has(m.codigo))
-					.filter((m) => incluirCursando || !cursandoAtual.has(m.codigo))
+				candidatas
 					.map((m) => {
 						const docenteAlvo = docentesEfetivos[m.codigo];
 						// Só considera turmas dentro dos turnos permitidos e, se houver
@@ -744,9 +858,7 @@ function createGradeStore() {
 								? PESO_CURSANDO
 								: prioritarias.has(m.codigo)
 									? PESO_PRIORITARIA
-									: m.natureza === 'obrigatoria'
-										? PESO_OBRIGATORIA
-										: PESO_PADRAO
+									: pesoDaNatureza(m.natureza, situacao, m.optatoria === true)
 						};
 					}),
 				mascaraTravada,
@@ -761,7 +873,8 @@ function createGradeStore() {
 			grades = grades.map((g) => (g.id === activeId ? { ...g, selecao: novaSel } : g));
 			ultimaMontagem = {
 				naoAlocadas: r.naoAlocadas,
-				truncado: r.truncado
+				truncado: r.truncado,
+				candidatas: candidatas.length
 			};
 			persistCenarios();
 			return ultimaMontagem;
@@ -853,10 +966,16 @@ function createGradeStore() {
 		 */
 		ajustarParaLimite(limite: number): void {
 			if (creditosSelecionados <= limite) return;
-			/** Quanto vale manter: 0 sai primeiro, 2 sai por último. */
+			/**
+			 * Quanto vale manter — a MESMA escada da montagem, não uma segunda
+			 * opinião: o slider corta pelo mesmo critério que o solver usou para
+			 * escolher, senão arrastá-lo desfaz a priorização que acabou de acontecer.
+			 * Deriva de `pesoDaNatureza` justamente para as duas não divergirem.
+			 */
 			const valorDe = (codigo: string): number => {
-				if (prioritarias.has(codigo)) return 2;
-				return pool.find((m) => m.codigo === codigo)?.natureza === 'obrigatoria' ? 1 : 0;
+				if (prioritarias.has(codigo)) return PESO_PRIORITARIA;
+				const m = pool.find((x) => x.codigo === codigo);
+				return pesoDaNatureza(m?.natureza, situacao, m?.optatoria === true);
 			};
 			const candidatos = [...selecaoAtiva.keys()]
 				.filter((codigo) => !cursandoAtivo.has(codigo))

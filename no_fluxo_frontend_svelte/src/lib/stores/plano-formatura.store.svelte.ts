@@ -7,8 +7,18 @@
 import { authStore } from '$lib/stores/auth';
 import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 import { planoFormaturaService } from '$lib/services/plano-formatura.service';
-import type { PlanoFormatura, PreferenciasPlano, PlannerChatMessage, RestricoesPlano } from '$lib/types/plano-formatura';
-import { DEFAULT_PREFERENCIAS } from '$lib/types/plano-formatura';
+import type {
+	PlanoFormatura,
+	PreferenciasPlano,
+	PreferenciaModuloLivre,
+	PlannerChatMessage,
+	RestricoesPlano
+} from '$lib/types/plano-formatura';
+import {
+	DEFAULT_PREFERENCIAS,
+	LIMITE_CREDITOS_MAX,
+	LIMITE_CREDITOS_MIN
+} from '$lib/types/plano-formatura';
 import type { AuthState } from '$lib/types/auth';
 
 export type PlanoFormaturaStatus = 'idle' | 'loading' | 'success' | 'error';
@@ -184,6 +194,61 @@ function createPlanoFormaturaStore() {
 
 			// Regenera o plano com as novas preferências
 			await this.gerar();
+		},
+
+		/**
+		 * Guarda a resposta do aluno sobre módulo livre no Montador.
+		 *
+		 * Único caminho de escrita desse campo, e de propósito: `savePreferencias`
+		 * grava o objeto de preferências INTEIRO a partir do estado em memória, então
+		 * escrever por fora faria a próxima mexida no slider apagar a resposta.
+		 *
+		 * Não regenera o plano — a preferência é do Montador (Motor 1), não do plano
+		 * de formatura, e regenerar custaria uma volta ao backend por nada.
+		 */
+		async setPreferenciaModuloLivre(moduloLivre: PreferenciaModuloLivre): Promise<void> {
+			preferencias = { ...preferencias, moduloLivre };
+
+			const idUser = getIdUser();
+			if (!idUser) return;
+			try {
+				await planoFormaturaService.savePreferencias(idUser, preferencias);
+			} catch {
+				// Best-effort: vale nesta sessão mesmo se o banco falhar; o aluno só
+				// terá de responder de novo numa próxima visita.
+			}
+		},
+
+		/**
+		 * Guarda o limite de créditos SEM regenerar o plano.
+		 *
+		 * É o que o slider do Montador usa. Ele mexe na mesma preferência do plano de
+		 * formatura — limite de carga por semestre é um só —, mas arrastar o slider
+		 * lá não pode disparar uma volta ao backend a cada ajuste, e o Montador
+		 * precisa funcionar mesmo com o plano indisponível. O plano se atualiza na
+		 * próxima vez que for gerado.
+		 *
+		 * Sem isto o valor vivia só na sessão da tela e voltava ao padrão a cada
+		 * recarga, desfazendo em silêncio a escolha do aluno.
+		 */
+		async salvarLimiteCreditos(limite: number): Promise<void> {
+			// Trava na faixa aceita pelo resto do sistema: o que for salvo aqui abre a
+			// próxima visita, e um zero persistido deixaria o aluno sem nenhuma
+			// matéria semeada e sem pista do porquê.
+			const dentroDaFaixa = Math.min(
+				LIMITE_CREDITOS_MAX,
+				Math.max(LIMITE_CREDITOS_MIN, Math.round(limite))
+			);
+			if (preferencias.limiteCreditos === dentroDaFaixa) return;
+			preferencias = { ...preferencias, limiteCreditos: dentroDaFaixa };
+
+			const idUser = getIdUser();
+			if (!idUser) return;
+			try {
+				await planoFormaturaService.savePreferencias(idUser, preferencias);
+			} catch {
+				// Best-effort: vale nesta sessão mesmo se o banco falhar.
+			}
 		},
 
 		/**

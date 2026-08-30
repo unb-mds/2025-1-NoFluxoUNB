@@ -16,12 +16,19 @@ import {
 	type MateriaGrade
 } from '$lib/stores/grade.store.svelte';
 import { getPeriodoAtivo } from '$lib/services/turmas.service';
-import { getMateriasByCodigos } from '$lib/services/materias.service';
+import { getMateriasByCodigos, searchMaterias } from '$lib/services/materias.service';
+import { buscarSugestoesModuloLivre } from '$lib/services/modulo-livre.service';
 import { getOfertaComEquivalencia } from '$lib/services/oferta-turmas.service';
 import { satisfazPreRequisitos } from '$lib/types/curso';
 import { classificarNatureza, isOptativa } from '$lib/types/materia';
 import { setHasCodeIgnoreCase, filtrarNaoCursados } from '$lib/utils/subject-codes';
 import { hasConflict, turmaRespeitaTurnos, type Turno } from '$lib/utils/horario-slots';
+import { horasParaCreditos } from '$lib/types/matriz';
+import {
+	saturada,
+	type NaturezaCH,
+	type SituacaoAcademica
+} from '$lib/services/situacao-academica.service';
 
 /**
  * Partes de pré-requisito ainda não cumpridas (código ou, quando o registro não
@@ -135,6 +142,33 @@ export function naturezaDoCodigo(codigo: string): 'obrigatoria' | 'optativa' | '
 	return classificarNatureza(m);
 }
 
+/**
+ * Optativas que ainda destravam alguma obrigatória **pendente**.
+ *
+ * `fluxogramaStore.optatorias` mapeia toda optativa que é pré-requisito de
+ * obrigatória, sem olhar se o aluno já cursou a obrigatória em questão. Uma
+ * optativa que só destrava o que ele já fez é peso morto: manter o privilégio
+ * dela custaria o lugar de uma matéria que ainda conta.
+ */
+function optatoriasVivas(): Set<string> {
+	const optatorias = fluxogramaStore.optatorias;
+	if (!optatorias || optatorias.size === 0) return new Set();
+
+	// Normaliza as concluídas UMA vez. `setHasCodeIgnoreCase` materializa o Set
+	// inteiro num array sempre que o `has` direto falha — e falhar é o caso comum
+	// aqui, já que a obrigatória que interessa é justamente a que ele ainda não
+	// cursou. Com centenas de concluídas isso custaria uma varredura por par.
+	const concluidas = new Set(
+		[...fluxogramaStore.completedCodes].map((c) => c.trim().toUpperCase())
+	);
+
+	const vivas = new Set<string>();
+	for (const [optativa, exigidaPor] of optatorias) {
+		if (exigidaPor.some((c) => !concluidas.has(c.trim().toUpperCase()))) vivas.add(optativa);
+	}
+	return vivas;
+}
+
 /** Resolve códigos → matéria + turmas (courseData primeiro; senão banco). */
 export async function construirMateriasGrade(
 	codigos: string[],
@@ -179,6 +213,7 @@ export async function construirMateriasGrade(
 	);
 
 	const out: MateriaGrade[] = [];
+	const vivas = optatoriasVivas();
 	for (const [codigo, r] of resolved) {
 		const { avisoPreRequisito, nivelPreRequisito, coRequisitos } = calcularRequisitos(r.idMateria);
 		out.push({
@@ -192,6 +227,10 @@ export async function construirMateriasGrade(
 			// Sem isto a montagem automática não distingue obrigatória de optativa e
 			// vira um maximizador de contagem — ver a escada de pesos em grade.store.
 			natureza: naturezaDoCodigo(codigo),
+			// Carimbado aqui, e não na montagem, porque é fato sobre a matéria: é o
+			// que impede a optativa que destrava uma obrigatória de ser descartada
+			// junto com as demais quando a carga optativa do aluno já fechou.
+			optatoria: vivas.has(codigo),
 			turmas: (ofertaPorCodigo.get(codigo) ?? []).map(({ turma, codigoOfertado }) => ({
 				turma,
 				mask: slotMaskFromHorario(turma.horario),
@@ -213,6 +252,16 @@ export interface SemeaduraResultado {
 	adicionadas: string[];
 	/** Obrigatórias que faltam ao aluno e não têm turma neste período. */
 	obrigatoriasSemOferta: string[];
+	/**
+	 * Naturezas deixadas de fora por já estarem cumpridas.
+	 *
+	 * Chega até a view para o aviso da montagem poder dizer o porquê: uma lista sem
+	 * optativas, sem explicação, parece defeito — e o aluno tem todo o direito de
+	 * discordar e adicionar uma na mão.
+	 */
+	naturezasSaturadas?: NaturezaCH[];
+	/** Pendentes da matriz sem turma no período — ver `PoolRecomendado`. */
+	pendentesSemOferta?: number;
 }
 
 /**
@@ -279,8 +328,15 @@ async function candidatosClassificados(
 	obrigatorias: CandidatoMatriz[];
 	optativas: CandidatoMatriz[];
 	obrigatoriasSemOferta: string[];
+	/** Pendentes da matriz sem turma no período — obrigatórias e optativas. */
+	pendentesSemOferta: number;
 }> {
-	const vazio = () => ({ obrigatorias: [], optativas: [], obrigatoriasSemOferta: [] });
+	const vazio = () => ({
+		obrigatorias: [],
+		optativas: [],
+		obrigatoriasSemOferta: [],
+		pendentesSemOferta: 0
+	});
 	const matriz = fluxogramaStore.state.courseData?.materias ?? [];
 	if (matriz.length === 0) return vazio();
 
@@ -293,9 +349,6 @@ async function candidatosClassificados(
 	if (codigos.length === 0) return vazio();
 
 	const daMatriz = new Map(matriz.map((m) => [m.codigoMateria.trim().toUpperCase(), m]));
-	// Nem todo consumidor do store expõe `optatorias` (os testes antigos, por
-	// exemplo) — sem ela a regra degrada para "toda optativa vale o mesmo".
-	const destravam = fluxogramaStore.optatorias ?? new Map<string, string[]>();
 	const posicaoNoPlano = new Map(
 		ordemDoPlano.map((c, i) => [c.trim().toUpperCase(), i] as const)
 	);
@@ -304,10 +357,18 @@ async function candidatosClassificados(
 	const optativas: CandidatoMatriz[] = [];
 	const obrigatoriasSemOferta: string[] = [];
 
+	/**
+	 * Pendentes da matriz que não têm turma neste período — obrigatórias E
+	 * optativas. É o número que explica a lista vazia de quem está no fim do
+	 * curso: a matriz ainda tem dezenas de matérias, mas nenhuma é ofertada agora.
+	 */
+	let pendentesSemOferta = 0;
+
 	for (const m of await construirMateriasGrade(codigos, periodo)) {
 		const info = daMatriz.get(m.codigo);
 		const optativa = !!info && isOptativa(info);
 		if (m.turmas.length === 0) {
+			pendentesSemOferta++;
 			// Optativa sem oferta é rotina e não vale aviso; obrigatória é notícia.
 			if (!optativa) obrigatoriasSemOferta.push(m.codigo);
 			continue;
@@ -316,7 +377,9 @@ async function candidatosClassificados(
 			materia: m,
 			requisitoPendente:
 				m.nivelPreRequisito === 'pendente' ? 2 : m.nivelPreRequisito === 'em-curso' ? 1 : 0,
-			optatoria: optativa && destravam.has(m.codigo),
+			// Já carimbado em `construirMateriasGrade`, e lá a regra é mais estrita:
+			// só conta a optativa que destrava obrigatória ainda PENDENTE.
+			optatoria: optativa && m.optatoria === true,
 			// Optativa tem nivel 0 na matriz; a separação por natureza já cuidou disso.
 			nivel: info?.nivel ?? 99,
 			ordemPlano: posicaoNoPlano.get(m.codigo) ?? SEM_PLANO
@@ -333,7 +396,7 @@ async function candidatosClassificados(
 	obrigatorias.sort(porUtilidade);
 	optativas.sort(porUtilidade);
 
-	return { obrigatorias, optativas, obrigatoriasSemOferta };
+	return { obrigatorias, optativas, obrigatoriasSemOferta, pendentesSemOferta };
 }
 
 /**
@@ -383,24 +446,69 @@ const TODOS_OS_TURNOS = new Set<Turno>(['M', 'T', 'N']);
 function escolherComOrcamento(
 	candidatos: MateriaGrade[],
 	limiteCreditos: number,
-	base: OrcamentoInicial
+	base: OrcamentoInicial,
+	/**
+	 * Teto adicional de créditos por natureza, quando se sabe quanto falta de cada
+	 * uma. Ausente = só o limite global, que é o comportamento de sempre.
+	 */
+	tetoPorNatureza?: Partial<Record<NaturezaCH, number>>
 ): MateriaGrade[] {
 	const escolhidas: MateriaGrade[] = [];
 	let mask = base.mask;
 	let creditos = base.creditos;
+	const gastoPorNatureza = new Map<NaturezaCH, number>();
 
 	for (const m of candidatos) {
 		if (creditos + m.creditos > limiteCreditos) continue; // pode caber uma menor adiante
+
+		// Optatória escapa do teto da natureza dela: ela não está ali para fechar
+		// carga optativa, e sim para destravar uma obrigatória. Matéria sem natureza
+		// resolvida também escapa — herdar o teto da optativa faria a lista descartar
+		// em silêncio matéria que talvez nem seja optativa, por falta de dado.
+		const teto = m.optatoria === true || !m.natureza ? undefined : tetoPorNatureza?.[m.natureza];
+		if (teto !== undefined) {
+			const gasto = gastoPorNatureza.get(m.natureza!) ?? 0;
+			if (gasto + m.creditos > teto) continue;
+		}
+
 		const turma = m.turmas.find(
 			(t) => turmaRespeitaTurnos(t.mask, base.turnos) && !hasConflict(t.mask, mask)
 		);
 		if (!turma) continue;
 		mask |= turma.mask;
 		creditos += m.creditos;
+		if (m.optatoria !== true && m.natureza) {
+			gastoPorNatureza.set(m.natureza, (gastoPorNatureza.get(m.natureza) ?? 0) + m.creditos);
+		}
 		escolhidas.push(m);
 	}
 
 	return escolhidas;
+}
+
+/**
+ * Quanto de cada natureza vale a pena semear, dado o que ainda falta ao aluno.
+ *
+ * Semear cinco optativas para quem precisa de duas não é generosidade: as três a
+ * mais empurram para fora da lista a obrigatória que ele ainda deve. Obrigatória
+ * fica de fora do teto de propósito — quem manda nela é a lista de pendentes da
+ * matriz, não a conta de horas (as duas divergem em quem mudou de matriz).
+ *
+ * Sem situação, devolve `undefined`: nenhum teto, o comportamento de antes.
+ */
+function tetoPorNatureza(
+	situacao: SituacaoAcademica | undefined
+): Partial<Record<NaturezaCH, number>> | undefined {
+	if (!situacao) return undefined;
+
+	const teto: Partial<Record<NaturezaCH, number>> = {};
+	for (const natureza of ['optativa', 'modulo_livre'] as const) {
+		const faltam = situacao.faltam[natureza];
+		// `null` é "não sei quanto falta" — e não saber não pode virar um teto.
+		if (faltam === null) continue;
+		teto[natureza] = Math.max(0, horasParaCreditos(faltam));
+	}
+	return teto;
 }
 
 /** O que a semeadura devolve: a lista pronta e o que ficou de fora, com o motivo. */
@@ -409,6 +517,23 @@ export interface PoolRecomendado {
 	materias: MateriaGrade[];
 	/** Obrigatórias pendentes da matriz que não têm turma no período. */
 	obrigatoriasSemOferta: string[];
+	/**
+	 * Naturezas que ficaram de fora por já estarem cumpridas.
+	 *
+	 * Existe para a tela poder dizer o porquê: "sumiram as optativas" sem
+	 * explicação parece bug, e o aluno tem o direito de discordar e adicionar uma
+	 * na mão.
+	 */
+	naturezasSaturadas: NaturezaCH[];
+	/**
+	 * Quantas matérias que o aluno ainda deve não têm turma neste período.
+	 *
+	 * É a informação que explica a lista vazia de quem está no fim do curso: a
+	 * matriz ainda tem dezenas de pendências, e nenhuma delas é ofertada agora.
+	 * Sem esse número a tela culpa o filtro de "matérias em curso" e manda o aluno
+	 * mexer num botão que não muda nada.
+	 */
+	pendentesSemOferta: number;
 }
 
 /**
@@ -440,6 +565,23 @@ export async function montarPoolRecomendado(
 		excluir?: Iterable<string>;
 		/** O que a grade já ocupa. Ausente = lista partindo do zero. */
 		base?: OrcamentoInicial;
+		/**
+		 * O que ainda falta ao aluno, por natureza. Ausente — integralização que
+		 * falhou, ou tela que não a carrega — semeia como sempre semeou.
+		 */
+		situacao?: SituacaoAcademica;
+		/**
+		 * As matérias em curso vão ocupar a grade? Ligado (o padrão), o crédito
+		 * delas sai do orçamento antes de recomendarmos qualquer coisa.
+		 *
+		 * Desligado, elas continuam na lista — o modo esconde da grade, não apaga a
+		 * matrícula — mas param de consumir o orçamento, porque não vão ocupar vaga
+		 * nenhuma. Sem essa distinção, quem já cursa perto do teto abria o Montador,
+		 * desligava as em curso para ver o que mais podia pegar, e recebia uma lista
+		 * só com as próprias matérias em curso: o orçamento tinha sido gasto por
+		 * matérias que nem iam entrar.
+		 */
+		cursandoOcupaOrcamento?: boolean;
 	}
 ): Promise<PoolRecomendado> {
 	const base = opts.base ?? { mask: 0n, creditos: 0, turnos: TODOS_OS_TURNOS };
@@ -456,24 +598,115 @@ export async function montarPoolRecomendado(
 	// Só o crédito é debitado, não o horário: a turma real da matrícula é escolhida
 	// depois (`preencherTurmasReais`), então travar a máscara numa turma qualquer
 	// bloquearia horários que a matéria talvez nem ocupe.
-	const creditosEmCurso = materiasEmCurso.reduce((acc, m) => acc + m.creditos, 0);
+	//
+	// E só quando elas de fato vão para a grade: com o modo "sem as cursando"
+	// ligado, cobrar o crédito de quem não vai ocupar vaga é o que deixava o aluno
+	// sem nenhuma sugestão na tela que ele abriu justamente para ver o que pegar.
+	const creditosEmCurso =
+		opts.cursandoOcupaOrcamento === false
+			? 0
+			: materiasEmCurso.reduce((acc, m) => acc + m.creditos, 0);
 
-	const { obrigatorias, optativas, obrigatoriasSemOferta } = await candidatosClassificados(
+	const { obrigatorias, optativas, obrigatoriasSemOferta, pendentesSemOferta } =
+		await candidatosClassificados(
 		periodo,
 		[...fora, ...emCurso],
 		opts.ordemDoPlano ?? []
 	);
 
+	// Natureza cumprida sai da recomendação — mas a optatória fica: ela não está na
+	// lista para fechar carga optativa, e sim para destravar uma obrigatória.
+	// Obrigatória nunca é filtrada aqui: quem diz se ainda falta obrigatória é esta
+	// lista de pendentes, não a conta de horas do histórico.
+	const naturezasSaturadas: NaturezaCH[] = (['optativa', 'modulo_livre'] as const).filter((n) =>
+		saturada(opts.situacao ?? null, n)
+	);
+	const candidatas = [...obrigatorias, ...optativas]
+		.map((c) => c.materia)
+		.filter(
+			(m) =>
+				m.optatoria === true ||
+				!m.natureza ||
+				!naturezasSaturadas.includes(m.natureza as NaturezaCH)
+		);
+
 	const recomendadas = escolherComOrcamento(
-		[...obrigatorias, ...optativas].map((c) => c.materia),
+		candidatas,
 		opts.limiteCreditos,
-		{ ...base, creditos: base.creditos + creditosEmCurso }
+		{ ...base, creditos: base.creditos + creditosEmCurso },
+		tetoPorNatureza(opts.situacao)
 	);
 
 	return {
 		materias: [...materiasEmCurso, ...recomendadas],
-		obrigatoriasSemOferta
+		obrigatoriasSemOferta,
+		naturezasSaturadas,
+		pendentesSemOferta
 	};
+}
+
+/**
+ * Candidatas a módulo livre sobre um tema, com turma no período.
+ *
+ * Módulo livre é definido por AUSÊNCIA — é o que não está na matriz do aluno —,
+ * o que na prática significa o catálogo inteiro da UnB. Por isso a função exige
+ * um tema em vez de aceitar "me sugira": sem um recorte não existe recomendação,
+ * existe uma listagem em ordem de código fingindo ser uma.
+ *
+ * A busca é a mesma do catálogo global (`searchMaterias`, por código e nome).
+ * Casa com o vocabulário do aluno até onde o nome da matéria alcança; procurar
+ * por afinidade de assunto ("quero algo de robótica") é o que o chat da Darcy faz
+ * com busca semântica, e continua sendo o caminho para isso.
+ *
+ * Devolve lista vazia — nunca lança — quando não há tema ou nada sobra.
+ */
+export async function candidatosModuloLivre(
+	tema: string,
+	periodo: string,
+	excluir: Iterable<string> = []
+): Promise<MateriaGrade[]> {
+	const termo = tema.trim();
+	if (termo.length < 2) return [];
+
+	// Busca semântica primeiro: quem digita "robótica" não quer só as matérias com
+	// "robótica" no nome, e módulo livre se escolhe por interesse. A busca literal
+	// do catálogo fica de reserva para quando o backend não responde — sem ela, uma
+	// queda de rede transformaria "não consegui procurar" em "não existe nada".
+	let codigosAchados: string[] = [];
+	const semantica = await buscarSugestoesModuloLivre(termo);
+	if (!semantica.falhou) {
+		codigosAchados = semantica.materias.map((m) => m.codigo);
+	} else {
+		try {
+			codigosAchados = (await searchMaterias(termo)).map((m) => m.codigo);
+		} catch {
+			return []; // a tela avisa que não deu para buscar; não é erro de tela
+		}
+	}
+	const achados = codigosAchados.map((codigo) => ({ codigo }));
+	if (achados.length === 0) return [];
+
+	const daMatriz = new Set(
+		(fluxogramaStore.state.courseData?.materias ?? []).map((m) =>
+			m.codigoMateria.trim().toUpperCase()
+		)
+	);
+	const fora = new Set([...excluir].map((c) => c.trim().toUpperCase()));
+
+	// Fora da matriz é o que define módulo livre; o resto é higiene: não sugerir o
+	// que ele já cursou, já cursa, ou já pôs na lista.
+	const codigos = filtrarNaoCursados(
+		achados
+			.map((a) => a.codigo.trim().toUpperCase())
+			.filter((c) => !daMatriz.has(c) && !fora.has(c)),
+		fluxogramaStore.completedCodes,
+		fluxogramaStore.currentCodes ?? new Set<string>()
+	);
+	if (codigos.length === 0) return [];
+
+	// Sem turma no período a matéria não vira bloco no calendário — não há grade a
+	// montar com ela, então sugeri-la só gastaria o tempo do aluno.
+	return (await construirMateriasGrade(codigos, periodo)).filter((m) => m.turmas.length > 0);
 }
 
 /**
