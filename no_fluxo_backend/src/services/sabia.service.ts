@@ -152,8 +152,14 @@ export class SabiaService {
 
     /**
      * Stream the Sabiá AI response via SSE, piping events from the FastAPI server.
+     *
+     * O Python emite um evento `usage` (`stage: "usage"`) antes do `done` com os
+     * tokens gastos nas chamadas Maritaca da requisição — parseado aqui e NÃO
+     * repassado pro cliente (o front não o consome). Todo o resto do stream passa
+     * cru, como antes. Bufferiza por `\n\n` (delimitador de evento SSE) porque um
+     * evento pode chegar partido entre dois `read()` do TCP.
      */
-    async analyzarInteresseStream(interesse: string, matrizCurricular: string = '', res: Response): Promise<void> {
+    async analyzarInteresseStream(interesse: string, matrizCurricular: string = '', res: Response): Promise<{ usage?: SabiaUsage[] }> {
         if (!this.available) {
             throw new Error('Sabiá service is not configured');
         }
@@ -180,21 +186,54 @@ export class SabiaService {
 
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
+        let buffer = '';
+        let usage: SabiaUsage[] | undefined;
 
         try {
             while (true) {
                 const { done, value } = await reader.read();
                 if (done) break;
-                const chunk = decoder.decode(value, { stream: true });
-                res.write(chunk);
-                // Flush if available (for compression middleware)
-                if (typeof (res as any).flush === 'function') {
-                    (res as any).flush();
+                buffer += decoder.decode(value, { stream: true });
+
+                let boundary: number;
+                let forward = '';
+                while ((boundary = buffer.indexOf('\n\n')) !== -1) {
+                    const rawEvent = buffer.slice(0, boundary + 2);
+                    buffer = buffer.slice(boundary + 2);
+
+                    const match = rawEvent.match(/^data: (.*)\n\n$/s);
+                    if (match) {
+                        try {
+                            const parsed = JSON.parse(match[1]);
+                            if (parsed.stage === 'usage' && Array.isArray(parsed.calls)) {
+                                usage = parsed.calls;
+                                continue; // evento interno — não repassa pro cliente
+                            }
+                        } catch {
+                            // não parseou como JSON — repassa cru abaixo
+                        }
+                    }
+                    forward += rawEvent;
                 }
+
+                if (forward) {
+                    res.write(forward);
+                    // Flush if available (for compression middleware)
+                    if (typeof (res as any).flush === 'function') {
+                        (res as any).flush();
+                    }
+                }
+            }
+            // Sobra sem `\n\n` final (não deveria conter o evento usage, que sempre
+            // fecha com o delimitador) — repassa como está.
+            if (buffer) {
+                res.write(buffer);
             }
         } finally {
             res.end();
         }
+
+        return { usage };
     }
 
     /**

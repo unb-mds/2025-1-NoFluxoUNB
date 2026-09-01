@@ -1,5 +1,6 @@
 import { SupabaseWrapper } from "../supabase_wrapper";
 import { createControllerLogger } from "../utils/controller_logger";
+import { logAiUsage, type LlmUsage } from "../utils/ai_usage_logger";
 import { MARITACA_URL, MARITACA_MODELS } from "../config/maritaca";
 import type { MateriaInput } from "../types/planejamento";
 
@@ -22,6 +23,16 @@ export class DificuldadeAgenteService {
             logger.warn("MARITACA_API_KEY não configurada. Pulando avaliação de dificuldade.");
             return;
         }
+
+        // Tracking de custo (dashboard admin): só loga se de fato chamou a LLM —
+        // as matérias resolvidas só com dado real (avaliações/histórico) não geram
+        // requisição nenhuma.
+        const inicio = Date.now();
+        let chamouLlm = false;
+        let houveErro = false;
+        let promptTokensAcc = 0;
+        let completionTokensAcc = 0;
+        let totalTokensAcc = 0;
 
         // Separar matérias que valem a pena avaliar (tem nome) das que não têm (nome == codigo)
         const materiasComNome = materiasFaltantes.filter(m => m.nome && m.nome !== m.codigo);
@@ -308,8 +319,15 @@ ${listaMaterias}`;
                     }
 
                     const data = (await response.json()) as any;
+                    chamouLlm = true;
+                    const u = data.usage;
+                    if (u) {
+                        promptTokensAcc += u.prompt_tokens ?? 0;
+                        completionTokensAcc += u.completion_tokens ?? 0;
+                        totalTokensAcc += u.total_tokens ?? ((u.prompt_tokens ?? 0) + (u.completion_tokens ?? 0));
+                    }
                     let content = data.choices?.[0]?.message?.content || "";
-                    
+
                     // Limpeza e Parse do formato CODIGO|NOTA|MOTIVO
                     content = content.replace(/```[a-zA-Z]*\n?/g, "").replace(/```/g, "").trim();
                     const linhas = content.split("\n");
@@ -379,6 +397,7 @@ ${listaMaterias}`;
                         continue;
                     }
                     logger.error(`Erro ao avaliar chunk da LLM: ${error.message}`);
+                    houveErro = true;
                     for (const m of chunk) {
                         m.dificuldadeEstimada = 4;
                         m.motivoDificuldade = "Erro na IA";
@@ -388,6 +407,22 @@ ${listaMaterias}`;
             }
         }
         
+        if (chamouLlm) {
+            const usage: LlmUsage[] = [{
+                model: MARITACA_MODELS.CLASSIFICACAO,
+                prompt_tokens: promptTokensAcc,
+                completion_tokens: completionTokensAcc,
+                total_tokens: totalTokensAcc || (promptTokensAcc + completionTokensAcc),
+            }];
+            logAiUsage({
+                endpoint: "planejamento-gerar-plano-dificuldade",
+                durationMs: Date.now() - inicio,
+                success: !houveErro,
+                requestExcerpt: `${materiasComNome.length} materias`,
+                usage,
+            });
+        }
+
         await Promise.all(updatePromises);
         logger.info("Avaliação de dificuldade concluída e salva no banco.");
     }
