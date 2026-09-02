@@ -9,6 +9,7 @@
 		import { portal } from '$lib/actions/portal';
 import { ROUTES } from '$lib/config/routes';
 	import { formatLocalSigaa, formatVagas, horarioLegivel } from '$lib/utils/sigaa';
+	import { getLogicalCodeGroups } from '$lib/utils/expressao-logica';
 	import ManualStatusEditor from './ManualStatusEditor.svelte';
 	import SubjectClassesTab from './SubjectClassesTab.svelte';
 
