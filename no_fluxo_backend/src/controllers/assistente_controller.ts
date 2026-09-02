@@ -176,16 +176,19 @@ export const AssistenteController: EndpointController = {
 
             try {
                 logger.info(`Streaming with Sabiá: "${materia}"`);
-                await sabia.analyzarInteresseStream(materia, matrizCurricular, res);
-                // Fallback: o stream pipa SSE direto; tokens não são capturados aqui.
-                // Loga a requisição (duração/contagem) sem tokens — custo real vem
-                // do fluxo não-stream. Ver nota no plano.
+                const { usage } = await sabia.analyzarInteresseStream(materia, matrizCurricular, res);
+                // Tokens reais vêm do evento SSE "usage" que o Python emite antes do
+                // "done" (ver SabiaService.analyzarInteresseStream). Fallback: se a
+                // Maritaca não mandar include_usage em algum caminho, o evento não
+                // chega e loga com tokens = 0 — a requisição ainda é contabilizada.
                 logAiUsage({
                     endpoint: 'analyze-sabia-stream',
                     durationMs: Date.now() - startTime,
                     success: true,
                     requestExcerpt: materia,
-                    usage: [{ model: 'sabia-4', prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 }]
+                    usage: usage && usage.length > 0
+                        ? usage
+                        : [{ model: 'sabia-4', prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 }]
                 });
                 return;
             } catch (error) {

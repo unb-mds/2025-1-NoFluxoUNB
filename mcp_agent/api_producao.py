@@ -4,6 +4,8 @@ from fastapi.responses import StreamingResponse
 import os
 import json
 import re
+import time
+from math import ceil
 from pydantic import BaseModel
 from openai import OpenAI
 import google.generativeai as genai
@@ -464,6 +466,36 @@ class BuscaMaterias(BaseModel):
     termos_busca: list[str] = []
 
 
+def _log_ai_usage_embeddings(
+    endpoint: str, termos: list[str], duration_ms: int, success: bool
+) -> None:
+    """Loga uso de embeddings Gemini em `ai_usage_log` (tracking de custo no
+    dashboard admin). Fire-and-forget best-effort: nunca lança, não bloqueia a
+    resposta ao chamador além do próprio insert síncrono do supabase-py.
+
+    `genai.embed_content` não devolve contagem de tokens — aproxima por
+    len(texto)/4 (heurística documentada; preço real fica configurado em
+    `ai_pricing` para `gemini-embedding-001`).
+    """
+    try:
+        texto_concatenado = " ".join(termos)
+        tokens_estimados = max(1, ceil(len(texto_concatenado) / 4))
+        supabase.table("ai_usage_log").insert(
+            {
+                "endpoint": endpoint,
+                "model": "gemini-embedding-001",
+                "prompt_tokens": tokens_estimados,
+                "completion_tokens": 0,
+                "total_tokens": tokens_estimados,
+                "duration_ms": duration_ms,
+                "success": success,
+                "request_excerpt": texto_concatenado[:120],
+            }
+        ).execute()
+    except Exception as e:
+        print(f"[WARN] Falha ao logar uso de embeddings ({endpoint}): {e}")
+
+
 @app.post("/buscar-materias")
 async def buscar_materias(busca: BuscaMaterias):
     termos = [t for t in (busca.termos_busca or []) if t and t.strip()]
@@ -471,7 +503,10 @@ async def buscar_materias(busca: BuscaMaterias):
         raise HTTPException(
             status_code=400, detail="Informe ao menos um termo em 'termos_busca'."
         )
+    inicio = time.time()
     resultado_json = ferramenta_buscar_materias_unb(termos)
+    duration_ms = int((time.time() - inicio) * 1000)
+    _log_ai_usage_embeddings("buscar-materias", termos, duration_ms, True)
     try:
         materias = json.loads(resultado_json)
     except Exception:

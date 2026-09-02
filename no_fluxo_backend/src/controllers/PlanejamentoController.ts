@@ -23,6 +23,7 @@ import { Pair, Utils } from "../utils";
 import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
 import { createControllerLogger } from "../utils/controller_logger";
+import { logAiUsage } from "../utils/ai_usage_logger";
 import {
     gerarPlanoCompletov2,
     construirSubstitutosPorCodigo,
@@ -787,6 +788,7 @@ export const PlanejamentoController: EndpointController = {
             RequestType.POST,
             async (req: Request, res: Response) => {
                 const logger = createControllerLogger("PlanejamentoController", "chat");
+                const startTime = Date.now();
 
                 try {
                     // ========== JWT AUTHENTICATION ==========
@@ -853,6 +855,15 @@ export const PlanejamentoController: EndpointController = {
                     const resultado = await svc.conversar(historico, ctx);
 
                     logger.info(`Conversa concluída. Resposta: ${resultado.reply.slice(0, 50)}...`);
+
+                    const ultimaMsgUsuario = historico.slice().reverse().find((m) => m.role === "user");
+                    logAiUsage({
+                        endpoint: "planejamento-chat",
+                        durationMs: Date.now() - startTime,
+                        success: true,
+                        requestExcerpt: ultimaMsgUsuario?.content ?? "",
+                        usage: resultado.usage,
+                    });
 
                     await resolverNomesSemestreAtual(resultado.plano);
 
