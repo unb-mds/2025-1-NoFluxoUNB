@@ -149,3 +149,7 @@ docker-compose.yml
 
 # Worktrees isolados criados pelo harness para agents paralelos (isolation: "worktree").
 .claude/worktrees/
+
+# Levantamento de custos para investidor (documento interno, não versionado).
+documentacao/levantamento_custos_investidor.md
+documentacao/levantamento_custos_investidor.pdf
