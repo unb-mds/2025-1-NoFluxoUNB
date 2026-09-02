@@ -1,0 +1,39 @@
+# CI do app mobile Flutter — roda apenas quando algo em no_fluxo_app/ muda,
+# para não pesar nos PRs do site/backend (e vice-versa: os outros workflows
+# não rodam para mudanças só do app).
+name: App Flutter CI
+
+on:
+  pull_request:
+    paths:
+      - "no_fluxo_app/**"
+  push:
+    branches: [main]
+    paths:
+      - "no_fluxo_app/**"
+
+jobs:
+  analyze-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: no_fluxo_app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Dependências
+        run: flutter pub get
+
+      - name: Formatação
+        run: dart format --output=none --set-exit-if-changed lib test
+
+      - name: Análise estática
+        run: flutter analyze
+
+      - name: Testes
+        run: flutter test
