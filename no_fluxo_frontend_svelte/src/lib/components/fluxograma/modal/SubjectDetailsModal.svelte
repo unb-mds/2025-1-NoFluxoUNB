@@ -9,6 +9,7 @@
 		import { portal } from '$lib/actions/portal';
 import { ROUTES } from '$lib/config/routes';
 	import { formatLocalSigaa, formatVagas, horarioLegivel } from '$lib/utils/sigaa';
+	import { getLogicalCodeGroups } from '$lib/utils/expressao-logica';
 	import ManualStatusEditor from './ManualStatusEditor.svelte';
 	import SubjectClassesTab from './SubjectClassesTab.svelte';
 
@@ -89,7 +90,7 @@ import { ROUTES } from '$lib/config/routes';
 	onclick={handleBackdropClick}
 >
 	<div
-		class="relative max-h-[90vh] w-full max-w-lg overflow-hidden rounded-xl border border-white/10 bg-gray-900/95 shadow-2xl backdrop-blur-xl sm:max-h-[85vh] sm:rounded-2xl"
+		class="relative max-h-[90dvh] w-full max-w-lg overflow-hidden rounded-xl border border-white/10 bg-gray-900/95 shadow-2xl backdrop-blur-xl sm:max-h-[85dvh] sm:rounded-2xl"
 		role="dialog"
 		aria-modal="true"
 		aria-label="Detalhes da matéria"
