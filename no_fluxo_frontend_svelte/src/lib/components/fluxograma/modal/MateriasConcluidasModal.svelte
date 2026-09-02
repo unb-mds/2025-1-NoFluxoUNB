@@ -208,7 +208,7 @@
 	role="presentation"
 	onclick={(e) => e.target === e.currentTarget && onclose()}
 >
-	<div class="flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-white/10 bg-gray-900/95 shadow-2xl backdrop-blur-xl">
+	<div class="flex max-h-[90dvh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-white/10 bg-gray-900/95 shadow-2xl backdrop-blur-xl">
 		<div class="flex items-center justify-between border-b border-fuchsia-400/30 bg-gradient-to-r from-fuchsia-600/25 via-purple-600/20 to-cyan-600/20 px-4 py-3 sm:px-6">
 			<div>
 				<h2 class="text-base font-bold text-white sm:text-lg">Materias concluidas do usuario</h2>

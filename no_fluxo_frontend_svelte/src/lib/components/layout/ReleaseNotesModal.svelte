@@ -108,8 +108,15 @@
 			onkeydown={(e) => e.key === 'Enter' && marcarVisto()}
 		></div>
 
+		<!--
+			Altura em dvh (não vh): no mobile, 100vh é a altura SEM a barra do
+			navegador, então o card estourava a área visível e o rodapé com
+			"Entendi" ficava fora da tela — sem scroll no overlay e sem backdrop
+			sobrando para tocar, o usuário ficava preso. Mesmo padrão do
+			TrocarTurmaDialog.
+		-->
 		<div
-			class="relative z-10 flex max-h-[88vh] w-full max-w-md flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0e1117] shadow-2xl"
+			class="relative z-10 flex max-h-[88dvh] w-full max-w-md flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0e1117] shadow-2xl"
 			transition:fly={{ y: 24, duration: 250 }}
 		>
 			<!-- Header -->
@@ -135,8 +142,8 @@
 				</button>
 			</div>
 
-			<!-- Novidades -->
-			<div class="min-h-0 overflow-y-auto px-6 py-6">
+			<!-- Novidades (overscroll-contain: rolar aqui não arrasta a página) -->
+			<div class="min-h-0 overflow-y-auto overscroll-contain px-6 py-6">
 				<ul class="flex flex-col gap-3">
 					{#each RELEASE_NOVIDADES as novidade}
 						<li class="flex items-start gap-2.5">
@@ -191,8 +198,11 @@
 				{/if}
 			</div>
 
-			<!-- Ações -->
-			<div class="flex items-center justify-between gap-3 border-t border-white/8 px-6 py-4">
+			<!-- Ações (shrink-0 + safe area: o rodapé nunca some nem fica sob a
+			     barra de gestos do iPhone) -->
+			<div
+				class="flex shrink-0 items-center justify-between gap-3 border-t border-white/8 px-6 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))]"
+			>
 				<button
 					type="button"
 					onclick={marcarVisto}
