@@ -104,7 +104,7 @@ npm install
 Crie um arquivo `.env` dentro de `no_fluxo_backend/` com as chaves do Supabase:
 
 ```ini
-PORT=3325
+PORT=porta
 SUPABASE_URL=https://sua-url-supabase.supabase.co
 SUPABASE_KEY=sua-chave-anon-ou-service-role
 ```
@@ -115,7 +115,7 @@ SUPABASE_KEY=sua-chave-anon-ou-service-role
 npm run dev
 ```
 
-O servidor iniciará em `http://localhost:3325`.
+O servidor iniciará em `http://localhost:porta`.
 
 ---
 
@@ -135,7 +135,7 @@ Crie o arquivo `.env` em `no_fluxo_frontend_svelte/`:
 ```ini
 PUBLIC_SUPABASE_URL=https://sua-url-supabase.supabase.co
 PUBLIC_SUPABASE_ANON_KEY=sua-chave-anonima
-PUBLIC_BACKEND_URL=http://localhost:3325
+PUBLIC_BACKEND_URL=http://localhost:porta
 ```
 
 ### 4.3. Iniciar o Frontend em Modo Desenvolvimento
