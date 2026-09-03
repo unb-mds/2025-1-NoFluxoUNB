@@ -15,6 +15,7 @@ import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 import { AssistenteService, type AssistentePlanoInput } from '$lib/services/assistente.service';
 import { chatService } from '$lib/services/chat.service';
 import { planoFormaturaService } from '$lib/services/plano-formatura.service';
+import { mensagemErroChat } from '$lib/utils/ai-errors';
 import type { PlannerChatMessage } from '$lib/types/plano-formatura';
 import type { AuthState } from '$lib/types/auth';
 
@@ -126,12 +127,11 @@ function createAssistenteChatStore() {
 				}
 				chatMessages = [...chatMessages, { role: 'assistant', content: reply }];
 			} catch (err) {
-				const msg = err instanceof Error ? err.message : 'Erro ao falar com o assistente';
-				error = msg;
-				chatMessages = [
-					...chatMessages,
-					{ role: 'assistant', content: `Ops, houve um erro no sistema. Tente novamente.` }
-				];
+				// Bolha amigável: "sem créditos" da Maritaca ganha texto próprio;
+				// o resto cai no fallback genérico (ver $lib/utils/ai-errors).
+				const bolha = mensagemErroChat(err);
+				error = bolha;
+				chatMessages = [...chatMessages, { role: 'assistant', content: bolha }];
 			} finally {
 				chatLoading = false;
 			}

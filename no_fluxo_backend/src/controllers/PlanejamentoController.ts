@@ -31,6 +31,7 @@ import {
     calcularSemestreAtualStr,
 } from "../services/plano_formatura.service";
 import { PlanejadorAgenteService, type MensagemChat, type AgenteContexto } from "../services/planejador_agente.service";
+import { AI_SEM_CREDITOS_BODY, isMaritacaSemCreditos } from "../config/maritaca_errors";
 import { sugerirModuloLivre } from "../services/chat/actuators/modulo_livre_actuator";
 import { DificuldadeAgenteService } from "../services/dificuldade_agente.service";
 import type {
@@ -873,6 +874,10 @@ export const PlanejamentoController: EndpointController = {
                         restricoes: resultado.restricoes,
                     });
                 } catch (err: any) {
+                    if (isMaritacaSemCreditos(err)) {
+                        logger.error("Chat do planejador: Maritaca sem créditos ativos");
+                        return res.status(503).json(AI_SEM_CREDITOS_BODY);
+                    }
                     logger.error(
                         `Erro ao processar chat: ${err?.message || String(err)}`
                     );

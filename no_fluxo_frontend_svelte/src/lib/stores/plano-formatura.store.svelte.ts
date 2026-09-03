@@ -7,6 +7,7 @@
 import { authStore } from '$lib/stores/auth';
 import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 import { planoFormaturaService } from '$lib/services/plano-formatura.service';
+import { mensagemErroChat } from '$lib/utils/ai-errors';
 import type {
 	PlanoFormatura,
 	PreferenciasPlano,
@@ -332,8 +333,12 @@ function createPlanoFormaturaStore() {
 					}
 				}
 			} catch (err) {
-				const msg = err instanceof Error ? err.message : 'Erro ao chamar agente de planejamento';
-				error = msg;
+				// Antes o chat ficava mudo em erro (só setava `error`, que ninguém
+				// renderiza). Agora responde com bolha: texto próprio pra "sem
+				// créditos" da Maritaca, fallback genérico pro resto.
+				const bolha = mensagemErroChat(err);
+				error = bolha;
+				chatMessages = [...chatMessages, { role: 'assistant', content: bolha }];
 			} finally {
 				chatLoading = false;
 			}

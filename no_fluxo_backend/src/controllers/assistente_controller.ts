@@ -20,6 +20,7 @@ import { SupabaseWrapper } from '../supabase_wrapper';
 import { PlanejadorAgenteService, type MensagemChat } from '../services/planejador_agente.service';
 import { criarContextoLeve } from '../services/agente/context';
 import { montarContextoAgente } from './PlanejamentoController';
+import { AI_SEM_CREDITOS_BODY, isMaritacaSemCreditos } from '../config/maritaca_errors';
 
 const ragflow = new RagflowService();
 const sabia = new SabiaService();
@@ -132,6 +133,10 @@ export const AssistenteController: EndpointController = {
                     restricoes: resultado.restricoes,
                 });
             } catch (err: any) {
+                if (isMaritacaSemCreditos(err)) {
+                    logger.error('Chat da assistente: Maritaca sem créditos ativos');
+                    return res.status(503).json(AI_SEM_CREDITOS_BODY);
+                }
                 logger.error(`Erro no chat da assistente: ${err?.message || String(err)}`);
                 return res.status(500).json({ error: err?.message || 'Erro ao processar mensagem do chat.' });
             }

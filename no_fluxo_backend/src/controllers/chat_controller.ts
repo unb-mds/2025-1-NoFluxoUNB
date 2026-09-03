@@ -26,6 +26,7 @@ import { SupabaseSession } from "../services/chat/supabase_session";
 import { createOrquestradorAgent } from "../services/chat/orquestrador_agent";
 import { isMaritacaConfigured } from "../services/chat/model_provider";
 import { MARITACA_MODELS } from "../config/maritaca";
+import { AI_SEM_CREDITOS_BODY, isMaritacaSemCreditos } from "../config/maritaca_errors";
 
 export const ChatController: EndpointController = {
     name: "chat",
@@ -111,6 +112,10 @@ export const ChatController: EndpointController = {
 
                 return res.status(200).json({ reply: resultado.finalOutput });
             } catch (error) {
+                if (isMaritacaSemCreditos(error)) {
+                    logger.error("Chat (orquestrador): Maritaca sem créditos ativos");
+                    return res.status(503).json(AI_SEM_CREDITOS_BODY);
+                }
                 const msg = error instanceof Error ? error.message : String(error);
                 logger.error(`Erro no chat: ${msg}`);
                 return res.status(500).json({ error: `Erro interno no servidor: ${msg}` });
