@@ -31,6 +31,29 @@ Valor definido a partir do campo `natureza` nos JSONs de estrutura curricular (e
 
 ---
 
+## Ambiente e Instalação de Dependências
+
+Antes de rodar qualquer script desta pasta, certifique-se de instalar as dependências necessárias listadas em `requirements.txt`.
+
+Recomendamos utilizar o ambiente virtual da raiz do projeto (`venv`):
+
+```bash
+# 1. Ativar o ambiente virtual (se ainda não estiver ativo):
+# No Windows (PowerShell):
+..\..\venv\Scripts\Activate.ps1
+# No Windows (CMD):
+..\..\venv\Scripts\activate.bat
+# No Linux/macOS:
+source ../../venv/bin/activate
+
+# 2. Instalar as dependências específicas desta pasta:
+python -m pip install -r requirements.txt
+```
+
+> **Dica:** Sempre use `python -m pip install ...` em vez de apenas `pip install` para garantir que as bibliotecas sejam instaladas no mesmo interpretador Python que você está executando.
+
+---
+
 ## Scripts
 
 ### 1. `01_insert_cursos_matrizes_materias.py` (Fase 1)

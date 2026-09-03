@@ -5,6 +5,9 @@
   "private": true,
   "packageManager": "pnpm@10.12.1",
   "scripts": {
+    "setup": "python scripts/setup_env.py --node",
+    "setup:python": "python scripts/setup_env.py",
+    "setup:node": "pnpm install",
     "dev": "pnpm --filter no_fluxo_frontend_svelte dev",
     "dev:frontend": "pnpm --filter no_fluxo_frontend_svelte dev",
     "dev:backend": "pnpm --filter no-fluxo-backend dev",

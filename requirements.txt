@@ -1,29 +1,43 @@
-# Web Frameworks and UI
-Flask
-Flask-Cors
-streamlit
+# ==============================================================================
+# NoFluxo UNB - Requisitos Consolidados do Projeto Python
+# ==============================================================================
+# Para instalar tudo de uma vez no ambiente virtual (recomendado):
+#   python -m pip install -r requirements.txt
+#
+# Para instalar apenas dependências de um módulo específico:
+#   DBA / Banco:   python -m pip install -r DBA/database/requirements.txt
+#   Scraping:      python -m pip install -r DBA/scraping/requirements.txt
+#   AI Agent:      python -m pip install -r mcp_agent/requirements.txt
+#   Parse PDF:     python -m pip install -r no_fluxo_backend/parse-pdf/requirements.txt
+# ==============================================================================
 
-# PDF and Image Processing
-PyPDF2
-Pillow
-pdf2image
-pytesseract
+# --- DBA / Banco de Dados (DBA/database) ---
+supabase>=2.24.0
+tenacity>=8.2.0
+python-dotenv>=1.0.0
 
-# Data Scraping and HTTP Requests
-beautifulsoup4
-requests
-tqdm
+# --- Scraping e Coleta de Dados (DBA/scraping) ---
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+requests>=2.31.0
+tqdm>=4.66.0
+pandas>=2.0.0
 
-# Data Handling
-pandas
+# --- Processamento de PDF e OCR (Parse PDF) ---
+Flask>=2.3.0
+Flask-Cors>=4.0.0
+PyPDF2>=3.0.0
+Pillow>=10.0.0
+pdf2image>=1.16.0
+pytesseract>=0.3.10
 
-# API Clients and Helpers
-# supabase 2.24: compatível com mcp/httpx 0.28, sem pyiceberg (evita compilação C++)
-supabase>=2.24.0,<2.25.0
-tenacity
+# --- Agente de IA / MCP (mcp_agent) ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.0.0,<3.0.0
+openai>=1.60.0
+google-generativeai>=0.8.0
 
-# AI-Agent
-flask
-flask-cors
-requests
-python-dotenv
+# --- Testes e Qualidade (tests-python) ---
+pytest>=7.4.0
+pytest-cov>=4.1.0

@@ -11,12 +11,21 @@ Regras:
 - Se já existir matriz com mesmo id_curso, versao e ano_vigor mas curriculo_completo no formato
   antigo (com turno), faz UPDATE na coluna curriculo_completo para o padrão sem turno.
 - tipo_natureza em materias_por_curso: 0 = Obrigatória, 1 = Optativa (a partir do campo natureza do JSON).
-- Só insere curso/matriz/matéria/materias_por_curso se ainda não existir; as únicas atualizações
-  explícitas são: matrizes.curriculo_completo (quando fora do padrão) e normalização de cursos
-  (id_curso legado codigo_base+100000 -> codigo_base).
+- Insere curso/matriz/matéria/materias_por_curso se ainda não existir.
+- Para linhas que já existem, compara TODOS os campos derivados do JSON contra o banco e
+  aplica um UPDATE em lote no fim (flush_updates) quando houver diferença. Regra do diff
+  (ver diff_utils): o JSON preenche e corrige, mas NUNCA apaga — valor vazio/nulo/ausente
+  no JSON não sobrescreve dado já presente. Casos especiais: nome_materia só é preenchido
+  quando o banco está vazio (evita churn de caixa alta); nivel e tipo_natureza sobrescrevem
+  sempre que diferirem (0 é valor válido); versao/ano_vigor não entram no diff (são a chave
+  de correspondência). A detecção é feita em memória sobre os caches carregados no início,
+  então continua rápida.
+- Atualizações estruturais que independem do diff: matrizes.curriculo_completo (quando fora
+  do padrão, com turno) e normalização de cursos (id_curso legado codigo_base+100000 -> codigo_base).
 
 Uso:
   cd DBA/database
+  python -m pip install -r requirements.txt   # instalar dependências
   python 01_insert_cursos_matrizes_materias.py [--dry-run]
 """
 
@@ -38,6 +47,14 @@ from config import (
     SUPABASE_URL,
     SUPABASE_KEY,
 )
+from diff_utils import (
+    DIFF_CH,
+    DIFF_INT,
+    DIFF_JSON,
+    DIFF_STR,
+    DIFF_STR_FILL,
+    diff_campos,
+)
 
 DRY_RUN = "--dry-run" in sys.argv
 CHUNK_SIZE = 80
@@ -50,17 +67,55 @@ SLOW_OP_THRESHOLD_S = 5.0
 LOG_MATERIAS_EVERY = 25
 
 # Caches carregados no início (evitam SELECT por arquivo)
-CACHE_CURSOS_BY_ID = {}  # id_curso -> {id_curso, nome_curso, tipo_curso, turno}
+CACHE_CURSOS_BY_ID = {}  # id_curso -> row completo de cursos
 CACHE_CURSOS_BY_NOME = {}  # (nome_curso, turno, tipo_curso) -> id_curso
-CACHE_MATRIZ_BY_CURRICULO = (
-    {}
-)  # curriculo_completo -> {id_matriz, curriculo_completo, id_curso, versao, ano_vigor}
+CACHE_MATRIZ_BY_CURRICULO = {}  # curriculo_completo -> row completo de matrizes
 CACHE_MATRIZ_BY_CURSO_VERSAO_ANO = {}  # (id_curso, versao, ano_vigor) -> row
+CACHE_MATRIZ_BY_ID = {}  # id_matriz -> row (para flush de updates)
+CACHE_MATERIA_ROW = {}  # codigo_materia -> row completo de materias (para diff)
+MPC_ROW = {}  # (id_matriz, id_materia) -> {id_materia_curso, nivel, tipo_natureza}
 SET_MPC = set()  # (id_matriz, id_materia) já existentes
+MATERIAS_CHECKED = set()  # codigo_materia já comparado neste run (evita rechecar por arquivo)
+
+# Correções acumuladas (JSON -> banco); aplicadas em lote no fim (flush_updates).
+UPDATES_CURSOS = {}  # id_curso -> {campo: valor}
+UPDATES_MATRIZES = {}  # id_matriz -> {campo: valor}
+UPDATES_MATERIAS = {}  # id_materia -> {campo: valor}
+UPDATES_MPC = {}  # id_materia_curso -> {campo: valor}
+
+# Quais campos comparar por tabela e com que regra (ver diff_utils).
+REGRAS_CURSO = {
+    "nome_curso": DIFF_STR,
+    "tipo_curso": DIFF_STR,
+    "turno": DIFF_STR,
+}
+REGRAS_MATRIZ = {
+    "ch_obrigatoria_exigida": DIFF_CH,
+    "ch_optativa_exigida": DIFF_CH,
+    "ch_total_exigida": DIFF_CH,
+    "ch_complementar_exigida": DIFF_CH,
+    "ch_maxima_componentes_eletivos": DIFF_CH,
+    "formatura": DIFF_JSON,
+}
+REGRAS_MATERIA = {
+    "nome_materia": DIFF_STR_FILL,  # só preenche quando o banco está vazio (evita churn de caixa alta)
+    "carga_horaria": DIFF_CH,
+    "ementa": DIFF_STR,
+    "departamento": DIFF_STR,
+}
+REGRAS_MPC = {
+    "nivel": DIFF_INT,  # 0 é válido; sobrescreve sempre que diferir
+    "tipo_natureza": DIFF_INT,
+}
+
 # Contadores para log (não alteram o processamento)
 CONTAGEM_NOVOS_CURSOS = 0
 CONTAGEM_NOVAS_MATRIZES = 0
 CONTAGEM_NOVOS_MPC = 0
+CONTAGEM_UPDATES_CURSOS = 0
+CONTAGEM_UPDATES_MATRIZES = 0
+CONTAGEM_UPDATES_MATERIAS = 0
+CONTAGEM_UPDATES_MPC = 0
 
 # ---------------------------------------------------------------------------
 # Supabase
@@ -221,23 +276,18 @@ def get_or_create_curso(codigo_base, nome_curso, tipo_curso, turno=None):
     id_curso = to_int(codigo_base)
     if id_curso is None:
         return None
-    # 1) Cache por id_curso
+    # 1) Cache por id_curso — compara todos os campos do JSON contra o banco
     if id_curso in CACHE_CURSOS_BY_ID:
         row = CACHE_CURSOS_BY_ID[id_curso]
-        updates = {}
-        if nome_curso and (row.get("nome_curso") or "") != nome_curso:
-            updates["nome_curso"] = nome_curso
-        if tipo_curso is not None and row.get("tipo_curso") != tipo_curso:
-            updates["tipo_curso"] = tipo_curso
-        if turno is not None and row.get("turno") != turno:
-            updates["turno"] = turno
-        if updates and not DRY_RUN:
-            db(
-                supabase.table("cursos")
-                .update(updates)
-                .eq("id_curso", id_curso)
-                .execute
-            )
+        desejado = {
+            "nome_curso": nome_curso,
+            "tipo_curso": tipo_curso,
+            "turno": turno,
+        }
+        mud = diff_campos(row, desejado, REGRAS_CURSO)
+        if mud:
+            UPDATES_CURSOS.setdefault(id_curso, {}).update(mud)
+            row.update(mud)
         return id_curso
     # 2) Cache por (nome_curso, turno, tipo_curso)
     key_nome = (nome_curso or "", turno, tipo_curso)
@@ -387,7 +437,9 @@ def load_cache_matrizes():
         r = db(
             supabase.table("matrizes")
             .select(
-                "id_matriz, curriculo_completo, id_curso, versao, ano_vigor, status"
+                "id_matriz, curriculo_completo, id_curso, versao, ano_vigor, status, "
+                "ch_obrigatoria_exigida, ch_optativa_exigida, ch_total_exigida, "
+                "ch_complementar_exigida, ch_maxima_componentes_eletivos, formatura"
             )
             .order("id_matriz")
             .range(offset, offset + FETCH_PAGE - 1)
@@ -401,6 +453,8 @@ def load_cache_matrizes():
             ver = row.get("versao") or ""
             ano = row.get("ano_vigor") or ""
             CACHE_MATRIZ_BY_CURSO_VERSAO_ANO[(id_c, ver, ano)] = row
+            if row.get("id_matriz") is not None:
+                CACHE_MATRIZ_BY_ID[row["id_matriz"]] = row
         if len(r.data or []) < FETCH_PAGE:
             break
         offset += FETCH_PAGE
@@ -410,8 +464,19 @@ def get_or_create_matriz(
     id_curso, curriculo_completo, versao, ano_vigor, prazos_cargas, status=None, formatura=None
 ):
     curriculo_completo = (curriculo_completo or "").strip()
+    ch = prazos_to_ints(prazos_cargas or {})
+    desejado_matriz = {
+        "ch_obrigatoria_exigida": ch.get("ch_obrigatoria_total"),
+        "ch_total_exigida": ch.get("total_minima"),
+        "ch_optativa_exigida": ch.get("ch_optativa_minima"),
+        "ch_complementar_exigida": ch.get("ch_complementar_minima"),
+        "ch_maxima_componentes_eletivos": ch.get(
+            "carga_horaria_maxima_componentes_eletivos"
+        ),
+        "formatura": formatura,
+    }
 
-    # Função auxiliar para atualizar a linha, se necessário
+    # Função auxiliar para acumular correções da linha (aplicadas no flush).
     def _update_row(row, check_curriculo=False):
         updates = {}
         if check_curriculo:
@@ -424,18 +489,11 @@ def get_or_create_matriz(
         if status is not None and row.get("status") != status:
             updates["status"] = status
 
+        # Demais campos do JSON (CH exigidas, formatura): preenche/corrige, nunca apaga.
+        updates.update(diff_campos(row, desejado_matriz, REGRAS_MATRIZ))
+
         if updates:
-            print(
-                f"      [DEBUG] Atualizando matriz {row['id_matriz']} com: {updates}",
-                flush=True,
-            )
-            if not DRY_RUN:
-                db(
-                    supabase.table("matrizes")
-                    .update(updates)
-                    .eq("id_matriz", row["id_matriz"])
-                    .execute
-                )
+            UPDATES_MATRIZES.setdefault(row["id_matriz"], {}).update(updates)
             for k, v in updates.items():
                 row[k] = v
             if "curriculo_completo" in updates:
@@ -453,7 +511,6 @@ def get_or_create_matriz(
         return _update_row(CACHE_MATRIZ_BY_CURSO_VERSAO_ANO[key], check_curriculo=True)
 
     # 3) Inserir e adicionar ao cache
-    ch = prazos_to_ints(prazos_cargas or {})
     insert_data = {
         "id_curso": id_curso,
         "curriculo_completo": curriculo_completo,
@@ -484,9 +541,18 @@ def get_or_create_matriz(
         "versao": versao or "",
         "ano_vigor": ano_vigor or "",
         "status": status,
+        "ch_obrigatoria_exigida": insert_data.get("ch_obrigatoria_exigida"),
+        "ch_optativa_exigida": insert_data.get("ch_optativa_exigida"),
+        "ch_total_exigida": insert_data.get("ch_total_exigida"),
+        "ch_complementar_exigida": insert_data.get("ch_complementar_exigida"),
+        "ch_maxima_componentes_eletivos": insert_data.get(
+            "ch_maxima_componentes_eletivos"
+        ),
+        "formatura": insert_data.get("formatura"),
     }
     CACHE_MATRIZ_BY_CURRICULO[curriculo_completo] = row
     CACHE_MATRIZ_BY_CURSO_VERSAO_ANO[key] = row
+    CACHE_MATRIZ_BY_ID[new_id] = row
     CONTAGEM_NOVAS_MATRIZES += 1
     return new_id
 
@@ -533,10 +599,25 @@ def load_materias_detalhadas():
 
 
 def load_cache_materias():
-    res = db(supabase.table("materias").select("codigo_materia, id_materia").execute)
-    for r in res.data or []:
-        if r.get("codigo_materia"):
-            CACHE_ID_MATERIA[r["codigo_materia"]] = r["id_materia"]
+    offset = 0
+    while True:
+        res = db(
+            supabase.table("materias")
+            .select(
+                "codigo_materia, id_materia, nome_materia, carga_horaria, ementa, departamento"
+            )
+            .order("id_materia")
+            .range(offset, offset + FETCH_PAGE - 1)
+            .execute
+        )
+        data = res.data or []
+        for r in data:
+            if r.get("codigo_materia"):
+                CACHE_ID_MATERIA[r["codigo_materia"]] = r["id_materia"]
+                CACHE_MATERIA_ROW[r["codigo_materia"]] = r
+        if len(data) < FETCH_PAGE:
+            break
+        offset += FETCH_PAGE
 
 
 def get_or_create_materia(materia, materias_detalhadas):
@@ -560,7 +641,23 @@ def get_or_create_materia(materia, materias_detalhadas):
     departamento = DEPARTAMENTOS_MATERIAS.get(codigo, "")
 
     if codigo in CACHE_ID_MATERIA:
-        return CACHE_ID_MATERIA[codigo]
+        id_m = CACHE_ID_MATERIA[codigo]
+        # Compara os campos do JSON contra o banco uma vez por matéria neste run.
+        if codigo not in MATERIAS_CHECKED:
+            MATERIAS_CHECKED.add(codigo)
+            row = CACHE_MATERIA_ROW.get(codigo)
+            if row and id_m and id_m > 0:
+                desejado = {
+                    "nome_materia": nome,
+                    "carga_horaria": ch,
+                    "ementa": ementa,
+                    "departamento": departamento,
+                }
+                mud = diff_campos(row, desejado, REGRAS_MATERIA)
+                if mud:
+                    UPDATES_MATERIAS.setdefault(id_m, {}).update(mud)
+                    row.update(mud)
+        return id_m
 
     result = db(
         supabase.table("materias")
@@ -572,6 +669,8 @@ def get_or_create_materia(materia, materias_detalhadas):
         row = result.data[0]
         id_m = row["id_materia"]
         CACHE_ID_MATERIA[codigo] = id_m
+        CACHE_MATERIA_ROW[codigo] = row
+        MATERIAS_CHECKED.add(codigo)
         if ementa and (row.get("ementa") or "") != ementa and not DRY_RUN:
             db(
                 supabase.table("materias")
@@ -613,6 +712,8 @@ def get_or_create_materia(materia, materias_detalhadas):
     res = db(supabase.table("materias").insert(insert_data).execute)
     id_m = res.data[0]["id_materia"]
     CACHE_ID_MATERIA[codigo] = id_m
+    CACHE_MATERIA_ROW[codigo] = {"id_materia": id_m, **insert_data}
+    MATERIAS_CHECKED.add(codigo)
     return id_m
 
 
@@ -625,7 +726,7 @@ def load_cache_materias_por_curso():
         try:
             r = (
                 supabase.table("materias_por_curso")
-                .select("id_matriz, id_materia")
+                .select("id_materia_curso, id_matriz, id_materia, nivel, tipo_natureza")
                 .order("id_materia_curso")
                 .range(offset, offset + FETCH_PAGE - 1)
                 .execute()
@@ -641,7 +742,9 @@ def load_cache_materias_por_curso():
         )
         for row in data:
             if row.get("id_matriz") is not None and row.get("id_materia") is not None:
-                SET_MPC.add((int(row["id_matriz"]), int(row["id_materia"])))
+                par = (int(row["id_matriz"]), int(row["id_materia"]))
+                SET_MPC.add(par)
+                MPC_ROW[par] = row
 
         if len(data) < FETCH_PAGE:
             print(
@@ -666,15 +769,29 @@ def insert_materias_por_curso_batch(linhas, id_matriz):
             continue
         id_m_int = int(id_m)
         id_matriz_int = int(id_matriz)
-        if (id_matriz_int, id_m_int) in SET_MPC or id_m_int in seen:
+        if id_m_int in seen:
             continue
         seen.add(id_m_int)
+        tipo_nat_int = tipo_nat if tipo_nat is not None else 0
+        # Vínculo já existe: compara nivel/tipo_natureza do JSON contra o banco.
+        if (id_matriz_int, id_m_int) in SET_MPC:
+            mpc_row = MPC_ROW.get((id_matriz_int, id_m_int))
+            if mpc_row and mpc_row.get("id_materia_curso"):
+                mud = diff_campos(
+                    mpc_row,
+                    {"nivel": niv, "tipo_natureza": tipo_nat_int},
+                    REGRAS_MPC,
+                )
+                if mud:
+                    UPDATES_MPC.setdefault(mpc_row["id_materia_curso"], {}).update(mud)
+                    mpc_row.update(mud)
+            continue
         SET_MPC.add((id_matriz_int, id_m_int))
         row = {
             "id_materia": id_m_int,
             "id_matriz": id_matriz_int,
             "nivel": niv,
-            "tipo_natureza": tipo_nat if tipo_nat is not None else 0,
+            "tipo_natureza": tipo_nat_int,
         }
         to_insert.append(row)
     if DRY_RUN:
@@ -692,6 +809,60 @@ def insert_materias_por_curso_batch(linhas, id_matriz):
                         db(supabase.table("materias_por_curso").insert(row).execute)
                     except Exception:
                         pass
+
+
+# ---------------------------------------------------------------------------
+# Flush das correções acumuladas (JSON -> banco), aplicadas em lote no fim.
+# Um UPDATE por linha divergente; detecção já foi feita em memória (rápida).
+# ---------------------------------------------------------------------------
+def _flush_tabela(tabela, pk, updates):
+    if not updates:
+        return 0
+    total = len(updates)
+    print(
+        f"      [UPDATE] {tabela}: {total} linha(s) divergem do JSON.", flush=True
+    )
+    if DRY_RUN:
+        for i, (pk_val, campos) in enumerate(updates.items()):
+            if i >= 20:
+                print(f"        ... (+{total - 20})", flush=True)
+                break
+            print(f"        - {pk}={pk_val}: {campos}", flush=True)
+        return total
+    feitos = 0
+    for pk_val, campos in updates.items():
+        try:
+            db(
+                supabase.table(tabela).update(campos).eq(pk, pk_val).execute,
+                op_name=f"update {tabela}",
+            )
+            feitos += 1
+        except Exception as e:
+            print(f"        [ERRO] update {tabela} {pk}={pk_val}: {e}", flush=True)
+        if feitos and feitos % 200 == 0:
+            print(f"        {tabela}: {feitos}/{total}...", flush=True)
+    print(f"      [UPDATE] {tabela}: {feitos}/{total} aplicados.", flush=True)
+    return feitos
+
+
+def flush_updates():
+    global CONTAGEM_UPDATES_CURSOS, CONTAGEM_UPDATES_MATRIZES
+    global CONTAGEM_UPDATES_MATERIAS, CONTAGEM_UPDATES_MPC
+    CONTAGEM_UPDATES_CURSOS = _flush_tabela("cursos", "id_curso", UPDATES_CURSOS)
+    CONTAGEM_UPDATES_MATRIZES = _flush_tabela("matrizes", "id_matriz", UPDATES_MATRIZES)
+    CONTAGEM_UPDATES_MATERIAS = _flush_tabela("materias", "id_materia", UPDATES_MATERIAS)
+    CONTAGEM_UPDATES_MPC = _flush_tabela(
+        "materias_por_curso", "id_materia_curso", UPDATES_MPC
+    )
+    if not any(
+        (
+            CONTAGEM_UPDATES_CURSOS,
+            CONTAGEM_UPDATES_MATRIZES,
+            CONTAGEM_UPDATES_MATERIAS,
+            CONTAGEM_UPDATES_MPC,
+        )
+    ):
+        print("      Nada a corrigir: banco já bate com os JSONs.", flush=True)
 
 
 # ---------------------------------------------------------------------------
@@ -862,6 +1033,13 @@ def main():
             flush=True,
         )
 
+    print(flush=True)
+    print(
+        "[4b/5] Aplicando correções detectadas (JSON preenche/corrige, nunca apaga)...",
+        flush=True,
+    )
+    flush_updates()
+
     elapsed = round(time.time() - t0, 1)
     print(flush=True)
     print("[5/5] Concluído.", flush=True)
@@ -874,6 +1052,20 @@ def main():
     ):
         print(
             f"      Inseridos neste run: {CONTAGEM_NOVOS_CURSOS} cursos, {CONTAGEM_NOVAS_MATRIZES} matrizes, {CONTAGEM_NOVOS_MPC} materias_por_curso.",
+            flush=True,
+        )
+    if (
+        CONTAGEM_UPDATES_CURSOS
+        or CONTAGEM_UPDATES_MATRIZES
+        or CONTAGEM_UPDATES_MATERIAS
+        or CONTAGEM_UPDATES_MPC
+    ):
+        rotulo = "Seriam corrigidos" if DRY_RUN else "Corrigidos neste run"
+        print(
+            f"      {rotulo}: {CONTAGEM_UPDATES_CURSOS} cursos, "
+            f"{CONTAGEM_UPDATES_MATRIZES} matrizes, "
+            f"{CONTAGEM_UPDATES_MATERIAS} materias, "
+            f"{CONTAGEM_UPDATES_MPC} materias_por_curso.",
             flush=True,
         )
     print(f"      Tempo: {elapsed}s", flush=True)

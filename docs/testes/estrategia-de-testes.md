@@ -33,20 +33,13 @@ nível:
 
 ## Estado atual (resumo do relatório)
 
-- **Backend TS (Jest):** suíte funcional, principal base de unidade do projeto.
-- **Backend de dados (Pytest):** os imports foram remapeados (`coleta_dados` → `DBA`)
-  e os testes de módulos deletados foram removidos. Parte dos testes legados está
-  marcada como `xfail` (comportamento do módulo divergiu) ou `skip` (integração) — ver
-  [Pipeline de CI](pipeline-ci.md).
-- **Frontend (Vitest):** configurado, ainda **sem** arquivos de teste (Fase 3).
-- **Cobertura:** baixa no geral; elevá-la é o objetivo da Fase 2.
+- **Backend TS (Jest):** suíte funcional madura com 25 arquivos de teste cobrindo controllers, Motor 2, persistência de sessão e orquestrador de IA.
+- **Frontend (Vitest & Playwright):** ampla cobertura com mais de 40 arquivos de teste cobrindo lojas de grade (`grade.store.*`), seleção e pool de matérias (`grade-pool.*`), serviços acadêmicos e testes ponta a ponta (E2E).
+- **Backend de dados (Pytest):** os imports foram mapeados para `DBA` e cobrem parsers de expressões lógicas, scraping e ferramentas do agente.
+- **Cobertura:** em constante monitoramento e expansão pelo Codecov.
 
 ## Plano de evolução
 
-1. **Fase 1 — Correção e automação** _(concluída neste PR)_: remapear imports Python,
-   remover testes obsoletos e configurar o pipeline de CI para rodar tudo a cada PR.
-2. **Fase 2 — Cobertura**: elevar a cobertura para 60%+, com foco no
-   `fluxograma_controller` e no `assistente_controller`; reescrever os testes Python
-   marcados como `xfail` conforme o comportamento atual dos módulos.
-3. **Fase 3 — Frontend e E2E**: suíte Vitest de componentes, testes de integração com
-   Supabase local (Docker) e fluxo E2E com Playwright.
+1. **Fase 1 — Correção e automação** _(Concluída)_: remapear imports Python, consolidar workflows no CI (`pipelineCI.yml`).
+2. **Fase 2 — Cobertura**: elevar a cobertura com testes de unidade em controladores e lojas reativas do montador de grade.
+3. **Fase 3 — Frontend e E2E** _(Concluída / Em Expansão)_: suítes Vitest de componentes e stores, e fluxo E2E com Playwright (upload de histórico, login e responsividade mobile).

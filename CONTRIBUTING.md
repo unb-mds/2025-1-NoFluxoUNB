@@ -1,119 +1,216 @@
-# Guia de Contribuição
+# Guia de Contribuição e Configuração do Ambiente
 
-Obrigado pelo seu interesse em contribuir para este projeto! Suas contribuições são muito bem-vindas e nos ajudam a melhorar continuamente.
-
-Este guia tem como objetivo fornecer um passo a passo básico para que você possa contribuir de forma eficaz.
-
-## Como Rodar o Projeto Localmente
-
-Este guia detalha os passos necessários para configurar e executar o projeto em sua máquina local.
-
-### Pré-requisitos
-
-Certifique-se de ter os seguintes softwares instalados em seu ambiente:
-
-* **Git:** Para clonar o repositório.
-  [Download do Git](https://git-scm.com/downloads)
-* **Python 3.x:** (Python 3.9 ou superior)
-  [Download do Python](https://www.python.org/downloads/)
-* **Flutter SDK:** (Flutter 3.19.0 ou superior)
-  [Instalação do Flutter](https://flutter.dev/docs/get-started/install)
-* **Node.js e npm/yarn:** Para gerenciar dependências do JavaScript (se aplicável para o backend ou outras ferramentas).
-  [Download do Node.js](https://nodejs.org/en/download/)
+Obrigado pelo seu interesse em contribuir para o **NoFluxoUnB**! Este guia detalha a arquitetura atual do projeto e como configurar e executar cada um dos serviços em sua máquina local sem conflitos de dependências.
 
 ---
 
-### 1. Clonar o Repositório
+## 🏛️ Estrutura do Projeto
 
-Primeiro, clone o repositório do projeto para sua máquina local usando o Git e navegue até a pasta do projeto:
+O NoFluxoUnB é composto pelos seguintes módulos:
+
+| Módulo | Tecnologia | Diretório | Descrição |
+|---|---|---|---|
+| **Frontend** | SvelteKit v2, Svelte 5, Tailwind 4, TS | `no_fluxo_frontend_svelte/` | Aplicação web interativa |
+| **Backend** | Express.js, TypeScript, Node.js | `no_fluxo_backend/` | API REST principal (porta 3325) |
+| **Agente IA** | FastAPI, Python, OpenAI, Gemini | `mcp_agent/` | Serviço de IA e recomendações |
+| **DBA & Scripts** | Python, Supabase, BeautifulSoup | `DBA/database/`, `DBA/scraping/` | Ingestão, scraping e migrações |
+| **Parse PDF** | Python, PyMuPDF, Flask | `no_fluxo_backend/parse-pdf/` | Extração de dados de históricos em PDF |
+
+---
+
+## 📋 Pré-requisitos
+
+- **Git**: [Download Git](https://git-scm.com/downloads)
+- **Node.js**: Versão 20 LTS ou superior. [Download Node.js](https://nodejs.org/)
+- **pnpm**: Recomendado para o monorepo (`npm install -g pnpm`) ou `npm`
+- **Python**: Versão 3.10 até 3.12 (ou 3.14 com wheels compatíveis). [Download Python](https://www.python.org/)
+
+---
+
+## ⚡ 1. Início Rápido (Setup Automatizado)
+
+Criamos um script que configura automaticamente o ambiente virtual Python e instala as dependências dos projetos:
 
 ```bash
+# Clone o repositório
 git clone https://github.com/unb-mds/2025-1-NoFluxoUNB.git
 cd 2025-1-NoFluxoUNB
+
+# Executa a configuração completa (Python venv + dependências Node)
+python scripts/setup_env.py --node
 ```
+
+Após a execução, ative o ambiente virtual conforme seu sistema operacional (instruções abaixo).
 
 ---
 
-### 2. Configuração do Backend (Python)
+## 🐍 2. Configuração do Ambiente Python (DBA, MCP Agent e Scripts)
 
-Se o seu projeto tiver um backend em Python, siga estes passos:
+Para evitar erros como `ModuleNotFoundError` decorrentes de diferentes versões do Python no sistema, **sempre utilize o ambiente virtual (`venv`)** e o prefixo `python -m pip`.
 
-#### 2.1. Criar e Ativar Ambiente Virtual
+### 2.1. Criar e Ativar o Ambiente Virtual
 
-É altamente recomendável usar um ambiente virtual para gerenciar as dependências do Python. Execute os comandos abaixo na raiz do projeto (onde está o `venv` ou a pasta principal do backend):
+Na raiz do repositório:
 
 ```bash
+# Criar o ambiente virtual (se ainda não existir)
 python -m venv venv
 
-# Para Windows:
-.\venv\Scripts\activate
+# Ativação no Windows (PowerShell):
+.\venv\Scripts\Activate.ps1
 
-# Para macOS/Linux:
+# Ativação no Windows (CMD):
+.\venv\Scripts\activate.bat
+
+# Ativação no Linux/macOS:
 source venv/bin/activate
 ```
 
-#### 2.2. Instalar Dependências
+> **Dica Windows:** Se encontrar erro de permissão no PowerShell (`ExecutionPolicy`), execute:  
+> `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 
-Com o ambiente virtual ativado, navegue até a pasta do seu backend (ex: `backend/`) e instale todas as dependências listadas no `requirements.txt`:
+### 2.2. Instalação das Dependências Python
+
+Com o `venv` ativado:
 
 ```bash
-cd no_fluxo_backend
-pip install -r requirements.txt
+# Opção A: Instalar todos os pacotes consolidados do projeto
+python -m pip install -r requirements.txt
+
+# Opção B: Instalar apenas para um módulo específico
+# Para scripts de banco de dados (DBA/database):
+python -m pip install -r DBA/database/requirements.txt
+
+# Para o agente de inteligência artificial (mcp_agent):
+python -m pip install -r mcp_agent/requirements.txt
+
+# Para scraping do SIGAA (DBA/scraping):
+python -m pip install -r DBA/scraping/requirements.txt
 ```
 
-#### 2.3. Configuração de Variáveis de Ambiente
+### 2.3. Executar Scripts do Banco de Dados (DBA)
 
-Crie um arquivo `.env` na raiz da pasta do backend e adicione as variáveis de ambiente necessárias:
+Para rodar os scripts de ingestão e atualização de matrizes, matérias e turmas:
 
-```ini
-# Exemplo de variáveis para Supabase/Banco de Dados
-SUPABASE_URL=sua_url_do_supabase
-SUPABASE_KEY=sua_chave_anon_do_supabase
-# Adicione outras variáveis necessárias aqui
+```bash
+cd DBA/database
+
+# Inserção de cursos, matrizes e matérias
+python 01_insert_cursos_matrizes_materias.py
+
+# Inserção de pré-requisitos e equivalências
+python 02_insert_pre_requisitos_equivalencias.py
+
+# Inserção de turmas ofertadas
+python 03_insert_turmas.py
 ```
 
-> 💡 Para conseguir acesso às chaves do `.env`, entre em contato com os desenvolvedores do projeto.
+---
 
-#### 2.4. Instalar Dependências e Iniciar o Backend (Node.js)
+## 🚀 3. Configuração do Backend (Node.js / Express)
 
-Se o seu backend também usa Node.js, navegue até a pasta do backend e execute:
+### 3.1. Instalar Dependências
 
 ```bash
 cd no_fluxo_backend
 npm install
+```
+
+### 3.2. Variáveis de Ambiente (`.env`)
+
+Crie um arquivo `.env` dentro de `no_fluxo_backend/` com as chaves do Supabase:
+
+```ini
+PORT=3325
+SUPABASE_URL=https://sua-url-supabase.supabase.co
+SUPABASE_KEY=sua-chave-anon-ou-service-role
+```
+
+### 3.3. Iniciar o Backend em Modo Desenvolvimento
+
+```bash
 npm run dev
 ```
 
-Certifique-se de que a pasta `no_fluxo_backend` realmente é onde estão os arquivos `Node.js` e o `package.json`.
+O servidor iniciará em `http://localhost:3325`.
 
 ---
 
-### 3. Configuração do Frontend (Flutter)
+## 🎨 4. Configuração do Frontend (SvelteKit)
 
-#### 3.1. Navegar para a Pasta do Frontend
-
-Navegue até a pasta que contém os arquivos do seu aplicativo Flutter:
+### 4.1. Instalar Dependências
 
 ```bash
-cd no_fluxo_frontend 
+cd no_fluxo_frontend_svelte
+pnpm install   # ou npm install
 ```
 
-#### 3.2. Obter Dependências do Flutter e Rodar o Aplicativo
+### 4.2. Variáveis de Ambiente (`.env`)
 
-Na pasta do frontend, execute os seguintes comandos:
+Crie o arquivo `.env` em `no_fluxo_frontend_svelte/`:
+
+```ini
+PUBLIC_SUPABASE_URL=https://sua-url-supabase.supabase.co
+PUBLIC_SUPABASE_ANON_KEY=sua-chave-anonima
+PUBLIC_BACKEND_URL=http://localhost:3325
+```
+
+### 4.3. Iniciar o Frontend em Modo Desenvolvimento
 
 ```bash
-flutter pub get
-flutter run
+pnpm dev       # ou npm run dev
 ```
 
-## Observações Finais
-
-
-* **Ambiente Virtual para o Parser:** É necessário ativar o ambiente virtual, depende das bibliotecas do `requirements.txt`.
+Acesse a aplicação em `http://localhost:5173`.
 
 ---
 
-Agradecemos novamente pelo seu interesse em contribuir com o projeto 🚀
+## 🤖 5. Configuração do MCP Agent (IA)
 
-Dai em diante, crie sua própria branch e faça pull request de sua contribuição pra avaliação da equipe de desenvolvedores.
+O agente fornece suporte inteligente e recomendações personalizadas de matérias.
+
+```bash
+cd mcp_agent
+
+# Certifique-se de estar com o venv ativado
+python -m pip install -r requirements.txt
+
+# Iniciar a API FastAPI
+python api_producao.py
+```
+
+---
+
+## 🔧 6. Solução de Problemas Comuns (Troubleshooting)
+
+### `ModuleNotFoundError: No module named 'supabase'` (ou outro pacote)
+- **Causa:** O pacote foi instalado globalmente ou em outro Python diferente daquele em execução no terminal.
+- **Solução:**
+  1. Verifique qual python está ativo: `where python` (Windows) ou `which python` (Linux).
+  2. Garanta que o venv está ativado (o terminal exibirá `(venv)` no início da linha).
+  3. Instale com o interpretador ativo: `python -m pip install -r requirements.txt`.
+
+### Erro de permissão ao rodar scripts no PowerShell
+Execute no terminal antes de ativar o venv:
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+### Problemas com build de pacotes no Python 3.14 no Windows
+Alguns pacotes podem não ter rodas pré-compiladas para versões experimentais do Python. Recomendamos o uso de Python 3.11 ou 3.12.
+
+---
+
+## 🌿 7. Fluxo de Trabalho e Git
+
+1. Crie uma branch para a sua tarefa:
+   ```bash
+   git checkout -b feature/minha-melhoria
+   ```
+2. Siga as diretrizes em `COMMIT_GUIDELINES.md`.
+3. Rode os testes e linter antes de abrir PR:
+   ```bash
+   pnpm test
+   pnpm lint
+   ```
+4. Abra um Pull Request detalhando as alterações e testes realizados.

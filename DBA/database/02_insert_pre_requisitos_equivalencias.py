@@ -10,6 +10,7 @@ DBA/dados/materias (turmas_depto_*.json). Só insere se ainda não existir.
 
 Uso:
   cd DBA/database
+  python -m pip install -r requirements.txt   # instalar dependências
   python 02_insert_pre_requisitos_equivalencias.py [--dry-run]
 """
 
