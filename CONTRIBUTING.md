@@ -86,24 +86,7 @@ python -m pip install -r mcp_agent/requirements.txt
 
 # Para scraping do SIGAA (DBA/scraping):
 python -m pip install -r DBA/scraping/requirements.txt
-```
 
-### 2.3. Executar Scripts do Banco de Dados (DBA)
-
-Para rodar os scripts de ingestão e atualização de matrizes, matérias e turmas:
-
-```bash
-cd DBA/database
-
-# Inserção de cursos, matrizes e matérias
-python 01_insert_cursos_matrizes_materias.py
-
-# Inserção de pré-requisitos e equivalências
-python 02_insert_pre_requisitos_equivalencias.py
-
-# Inserção de turmas ofertadas
-python 03_insert_turmas.py
-```
 
 ---
 
