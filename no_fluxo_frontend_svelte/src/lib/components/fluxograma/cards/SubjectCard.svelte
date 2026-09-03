@@ -11,7 +11,8 @@
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import {
 		getDirectDependentCodes,
-		getDirectPrerequisiteAndCoreqCodes
+		getDirectPrerequisiteAndCoreqCodes,
+		getSubjectChain
 	} from '$lib/utils/curriculum-graph';
 	import MateriaNaturezaBadge from '$lib/components/materia/MateriaNaturezaBadge.svelte';
 
@@ -91,6 +92,8 @@
 	/** No modo "Todas", desktop usa clique para fixar foco (como 1º toque no mobile); hover usa só pré-visualização */
 	let isAllConnectionsMode = $derived(store.state.connectionMode === 'all');
 	let isDirectConnectionsMode = $derived(store.state.connectionMode === 'direct');
+	/** Cadeia: pré-requisitos e desbloqueios transitivos (a matéria toda até o foco). */
+	let isChainConnectionsMode = $derived(store.state.connectionMode === 'chain');
 
 	/** Matéria sob a qual calculamos as liberadas diretas (1 nível no grafo da grade). */
 	let focusSubjectCode = $derived.by(() => {
@@ -128,11 +131,33 @@
 		return getDirectPrerequisiteAndCoreqCodes(curso, focus);
 	});
 
+	/** Cadeia: pré-requisitos + desbloqueios + co-requisitos transitivos (mesma fonte das setas). */
+	let subjectChain = $derived.by(() => {
+		void store.state.hoverPreviewSubjectCode;
+		void store.state.hoveredSubjectCode;
+		const curso = store.state.courseData;
+		const focus = focusSubjectCode;
+		if (!isChainConnectionsMode || !curso || !focus) return null;
+		return getSubjectChain(curso, focus);
+	});
+
 	let highlightRole = $derived.by(() => {
 		const focus = focusSubjectCode;
-		const deps = directDependents;
-		if (!focus || !deps) return null;
+		if (!focus) return null;
 		const self = materia.codigoMateria.trim().toUpperCase();
+
+		if (isChainConnectionsMode) {
+			const chain = subjectChain;
+			if (!chain) return null;
+			if (self === chain.focusCode) return 'focus' as const;
+			if (chain.descendants.has(self)) return 'descendant' as const;
+			if (chain.precursors.has(self)) return 'precursor' as const;
+			if (chain.corequisites.has(self)) return 'corequisite' as const;
+			return null;
+		}
+
+		const deps = directDependents;
+		if (!deps) return null;
 		if (self === focus.trim().toUpperCase()) return 'focus' as const;
 		if (deps.has(self)) return 'descendant' as const;
 		const inbound = allModeInboundNeighbors;

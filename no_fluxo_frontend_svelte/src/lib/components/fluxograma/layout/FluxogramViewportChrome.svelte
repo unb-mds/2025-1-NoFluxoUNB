@@ -380,6 +380,21 @@
 			>
 			<button
 				type="button"
+				onclick={() => selectMode('chain')}
+				title="Cadeia completa: pré-requisitos até chegar na matéria + o que ela libera"
+				class="px-1.5 py-1 text-[10px] font-medium sm:px-2 sm:text-[11px] {store.state
+					.connectionMode === 'chain'
+					? 'bg-purple-500/45 text-white'
+					: 'text-white/70 hover:bg-white/10'}"
+			>
+				Cadeia
+			</button>
+			<span
+				class="flex items-center self-stretch border-x border-white/15 px-0.5 text-[9px] leading-none text-white/35"
+				>|</span
+			>
+			<button
+				type="button"
 				onclick={() => selectMode('all')}
 				class="px-1.5 py-1 text-[10px] font-medium sm:px-2 sm:text-[11px] {store.state
 					.connectionMode === 'all'
@@ -572,7 +587,7 @@
 					Conexões de pré-requisito
 				</p>
 				<div class="flex gap-0 overflow-hidden rounded-xl border border-white/10 bg-white/5">
-					{#each [{ mode: 'direct', label: 'Diretas' }, { mode: 'all', label: 'Todas' }, { mode: 'off', label: 'Off' }] as opt, i (opt.mode)}
+					{#each [{ mode: 'direct', label: 'Diretas' }, { mode: 'chain', label: 'Cadeia' }, { mode: 'all', label: 'Todas' }, { mode: 'off', label: 'Off' }] as opt, i (opt.mode)}
 						<button
 							type="button"
 							onclick={() => selectMode(opt.mode as ConnectionMode)}
@@ -814,7 +829,7 @@
 					<p class="mb-2 text-xs text-white/55">
 						O modo das linhas é alterado pelo botão <strong class="text-white/85">Conexões</strong>
 						no rodapé do diagrama (abre a lista com
-						<strong class="text-white/85">Diretas · Todas · Off</strong>).
+						<strong class="text-white/85">Diretas · Cadeia · Todas · Off</strong>).
 					</p>
 					<ul class="space-y-1.5 text-white/90">
 						<li class="flex items-center gap-2">
@@ -831,6 +846,24 @@
 								Co-requisito: aparece no modo
 								<strong class="text-white/85">Todas</strong>
 							</span>
+						</li>
+					</ul>
+					<p class="mt-3 mb-1.5 text-xs text-white/55">
+						No modo <strong class="text-white/85">Cadeia</strong>, o hover mostra o caminho
+						completo até a disciplina e o que ela libera:
+					</p>
+					<ul class="space-y-1.5 text-white/90">
+						<li class="flex items-center gap-2">
+							<div class="h-1 w-6 shrink-0 rounded" style="background:#4fd1c5;"></div>
+							Pré-requisito (o que precisa cursar antes)
+						</li>
+						<li class="flex items-center gap-2">
+							<div class="h-1 w-6 shrink-0 rounded" style="background:#f6ad55;"></div>
+							Desbloqueia depois
+						</li>
+						<li class="flex items-center gap-2">
+							<div class="h-1 w-6 shrink-0 rounded" style="background:#7f9cf5;"></div>
+							Co-requisito
 						</li>
 					</ul>
 				</section>

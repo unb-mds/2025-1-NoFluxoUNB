@@ -57,7 +57,7 @@
 	);
 
 	/** Espaço vertical entre cards — mais ar para leitura confortável. */
-	const BASE_GAP_REM = 1; // conexões off / diretas
+	const BASE_GAP_REM = 1; // conexões off / diretas / cadeia
 	const MIN_GAP_REM = 1.25; // mínimo no modo "todas"
 	const MAX_GAP_REM = 5.5; // teto no modo "todas" (densidade alta)
 	const GAP_PER_CONNECTION = 0.28; // rem extra por conexão na coluna

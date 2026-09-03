@@ -35,7 +35,7 @@ import { captureScreenshot } from '$lib/utils/screenshot';
 import { toast } from 'svelte-sonner';
 import type { AuthState } from '$lib/types/auth';
 
-export type ConnectionMode = 'off' | 'direct' | 'all';
+export type ConnectionMode = 'off' | 'direct' | 'chain' | 'all';
 
 export type DisplayUnit = 'creditos' | 'horas';
 
