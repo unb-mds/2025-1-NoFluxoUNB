@@ -36,7 +36,3 @@ SUPABASE_KEY = (
     or ""
 )
 
-# Fallback para chave de serviço se env vazia (evitar quebrar em dev)
-if not SUPABASE_KEY or len(SUPABASE_KEY) < 50:
-    _FALLBACK = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxpam1oYnN0Z2RpbnN1a292eWZsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzgzOTM3MywiZXhwIjoyMDYzNDE1MzczfQ._o2wq5p0C6YBIrTGJsNl6xdg4l8Ju7CbwvaaeCWbeAc"
-    SUPABASE_KEY = _FALLBACK
