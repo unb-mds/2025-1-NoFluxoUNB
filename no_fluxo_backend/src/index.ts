@@ -11,6 +11,7 @@ import express, { Express, Request, Response } from 'express';
 import { EndpointController, RequestType } from './interfaces';
 import bodyParser from 'body-parser';
 import cors from "cors";
+import { buildCorsOptions } from './config/cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { FluxogramaController } from './controllers/fluxograma_controller';
@@ -152,38 +153,13 @@ const app: Express = express();
 // Security headers — aplicar helmet antes das demais middlewares (CLAUDE.md).
 app.use(helmet());
 
-// Configure CORS properly (allow prod and local origins) and ensure preflight succeeds
-const allowedOrigins = new Set<string>([
-    'https://www.no-fluxo.com',
-    'https://no-fluxo.com',
-    'https://simplifica-pbl.space',
-    'http://localhost:3000',
-    'http://localhost:3008',
-    'http://localhost:5000',
-    'http://localhost:5173',
-    'http://127.0.0.1:3000',
-    'http://127.0.0.1:3008',
-    'http://127.0.0.1:5000',
-    'http://127.0.0.1:5173',
-]);
+// Allowlist de origens: ver src/config/cors.ts
+const corsOptions = buildCorsOptions();
+app.use(cors(corsOptions));
 
-app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.has(origin)) return callback(null, true);
-        // Dev: permitir qualquer localhost/127.0.0.1
-        if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) return callback(null, true);
-        return callback(new Error('Origin não permitida pelo CORS'), false);
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization', 'User-ID'],
-    credentials: false,
-    optionsSuccessStatus: 204,
-    preflightContinue: false,
-}));
-
-// OPTIONS preflight deve ser tratado antes das rotas
-app.options('*', cors());
+// OPTIONS preflight deve ser tratado antes das rotas — com as MESMAS opções do
+// middleware acima; `cors()` puro aqui liberaria qualquer origem no preflight.
+app.options('*', cors(corsOptions));
 
 // Rate limiting global — mitiga enumeração automatizada e brute force
 app.use(rateLimit({
