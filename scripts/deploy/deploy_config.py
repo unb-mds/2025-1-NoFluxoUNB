@@ -76,6 +76,7 @@ APPS: dict[str, AppConfig] = {
             "SUPABASE_URL",
             "SUPABASE_SERVICE_ROLE_KEY",
             "SUPABASE_ANON_KEY",
+            "MCP_AGENT_API_KEY",
         ),
         deploy_env_optional_keys=(
             "RAGFLOW_API_KEY",
@@ -134,6 +135,7 @@ APPS: dict[str, AppConfig] = {
             "GOOGLE_API_KEY",
             "SUPABASE_URL",
             "SUPABASE_SERVICE_ROLE_KEY",
+            "MCP_AGENT_API_KEY",
         ),
         deploy_env_static={
             "ALLOWED_ORIGINS": "https://no-fluxo.crianex.com,https://api-nofluxo.crianex.com",
