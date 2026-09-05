@@ -1,7 +1,23 @@
 import { createSupabaseBrowserClient } from '$lib/supabase/client';
 
-export interface ScrapingTurmasRapidoValue {
-	enabled: boolean;
+export type ScrapingTurmasModo = 'auto' | 'on' | 'off';
+
+/** Cadência resultante: o que o cron do GitHub Actions vai de fato fazer. */
+export type ScrapingTurmasCadencia = 'rapida' | 'diaria' | 'nenhuma';
+
+/**
+ * Decisão efetiva do scraping de turmas, como devolvida pela RPC
+ * `scraping_turmas_decisao` — o modo configurado cruzado com a fase do
+ * calendário acadêmico. Mostrar só o modo esconderia o que "auto" faz hoje.
+ */
+export interface ScrapingTurmasStatus {
+	/** Período letivo vigente segundo `calendario_academico` (ex.: "2026.2"). */
+	periodo: string;
+	fase: 'pre_matricula' | 'matricula' | 'letivo' | 'recesso' | 'desconhecido';
+	modo: ScrapingTurmasModo;
+	/** Só no modo 'on': data_fim do período, depois da qual volta pro automático. */
+	ativo_ate: string | null;
+	cadencia: ScrapingTurmasCadencia;
 }
 
 export class SystemSettingsService {
@@ -22,13 +38,32 @@ export class SystemSettingsService {
 		return data as T;
 	}
 
-	async getScrapingTurmasRapido(): Promise<boolean> {
-		const value = await this.getSetting<ScrapingTurmasRapidoValue>('scraping_turmas_rapido');
-		return Boolean(value?.enabled);
+	/**
+	 * Lê a decisão efetiva (modo + fase do calendário + cadência resultante).
+	 * Vai na RPC em vez de `get_system_setting` porque o registro sozinho diria
+	 * só "auto", sem revelar o que auto está fazendo hoje.
+	 */
+	async getScrapingTurmasStatus(): Promise<ScrapingTurmasStatus> {
+		const { data, error } = await this.supabase.rpc('scraping_turmas_decisao');
+		if (error) throw new Error(error.message);
+		// A RPC devolve TABLE -> PostgREST responde com um array de uma linha.
+		const row = (Array.isArray(data) ? data[0] : data) as ScrapingTurmasStatus | undefined;
+		if (!row) throw new Error('scraping_turmas_decisao não devolveu nenhuma linha.');
+		return row;
 	}
 
-	async setScrapingTurmasRapido(enabled: boolean): Promise<void> {
-		await this.setSetting('scraping_turmas_rapido', { enabled });
+	/**
+	 * Troca o modo. Em 'on', o banco resolve sozinho o `ativo_ate` a partir do
+	 * calendário — o frontend nunca calcula data de período.
+	 */
+	async setScrapingTurmasModo(modo: ScrapingTurmasModo): Promise<ScrapingTurmasStatus> {
+		const { data, error } = await this.supabase.rpc('set_scraping_turmas_modo', {
+			p_modo: modo
+		});
+		if (error) throw new Error(error.message);
+		const row = (Array.isArray(data) ? data[0] : data) as ScrapingTurmasStatus | undefined;
+		if (!row) throw new Error('set_scraping_turmas_modo não devolveu nenhuma linha.');
+		return row;
 	}
 }
 

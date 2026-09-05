@@ -140,10 +140,13 @@ linhas_avaliacoes_nao_importadas.json
 .env.bak*
 *.env.bak*
 
-# Saída bruta da investigação de dados pré-ML (scripts/investigacao_ml/):
-# agregados por id_user (classificação de ruído, scores) que não precisam
-# ficar versionados — o relatório consolidado em docs/investigacoes/ basta.
-scripts/investigacao_ml/_reports/
+# Investigação de dados pré-ML: scripts de análise pontual (somente leitura,
+# via service role) e a saída bruta deles — agregados por id_user com
+# classificação de ruído e scores. Nada disso é código de produção; o que
+# interessa é o relatório consolidado em docs/investigacoes/.
+# Os .mjs ficam no disco pra poder reexecutar a medição (ex.: conferir se a
+# cobertura de turmas_historico melhorou), mas não entram no repositório.
+scripts/investigacao_ml/
 
 # Saída de revisão do atualizar_departamentos_id.py: o script gera esse arquivo
 # pra conferir o diff antes de aplicar. A lista que os scrapers leem é a

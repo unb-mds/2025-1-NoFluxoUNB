@@ -389,7 +389,12 @@ BEGIN
     id_materia bigint, codigo_materia text, nome_materia text,
     nome_historico text, codigo_historico text,
     encontrada boolean DEFAULT false, nivel int,
-    tipo text DEFAULT 'nao_encontrada'
+    tipo text DEFAULT 'nao_encontrada',
+    -- turma/frequencia vêm do parser do PDF (pdfPositionExtractor.ts) e eram
+    -- descartadas aqui: a coluna não existia, então nunca chegavam ao
+    -- fluxograma persistido (0% de 144k eventos). Ficam no FIM da tabela para
+    -- que os INSERT ... VALUES posicionais abaixo só ganhem dois valores no fim.
+    turma text, frequencia text
   ) ON COMMIT DROP;
 
   -- Pre-scan: IRA and pendencias
@@ -482,7 +487,9 @@ BEGIN
             ano_periodo = v_item->>'ano_periodo',
             professor = v_item->>'professor',
             nome_historico = v_item->>'nome',
-            codigo_historico = v_item->>'codigo'
+            codigo_historico = v_item->>'codigo',
+            turma = v_item->>'turma',
+            frequencia = v_item->>'frequencia'
           WHERE id_materia = v_match_id;
         END IF;
         CONTINUE; -- skip insert for duplicate
@@ -497,7 +504,8 @@ BEGIN
         v_match_id, v_match_codigo, v_match_nome,
         v_item->>'nome', v_item->>'codigo',
         true, v_match_nivel,
-        CASE WHEN v_match_tipo_natureza = 1 THEN 'optativa' WHEN v_match_nivel = 0 THEN 'optativa' ELSE 'obrigatoria' END
+        CASE WHEN v_match_tipo_natureza = 1 THEN 'optativa' WHEN v_match_nivel = 0 THEN 'optativa' ELSE 'obrigatoria' END,
+        v_item->>'turma', v_item->>'frequencia'
       );
     ELSE
       -- No match found
@@ -509,7 +517,8 @@ BEGIN
         v_item->>'ano_periodo', v_item->>'prefixo', v_item->>'professor',
         NULL, NULL, NULL,
         v_item->>'nome', v_item->>'codigo',
-        false, NULL, 'nao_encontrada'
+        false, NULL, 'nao_encontrada',
+        v_item->>'turma', v_item->>'frequencia'
       );
     END IF;
   END LOOP;
@@ -531,7 +540,10 @@ BEGIN
       'id_materia', id_materia, 'codigo_materia', codigo_materia,
       'nome_materia', nome_materia, 'nome_historico', nome_historico,
       'codigo_historico', codigo_historico,
-      'encontrada_no_banco', encontrada, 'nivel', nivel, 'tipo', tipo
+      'encontrada_no_banco', encontrada, 'nivel', nivel, 'tipo', tipo,
+      -- uploadStore.ts já lê estas duas chaves e dadosMateriaToJson já as
+      -- persiste; faltava só a RPC devolvê-las.
+      'turma', turma, 'frequencia', frequencia
     ) ORDER BY idx
   ), '[]'::jsonb) INTO v_disc_casadas FROM _casadas;
 

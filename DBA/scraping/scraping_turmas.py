@@ -44,7 +44,15 @@ DEBUG = True  # Ativar para ver logs detalhados
 
 
 def ano_periodo_atual():
-    """Ano/período vigente pela data de hoje (1º sem: jan-jun, 2º sem: jul-dez)."""
+    """
+    Último recurso quando ninguém passou --ano/--periodo: chuta o período pela
+    data (1º sem: jan-jun, 2º sem: jul-dez).
+
+    NÃO é a regra do sistema. Quem manda é o calendário acadêmico no banco
+    (tabela calendario_academico, RPC periodo_letivo_atual), e o workflow
+    scrape_turmas_lite.yml passa o período de lá via --ano/--periodo. Esta
+    fórmula erra o fim de todo semestre -- 2026.1 vai até 18/07, não até 30/06.
+    """
     hoje = date.today()
     periodo = "1" if hoje.month <= 6 else "2"
     return str(hoje.year), periodo
