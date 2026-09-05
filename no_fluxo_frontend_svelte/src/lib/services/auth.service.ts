@@ -445,7 +445,7 @@ export class AuthService {
 		// DEV-ONLY: se a flag de impersonação dev estiver setada, pula refreshSession
 		// (que falharia sem sessão Supabase real) e manda o header X-Dev-Impersonate
 		// pro backend bypassar a verificação JWT.
-		if (typeof localStorage !== 'undefined' && localStorage.getItem('nofluxo_dev_impersonate') === 'true') {
+		if (import.meta.env.DEV && typeof localStorage !== 'undefined' && localStorage.getItem('nofluxo_dev_impersonate') === 'true') {
 			const user = authStore.getUser();
 			return {
 				'X-Dev-Impersonate': user?.email || '',

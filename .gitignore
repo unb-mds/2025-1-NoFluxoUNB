@@ -11,6 +11,7 @@ __pycache__/
 # Outros
 .env
 *.env
+dev.env.json
 
 # Node.js dependencies
 node_modules/
@@ -48,6 +49,7 @@ venv
 
 # Log files
 **/*.log
+logs/
 
 
 

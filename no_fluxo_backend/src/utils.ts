@@ -18,14 +18,38 @@ const utilsLogger = createControllerLogger("Utils", "Utils");
 
 export const Utils = {
 
+    /**
+     * Valida o Bearer token junto ao Supabase Auth e retorna o usuário
+     * autenticado (ou null). Use quando a rota precisa amarrar a operação
+     * à identidade real do token, e não a headers/body controlados pelo cliente.
+     */
+    getAuthenticatedUser: async (req: Request) => {
+        const authorization = req.headers["authorization"];
+        if (!authorization || typeof authorization !== "string") {
+            return null;
+        }
+        let token = authorization;
+        if (token.startsWith("Bearer ")) {
+            token = token.slice(7);
+        }
+        const { data, error } = await SupabaseWrapper.get().auth.getUser(token);
+        if (error || !data?.user) {
+            utilsLogger.error(`getAuthenticatedUser: token inválido${error ? `: ${error.message}` : ""}`);
+            return null;
+        }
+        return data.user;
+    },
+
     checkAuthorization: async (req: Request) => {
         const headers = req.headers;
 
         // DEV-ONLY: bypass de autorização para impersonação local.
-        // Gated por NODE_ENV !== 'production'. Header X-Dev-Impersonate carrega o
+        // Exige opt-in explícito via ALLOW_DEV_IMPERSONATE=true ALÉM de
+        // NODE_ENV !== 'production' — um deploy que esqueça o NODE_ENV não
+        // habilita o bypass sozinho. Header X-Dev-Impersonate carrega o
         // email do usuário a impersonar; o User-ID continua sendo lido normalmente.
         // Útil para Playwright e debug manual sem precisar logar via Supabase.
-        if (process.env.NODE_ENV !== "production") {
+        if (process.env.NODE_ENV !== "production" && process.env.ALLOW_DEV_IMPERSONATE === "true") {
             const devImpersonate = headers["x-dev-impersonate"];
             if (devImpersonate && typeof devImpersonate === "string") {
                 const userId = headers["user-id"];
@@ -51,7 +75,7 @@ export const Utils = {
         }
 
         const authorization = headers["authorization"];
-        utilsLogger.info(`Authorization header: ${authorization}`);
+        utilsLogger.info(`Authorization header present: ${!!authorization}`);
         if (!authorization) {
             utilsLogger.error("Authorization header not found");
             return false;

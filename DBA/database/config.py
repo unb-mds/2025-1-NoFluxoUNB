@@ -36,3 +36,11 @@ SUPABASE_KEY = (
     or ""
 )
 
+<<<<<<< Updated upstream
+=======
+if not SUPABASE_KEY or len(SUPABASE_KEY) < 50:
+    raise RuntimeError(
+        "SUPABASE_SERVICE_ROLE_KEY não configurada. Defina a variável de ambiente "
+        "ou um arquivo .env (nunca commitar a chave no repositório)."
+    )
+>>>>>>> Stashed changes

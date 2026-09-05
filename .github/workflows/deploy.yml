@@ -17,6 +17,9 @@ on:
           - frontend
           - mcp-agent
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest

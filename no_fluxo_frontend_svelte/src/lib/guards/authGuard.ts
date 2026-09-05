@@ -38,6 +38,7 @@ export function isPublicRoute(path: string): boolean {
  */
 async function checkSessionStillValid(): Promise<boolean> {
 	const isDevImpersonate =
+		import.meta.env.DEV &&
 		typeof localStorage !== 'undefined' &&
 		localStorage.getItem('nofluxo_dev_impersonate') === 'true';
 

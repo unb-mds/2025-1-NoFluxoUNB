@@ -22,7 +22,7 @@ CREATE OR REPLACE FUNCTION public.casar_disciplinas(p_dados jsonb)
 RETURNS jsonb
 LANGUAGE plpgsql
 SECURITY DEFINER
-SET search_path = public
+SET search_path = public, pg_temp
 AS $$
 DECLARE
   -- Input

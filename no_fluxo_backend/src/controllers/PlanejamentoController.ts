@@ -698,29 +698,6 @@ function normalizarTurnos(raw: unknown): string[] {
 export const PlanejamentoController: EndpointController = {
     name: "planejamento",
     routes: {
-        "test-db": new Pair(
-            RequestType.GET,
-            async (_req: Request, res: Response) => {
-                try {
-                    console.log("[TEST] Querying matrizes table...");
-                    const { data, error } = await SupabaseWrapper.get()
-                        .from("matrizes")
-                        .select("*")
-                        .limit(1);
-
-                    if (error) {
-                        console.error("[TEST] Error:", error);
-                        return res.status(500).json({ error: error.message, code: error.code });
-                    }
-
-                    console.log("[TEST] Success:", data);
-                    return res.status(200).json({ success: true, data });
-                } catch (err) {
-                    console.error("[TEST] Exception:", err);
-                    return res.status(500).json({ error: String(err) });
-                }
-            }
-        ),
         "gerar-plano": new Pair(
             RequestType.POST,
             async (req: Request, res: Response) => {
