@@ -133,6 +133,16 @@ opinioes_publicas/
 no_fluxo_backend/scripts/_import_reports/
 linhas_avaliacoes_nao_importadas.json
 
+# Backups de .env: o padrão `.env` acima não cobre sufixos, e um `.env.bak`
+# carrega a chave viva tanto quanto o original.
+.env.bak*
+*.env.bak*
+
+# Saída bruta da investigação de dados pré-ML (scripts/investigacao_ml/):
+# agregados por id_user (classificação de ruído, scores) que não precisam
+# ficar versionados — o relatório consolidado em docs/investigacoes/ basta.
+scripts/investigacao_ml/_reports/
+
 # Saída de revisão do atualizar_departamentos_id.py: o script gera esse arquivo
 # pra conferir o diff antes de aplicar. A lista que os scrapers leem é a
 # departamentos_ID_unb.csv, que continua versionada.
