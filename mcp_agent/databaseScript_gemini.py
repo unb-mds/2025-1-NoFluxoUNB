@@ -14,6 +14,14 @@ SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or os.environ.get(
 )
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 
+if not SUPABASE_URL or not SUPABASE_KEY:
+    raise SystemExit(
+        "ERRO: defina SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY (ou SUPABASE_KEY) "
+        "no .env do mcp_agent. Nunca use chaves hardcoded."
+    )
+if not GOOGLE_API_KEY:
+    raise SystemExit("ERRO: defina GOOGLE_API_KEY no .env do mcp_agent.")
+
 NOME_TABELA = "materias_vetorizadas"
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)

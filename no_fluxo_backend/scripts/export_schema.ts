@@ -1209,7 +1209,8 @@ function generateSupabaseBaselineMigrationSql(schema: DatabaseSchema): string {
     for (const view of schema.views || []) {
         if (!view.view_name || !view.view_definition) continue;
         const viewDef = view.view_definition.trim().replace(/;\s*$/, '');
-        lines.push(`CREATE OR REPLACE VIEW public.${toSqlIdentifier(view.view_name)} AS ${viewDef};`);
+        // security_invoker: views must run with the querying role's RLS, not the owner's
+        lines.push(`CREATE OR REPLACE VIEW public.${toSqlIdentifier(view.view_name)} WITH (security_invoker = true) AS ${viewDef};`);
         lines.push('');
     }
 

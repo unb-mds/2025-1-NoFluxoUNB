@@ -12,6 +12,7 @@ import { EndpointController, RequestType } from './interfaces';
 import bodyParser from 'body-parser';
 import cors from "cors";
 import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
 import { FluxogramaController } from './controllers/fluxograma_controller';
 import logger from './logger';
 import { UsersController } from './controllers/users_controller';
@@ -64,33 +65,13 @@ const controllers: EndpointController[] = [
     PlanejamentoController,
     ChatController,
 ];
-router.get('/', (req: Request, res: Response) => {
+router.get('/', (_req: Request, res: Response) => {
     logger.info(`\b[GET][/]`);
 
     res.json({
         status: 'online',
         timestamp: new Date().toISOString(),
         version: '1.0.0',
-        serverInfo: {
-            nodeVersion: process.version,
-            platform: process.platform,
-            memoryUsage: process.memoryUsage(),
-            uptime: process.uptime()
-        },
-        endpoints: controllers.map(controller => ({
-            name: controller.name,
-            description: `${controller.name} API endpoints`,
-            routes: Object.keys(controller.routes).map(route => ({
-                path: `/${controller.name}/${route}`,
-                method: controller.routes[route].key,
-                fullPath: `${req.protocol}://${req.get('host')}/${controller.name}/${route}`
-            })),
-            totalRoutes: Object.keys(controller.routes).length
-        })),
-        documentation: {
-            swagger: `${req.protocol}://${req.get('host')}/api-docs`,
-            postman: `${req.protocol}://${req.get('host')}/postman-collection`
-        }
     });
 });
 
@@ -192,7 +173,7 @@ app.use(cors({
         if (allowedOrigins.has(origin)) return callback(null, true);
         // Dev: permitir qualquer localhost/127.0.0.1
         if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) return callback(null, true);
-        return callback(null, true);
+        return callback(new Error('Origin não permitida pelo CORS'), false);
     },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
     allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization', 'User-ID'],
@@ -204,8 +185,17 @@ app.use(cors({
 // OPTIONS preflight deve ser tratado antes das rotas
 app.options('*', cors());
 
-app.use(bodyParser.json({ limit: 500 * 1024 * 1024, }));
-app.use(bodyParser.urlencoded({ extended: true, limit: 500 * 1024 * 1024 }));
+// Rate limiting global — mitiga enumeração automatizada e brute force
+app.use(rateLimit({
+    windowMs: 60 * 1000,
+    limit: 120,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { error: 'Muitas requisições. Tente novamente em instantes.' },
+}));
+
+app.use(bodyParser.json({ limit: 50 * 1024 * 1024, }));
+app.use(bodyParser.urlencoded({ extended: true, limit: 50 * 1024 * 1024 }));
 
 
 app.use(router);

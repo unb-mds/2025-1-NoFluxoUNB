@@ -37,11 +37,12 @@ export class SabiaService {
     constructor() {
         this.apiUrl = process.env.SABIA_API_URL ?? 'http://localhost:8000';
 
+
         // Check if required env vars are set
         logger.info('[SabiaService] Checking environment variables...');
         logger.info(`[SabiaService] SABIA_API_URL: ${this.apiUrl}`);
-        logger.info(`[SabiaService] MARITACA_API_KEY: ${process.env.MARITACA_API_KEY ? process.env.MARITACA_API_KEY.substring(0, 20) + '...' : 'MISSING'}`);
-        logger.info(`[SabiaService] GOOGLE_API_KEY: ${process.env.GOOGLE_API_KEY ? process.env.GOOGLE_API_KEY.substring(0, 20) + '...' : 'MISSING'}`);
+        logger.info(`[SabiaService] MARITACA_API_KEY: ${process.env.MARITACA_API_KEY ? 'set' : 'MISSING'}`);
+        logger.info(`[SabiaService] GOOGLE_API_KEY: ${process.env.GOOGLE_API_KEY ? 'set' : 'MISSING'}`);
         logger.info(`[SabiaService] SUPABASE_URL: ${process.env.SUPABASE_URL ? process.env.SUPABASE_URL.substring(0, 30) + '...' : 'MISSING'}`);
         
         const hasMaritaca = !!process.env.MARITACA_API_KEY;
@@ -67,6 +68,18 @@ export class SabiaService {
     }
 
     /**
+     * Headers para chamadas ao mcp_agent (api_producao.py), que exige
+     * X-API-Key igual à env var MCP_AGENT_API_KEY compartilhada entre os dois.
+     */
+    private buildHeaders(): Record<string, string> {
+        const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+        if (process.env.MCP_AGENT_API_KEY) {
+            headers['X-API-Key'] = process.env.MCP_AGENT_API_KEY;
+        }
+        return headers;
+    }
+
+    /**
      * Analyze a subject interest and return recommended disciplines using Sabiá AI.
      * Makes an HTTP POST request to the FastAPI server (api_producao.py).
      * 
@@ -85,9 +98,7 @@ export class SabiaService {
             // Make HTTP POST request to FastAPI server
             const response = await fetch(`${this.apiUrl}/recomendar`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: this.buildHeaders(),
                 body: JSON.stringify({
                     interesse,
                     matriz_curricular: matrizCurricular,
@@ -134,7 +145,7 @@ export class SabiaService {
         try {
             const response = await fetch(`${this.apiUrl}/buscar-materias`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: this.buildHeaders(),
                 body: JSON.stringify({ termos_busca: termosBusca }),
             });
             if (!response.ok) {
@@ -168,7 +179,7 @@ export class SabiaService {
 
         const response = await fetch(`${this.apiUrl}/recomendar-stream`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: this.buildHeaders(),
             body: JSON.stringify({
                 interesse,
                 matriz_curricular: matrizCurricular,

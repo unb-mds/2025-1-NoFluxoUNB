@@ -357,9 +357,8 @@ def _collect_deploy_env(cfg: AppConfig) -> dict[str, str] | None:
 
     if env:
         print("\n--- Deploy env vars ---")
-        for key, value in sorted(env.items()):
-            preview = value[:8] + "..." if len(value) > 8 else value
-            print(f"  {key} = {preview} (len={len(value)})")
+        for key in sorted(env):
+            print(f"  {key}: present")
         print("---\n")
 
     return env or None

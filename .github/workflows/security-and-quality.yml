@@ -16,6 +16,9 @@ on:
     # Executa semanalmente às 2h da manhã de domingo
     - cron: '0 2 * * 0'
 
+permissions:
+  contents: read
+
 concurrency:
   group: seguranca-${{ github.ref }}
   cancel-in-progress: true

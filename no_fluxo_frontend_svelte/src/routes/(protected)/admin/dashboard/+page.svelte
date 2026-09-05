@@ -15,6 +15,7 @@
 		AiCostMetrics,
 		DashboardOverview,
 		ScrapingHealth,
+		SecurityHealth,
 		TicketMetrics,
 		TopCurso,
 		TurmasDemanda,
@@ -30,7 +31,9 @@
 		LifeBuoy,
 		Bot,
 		CalendarClock,
-		Database
+		Database,
+		ShieldCheck,
+		ShieldAlert
 	} from 'lucide-svelte';
 
 	let loading = $state(true);
@@ -43,6 +46,7 @@
 	let aiCost = $state<AiCostMetrics | null>(null);
 	let turmas = $state<TurmasDemanda | null>(null);
 	let scraping = $state<ScrapingHealth | null>(null);
+	let security = $state<SecurityHealth | null>(null);
 
 	const maxGrowth = $derived(Math.max(1, ...growth.map((g) => g.novos)));
 	const maxCurso = $derived(Math.max(1, ...topCursos.map((c) => c.usuarios)));
@@ -62,14 +66,16 @@
 		loading = true;
 		error = null;
 		try {
-			const [o, g, t, m, ai, tu, sc] = await Promise.all([
+			const [o, g, t, m, ai, tu, sc, se] = await Promise.all([
 				dashboardService.getOverview(),
 				dashboardService.getUserGrowth(30, 'day'),
 				dashboardService.getTopCursos(8),
 				dashboardService.getTicketMetrics(),
 				dashboardService.getAiCostMetrics(30),
 				dashboardService.getTurmasDemanda(),
-				dashboardService.getScrapingHealth()
+				dashboardService.getScrapingHealth(),
+				// RPC pode ainda não existir no banco — não derruba o dashboard
+				dashboardService.getSecurityHealth().catch(() => null)
 			]);
 			overview = o;
 			growth = g;
@@ -78,6 +84,7 @@
 			aiCost = ai;
 			turmas = tu;
 			scraping = sc;
+			security = se;
 		} catch (e) {
 			error = e instanceof Error ? e.message : 'Erro ao carregar o dashboard.';
 		} finally {
@@ -371,6 +378,72 @@
 				</div>
 			</section>
 		{/if}
+
+		<!-- Segurança das chaves (gitleaks) -->
+		<section class="card mt-5">
+			{#if !security || !security.ultimo_scan_em}
+				<h2 class="card-title"><ShieldCheck class="h-4 w-4" /> Segurança das chaves</h2>
+				<p class="empty">
+					Sem dados de varredura ainda — o workflow <code>Security Scan</code> grava aqui a cada
+					push e diariamente.
+				</p>
+			{:else if security.ultimo_status === 'ok'}
+				<h2 class="card-title">
+					<ShieldCheck class="h-4 w-4 text-emerald-500" /> Segurança das chaves
+				</h2>
+				<div class="ticket-grid">
+					<div class="ticket-block">
+						<span class="block-title">Último scan</span>
+						<span class="block-big text-emerald-500">Limpo</span>
+						<span class="block-sub">
+							{fmtDate(security.ultimo_scan_em)} · {security.ultimo_tipo === 'schedule'
+								? 'diário'
+								: security.ultimo_tipo}
+						</span>
+					</div>
+					<div class="ticket-block">
+						<span class="block-title">Últimos 7 dias</span>
+						<span class="block-big">{security.scans_7d}</span>
+						<span class="block-sub">
+							varreduras · {security.falhas_7d} com vazamento
+						</span>
+					</div>
+					<div class="ticket-block">
+						<span class="block-title">Cobertura</span>
+						<span class="block-sub mt-1">
+							Histórico git completo, a cada push na main e 1× por dia (gitleaks).
+						</span>
+					</div>
+				</div>
+			{:else}
+				<h2 class="card-title">
+					<ShieldAlert class="h-4 w-4 text-destructive" /> Segurança das chaves
+				</h2>
+				<div class="alert mb-3">
+					<AlertTriangle class="h-4 w-4 shrink-0" />
+					<span>
+						<strong>{security.novos_achados} segredo(s) novo(s)</strong> detectado(s) no
+						repositório em {fmtDate(security.ultimo_scan_em)} — rotacione a credencial
+						imediatamente e limpe o commit.
+					</span>
+				</div>
+				<ul class="kv">
+					{#each security.achados.slice(0, 8) as a}
+						<li>
+							<span title={a.fingerprint}>{a.file}</span><strong>{a.rule}</strong>
+						</li>
+					{/each}
+				</ul>
+				{#if security.ultimo_run_url}
+					<a
+						class="ticket-link"
+						href={security.ultimo_run_url}
+						target="_blank"
+						rel="noopener noreferrer">Ver run no GitHub Actions →</a
+					>
+				{/if}
+			{/if}
+		</section>
 	{/if}
 </main>
 

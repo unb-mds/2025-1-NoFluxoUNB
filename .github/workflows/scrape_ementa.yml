@@ -6,8 +6,14 @@ on:
     # Roda no dia 1 de cada mês (00:00 UTC) — cabeça da cadeia ementa -> equivalencias -> turmas
     - cron: '0 0 1 * *'
 
+permissions:
+  contents: read
+
 jobs:
   jobEmenta:
+    # contents: write só aqui — o job commita os dados coletados
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     env:
       PYTHONUNBUFFERED: "1"
@@ -59,5 +65,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: logs-scrape-ementa
-          path: DBA/logs/*.log
+          # Só o log do scraping (sem segredos); o log do script de banco
+          # roda com service_role e não deve virar artifact.
+          path: DBA/logs/scraping_ementa.log
           if-no-files-found: warn

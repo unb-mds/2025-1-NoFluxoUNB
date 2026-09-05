@@ -292,7 +292,7 @@ ALTER TABLE ONLY public."turmas_historico" ADD CONSTRAINT "turmas_historico_id_t
 ALTER TABLE ONLY public."vaga_assinaturas" ADD CONSTRAINT "vaga_assinaturas_id_materia_fkey" FOREIGN KEY ("id_materia") REFERENCES public."materias"("id_materia") ON DELETE CASCADE;
 ALTER TABLE ONLY public."vaga_assinaturas" ADD CONSTRAINT "vaga_assinaturas_id_user_fkey" FOREIGN KEY ("id_user") REFERENCES public."users"("id_user") ON DELETE CASCADE;
 
-CREATE OR REPLACE VIEW public."vw_creditos_por_matriz" AS SELECT m.id_matriz,
+CREATE OR REPLACE VIEW public."vw_creditos_por_matriz" WITH (security_invoker = true) AS SELECT m.id_matriz,
     m.curriculo_completo,
     c.nome_curso,
     floor(((m.ch_obrigatoria_exigida)::numeric / 15.0)) AS cred_obrigatorio_exigido,
