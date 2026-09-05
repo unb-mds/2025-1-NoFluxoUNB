@@ -3,6 +3,7 @@ import type {
 	AiCostMetrics,
 	DashboardOverview,
 	GrowthBucket,
+	PeriodoLetivo,
 	ScrapingHealth,
 	SecurityHealth,
 	TicketMetrics,
@@ -53,6 +54,20 @@ export class DashboardService {
 		});
 		if (error) throw new Error(error.message);
 		return data as TurmasDemanda;
+	}
+
+	/**
+	 * Período letivo vigente direto do calendário acadêmico no banco — mesma
+	 * fonte que o scraper e o filtro de turmas usam, então o card do dashboard
+	 * não pode divergir do resto do sistema.
+	 */
+	async getPeriodoLetivo(): Promise<PeriodoLetivo> {
+		const { data, error } = await this.supabase.rpc('periodo_letivo_vigente');
+		if (error) throw new Error(error.message);
+		// A RPC devolve TABLE -> PostgREST responde com um array de uma linha.
+		const row = (Array.isArray(data) ? data[0] : data) as PeriodoLetivo | undefined;
+		if (!row) throw new Error('periodo_letivo_vigente não devolveu nenhuma linha.');
+		return row;
 	}
 
 	async getScrapingHealth(): Promise<ScrapingHealth> {

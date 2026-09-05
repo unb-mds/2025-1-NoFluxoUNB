@@ -14,6 +14,11 @@ export interface ScrapingTurmasStatus {
 	/** Período letivo vigente segundo `calendario_academico` (ex.: "2026.2"). */
 	periodo: string;
 	fase: 'pre_matricula' | 'matricula' | 'letivo' | 'recesso' | 'desconhecido';
+	/** Datas ISO do período. Nulas quando o calendário não cobre hoje. */
+	data_inicio: string | null;
+	data_fim: string | null;
+	/** Teto para inclusão de disciplina: 25% do semestre (Res. CEG 0003/2021). */
+	limite_matricula_25pct: string | null;
 	modo: ScrapingTurmasModo;
 	/** Só no modo 'on': data_fim do período, depois da qual volta pro automático. */
 	ativo_ate: string | null;

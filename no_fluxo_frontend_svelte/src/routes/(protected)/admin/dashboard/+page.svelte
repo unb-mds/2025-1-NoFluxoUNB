@@ -14,6 +14,8 @@
 	import type {
 		AiCostMetrics,
 		DashboardOverview,
+		FasePeriodo,
+		PeriodoLetivo,
 		ScrapingHealth,
 		SecurityHealth,
 		TicketMetrics,
@@ -47,6 +49,15 @@
 	let turmas = $state<TurmasDemanda | null>(null);
 	let scraping = $state<ScrapingHealth | null>(null);
 	let security = $state<SecurityHealth | null>(null);
+	let periodo = $state<PeriodoLetivo | null>(null);
+
+	const FASES: Record<FasePeriodo, string> = {
+		pre_matricula: 'Pré-matrícula',
+		matricula: 'Matrícula aberta',
+		letivo: 'Aulas em curso',
+		recesso: 'Recesso',
+		desconhecido: 'Calendário indisponível'
+	};
 
 	const maxGrowth = $derived(Math.max(1, ...growth.map((g) => g.novos)));
 	const maxCurso = $derived(Math.max(1, ...topCursos.map((c) => c.usuarios)));
@@ -66,7 +77,7 @@
 		loading = true;
 		error = null;
 		try {
-			const [o, g, t, m, ai, tu, sc, se] = await Promise.all([
+			const [o, g, t, m, ai, tu, sc, se, pl] = await Promise.all([
 				dashboardService.getOverview(),
 				dashboardService.getUserGrowth(30, 'day'),
 				dashboardService.getTopCursos(8),
@@ -75,7 +86,8 @@
 				dashboardService.getTurmasDemanda(),
 				dashboardService.getScrapingHealth(),
 				// RPC pode ainda não existir no banco — não derruba o dashboard
-				dashboardService.getSecurityHealth().catch(() => null)
+				dashboardService.getSecurityHealth().catch(() => null),
+				dashboardService.getPeriodoLetivo().catch(() => null)
 			]);
 			overview = o;
 			growth = g;
@@ -85,6 +97,7 @@
 			turmas = tu;
 			scraping = sc;
 			security = se;
+			periodo = pl;
 		} catch (e) {
 			error = e instanceof Error ? e.message : 'Erro ao carregar o dashboard.';
 		} finally {
@@ -98,6 +111,16 @@
 		} catch {
 			return value;
 		}
+	}
+
+	/**
+	 * '2026-08-10' -> '10/08/2026'. Não passa por new Date(): uma data-só é
+	 * parseada como meia-noite UTC e voltaria um dia atrás no fuso de Brasília.
+	 */
+	function fmtDataISO(iso: string | null): string {
+		if (!iso) return '—';
+		const [ano, mes, dia] = iso.split('-');
+		return `${dia}/${mes}/${ano}`;
 	}
 </script>
 
@@ -125,8 +148,34 @@
 			<span>{error}</span>
 		</div>
 	{:else if overview}
+		<!-- Período letivo vigente: mesma fonte (calendario_academico) que o
+		     scraper e o filtro de turmas usam, pra não divergir do sistema. -->
+		{#if periodo}
+			<section class="periodo-card">
+				<CalendarClock class="h-5 w-5 shrink-0 text-primary" />
+				<div class="periodo-main">
+					<span class="periodo-label">Período atual</span>
+					<span class="periodo-value">{periodo.periodo}</span>
+				</div>
+				<span class="periodo-fase">{FASES[periodo.fase] ?? periodo.fase}</span>
+				{#if periodo.data_inicio && periodo.data_fim}
+					<div class="periodo-datas">
+						<span>{fmtDataISO(periodo.data_inicio)} a {fmtDataISO(periodo.data_fim)}</span>
+						<span class="periodo-limite">
+							matrícula até {fmtDataISO(periodo.limite_matricula_25pct)} (25%)
+						</span>
+					</div>
+				{:else}
+					<div class="periodo-datas">
+						<span>Sem datas no calendário — período estimado pela data de hoje.</span>
+						<span class="periodo-limite">Rode o workflow “Sync Calendario Academico”.</span>
+					</div>
+				{/if}
+			</section>
+		{/if}
+
 		<!-- Stat cards -->
-		<section class="grid grid-cols-2 gap-3 lg:grid-cols-4">
+		<section class="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-4">
 			<div class="stat">
 				<Users class="h-5 w-5 text-primary" />
 				<span class="stat-value">{overview.total_users.toLocaleString('pt-BR')}</span>
@@ -457,6 +506,57 @@
 		background: hsl(var(--destructive) / 0.12);
 		border: 1px solid hsl(var(--destructive) / 0.3);
 		color: hsl(var(--destructive));
+	}
+	.periodo-card {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 10px 16px;
+		padding: 14px 18px;
+		border-radius: 12px;
+		background: hsl(var(--card));
+		border: 1px solid hsl(var(--primary) / 0.35);
+	}
+	.periodo-main {
+		display: flex;
+		align-items: baseline;
+		gap: 8px;
+	}
+	.periodo-label {
+		font-size: 12px;
+		color: hsl(var(--muted-foreground));
+	}
+	.periodo-value {
+		font-size: 22px;
+		font-weight: 700;
+		line-height: 1.1;
+		color: hsl(var(--foreground));
+	}
+	.periodo-fase {
+		padding: 3px 10px;
+		border-radius: 999px;
+		font-size: 11px;
+		font-weight: 700;
+		background: hsl(var(--primary) / 0.15);
+		color: hsl(var(--primary));
+		white-space: nowrap;
+	}
+	.periodo-datas {
+		display: flex;
+		flex-direction: column;
+		margin-left: auto;
+		text-align: right;
+		font-size: 12px;
+		color: hsl(var(--muted-foreground));
+	}
+	.periodo-limite {
+		font-size: 11px;
+	}
+	@media (max-width: 640px) {
+		.periodo-datas {
+			margin-left: 0;
+			text-align: left;
+		}
 	}
 	.stat {
 		display: flex;

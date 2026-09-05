@@ -158,6 +158,37 @@
 					</p>
 					{#if status}
 						<p class="setting-status">{resumo}</p>
+						<dl class="periodo">
+							<div>
+								<dt>Período letivo</dt>
+								<dd>{status.periodo}</dd>
+							</div>
+							<div>
+								<dt>Semestre</dt>
+								<dd>
+									{#if status.data_inicio && status.data_fim}
+										{formatarData(status.data_inicio)} a {formatarData(status.data_fim)}
+									{:else}
+										sem datas no calendário
+									{/if}
+								</dd>
+							</div>
+							<div>
+								<dt>Matrícula até (25%)</dt>
+								<dd>
+									{status.limite_matricula_25pct
+										? formatarData(status.limite_matricula_25pct)
+										: '—'}
+								</dd>
+							</div>
+						</dl>
+						{#if !status.data_inicio}
+							<p class="setting-aviso">
+								O calendário acadêmico não cobre a data de hoje — o período acima veio do
+								fallback por mês. Rode o workflow “Sync Calendario Academico” para carregar as
+								datas da SAA.
+							</p>
+						{/if}
 					{/if}
 				</div>
 				<div class="segmented" role="radiogroup" aria-label="Cadência do scraping de turmas">
@@ -229,6 +260,28 @@
 		font-weight: 600;
 		color: hsl(var(--foreground));
 		margin: 2px 0 0;
+	}
+	.periodo {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px 22px;
+		margin: 8px 0 0;
+	}
+	.periodo dt {
+		font-size: 11px;
+		color: hsl(var(--muted-foreground));
+	}
+	.periodo dd {
+		margin: 0;
+		font-size: 13px;
+		font-weight: 600;
+		color: hsl(var(--foreground));
+	}
+	.setting-aviso {
+		font-size: 12px;
+		color: hsl(var(--destructive));
+		max-width: 52ch;
+		margin: 6px 0 0;
 	}
 	.segmented {
 		display: flex;

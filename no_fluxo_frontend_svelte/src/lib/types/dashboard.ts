@@ -95,3 +95,19 @@ export interface SecurityHealth {
 	falhas_7d: number;
 	achados: SecurityFinding[];
 }
+
+export type FasePeriodo = 'pre_matricula' | 'matricula' | 'letivo' | 'recesso' | 'desconhecido';
+
+/**
+ * Período letivo vigente segundo `calendario_academico` (RPC
+ * `periodo_letivo_vigente`). As datas são ISO (YYYY-MM-DD) e vêm nulas quando o
+ * calendário não cobre a data de hoje — aí `fase` é 'desconhecido' e `periodo`
+ * caiu no fallback por mês.
+ */
+export interface PeriodoLetivo {
+	periodo: string;
+	fase: FasePeriodo;
+	data_inicio: string | null;
+	data_fim: string | null;
+	limite_matricula_25pct: string | null;
+}
