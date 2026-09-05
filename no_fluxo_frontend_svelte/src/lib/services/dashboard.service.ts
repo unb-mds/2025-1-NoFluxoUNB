@@ -4,6 +4,7 @@ import type {
 	DashboardOverview,
 	GrowthBucket,
 	ScrapingHealth,
+	SecurityHealth,
 	TicketMetrics,
 	TopCurso,
 	TurmasDemanda,
@@ -58,6 +59,12 @@ export class DashboardService {
 		const { data, error } = await this.supabase.rpc('get_scraping_health');
 		if (error) throw new Error(error.message);
 		return data as ScrapingHealth;
+	}
+
+	async getSecurityHealth(): Promise<SecurityHealth> {
+		const { data, error } = await this.supabase.rpc('get_security_health');
+		if (error) throw new Error(error.message);
+		return data as SecurityHealth;
 	}
 }
 

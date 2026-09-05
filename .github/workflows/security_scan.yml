@@ -1,0 +1,121 @@
+name: Security Scan
+
+# Bot de rastreamento de segredos: varre o histórico git inteiro com gitleaks
+# a cada push na main e diariamente. Achados históricos já conhecidos (incidente
+# de 2026-09-04, chaves já rotacionadas) ficam em .github/gitleaks-baseline.json —
+# o job só falha se surgir um achado NOVO. O resultado de cada run é gravado na
+# tabela security_scans do Supabase e exibido no dashboard de admin.
+#
+# Se o histórico for reescrito (git filter-repo), os fingerprints mudam:
+# regenere a baseline com
+#   gitleaks git --redact -c .gitleaks.toml --report-format json \
+#     --report-path .github/gitleaks-baseline.json .
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  GITLEAKS_VERSION: "8.30.1"
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install gitleaks
+        run: |
+          curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" \
+            | tar -xz -C /tmp gitleaks
+          sudo install /tmp/gitleaks /usr/local/bin/gitleaks
+          gitleaks version
+
+      - name: Scan full git history (vs baseline)
+        id: scan
+        run: |
+          set +e
+          gitleaks git --redact -c .gitleaks.toml \
+            --baseline-path .github/gitleaks-baseline.json \
+            --report-format json --report-path /tmp/new_findings.json \
+            --no-banner --exit-code 2 .
+          SCAN_EXIT=$?
+          set -e
+          if [ "$SCAN_EXIT" != "0" ] && [ "$SCAN_EXIT" != "2" ]; then
+            echo "gitleaks falhou com erro de execução ($SCAN_EXIT)"
+            exit "$SCAN_EXIT"
+          fi
+          echo "scan_exit=$SCAN_EXIT" >> "$GITHUB_OUTPUT"
+
+      - name: Report result to Supabase (security_scans)
+        if: always() && steps.scan.outcome == 'success'
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          SCAN_TYPE: ${{ github.event_name }}
+          BRANCH: ${{ github.ref_name }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          # Envia só fingerprint/regra/arquivo — nunca valores de segredos
+          # (o relatório já é --redact, e ainda assim filtramos os campos).
+          python3 - <<'EOF'
+          import json, os, urllib.request
+
+          try:
+              with open("/tmp/new_findings.json") as f:
+                  findings = json.load(f)
+          except Exception:
+              findings = []
+
+          payload = {
+              "scan_type": os.environ["SCAN_TYPE"],
+              "branch": os.environ["BRANCH"],
+              "commit_sha": os.environ["COMMIT_SHA"],
+              "run_url": os.environ["RUN_URL"],
+              "tool": "gitleaks",
+              "new_findings": len(findings),
+              "status": "leaks_found" if findings else "ok",
+              "findings": [
+                  {
+                      "fingerprint": f.get("Fingerprint"),
+                      "rule": f.get("RuleID"),
+                      "file": f.get("File"),
+                      "commit": (f.get("Commit") or "")[:12],
+                  }
+                  for f in findings
+              ],
+          }
+
+          url = os.environ["SUPABASE_URL"].rstrip("/") + "/rest/v1/security_scans"
+          key = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
+          req = urllib.request.Request(
+              url,
+              data=json.dumps(payload).encode(),
+              headers={
+                  "apikey": key,
+                  "Authorization": f"Bearer {key}",
+                  "Content-Type": "application/json",
+                  "Prefer": "return=minimal",
+              },
+              method="POST",
+          )
+          with urllib.request.urlopen(req) as resp:
+              print("security_scans registrado:", resp.status)
+          EOF
+
+      - name: Fail if new leaks were found
+        if: steps.scan.outputs.scan_exit == '2'
+        run: |
+          echo "::error::gitleaks encontrou segredo(s) NOVO(s) no repositório. Veja o run e rotacione a credencial imediatamente."
+          exit 1
