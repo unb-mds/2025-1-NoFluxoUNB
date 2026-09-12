@@ -32,9 +32,22 @@
   "author": "NoFluxo Team",
   "license": "GPL-3.0-only",
   "dependencies": {
+    "express": "^5.2.1",
     "googlethis": "^1.8.0"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0"
-  }
+  },
+  "main": "jest.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unb-mds/2025-1-NoFluxoUNB.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unb-mds/2025-1-NoFluxoUNB/issues"
+  },
+  "homepage": "https://github.com/unb-mds/2025-1-NoFluxoUNB#readme"
 }
