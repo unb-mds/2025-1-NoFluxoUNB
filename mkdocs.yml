@@ -59,8 +59,14 @@ nav:
     - Identidade visual: planejamento/idv/idv.md
 
   - Testes:
+    - Visão Geral: testes/index.md
     - Estratégia de Testes: testes/estrategia-de-testes.md
+    - Testes Backend (Jest): testes/testes-backend.md
+    - Testes Frontend (Vitest & E2E): testes/testes-frontend.md
+    - Testes Python (Pytest): testes/testes-python.md
     - Pipeline de CI: testes/pipeline-ci.md
+    - Testes Exploratórios: testes/testes-exploratorios.md
+    - Métricas e Cobertura: testes/cobertura-metricas.md
 
   - Ata de Reuniões:
     - Reunião 1 - 27-29/03/2025: Atas/27 e 29-03-25.md

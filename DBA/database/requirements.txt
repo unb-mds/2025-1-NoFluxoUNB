@@ -1,0 +1,4 @@
+# Dependências para scripts de banco de dados (DBA/database)
+supabase>=2.24.0
+tenacity>=8.2.0
+python-dotenv>=1.0.0

@@ -1,6 +1,7 @@
 import { UsersController } from '../src/controllers/users_controller';
 import { Request, Response } from 'express';
 import { SupabaseWrapper } from '../src/supabase_wrapper';
+import { Utils } from '../src/utils';
 
 // Mock do SupabaseWrapper
 jest.mock('../src/supabase_wrapper', () => {
@@ -34,19 +35,25 @@ describe('UsersController', () => {
   let mockResponse: Partial<Response>;
   let statusSpy: jest.SpyInstance;
   let jsonSpy: jest.SpyInstance;
+  let authSpy: jest.SpyInstance;
   let mockEq: jest.Mock;
   let mockInsert: jest.Mock;
   let mockSelect: jest.Mock;
   let mockSingle: jest.Mock;
 
+  const authUser = { id: 'auth-uuid', email: 'test@example.com' };
+
   beforeEach(() => {
-    mockRequest = {};
+    mockRequest = { headers: {} };
     mockResponse = {
       status: jest.fn().mockReturnThis(),
       json: jest.fn(),
     };
     statusSpy = jest.spyOn(mockResponse, 'status');
     jsonSpy = jest.spyOn(mockResponse, 'json');
+    // Todas as rotas exigem token válido; por padrão os testes simulam
+    // um usuário autenticado com email test@example.com.
+    authSpy = jest.spyOn(Utils, 'getAuthenticatedUser').mockResolvedValue(authUser as any);
     // Pega os mocks
     mockSelect = (SupabaseWrapper.get().from('users') as any).select;
     mockEq = (mockSelect() as any).eq;
@@ -55,22 +62,34 @@ describe('UsersController', () => {
   });
 
   afterEach(() => {
+    jest.restoreAllMocks();
     jest.clearAllMocks();
   });
 
   describe('register-user-with-google', () => {
-    it('should return 400 if email or nome_completo is missing', async () => {
-      mockRequest.body = { email: 'test@example.com' };
+    it('should return 401 if there is no authenticated user', async () => {
+      authSpy.mockResolvedValueOnce(null);
+      mockRequest.body = { nome_completo: 'Test User' };
+
+      const handler = UsersController.routes["register-user-with-google"].value;
+      await handler(mockRequest as Request, mockResponse as Response);
+
+      expect(statusSpy).toHaveBeenCalledWith(401);
+      expect(jsonSpy).toHaveBeenCalledWith({ error: "Não autorizado" });
+    });
+
+    it('should return 400 if nome_completo is missing', async () => {
+      mockRequest.body = {};
 
       const handler = UsersController.routes["register-user-with-google"].value;
       await handler(mockRequest as Request, mockResponse as Response);
 
       expect(statusSpy).toHaveBeenCalledWith(400);
-      expect(jsonSpy).toHaveBeenCalledWith({ error: "Email e nome completo são obrigatórios" });
+      expect(jsonSpy).toHaveBeenCalledWith({ error: "Nome completo é obrigatório" });
     });
 
     it('should return 400 if user already exists', async () => {
-      mockRequest.body = { email: 'test@example.com', nome_completo: 'Test User' };
+      mockRequest.body = { nome_completo: 'Test User' };
 
       mockEq.mockResolvedValueOnce({
         data: [{ id: 1, email: 'test@example.com' }],
@@ -84,8 +103,8 @@ describe('UsersController', () => {
       expect(jsonSpy).toHaveBeenCalledWith({ error: "Usuário já cadastrado" });
     });
 
-    it('should return 200 when user is created successfully', async () => {
-      mockRequest.body = { email: 'test@example.com', nome_completo: 'Test User' };
+    it('should create the user with the email from the auth token, ignoring body email', async () => {
+      mockRequest.body = { email: 'attacker@evil.com', nome_completo: 'Test User' };
       const mockUser = { id: 1, email: 'test@example.com', nome_completo: 'Test User' };
 
       mockEq.mockResolvedValueOnce({
@@ -100,12 +119,16 @@ describe('UsersController', () => {
       const handler = UsersController.routes["register-user-with-google"].value;
       await handler(mockRequest as Request, mockResponse as Response);
 
+      expect(mockInsert).toHaveBeenCalledWith({
+        email: 'test@example.com',
+        nome_completo: 'Test User',
+      });
       expect(statusSpy).toHaveBeenCalledWith(200);
       expect(jsonSpy).toHaveBeenCalledWith(mockUser);
     });
 
     it('should return 500 when database error occurs during user check', async () => {
-      mockRequest.body = { email: 'test@example.com', nome_completo: 'Test User' };
+      mockRequest.body = { nome_completo: 'Test User' };
       const mockError = { message: 'Database error' };
 
       mockEq.mockResolvedValueOnce({
@@ -122,6 +145,17 @@ describe('UsersController', () => {
   });
 
   describe('get-user-by-email', () => {
+    it('should return 401 if there is no authenticated user', async () => {
+      authSpy.mockResolvedValueOnce(null);
+      mockRequest.query = { email: 'test@example.com' };
+
+      const handler = UsersController.routes["get-user-by-email"].value;
+      await handler(mockRequest as Request, mockResponse as Response);
+
+      expect(statusSpy).toHaveBeenCalledWith(401);
+      expect(jsonSpy).toHaveBeenCalledWith({ error: "Não autorizado" });
+    });
+
     it('should return 400 if email is missing', async () => {
       mockRequest.query = {};
 
@@ -132,7 +166,17 @@ describe('UsersController', () => {
       expect(jsonSpy).toHaveBeenCalledWith({ error: "Email é obrigatório" });
     });
 
-    it('should return 200 with user data when user is found', async () => {
+    it('should return 403 when requesting another user\'s email (anti-IDOR)', async () => {
+      mockRequest.query = { email: 'victim@example.com' };
+
+      const handler = UsersController.routes["get-user-by-email"].value;
+      await handler(mockRequest as Request, mockResponse as Response);
+
+      expect(statusSpy).toHaveBeenCalledWith(403);
+      expect(jsonSpy).toHaveBeenCalledWith({ error: "Acesso negado" });
+    });
+
+    it('should return 200 with user data when requesting own profile', async () => {
       mockRequest.query = { email: 'test@example.com' };
       const mockUser = { id: 1, email: 'test@example.com', nome_completo: 'Test User' };
 
@@ -165,18 +209,29 @@ describe('UsersController', () => {
   });
 
   describe('registrar-user-with-email', () => {
-    it('should return 400 if email or nome_completo is missing', async () => {
-      mockRequest.body = { email: 'test@example.com' };
+    it('should return 401 if there is no authenticated user', async () => {
+      authSpy.mockResolvedValueOnce(null);
+      mockRequest.body = { nome_completo: 'Test User' };
+
+      const handler = UsersController.routes["registrar-user-with-email"].value;
+      await handler(mockRequest as Request, mockResponse as Response);
+
+      expect(statusSpy).toHaveBeenCalledWith(401);
+      expect(jsonSpy).toHaveBeenCalledWith({ error: "Não autorizado" });
+    });
+
+    it('should return 400 if nome_completo is missing', async () => {
+      mockRequest.body = {};
 
       const handler = UsersController.routes["registrar-user-with-email"].value;
       await handler(mockRequest as Request, mockResponse as Response);
 
       expect(statusSpy).toHaveBeenCalledWith(400);
-      expect(jsonSpy).toHaveBeenCalledWith({ error: "Email e nome completo são obrigatórios" });
+      expect(jsonSpy).toHaveBeenCalledWith({ error: "Nome completo é obrigatório" });
     });
 
     it('should return 200 when user is created successfully', async () => {
-      mockRequest.body = { email: 'test@example.com', nome_completo: 'Test User' };
+      mockRequest.body = { nome_completo: 'Test User' };
       const mockUser = { id: 1, email: 'test@example.com', nome_completo: 'Test User' };
 
       mockEq.mockResolvedValueOnce({
@@ -195,4 +250,4 @@ describe('UsersController', () => {
       expect(jsonSpy).toHaveBeenCalledWith(mockUser);
     });
   });
-}); 
+});

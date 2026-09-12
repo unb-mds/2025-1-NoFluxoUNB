@@ -14,7 +14,8 @@ Bem-vindo ao **NoFluxoUnB**, um projeto desenvolvido pela equipe do Squad 03 na 
 ![Forks](https://img.shields.io/github/forks/unb-mds/2025-1-NoFluxoUNB?style=social)
 ![Last Commit](https://img.shields.io/github/last-commit/unb-mds/2025-1-NoFluxoUNB)
 
-![Flutter](https://img.shields.io/badge/flutter-3.19.0-blue)
+![Svelte](https://img.shields.io/badge/svelte-5-orange)
+![TailwindCSS](https://img.shields.io/badge/tailwind-4-38bdf8)
 ![Supabase](https://img.shields.io/badge/supabase-1.0.0-brightgreen)
 ![TypeScript](https://img.shields.io/badge/typescript-5.3.0-blue)
 ![DigitalOcean](https://img.shields.io/badge/digitalocean-cloud-blue)
@@ -22,7 +23,6 @@ Bem-vindo ao **NoFluxoUnB**, um projeto desenvolvido pela equipe do Squad 03 na 
 ![GitHub](https://img.shields.io/badge/github-repository-blue)
 ![GitHub Actions](https://img.shields.io/badge/github_actions-v2.0.0-2088FF)
 ![Python](https://img.shields.io/badge/python-3.11-blue)
-![HTML](https://img.shields.io/badge/html-5-orange)
 
 ![GitHub Projects](https://img.shields.io/badge/github-projects-90a1b2)
 
@@ -58,7 +58,25 @@ Dessa forma, o estudante consegue um planejamento acadêmico **assertivo e perso
  
 ## 3. Como Rodar o Projeto Localmente
 
-Para configurar e executar o projeto na sua máquina local, siga o passo a passo detalhado no arquivo [CONTRIBUTING.md](./CONTRIBUTING.md)
+### Setup Rápido (Python + Node.js)
+```bash
+# Configurar ambiente virtual Python e dependências
+python scripts/setup_env.py --node
+```
+
+### Iniciar os Serviços
+```bash
+# Backend (Express / TypeScript na porta 3325):
+cd no_fluxo_backend && npm run dev
+
+# Frontend (SvelteKit / Vite na porta 5173):
+cd no_fluxo_frontend_svelte && pnpm dev
+
+# Scripts de Banco de Dados (DBA):
+cd DBA/database && python 01_insert_cursos_matrizes_materias.py
+```
+
+Para instruções detalhadas de cada serviço, variáveis de ambiente e solução de problemas, consulte o [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 
  ## 4. 👥 Equipe

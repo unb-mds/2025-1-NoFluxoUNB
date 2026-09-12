@@ -1,9 +1,12 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
+import hmac
 import os
 import json
 import re
+import time
+from math import ceil
 from pydantic import BaseModel
 from openai import OpenAI
 import google.generativeai as genai
@@ -15,7 +18,7 @@ from tool_call_utils import extrair_tool_call_texto, termo_materia
 # 1. INICIALIZAÇÃO GLOBAL (Roda apenas quando o servidor liga)
 load_dotenv()
 
-# Print env vars on startup for debugging
+# Checagem de env vars no startup (NUNCA imprimir valores/prefixos de segredos)
 print("\n--- MCP Agent env vars at startup ---")
 for key in (
     "GOOGLE_API_KEY",
@@ -23,14 +26,32 @@ for key in (
     "SUPABASE_SERVICE_ROLE_KEY",
     "MARITACA_API_KEY",
     "ALLOWED_ORIGINS",
+    "MCP_AGENT_API_KEY",
 ):
-    value = os.environ.get(key)
-    if value:
-        preview = value[:8] + "..." if len(value) > 8 else value
-        print(f"  {key} = {preview} (len={len(value)})")
-    else:
-        print(f"  {key} = NOT SET")
+    print(f"  {key} = {'SET' if os.environ.get(key) else 'NOT SET'}")
 print("---\n")
+
+# Autenticação por API key compartilhada (header X-API-Key).
+# Fail-closed: sem MCP_AGENT_API_KEY definida, TODA requisição protegida é recusada.
+MCP_AGENT_API_KEY = os.environ.get("MCP_AGENT_API_KEY")
+if not MCP_AGENT_API_KEY:
+    print(
+        "[ERROR] MCP_AGENT_API_KEY não está definida no ambiente. "
+        "Todas as requisições aos endpoints protegidos serão recusadas (fail-closed). "
+        "Defina MCP_AGENT_API_KEY no .env para habilitar a API."
+    )
+
+
+async def verificar_api_key(x_api_key: str = Header(default="", alias="X-API-Key")):
+    if not MCP_AGENT_API_KEY:
+        raise HTTPException(
+            status_code=503,
+            detail="API indisponível: autenticação não configurada no servidor.",
+        )
+    if not x_api_key or not hmac.compare_digest(
+        x_api_key.encode("utf-8"), MCP_AGENT_API_KEY.encode("utf-8")
+    ):
+        raise HTTPException(status_code=401, detail="API key inválida ou ausente.")
 
 # Clientes globais mantêm conexões persistentes
 genai.configure(api_key=os.environ.get("GOOGLE_API_KEY"))
@@ -464,14 +485,47 @@ class BuscaMaterias(BaseModel):
     termos_busca: list[str] = []
 
 
-@app.post("/buscar-materias")
+def _log_ai_usage_embeddings(
+    endpoint: str, termos: list[str], duration_ms: int, success: bool
+) -> None:
+    """Loga uso de embeddings Gemini em `ai_usage_log` (tracking de custo no
+    dashboard admin). Fire-and-forget best-effort: nunca lança, não bloqueia a
+    resposta ao chamador além do próprio insert síncrono do supabase-py.
+
+    `genai.embed_content` não devolve contagem de tokens — aproxima por
+    len(texto)/4 (heurística documentada; preço real fica configurado em
+    `ai_pricing` para `gemini-embedding-001`).
+    """
+    try:
+        texto_concatenado = " ".join(termos)
+        tokens_estimados = max(1, ceil(len(texto_concatenado) / 4))
+        supabase.table("ai_usage_log").insert(
+            {
+                "endpoint": endpoint,
+                "model": "gemini-embedding-001",
+                "prompt_tokens": tokens_estimados,
+                "completion_tokens": 0,
+                "total_tokens": tokens_estimados,
+                "duration_ms": duration_ms,
+                "success": success,
+                "request_excerpt": texto_concatenado[:120],
+            }
+        ).execute()
+    except Exception as e:
+        print(f"[WARN] Falha ao logar uso de embeddings ({endpoint}): {e}")
+
+
+@app.post("/buscar-materias", dependencies=[Depends(verificar_api_key)])
 async def buscar_materias(busca: BuscaMaterias):
     termos = [t for t in (busca.termos_busca or []) if t and t.strip()]
     if not termos:
         raise HTTPException(
             status_code=400, detail="Informe ao menos um termo em 'termos_busca'."
         )
+    inicio = time.time()
     resultado_json = ferramenta_buscar_materias_unb(termos)
+    duration_ms = int((time.time() - inicio) * 1000)
+    _log_ai_usage_embeddings("buscar-materias", termos, duration_ms, True)
     try:
         materias = json.loads(resultado_json)
     except Exception:
@@ -480,7 +534,7 @@ async def buscar_materias(busca: BuscaMaterias):
 
 
 # 4. O ENDPOINT PRINCIPAL DA API
-@app.post("/recomendar")
+@app.post("/recomendar", dependencies=[Depends(verificar_api_key)])
 async def recomendar_materias(consulta: Consulta):
     if not consulta.interesse.strip():
         raise HTTPException(
@@ -604,7 +658,7 @@ def _sse_event(stage: str, **kwargs) -> str:
     return f"data: {json.dumps(data, ensure_ascii=False)}\n\n"
 
 
-@app.post("/recomendar-stream")
+@app.post("/recomendar-stream", dependencies=[Depends(verificar_api_key)])
 async def recomendar_materias_stream(consulta: Consulta):
     if not consulta.interesse.strip():
         raise HTTPException(

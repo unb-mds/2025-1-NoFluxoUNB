@@ -6,9 +6,15 @@ on:
     workflows: ["Scrape Ementa"]
     types: [completed]
 
+permissions:
+  contents: read
+
 jobs:
   jobEquivalencias:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    # contents: write só aqui — o job commita os dados coletados
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     env:
       PYTHONUNBUFFERED: "1"
@@ -60,5 +66,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: logs-scrape-equivalencias
-          path: DBA/logs/*.log
+          # Só o log do scraping (sem segredos); o log do script de banco
+          # roda com service_role e não deve virar artifact.
+          path: DBA/logs/scraping_equivalencias.log
           if-no-files-found: warn

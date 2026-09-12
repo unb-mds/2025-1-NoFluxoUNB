@@ -12,6 +12,12 @@ SUPABASE_URL = os.environ.get("SUPABASE_URL")
 SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
 NOME_TABELA = "materias_vetorizadas"  # Apontando para a tabela
 
+if not SUPABASE_URL or not SUPABASE_KEY:
+    raise SystemExit(
+        "ERRO: defina SUPABASE_URL e SUPABASE_KEY no ambiente. "
+        "Nunca use chaves hardcoded."
+    )
+
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 print("Carregando o modelo de IA")

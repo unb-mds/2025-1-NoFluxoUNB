@@ -14,6 +14,7 @@ Regras:
 
 Uso:
   cd DBA/database
+  python -m pip install -r requirements.txt   # instalar dependências
   python 03_insert_turmas.py [--dry-run]
 """
 

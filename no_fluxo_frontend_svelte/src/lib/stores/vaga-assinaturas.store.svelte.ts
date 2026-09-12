@@ -48,6 +48,18 @@ function createVagaAssinaturasStore() {
 			}
 		},
 
+		/**
+		 * "Avisar quando abrir vaga" só faz sentido para turma lotada e com as
+		 * assinaturas já carregadas (sem login, `carregado` fica falso). Predicado
+		 * público porque quem desenha o layout em volta do botão precisa saber se
+		 * ele vai aparecer — evita moldura vazia.
+		 */
+		podeSeguir(turma: {
+			vagas_sobrando: number | null;
+		}): boolean {
+			return carregado && turma.vagas_sobrando != null && turma.vagas_sobrando <= 0;
+		},
+
 		isSeguindo(idMateria: number, turma: string | null, anoPeriodo: string): boolean {
 			return encontrar(idMateria, turma, anoPeriodo) !== null;
 		},

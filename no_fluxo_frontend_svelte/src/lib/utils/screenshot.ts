@@ -23,15 +23,34 @@ export async function captureScreenshot(
 		let canvas: HTMLCanvasElement;
 
 		if (html2canvas) {
+			// Resolução: 3x para texto nítido, limitado pelo tamanho máximo de canvas
+			const rect = element.getBoundingClientRect();
+			const MAX_CANVAS_DIM = 12000;
+			const scale = Math.max(2, Math.min(3, MAX_CANVAS_DIM / Math.max(rect.width, rect.height, 1)));
+
 			canvas = await html2canvas(element, {
 				backgroundColor: BG_COLOR,
-				scale: 2,
+				scale,
 				useCORS: true,
 				logging: false,
 				allowTaint: false,
-				onclone: (_doc: Document, clonedEl: HTMLElement) => {
+				onclone: (doc: Document, clonedEl: HTMLElement) => {
 					clonedEl.style.overflow = 'visible';
 					clonedEl.style.background = BG_COLOR;
+					// html2canvas pinta box-shadow/backdrop-filter como manchas claras
+					// ("escudo" em volta dos cards) — zera tudo no clone para a
+					// captura sair limpa; só afeta a imagem, não a tela real.
+					const style = doc.createElement('style');
+					style.textContent = `
+						*, *::before, *::after {
+							box-shadow: none !important;
+							text-shadow: none !important;
+							filter: none !important;
+							backdrop-filter: none !important;
+							-webkit-backdrop-filter: none !important;
+						}
+					`;
+					doc.head.appendChild(style);
 				}
 			});
 			canvas = addPaddingAndRoundedCorners(canvas);

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getCompletedByEquivalenceCodes } from './equivalencia';
+import { getCompletedByEquivalenceCodes, getCurrentByEquivalenceCodes } from './equivalencia';
 import type { EquivalenciaModel } from './equivalencia';
 import type { ExpressaoLogicaRecursiva } from '$lib/utils/expressao-logica';
 
@@ -61,5 +61,69 @@ describe('getCompletedByEquivalenceCodes', () => {
 
 	it('equivalência não satisfeita não marca nada', () => {
 		expect(getCompletedByEquivalenceCodes([equiv('CIC0088', 'CIC0004')], new Set(['MAT0025'])).size).toBe(0);
+	});
+});
+
+/**
+ * "Matriculado em Equivalente": aluno cursa AGORA uma matéria que satisfaz a
+ * equivalência de uma obrigatória da matriz — a obrigatória deve aparecer como
+ * em curso (roxa), e não como reprovada por causa de uma tentativa antiga.
+ * Caso real: cursando FGA0146 (ED1 nova) ⇒ FGA0147 (matriz) matriculada;
+ * cursando MAT0038 (Teoria dos Números 1) ⇒ FGA0108 (MD2) matriculada.
+ */
+describe('getCurrentByEquivalenceCodes', () => {
+	it('marca a matéria da matriz quando o aluno cursa a equivalente agora', () => {
+		const result = getCurrentByEquivalenceCodes(
+			[equiv('FGA0147', 'FGA0146')],
+			new Set<string>(),
+			new Set(['FGA0146'])
+		);
+		expect([...result]).toEqual(['FGA0147']);
+	});
+
+	it('concluída tem precedência: expressão satisfeita só por concluídas não entra', () => {
+		// Aluno já concluiu a equivalente — isso é caso de concluída-por-equivalência,
+		// não de "matriculado em equivalente".
+		const result = getCurrentByEquivalenceCodes(
+			[equiv('FGA0147', 'FGA0146')],
+			new Set(['FGA0146']),
+			new Set(['MAT0025'])
+		);
+		expect(result.size).toBe(0);
+	});
+
+	it('expressão E mista: parte concluída + parte em curso conta como em curso', () => {
+		const result = getCurrentByEquivalenceCodes(
+			[equiv('FGA0100', { operador: 'E', condicoes: ['FGA0001', 'FGA0002'] })],
+			new Set(['FGA0001']),
+			new Set(['FGA0002'])
+		);
+		expect([...result]).toEqual(['FGA0100']);
+	});
+
+	it('não marca quem já está matriculado ou aprovado no próprio código da matriz', () => {
+		const defs = [equiv('FGA0147', 'FGA0146')];
+		expect(
+			getCurrentByEquivalenceCodes(defs, new Set<string>(), new Set(['FGA0147', 'FGA0146'])).has(
+				'FGA0147'
+			)
+		).toBe(false);
+		expect(
+			getCurrentByEquivalenceCodes(defs, new Set(['FGA0147']), new Set(['FGA0146'])).size
+		).toBe(0);
+	});
+
+	it('sem nenhuma matrícula atual, não marca nada', () => {
+		expect(
+			getCurrentByEquivalenceCodes([equiv('FGA0147', 'FGA0146')], new Set(['CIC0004']), new Set())
+				.size
+		).toBe(0);
+	});
+
+	it('passe único — matéria em curso por equivalência não realimenta outra equivalência', () => {
+		const defs = [equiv('B', 'C'), equiv('A', 'B')];
+		const result = getCurrentByEquivalenceCodes(defs, new Set<string>(), new Set(['C']));
+		expect(result.has('B')).toBe(true);
+		expect(result.has('A')).toBe(false);
 	});
 });

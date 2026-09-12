@@ -13,6 +13,7 @@ admin).
 
 Uso:
   cd DBA/database
+  python -m pip install -r requirements.txt   # instalar dependências
   python 04_reconciliar_turmas.py --ano-periodo 2026.1 --run-started-at 2026-07-16T03:00:00Z [--dry-run]
 
   # ou via env var RUN_STARTED_AT (setada no início do workflow):

@@ -34,6 +34,11 @@ export interface DadosMateria {
 	nivel?: number | string | null;
 	/** Alias serializado para compatibilidade com payloads legados/externos. */
 	nivelAlocado?: number | string | null;
+	/** Nome da matéria como veio do histórico — necessário para exibir matérias
+	 * fora da matriz (módulo livre/eletivas), que não existem no courseData. */
+	nomeMateria?: string | null;
+	/** Créditos da matéria no histórico (fallback quando fora da matriz). */
+	creditos?: number | null;
 }
 
 export interface DadosFluxogramaUser {
@@ -50,6 +55,28 @@ export interface DadosFluxogramaUser {
 	dadosFluxograma: DadosMateria[][];
 	/** Planejamento de optativas no fluxograma (semestre + código). */
 	optativasPlanejadas?: OptativaPlanejadaRef[];
+	/**
+	 * Equivalências declaradas no PRÓPRIO histórico (seção "Equivalências:
+	 * Cumpriu X através de Y"). Guardadas para auditoria — o consumo é feito
+	 * injetando entradas CUMP/equivalencia no dados_fluxograma no upload.
+	 */
+	equivalenciasPdf?: EquivalenciaPdf[];
+	/**
+	 * Versão do schema com que o upload gerou este dado (ver
+	 * FLUXOGRAMA_SCHEMA_VERSION em $lib/config/release). Ausente = upload
+	 * antigo, anterior ao versionamento.
+	 */
+	schemaVersion?: number;
+}
+
+/** Par de equivalência extraído do histórico do SIGAA (fonte oficial, por aluno). */
+export interface EquivalenciaPdf {
+	/** Código da matéria da matriz dada como cumprida. */
+	cumpriu: string;
+	/** Código da matéria efetivamente cursada. */
+	atravesDe: string;
+	nomeCumpriu?: string | null;
+	nomeEquivalente?: string | null;
 }
 
 export interface OptativaManual {

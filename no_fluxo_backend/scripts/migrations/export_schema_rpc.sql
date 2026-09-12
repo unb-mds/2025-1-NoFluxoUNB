@@ -9,7 +9,11 @@
 CREATE OR REPLACE FUNCTION public.export_schema()
 RETURNS jsonb
 LANGUAGE plpgsql
+-- SECURITY DEFINER is kept so service_role can read auth-schema metadata
+-- (auth.users triggers/FKs) via the catalogs; SET search_path prevents
+-- search_path hijacking, mandatory for any SECURITY DEFINER function.
 SECURITY DEFINER
+SET search_path = public, pg_temp
 AS $$
 BEGIN
     RETURN jsonb_build_object(
@@ -452,8 +456,11 @@ BEGIN
 END;
 $$;
 
--- Grant execute permission only to service_role (requires service key to call)
+-- Grant execute permission only to service_role (requires service key to call).
+-- This function dumps the entire schema (including function source code and
+-- RLS policies), so it must NEVER be callable by anon/authenticated via RPC.
 REVOKE EXECUTE ON FUNCTION public.export_schema() FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.export_schema() FROM anon;
 REVOKE EXECUTE ON FUNCTION public.export_schema() FROM authenticated;
 GRANT EXECUTE ON FUNCTION public.export_schema() TO service_role;
 

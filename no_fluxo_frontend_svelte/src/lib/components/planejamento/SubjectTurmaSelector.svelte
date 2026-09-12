@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
-	import type { Turno } from '$lib/utils/horario-slots';
+	import { unidadeCargaStore } from '$lib/stores/unidade-carga.store.svelte';
+	import { assistenteChatStore } from '$lib/stores/assistente-chat.store.svelte';
 	import TurmaOption from './TurmaOption.svelte';
-	import { TriangleAlert, Star, Trash2, Info, SlidersHorizontal, X } from 'lucide-svelte';
+	import MateriaNaturezaBadge from '$lib/components/materia/MateriaNaturezaBadge.svelte';
+	import type { Turno } from '$lib/utils/horario-slots';
+	import { TriangleAlert, Star, Trash2, Info, Bot, GraduationCap, Lock } from 'lucide-svelte';
 
 	// Alterna a turma de uma matéria: clicar na já selecionada remove; senão seleciona.
 	function toggle(codigo: string, idTurma: number) {
@@ -13,27 +16,55 @@
 		}
 	}
 
-	// Painel de preferências aberto por matéria — fica fechado por padrão para não
-	// poluir a lista de quem só quer escolher a turma na mão.
+	/**
+	 * Painel "Perguntar pra Darcy" aberto por matéria, e o que o aluno marcou nele.
+	 * Fica só neste componente (não é filtro do `gradeStore` — vira frase pro chat,
+	 * então não precisa sobreviver a um reload) e escolhido, não digitado: o aluno
+	 * marca turno/professor de uma lista real em vez de errar o nome de cabeça.
+	 */
 	let painelAberto = $state<string | null>(null);
+	let turnoEscolhido = $state<Record<string, Turno[]>>({});
+	let docenteEscolhido = $state<Record<string, string | null>>({});
 
 	const TURNOS: ReadonlyArray<[Turno, string]> = [
 		['M', 'Manhã'],
 		['T', 'Tarde'],
 		['N', 'Noite']
 	];
+	const TURNO_FRASE: Record<Turno, string> = { M: 'de manhã', T: 'à tarde', N: 'à noite' };
 
-	/** Resumo curto da preferência, para o rótulo do botão quando está fechado. */
-	function resumoPreferencia(codigo: string): string {
-		const p = gradeStore.preferenciaDe(codigo);
+	function toggleTurnoEscolhido(codigo: string, t: Turno) {
+		const atual = turnoEscolhido[codigo] ?? [];
+		turnoEscolhido = {
+			...turnoEscolhido,
+			[codigo]: atual.includes(t) ? atual.filter((x) => x !== t) : [...atual, t]
+		};
+	}
+
+	/**
+	 * Abre o chat da Darcy com a matéria e o que o aluno escolheu (turno/professor)
+	 * já em frase no campo de mensagem — ele confere e manda, ou completa à mão.
+	 */
+	function pedirPraDarcy(codigo: string, nome: string) {
+		const turnos = turnoEscolhido[codigo] ?? [];
+		const docente = docenteEscolhido[codigo];
 		const partes: string[] = [];
-		if (p.turnos.length > 0) {
-			partes.push(TURNOS.filter(([t]) => p.turnos.includes(t)).map(([, l]) => l).join('/'));
+		if (turnos.length > 0) partes.push(TURNOS.filter(([t]) => turnos.includes(t)).map(([t]) => TURNO_FRASE[t]).join(' ou '));
+		if (docente) partes.push(`com o(a) professor(a) ${docente}`);
+		const pedido = partes.length > 0 ? ` ${partes.join(', ')}` : ' com ';
+		assistenteChatStore.pedirAbertura(`Quero ${nome} (${codigo})${pedido}`);
+	}
+
+	function handleOutsideInteraction(e: Event) {
+		const target = e.target as HTMLElement | null;
+		if (target && !target.closest('section[data-materia-card="true"]')) {
+			gradeStore.setHover(null);
 		}
-		if (p.docente) partes.push(p.docente);
-		return partes.join(' · ');
 	}
 </script>
+
+<svelte:window onclick={handleOutsideInteraction} ontouchstart={handleOutsideInteraction} />
+
 
 <div class="space-y-3" data-tour="escolher-turma">
 	{#each gradeStore.pool as materia (materia.codigo)}
@@ -45,18 +76,28 @@
 		<section
 			class="rounded-2xl border border-white/10 bg-zinc-950/78 p-3"
 			role="group"
+			data-materia-card="true"
 			onmouseenter={() => gradeStore.setHover(materia.codigo)}
 			onmouseleave={() => gradeStore.setHover(null)}
 		>
 			<header class="mb-2.5 flex items-start gap-2.5 border-b border-white/10 pb-2.5">
 				<span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full {cor.dot}"></span>
 				<div class="min-w-0 flex-1">
-					<p class="flex flex-wrap items-baseline gap-x-2">
+					<p class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
 						<span class="font-mono text-sm font-semibold text-white/90">{materia.codigo}</span>
+						<!--
+							Sem a etiqueta o aluno não distingue o que a montagem priorizou:
+							obrigatória, optativa e módulo livre saíam com a mesma cara na lista,
+							e a ordem parecia arbitrária.
+						-->
+						<MateriaNaturezaBadge
+							natureza={materia.optatoria ? 'optatoria' : (materia.natureza ?? 'obrigatoria')}
+							nomesQueExigem={gradeStore.obrigatoriasQueExigem(materia.codigo)}
+						/>
 						<span class="truncate text-xs text-white/60">{materia.nome}</span>
 					</p>
 					<p class="mt-0.5 text-[11px] text-white/40">
-						{materia.creditos} créditos ·
+						{unidadeCargaStore.formatar(materia.creditos)} ·
 						{#if selecionada}
 							<span class="text-white/70">Turma {selecionada.turma.turma} selecionada</span>
 						{:else if materia.turmas.length === 0}
@@ -65,16 +106,56 @@
 							{materia.turmas.length} turma(s) disponível(is)
 						{/if}
 					</p>
+					{#if gradeStore.isCursandoAtual(materia.codigo)}
+						<p class="mt-1 flex items-start gap-1 text-[10px] font-medium text-emerald-300/90">
+							<GraduationCap class="mt-px h-3 w-3 shrink-0" />
+							{#if gradeStore.isTravada(materia.codigo)}
+								<span class="flex items-center gap-1">
+									<Lock class="h-2.5 w-2.5 shrink-0" /> Já cursando — turma travada, "Montar grade"
+									não troca.
+									<button
+										type="button"
+										onclick={() => gradeStore.destravar(materia.codigo)}
+										class="underline decoration-dotted underline-offset-2 hover:text-emerald-200"
+									>
+										Destravar
+									</button>
+								</span>
+							{:else}
+								<span>Já cursando — escolha a turma real que você está abaixo.</span>
+							{/if}
+						</p>
+						{:else if gradeStore.isTravada(materia.codigo)}
+							<!--
+								Trava de escolha manual. Sem este aviso o cadeado ficaria invisível
+								para quem não está cursando a matéria: o aluno escolheria a turma,
+								"Montar grade" (com razão) não mexeria mais nela, e ele não teria
+								como saber por quê nem como soltar.
+							-->
+							<p class="mt-1 flex items-start gap-1 text-[10px] font-medium text-white/60">
+								<Lock class="mt-px h-2.5 w-2.5 shrink-0" />
+								<span class="flex items-center gap-1">
+									Turma escolhida por você — "Montar grade" não troca.
+									<button
+										type="button"
+										onclick={() => gradeStore.destravar(materia.codigo)}
+										class="underline decoration-dotted underline-offset-2 hover:text-white/90"
+									>
+										Destravar
+									</button>
+								</span>
+							</p>
+					{/if}
 					{#if codigoOfertado}
-					<p class="mt-1 flex items-start gap-1 text-[10px] font-medium text-sky-300/90">
-						<Info class="mt-px h-3 w-3 shrink-0" />
-						<span>
-							Ofertada como <span class="font-mono font-semibold">{codigoOfertado}</span> — é
-							nesse código que você se matricula
-						</span>
-					</p>
-				{/if}
-				{#if materia.avisoPreRequisito}
+						<p class="mt-1 flex items-start gap-1 text-[10px] font-medium text-sky-300/90">
+							<Info class="mt-px h-3 w-3 shrink-0" />
+							<span>
+								Ofertada como <span class="font-mono font-semibold">{codigoOfertado}</span> — é nesse
+								código que você se matricula
+							</span>
+						</p>
+					{/if}
+					{#if materia.avisoPreRequisito}
 						<p class="mt-1 flex items-start gap-1 text-[10px] font-medium text-amber-300/90">
 							<TriangleAlert class="mt-px h-3 w-3 shrink-0" />
 							<span>Pré-requisito pendente: {materia.avisoPreRequisito}</span>
@@ -85,9 +166,13 @@
 					<button
 						type="button"
 						onclick={() => gradeStore.togglePrioridade(materia.codigo)}
-						title={prioritaria ? 'Prioritária ao rearranjar — clique p/ remover' : 'Priorizar ao rearranjar'}
+						title={prioritaria
+							? 'Prioritária ao montar a grade — clique p/ remover'
+							: 'Priorizar ao montar a grade'}
 						aria-pressed={prioritaria}
-						class="touch-manipulation rounded-lg p-1.5 transition-colors {prioritaria ? 'text-amber-300 hover:bg-amber-400/10' : 'text-white/30 hover:bg-white/10 hover:text-white/60'}"
+						class="touch-manipulation rounded-lg p-1.5 transition-colors {prioritaria
+							? 'text-amber-300 hover:bg-amber-400/10'
+							: 'text-white/30 hover:bg-white/10 hover:text-white/60'}"
 					>
 						<Star class="h-4 w-4 {prioritaria ? 'fill-current' : ''}" />
 					</button>
@@ -104,39 +189,35 @@
 			</header>
 
 			{#if materia.turmas.length > 0}
-				{@const pref = gradeStore.preferenciaDe(materia.codigo)}
-				{@const temPref = gradeStore.temPreferencia(materia.codigo)}
 				{@const docentes = gradeStore.docentesDe(materia.codigo)}
 				{@const aberto = painelAberto === materia.codigo}
+				{@const turnosSel = turnoEscolhido[materia.codigo] ?? []}
 
-				<!-- Preferência de turno/professor: o Rearranjar tenta atender, mas cede
-				     para não deixar a matéria de fora. -->
+				<!-- Turno/professor específico não é mais um filtro manual (era bônus
+				     fraco de desempate e raramente mudava algo visível) — o aluno escolhe
+				     aqui e isso vira pedido em linguagem natural pra Darcy resolver. -->
 				<div class="mb-2">
 					<button
 						type="button"
 						onclick={() => (painelAberto = aberto ? null : materia.codigo)}
 						aria-expanded={aberto}
-						class="inline-flex max-w-full touch-manipulation items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-medium transition-colors {temPref
-							? 'border-sky-300/45 bg-sky-500/15 text-sky-100 hover:bg-sky-500/25'
-							: 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'}"
+						class="inline-flex max-w-full touch-manipulation items-center gap-1.5 rounded-full border border-pink-300/30 bg-pink-500/10 px-2.5 py-1 text-[10px] font-medium text-pink-100 transition-colors hover:bg-pink-500/20"
 					>
-						<SlidersHorizontal class="h-3 w-3 shrink-0" />
-						{#if temPref}
-							<span class="truncate">Prefiro: {resumoPreferencia(materia.codigo)}</span>
-						{:else}
-							Preferência de horário/professor
-						{/if}
+						<Bot class="h-3 w-3 shrink-0" />
+						Prefiro um horário ou professor específico
 					</button>
 
 					{#if aberto}
 						<div class="mt-2 space-y-2 rounded-xl border border-white/10 bg-black/30 p-2.5">
 							<div class="flex flex-wrap items-center gap-1.5">
-								<span class="text-[10px] font-medium uppercase tracking-wide text-white/35">Turno</span>
+								<span class="text-[10px] font-medium tracking-wide text-white/35 uppercase"
+									>Turno</span
+								>
 								{#each TURNOS as [t, label] (t)}
-									{@const ativo = pref.turnos.includes(t)}
+									{@const ativo = turnosSel.includes(t)}
 									<button
 										type="button"
-										onclick={() => gradeStore.togglePreferenciaTurno(materia.codigo, t)}
+										onclick={() => toggleTurnoEscolhido(materia.codigo, t)}
 										aria-pressed={ativo}
 										class="touch-manipulation rounded-full border px-2 py-1 text-[10px] font-medium transition-colors {ativo
 											? 'border-sky-300/45 bg-sky-500/20 text-sky-100'
@@ -149,15 +230,17 @@
 
 							{#if docentes.length > 0}
 								<label class="flex items-center gap-2">
-									<span class="text-[10px] font-medium uppercase tracking-wide text-white/35">Prof.</span>
+									<span class="text-[10px] font-medium tracking-wide text-white/35 uppercase"
+										>Prof.</span
+									>
 									<select
-										value={pref.docente ?? ''}
+										value={docenteEscolhido[materia.codigo] ?? ''}
 										onchange={(e) =>
-											gradeStore.setPreferenciaDocente(
-												materia.codigo,
-												(e.currentTarget as HTMLSelectElement).value || null
-											)}
-										class="min-w-0 flex-1 rounded-lg border border-white/10 bg-zinc-900 px-2 py-1 text-[11px] text-white/80 focus:outline-none focus:ring-1 focus:ring-sky-400/50"
+											(docenteEscolhido = {
+												...docenteEscolhido,
+												[materia.codigo]: (e.currentTarget as HTMLSelectElement).value || null
+											})}
+										class="min-w-0 flex-1 rounded-lg border border-white/10 bg-zinc-900 px-2 py-1 text-[11px] text-white/80 focus:ring-1 focus:ring-sky-400/50 focus:outline-none"
 									>
 										<option value="">Tanto faz</option>
 										{#each docentes as d (d)}
@@ -169,20 +252,13 @@
 								<p class="text-[10px] text-white/30">Nenhuma turma tem docente informado.</p>
 							{/if}
 
-							<div class="flex items-center justify-between gap-2 pt-0.5">
-								<p class="text-[10px] leading-snug text-white/35">
-									O Rearranjar tenta atender, mas cede se for a única forma de a matéria caber.
-								</p>
-								{#if temPref}
-									<button
-										type="button"
-										onclick={() => gradeStore.limparPreferencia(materia.codigo)}
-										class="inline-flex shrink-0 touch-manipulation items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[10px] text-white/50 transition-colors hover:bg-white/10"
-									>
-										<X class="h-3 w-3" /> Limpar
-									</button>
-								{/if}
-							</div>
+							<button
+								type="button"
+								onclick={() => pedirPraDarcy(materia.codigo, materia.nome)}
+								class="flex w-full items-center justify-center gap-1.5 rounded-lg border border-pink-300/35 bg-pink-500/15 px-2.5 py-1.5 text-[11px] font-semibold text-pink-100 transition-colors hover:bg-pink-500/25"
+							>
+								<Bot class="h-3.5 w-3.5" /> Perguntar pra Darcy
+							</button>
 						</div>
 					{/if}
 				</div>

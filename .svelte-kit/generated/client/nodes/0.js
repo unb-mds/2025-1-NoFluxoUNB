@@ -1,0 +1,1 @@
+export { default as component } from "../../../../no_fluxo_frontend_svelte/node_modules/@sveltejs/kit/src/runtime/components/svelte-5/layout.svelte";

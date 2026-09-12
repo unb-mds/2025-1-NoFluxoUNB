@@ -43,6 +43,13 @@ GOOGLE_API_KEY=sua_chave_google
 # Supabase (Busca Vetorial)
 SUPABASE_URL=https://seu-projeto.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=sua_service_role_key
+
+# Autenticação da API (OBRIGATÓRIA)
+# Chave compartilhada exigida no header X-API-Key de todos os endpoints,
+# exceto GET /health. Se não estiver definida, a API recusa TODAS as
+# requisições protegidas (fail-closed). Gere um valor aleatório forte, ex.:
+#   openssl rand -hex 32
+MCP_AGENT_API_KEY=sua_chave_aleatoria_forte
 ```
 
 ### 3. Backend Node.js
@@ -58,6 +65,9 @@ MARITACA_API_KEY=sua_chave_maritaca
 GOOGLE_API_KEY=sua_chave_google
 SUPABASE_URL=https://seu-projeto.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=sua_service_role_key
+
+# Mesma chave configurada no mcp_agent (enviada no header X-API-Key)
+MCP_AGENT_API_KEY=sua_chave_aleatoria_forte
 ```
 
 ## 🚀 Como Usar
@@ -87,13 +97,14 @@ npm run dev
 ### Teste Direto da API
 
 ```bash
-# Via curl
+# Via curl (o header X-API-Key é obrigatório)
 curl -X POST http://localhost:8000/recomendar \
   -H "Content-Type: application/json" \
+  -H "X-API-Key: $MCP_AGENT_API_KEY" \
   -d '{"interesse": "inteligência artificial"}'
 
 # Via Python
-python -c "import requests; print(requests.post('http://localhost:8000/recomendar', json={'interesse': 'machine learning'}).json())"
+python -c "import os, requests; print(requests.post('http://localhost:8000/recomendar', json={'interesse': 'machine learning'}, headers={'X-API-Key': os.environ['MCP_AGENT_API_KEY']}).json())"
 ```
 
 ## 📊 Endpoint da API
@@ -264,6 +275,7 @@ services:
 
 ## 🔒 Segurança
 
+- ✅ **Autenticação obrigatória**: todos os endpoints (exceto `GET /health`) exigem o header `X-API-Key` igual à env var `MCP_AGENT_API_KEY` (comparação constant-time). Sem a env var definida, a API responde 503 a tudo (fail-closed)
 - ✅ **Service Role Key** no backend (nunca expor no frontend)
 - ✅ **Rate limiting** no FastAPI (recomendado)
 - ✅ **CORS** configurado para origens permitidas

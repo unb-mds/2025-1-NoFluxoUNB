@@ -9,8 +9,40 @@
 	import CourseSelectionModal from '$lib/components/upload/CourseSelectionModal.svelte';
 	import { uploadStore } from '$lib/stores/uploadStore';
 	import { AlertTriangle, RotateCcw } from 'lucide-svelte';
+	import { fluxogramaService } from '$lib/services/fluxograma.service';
+	import type { CourseSelectionError } from '$lib/services/upload.service';
 
 	let showHelp = $state(false);
+	let showManualSelection = $state(false);
+	let manualCourseError = $state<CourseSelectionError | null>(null);
+
+	async function openManualMode() {
+		try {
+			const courses = await fluxogramaService.getAllMatrizesIndex();
+			manualCourseError = {
+				type: 'COURSE_SELECTION',
+				message:
+					'Neste modo, você preencherá as disciplinas aprovadas clicando nelas no fluxograma. Para começar, selecione seu curso:',
+				cursos_disponiveis: courses.map((c) => ({
+					nome_curso: c.nomeCurso,
+					id_curso: c.idCurso,
+					matriz_curricular: c.matrizCurricular,
+					turno: c.turno
+				}))
+			};
+			showManualSelection = true;
+		} catch (e) {
+			console.error(e);
+		}
+	}
+
+	function handleManualCourseSelected(courseName: string, selected?: any) {
+		showManualSelection = false;
+		uploadStore.startManualMode({
+			nomeCurso: courseName,
+			matrizCurricular: selected?.matriz_curricular || ''
+		});
+	}
 </script>
 
 <PageMeta
@@ -26,22 +58,36 @@
 >
 	<div
 		aria-hidden="true"
-		class="pointer-events-none absolute -left-40 -top-40 h-[700px] w-[700px] rounded-full"
+		class="pointer-events-none absolute -top-40 -left-40 h-[700px] w-[700px] rounded-full"
 		style="background: radial-gradient(circle, rgba(108,38,220,0.32) 0%, rgba(88,22,180,0.13) 42%, transparent 68%); z-index:0;"
 	></div>
 	<div
 		aria-hidden="true"
-		class="pointer-events-none absolute -bottom-20 right-0 h-[400px] w-[400px] rounded-full"
+		class="pointer-events-none absolute right-0 -bottom-20 h-[400px] w-[400px] rounded-full"
 		style="background: radial-gradient(circle, rgba(80,20,160,0.18) 0%, transparent 65%); z-index:0;"
 	></div>
-	<div class="relative z-[1] w-full min-w-0 max-w-2xl">
+	<div class="relative z-[1] w-full max-w-2xl min-w-0">
 		<header class="mb-6 text-center sm:mb-9">
-			<h1 class="text-3xl font-black tracking-tight text-foreground sm:text-4xl">Importar histórico</h1>
-			<p class="mx-auto mt-2 max-w-[480px] text-[15px] text-muted-foreground sm:text-base">
-				Envie o PDF do seu histórico oficial da UnB. Os dados são usados só para montar seu fluxograma nesta
-				plataforma.
+			<h1 class="text-foreground text-3xl font-black tracking-tight sm:text-4xl">
+				Importar histórico
+			</h1>
+			<p class="text-muted-foreground mx-auto mt-2 max-w-[480px] text-[15px] sm:text-base">
+				Envie o PDF do seu histórico oficial da UnB. Os dados são usados só para montar seu
+				fluxograma nesta plataforma.
 			</p>
 		</header>
+
+		{#if $uploadStore.state === 'initial'}
+			<div class="mb-6 flex justify-center">
+				<button
+					type="button"
+					class="flex w-full items-center justify-center gap-2 rounded-xl border border-purple-500/30 bg-purple-500/10 px-6 py-3.5 text-[15px] font-semibold text-purple-300 shadow-sm transition-all hover:border-purple-500/50 hover:bg-purple-500/20 hover:text-purple-200 sm:w-auto sm:py-2.5 sm:text-sm sm:font-medium"
+					onclick={openManualMode}
+				>
+					Preencha manualmente
+				</button>
+			</div>
+		{/if}
 
 		<div class="upload-shell">
 			{#if $uploadStore.state === 'initial'}
@@ -66,7 +112,8 @@
 					<div class="error-copy">
 						<h3 class="error-title">Não foi possível processar</h3>
 						<p class="error-msg">
-							{$uploadStore.error ?? 'Ocorreu um erro inesperado. Verifique o arquivo e tente novamente.'}
+							{$uploadStore.error ??
+								'Ocorreu um erro inesperado. Verifique o arquivo e tente novamente.'}
 						</p>
 					</div>
 					<button type="button" class="retry-btn" onclick={() => uploadStore.reset()}>
@@ -82,8 +129,10 @@
 		</div>
 
 		{#if $uploadStore.fileName && $uploadStore.state !== 'initial'}
-			<p class="mt-4 text-center text-xs text-muted-foreground">
-				Arquivo selecionado: <span class="font-medium text-foreground/90">{$uploadStore.fileName}</span>
+			<p class="text-muted-foreground mt-4 text-center text-xs">
+				Arquivo selecionado: <span class="text-foreground/90 font-medium"
+					>{$uploadStore.fileName}</span
+				>
 			</p>
 		{/if}
 	</div>
@@ -97,6 +146,15 @@
 		courseError={$uploadStore.courseSelectionError}
 		onselect={(courseName, selected) => uploadStore.retryWithSelectedCourse(courseName, selected)}
 		onclose={() => uploadStore.dismissCourseSelection()}
+	/>
+{/if}
+
+{#if showManualSelection && manualCourseError}
+	<CourseSelectionModal
+		open={showManualSelection}
+		courseError={manualCourseError}
+		onselect={handleManualCourseSelected}
+		onclose={() => (showManualSelection = false)}
 	/>
 {/if}
 

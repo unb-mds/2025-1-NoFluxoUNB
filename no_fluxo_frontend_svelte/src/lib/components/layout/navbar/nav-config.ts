@@ -49,10 +49,7 @@ export function buildNavEntries(args: {
 				{
 					href: ROUTES.MONTADOR_GRADE,
 					label: 'Montador de Grade',
-					icon: CalendarDays,
-					// Rollout gradual: só admins usam de verdade por enquanto (ver
-					// planejamento/grade/+page.svelte) — usuário padrão vê o aviso.
-					...(isAdmin ? {} : { badge: 'Em breve' })
+					icon: CalendarDays
 				},
 				{ href: ROUTES.ASSISTENTE, label: 'Assistente IA', icon: Bot }
 			]

@@ -1,0 +1,41 @@
+# Configuração do gitleaks (bot de rastreamento de segredos).
+# Usada pelo workflow .github/workflows/security_scan.yml e por quem quiser
+# rodar localmente: `gitleaks git --redact -c .gitleaks.toml .`
+
+[extend]
+# Herda todas as regras padrão do gitleaks (AWS, GCP, JWTs, chaves privadas, etc.)
+useDefault = true
+
+[[rules]]
+id = "supabase-secret-key"
+description = "Supabase secret API key (sb_secret_...)"
+regex = '''sb_secret_[A-Za-z0-9_-]{20,}'''
+keywords = ["sb_secret_"]
+
+[[rules]]
+id = "supabase-legacy-service-role"
+description = "Supabase legacy service_role JWT"
+regex = '''eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]*c2VydmljZV9yb2xl[A-Za-z0-9_-]*\.[A-Za-z0-9_-]{10,}'''
+keywords = ["service_role", "eyJ"]
+
+[allowlist]
+description = "Falsos positivos conhecidos"
+paths = [
+    '''node_modules/''',
+    '''venv/''',
+    '''\.svelte-kit/''',
+    '''(^|/)build/''',
+    '''\.dart_tool/''',
+    '''pnpm-lock\.yaml''',
+    '''package-lock\.json''',
+    '''\.gitleaks\.toml''',
+    '''\.github/gitleaks-baseline\.json''',
+    # Documentação com comandos de exemplo (htpasswd user password etc.)
+    '''kubernetes_docs/REGISTRY_AUTH\.md''',
+]
+regexes = [
+    # Chave publishable do Supabase é pública por design (equivalente à anon)
+    '''sb_publishable_[A-Za-z0-9_-]+''',
+    # Placeholders de .env.example e docs
+    '''your_[a-z_]+_here''',
+]

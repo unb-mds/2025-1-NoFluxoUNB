@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
 	getAncestorAndDescendantCodes,
+	getDirectDependentCodes,
+	getDirectPrerequisiteAndCoreqCodes,
 	getSubjectChain,
 	getTopologicalPrerequisiteChain,
 	classifyChainPrereqStroke,
@@ -67,6 +69,41 @@ describe('curriculum graph helpers', () => {
 		expect(classifyChainPrereqStroke('MAT101', 'MAT201', 'MAT301', new Set(['MAT101']), new Set(['MAT201']))).toBe('pre');
 		expect(classifyChainPrereqStroke('MAT201', 'MAT301', 'MAT301', new Set(['MAT101']), new Set(['MAT201', 'MAT301']))).toBe('desc');
 		expect(CHAIN_VISUAL.precursor).toBeTruthy();
+	});
+
+	it('calcula dependentes diretos (1 nível, sem transitivo nem co-req)', () => {
+		const curso = buildCurso();
+		// Só MAT201 (direto), sem MAT301 (transitivo)
+		expect([...getDirectDependentCodes(curso, 'MAT101')]).toEqual(['MAT201']);
+		expect([...getDirectDependentCodes(curso, 'MAT201')]).toEqual(['MAT301']);
+		expect([...getDirectDependentCodes(curso, 'MAT301')]).toEqual([]);
+		// Co-requisito não conta como liberada
+		expect([...getDirectDependentCodes(curso, 'FIS201')]).toEqual([]);
+		// Normalização de caixa/espaços
+		expect([...getDirectDependentCodes(curso, ' mat101 ')]).toEqual(['MAT201']);
+		expect(getDirectDependentCodes(curso, '')).toEqual(new Set());
+		expect(getDirectDependentCodes(curso, null)).toEqual(new Set());
+		expect(getDirectDependentCodes(curso, 'MAT999')).toEqual(new Set());
+	});
+
+	it('calcula pré-requisitos diretos e co-requisitos do foco (modo Todas)', () => {
+		const curso = buildCurso();
+		// Pré-requisito imediato apenas (sem transitivo: MAT101 fica de fora)
+		const mat301 = getDirectPrerequisiteAndCoreqCodes(curso, 'MAT301');
+		expect([...mat301.precursors]).toEqual(['MAT201']);
+		expect([...mat301.corequisites]).toEqual([]);
+		// Co-requisito nos dois sentidos do par
+		const mat201 = getDirectPrerequisiteAndCoreqCodes(curso, 'MAT201');
+		expect([...mat201.precursors]).toEqual(['MAT101']);
+		expect([...mat201.corequisites]).toEqual(['FIS201']);
+		const fis201 = getDirectPrerequisiteAndCoreqCodes(curso, ' fis201 ');
+		expect([...fis201.precursors]).toEqual([]);
+		expect([...fis201.corequisites]).toEqual(['MAT201']);
+		// Foco inválido
+		expect(getDirectPrerequisiteAndCoreqCodes(curso, null)).toEqual({
+			precursors: new Set(),
+			corequisites: new Set()
+		});
 	});
 
 	it('retorna vazio para foco inválido', () => {

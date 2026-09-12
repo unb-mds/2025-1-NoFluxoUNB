@@ -12,7 +12,11 @@ const fs = require('fs');
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const BACKEND_DIR = path.join(REPO_ROOT, 'no_fluxo_backend');
 const MCP_AGENT_DIR = path.join(REPO_ROOT, 'mcp_agent');
-const VENV_DIR = path.join(REPO_ROOT, '.venv');
+const VENV_DIR = fs.existsSync(path.join(REPO_ROOT, 'venv'))
+    ? path.join(REPO_ROOT, 'venv')
+    : (fs.existsSync(path.join(REPO_ROOT, '.venv'))
+        ? path.join(REPO_ROOT, '.venv')
+        : path.join(REPO_ROOT, 'venv'));
 
 const isWindows = process.platform === 'win32';
 const python = isWindows ? 'python' : 'python3';

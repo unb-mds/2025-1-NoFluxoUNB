@@ -8,7 +8,8 @@ import type {
 	DadosMateria,
 	DadosFluxogramaUser,
 	OptativaPlanejadaRef,
-	OptativaManual
+	OptativaManual,
+	EquivalenciaPdf
 } from '$lib/types/user';
 import { isMateriaAprovada } from '$lib/types/user';
 import type {
@@ -64,7 +65,21 @@ export function createDadosMateriaFromJson(json: Record<string, unknown>): Dados
 				? (json.nivel_alocado as number | string)
 				: json.nivelAlocado != null
 					? (json.nivelAlocado as number | string)
-					: null
+					: null,
+		// Nome/créditos do histórico (RPC manda nome/nome_materia e creditos):
+		// essencial para matérias fora da matriz, que não existem no courseData.
+		nomeMateria:
+			json.nome_materia != null
+				? String(json.nome_materia)
+				: json.nome != null
+					? String(json.nome)
+					: json.nomeMateria != null
+						? String(json.nomeMateria)
+						: null,
+		creditos:
+			json.creditos != null && Number.isFinite(Number(json.creditos))
+				? Number(json.creditos)
+				: null
 	};
 }
 
@@ -83,7 +98,9 @@ export function dadosMateriaToJson(dados: DadosMateria): Record<string, unknown>
 		is_manual: dados.isManual ?? undefined,
 		nivel_destino: dados.nivelDestino ?? undefined,
 		nivel: dados.nivel ?? undefined,
-		nivel_alocado: dados.nivelAlocado ?? undefined
+		nivel_alocado: dados.nivelAlocado ?? undefined,
+		nome_materia: dados.nomeMateria ?? undefined,
+		creditos: dados.creditos ?? undefined
 	};
 }
 
@@ -137,8 +154,37 @@ export function createDadosFluxogramaUserFromJson(
 			: [],
 		optativasPlanejadas: parseOptativasPlanejadasFromJson(
 			json.optativas_planejadas ?? json.optativasPlanejadas
-		)
+		),
+		equivalenciasPdf: parseEquivalenciasPdfFromJson(
+			json.equivalencias_pdf ?? json.equivalenciasPdf
+		),
+		schemaVersion:
+			json.schema_version != null
+				? Number(json.schema_version)
+				: json.schemaVersion != null
+					? Number(json.schemaVersion)
+					: undefined
 	};
+}
+
+/** Normaliza a lista de equivalências do histórico (aceita snake_case do parser). */
+function parseEquivalenciasPdfFromJson(raw: unknown): EquivalenciaPdf[] | undefined {
+	if (!Array.isArray(raw) || raw.length === 0) return undefined;
+	const out: EquivalenciaPdf[] = [];
+	for (const item of raw) {
+		if (item == null || typeof item !== 'object') continue;
+		const r = item as Record<string, unknown>;
+		const cumpriu = String(r.cumpriu ?? '').trim().toUpperCase();
+		const atravesDe = String(r.atraves_de ?? r.atravesDe ?? '').trim().toUpperCase();
+		if (!cumpriu || !atravesDe) continue;
+		out.push({
+			cumpriu,
+			atravesDe,
+			nomeCumpriu: r.nome_cumpriu != null ? String(r.nome_cumpriu) : (r.nomeCumpriu != null ? String(r.nomeCumpriu) : null),
+			nomeEquivalente: r.nome_equivalente != null ? String(r.nome_equivalente) : (r.nomeEquivalente != null ? String(r.nomeEquivalente) : null)
+		});
+	}
+	return out.length > 0 ? out : undefined;
 }
 
 export function dadosFluxogramaUserToJson(
@@ -166,8 +212,66 @@ export function dadosFluxogramaUserToJson(
 						semestre: p.semestre
 					}))
 				}
-			: {})
+			: {}),
+		...(dados.equivalenciasPdf?.length
+			? {
+					equivalencias_pdf: dados.equivalenciasPdf.map((e) => ({
+						cumpriu: e.cumpriu,
+						atraves_de: e.atravesDe,
+						...(e.nomeCumpriu ? { nome_cumpriu: e.nomeCumpriu } : {}),
+						...(e.nomeEquivalente ? { nome_equivalente: e.nomeEquivalente } : {})
+					}))
+				}
+			: {}),
+		...(dados.schemaVersion != null ? { schema_version: dados.schemaVersion } : {})
 	};
+}
+
+/**
+ * Injeta no dados_fluxograma as equivalências declaradas no PRÓPRIO histórico
+ * ("Cumpriu X através de Y"). É a fonte oficial do SIGAA por aluno: cobre pares
+ * que faltem na tabela `equivalencias` do banco. Cada par vira uma entrada
+ * CUMP/tipo 'equivalencia' — o mesmo formato que o casamento via banco produz —
+ * então status do card, etiqueta "equiv." e o gerador de plano (que conta CUMP)
+ * funcionam sem caminho especial. Pares cujo alvo já está APR/CUMP/equivalência
+ * no fluxograma são ignorados (o banco chegou primeiro; não duplica).
+ */
+export function injetarEquivalenciasDoPdf(
+	dados: DadosFluxogramaUser,
+	equivalenciasRaw: unknown
+): void {
+	const pares = parseEquivalenciasPdfFromJson(equivalenciasRaw);
+	if (!pares) return;
+	dados.equivalenciasPdf = pares;
+
+	const presentes = new Set<string>();
+	for (const sem of dados.dadosFluxograma) {
+		for (const m of sem) {
+			const st = String(m.status ?? '').toUpperCase();
+			if (st === 'APR' || st === 'CUMP' || m.tipoDado === 'equivalencia') {
+				presentes.add(m.codigoMateria.trim().toUpperCase());
+			}
+		}
+	}
+
+	if (dados.dadosFluxograma.length === 0) dados.dadosFluxograma.push([]);
+	const primeiroSemestre = dados.dadosFluxograma[0];
+	for (const eq of pares) {
+		if (presentes.has(eq.cumpriu)) continue;
+		presentes.add(eq.cumpriu);
+		primeiroSemestre.push(
+			createDadosMateriaFromJson({
+				codigo: eq.cumpriu,
+				status: 'CUMP',
+				mencao: '-',
+				professor: '',
+				tipo_dado: 'equivalencia',
+				codigo_equivalente: eq.atravesDe,
+				nome_equivalente: eq.nomeEquivalente ?? null,
+				nome_materia: eq.nomeCumpriu ?? null
+			})
+		);
+	}
 }
 
 /**

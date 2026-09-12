@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatLocalCompacto } from './sigaa';
+import { formatLocalCompacto, horarioLegivel } from './sigaa';
 
 /**
  * O campo `local` do SIGAA às vezes vem com o horário embutido, colado no nome da
@@ -31,5 +31,18 @@ describe('formatLocalCompacto', () => {
 		expect(formatLocalCompacto('')).toBe('');
 		expect(formatLocalCompacto(null)).toBe('');
 		expect(formatLocalCompacto(undefined)).toBe('');
+	});
+});
+
+describe('horarioLegivel', () => {
+	it('junta os dias numa linha só', () => {
+		expect(horarioLegivel('24M12')).toBe('Seg 8h - 9h50 · Qua 8h - 9h50');
+	});
+
+	it('sem horário reconhecível, avisa que está a definir', () => {
+		expect(horarioLegivel('A DEFINIR')).toBe('Horário a definir');
+		expect(horarioLegivel('')).toBe('Horário a definir');
+		expect(horarioLegivel(null)).toBe('Horário a definir');
+		expect(horarioLegivel(undefined)).toBe('Horário a definir');
 	});
 });

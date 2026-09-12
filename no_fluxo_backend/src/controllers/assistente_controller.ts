@@ -20,6 +20,7 @@ import { SupabaseWrapper } from '../supabase_wrapper';
 import { PlanejadorAgenteService, type MensagemChat } from '../services/planejador_agente.service';
 import { criarContextoLeve } from '../services/agente/context';
 import { montarContextoAgente } from './PlanejamentoController';
+import { AI_SEM_CREDITOS_BODY, isMaritacaSemCreditos } from '../config/maritaca_errors';
 
 const ragflow = new RagflowService();
 const sabia = new SabiaService();
@@ -132,6 +133,10 @@ export const AssistenteController: EndpointController = {
                     restricoes: resultado.restricoes,
                 });
             } catch (err: any) {
+                if (isMaritacaSemCreditos(err)) {
+                    logger.error('Chat da assistente: Maritaca sem créditos ativos');
+                    return res.status(503).json(AI_SEM_CREDITOS_BODY);
+                }
                 logger.error(`Erro no chat da assistente: ${err?.message || String(err)}`);
                 return res.status(500).json({ error: err?.message || 'Erro ao processar mensagem do chat.' });
             }
@@ -176,16 +181,19 @@ export const AssistenteController: EndpointController = {
 
             try {
                 logger.info(`Streaming with Sabiá: "${materia}"`);
-                await sabia.analyzarInteresseStream(materia, matrizCurricular, res);
-                // Fallback: o stream pipa SSE direto; tokens não são capturados aqui.
-                // Loga a requisição (duração/contagem) sem tokens — custo real vem
-                // do fluxo não-stream. Ver nota no plano.
+                const { usage } = await sabia.analyzarInteresseStream(materia, matrizCurricular, res);
+                // Tokens reais vêm do evento SSE "usage" que o Python emite antes do
+                // "done" (ver SabiaService.analyzarInteresseStream). Fallback: se a
+                // Maritaca não mandar include_usage em algum caminho, o evento não
+                // chega e loga com tokens = 0 — a requisição ainda é contabilizada.
                 logAiUsage({
                     endpoint: 'analyze-sabia-stream',
                     durationMs: Date.now() - startTime,
                     success: true,
                     requestExcerpt: materia,
-                    usage: [{ model: 'sabia-4', prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 }]
+                    usage: usage && usage.length > 0
+                        ? usage
+                        : [{ model: 'sabia-4', prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 }]
                 });
                 return;
             } catch (error) {

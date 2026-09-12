@@ -389,6 +389,55 @@ export function classifyChainPrereqStroke(
 }
 
 /**
+ * Dependentes DIRETOS (1 nível): matérias que têm `focusCode` como pré-requisito
+ * imediato — "o que esta matéria libera". Não inclui co-requisitos nem
+ * dependentes transitivos (para isso, `getSubjectChain`/`getAncestorAndDescendantCodes`).
+ */
+export function getDirectDependentCodes(
+	curso: CursoModel,
+	focusCode: string | null | undefined
+): Set<string> {
+	const out = new Set<string>();
+	if (!focusCode?.trim()) return out;
+	const f = normCode(focusCode);
+	for (const m of curso.materias) {
+		if ((m.preRequisitos ?? []).some((p) => normCode(p.codigoMateria) === f)) {
+			out.add(normCode(m.codigoMateria));
+		}
+	}
+	return out;
+}
+
+/**
+ * Vizinhos diretos "de entrada" do foco: pré-requisitos imediatos e pares de
+ * co-requisito. Espelha as arestas que `PrerequisiteConnections` realça no
+ * modo "Todas" (isLineRelatedToHovered) para os cards não esmaecerem na ponta
+ * de uma seta destacada.
+ */
+export function getDirectPrerequisiteAndCoreqCodes(
+	curso: CursoModel,
+	focusCode: string | null | undefined
+): { precursors: Set<string>; corequisites: Set<string> } {
+	const precursors = new Set<string>();
+	const corequisites = new Set<string>();
+	if (!focusCode?.trim()) return { precursors, corequisites };
+	const f = normCode(focusCode);
+	const focusMateria = curso.materias.find((m) => normCode(m.codigoMateria) === f);
+	for (const p of focusMateria?.preRequisitos ?? []) {
+		const c = normCode(p.codigoMateria);
+		if (c && c !== f) precursors.add(c);
+	}
+	for (const cr of curso.coRequisitos ?? []) {
+		const a = getMateriaCodeById(curso.materias, cr.idMateria);
+		const b = cr.codigoMateriaCoRequisito ? normCode(cr.codigoMateriaCoRequisito) : null;
+		if (!a || !b || a === b) continue;
+		if (a === f) corequisites.add(b);
+		else if (b === f) corequisites.add(a);
+	}
+	return { precursors, corequisites };
+}
+
+/**
  * Conjuntos para destaque no fluxograma: antecessores e descendentes transitivos
  * no grafo pré-requisito + co-requisito (mesma adjacência de `buildForwardAdjacency`).
  */

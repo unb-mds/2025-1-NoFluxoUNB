@@ -8,10 +8,23 @@ import { createClient, type SupabaseClient } from 'https://esm.sh/@supabase/supa
 
 const LOG_PREFIX = '[CasarDisciplinas]';
 
-const corsHeaders = {
-	'Access-Control-Allow-Origin': '*',
-	'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-};
+const ALLOWED_ORIGINS = [
+	'https://www.no-fluxo.com',
+	'https://no-fluxo.com',
+	'http://localhost:5173',
+	'http://localhost:3000',
+];
+
+// Reflects the request origin only when it is in the allowlist.
+// Requests without an Origin header (non-browser) get no CORS headers.
+function getCorsHeaders(origin: string | null): Record<string, string> {
+	if (!origin || !ALLOWED_ORIGINS.includes(origin)) return {};
+	return {
+		'Access-Control-Allow-Origin': origin,
+		'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+		Vary: 'Origin',
+	};
+}
 
 // ─── Types ──────────────────────────────────────────────────────────────────────
 
@@ -329,6 +342,17 @@ async function getCursosDisponiveis(
 // ─── Main Handler ───────────────────────────────────────────────────────────────
 
 Deno.serve(async (req) => {
+	const origin = req.headers.get('Origin');
+	const corsHeaders = getCorsHeaders(origin);
+
+	// Deny browser requests from origins outside the allowlist
+	if (origin && !ALLOWED_ORIGINS.includes(origin)) {
+		return new Response(JSON.stringify({ error: 'Origin not allowed' }), {
+			status: 403,
+			headers: { 'Content-Type': 'application/json' },
+		});
+	}
+
 	// Handle CORS preflight
 	if (req.method === 'OPTIONS') {
 		return new Response('ok', { headers: corsHeaders });
@@ -339,6 +363,30 @@ Deno.serve(async (req) => {
 			status: 405,
 			headers: { ...corsHeaders, 'Content-Type': 'application/json' },
 		});
+	}
+
+	// Caller JWT validation (REQUIRE_AUTH=false disables it — default is enabled)
+	const requireAuth = (Deno.env.get('REQUIRE_AUTH') ?? 'true').toLowerCase() !== 'false';
+	if (requireAuth) {
+		const authHeader = req.headers.get('Authorization') ?? '';
+		const token = authHeader.replace(/^Bearer\s+/i, '').trim();
+		if (!token) {
+			return new Response(JSON.stringify({ error: 'Missing Authorization header' }), {
+				status: 401,
+				headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+			});
+		}
+		const supabaseAnon = createClient(
+			Deno.env.get('SUPABASE_URL')!,
+			Deno.env.get('SUPABASE_ANON_KEY')!
+		);
+		const { data: userData, error: authError } = await supabaseAnon.auth.getUser(token);
+		if (authError || !userData?.user) {
+			return new Response(JSON.stringify({ error: 'Invalid or expired token' }), {
+				status: 401,
+				headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+			});
+		}
 	}
 
 	const supabase = createClient(

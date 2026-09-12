@@ -31,8 +31,16 @@
 		}
 	});
 
-	async function handleOnboardingConfirm(prefs: PreferenciasPlano) {
+	async function handleOnboardingConfirm(prefs: PreferenciasPlano, interesses?: string) {
 		await planoFormaturaStore.savePreferencias(prefs);
+
+		// Interesses informados no onboarding viram a primeira conversa com o Darcy AI:
+		// ele sugere optativas da UnB alinhadas, sem o aluno precisar descobrir o chat.
+		if (interesses && planoFormaturaStore.status === 'success') {
+			planoFormaturaStore.enviarMensagem(
+				`Tenho interesse em: ${interesses}. Quais matérias optativas da UnB combinam com esses interesses? Me diga também quais delas têm oferta neste semestre.`
+			);
+		}
 	}
 
 	function handleOnboardingClose() {

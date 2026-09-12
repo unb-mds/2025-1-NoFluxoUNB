@@ -30,15 +30,17 @@
 	 * Modo toque (celular/tablet).
 	 *
 	 * O filtro do d3-zoom que o xyflow instala descarta `touchstart` quando
-	 * `panOnDrag` é falso — era por isso que o plano ficava congelado no dedo:
-	 * nem arrastar, nem pinçar. No desktop o combo panOnScroll + panOnDrag=false
-	 * é intencional (a roda rola a página), então a troca só vale no toque:
-	 *   - `panOnDrag` liga o arraste com um dedo (e a pinça, pelo mesmo filtro);
+	 * `panOnDrag` é falso (@xyflow/system, createFilter) — por isso `panOnDrag`
+	 * fica ligado nos dois modos:
+	 *   - no toque, é ele que libera o arraste com um dedo e a pinça;
+	 *   - no desktop, é ele que faz arrastar o fundo mover o canvas. Antes estava
+	 *     falso e o mouse não movia nada: a roda era a única navegação.
+	 * Complementos do modo toque:
 	 *   - `nodesDraggable=false` faz o arraste sobre um card pan o canvas em vez
-	 *     de sair arrastando a matéria — no dedo não dá pra mirar o vão entre cards;
-	 *   - `preventScrolling` impede a página de rolar junto durante o pan.
-	 * O container tem altura limitada no mobile justamente pra sobrar página
-	 * rolável em volta.
+	 *     de sair arrastando a matéria — no dedo não dá pra mirar o vão entre cards.
+	 * A rolagem vertical da página é devolvida ao navegador pelo `touch-action:
+	 * pan-y` no pane (ver a folha de estilo no fim do arquivo); `preventScrolling`
+	 * só alcança a roda, que aqui já nem é capturada.
 	 */
 	function detectaToque(): boolean {
 		if (!browser) return false;
@@ -255,18 +257,31 @@
 	class="planner-flow relative h-[68dvh] min-h-[360px] w-full overflow-hidden rounded-xl border border-white/10 bg-[#090c12] lg:h-full lg:min-h-[600px]"
 	class:modo-toque={modoToque}
 >
+	<!--
+		Sem `fitView`: encaixar o plano inteiro na largura do celular levava a escala
+		a ~0.32 num plano de 3 semestres (e ao piso de 0.15 num plano real de 6+),
+		deixando o card com 83x51px e os botões de ação com 25x9px — alvo de toque
+		impossível de acertar, e o dedo acabava no pane, que só panorâmica. Começar
+		em zoom 1 mantém o card no tamanho de leitura (uma coluna por vez, que é o
+		padrão certo no celular); a visão geral continua a um pinça ou no botão de
+		fit dos Controls. `minZoom` sobe de 0.15 para 0.25 para a pinça não colapsar
+		tudo em confete ilegível.
+		A roda do mouse não é capturada (`panOnScroll`/`zoomOnScroll` falsos, sem
+		`preventScrolling` no desktop): ela rola a página, como o resto do site.
+		Zoom no desktop fica nos Controls e no ctrl+roda / pinça do trackpad.
+	-->
 	<SvelteFlow
 		{nodes}
 		{edges}
 		{nodeTypes}
-		minZoom={modoToque ? 0.15 : 0.3}
+		minZoom={modoToque ? 0.25 : 0.3}
 		maxZoom={2}
-		fitView={modoToque}
-		fitViewOptions={{ padding: 0.12, minZoom: 0.15 }}
-		initialViewport={modoToque ? undefined : { x: 20, y: 20, zoom: 0.8 }}
-		panOnScroll={!modoToque}
+		fitView={false}
+		initialViewport={modoToque ? { x: 16, y: 16, zoom: 1 } : { x: 20, y: 20, zoom: 0.8 }}
+		panOnScroll={false}
+		zoomOnScroll={false}
 		preventScrolling={modoToque}
-		panOnDrag={modoToque}
+		panOnDrag={true}
 		nodesDraggable={!modoToque}
 		zoomOnPinch={true}
 		selectionOnDrag={false}
@@ -282,7 +297,7 @@
 		<p
 			class="pointer-events-none absolute right-2 top-2 z-10 rounded-full border border-white/10 bg-black/60 px-2.5 py-1 text-[10px] text-white/50 backdrop-blur-sm"
 		>
-			Arraste para navegar · pinça para zoom
+			Arraste na horizontal · pinça para zoom
 		</p>
 	{/if}
 </div>
@@ -292,6 +307,18 @@
 	.modo-toque :global(.svelte-flow__controls-button) {
 		width: 36px;
 		height: 36px;
+	}
+
+	/*
+	 * O xyflow marca o pane com `touch-action: none`, o que prendia o dedo: dentro
+	 * do canvas nenhum arraste rolava a página, só panorâmica. Como o plano se
+	 * estende em COLUNAS por semestre, o eixo que o canvas precisa é o horizontal
+	 * — devolver o vertical ao navegador solta a página sem custo de navegação.
+	 * A pinça continua com o canvas: `pan-y` não cede gestos de dois dedos.
+	 * Para percorrer uma coluna alta, o aluno reduz o zoom (pinça ou Controls).
+	 */
+	.modo-toque :global(.svelte-flow__pane) {
+		touch-action: pan-y;
 	}
 
 	/* Controls do xyflow com o acabamento do resto da UI (vidro escuro, borda

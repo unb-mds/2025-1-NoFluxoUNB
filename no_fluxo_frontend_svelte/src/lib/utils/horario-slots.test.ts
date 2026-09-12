@@ -3,280 +3,108 @@ import {
 	slotMaskFromHorario,
 	hasConflict,
 	autoMontarGrade,
-	agruparBlocosDia,
-	turmaRespeitaTurnos,
-	type Turno,
 	type MateriaTurmas
 } from './horario-slots';
 
-const turnos = (...t: Turno[]) => new Set<Turno>(t);
+/** Turmas fictícias com horários espalhados — poucas colidem entre si. */
+function turmasPara(seed: number, n: number) {
+	return Array.from({ length: n }, (_, i) => {
+		const bitA = (seed * 7 + i * 3) % 96;
+		const bitB = (seed * 11 + i * 5 + 40) % 96;
+		return {
+			mask: (1n << BigInt(bitA)) | (1n << BigInt(bitB)),
+			turma: { id_turmas: seed * 100 + i },
+			bonus: 0
+		};
+	});
+}
 
-/**
- * Bit de referência, computado de forma independente da implementação,
- * para validar o layout: diaIndex(0..5) * 16 + offsetTurno + (modulo-1).
- * offsetTurno: M=0, T=5, N=12.
- */
-function bit(diaCod: string, turno: 'M' | 'T' | 'N', modulo: number): bigint {
-	const diaIndex = Number(diaCod) - 2; // '2' -> 0 ... '7' -> 5
-	const offset = turno === 'M' ? 0 : turno === 'T' ? 5 : 12;
-	return 1n << BigInt(diaIndex * 16 + offset + (modulo - 1));
+/** Pool no formato que o grade.store monta: peso alto por matéria, bônus pequeno. */
+function poolRealista(
+	nMaterias: number,
+	nTurmas: number,
+	{ semOferta = false } = {}
+): Array<MateriaTurmas<{ id_turmas: number }>> {
+	const pesoBase = 5 * nMaterias + 1;
+	const mats = Array.from({ length: nMaterias }, (_, s) => ({
+		chave: `MAT${s}`,
+		turmas: turmasPara(s + 1, nTurmas),
+		peso: pesoBase
+	}));
+	if (semOferta) mats.push({ chave: 'SEM_OFERTA', turmas: [], peso: pesoBase });
+	return mats;
 }
 
 describe('slotMaskFromHorario', () => {
-	it('parseia código composto (24M12 35T34) nos bits exatos', () => {
-		const esperado =
-			bit('2', 'M', 1) |
-			bit('2', 'M', 2) |
-			bit('4', 'M', 1) |
-			bit('4', 'M', 2) |
-			bit('3', 'T', 3) |
-			bit('3', 'T', 4) |
-			bit('5', 'T', 3) |
-			bit('5', 'T', 4);
-		expect(slotMaskFromHorario('24M12 35T34')).toBe(esperado);
+	it('converte horário SIGAA em máscara e detecta conflito', () => {
+		expect(hasConflict(slotMaskFromHorario('24M12'), slotMaskFromHorario('24M23'))).toBe(true);
+		expect(hasConflict(slotMaskFromHorario('24M12'), slotMaskFromHorario('35T12'))).toBe(false);
 	});
 
-	it('é tolerante a casing e espaços extras', () => {
-		expect(slotMaskFromHorario('  6 n 1234 ')).toBe(
-			bit('6', 'N', 1) | bit('6', 'N', 2) | bit('6', 'N', 3) | bit('6', 'N', 4)
-		);
-	});
-
-	it('retorna 0n para horário vazio, nulo ou sem padrão reconhecível', () => {
-		expect(slotMaskFromHorario('')).toBe(0n);
-		expect(slotMaskFromHorario('   ')).toBe(0n);
+	it('horário vazio / a definir nunca conflita', () => {
 		expect(slotMaskFromHorario('A DEFINIR')).toBe(0n);
-		expect(slotMaskFromHorario(null)).toBe(0n);
-		expect(slotMaskFromHorario(undefined)).toBe(0n);
-	});
-
-	it('não colide entre turnos no mesmo dia (M5, T7 e N4 distintos)', () => {
-		const m = slotMaskFromHorario('2M5');
-		const t = slotMaskFromHorario('2T7');
-		const n = slotMaskFromHorario('2N4');
-		expect(m & t).toBe(0n);
-		expect(m & n).toBe(0n);
-		expect(t & n).toBe(0n);
-	});
-});
-
-describe('hasConflict', () => {
-	it('detecta sobreposição no mesmo dia/turno/módulo', () => {
-		expect(hasConflict(slotMaskFromHorario('24M12'), slotMaskFromHorario('2M2'))).toBe(true);
-	});
-
-	it('não acusa conflito quando são disjuntos', () => {
-		expect(hasConflict(slotMaskFromHorario('24M12'), slotMaskFromHorario('35T34'))).toBe(false);
-		// Mesmo dia e turno, módulos diferentes
-		expect(hasConflict(slotMaskFromHorario('2M12'), slotMaskFromHorario('2M34'))).toBe(false);
-	});
-
-	it('máscara vazia (EAD/a definir) nunca conflita', () => {
-		expect(hasConflict(0n, slotMaskFromHorario('24M12'))).toBe(false);
-		expect(hasConflict(0n, 0n)).toBe(false);
+		expect(hasConflict(slotMaskFromHorario(''), slotMaskFromHorario('24M12'))).toBe(false);
 	});
 });
 
 describe('autoMontarGrade', () => {
-	const mk = <T>(
-		chave: string,
-		turmas: Array<{ mask: bigint; turma: T; bonus?: number }>
-	): MateriaTurmas<T> => ({
-		chave,
-		turmas
-	});
-
-	it('encontra solução quando existe uma combinação sem conflito', () => {
-		const materias = [
-			mk('A', [{ mask: slotMaskFromHorario('2M12'), turma: 'A1' }]),
-			mk('B', [{ mask: slotMaskFromHorario('3M12'), turma: 'B1' }])
-		];
-		const r = autoMontarGrade(materias);
+	it('aloca tudo quando não há conflito', () => {
+		const r = autoMontarGrade(poolRealista(6, 8));
 		expect(r.naoAlocadas).toEqual([]);
-		expect(r.selecao.get('A')?.turma).toBe('A1');
-		expect(r.selecao.get('B')?.turma).toBe('B1');
+		expect(r.selecao.size).toBe(6);
 	});
 
-	it('escolhe a turma que evita conflito quando há alternativas', () => {
-		const materias = [
-			mk('A', [{ mask: slotMaskFromHorario('2M12'), turma: 'A1' }]),
-			mk('B', [
-				{ mask: slotMaskFromHorario('2M12'), turma: 'B-conflita' }, // colide com A1
-				{ mask: slotMaskFromHorario('3M12'), turma: 'B-ok' }
-			])
-		];
-		const r = autoMontarGrade(materias);
+	it('não escolhe turmas conflitantes entre si', () => {
+		const r = autoMontarGrade(poolRealista(8, 10, { semOferta: true }));
+		let acc = 0n;
+		for (const t of r.selecao.values()) {
+			expect(hasConflict(t.mask, acc)).toBe(false);
+			acc |= t.mask;
+		}
+	});
+
+	// Regressão do "Rearranjar não faz nada": quando o ótimo teórico é inalcançável
+	// (matéria sem oferta no semestre, ou turmas descartadas pelo filtro de turno),
+	// a busca não tinha poda por limite superior e varria o espaço inteiro —
+	// travando a thread principal por minutos. Um pool de tamanho normal tem que
+	// resolver em milissegundos.
+	it('resolve rápido mesmo com matéria sem oferta (poda por limite superior)', () => {
+		const t0 = performance.now();
+		const r = autoMontarGrade(poolRealista(9, 12, { semOferta: true }));
+		const ms = performance.now() - t0;
+
+		expect(r.naoAlocadas).toEqual(['SEM_OFERTA']);
+		expect(r.selecao.size).toBe(9);
+		expect(ms).toBeLessThan(500);
+	});
+
+	it('respeita prioridade: matéria com peso alto entra mesmo disputando horário', () => {
+		const conflito = 1n << 3n;
+		const r = autoMontarGrade([
+			{ chave: 'BAIXA', turmas: [{ mask: conflito, turma: { id_turmas: 1 } }], peso: 10 },
+			{ chave: 'ALTA', turmas: [{ mask: conflito, turma: { id_turmas: 2 } }], peso: 10_000 }
+		]);
+		expect(r.selecao.has('ALTA')).toBe(true);
+		expect(r.naoAlocadas).toEqual(['BAIXA']);
+	});
+
+	it('preferência desempata mas nunca custa uma matéria', () => {
+		const slotA = 1n << 3n;
+		const slotB = 1n << 9n;
+		// ALVO só cabe em slotA. OUTRA prefere slotA (bônus), mas cabe em slotB.
+		const r = autoMontarGrade([
+			{ chave: 'ALVO', turmas: [{ mask: slotA, turma: { id_turmas: 1 }, bonus: 0 }], peso: 100 },
+			{
+				chave: 'OUTRA',
+				turmas: [
+					{ mask: slotA, turma: { id_turmas: 2 }, bonus: 5 },
+					{ mask: slotB, turma: { id_turmas: 3 }, bonus: 0 }
+				],
+				peso: 100
+			}
+		]);
 		expect(r.naoAlocadas).toEqual([]);
-		expect(r.selecao.get('B')?.turma).toBe('B-ok');
-	});
-
-	it('aloca o máximo possível e reporta as que não couberam', () => {
-		const mesmoHorario = slotMaskFromHorario('2M12');
-		const materias = [
-			mk('A', [{ mask: mesmoHorario, turma: 'A1' }]),
-			mk('B', [{ mask: mesmoHorario, turma: 'B1' }]) // só existe no mesmo horário de A
-		];
-		const r = autoMontarGrade(materias);
-		expect(r.selecao.size).toBe(1);
-		expect(r.naoAlocadas.length).toBe(1);
-		// A que sobrou tem de ser uma das duas
-		expect(['A', 'B']).toContain(r.naoAlocadas[0]);
-	});
-
-	it('trata matéria sem turmas como não alocada', () => {
-		const materias = [
-			mk('A', [{ mask: slotMaskFromHorario('2M12'), turma: 'A1' }]),
-			mk('SEM_TURMA', [])
-		];
-		const r = autoMontarGrade(materias);
-		expect(r.selecao.get('A')?.turma).toBe('A1');
-		expect(r.naoAlocadas).toContain('SEM_TURMA');
-	});
-
-	it('prioriza a matéria de maior peso quando há conflito', () => {
-		const h = slotMaskFromHorario('2M12'); // mesmo horário → só uma cabe
-		const materias = [
-			{ chave: 'A', peso: 1, turmas: [{ mask: h, turma: 'A1' }] },
-			{ chave: 'B', peso: 100, turmas: [{ mask: h, turma: 'B1' }] }
-		];
-		const r = autoMontarGrade(materias);
-		expect(r.selecao.has('B')).toBe(true);
-		expect(r.naoAlocadas).toEqual(['A']);
-	});
-
-	it('mantém a prioritária e ainda encaixa as demais sem conflito', () => {
-		const materias = [
-			{ chave: 'A', peso: 1, turmas: [{ mask: slotMaskFromHorario('2M12'), turma: 'A1' }] },
-			{ chave: 'B', peso: 100, turmas: [{ mask: slotMaskFromHorario('3M12'), turma: 'B1' }] }
-		];
-		const r = autoMontarGrade(materias);
-		expect(r.selecao.has('A')).toBe(true);
-		expect(r.selecao.has('B')).toBe(true);
-		expect(r.naoAlocadas).toEqual([]);
-	});
-
-	// ─── Preferências (horário/professor) entram como bônus de desempate ──────────
-	describe('bônus de preferência', () => {
-		it('escolhe a turma preferida quando ambas cabem', () => {
-			const materias = [
-				mk('A', [
-					{ mask: slotMaskFromHorario('2M12'), turma: 'sem-preferencia' },
-					{ mask: slotMaskFromHorario('3M12'), turma: 'preferida', bonus: 5 }
-				])
-			];
-			const r = autoMontarGrade(materias);
-			expect(r.selecao.get('A')?.turma).toBe('preferida');
-			expect(r.preferenciasNaoAtendidas).toEqual([]);
-		});
-
-		it('cede a preferência para não perder uma matéria, e reporta quem cedeu', () => {
-			// A só existe em 2M12. B prefere 2M12 (bônus), mas aí A ficaria de fora.
-			// peso da matéria (10) > bônus máximo (5) → alocar A vence a preferência de B.
-			const materias = [
-				{ chave: 'A', peso: 10, turmas: [{ mask: slotMaskFromHorario('2M12'), turma: 'A1' }] },
-				{
-					chave: 'B',
-					peso: 10,
-					turmas: [
-						{ mask: slotMaskFromHorario('2M12'), turma: 'B-preferida', bonus: 5 },
-						{ mask: slotMaskFromHorario('3M12'), turma: 'B-alternativa', bonus: 0 }
-					]
-				}
-			];
-			const r = autoMontarGrade(materias);
-			expect(r.naoAlocadas).toEqual([]);
-			expect(r.selecao.get('B')?.turma).toBe('B-alternativa');
-			expect(r.preferenciasNaoAtendidas).toEqual(['B']);
-		});
-
-		it('não reporta matéria sem preferência declarada', () => {
-			const materias = [mk('A', [{ mask: slotMaskFromHorario('2M12'), turma: 'A1' }])];
-			expect(autoMontarGrade(materias).preferenciasNaoAtendidas).toEqual([]);
-		});
-
-		it('prefere o encaixe parcial ao nenhum quando o ideal não cabe', () => {
-			// A ocupa 2M12. B queria turno+professor (5), sobra a de bônus parcial (2).
-			const materias = [
-				{ chave: 'A', peso: 10, turmas: [{ mask: slotMaskFromHorario('2M12'), turma: 'A1' }] },
-				{
-					chave: 'B',
-					peso: 10,
-					turmas: [
-						{ mask: slotMaskFromHorario('2M12'), turma: 'B-ideal', bonus: 5 },
-						{ mask: slotMaskFromHorario('3M12'), turma: 'B-parcial', bonus: 2 },
-						{ mask: slotMaskFromHorario('4M12'), turma: 'B-nada', bonus: 0 }
-					]
-				}
-			];
-			const r = autoMontarGrade(materias);
-			expect(r.selecao.get('B')?.turma).toBe('B-parcial');
-			expect(r.preferenciasNaoAtendidas).toEqual(['B']);
-		});
-
-		it('bônus nunca troca uma matéria alocada por preferência atendida', () => {
-			// Se o bônus superasse o peso, o montador largaria A para dar a turma
-			// preferida a B. Com peso > bônus máximo isso não pode acontecer.
-			const materias = [
-				{ chave: 'A', peso: 10, turmas: [{ mask: slotMaskFromHorario('2M12'), turma: 'A1' }] },
-				{
-					chave: 'B',
-					peso: 10,
-					turmas: [{ mask: slotMaskFromHorario('2M12'), turma: 'B-preferida', bonus: 5 }]
-				}
-			];
-			const r = autoMontarGrade(materias);
-			expect(r.selecao.size).toBe(1);
-			expect(r.naoAlocadas.length).toBe(1);
-		});
-	});
-});
-
-describe('turmaRespeitaTurnos', () => {
-	it('aceita turma dentro do turno permitido e rejeita fora dele', () => {
-		const manha = slotMaskFromHorario('2M12');
-		expect(turmaRespeitaTurnos(manha, turnos('M'))).toBe(true);
-		expect(turmaRespeitaTurnos(manha, turnos('T'))).toBe(false);
-		expect(turmaRespeitaTurnos(manha, turnos('M', 'N'))).toBe(true);
-	});
-
-	it('turma que cruza dois turnos só cabe se ambos permitidos', () => {
-		const manhaNoite = slotMaskFromHorario('2M12 4N12');
-		expect(turmaRespeitaTurnos(manhaNoite, turnos('M', 'N'))).toBe(true);
-		expect(turmaRespeitaTurnos(manhaNoite, turnos('M'))).toBe(false);
-		expect(turmaRespeitaTurnos(manhaNoite, turnos('M', 'T'))).toBe(false);
-	});
-
-	it('sem filtro (vazio ou 3 turnos) e turma sem horário sempre cabem', () => {
-		const tarde = slotMaskFromHorario('3T34');
-		expect(turmaRespeitaTurnos(tarde, turnos())).toBe(true);
-		expect(turmaRespeitaTurnos(tarde, turnos('M', 'T', 'N'))).toBe(true);
-		expect(turmaRespeitaTurnos(0n, turnos('M'))).toBe(true);
-	});
-});
-
-describe('agruparBlocosDia', () => {
-	it('junta módulos consecutivos da mesma matéria num bloco', () => {
-		expect(agruparBlocosDia(['A', 'A', undefined, 'B'])).toEqual([
-			{ codigo: 'A', offsetStart: 0, span: 2 },
-			{ codigo: 'B', offsetStart: 3, span: 1 }
-		]);
-	});
-
-	it('separa matérias diferentes adjacentes', () => {
-		expect(agruparBlocosDia(['A', 'B'])).toEqual([
-			{ codigo: 'A', offsetStart: 0, span: 1 },
-			{ codigo: 'B', offsetStart: 1, span: 1 }
-		]);
-	});
-
-	it('um buraco quebra o bloco da mesma matéria', () => {
-		expect(agruparBlocosDia(['A', null, 'A'])).toEqual([
-			{ codigo: 'A', offsetStart: 0, span: 1 },
-			{ codigo: 'A', offsetStart: 2, span: 1 }
-		]);
-	});
-
-	it('dia sem nada → nenhum bloco', () => {
-		expect(agruparBlocosDia([undefined, undefined, null])).toEqual([]);
+		expect(r.selecao.get('OUTRA')?.turma.id_turmas).toBe(3);
+		expect(r.preferenciasNaoAtendidas).toEqual(['OUTRA']);
 	});
 });

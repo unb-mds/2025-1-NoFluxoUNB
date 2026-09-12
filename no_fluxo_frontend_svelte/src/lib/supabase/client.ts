@@ -2,10 +2,42 @@ import { createBrowserClient } from '@supabase/ssr';
 import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from '$env/static/public';
 
 /**
+ * Instância única do browser, memoizada.
+ *
+ * Cada `createBrowserClient` monta um `GoTrueClient` próprio, e todos disputam o
+ * MESMO lock exclusivo do Navigator LockManager (`lock:sb-auth-token`) para
+ * renovar o token. Com uma instância por serviço — o app chegou a catorze —, os
+ * perdedores da corrida estouram
+ * `Acquiring an exclusive Navigator LockManager lock ... immediately failed`
+ * no console, e o refresh de sessão passa a depender de qual cliente ganhou.
+ * O próprio Supabase avisa contra múltiplos GoTrueClient no mesmo contexto.
+ *
+ * Só memoiza no browser: no SSR cada requisição precisa do seu próprio cliente,
+ * senão a sessão de um usuário vazaria para a requisição de outro.
+ */
+let clienteDoBrowser: ReturnType<typeof criarCliente> | null = null;
+
+/**
  * Create a Supabase client for use in the browser with cookie-based storage.
  * This ensures PKCE code verifier persists across OAuth redirects.
+ *
+ * Devolve sempre a MESMA instância no browser — ver `clienteDoBrowser`.
  */
 export function createSupabaseBrowserClient() {
+	if (clienteDoBrowser) return clienteDoBrowser;
+
+	const cliente = criarCliente();
+	if (typeof window !== 'undefined') clienteDoBrowser = cliente;
+	return cliente;
+}
+
+/**
+ * A construção em si, separada só para o tipo do cliente memoizado ser inferido
+ * daqui. Anotar `ReturnType<typeof createBrowserClient>` na variável instancia os
+ * genéricos com os defaults e apaga a tipagem do schema, o que espalha
+ * `implicitly has an 'any' type` por todos os consumidores.
+ */
+function criarCliente() {
 	return createBrowserClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
 		cookies: {
 			getAll() {

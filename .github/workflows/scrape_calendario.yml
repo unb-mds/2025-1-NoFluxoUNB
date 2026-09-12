@@ -1,0 +1,77 @@
+name: Sync Calendario Academico
+
+# Carrega os períodos letivos da SAA em public.calendario_academico, que é a
+# fonte da verdade de "qual é o período vigente" (RPC periodo_letivo_atual) e
+# de quando o scraping de turmas precisa acelerar (RPC scraping_turmas_decisao).
+#
+# Sem auto-commit do JSON, ao contrário de scrape_ementa/scrape_equivalencias:
+# DBA/dados/** é gitignored e quem guarda o dado agora é o banco.
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Segunda, 02:00 UTC. É uma única requisição HTTP — semanal é barato e pega
+    # revisão de calendário pelo CEPE bem antes de virar problema.
+    - cron: '0 2 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-calendario-academico
+  cancel-in-progress: false
+
+jobs:
+  jobCalendario:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Upgrade pip and install Cython
+        run: |
+          python -m pip install --upgrade pip
+          pip install wheel Cython
+
+      - name: Install dependencies
+        run: |
+          pip install --no-build-isolation -r DBA/scraping/requirements.txt
+
+      - name: Create required directories
+        run: |
+          mkdir -p DBA/dados
+          mkdir -p DBA/logs
+
+      - name: 1. Scrape Calendario Academico (SAA)
+        working-directory: DBA/scraping
+        run: |
+          set -o pipefail
+          python -u scraping_calendario_academico.py 2>&1 | tee ../logs/scraping_calendario_academico.log
+
+      - name: 2. Insert Calendario Academico (Supabase)
+        working-directory: DBA/database
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }} # Fallback
+          SUPABASE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }} # Fallback
+        run: |
+          set -o pipefail
+          python -u 05_insert_calendario_academico.py 2>&1 | tee ../logs/05_insert_calendario_academico.log
+
+      - name: Upload Logs (Para auditoria)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-sync-calendario
+          # Só o log do scraping (sem segredos); o log do script de banco roda
+          # com service_role e não deve virar artifact.
+          path: DBA/logs/scraping_calendario_academico.log
+          if-no-files-found: ignore

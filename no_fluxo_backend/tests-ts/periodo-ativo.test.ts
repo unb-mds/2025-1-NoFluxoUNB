@@ -18,7 +18,14 @@ function fakeSupabase(rpcData: unknown) {
     } as any;
 }
 
-/** Mesma fórmula da RPC `periodo_letivo_atual`: jan–jun = .1, jul–dez = .2. */
+/**
+ * Mesmo FALLBACK da RPC `periodo_letivo_atual`: jan–jun = .1, jul–dez = .2.
+ *
+ * Desde 20260905120000_calendario_academico_periodo_vigente.sql o caminho
+ * principal da RPC lê a tabela `calendario_academico`; esta fórmula só entra
+ * quando o calendário não cobre a data. Os testes abaixo mockam a RPC, então
+ * exercitam justamente o fallback do lado TS.
+ */
 function periodoEsperadoAgora(): string {
     const now = new Date();
     return `${now.getFullYear()}.${now.getMonth() + 1 <= 6 ? 1 : 2}`;

@@ -64,7 +64,24 @@ npm test
 print_status "Executando testes com coverage..."
 npm run test:coverage
 
-print_success "✅ Testes TypeScript concluídos com sucesso!"
+print_success "✅ Testes TypeScript Backend concluídos com sucesso!"
+
+cd ..
+
+# Testes Frontend SvelteKit (Vitest)
+print_status "Executando testes Frontend SvelteKit (Vitest)..."
+
+cd no_fluxo_frontend_svelte
+
+if [ ! -d "node_modules" ]; then
+    print_warning "Instalando dependências do Frontend..."
+    npm install
+fi
+
+print_status "Executando Vitest..."
+npm run test:unit
+
+print_success "✅ Testes Frontend concluídos com sucesso!"
 
 cd ..
 
@@ -100,5 +117,6 @@ cd ..
 
 print_success "🎉 Todos os testes foram executados com sucesso!"
 print_status "Relatórios de coverage disponíveis em:"
-print_status "- TypeScript: no_fluxo_backend/coverage/"
+print_status "- Backend TypeScript: no_fluxo_backend/coverage/"
+print_status "- Frontend SvelteKit: no_fluxo_frontend_svelte/coverage/"
 print_status "- Python: tests-python/htmlcov/" 

@@ -37,11 +37,12 @@ export class SabiaService {
     constructor() {
         this.apiUrl = process.env.SABIA_API_URL ?? 'http://localhost:8000';
 
+
         // Check if required env vars are set
         logger.info('[SabiaService] Checking environment variables...');
         logger.info(`[SabiaService] SABIA_API_URL: ${this.apiUrl}`);
-        logger.info(`[SabiaService] MARITACA_API_KEY: ${process.env.MARITACA_API_KEY ? process.env.MARITACA_API_KEY.substring(0, 20) + '...' : 'MISSING'}`);
-        logger.info(`[SabiaService] GOOGLE_API_KEY: ${process.env.GOOGLE_API_KEY ? process.env.GOOGLE_API_KEY.substring(0, 20) + '...' : 'MISSING'}`);
+        logger.info(`[SabiaService] MARITACA_API_KEY: ${process.env.MARITACA_API_KEY ? 'set' : 'MISSING'}`);
+        logger.info(`[SabiaService] GOOGLE_API_KEY: ${process.env.GOOGLE_API_KEY ? 'set' : 'MISSING'}`);
         logger.info(`[SabiaService] SUPABASE_URL: ${process.env.SUPABASE_URL ? process.env.SUPABASE_URL.substring(0, 30) + '...' : 'MISSING'}`);
         
         const hasMaritaca = !!process.env.MARITACA_API_KEY;
@@ -67,6 +68,18 @@ export class SabiaService {
     }
 
     /**
+     * Headers para chamadas ao mcp_agent (api_producao.py), que exige
+     * X-API-Key igual à env var MCP_AGENT_API_KEY compartilhada entre os dois.
+     */
+    private buildHeaders(): Record<string, string> {
+        const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+        if (process.env.MCP_AGENT_API_KEY) {
+            headers['X-API-Key'] = process.env.MCP_AGENT_API_KEY;
+        }
+        return headers;
+    }
+
+    /**
      * Analyze a subject interest and return recommended disciplines using Sabiá AI.
      * Makes an HTTP POST request to the FastAPI server (api_producao.py).
      * 
@@ -85,9 +98,7 @@ export class SabiaService {
             // Make HTTP POST request to FastAPI server
             const response = await fetch(`${this.apiUrl}/recomendar`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: this.buildHeaders(),
                 body: JSON.stringify({
                     interesse,
                     matriz_curricular: matrizCurricular,
@@ -134,7 +145,7 @@ export class SabiaService {
         try {
             const response = await fetch(`${this.apiUrl}/buscar-materias`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: this.buildHeaders(),
                 body: JSON.stringify({ termos_busca: termosBusca }),
             });
             if (!response.ok) {
@@ -152,8 +163,14 @@ export class SabiaService {
 
     /**
      * Stream the Sabiá AI response via SSE, piping events from the FastAPI server.
+     *
+     * O Python emite um evento `usage` (`stage: "usage"`) antes do `done` com os
+     * tokens gastos nas chamadas Maritaca da requisição — parseado aqui e NÃO
+     * repassado pro cliente (o front não o consome). Todo o resto do stream passa
+     * cru, como antes. Bufferiza por `\n\n` (delimitador de evento SSE) porque um
+     * evento pode chegar partido entre dois `read()` do TCP.
      */
-    async analyzarInteresseStream(interesse: string, matrizCurricular: string = '', res: Response): Promise<void> {
+    async analyzarInteresseStream(interesse: string, matrizCurricular: string = '', res: Response): Promise<{ usage?: SabiaUsage[] }> {
         if (!this.available) {
             throw new Error('Sabiá service is not configured');
         }
@@ -162,7 +179,7 @@ export class SabiaService {
 
         const response = await fetch(`${this.apiUrl}/recomendar-stream`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: this.buildHeaders(),
             body: JSON.stringify({
                 interesse,
                 matriz_curricular: matrizCurricular,
@@ -180,21 +197,54 @@ export class SabiaService {
 
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
+        let buffer = '';
+        let usage: SabiaUsage[] | undefined;
 
         try {
             while (true) {
                 const { done, value } = await reader.read();
                 if (done) break;
-                const chunk = decoder.decode(value, { stream: true });
-                res.write(chunk);
-                // Flush if available (for compression middleware)
-                if (typeof (res as any).flush === 'function') {
-                    (res as any).flush();
+                buffer += decoder.decode(value, { stream: true });
+
+                let boundary: number;
+                let forward = '';
+                while ((boundary = buffer.indexOf('\n\n')) !== -1) {
+                    const rawEvent = buffer.slice(0, boundary + 2);
+                    buffer = buffer.slice(boundary + 2);
+
+                    const match = rawEvent.match(/^data: (.*)\n\n$/s);
+                    if (match) {
+                        try {
+                            const parsed = JSON.parse(match[1]);
+                            if (parsed.stage === 'usage' && Array.isArray(parsed.calls)) {
+                                usage = parsed.calls;
+                                continue; // evento interno — não repassa pro cliente
+                            }
+                        } catch {
+                            // não parseou como JSON — repassa cru abaixo
+                        }
+                    }
+                    forward += rawEvent;
                 }
+
+                if (forward) {
+                    res.write(forward);
+                    // Flush if available (for compression middleware)
+                    if (typeof (res as any).flush === 'function') {
+                        (res as any).flush();
+                    }
+                }
+            }
+            // Sobra sem `\n\n` final (não deveria conter o evento usage, que sempre
+            // fecha com o delimitador) — repassa como está.
+            if (buffer) {
+                res.write(buffer);
             }
         } finally {
             res.end();
         }
+
+        return { usage };
     }
 
     /**

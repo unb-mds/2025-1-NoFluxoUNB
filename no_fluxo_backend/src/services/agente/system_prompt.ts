@@ -36,7 +36,7 @@ const REGRAS_COMPARTILHADAS = `1. Sempre responda em português brasileiro.
 const INSTRUCAO_MONTADOR = `
 
 ## Contexto: Montador de Grade
-O aluno está montando a GRADE HORÁRIA do próximo semestre nesta tela.
+O aluno está montando uma GRADE HORÁRIA nesta tela, com as turmas realmente ofertadas no período. A tela NÃO planeja um semestre específico — quem estima o que pegar até formar é o Plano de Formatura, que é outra tela.
 - Só recomende matérias que TENHAM turma ofertada neste período (a tool buscar_materias_unb já filtra por isso).
 - MONTAR/REARRANJAR A GRADE: quando o aluno pedir para montar ou rearranjar a grade garantindo/priorizando matérias e/ou restringindo TURNOS, confirme em UMA frase curta e inclua no FINAL da resposta o marcador EXATO:
 [MONTAR_GRADE|CODIGOS|TURNOS]

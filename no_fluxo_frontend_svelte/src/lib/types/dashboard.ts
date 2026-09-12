@@ -76,3 +76,38 @@ export interface ScrapingHealth {
 	materias_sem_ementa_pct: number;
 	cursos_sem_matriz: number;
 }
+
+export interface SecurityFinding {
+	fingerprint: string;
+	rule: string;
+	file: string;
+	commit: string;
+}
+
+export interface SecurityHealth {
+	ultimo_scan_em: string | null;
+	ultimo_status: 'ok' | 'leaks_found' | null;
+	novos_achados: number;
+	ultimo_tipo: string | null;
+	ultimo_run_url: string | null;
+	ultimo_ok_em: string | null;
+	scans_7d: number;
+	falhas_7d: number;
+	achados: SecurityFinding[];
+}
+
+export type FasePeriodo = 'pre_matricula' | 'matricula' | 'letivo' | 'recesso' | 'desconhecido';
+
+/**
+ * Período letivo vigente segundo `calendario_academico` (RPC
+ * `periodo_letivo_vigente`). As datas são ISO (YYYY-MM-DD) e vêm nulas quando o
+ * calendário não cobre a data de hoje — aí `fase` é 'desconhecido' e `periodo`
+ * caiu no fallback por mês.
+ */
+export interface PeriodoLetivo {
+	periodo: string;
+	fase: FasePeriodo;
+	data_inicio: string | null;
+	data_fim: string | null;
+	limite_matricula_25pct: string | null;
+}

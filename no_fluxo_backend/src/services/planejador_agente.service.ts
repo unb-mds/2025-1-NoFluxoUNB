@@ -14,6 +14,7 @@
 
 import { createControllerLogger } from "../utils/controller_logger";
 import { MARITACA_URL, MARITACA_MODELS } from "../config/maritaca";
+import { MaritacaSemCreditosError, isMaritacaSemCreditos } from "../config/maritaca_errors";
 import type { PlanoFormaturav2 } from "../types/planejamento";
 import {
     type MensagemChat,
@@ -105,6 +106,12 @@ export class PlanejadorAgenteService {
 
         if (!response.ok) {
             const err = await response.text();
+            // Conta sem saldo: erro tratado (503 amigável no controller), não um 500 genérico.
+            if (response.status === 403 && isMaritacaSemCreditos(err)) {
+                throw new MaritacaSemCreditosError(
+                    `Maritaca API error: ${response.status} ${err}`
+                );
+            }
             throw new Error(
                 `Maritaca API error: ${response.status} ${err}`
             );

@@ -82,6 +82,16 @@ export function compactarFaixasHorarias(faixas: string[]): string {
 	return `${formatHoraCompacta(inicio)} - ${formatHoraCompacta(fim)}`;
 }
 
+/**
+ * Horário SIGAA numa linha legível: "Seg 8h - 9h50 · Qua 8h - 9h50".
+ * Vazio / "A DEFINIR" vira "Horário a definir".
+ */
+export function horarioLegivel(horario: string | null | undefined): string {
+	const linhas = formatHorarioSigaa(horario ?? '');
+	if (linhas.length === 0) return 'Horário a definir';
+	return linhas.map((l) => `${l.dia} ${compactarFaixasHorarias(l.faixas)}`).join(' · ');
+}
+
 export function formatLocalSigaa(rawLocal: string): string[] {
 	const raw = String(rawLocal ?? '').trim();
 	if (!raw) return [];

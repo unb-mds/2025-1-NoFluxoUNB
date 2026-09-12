@@ -1,10 +1,12 @@
 <script lang="ts">
 	import type { MateriaModel } from '$lib/types/materia';
+	import { LIMITE_CREDITOS_MAX, LIMITE_CREDITOS_MIN } from '$lib/types/plano-formatura';
 	import { planoFormaturaStore } from '$lib/stores/plano-formatura.store.svelte';
+	import { unidadeCargaStore } from '$lib/stores/unidade-carga.store.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { authStore } from '$lib/stores/auth';
 	import PlannerSvelteFlow from './PlannerSvelteFlow.svelte';
-	import SemesterColumn from '../fluxograma/SemesterColumn.svelte';
+	import SemesterColumn from '../fluxograma/layout/SemesterColumn.svelte';
 	import SemestrePlanCard from './SemestrePlanCard.svelte';
 	import RestricoesChips from './RestricoesChips.svelte';
 	import SemestreAtualColumn from './SemestreAtualColumn.svelte';
@@ -28,7 +30,8 @@
 	import html2canvas from 'html2canvas-pro';
 
 	let isChangingCredits = $state(false);
-	let displayUnit = $state<'creditos' | 'horas'>('creditos');
+	// Preferência compartilhada com o montador de grade e persistida no navegador.
+	let displayUnit = $derived(unidadeCargaStore.unidade);
 	let hoveredCode = $state<string | null>(null);
 	let isChatOpen = $state(false);
 	let authState = $derived($authStore);
@@ -105,6 +108,18 @@
 			resetChat();
 			chatPositioned = true;
 		}
+	});
+
+	// Mensagens de usuário disparadas fora da view (ex.: interesses informados no
+	// onboarding) abrem o chat — senão a resposta do Darcy AI chega com o painel
+	// fechado e o aluno nem fica sabendo.
+	let ultimaContagemChat = 0;
+	$effect(() => {
+		const msgs = planoFormaturaStore.chatMessages;
+		if (msgs.length > ultimaContagemChat && msgs[msgs.length - 1]?.role === 'user' && !isChatOpen) {
+			isChatOpen = true;
+		}
+		ultimaContagemChat = msgs.length;
 	});
 
 	function draggable(node: HTMLElement) {
@@ -401,8 +416,8 @@
 			</span>
 			<input
 				type="range"
-				min={8}
-				max={32}
+				min={LIMITE_CREDITOS_MIN}
+				max={LIMITE_CREDITOS_MAX}
 				step={1}
 				disabled={isChangingCredits}
 				value={planoFormaturaStore.preferencias.limiteCreditos}
@@ -429,7 +444,7 @@
 		<div class="flex items-center gap-2">
 			<button
 				type="button"
-				onclick={() => { displayUnit = 'creditos'; }}
+				onclick={() => unidadeCargaStore.set('creditos')}
 				class="touch-manipulation rounded-lg px-3 py-2 text-xs font-semibold transition-all sm:py-1.5
 					{displayUnit === 'creditos'
 						? 'border border-blue-500/60 bg-blue-600/20 text-blue-200 ring-1 ring-blue-500/30'
@@ -439,7 +454,7 @@
 			</button>
 			<button
 				type="button"
-				onclick={() => { displayUnit = 'horas'; }}
+				onclick={() => unidadeCargaStore.set('horas')}
 				class="touch-manipulation rounded-lg px-3 py-2 text-xs font-semibold transition-all sm:py-1.5
 					{displayUnit === 'horas'
 						? 'border border-blue-500/60 bg-blue-600/20 text-blue-200 ring-1 ring-blue-500/30'

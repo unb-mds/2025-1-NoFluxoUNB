@@ -299,7 +299,7 @@ describe("Fase 2 — Orquestrador (delegação)", () => {
 describe("Fase 2 (migração) — protocolo MONTAR_GRADE nas instruções do orquestrador", () => {
     it("inclui o bloco do protocolo quando apenasComOferta=true (contexto montador)", () => {
         const orquestrador = createOrquestradorAgent("aluno@unb.br", true);
-        expect(String(orquestrador.instructions)).toContain("[MONTAR_GRADE|CODIGOS|TURNOS]");
+        expect(String(orquestrador.instructions)).toContain("[MONTAR_GRADE|CODIGOS|TURNOS|DOCENTES]");
     });
 
     it("NÃO inclui o bloco fora do contexto montador (apenasComOferta=false)", () => {
@@ -328,5 +328,44 @@ describe("Fase 2 (extensão) — Orquestrador delega horário livre pro AtuadorG
         const orquestrador = createOrquestradorAgent("aluno@unb.br", false);
         const ferramentas = (orquestrador as any).tools?.map((t: any) => t.name) ?? [];
         expect(ferramentas).not.toContain("recomendar_por_horario_livre");
+    });
+});
+
+describe("Fase 2 (extensão) — Orquestrador delega módulo livre pro AtuadorModuloLivre", () => {
+    it("no Montador de Grade (apenasComOferta + curriculoCompleto + horarioLivre), a tool é registrada", () => {
+        const orquestrador = createOrquestradorAgent(
+            "aluno@unb.br",
+            true,
+            "8117/-2 - 2018.2",
+            { freeMaskStr: ((1n << 96n) - 1n).toString(), periodoAtivo: "2026.2" }
+        );
+        const ferramentas = (orquestrador as any).tools?.map((t: any) => t.name) ?? [];
+        expect(ferramentas).toContain("buscar_modulo_livre");
+    });
+
+    it("sem horarioLivre (fora do Montador), a tool não é registrada", () => {
+        const orquestrador = createOrquestradorAgent("aluno@unb.br", true, "8117/-2 - 2018.2");
+        const ferramentas = (orquestrador as any).tools?.map((t: any) => t.name) ?? [];
+        expect(ferramentas).not.toContain("buscar_modulo_livre");
+    });
+
+    it("sem curriculoCompleto (matriz desconhecida), a tool não é registrada mesmo com horarioLivre", () => {
+        const orquestrador = createOrquestradorAgent("aluno@unb.br", true, undefined, {
+            freeMaskStr: ((1n << 96n) - 1n).toString(),
+            periodoAtivo: "2026.2",
+        });
+        const ferramentas = (orquestrador as any).tools?.map((t: any) => t.name) ?? [];
+        expect(ferramentas).not.toContain("buscar_modulo_livre");
+    });
+
+    it("fora do contexto Montador (apenasComOferta=false), a tool não é registrada mesmo com os outros dois presentes", () => {
+        const orquestrador = createOrquestradorAgent(
+            "aluno@unb.br",
+            false,
+            "8117/-2 - 2018.2",
+            { freeMaskStr: ((1n << 96n) - 1n).toString(), periodoAtivo: "2026.2" }
+        );
+        const ferramentas = (orquestrador as any).tools?.map((t: any) => t.name) ?? [];
+        expect(ferramentas).not.toContain("buscar_modulo_livre");
     });
 });
