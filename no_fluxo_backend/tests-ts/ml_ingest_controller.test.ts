@@ -191,18 +191,24 @@ describe('MlIngestController — POST /internal/ml/scores', () => {
       mockRequest = makeRequest({ 'x-api-key': VALID_KEY }, { scores: [validScore] });
       await handler(mockRequest as Request, mockResponse as Response);
 
-      expect(SupabaseWrapper.get().from).toHaveBeenCalledWith('ml_risco_scores');
+      expect(SupabaseWrapper.get().from).toHaveBeenLastCalledWith('ml_risco_scores');
       expect(mockUpsert).toHaveBeenCalledWith([{ ...validScore, codigo_materia_critico: null }], { onConflict: 'id_user' });
       expect(mockResponse.status).toHaveBeenCalledWith(200);
       expect(mockResponse.json).toHaveBeenCalledWith({ ok: true, upserted: 1 });
     });
 
-    it('reenviar o mesmo id_user chama upsert de novo (sobrescreve, não duplica)', async () => {
-      mockRequest = makeRequest({ 'x-api-key': VALID_KEY }, { scores: [validScore, validScore] });
+    it('mesmo id_user duplicado no lote é deduplicado antes do upsert (mantém o último, não duplica)', async () => {
+      const primeiraVersao = { ...validScore, risk: 0.1 };
+      const ultimaVersao = { ...validScore, risk: 0.9 };
+      mockRequest = makeRequest({ 'x-api-key': VALID_KEY }, { scores: [primeiraVersao, ultimaVersao] });
       await handler(mockRequest as Request, mockResponse as Response);
 
-      expect(mockUpsert).toHaveBeenCalledWith([{ ...validScore, codigo_materia_critico: null }, { ...validScore, codigo_materia_critico: null }], { onConflict: 'id_user' });
+      expect(mockUpsert).toHaveBeenCalledWith(
+        [{ ...ultimaVersao, codigo_materia_critico: null }],
+        { onConflict: 'id_user' }
+      );
       expect(mockResponse.status).toHaveBeenCalledWith(200);
+      expect(mockResponse.json).toHaveBeenCalledWith({ ok: true, upserted: 1 });
     });
 
     it('retorna 500 quando o upsert falha no banco', async () => {

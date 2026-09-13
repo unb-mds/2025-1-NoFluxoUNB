@@ -77,6 +77,7 @@ APPS: dict[str, AppConfig] = {
             "SUPABASE_SERVICE_ROLE_KEY",
             "SUPABASE_ANON_KEY",
             "MCP_AGENT_API_KEY",
+            "ML_PUSH_API_KEY",
         ),
         deploy_env_optional_keys=(
             "RAGFLOW_API_KEY",

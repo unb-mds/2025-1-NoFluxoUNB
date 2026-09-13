@@ -88,6 +88,21 @@ function validateScoreItem(item: unknown, index: number): { value?: ScoreInput; 
     return { value: { id_user, risk, model_version, computed_at, codigo_materia_critico } };
 }
 
+/**
+ * Deduplica por id_user mantendo a ÚLTIMA ocorrência do lote.
+ *
+ * Necessário porque o upsert do PostgREST usa ON CONFLICT (id_user) DO UPDATE:
+ * mandar duas linhas com o mesmo id_user na MESMA chamada de upsert faz o
+ * Postgres estourar "21000: ON CONFLICT DO UPDATE command cannot affect row
+ * a second time". "Último item do lote vence" replica o que aconteceria se
+ * cada duplicata fosse enviada em uma chamada de upsert separada.
+ */
+function dedupeByIdUser(scores: ScoreInput[]): ScoreInput[] {
+    const byId = new Map<number, ScoreInput>();
+    for (const s of scores) byId.set(s.id_user, s);
+    return [...byId.values()];
+}
+
 function validateBody(body: unknown): { scores?: ScoreInput[]; error?: string } {
     if (!isPlainObject(body)) {
         return { error: "Body inválido" };
@@ -127,17 +142,19 @@ export const MlIngestController: EndpointController = {
                 return res.status(400).json({ error: bodyError });
             }
 
+            const dedupedScores = dedupeByIdUser(scores as ScoreInput[]);
+
             const { error } = await SupabaseWrapper.get()
                 .from("ml_risco_scores")
-                .upsert(scores, { onConflict: "id_user" });
+                .upsert(dedupedScores, { onConflict: "id_user" });
 
             if (error) {
                 logger.error(`Erro ao fazer upsert de scores: ${error.message}`);
                 return res.status(500).json({ error: error.message });
             }
 
-            logger.info(`Upsert de ${scores!.length} score(s) concluído`);
-            return res.status(200).json({ ok: true, upserted: scores!.length });
+            logger.info(`Upsert de ${dedupedScores.length} score(s) concluído`);
+            return res.status(200).json({ ok: true, upserted: dedupedScores.length });
         }),
     },
 };
