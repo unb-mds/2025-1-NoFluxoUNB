@@ -50,6 +50,7 @@ interface ScoreInput {
     risk: number;
     model_version: string;
     computed_at: string;
+    codigo_materia_critico: string | null;
 }
 
 function isPlainObject(v: unknown): v is Record<string, unknown> {
@@ -76,7 +77,15 @@ function validateScoreItem(item: unknown, index: number): { value?: ScoreInput; 
         return { error: `scores[${index}].computed_at deve ser uma data ISO 8601 válida` };
     }
 
-    return { value: { id_user, risk, model_version, computed_at } };
+    let codigo_materia_critico: string | null = null;
+    if ("codigo_materia_critico" in item && item.codigo_materia_critico !== null) {
+        if (typeof item.codigo_materia_critico !== "string" || !item.codigo_materia_critico.trim()) {
+            return { error: `scores[${index}].codigo_materia_critico deve ser uma string não vazia ou null` };
+        }
+        codigo_materia_critico = item.codigo_materia_critico;
+    }
+
+    return { value: { id_user, risk, model_version, computed_at, codigo_materia_critico } };
 }
 
 function validateBody(body: unknown): { scores?: ScoreInput[]; error?: string } {

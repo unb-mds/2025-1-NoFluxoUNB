@@ -72,6 +72,24 @@ describe('MlIngestController — POST /internal/ml/scores', () => {
   });
 
   describe('validação do body', () => {
+    it('retorna 400 quando codigo_materia_critico é uma string vazia', async () => {
+      mockRequest = makeRequest(
+        { 'x-api-key': VALID_KEY },
+        { scores: [{ ...validScore, codigo_materia_critico: '' }] }
+      );
+      await handler(mockRequest as Request, mockResponse as Response);
+      expect(mockResponse.status).toHaveBeenCalledWith(400);
+    });
+
+    it('retorna 400 quando codigo_materia_critico não é string nem null', async () => {
+      mockRequest = makeRequest(
+        { 'x-api-key': VALID_KEY },
+        { scores: [{ ...validScore, codigo_materia_critico: 123 }] }
+      );
+      await handler(mockRequest as Request, mockResponse as Response);
+      expect(mockResponse.status).toHaveBeenCalledWith(400);
+    });
+
     it('retorna 400 quando scores está ausente', async () => {
       mockRequest = makeRequest({ 'x-api-key': VALID_KEY }, {});
       await handler(mockRequest as Request, mockResponse as Response);
@@ -150,12 +168,31 @@ describe('MlIngestController — POST /internal/ml/scores', () => {
   });
 
   describe('caminho feliz', () => {
+    it('aceita codigo_materia_critico e inclui no upsert', async () => {
+      const scoreComDisciplina = { ...validScore, codigo_materia_critico: 'MAT0025' };
+      mockRequest = makeRequest({ 'x-api-key': VALID_KEY }, { scores: [scoreComDisciplina] });
+      await handler(mockRequest as Request, mockResponse as Response);
+
+      expect(mockUpsert).toHaveBeenCalledWith([scoreComDisciplina], { onConflict: 'id_user' });
+      expect(mockResponse.status).toHaveBeenCalledWith(200);
+    });
+
+    it('grava null quando codigo_materia_critico está ausente', async () => {
+      mockRequest = makeRequest({ 'x-api-key': VALID_KEY }, { scores: [validScore] });
+      await handler(mockRequest as Request, mockResponse as Response);
+
+      expect(mockUpsert).toHaveBeenCalledWith(
+        [{ ...validScore, codigo_materia_critico: null }],
+        { onConflict: 'id_user' }
+      );
+    });
+
     it('faz upsert em ml_risco_scores com onConflict id_user e retorna 200', async () => {
       mockRequest = makeRequest({ 'x-api-key': VALID_KEY }, { scores: [validScore] });
       await handler(mockRequest as Request, mockResponse as Response);
 
       expect(SupabaseWrapper.get().from).toHaveBeenCalledWith('ml_risco_scores');
-      expect(mockUpsert).toHaveBeenCalledWith([validScore], { onConflict: 'id_user' });
+      expect(mockUpsert).toHaveBeenCalledWith([{ ...validScore, codigo_materia_critico: null }], { onConflict: 'id_user' });
       expect(mockResponse.status).toHaveBeenCalledWith(200);
       expect(mockResponse.json).toHaveBeenCalledWith({ ok: true, upserted: 1 });
     });
@@ -164,7 +201,7 @@ describe('MlIngestController — POST /internal/ml/scores', () => {
       mockRequest = makeRequest({ 'x-api-key': VALID_KEY }, { scores: [validScore, validScore] });
       await handler(mockRequest as Request, mockResponse as Response);
 
-      expect(mockUpsert).toHaveBeenCalledWith([validScore, validScore], { onConflict: 'id_user' });
+      expect(mockUpsert).toHaveBeenCalledWith([{ ...validScore, codigo_materia_critico: null }, { ...validScore, codigo_materia_critico: null }], { onConflict: 'id_user' });
       expect(mockResponse.status).toHaveBeenCalledWith(200);
     });
 
