@@ -196,7 +196,8 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 		const cc = course?.curriculoCompleto;
 		void store.diagramLayoutRevision;
 		if (!cc || !fluxo) {
-			if (course?.idCurso && !cc) {
+			// if (course?.idCurso && !cc) {
+			if (course?.idCurso) {
 				supabaseDataService.getMatrizesByCurso(course.idCurso).then((m) => {
 					matrizes = m.map((x) => ({ curriculoCompleto: x.curriculoCompleto }));
 				});
@@ -223,20 +224,33 @@ let equivalenciasSimulacao = $derived.by((): EquivalenciaSimulacaoItem[] => {
 		}
 	});
 
+	function normalizarChaveNome(valor: string | null | undefined): string {
+		return (valor ?? '').trim().toLowerCase();
+	}
+
 	onMount(() => {
 		if (courseName) {
-			// Mobile abre em modo leitura: 'Diretas' evita centenas de paths SVG e o gap
-			// largo do modo 'all' no primeiro paint; 'Todas' continua a um toque no rodapé.
 			store.setConnectionMode(matchesFluxogramCompactTouchMode() ? 'direct' : 'all');
 			const user = authStore.getUser();
 			const anonymous = !user?.dadosFluxograma;
-			// If a specific matriz was requested via query param, load it directly
 			const matrizParam = $page.url.searchParams.get('matriz');
-			if (matrizParam) {
-				store.loadCourseDataByCurriculoCompleto(matrizParam, anonymous);
-			} else {
-				store.loadCourseData(courseName, anonymous);
-			}
+
+		const matrizDoAluno = user?.dadosFluxograma?.matrizCurricular;
+		const mesmoCurso =
+			!!matrizDoAluno &&
+			normalizarChaveNome(user?.dadosFluxograma?.nomeCurso) === normalizarChaveNome(courseName);
+
+		if (mesmoCurso) {
+			// 1) É o curso da própria pessoa e já temos a matriz dela (veio do histórico) — usa direto.
+			store.loadCourseDataByCurriculoCompleto(matrizDoAluno!, anonymous);
+		} else if (matrizParam) {
+			// 2) Veio de um card específico em /fluxogramas — respeita a escolha.
+			store.loadCourseDataByCurriculoCompleto(matrizParam, anonymous);
+		} else {
+			// 3) Sem contexto — carrega uma matriz padrão; a pessoa pode trocar
+			//    pelo seletor "Trocar matriz" que já existe no header.
+			store.loadCourseData(courseName, anonymous);
+		}
 		}
 
 		return () => {
