@@ -22,6 +22,7 @@ import { MateriasController } from './controllers/materias_controller';
 import { AssistenteController } from './controllers/assistente_controller';
 import { PlanejamentoController } from './controllers/PlanejamentoController';
 import { ChatController } from './controllers/chat_controller';
+import { MlIngestController } from './controllers/ml_ingest_controller';
 
 // Log loaded environment variables (for debugging)
 logger.info('Environment variables loaded:');
@@ -65,6 +66,7 @@ const controllers: EndpointController[] = [
     AssistenteController,
     PlanejamentoController,
     ChatController,
+    MlIngestController,
 ];
 router.get('/', (_req: Request, res: Response) => {
     logger.info(`\b[GET][/]`);
