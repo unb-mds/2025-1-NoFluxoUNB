@@ -164,3 +164,9 @@ docker-compose.yml
 
 # Worktrees isolados criados pelo harness para agents paralelos (isolation: "worktree").
 .claude/worktrees/
+
+# Material confidencial de negócio (precificação) — não versionar.
+documentacao/modelo_de_negocio_precificacao.*
+
+# Configuração local de agents (uso individual, não versionado).
+.agents/
