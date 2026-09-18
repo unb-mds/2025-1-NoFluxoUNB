@@ -299,7 +299,9 @@ describe("Fase 2 — Orquestrador (delegação)", () => {
 describe("Fase 2 (migração) — protocolo MONTAR_GRADE nas instruções do orquestrador", () => {
     it("inclui o bloco do protocolo quando apenasComOferta=true (contexto montador)", () => {
         const orquestrador = createOrquestradorAgent("aluno@unb.br", true);
-        expect(String(orquestrador.instructions)).toContain("[MONTAR_GRADE|CODIGOS|TURNOS|DOCENTES]");
+        expect(String(orquestrador.instructions)).toContain(
+            "[MONTAR_GRADE|CODIGOS|TURNOS|DOCENTES|INCLUIR_CURSANDO]"
+        );
     });
 
     it("NÃO inclui o bloco fora do contexto montador (apenasComOferta=false)", () => {
