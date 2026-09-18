@@ -97,6 +97,16 @@ docs/superpowers/
 
 # Supabase migrations (gerenciadas fora do repo)
 supabase/migrations/
+
+# Build do SvelteKit (gerado; o de dentro do frontend já tem gitignore próprio)
+.svelte-kit/
+
+# Config local do Flask (env vars individuais; *.env não cobre este nome)
+.flaskenv
+
+# Lockfile npm na raiz: o repo usa pnpm (pnpm-lock.yaml); um `npm install`
+# acidental na raiz recria este arquivo e diverge do lock real.
+/package-lock.json
 # Cobertura / artefatos de teste Python
 .coverage
 .coverage.*
