@@ -1,10 +1,12 @@
 import { createSupabaseBrowserClient } from '$lib/supabase/client';
+import type { RealtimeChannel } from '@supabase/supabase-js';
 import type {
 	NewTicketInput,
 	Ticket,
 	TicketAttachment,
 	TicketDetail,
 	TicketListItem,
+	TicketMessage,
 	TicketMetadata,
 	TicketStatus,
 	TicketCategory,
@@ -85,18 +87,22 @@ export class TicketService {
 	}
 
 	async listMyTickets(): Promise<Ticket[]> {
-		const { data: authData } = await this.supabase.auth.getUser();
-		const authId = authData.user?.id;
-		if (!authId) return [];
-
-		const { data, error } = await this.supabase
-			.from('tickets')
-			.select('*')
-			.eq('created_by', authId)
-			.order('created_at', { ascending: false });
-
+		// RPC em vez de SELECT direto: traz unread_count + última mensagem da conversa.
+		const { data, error } = await this.supabase.rpc('get_my_tickets');
 		if (error) throw new Error(error.message);
 		return (data ?? []) as Ticket[];
+	}
+
+	/** Total de mensagens do suporte não lidas nos meus chamados (badge da navbar). */
+	async countUnreadTickets(): Promise<number> {
+		const tickets = await this.listMyTickets();
+		return tickets.reduce((soma, t) => soma + (t.unread_count ?? 0), 0);
+	}
+
+	/** Marca a conversa do ticket como lida até a mensagem mais recente. */
+	async markTicketRead(ticketId: number): Promise<void> {
+		const { error } = await this.supabase.rpc('ticket_mark_read', { p_ticket_id: ticketId });
+		if (error) throw new Error(error.message);
 	}
 
 	async listTicketsAdmin(params: {
@@ -162,6 +168,61 @@ export class TicketService {
 			}))
 		);
 		return signed;
+	}
+
+	async listMessages(
+		ticketId: number,
+		opts?: { beforeId?: number; afterId?: number; limit?: number }
+	): Promise<TicketMessage[]> {
+		const { data, error } = await this.supabase.rpc('get_ticket_messages', {
+			p_ticket_id: ticketId,
+			p_before_id: opts?.beforeId ?? null,
+			p_after_id: opts?.afterId ?? null,
+			p_limit: opts?.limit ?? 30
+		});
+		if (error) throw new Error(error.message);
+		return (data ?? []) as TicketMessage[];
+	}
+
+	async sendMessage(ticketId: number, content: string): Promise<TicketMessage> {
+		const { data, error } = await this.supabase.rpc('ticket_add_message', {
+			p_ticket_id: ticketId,
+			p_content: content
+		});
+		if (error) throw new Error(error.message);
+		return data as TicketMessage;
+	}
+
+	async getAuthUserId(): Promise<string | null> {
+		const { data } = await this.supabase.auth.getUser();
+		return data.user?.id ?? null;
+	}
+
+	/**
+	 * Assina INSERTs em ticket_messages do ticket via Realtime.
+	 * Retorna a função de unsubscribe (remove o canal).
+	 */
+	subscribeToMessages(
+		ticketId: number,
+		onNew: () => void,
+		onStatus?: (subscribed: boolean) => void
+	): () => void {
+		const channel: RealtimeChannel = this.supabase
+			.channel(`ticket-messages-${ticketId}`)
+			.on(
+				'postgres_changes',
+				{
+					event: 'INSERT',
+					schema: 'public',
+					table: 'ticket_messages',
+					filter: `ticket_id=eq.${ticketId}`
+				},
+				() => onNew()
+			)
+			.subscribe((status) => onStatus?.(status === 'SUBSCRIBED'));
+		return () => {
+			this.supabase.removeChannel(channel);
+		};
 	}
 }
 

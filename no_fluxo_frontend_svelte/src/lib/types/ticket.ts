@@ -11,7 +11,25 @@ export type AuditAction =
 	| 'priority_changed'
 	| 'category_changed'
 	| 'note_updated'
-	| 'closed';
+	| 'closed'
+	| 'message_added';
+
+/** Papel do autor de uma mensagem no chat do chamado. */
+export type TicketMessageRole = 'user' | 'tech';
+
+/** Tamanho máximo (em caracteres) de uma mensagem do chat. */
+export const MAX_MESSAGE_LENGTH = 2000;
+
+/** Mensagem trocada no chat de um chamado (shape retornado pelas RPCs). */
+export interface TicketMessage {
+	id: number;
+	ticket_id: number;
+	author_id: string;
+	author_role: TicketMessageRole;
+	content: string;
+	created_at: string;
+	author_name: string | null;
+}
 
 export interface TicketAttachment {
 	path: string;
@@ -46,6 +64,10 @@ export interface Ticket {
 	resolved_at: string | null;
 	creator_name?: string | null;
 	creator_email?: string | null;
+	/** Resumo da conversa (presente quando a listagem vem de get_my_tickets). */
+	last_message_at?: string | null;
+	last_message_role?: TicketMessageRole | null;
+	unread_count?: number;
 }
 
 export interface TicketListItem {
@@ -63,6 +85,10 @@ export interface TicketListItem {
 	updated_at: string;
 	resolved_at: string | null;
 	total_count: number;
+	/** Resumo da conversa (colunas novas de get_tickets_paginated). */
+	last_message_at?: string | null;
+	last_message_role?: TicketMessageRole | null;
+	unread_count?: number;
 }
 
 export interface TicketAuditEntry {
