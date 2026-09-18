@@ -3,6 +3,7 @@
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import PageBackground from '$lib/components/effects/PageBackground.svelte';
 	import AdminNav from '$lib/components/admin/AdminNav.svelte';
+	import TicketChat from '$lib/components/tickets/TicketChat.svelte';
 	import { ticketService } from '$lib/services/ticket.service';
 	import {
 		CATEGORY_COLORS,
@@ -90,14 +91,40 @@
 		statusNote = '';
 		try {
 			const detail = await ticketService.getTicket(id);
+			if (id !== selectedId) return; // resposta atrasada de um ticket já trocado
 			selected = detail;
+			// o chat vai marcar como lida no servidor — reflete já na lista
+			items = items.map((i) => (i.id === id ? { ...i, unread_count: 0 } : i));
 			if (detail.ticket.attachments && detail.ticket.attachments.length > 0) {
-				signedAttachments = await ticketService.signAttachments(detail.ticket.attachments);
+				const signed = await ticketService.signAttachments(detail.ticket.attachments);
+				if (id !== selectedId) return;
+				signedAttachments = signed;
 			}
 		} catch (e) {
+			if (id !== selectedId) return;
 			detailError = e instanceof Error ? e.message : 'Erro ao carregar ticket.';
 		} finally {
-			loadingDetail = false;
+			if (id === selectedId) loadingDetail = false;
+		}
+	}
+
+	/**
+	 * Re-busca o ticket selecionado sem mexer em loadingDetail — o painel não
+	 * desmonta o chat. Usado após enviar mensagem, que pode mudar o status do
+	 * ticket no servidor (aberto → em_andamento).
+	 */
+	async function refreshDetailQuietly() {
+		if (selectedId === null) return;
+		try {
+			const detail = await ticketService.getTicket(selectedId);
+			if (detail.ticket.id !== selectedId) return; // trocou de ticket no meio da busca
+			selected = detail;
+			signedAttachments =
+				detail.ticket.attachments && detail.ticket.attachments.length > 0
+					? await ticketService.signAttachments(detail.ticket.attachments)
+					: [];
+		} catch (e) {
+			console.error('Erro ao atualizar ticket silenciosamente:', e);
 		}
 	}
 
@@ -177,6 +204,8 @@
 				return `${actor}: categoria ${entry.from_value} → ${entry.to_value}`;
 			case 'note_updated':
 				return `${actor}: nota atualizada`;
+			case 'message_added':
+				return 'Primeira resposta do suporte';
 			case 'closed':
 				return `${actor} fechou o ticket`;
 			default:
@@ -284,12 +313,24 @@
 								<span class="list-id">#{t.id}</span>
 								<span class="chip {CATEGORY_COLORS[t.category]}">{CATEGORY_LABELS[t.category]}</span>
 								<span class="chip {STATUS_COLORS[t.status]}">{STATUS_LABELS[t.status]}</span>
+								{#if (t.unread_count ?? 0) > 0}
+									<span class="badge-nao-lidas">
+										{(t.unread_count ?? 0) > 99 ? '99+' : t.unread_count}
+									</span>
+								{/if}
 							</div>
 							<div class="list-title">{t.title}</div>
 							<div class="list-meta">
 								<span>{t.creator_name || t.creator_email || 'Anônimo'}</span>
 								<span>·</span>
 								<span>{formatDate(t.created_at)}</span>
+								{#if (t.unread_count ?? 0) > 0}
+									<span>·</span>
+									<span class="meta-aguardando">aguardando resposta</span>
+								{:else if t.last_message_role === 'tech'}
+									<span>·</span>
+									<span class="meta-respondido">respondido</span>
+								{/if}
 							</div>
 						</button>
 					{/each}
@@ -433,6 +474,17 @@
 							<pre class="metadata-block">{JSON.stringify(t.metadata, null, 2)}</pre>
 						</section>
 					{/if}
+
+					<section>
+						<h3 class="section-title">Conversa</h3>
+						<TicketChat
+							ticketId={t.id}
+							ticketStatus={t.status}
+							perspective="admin"
+							counterpartName={t.creator_name}
+							onMessageSent={refreshDetailQuietly}
+						/>
+					</section>
 
 					<section>
 						<h3 class="section-title">Histórico</h3>
@@ -665,6 +717,29 @@
 		gap: 6px;
 		font-size: 11px;
 		color: rgba(255, 255, 255, 0.5);
+	}
+	/* Bolinha de não lidas estilo WhatsApp (verde, redonda, com contagem) */
+	.badge-nao-lidas {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 20px;
+		height: 20px;
+		padding: 0 6px;
+		margin-left: auto;
+		border-radius: 999px;
+		background: #25d366;
+		color: #05240f;
+		font-size: 11px;
+		font-weight: 700;
+		line-height: 1;
+	}
+	.meta-aguardando {
+		color: #fbbf24;
+		font-weight: 600;
+	}
+	.meta-respondido {
+		color: #6ee7b7;
 	}
 	.loading-row,
 	.empty-row {

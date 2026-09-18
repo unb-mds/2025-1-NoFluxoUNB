@@ -2,16 +2,29 @@
 	import { onMount } from 'svelte';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
 	import PageBackground from '$lib/components/effects/PageBackground.svelte';
+	import * as Dialog from '$lib/components/ui/dialog';
+	import TicketChat from '$lib/components/tickets/TicketChat.svelte';
 	import { ticketService } from '$lib/services/ticket.service';
+	import { atualizarTicketsNaoLidas } from '$lib/stores/ticketsNaoLidas';
 	import {
 		CATEGORY_COLORS,
 		CATEGORY_LABELS,
 		STATUS_COLORS,
 		STATUS_LABELS,
 		type Ticket,
+		type TicketAttachment,
 		type TicketCategory
 	} from '$lib/types/ticket';
-	import { AlertTriangle, CheckCircle2, Loader2, Paperclip, Plus, Send, X } from 'lucide-svelte';
+	import {
+		AlertTriangle,
+		CheckCircle2,
+		ChevronRight,
+		Loader2,
+		Paperclip,
+		Plus,
+		Send,
+		X
+	} from 'lucide-svelte';
 
 	type Tab = 'novo' | 'meus';
 
@@ -29,11 +42,20 @@
 	let loadingList = $state(false);
 	let listError = $state<string | null>(null);
 
+	// Chamado aberto no Dialog de conversa (null = fechado).
+	let ticketAberto = $state<Ticket | null>(null);
+	// Anexos do chamado aberto, com URL assinada pra visualizar/baixar.
+	let anexosDialog = $state<TicketAttachment[]>([]);
+
 	const MAX_FILES = 3;
 	const MAX_FILE_SIZE = 8 * 1024 * 1024; // 8 MB
 	const CATEGORIES: TicketCategory[] = ['bug', 'sugestao', 'duvida'];
 
 	onMount(() => {
+		// deep-link do menu/badge: /suporte?tab=meus abre direto em "Meus chamados"
+		if (new URLSearchParams(window.location.search).get('tab') === 'meus') {
+			activeTab = 'meus';
+		}
 		void loadMyTickets();
 	});
 
@@ -46,6 +68,47 @@
 			listError = e instanceof Error ? e.message : 'Erro ao carregar seus tickets.';
 		} finally {
 			loadingList = false;
+		}
+	}
+
+	/**
+	 * Recarrega a lista sem spinner — usada após enviar mensagem no chat,
+	 * já que o status pode ter mudado (ex: aberto → em_andamento).
+	 */
+	async function recarregarMeusQuietly() {
+		try {
+			const novos = await ticketService.listMyTickets();
+			myTickets = novos;
+			// mantém o Dialog com o status fresco, se o chamado ainda existir
+			if (ticketAberto) {
+				const atualizado = novos.find((t) => t.id === ticketAberto?.id);
+				if (atualizado) ticketAberto = atualizado;
+			}
+			// badge do avatar na navbar acompanha a leitura sem esperar o polling
+			void atualizarTicketsNaoLidas();
+		} catch {
+			// silencioso — a lista antiga continua válida na tela
+		}
+	}
+
+	function onDialogOpenChange(next: boolean) {
+		if (!next) {
+			ticketAberto = null;
+			anexosDialog = [];
+			// a conversa foi lida — atualiza os badges de não lidas na lista
+			void recarregarMeusQuietly();
+		}
+	}
+
+	/** Abre o Dialog da conversa e assina os anexos do chamado (se houver). */
+	function abrirChamado(t: Ticket) {
+		ticketAberto = t;
+		anexosDialog = [];
+		if (t.attachments && t.attachments.length > 0) {
+			void ticketService.signAttachments(t.attachments).then((assinados) => {
+				// descarta se o usuário trocou/fechou o chamado durante a assinatura
+				if (ticketAberto?.id === t.id) anexosDialog = assinados;
+			});
 		}
 	}
 
@@ -283,28 +346,105 @@
 					</div>
 				{:else}
 					{#each myTickets as t (t.id)}
-						<article class="ticket-card">
+						<!-- Card inteiro é um botão: abre a conversa do chamado no Dialog -->
+						<button
+							type="button"
+							class="ticket-card"
+							aria-label="Abrir conversa do chamado #{t.id}"
+							onclick={() => abrirChamado(t)}
+						>
 							<div class="ticket-header">
 								<span class="ticket-id">#{t.id}</span>
 								<span class="chip {CATEGORY_COLORS[t.category]}">{CATEGORY_LABELS[t.category]}</span>
 								<span class="chip {STATUS_COLORS[t.status]}">{STATUS_LABELS[t.status]}</span>
 								<span class="ticket-date">{formatDate(t.created_at)}</span>
+								{#if (t.unread_count ?? 0) > 0}
+									<span
+										class="badge-nao-lidas"
+										aria-label="{t.unread_count} mensagem{(t.unread_count ?? 0) > 1
+											? 'ns'
+											: ''} não lida{(t.unread_count ?? 0) > 1 ? 's' : ''}"
+									>
+										{(t.unread_count ?? 0) > 99 ? '99+' : t.unread_count}
+									</span>
+								{/if}
 							</div>
-							<h3 class="ticket-title">{t.title}</h3>
-							<p class="ticket-desc">{t.description}</p>
-							{#if t.attachments && t.attachments.length > 0}
-								<div class="ticket-attachments">
-									<Paperclip class="h-3.5 w-3.5" />
-									<span>{t.attachments.length} anexo{t.attachments.length > 1 ? 's' : ''}</span>
-								</div>
-							{/if}
-						</article>
+							<span class="ticket-title">{t.title}</span>
+							<span class="ticket-desc">{t.description}</span>
+							<div class="ticket-footer">
+								{#if (t.unread_count ?? 0) === 0 && t.last_message_role === 'tech'}
+									<span class="hint-respondido">✓ Suporte respondeu — sua vez</span>
+								{/if}
+								{#if t.attachments && t.attachments.length > 0}
+									<div class="ticket-attachments">
+										<Paperclip class="h-3.5 w-3.5" />
+										<span>{t.attachments.length} anexo{t.attachments.length > 1 ? 's' : ''}</span>
+									</div>
+								{/if}
+								<span class="ticket-ver">
+									Ver conversa
+									<ChevronRight class="h-3.5 w-3.5" />
+								</span>
+							</div>
+						</button>
 					{/each}
 				{/if}
 			</div>
 		{/if}
 	</div>
 </main>
+
+<!-- Dialog de conversa do chamado — mesmo padrão do SuporteFab -->
+<Dialog.Root open={ticketAberto !== null} onOpenChange={onDialogOpenChange}>
+	<Dialog.Content
+		class="max-h-[88dvh] overflow-y-auto sm:max-w-2xl bg-card border-border text-foreground"
+		showCloseButton={true}
+	>
+		{#if ticketAberto}
+			<Dialog.Header>
+				<Dialog.Title class="flex flex-wrap items-center gap-2 text-foreground">
+					<span class="dialog-id">Chamado #{ticketAberto.id}</span>
+					<span class="chip {CATEGORY_COLORS[ticketAberto.category]}">
+						{CATEGORY_LABELS[ticketAberto.category]}
+					</span>
+					<span class="chip {STATUS_COLORS[ticketAberto.status]}">
+						{STATUS_LABELS[ticketAberto.status]}
+					</span>
+				</Dialog.Title>
+				<Dialog.Description class="text-foreground/85">
+					{ticketAberto.title}
+				</Dialog.Description>
+			</Dialog.Header>
+
+			<details class="descricao-original">
+				<summary>Descrição original</summary>
+				<p>{ticketAberto.description}</p>
+			</details>
+
+			{#if ticketAberto.attachments && ticketAberto.attachments.length > 0}
+				<div class="anexos-dialog">
+					<Paperclip class="h-3.5 w-3.5 shrink-0" />
+					{#each anexosDialog.length > 0 ? anexosDialog : ticketAberto.attachments as att (att.path)}
+						{#if att.signedUrl}
+							<a class="anexo-link" href={att.signedUrl} target="_blank" rel="noopener noreferrer">
+								{att.name}
+							</a>
+						{:else}
+							<span class="anexo-pendente" title="Gerando link…">{att.name}</span>
+						{/if}
+					{/each}
+				</div>
+			{/if}
+
+			<TicketChat
+				ticketId={ticketAberto.id}
+				ticketStatus={ticketAberto.status}
+				perspective="user"
+				onMessageSent={recarregarMeusQuietly}
+			/>
+		{/if}
+	</Dialog.Content>
+</Dialog.Root>
 
 <style>
 	.tab-btn {
@@ -530,12 +670,27 @@
 		color: #e9d5ff;
 	}
 
+	/* O card é um <button>: resetamos a aparência e mantemos o visual de card */
 	.ticket-card {
+		display: block;
+		width: 100%;
+		text-align: left;
+		font-family: inherit;
 		background: hsl(var(--card));
 		backdrop-filter: blur(10px);
 		border: 1px solid hsl(var(--border));
 		border-radius: 10px;
 		padding: 16px 18px;
+		cursor: pointer;
+		transition: border-color 150ms, transform 120ms;
+	}
+	.ticket-card:hover {
+		border-color: rgba(147, 51, 234, 0.5);
+		transform: translateY(-1px);
+	}
+	.ticket-card:focus-visible {
+		outline: 2px solid #c4b5fd;
+		outline-offset: 2px;
 	}
 	.ticket-header {
 		display: flex;
@@ -563,6 +718,7 @@
 		color: hsl(var(--muted-foreground));
 	}
 	.ticket-title {
+		display: block;
 		color: hsl(var(--foreground));
 		font-size: 15px;
 		font-weight: 600;
@@ -578,12 +734,116 @@
 		-webkit-box-orient: vertical;
 		overflow: hidden;
 	}
+	.ticket-footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+		margin-top: 8px;
+	}
 	.ticket-attachments {
 		display: inline-flex;
 		align-items: center;
 		gap: 4px;
-		margin-top: 8px;
 		font-size: 11px;
 		color: hsl(var(--muted-foreground));
+	}
+	/* Hint discreto de que o card abre a conversa */
+	.ticket-ver {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		margin-left: auto;
+		font-size: 12px;
+		font-weight: 500;
+		color: #c4b5fd;
+		transition: color 150ms;
+	}
+	.ticket-card:hover .ticket-ver {
+		color: #e9d5ff;
+	}
+
+	.dialog-id {
+		font-family: 'JetBrains Mono', monospace;
+		font-size: 14px;
+		color: hsl(var(--foreground));
+	}
+
+	.descricao-original {
+		border: 1px solid hsl(var(--border));
+		border-radius: 8px;
+		background: hsl(var(--muted) / 0.4);
+		padding: 8px 12px;
+		font-size: 13px;
+	}
+	.descricao-original summary {
+		cursor: pointer;
+		font-weight: 600;
+		color: hsl(var(--foreground) / 0.8);
+		user-select: none;
+	}
+	.descricao-original summary:hover {
+		color: hsl(var(--foreground));
+	}
+	.descricao-original p {
+		margin: 8px 0 0;
+		color: hsl(var(--foreground) / 0.75);
+		white-space: pre-wrap;
+		overflow-wrap: break-word;
+		max-height: 180px;
+		overflow-y: auto;
+	}
+
+	/* Bolinha de não lidas estilo WhatsApp (verde, redonda, com contagem) */
+	.badge-nao-lidas {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 22px;
+		height: 22px;
+		padding: 0 6px;
+		border-radius: 999px;
+		background: #25d366;
+		color: #05240f;
+		font-size: 12px;
+		font-weight: 700;
+		line-height: 1;
+	}
+	.hint-respondido {
+		color: #6ee7b7;
+		font-size: 12px;
+	}
+
+	/* Anexos do chamado no Dialog de conversa */
+	.anexos-dialog {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 8px;
+		color: hsl(var(--muted-foreground));
+		font-size: 13px;
+	}
+	.anexo-link {
+		display: inline-flex;
+		padding: 3px 10px;
+		border-radius: 6px;
+		border: 1px solid hsl(var(--border));
+		background: hsl(var(--muted) / 0.4);
+		color: #c4b5fd;
+		text-decoration: none;
+		max-width: 260px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		transition:
+			border-color 150ms,
+			color 150ms;
+	}
+	.anexo-link:hover {
+		border-color: rgba(147, 51, 234, 0.5);
+		color: #e9d5ff;
+	}
+	.anexo-pendente {
+		opacity: 0.6;
 	}
 </style>

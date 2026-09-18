@@ -4,7 +4,8 @@
 	import { Button } from '$lib/components/ui/button';
 	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
-	import { X, LogOut, GitBranch, BookOpen, ShieldCheck } from 'lucide-svelte';
+	import { X, LifeBuoy, LogOut, GitBranch, BookOpen, ShieldCheck } from 'lucide-svelte';
+	import { ticketsNaoLidas } from '$lib/stores/ticketsNaoLidas';
 	import { type NavEntry, isEntryActive, isLinkActive } from './nav-config';
 	import type { UserModel } from '$lib/types';
 
@@ -99,6 +100,25 @@
 				{/each}
 
 				<hr class="my-3 border-white/10" />
+
+				{#if !isAnonymous}
+					<a
+						href={$ticketsNaoLidas > 0 ? `${ROUTES.SUPORTE}?tab=meus` : ROUTES.SUPORTE}
+						class="mobile-nav-item"
+						class:active={isLinkActive(ROUTES.SUPORTE, pathname)}
+						onclick={onClose}
+					>
+						<LifeBuoy class="h-5 w-5" />
+						<span>Suporte</span>
+						{#if $ticketsNaoLidas > 0}
+							<span
+								class="ml-auto flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#25d366] px-1 text-[10px] font-bold leading-none text-[#05240f]"
+							>
+								{$ticketsNaoLidas > 9 ? '9+' : $ticketsNaoLidas}
+							</span>
+						{/if}
+					</a>
+				{/if}
 
 				{#if isAdmin}
 					<a
