@@ -52,8 +52,8 @@
 
 ```
 2025-1-NoFluxoUNB/
-├── backend/              # TypeScript/Express backend + Python PDF parsing
-├── frontend/      # SvelteKit frontend application
+├── backend/                       # TypeScript/Express backend
+├── frontend/                      # SvelteKit frontend application
 ├── coleta_dados/                  # Data collection/scraping scripts (Python)
 ├── documentacao/                  # Project documentation (Portuguese)
 ├── kubernetes_docs/               # Kubernetes deployment docs & templates
@@ -80,7 +80,7 @@
 
 **Location:** `backend/`
 **Port:** 3325
-**Language:** TypeScript (Express.js) + Python (PDF parsing)
+**Language:** TypeScript (Express.js)
 
 ### 3.1 Directory Structure
 
@@ -115,8 +115,8 @@ backend/
 │   └── rls_policies.sql               # Row-level security policies
 │       (migration SQL files live in supabase/migrations/ at the repo root)
 ├── package.json
-├── tsconfig.json
-└── Dockerfile
+└── tsconfig.json
+    (a imagem de produção é buildada pelo k8s.backend.Dockerfile na raiz do repo)
 ```
 
 ### 3.2 Key Dependencies
