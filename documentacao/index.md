@@ -12,9 +12,11 @@ Bem-vindo ao **NoFluxoUnB**, um projeto desenvolvido pela equipe do Squad 03 na 
 ![Forks](https://img.shields.io/github/forks/unb-mds/2025-1-NoFluxoUNB?style=social)
 ![Last Commit](https://img.shields.io/github/last-commit/unb-mds/2025-1-NoFluxoUNB)
 
-![Flutter](https://img.shields.io/badge/flutter-3.19.0-blue)
+![Svelte](https://img.shields.io/badge/svelte-5-orange)
+![TailwindCSS](https://img.shields.io/badge/tailwind-4-38bdf8)
 ![Supabase](https://img.shields.io/badge/supabase-1.0.0-brightgreen)
 ![TypeScript](https://img.shields.io/badge/typescript-5.3.0-blue)
+![Python](https://img.shields.io/badge/python-3.11-blue)
 ![DigitalOcean](https://img.shields.io/badge/digitalocean-cloud-blue)
 ![Vercel](https://img.shields.io/badge/vercel-deploy-black)
 ![GitHub](https://img.shields.io/badge/github-repository-blue)
@@ -34,9 +36,9 @@ Com uma experiência de usuário (UX) aprimorada, o produto permite:
 - 🎓 **Selecionar disciplinas futuras** para montar um planejamento personalizado.
 - 🤖 Usar **inteligência artificial** para recomendar disciplinas alinhadas aos interesses pessoais, como desenvolvimento de games ou outras áreas específicas, com base nas ementas e informações dos cursos da UnB.
 
-Inicialmente, o projeto será disponibilizado somente para os cursos da **Faculdade UnB Gama (FGA)** pertencentes à **Faculdade de Ciências e Tecnologia (FCTE)**, com perspectiva futura de expansão.
-
 Dessa forma, o estudante consegue um planejamento acadêmico **assertivo e personalizado**, simplificando seu percurso até a conclusão do curso.
+
+🌐 **Aplicação no ar:** [no-fluxo.com](https://no-fluxo.com)
 
 ---
 
@@ -45,7 +47,7 @@ Dessa forma, o estudante consegue um planejamento acadêmico **assertivo e perso
 - 🔗 [Protótipo no Figma](https://www.figma.com/design/uy5ZwJGkuzjRaeREouMSlI/Prototipo-e-IDV-No-FLX-UnB?node-id=0-1&p=f&t=lCtfwPEEhA2zcpYI-0)  
 - 🗺️ [Story Map Público](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764599792494680&cot=14)  
 - ✅ [Board do Projeto no GitHub](https://github.com/orgs/unb-mds/projects/29)
-- 🔗 [Requisitos](https://github.com/unb-mds/2025-1-NoFluxoUNB/blob/main/requisitos.md)
+- 🔗 [Requisitos](https://github.com/unb-mds/2025-1-NoFluxoUNB/blob/main/documentacao/requisitos.md)
 - 🔗 [Arquitetura](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764626773503994&cot=14)
 - 🔗 [Backlog](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764626757911762&cot=14)
  
