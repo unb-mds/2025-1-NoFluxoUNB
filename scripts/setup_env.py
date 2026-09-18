@@ -13,7 +13,6 @@ Uso:
 """
 
 import argparse
-import os
 import platform
 import shutil
 import subprocess
@@ -31,17 +30,22 @@ REQ_SCRAPING = REPO_ROOT / "DBA" / "scraping" / "requirements.txt"
 REQ_AGENT = REPO_ROOT / "mcp_agent" / "requirements.txt"
 REQ_PDF = REPO_ROOT / "no_fluxo_backend" / "parse-pdf" / "requirements.txt"
 
+
 def log(msg: str, emoji: str = "ℹ️") -> None:
     print(f"{emoji} {msg}")
+
 
 def log_success(msg: str) -> None:
     print(f"✅ {msg}")
 
+
 def log_warn(msg: str) -> None:
     print(f"⚠️ {msg}")
 
+
 def log_error(msg: str) -> None:
     print(f"❌ {msg}")
+
 
 def run_cmd(cmd: list[str], cwd: Path | None = None, check: bool = True) -> int:
     cmd_str = " ".join(str(x) for x in cmd)
@@ -51,6 +55,7 @@ def run_cmd(cmd: list[str], cwd: Path | None = None, check: bool = True) -> int:
         raise RuntimeError(f"Comando falhou com código {result.returncode}: {cmd_str}")
     return result.returncode
 
+
 def get_venv_dir() -> Path:
     # Prioriza 'venv' se já existir, senão '.venv' ou cria 'venv'
     if (REPO_ROOT / "venv").exists():
@@ -58,6 +63,7 @@ def get_venv_dir() -> Path:
     if (REPO_ROOT / ".venv").exists():
         return REPO_ROOT / ".venv"
     return REPO_ROOT / "venv"
+
 
 def get_venv_executables(venv_dir: Path) -> tuple[Path, Path]:
     if IS_WINDOWS:
@@ -67,6 +73,7 @@ def get_venv_executables(venv_dir: Path) -> tuple[Path, Path]:
         py_path = venv_dir / "bin" / "python"
         pip_path = venv_dir / "bin" / "pip"
     return py_path, pip_path
+
 
 def ensure_virtualenv() -> tuple[Path, Path]:
     venv_dir = get_venv_dir()
@@ -82,6 +89,7 @@ def ensure_virtualenv() -> tuple[Path, Path]:
     log("Atualizando pip...", "🔄")
     run_cmd([str(py_exec), "-m", "pip", "install", "--upgrade", "pip"])
     return py_exec, pip_exec
+
 
 def print_activation_instructions(venv_dir: Path) -> None:
     print("\n" + "=" * 65)
@@ -104,6 +112,7 @@ def print_activation_instructions(venv_dir: Path) -> None:
         print(f"    ./{venv_dir.name}/bin/python <caminho_do_script.py>")
     print("=" * 65 + "\n")
 
+
 def install_node_deps() -> None:
     log("Verificando dependências Node.js...", "🌐")
     has_pnpm = shutil.which("pnpm") is not None
@@ -123,24 +132,46 @@ def install_node_deps() -> None:
         run_cmd([pm, "install"], cwd=frontend_dir)
         log_success("Frontend SvelteKit configurado!")
 
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Configura o ambiente de desenvolvimento e padroniza dependências do NoFluxo."
     )
-    parser.add_argument("--dba", action="store_true", help="Instala apenas dependências do DBA/database")
-    parser.add_argument("--scraping", action="store_true", help="Instala apenas dependências do DBA/scraping")
-    parser.add_argument("--agent", action="store_true", help="Instala apenas dependências do MCP Agent")
-    parser.add_argument("--node", action="store_true", help="Instala também dependências de Frontend e Backend Node")
-    parser.add_argument("--all", action="store_true", help="Instala todas as dependências Python (padrão)")
+    parser.add_argument(
+        "--dba", action="store_true", help="Instala apenas dependências do DBA/database"
+    )
+    parser.add_argument(
+        "--scraping",
+        action="store_true",
+        help="Instala apenas dependências do DBA/scraping",
+    )
+    parser.add_argument(
+        "--agent", action="store_true", help="Instala apenas dependências do MCP Agent"
+    )
+    parser.add_argument(
+        "--node",
+        action="store_true",
+        help="Instala também dependências de Frontend e Backend Node",
+    )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Instala todas as dependências Python (padrão)",
+    )
 
     args = parser.parse_args()
 
     # Informações de sistema e versão do Python
     py_ver = sys.version_info
-    log(f"Python detectado: {py_ver.major}.{py_ver.minor}.{py_ver.micro} ({platform.system()} {platform.machine()})", "🐍")
+    log(
+        f"Python detectado: {py_ver.major}.{py_ver.minor}.{py_ver.micro} ({platform.system()} {platform.machine()})",
+        "🐍",
+    )
 
     if py_ver < (3, 10):
-        log_warn("Recomenda-se Python 3.10 ou superior para compatibilidade completa com as bibliotecas do projeto.")
+        log_warn(
+            "Recomenda-se Python 3.10 ou superior para compatibilidade completa com as bibliotecas do projeto."
+        )
 
     # 1. Configurar venv
     venv_dir = get_venv_dir()
@@ -172,6 +203,7 @@ def main() -> None:
 
     # 4. Instruções finais
     print_activation_instructions(venv_dir)
+
 
 if __name__ == "__main__":
     try:

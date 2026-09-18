@@ -53,6 +53,7 @@ async def verificar_api_key(x_api_key: str = Header(default="", alias="X-API-Key
     ):
         raise HTTPException(status_code=401, detail="API key inválida ou ausente.")
 
+
 # Clientes globais mantêm conexões persistentes
 genai.configure(api_key=os.environ.get("GOOGLE_API_KEY"))
 supabase = create_client(
@@ -553,7 +554,9 @@ async def recomendar_materias(consulta: Consulta):
         # A Maritaca nem sempre preenche `total_tokens` no objeto de usage
         # (fica None), então cai no fallback `or 0` e zera mesmo com
         # prompt/completion > 0. Recalcula a partir da soma quando ausente.
-        total_tokens = getattr(u, "total_tokens", 0) or (prompt_tokens + completion_tokens)
+        total_tokens = getattr(u, "total_tokens", 0) or (
+            prompt_tokens + completion_tokens
+        )
         usage_calls.append(
             {
                 "model": modelo,
@@ -676,7 +679,9 @@ async def recomendar_materias_stream(consulta: Consulta):
             completion_tokens = getattr(u, "completion_tokens", 0) or 0
             # Mesma ressalva do endpoint não-stream: `total_tokens` pode vir
             # None da Maritaca, então recalcula a partir da soma quando ausente.
-            total_tokens = getattr(u, "total_tokens", 0) or (prompt_tokens + completion_tokens)
+            total_tokens = getattr(u, "total_tokens", 0) or (
+                prompt_tokens + completion_tokens
+            )
             usage_calls.append(
                 {
                     "model": modelo,

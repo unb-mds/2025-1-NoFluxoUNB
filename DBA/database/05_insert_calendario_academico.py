@@ -86,7 +86,9 @@ def validar(item):
     data_inicio = data_br_para_iso(item["data_inicio"])
     data_fim = data_br_para_iso(item["data_fim"])
     if data_fim <= data_inicio:
-        raise ValueError(f"data_fim {data_fim} não é posterior a data_inicio {data_inicio}")
+        raise ValueError(
+            f"data_fim {data_fim} não é posterior a data_inicio {data_inicio}"
+        )
 
     return {
         "periodo": periodo,
@@ -111,7 +113,10 @@ def carregar_json(caminho):
         dados = json.load(f)
 
     if not isinstance(dados, list):
-        print(f"[ERRO] Esperava uma lista no JSON, veio {type(dados).__name__}.", file=sys.stderr)
+        print(
+            f"[ERRO] Esperava uma lista no JSON, veio {type(dados).__name__}.",
+            file=sys.stderr,
+        )
         sys.exit(1)
     return dados
 
@@ -181,7 +186,9 @@ def main():
     print(f"  Já no banco e sem mudança: {iguais}")
 
     for linha in novos:
-        print(f"  [NOVO] {linha['periodo']}: {linha['data_inicio']} a {linha['data_fim']}")
+        print(
+            f"  [NOVO] {linha['periodo']}: {linha['data_inicio']} a {linha['data_fim']}"
+        )
 
     # Mudança de data desloca o limite de matrícula -- precisa ser visível.
     for atual, linha in alterados:
@@ -196,7 +203,9 @@ def main():
         return
 
     if args.dry_run:
-        print(f"\n  [DRY-RUN] {len(novos) + len(alterados)} período(s) seriam gravados.")
+        print(
+            f"\n  [DRY-RUN] {len(novos) + len(alterados)} período(s) seriam gravados."
+        )
         return
 
     # Volume é de meia dúzia de linhas: um único lote, sem chunking.
@@ -207,7 +216,9 @@ def main():
     )
     print(f"\n  {len(novos)} novo(s), {len(alterados)} atualizado(s).")
 
-    print("\n  Calendário no banco (limite de matrícula = 25% do período, calculado pelo Postgres):")
+    print(
+        "\n  Calendário no banco (limite de matrícula = 25% do período, calculado pelo Postgres):"
+    )
     for row in buscar_existentes().values():
         print(
             f"    {row['periodo']}: {row['data_inicio']} a {row['data_fim']}"
