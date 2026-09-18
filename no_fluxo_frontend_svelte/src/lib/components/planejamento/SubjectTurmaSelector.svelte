@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { gradeStore } from '$lib/stores/grade.store.svelte';
 	import { unidadeCargaStore } from '$lib/stores/unidade-carga.store.svelte';
-	import { assistenteChatStore } from '$lib/stores/assistente-chat.store.svelte';
+	import { montadorChatStore } from '$lib/stores/assistente-chat.store.svelte';
 	import TurmaOption from './TurmaOption.svelte';
 	import MateriaNaturezaBadge from '$lib/components/materia/MateriaNaturezaBadge.svelte';
 	import type { Turno } from '$lib/utils/horario-slots';
@@ -52,7 +52,7 @@
 		if (turnos.length > 0) partes.push(TURNOS.filter(([t]) => turnos.includes(t)).map(([t]) => TURNO_FRASE[t]).join(' ou '));
 		if (docente) partes.push(`com o(a) professor(a) ${docente}`);
 		const pedido = partes.length > 0 ? ` ${partes.join(', ')}` : ' com ';
-		assistenteChatStore.pedirAbertura(`Quero ${nome} (${codigo})${pedido}`);
+		montadorChatStore.pedirAbertura(`Quero ${nome} (${codigo})${pedido}`);
 	}
 
 	function handleOutsideInteraction(e: Event) {

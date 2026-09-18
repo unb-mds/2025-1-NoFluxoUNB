@@ -104,6 +104,35 @@
 					onsave={() => uploadStore.saveAndNavigate()}
 					onreset={() => uploadStore.reset()}
 				/>
+			{:else if $uploadStore.state === 'error' && $uploadStore.courseSelectionPending}
+				<!--
+					Fechar o modal de curso sem escolher não é erro: o histórico já foi
+					lido e continua na memória. Oferecer "Escolher curso" evita mandar o
+					aluno subir o PDF de novo por causa de um clique fora do modal.
+				-->
+				<div class="error-state">
+					<div class="error-icon">
+						<AlertTriangle class="size-10 text-amber-400" stroke-width="2" />
+					</div>
+					<div class="error-copy">
+						<h3 class="error-title">Falta escolher seu curso</h3>
+						<p class="error-msg">
+							Seu histórico já foi lido — só precisamos saber qual matriz curricular é a sua
+							para montar o fluxograma.
+						</p>
+					</div>
+					<button
+						type="button"
+						class="retry-btn"
+						onclick={() => uploadStore.reopenCourseSelection()}
+					>
+						<RotateCcw class="size-4" />
+						Escolher curso
+					</button>
+					<button type="button" class="secondary-btn" onclick={() => uploadStore.reset()}>
+						Enviar outro arquivo
+					</button>
+				</div>
 			{:else if $uploadStore.state === 'error'}
 				<div class="error-state">
 					<div class="error-icon">
@@ -237,5 +266,23 @@
 	.retry-btn:hover {
 		background: hsl(var(--secondary) / 0.85);
 		border-color: hsl(0 0% 100% / 0.18);
+	}
+
+	/* Saída secundária: descartar o histórico lido é a opção menos provável. */
+	.secondary-btn {
+		margin-top: 0.5rem;
+		padding: 0.35rem 0.75rem;
+		border: none;
+		background: none;
+		font-size: 0.8125rem;
+		color: hsl(var(--muted-foreground));
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		cursor: pointer;
+		transition: color 0.15s ease;
+	}
+
+	.secondary-btn:hover {
+		color: hsl(var(--foreground));
 	}
 </style>
