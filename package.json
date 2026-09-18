@@ -11,7 +11,6 @@
     "dev": "pnpm --filter no_fluxo_frontend_svelte dev",
     "dev:frontend": "pnpm --filter no_fluxo_frontend_svelte dev",
     "dev:backend": "pnpm --filter no-fluxo-backend dev",
-    "dev:testes-web": "pnpm --filter nofluxo-testes-web start",
     "build": "pnpm run build:frontend && pnpm run build:backend",
     "build:frontend": "pnpm --filter no_fluxo_frontend_svelte build",
     "build:backend": "pnpm --filter no-fluxo-backend build",
@@ -22,9 +21,7 @@
     "test:backend": "pnpm --filter no-fluxo-backend test",
     "lint": "pnpm run lint:frontend && pnpm run lint:backend",
     "lint:frontend": "pnpm --filter no_fluxo_frontend_svelte lint",
-    "lint:backend": "pnpm --filter no-fluxo-backend lint",
-    "coleta:migrate": "pnpm --filter coleta-dados run migrate:tipo-natureza",
-    "test:historicos": "pnpm --filter test-historicos run all"
+    "lint:backend": "pnpm --filter no-fluxo-backend lint"
   },
   "keywords": [
     "nofluxo",
@@ -38,10 +35,6 @@
     "express": "^5.2.1",
     "googlethis": "^1.8.0"
   },
-  "devDependencies": {
-    "@types/jest": "^30.0.0"
-  },
-  "main": "jest.config.js",
   "directories": {
     "doc": "docs"
   },
