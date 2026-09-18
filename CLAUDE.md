@@ -20,14 +20,13 @@ Guia de orientação para agentes de IA (e humanos chegando agora). O produto vi
 | `no_fluxo_backend/` | **vivo** | API Node/TypeScript + Express. Ver README da pasta. |
 | `mcp_agent/` | **vivo** | Serviço de IA (Darcy/Sabiá): FastAPI + Gemini embeddings + Maritaca + pgvector. Ver README da pasta. |
 | `DBA/` | **vivo** | Camada de dados Python: scraping do SIGAA, ingestão no Supabase, parser de PDF. Ver README da pasta. |
-| `tests-python/` | **vivo** | Suíte Pytest dos módulos Python (importa de `DBA/`). |
-| `supabase/` | vivo | Edge Functions do Supabase (hoje só `casar-disciplinas`, candidata a aposentadoria — o caminho vivo é parse client-side + RPC). |
+| `DBA/tests/` | **vivo** | Suíte Pytest dos módulos Python (importa de `DBA/`). |
+| `supabase/` | vivo | `migrations/` com os SQLs do banco (aplicados manualmente no SQL Editor; o baseline `latest_init_from_export.sql` é gerado pelo `npm run export-schema`). |
 | `docs/` | **vivo** | Specs técnicas de engenharia (Motor 2, chatbot/orquestrador, domínio UnB, investigações). Conteúdo interno, não publicado. |
 | `documentacao/` | **vivo** | Site público MkDocs (Material) — docs acadêmicas da disciplina: atas, requisitos, testes. `mkdocs.yml` fica na **raiz**; deploy automático no push da main (`ci.yml` → gh-pages). |
 | `kubernetes_docs/` | vivo | Docs de infra: cluster K3s, registry privado, deploy, monitoring. |
 | `scripts/` | vivo | `setup_env.py` (bootstrap) e `scripts/deploy/deploy_local.py` (usado pelo workflow de deploy). |
 | `plans/` | **histórico** | 30 planos de implementação já concluídos (migração Flutter→Svelte etc.). Consultar como contexto; não é doc viva. |
-| `prototipo/` | **morto** | Protótipo HTML estático do início do projeto. Não mexer. |
 | `no_fluxo_app/` | fora da main | App mobile Flutter — existe só na branch `feat/app-mobile-flutter`. Na main, qualquer resto no disco é lixo local não rastreado. |
 | `no_fluxo_frontend/`, `test_historicos/`, `testes/`, `docs_testes/` | não rastreadas | Sobras locais no disco; ignorar. |
 
@@ -52,7 +51,7 @@ npm test                 # Jest (tests-ts/)
 npm run dev:full         # sobe backend + mcp_agent juntos
 
 # Python
-cd tests-python && python -m pytest   # cobre DBA/ (expressao_parser, parse_pdf)
+cd DBA/tests && python -m pytest   # cobre DBA/ (expressao_parser, parse_pdf)
 black --check . && flake8 .           # na raiz; CI fixa black==25.11.0 flake8==7.3.0
 ```
 
@@ -68,4 +67,5 @@ Detalhes: `documentacao/testes/pipeline-ci.md`.
 - Commits seguem `COMMIT_GUIDELINES.md`; setup completo de ambiente em `CONTRIBUTING.md`.
 - Regras de negócio do banco (formato de `curriculo_completo`, `tipo_natureza`,
   política de insert/update) em `DBA/database/README.md`.
-- Schema do banco exportado em `no_fluxo_backend/docs/` (`npm run export-schema`).
+- Schema do banco exportado em `no_fluxo_backend/docs/` (`npm run export-schema`);
+  o baseline de migration gerado vai para `supabase/migrations/`.

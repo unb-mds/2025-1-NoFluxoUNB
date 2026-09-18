@@ -27,8 +27,9 @@ existe aqui é aditivo, sob `src/services/chat/` e `src/controllers/chat_control
 
 **Schema** (`supabase/migrations/20260722010000_chat_sessions_openai_agents_schema.sql`
 — substitui a primeira versão da Fase 1, `20260722000000_...sql`, que tinha um formato
-diferente e **já foi descartada**; pasta `supabase/migrations/` não é versionada no
-git, aplicar manualmente):
+diferente e **já foi descartada**; desde a fase 3 da reorganização a pasta
+`supabase/migrations/` é versionada no git, mas os SQLs continuam sendo aplicados
+manualmente no SQL Editor):
 
 ```sql
 create table chat_sessions (

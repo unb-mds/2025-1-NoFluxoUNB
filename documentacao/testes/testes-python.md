@@ -8,7 +8,7 @@ Os módulos em Python do NoFluxoUNB englobam o **pipeline de ingestão e scrapin
 
 ```
 2025-1-NoFluxoUNB/
-├── tests-python/                           # Suíte central de dados e scraping
+├── DBA/tests/                           # Suíte central de dados e scraping
 │   ├── conftest.py                         # Inclusão da raiz no sys.path
 │   ├── pytest.ini                          # Configurações do Pytest e cobertura
 │   ├── test_expressao_parser.py            # Parser de pré-requisitos lógicos
@@ -25,7 +25,7 @@ Os módulos em Python do NoFluxoUNB englobam o **pipeline de ingestão e scrapin
 
 ## 🔍 Detalhamento das Suítes
 
-### 1. `tests-python/` (Banco e Scraping)
+### 1. `DBA/tests/` (Banco e Scraping)
 - **`test_expressao_parser.py`**:
   - Testa a conversão de expressões em texto plano vindas do SIGAA para a árvore lógica em formato JSONB armazenada no Supabase.
   - Cobre:
@@ -75,8 +75,8 @@ Certifique-se de ativar o ambiente virtual (`venv`) antes da execução:
 # Ou no Linux/macOS:
 source venv/bin/activate
 
-# 1. Executar suíte central tests-python:
-cd tests-python
+# 1. Executar suíte central DBA/tests:
+cd DBA/tests
 python -m pytest -v
 
 # 2. Executar com cobertura:

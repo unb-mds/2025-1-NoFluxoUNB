@@ -86,8 +86,8 @@ pip install black==25.11.0 flake8==7.3.0
 black --check . && flake8 .
 
 # Testes Python
-pip install -r tests-python/requirements.txt pytest pytest-cov pytest-mock
-cd tests-python && python -m pytest
+pip install -r DBA/tests/requirements.txt pytest pytest-cov pytest-mock
+cd DBA/tests && python -m pytest
 
 # Testes backend (TS)
 cd no_fluxo_backend && npm ci && npm test

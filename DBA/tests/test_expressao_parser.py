@@ -16,12 +16,11 @@ import sys
 
 import pytest
 
-# Torna o módulo de DBA/database importável a partir de tests-python/
+# Torna o módulo de DBA/database importável a partir de DBA/tests/
 sys.path.insert(
     0,
     os.path.join(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-        "DBA",
         "database",
     ),
 )

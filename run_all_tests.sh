@@ -88,7 +88,7 @@ cd ..
 # Testes Python
 print_status "Executando testes Python..."
 
-cd tests-python
+cd DBA/tests
 
 # Verificar se virtualenv existe
 if [ ! -d "venv" ]; then
@@ -113,10 +113,10 @@ print_success "✅ Testes Python concluídos com sucesso!"
 # Desativar virtualenv
 deactivate
 
-cd ..
+cd ../..
 
 print_success "🎉 Todos os testes foram executados com sucesso!"
 print_status "Relatórios de coverage disponíveis em:"
 print_status "- Backend TypeScript: no_fluxo_backend/coverage/"
 print_status "- Frontend SvelteKit: no_fluxo_frontend_svelte/coverage/"
-print_status "- Python: tests-python/htmlcov/" 
+print_status "- Python: DBA/tests/htmlcov/" 

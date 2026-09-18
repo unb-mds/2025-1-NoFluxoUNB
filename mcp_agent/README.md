@@ -17,8 +17,8 @@ Frontend (Svelte) → Backend (Node/TS) → FastAPI (este serviço) → Gemini +
 | Arquivo | Papel |
 |---|---|
 | `api_producao.py` | Servidor FastAPI — o coração da pasta. Endpoint `POST /recomendar`. |
-| `databaseScript_gemini.py` | Popula embeddings (Gemini, 256D) na tabela `materias_vetorizadas`. Versão atual. |
-| `databaseScript.py` | Idem com SentenceTransformer local (legado da v1). |
+| `jobs/databaseScript_gemini.py` | Popula embeddings (Gemini, 256D) na tabela `materias_vetorizadas`. Versão atual. |
+| `jobs/databaseScript.py` | Idem com SentenceTransformer local (legado da v1). |
 | `tool_call_utils.py` / `test_tool_call_utils.py` | Utilitários de tool-calling + teste (pytest). |
 | `start_api.{sh,bat}` / `start_api_production.{sh,bat}` | Subida em dev / produção (uvicorn). |
 

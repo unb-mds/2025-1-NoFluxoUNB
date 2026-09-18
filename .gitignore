@@ -95,9 +95,6 @@ debug_html/
 SECURITY_ISSUES.md
 docs/superpowers/
 
-# Supabase migrations (gerenciadas fora do repo)
-supabase/migrations/
-
 # Build do SvelteKit (gerado; o de dentro do frontend já tem gitignore próprio)
 .svelte-kit/
 

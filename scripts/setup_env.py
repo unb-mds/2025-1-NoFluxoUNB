@@ -28,7 +28,6 @@ REQ_ROOT = REPO_ROOT / "requirements.txt"
 REQ_DBA = REPO_ROOT / "DBA" / "database" / "requirements.txt"
 REQ_SCRAPING = REPO_ROOT / "DBA" / "scraping" / "requirements.txt"
 REQ_AGENT = REPO_ROOT / "mcp_agent" / "requirements.txt"
-REQ_PDF = REPO_ROOT / "no_fluxo_backend" / "parse-pdf" / "requirements.txt"
 
 
 def log(msg: str, emoji: str = "ℹ️") -> None:

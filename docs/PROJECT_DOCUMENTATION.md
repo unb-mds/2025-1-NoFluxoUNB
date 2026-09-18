@@ -59,7 +59,7 @@
 ├── kubernetes_docs/               # Kubernetes deployment docs & templates
 ├── plans/                         # Planning and strategy documents
 ├── test_historicos/               # Test PDF transcripts for parsing
-├── tests-python/                  # Python test suite
+├── DBA/tests/                  # Python test suite
 ├── scripts/
 │   └── deploy/                    # Deploy scripts for Kubernetes (deploy_local.py)
 ├── .github/                       # GitHub Actions CI/CD workflows
@@ -105,21 +105,15 @@ no_fluxo_backend/
 │       ├── controller_logger.ts       # Scoped controller logging
 │       ├── text.utils.ts              # Text processing (accents, HTML)
 │       └── ranking.formatter.ts       # AI response → Markdown formatter
-├── parse-pdf/
-│   ├── pdf_parser_final.py            # Main PDF parser (PyMuPDF + Tesseract)
-│   ├── pdf_parser_ocr.py              # OCR-only parser
-│   ├── requirements.txt               # Python dependencies
-│   └── tests/                         # Python tests
 ├── scripts/
 │   ├── export_schema.ts               # Database schema export tool
-│   ├── setup-tesseract.js             # Tesseract OCR setup
 │   └── migrations/                    # SQL migration files
 ├── docs/
 │   ├── database_schema.json           # Exported full schema
 │   ├── database_tables.md             # Table documentation
 │   ├── database_functions.sql         # Stored functions
-│   ├── rls_policies.sql               # Row-level security policies
-│   └── supabase_migrations/           # Migration SQL files
+│   └── rls_policies.sql               # Row-level security policies
+│       (migration SQL files live in supabase/migrations/ at the repo root)
 ├── package.json
 ├── tsconfig.json
 └── Dockerfile
@@ -157,14 +151,13 @@ The most important endpoint is `POST /fluxograma/casar_disciplinas`. It runs a *
 
 The algorithm handles duplicates (same discipline with different statuses), uses priority-based status selection, and computes completion metrics (hours, percentages, IRA).
 
-### 3.5 PDF Parsing (Python)
+### 3.5 PDF Parsing
 
-Located in `parse-pdf/`, the Python service extracts structured data from UnB academic transcript PDFs:
-
-- Uses **PyMuPDF (fitz)** for text extraction
-- Falls back to **Tesseract OCR** for scanned documents
-- Extracts: course name, curriculum version, disciplines (code, name, status, grade, hours), IRA, weighted average, frequency
-- Handles SIGAA (UnB's academic system) format
+Transcript PDF parsing happens **client-side in the Svelte frontend** (`pdfjs-dist`,
+see `src/lib/services/pdf/pdfParser.ts`), followed by the `casar_disciplinas`
+Postgres RPC. The former Python service (`parse-pdf/`, PyMuPDF + Tesseract) was
+retired in the repo reorganization (phase 3); a separate copy used by the Python
+test suite lives in `DBA/parse_pdf/`.
 
 ### 3.6 Logging
 
@@ -202,7 +195,6 @@ no_fluxo_frontend_svelte/src/
 │   ├── meu-fluxograma/[courseName]/ # Dynamic course flowchart
 │   ├── upload-historico/           # PDF transcript upload
 │   ├── assistente/                 # AI assistant (in development)
-│   ├── api/casar-disciplinas/     # SvelteKit API route
 │   ├── health/                     # Health check
 │   └── sitemap.xml/               # SEO sitemap
 │
@@ -340,7 +332,7 @@ The app uses a mix of Svelte 4 writable stores and Svelte 5 runes:
 **PDF Upload Flow:**
 ```
 FileDropzone → uploadService.parsePdfLocally() → PDF.js parsing (browser)
-→ Extract disciplines → POST /api/casar-disciplinas → Backend matching
+→ Extract disciplines → supabase.rpc('casar_disciplinas') → In-database matching
 → Display results → User confirms → saveFluxogramaData() → Navigate to flowchart
 ```
 
@@ -597,7 +589,6 @@ Allowed origins:
 
 | Method | Endpoint                  | Description                          |
 | ------ | ------------------------- | ------------------------------------ |
-| POST   | `/api/casar-disciplinas`  | Proxies discipline matching          |
 | GET    | `/health`                 | Frontend health check                |
 | GET    | `/sitemap.xml`            | SEO sitemap                          |
 
