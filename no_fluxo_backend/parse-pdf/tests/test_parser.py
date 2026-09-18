@@ -19,7 +19,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 # Importar as funções do parser localmente
 try:
     from pdf_parser_final import extrair_dados_academicos
-    import PyPDF2
+    import pypdf
 
     LOCAL_IMPORT_AVAILABLE = True
 except ImportError as e:
@@ -45,7 +45,7 @@ class TestePDFParser:
         """Extrai texto do PDF usando PyPDF2"""
         try:
             with open(caminho_pdf, "rb") as arquivo:
-                leitor = PyPDF2.PdfReader(arquivo)
+                leitor = pypdf.PdfReader(arquivo)
                 texto_total = ""
 
                 for pagina in leitor.pages:

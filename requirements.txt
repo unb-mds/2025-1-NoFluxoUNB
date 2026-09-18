@@ -26,7 +26,7 @@ pandas>=2.0.0
 # --- Processamento de PDF e OCR (Parse PDF) ---
 Flask>=2.3.0
 Flask-Cors>=4.0.0
-PyPDF2>=3.0.0
+pypdf>=4.0.0
 Pillow>=10.0.0
 pdf2image>=1.16.0
 pytesseract>=0.3.10

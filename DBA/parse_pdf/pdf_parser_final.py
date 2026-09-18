@@ -1,4 +1,4 @@
-import PyPDF2
+import pypdf
 import re
 import io
 from flask import Flask, request, jsonify
@@ -132,7 +132,7 @@ def upload_pdf():
         pdf_content_stream = io.BytesIO(pdf_file.read())
         # IMPORTANTE: Resetar o ponteiro do arquivo para o início para o OCR, se necessário
         pdf_file.seek(0)
-        leitor = PyPDF2.PdfReader(pdf_content_stream)
+        leitor = pypdf.PdfReader(pdf_content_stream)
 
         # Tenta extrair texto de todas as páginas
         for i, pagina in enumerate(leitor.pages):
@@ -164,7 +164,7 @@ def upload_pdf():
                     422,
                 )
         else:
-            print("Texto extraído com sucesso usando PyPDF2.")
+            print("Texto extraído com sucesso usando pypdf.")
 
         print("\n--- Texto Completo Extraído (Primeiras 500 chars) ---")
         print(texto_total[:500] + "..." if len(texto_total) > 500 else texto_total)
@@ -372,8 +372,8 @@ def upload_pdf():
             ),
             500,
         )
-    except PyPDF2.errors.PdfReadError as e:
-        print(f"Erro ao ler o PDF (PyPDF2): {str(e)}")
+    except pypdf.errors.PdfReadError as e:
+        print(f"Erro ao ler o PDF (pypdf): {str(e)}")
         return (
             jsonify(
                 {
