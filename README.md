@@ -67,10 +67,10 @@ python scripts/setup_env.py --node
 ### Iniciar os Serviços
 ```bash
 # Backend (Express / TypeScript na porta 3325):
-cd no_fluxo_backend && npm run dev
+cd backend && npm run dev
 
 # Frontend (SvelteKit / Vite na porta 5173):
-cd no_fluxo_frontend_svelte && pnpm dev
+cd frontend && pnpm dev
 
 # Scripts de Banco de Dados (DBA):
 cd DBA/database && python 01_insert_cursos_matrizes_materias.py

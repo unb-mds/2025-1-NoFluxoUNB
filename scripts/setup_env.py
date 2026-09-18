@@ -118,14 +118,14 @@ def install_node_deps() -> None:
     pm = "pnpm" if has_pnpm else "npm"
 
     # Backend
-    backend_dir = REPO_ROOT / "no_fluxo_backend"
+    backend_dir = REPO_ROOT / "backend"
     if backend_dir.exists():
         log(f"Instalando dependências do backend com {pm}...", "📦")
         run_cmd([pm, "install"], cwd=backend_dir)
         log_success("Backend Node.js configurado!")
 
     # Frontend
-    frontend_dir = REPO_ROOT / "no_fluxo_frontend_svelte"
+    frontend_dir = REPO_ROOT / "frontend"
     if frontend_dir.exists():
         log(f"Instalando dependências do frontend com {pm}...", "🎨")
         run_cmd([pm, "install"], cwd=frontend_dir)

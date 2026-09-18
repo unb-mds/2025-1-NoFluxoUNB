@@ -1,6 +1,6 @@
 # Testes do Frontend (Vitest & Playwright)
 
-O frontend do NoFluxoUNB (`no_fluxo_frontend_svelte`), construído com **SvelteKit v2**, **Svelte 5** e **TypeScript**, conta com uma ampla suíte de testes de unidade e integração orientados por **Vitest** (com suporte aos novos runes `$state`) e testes de sistema ponta a ponta com **Playwright**.
+O frontend do NoFluxoUNB (`frontend`), construído com **SvelteKit v2**, **Svelte 5** e **TypeScript**, conta com uma ampla suíte de testes de unidade e integração orientados por **Vitest** (com suporte aos novos runes `$state`) e testes de sistema ponta a ponta com **Playwright**.
 
 ---
 
@@ -55,7 +55,7 @@ Gerencia o catálogo de disciplinas elegíveis para o próximo semestre do aluno
 
 ## 🎭 Testes End-to-End (Playwright)
 
-Localizados em `no_fluxo_frontend_svelte/tests-e2e/`:
+Localizados em `frontend/tests-e2e/`:
 
 1. `upload-historico.exploratorio.spec.ts`:
    - Realiza o fluxo completo de upload de PDF de histórico da UnB.
@@ -69,10 +69,10 @@ Localizados em `no_fluxo_frontend_svelte/tests-e2e/`:
 
 ## 🛠️ Como Executar os Testes do Frontend
 
-A partir de `no_fluxo_frontend_svelte/`:
+A partir de `frontend/`:
 
 ```bash
-cd no_fluxo_frontend_svelte
+cd frontend
 
 # 1. Executar todos os testes de unidade (Vitest):
 pnpm run test:unit       # ou: npm run test:unit

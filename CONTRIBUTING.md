@@ -10,8 +10,8 @@ O NoFluxoUnB é composto pelos seguintes módulos:
 
 | Módulo | Tecnologia | Diretório | Descrição |
 |---|---|---|---|
-| **Frontend** | SvelteKit v2, Svelte 5, Tailwind 4, TS | `no_fluxo_frontend_svelte/` | Aplicação web interativa |
-| **Backend** | Express.js, TypeScript, Node.js | `no_fluxo_backend/` | API REST principal (porta 3325) |
+| **Frontend** | SvelteKit v2, Svelte 5, Tailwind 4, TS | `frontend/` | Aplicação web interativa |
+| **Backend** | Express.js, TypeScript, Node.js | `backend/` | API REST principal (porta 3325) |
 | **Agente IA** | FastAPI, Python, OpenAI, Gemini | `mcp_agent/` | Serviço de IA e recomendações |
 | **DBA & Scripts** | Python, Supabase, BeautifulSoup | `DBA/database/`, `DBA/scraping/` | Ingestão, scraping e migrações |
 
@@ -94,13 +94,13 @@ python -m pip install -r DBA/scraping/requirements.txt
 ### 3.1. Instalar Dependências
 
 ```bash
-cd no_fluxo_backend
+cd backend
 npm install
 ```
 
 ### 3.2. Variáveis de Ambiente (`.env`)
 
-Crie um arquivo `.env` dentro de `no_fluxo_backend/` com as chaves do Supabase:
+Crie um arquivo `.env` dentro de `backend/` com as chaves do Supabase:
 
 ```ini
 PORT=porta
@@ -123,13 +123,13 @@ O servidor iniciará em `http://localhost:porta`.
 ### 4.1. Instalar Dependências
 
 ```bash
-cd no_fluxo_frontend_svelte
+cd frontend
 pnpm install   # ou npm install
 ```
 
 ### 4.2. Variáveis de Ambiente (`.env`)
 
-Crie o arquivo `.env` em `no_fluxo_frontend_svelte/`:
+Crie o arquivo `.env` em `frontend/`:
 
 ```ini
 PUBLIC_SUPABASE_URL=https://sua-url-supabase.supabase.co

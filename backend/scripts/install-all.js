@@ -2,7 +2,7 @@
 /**
  * install-all.js — Install all dependencies (Node + Python/MCP agent).
  * Works cross-platform (macOS, Linux, Windows).
- * Usage: npm run install:all  (from no_fluxo_backend/)
+ * Usage: npm run install:all  (from backend/)
  */
 
 const { execSync } = require('child_process');
@@ -10,7 +10,7 @@ const path = require('path');
 const fs = require('fs');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
-const BACKEND_DIR = path.join(REPO_ROOT, 'no_fluxo_backend');
+const BACKEND_DIR = path.join(REPO_ROOT, 'backend');
 const MCP_AGENT_DIR = path.join(REPO_ROOT, 'mcp_agent');
 const VENV_DIR = fs.existsSync(path.join(REPO_ROOT, 'venv'))
     ? path.join(REPO_ROOT, 'venv')

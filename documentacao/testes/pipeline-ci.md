@@ -90,10 +90,10 @@ pip install -r DBA/tests/requirements.txt pytest pytest-cov pytest-mock
 cd DBA/tests && python -m pytest
 
 # Testes backend (TS)
-cd no_fluxo_backend && npm ci && npm test
+cd backend && npm ci && npm test
 
 # Testes frontend (Svelte)
-cd no_fluxo_frontend_svelte && npm ci && npx vitest run --passWithNoTests
+cd frontend && npm ci && npx vitest run --passWithNoTests
 ```
 
 ---

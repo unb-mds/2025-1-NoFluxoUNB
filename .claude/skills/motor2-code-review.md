@@ -14,20 +14,20 @@ description: Code review for Motor 2 implementation (Tasks 3, 6, 7, 11). Validat
 ## Files to Review
 
 **Backend (Task 3):**
-- `no_fluxo_backend/src/services/plano_formatura.service.ts` (250+ lines)
+- `backend/src/services/plano_formatura.service.ts` (250+ lines)
   - [ ] All functions are pure (no side effects)
   - [ ] Error handling: throws on data gaps
   - [ ] Score formula matches spec: `(3 × isObrigatoria) + (2 × directDeps) + (1 × indirectDeps) + (2 × atrasada)`
   - [ ] Normalization: `toUpperCase().trim()` on all codes
 
 **Frontend (Task 6):**
-- `no_fluxo_frontend_svelte/src/lib/services/plano-formatura.service.ts` (50 lines)
+- `frontend/src/lib/services/plano-formatura.service.ts` (50 lines)
   - [ ] API call includes all 4 required params
   - [ ] Supabase methods imported correctly
   - [ ] Error handling for fetch + Supabase
 
 **Store (Task 7):**
-- `no_fluxo_frontend_svelte/src/lib/stores/plano-formatura.store.svelte.ts` (100+ lines)
+- `frontend/src/lib/stores/plano-formatura.store.svelte.ts` (100+ lines)
   - [ ] State is mutable (`$state`)
   - [ ] Getters use `$derived`
   - [ ] `gerar()` recalculates on limit change

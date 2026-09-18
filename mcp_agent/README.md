@@ -45,8 +45,8 @@ MCP_AGENT_API_KEY=$(openssl rand -hex 32)  # exigida no header X-API-Key (exceto
 ```
 
 As mesmas chaves + `SABIA_API_URL=http://localhost:8000` vão no `.env` do
-`no_fluxo_backend` (quem chama este serviço). Para subir backend + agente juntos:
-`npm run dev:full` no `no_fluxo_backend`.
+`backend` (quem chama este serviço). Para subir backend + agente juntos:
+`npm run dev:full` no `backend`.
 
 ## Endpoint
 

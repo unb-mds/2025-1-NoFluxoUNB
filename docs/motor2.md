@@ -104,7 +104,7 @@ Salvar em `dados_users` ou tabela nova `perfil_planejamento_user`.
 - Impacto de reduzir carga deve ser calculado e exibido: "+1 semestre", "+2 semestres"
 
 ## Localização no projeto
-- Controller: `no_fluxo_backend/src/controllers/PlanejamentoController.ts`
+- Controller: `backend/src/controllers/PlanejamentoController.ts`
 - Rota sugerida: `GET /planejamento/:id_user`
 - Registrar em `src/index.ts`
 

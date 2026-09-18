@@ -20,12 +20,12 @@ flowchart TD
 
 | Nível | Camada | Ferramenta | Quantidade de Arquivos | Foco Principal |
 |---|---|---|---|---|
-| **Unidade** | Frontend (`no_fluxo_frontend_svelte`) | Vitest | 42 arquivos | Lojas de grade (`grade.store.*`), regras de pré-requisito (`grade-pool.*`), conversão de horários e regras UnB |
-| **Unidade** | Backend (`no_fluxo_backend`) | Jest / ts-jest | 25 arquivos | Controllers de matérias/fluxograma, Motor 2 de planejamento, persistência de sessão e orquestrador |
+| **Unidade** | Frontend (`frontend`) | Vitest | 42 arquivos | Lojas de grade (`grade.store.*`), regras de pré-requisito (`grade-pool.*`), conversão de horários e regras UnB |
+| **Unidade** | Backend (`backend`) | Jest / ts-jest | 25 arquivos | Controllers de matérias/fluxograma, Motor 2 de planejamento, persistência de sessão e orquestrador |
 | **Unidade** | Scraping e Dados (`DBA/tests`) | Pytest | 3 arquivos | Parser de expressões lógicas e scraping de turmas |
-| **Unidade** | Parse PDF (`no_fluxo_backend/parse-pdf`) | Pytest | 2 arquivos | Extração de texto e estruturação de históricos |
+| **Unidade** | Parse PDF (`backend/parse-pdf`) | Pytest | 2 arquivos | Extração de texto e estruturação de históricos |
 | **Unidade** | IA Agent (`mcp_agent`) | Pytest | 1 arquivo | Validação de tool calls do assistente |
-| **Sistema / E2E** | Frontend (`no_fluxo_frontend_svelte`) | Playwright | 3 arquivos | Upload de histórico escolar, autenticação e viewport mobile |
+| **Sistema / E2E** | Frontend (`frontend`) | Playwright | 3 arquivos | Upload de histórico escolar, autenticação e viewport mobile |
 
 ---
 
@@ -55,12 +55,12 @@ Consulte os guias especializados para cada subsistema do projeto:
 
 ```bash
 # 1. Testes do Backend (TypeScript):
-cd no_fluxo_backend
+cd backend
 npm test                  # Execução padrão
 npm run test:coverage     # Relatório de cobertura
 
 # 2. Testes do Frontend (SvelteKit):
-cd no_fluxo_frontend_svelte
+cd frontend
 pnpm run test:unit        # Vitest
 pnpm run test:coverage    # Cobertura Vitest
 npx playwright test       # Testes E2E (requer dev server)

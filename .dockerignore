@@ -18,16 +18,16 @@ Thumbs.db
 *~
 
 # Backend específico
-no_fluxo_backend/node_modules/
-no_fluxo_backend/dist/
-no_fluxo_backend/.env*
-no_fluxo_backend/logs/*.log
+backend/node_modules/
+backend/dist/
+backend/.env*
+backend/logs/*.log
 
 # Frontend Svelte específico
-no_fluxo_frontend_svelte/node_modules/
-no_fluxo_frontend_svelte/.svelte-kit/
-no_fluxo_frontend_svelte/build/
-no_fluxo_frontend_svelte/.env*
+frontend/node_modules/
+frontend/.svelte-kit/
+frontend/build/
+frontend/.env*
 
 # mcp_agent específico
 mcp_agent/.venv/

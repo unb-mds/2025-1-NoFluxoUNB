@@ -6,12 +6,12 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 
 # Install Node.js dependencies (include dev for tsc)
-COPY no_fluxo_backend/package*.json ./
+COPY backend/package*.json ./
 RUN npm ci --ignore-scripts || npm install --ignore-scripts
 
 # Copy source code
-COPY no_fluxo_backend/src/ ./src/
-COPY no_fluxo_backend/tsconfig.json ./
+COPY backend/src/ ./src/
+COPY backend/tsconfig.json ./
 
 # Build TypeScript
 RUN npx tsc
@@ -30,7 +30,7 @@ RUN adduser -D -u 1001 appuser
 # Copy from builder
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
-COPY no_fluxo_backend/package.json ./
+COPY backend/package.json ./
 
 # Create log directory
 RUN mkdir -p logs \

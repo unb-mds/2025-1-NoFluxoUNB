@@ -3,7 +3,7 @@
 
 ## 1. Modulo Testado
 
-`no_fluxo_backend/src/controllers/fluxograma_controller.ts` (~1030 linhas)
+`backend/src/controllers/fluxograma_controller.ts` (~1030 linhas)
 
 Responsavel por: busca de fluxogramas, casamento de disciplinas do historico SIGAA
 com materias do banco, calculo de equivalencias, pre-requisitos, integralizacao,
@@ -131,7 +131,7 @@ D = `newPriority > currentPriority`
 ## 5. Como Executar
 
 ```bash
-cd no_fluxo_backend
+cd backend
 
 # Todos os testes do fluxograma_controller
 npx jest tests-ts/fluxograma_controller --coverage

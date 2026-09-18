@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # dev-full.sh — Run backend + mcp-agent together for local development.
 # Both processes share the same terminal with prefixed output.
-# Usage: npm run dev:full  (from no_fluxo_backend/)
+# Usage: npm run dev:full  (from backend/)
 
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-BACKEND_DIR="$REPO_ROOT/no_fluxo_backend"
+BACKEND_DIR="$REPO_ROOT/backend"
 MCP_AGENT_DIR="$REPO_ROOT/mcp_agent"
 
 # Colors for distinguishing output

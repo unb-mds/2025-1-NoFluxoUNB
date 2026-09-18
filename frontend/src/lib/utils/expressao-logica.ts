@@ -307,7 +307,7 @@ export function getLogicalCodeGroups(
  * itens internos ligados por E) — um substituto é exatamente um bloco de um código só.
  *
  * Espelho de getSubstitutosFromExpressaoLogica em
- * no_fluxo_backend/src/utils/expressao_logica.ts.
+ * backend/src/utils/expressao_logica.ts.
  * Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md (D2)
  */
 export function getSubstitutosFromExpressaoLogica(

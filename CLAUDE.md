@@ -16,8 +16,8 @@ Guia de orientação para agentes de IA (e humanos chegando agora). O produto vi
 
 | Pasta | Estado | O que é |
 |---|---|---|
-| `no_fluxo_frontend_svelte/` | **vivo** | Frontend atual: SvelteKit 2 + Svelte 5 (runes) + Tailwind 4, SPA estática (adapter-static). Ver README da pasta. |
-| `no_fluxo_backend/` | **vivo** | API Node/TypeScript + Express. Ver README da pasta. |
+| `frontend/` | **vivo** | Frontend atual: SvelteKit 2 + Svelte 5 (runes) + Tailwind 4, SPA estática (adapter-static). Ver README da pasta. |
+| `backend/` | **vivo** | API Node/TypeScript + Express. Ver README da pasta. |
 | `mcp_agent/` | **vivo** | Serviço de IA (Darcy/Sabiá): FastAPI + Gemini embeddings + Maritaca + pgvector. Ver README da pasta. |
 | `DBA/` | **vivo** | Camada de dados Python: scraping do SIGAA, ingestão no Supabase, parser de PDF. Ver README da pasta. |
 | `DBA/tests/` | **vivo** | Suíte Pytest dos módulos Python (importa de `DBA/`). |
@@ -35,18 +35,18 @@ Deploy: 3 alvos containerizados (`k8s.backend.Dockerfile`, `k8s.frontend-svelte.
 
 ## Comandos essenciais
 
-O repo é um workspace pnpm (`no_fluxo_frontend_svelte`, `no_fluxo_backend`, `DBA`),
+O repo é um workspace pnpm (`frontend`, `backend`, `DBA`),
 mas o CI usa `npm ci` dentro de cada pacote — os dois funcionam.
 
 ```bash
 # Frontend (porta 5173)
-cd no_fluxo_frontend_svelte && npm run dev
+cd frontend && npm run dev
 npm run test:unit        # Vitest (testes junto ao código em src/)
 npm run test:integration # Playwright E2E (tests-e2e/)
 npm run check            # svelte-check — tem 4 erros pré-existentes conhecidos, não é gate
 
 # Backend (porta 3325 com .env.example; default 3000 sem .env)
-cd no_fluxo_backend && npm run dev
+cd backend && npm run dev
 npm test                 # Jest (tests-ts/)
 npm run dev:full         # sobe backend + mcp_agent juntos
 
@@ -67,5 +67,5 @@ Detalhes: `documentacao/testes/pipeline-ci.md`.
 - Commits seguem `COMMIT_GUIDELINES.md`; setup completo de ambiente em `CONTRIBUTING.md`.
 - Regras de negócio do banco (formato de `curriculo_completo`, `tipo_natureza`,
   política de insert/update) em `DBA/database/README.md`.
-- Schema do banco exportado em `no_fluxo_backend/docs/` (`npm run export-schema`);
+- Schema do banco exportado em `backend/docs/` (`npm run export-schema`);
   o baseline de migration gerado vai para `supabase/migrations/`.

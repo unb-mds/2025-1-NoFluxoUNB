@@ -14,7 +14,7 @@ Os módulos em Python do NoFluxoUNB englobam o **pipeline de ingestão e scrapin
 │   ├── test_expressao_parser.py            # Parser de pré-requisitos lógicos
 │   ├── test_scraping_equivalencias.py      # Scraping do SIGAA
 │   └── test_upload_pdf.py                  # Integração de upload
-├── no_fluxo_backend/parse-pdf/tests/       # Testes do serviço de PDF
+├── backend/parse-pdf/tests/       # Testes do serviço de PDF
 │   ├── test_parser.py                      # Extração tabular de notas e matérias
 │   └── test_exploratorio_kauan.py          # Casos de borda de PDFs reais
 └── mcp_agent/                              # Agente de IA
@@ -39,7 +39,7 @@ Os módulos em Python do NoFluxoUNB englobam o **pipeline de ingestão e scrapin
 - **`test_upload_pdf.py`**:
   - Teste de integração que envia arquivos multipart/form-data para o endpoint de extração e valida o JSON estruturado resultante.
 
-### 2. `no_fluxo_backend/parse-pdf/tests/` (Parser de Históricos)
+### 2. `backend/parse-pdf/tests/` (Parser de Históricos)
 - **`test_parser.py`**:
   - Valida a extração por coordenadas de texto via PyMuPDF.
   - Verifica o parsing de matrículas, códigos de curso, menções (`SS`, `MS`, `MM`, `MI`, `II`, `SR`, `TR`, `AP`, `DP`), semestre cursado e carga horária integralizada.
@@ -83,7 +83,7 @@ python -m pytest -v
 python -m pytest --cov=. --cov-report=html --cov-report=term-missing
 
 # 3. Executar testes do parse-pdf:
-cd ../no_fluxo_backend/parse-pdf
+cd ../backend/parse-pdf
 python -m pytest tests/
 
 # 4. Executar testes do MCP Agent:

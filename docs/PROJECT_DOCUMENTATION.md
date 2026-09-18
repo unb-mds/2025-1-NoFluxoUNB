@@ -4,8 +4,8 @@
 
 1. [Overview](#1-overview)
 2. [Project Structure](#2-project-structure)
-3. [Backend (`no_fluxo_backend/`)](#3-backend)
-4. [Frontend (`no_fluxo_frontend_svelte/`)](#4-frontend)
+3. [Backend (`backend/`)](#3-backend)
+4. [Frontend (`frontend/`)](#4-frontend)
 5. [Database](#5-database)
 6. [Data Collection (`coleta_dados/`)](#6-data-collection)
 7. [Infrastructure & Deployment](#7-infrastructure--deployment)
@@ -52,8 +52,8 @@
 
 ```
 2025-1-NoFluxoUNB/
-├── no_fluxo_backend/              # TypeScript/Express backend + Python PDF parsing
-├── no_fluxo_frontend_svelte/      # SvelteKit frontend application
+├── backend/              # TypeScript/Express backend + Python PDF parsing
+├── frontend/      # SvelteKit frontend application
 ├── coleta_dados/                  # Data collection/scraping scripts (Python)
 ├── documentacao/                  # Project documentation (Portuguese)
 ├── kubernetes_docs/               # Kubernetes deployment docs & templates
@@ -78,14 +78,14 @@
 
 ## 3. Backend
 
-**Location:** `no_fluxo_backend/`
+**Location:** `backend/`
 **Port:** 3325
 **Language:** TypeScript (Express.js) + Python (PDF parsing)
 
 ### 3.1 Directory Structure
 
 ```
-no_fluxo_backend/
+backend/
 ├── src/
 │   ├── index.ts                    # Express server entry point
 │   ├── interfaces.ts               # TypeScript interfaces
@@ -172,7 +172,7 @@ Controller-level scoped logging via `ControllerLogger` class: `[Controller][Endp
 
 ## 4. Frontend
 
-**Location:** `no_fluxo_frontend_svelte/`
+**Location:** `frontend/`
 **Framework:** SvelteKit 2 + Svelte 5 (runes)
 **Styling:** Tailwind CSS 4
 **Build Tool:** Vite 7
@@ -180,7 +180,7 @@ Controller-level scoped logging via `ControllerLogger` class: `[Controller][Endp
 ### 4.1 Directory Structure
 
 ```
-no_fluxo_frontend_svelte/src/
+frontend/src/
 ├── routes/                          # SvelteKit pages
 │   ├── +layout.svelte              # Root layout (auth + navigation)
 │   ├── +page.svelte                # Landing page

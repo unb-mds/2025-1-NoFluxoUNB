@@ -78,7 +78,7 @@
 		 * Sem matrícula (MATR) no semestre corrente, o semestre corrente ainda está
 		 * livre e é ele que o plano preenche — ex.: início de período, matrículas
 		 * ainda não publicadas. Espelha `offsetSemestre` em
-		 * no_fluxo_backend/src/services/plano_formatura.service.ts (~L1086), que já
+		 * backend/src/services/plano_formatura.service.ts (~L1086), que já
 		 * gera os rótulos de período assim; só a numeração ordinal aqui somava 1
 		 * incondicionalmente e "queimava" um semestre que nem começou.
 		 */

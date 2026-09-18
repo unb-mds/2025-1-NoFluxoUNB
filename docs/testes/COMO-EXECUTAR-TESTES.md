@@ -9,7 +9,7 @@
 ## 1. Testes TypeScript (Backend)
 
 ```bash
-cd no_fluxo_backend
+cd backend
 npm install
 
 # Executar todos os testes
@@ -69,7 +69,7 @@ pytest --cov=../DBA/database --cov-report=html -v
 Apos rodar com `--coverage` (TS) ou `--cov-report=html` (Python), os relatorios
 ficam em:
 
-- **TypeScript**: `no_fluxo_backend/coverage/` (abrir `index.html`)
+- **TypeScript**: `backend/coverage/` (abrir `index.html`)
 - **Python**: `DBA/tests/htmlcov/` (abrir `index.html`)
 
 ## 4. CI (GitHub Actions)

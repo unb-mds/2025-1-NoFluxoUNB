@@ -1,4 +1,4 @@
-<!-- no_fluxo_frontend_svelte/src/lib/components/layout/Navbar.svelte -->
+<!-- frontend/src/lib/components/layout/Navbar.svelte -->
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';

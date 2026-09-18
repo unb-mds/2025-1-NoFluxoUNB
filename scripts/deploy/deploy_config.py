@@ -104,7 +104,7 @@ APPS: dict[str, AppConfig] = {
         health_path="/health.json",
         domain="no-fluxo.crianex.com",
         app_class="non-business",
-        env_folder="no_fluxo_frontend_svelte",
+        env_folder="frontend",
         # PUBLIC_* vars are baked at build time via $env/static/public
         build_arg_keys=(
             "PUBLIC_SUPABASE_URL",

@@ -1,4 +1,4 @@
-// no_fluxo_frontend_svelte/src/lib/components/layout/navbar/nav-config.ts
+// frontend/src/lib/components/layout/navbar/nav-config.ts
 import { LayoutDashboard, Bot, Upload, GitBranch, BookOpen, GraduationCap, CalendarDays } from 'lucide-svelte';
 import { ROUTES } from '$lib/config/routes';
 

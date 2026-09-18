@@ -10,12 +10,12 @@ RUN corepack enable && corepack prepare pnpm@10.12.1 --activate
 WORKDIR /app
 
 # Copy package files and postinstall script, then install dependencies
-COPY no_fluxo_frontend_svelte/package.json no_fluxo_frontend_svelte/pnpm-lock.yaml ./
-COPY no_fluxo_frontend_svelte/scripts/ ./scripts/
+COPY frontend/package.json frontend/pnpm-lock.yaml ./
+COPY frontend/scripts/ ./scripts/
 RUN pnpm install --frozen-lockfile
 
 # Copy source code (adapter-static is already in svelte.config.js)
-COPY no_fluxo_frontend_svelte/ ./
+COPY frontend/ ./
 
 # Build-time environment variables (baked into the bundle via $env/static/public)
 ARG PUBLIC_SUPABASE_URL

@@ -64,7 +64,7 @@ describe('expressao logica helpers', () => {
 
 /**
  * Espelho de getSubstitutosFromExpressaoLogica no backend
- * (no_fluxo_backend/src/utils/expressao_logica.ts).
+ * (backend/src/utils/expressao_logica.ts).
  * Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md (D2)
  */
 describe('getSubstitutosFromExpressaoLogica', () => {
