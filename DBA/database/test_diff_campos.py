@@ -105,12 +105,20 @@ check(
 )
 check(
     "ch: string '1680' vira int e compara",
-    diff_campos({"ch_total_exigida": 1680}, {"ch_total_exigida": "1680"}, {"ch_total_exigida": DIFF_CH})
+    diff_campos(
+        {"ch_total_exigida": 1680},
+        {"ch_total_exigida": "1680"},
+        {"ch_total_exigida": DIFF_CH},
+    )
     == {},
 )
 check(
     "ch: valor diferente -> corrige",
-    diff_campos({"ch_total_exigida": 1500}, {"ch_total_exigida": 1680}, {"ch_total_exigida": DIFF_CH})
+    diff_campos(
+        {"ch_total_exigida": 1500},
+        {"ch_total_exigida": 1680},
+        {"ch_total_exigida": DIFF_CH},
+    )
     == {"ch_total_exigida": 1680},
 )
 

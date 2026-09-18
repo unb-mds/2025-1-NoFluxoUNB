@@ -25,9 +25,7 @@ RETRY_DELAY_SEC = 12
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 # "Períodos letivos de 2026" / "Período letivo de 2027"
-RE_ANO_HEADER = re.compile(
-    r"per[ií]odos?\s+letivos?\s+de\s+(\d{4})", re.IGNORECASE
-)
+RE_ANO_HEADER = re.compile(r"per[ií]odos?\s+letivos?\s+de\s+(\d{4})", re.IGNORECASE)
 
 # "2026.1: 16/03 a 18/07/2026" -> captura só semestres regulares (1 ou 2).
 

@@ -75,7 +75,9 @@ CACHE_MATRIZ_BY_ID = {}  # id_matriz -> row (para flush de updates)
 CACHE_MATERIA_ROW = {}  # codigo_materia -> row completo de materias (para diff)
 MPC_ROW = {}  # (id_matriz, id_materia) -> {id_materia_curso, nivel, tipo_natureza}
 SET_MPC = set()  # (id_matriz, id_materia) já existentes
-MATERIAS_CHECKED = set()  # codigo_materia já comparado neste run (evita rechecar por arquivo)
+MATERIAS_CHECKED = (
+    set()
+)  # codigo_materia já comparado neste run (evita rechecar por arquivo)
 
 # Correções acumuladas (JSON -> banco); aplicadas em lote no fim (flush_updates).
 UPDATES_CURSOS = {}  # id_curso -> {campo: valor}
@@ -461,7 +463,13 @@ def load_cache_matrizes():
 
 
 def get_or_create_matriz(
-    id_curso, curriculo_completo, versao, ano_vigor, prazos_cargas, status=None, formatura=None
+    id_curso,
+    curriculo_completo,
+    versao,
+    ano_vigor,
+    prazos_cargas,
+    status=None,
+    formatura=None,
 ):
     curriculo_completo = (curriculo_completo or "").strip()
     ch = prazos_to_ints(prazos_cargas or {})
@@ -521,7 +529,9 @@ def get_or_create_matriz(
         "ch_total_exigida": ch.get("total_minima"),
         "ch_optativa_exigida": ch.get("ch_optativa_minima"),
         "ch_complementar_exigida": ch.get("ch_complementar_minima"),
-        "ch_maxima_componentes_eletivos": ch.get("carga_horaria_maxima_componentes_eletivos"),
+        "ch_maxima_componentes_eletivos": ch.get(
+            "carga_horaria_maxima_componentes_eletivos"
+        ),
         "formatura": formatura,
     }
     insert_data = {
@@ -819,9 +829,7 @@ def _flush_tabela(tabela, pk, updates):
     if not updates:
         return 0
     total = len(updates)
-    print(
-        f"      [UPDATE] {tabela}: {total} linha(s) divergem do JSON.", flush=True
-    )
+    print(f"      [UPDATE] {tabela}: {total} linha(s) divergem do JSON.", flush=True)
     if DRY_RUN:
         for i, (pk_val, campos) in enumerate(updates.items()):
             if i >= 20:
@@ -850,7 +858,9 @@ def flush_updates():
     global CONTAGEM_UPDATES_MATERIAS, CONTAGEM_UPDATES_MPC
     CONTAGEM_UPDATES_CURSOS = _flush_tabela("cursos", "id_curso", UPDATES_CURSOS)
     CONTAGEM_UPDATES_MATRIZES = _flush_tabela("matrizes", "id_matriz", UPDATES_MATRIZES)
-    CONTAGEM_UPDATES_MATERIAS = _flush_tabela("materias", "id_materia", UPDATES_MATERIAS)
+    CONTAGEM_UPDATES_MATERIAS = _flush_tabela(
+        "materias", "id_materia", UPDATES_MATERIAS
+    )
     CONTAGEM_UPDATES_MPC = _flush_tabela(
         "materias_por_curso", "id_materia_curso", UPDATES_MPC
     )
@@ -974,7 +984,13 @@ def main():
         t_matriz = time.time()
         status_matriz = data.get("status")
         id_matriz = get_or_create_matriz(
-            id_curso, curriculo_completo, versao, ano_vigor, prazos, status_matriz, conclusao
+            id_curso,
+            curriculo_completo,
+            versao,
+            ano_vigor,
+            prazos,
+            status_matriz,
+            conclusao,
         )
         if id_matriz is None and not DRY_RUN:
             print(f"      [ARQ {idx + 1}] Ignorado: matriz não resolvida.", flush=True)
