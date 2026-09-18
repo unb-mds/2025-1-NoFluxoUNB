@@ -7,8 +7,14 @@
 	import { createSupabaseBrowserClient } from '$lib/supabase/client';
 	import { authStore } from '$lib/stores/auth';
 	import { ROUTES } from '$lib/config/routes';
-	import { LogOut, LayoutDashboard, ShieldCheck } from 'lucide-svelte';
+	import { LogOut, LayoutDashboard, LifeBuoy, ShieldCheck } from 'lucide-svelte';
 	import type { UserModel } from '$lib/types';
+	import { onDestroy, onMount } from 'svelte';
+	import {
+		ticketsNaoLidas,
+		iniciarPollingTicketsNaoLidas,
+		pararPollingTicketsNaoLidas
+	} from '$lib/stores/ticketsNaoLidas';
 
 	interface Props {
 		user: UserModel | null;
@@ -19,6 +25,12 @@
 
 	let { user, isAnonymous, hasHistorico, isAdmin }: Props = $props();
 	const supabase = createSupabaseBrowserClient();
+
+	// Badge de respostas do suporte não lidas (estilo WhatsApp) no avatar.
+	onMount(() => {
+		if (!isAnonymous && user) iniciarPollingTicketsNaoLidas();
+	});
+	onDestroy(() => pararPollingTicketsNaoLidas());
 
 	async function handleLogout() {
 		await supabase.auth.signOut();
@@ -59,6 +71,14 @@
 					{user?.nomeCompleto?.charAt(0).toUpperCase() || 'U'}
 				</Avatar.Fallback>
 			</Avatar.Root>
+			{#if $ticketsNaoLidas > 0}
+				<span
+					class="absolute -right-1 -top-1 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#25d366] px-1 text-[10px] font-bold leading-none text-[#05240f] ring-2 ring-background"
+					aria-label="{$ticketsNaoLidas} resposta{$ticketsNaoLidas > 1 ? 's' : ''} do suporte não lida{$ticketsNaoLidas > 1 ? 's' : ''}"
+				>
+					{$ticketsNaoLidas > 9 ? '9+' : $ticketsNaoLidas}
+				</span>
+			{/if}
 		</DropdownMenu.Trigger>
 		<DropdownMenu.Content class="w-56" align="end">
 			<DropdownMenu.Label class="font-normal">
@@ -75,6 +95,20 @@
 				</DropdownMenu.Item>
 				<DropdownMenu.Separator />
 			{/if}
+			<DropdownMenu.Item
+				onclick={() => goto($ticketsNaoLidas > 0 ? `${ROUTES.SUPORTE}?tab=meus` : ROUTES.SUPORTE)}
+			>
+				<LifeBuoy class="mr-2 h-4 w-4" />
+				Suporte
+				{#if $ticketsNaoLidas > 0}
+					<span
+						class="ml-auto flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#25d366] px-1 text-[10px] font-bold leading-none text-[#05240f]"
+					>
+						{$ticketsNaoLidas > 9 ? '9+' : $ticketsNaoLidas}
+					</span>
+				{/if}
+			</DropdownMenu.Item>
+			<DropdownMenu.Separator />
 			{#if isAdmin}
 				<DropdownMenu.Item onclick={() => goto(ROUTES.ADMIN_TICKETS)}>
 					<ShieldCheck class="mr-2 h-4 w-4" />
