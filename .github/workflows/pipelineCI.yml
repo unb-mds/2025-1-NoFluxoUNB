@@ -2,7 +2,7 @@ name: CI
 
 # Pipeline único de Integração Contínua do NoFluxoUNB.
 # Cada job mapeia para um nível da pirâmide de testes da disciplina FGA0314.
-# Documentação: docs/testes/pipeline-ci.md
+# Documentação: documentacao/testes/pipeline-ci.md
 #
 # Desenho de eficiência:
 # - concurrency: push novo no mesmo PR cancela o run antigo (não paga fila dupla);

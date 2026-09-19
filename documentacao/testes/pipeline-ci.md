@@ -62,6 +62,42 @@ Nenhum teste de unidade efetua tráfego externo para esses endpoints sintéticos
 
 ---
 
+## 🧠 Decisões de Projeto do Pipeline
+
+- **Versões fixadas de Black e Flake8.** O CI roda em Python 3.11 e o Black pode
+  formatar de modo diferente entre versões; fixar (`black==25.11.0`, `flake8==7.3.0`)
+  garante que "passa na minha máquina" = "passa no CI".
+- **Consolidação.** Havia 4 workflows rodando testes sobrepostos (`pipelineCI`,
+  `all-tests`, `python-tests`, `typescript-tests`). Foram unificados em um só, para
+  evitar duplicação de execução e checks vermelhos confusos.
+- **Actions atualizadas para v4/v5.** O GitHub reprova automaticamente workflows com
+  `actions/upload-artifact@v3` (descontinuado) — corrigido aqui e no
+  `security-and-quality.yml`.
+- **`tesseract-ocr` e `poppler-utils`** são instalados no job Python porque os módulos
+  de parsing de PDF/OCR dependem deles.
+
+---
+
+## 💻 Como Rodar Localmente o que o CI Roda
+
+```bash
+# Qualidade Python
+pip install black==25.11.0 flake8==7.3.0
+black --check . && flake8 .
+
+# Testes Python
+pip install -r tests-python/requirements.txt pytest pytest-cov pytest-mock
+cd tests-python && python -m pytest
+
+# Testes backend (TS)
+cd no_fluxo_backend && npm ci && npm test
+
+# Testes frontend (Svelte)
+cd no_fluxo_frontend_svelte && npm ci && npx vitest run --passWithNoTests
+```
+
+---
+
 ## 🚦 Critérios para Aprovação de Pull Request
 
 Para que um PR seja considerado elegível para merge na branch principal:

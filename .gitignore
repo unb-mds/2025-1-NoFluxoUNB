@@ -87,11 +87,11 @@ debug_html/
 .deploy/
 
 # Claude Code — arquivos locais (não versionar)
+# (o CLAUDE.md da raiz é versionado de propósito: é o mapa do repo)
 .claude/settings.local.json
 .claude/skills/
 .claude/plans/
 .claude/projects/
-CLAUDE.md
 SECURITY_ISSUES.md
 docs/superpowers/
 

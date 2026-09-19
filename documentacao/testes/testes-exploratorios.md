@@ -10,11 +10,11 @@ Cada integrante da equipe conduziu uma sessão estruturada focada em uma funcion
 
 | Integrante | Funcionalidade Explorada | Técnicas Chave Aplicadas | Documento de Evidência |
 |---|---|---|---|
-| **Vitor** | **Upload de Histórico $\rightarrow$ Geração do Fluxograma** | Transição de Estados, BVA, Error Guessing | [`docs/testes/teste-exploratorio-upload-historico.md`](file:///c:/Users/Felipe%20Pedroza/Documents/UnB/nofluxo/2025-1-NoFluxoUNB/docs/testes/teste-exploratorio-upload-historico.md) |
-| **Enzo** | **Assistente IA (Chatbot e Recomendações)** | Error Guessing (prompts adversariais), Tabela de Decisão | [`docs/testes/teste-exploratorio-enzo.md`](file:///c:/Users/Felipe%20Pedroza/Documents/UnB/nofluxo/2025-1-NoFluxoUNB/docs/testes/teste-exploratorio-enzo.md) |
-| **André** | **Busca e Filtros de Disciplinas no Fluxograma** | Análise de Valor Limite, Tabela de Decisão, Normalização | [`docs/testes/teste-exploratorio-andre.md`](file:///c:/Users/Felipe%20Pedroza/Documents/UnB/nofluxo/2025-1-NoFluxoUNB/docs/testes/teste-exploratorio-andre.md) |
-| **Vini** | **Autenticação, Sessão e Recuperação de Conta** | Transição de Estados, Aspectos Transversais de Segurança | [`docs/testes/teste-exploratorio-vini.md`](file:///c:/Users/Felipe%20Pedroza/Documents/UnB/nofluxo/2025-1-NoFluxoUNB/docs/testes/teste-exploratorio-vini.md) |
-| **Kauan** | **Engine de Extração e Parsing de PDF (Python)** | Particionamento de Formatos SIGAA, BVA (arquivos limítrofes) | [`docs/testes/teste-exploratorio-kauan.md`](file:///c:/Users/Felipe%20Pedroza/Documents/UnB/nofluxo/2025-1-NoFluxoUNB/docs/testes/teste-exploratorio-kauan.md) |
+| **Vitor** | **Upload de Histórico $\rightarrow$ Geração do Fluxograma** | Transição de Estados, BVA, Error Guessing | [`docs/testes/teste-exploratorio-upload-historico.md`](https://github.com/unb-mds/2025-1-NoFluxoUNB/blob/main/docs/testes/teste-exploratorio-upload-historico.md) |
+| **Enzo** | **Assistente IA (Chatbot e Recomendações)** | Error Guessing (prompts adversariais), Tabela de Decisão | [`docs/testes/teste-exploratorio-enzo.md`](https://github.com/unb-mds/2025-1-NoFluxoUNB/blob/main/docs/testes/teste-exploratorio-enzo.md) |
+| **André** | **Busca e Filtros de Disciplinas no Fluxograma** | Análise de Valor Limite, Tabela de Decisão, Normalização | [`docs/testes/teste-exploratorio-andre.md`](https://github.com/unb-mds/2025-1-NoFluxoUNB/blob/main/docs/testes/teste-exploratorio-andre.md) |
+| **Vini** | **Autenticação, Sessão e Recuperação de Conta** | Transição de Estados, Aspectos Transversais de Segurança | [`docs/testes/teste-exploratorio-vini.md`](https://github.com/unb-mds/2025-1-NoFluxoUNB/blob/main/docs/testes/teste-exploratorio-vini.md) |
+| **Kauan** | **Engine de Extração e Parsing de PDF (Python)** | Particionamento de Formatos SIGAA, BVA (arquivos limítrofes) | [`docs/testes/teste-exploratorio-kauan.md`](https://github.com/unb-mds/2025-1-NoFluxoUNB/blob/main/docs/testes/teste-exploratorio-kauan.md) |
 
 ---
 
