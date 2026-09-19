@@ -22,7 +22,7 @@ flowchart TD
 |---|---|---|---|---|
 | **Unidade** | Frontend (`no_fluxo_frontend_svelte`) | Vitest | 42 arquivos | Lojas de grade (`grade.store.*`), regras de pré-requisito (`grade-pool.*`), conversão de horários e regras UnB |
 | **Unidade** | Backend (`no_fluxo_backend`) | Jest / ts-jest | 25 arquivos | Controllers de matérias/fluxograma, Motor 2 de planejamento, persistência de sessão e orquestrador |
-| **Unidade** | Scraping e Dados (`tests-python`) | Pytest | 3 arquivos | Parser de expressões lógicas e scraping de turmas |
+| **Unidade** | Scraping e Dados (`DBA/tests`) | Pytest | 3 arquivos | Parser de expressões lógicas e scraping de turmas |
 | **Unidade** | Parse PDF (`no_fluxo_backend/parse-pdf`) | Pytest | 2 arquivos | Extração de texto e estruturação de históricos |
 | **Unidade** | IA Agent (`mcp_agent`) | Pytest | 1 arquivo | Validação de tool calls do assistente |
 | **Sistema / E2E** | Frontend (`no_fluxo_frontend_svelte`) | Playwright | 3 arquivos | Upload de histórico escolar, autenticação e viewport mobile |
@@ -66,7 +66,7 @@ pnpm run test:coverage    # Cobertura Vitest
 npx playwright test       # Testes E2E (requer dev server)
 
 # 3. Testes em Python:
-cd tests-python
+cd DBA/tests
 python -m pytest -v
 ```
 

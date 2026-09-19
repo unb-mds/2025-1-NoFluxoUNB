@@ -58,13 +58,13 @@ jobs:
       with:
         python-version: '3.11'
         cache: 'pip'
-        cache-dependency-path: tests-python/requirements.txt
+        cache-dependency-path: DBA/tests/requirements.txt
 
     - name: Install Python security tools
       if: github.event_name == 'schedule'
       run: |
         python -m pip install --upgrade pip
-        pip install -r tests-python/requirements.txt
+        pip install -r DBA/tests/requirements.txt
         pip install bandit safety
 
     - name: Run safety check for Python
@@ -73,7 +73,7 @@ jobs:
 
     - name: Run bandit security scan
       if: github.event_name == 'schedule'
-      run: bandit -r tests-python/ -f json -o bandit-report.json || true
+      run: bandit -r DBA/tests/ -f json -o bandit-report.json || true
 
     - name: Upload security reports
       if: github.event_name == 'schedule'
@@ -125,10 +125,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install flake8 black isort mypy
-        flake8 tests-python/ --format=json --output-file=flake8-report.json || true
-        black --check --diff tests-python/ || true
-        isort --check-only --diff tests-python/ || true
-        mypy tests-python/ --json-report mypy-report.json || true
+        flake8 DBA/tests/ --format=json --output-file=flake8-report.json || true
+        black --check --diff DBA/tests/ || true
+        isort --check-only --diff DBA/tests/ || true
+        mypy DBA/tests/ --json-report mypy-report.json || true
 
     - name: Upload quality reports
       if: github.event_name == 'schedule'

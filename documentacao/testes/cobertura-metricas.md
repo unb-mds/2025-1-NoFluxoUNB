@@ -47,11 +47,11 @@ pnpm run test:coverage
 O pytest-cov gera relatórios com suporte a branches e realce de linhas não visitadas:
 
 ```bash
-cd tests-python
+cd DBA/tests
 python -m pytest --cov=. --cov-report=html --cov-report=term-missing
 ```
 
-- **Relatório HTML:** Gerado em `tests-python/htmlcov/index.html`.
+- **Relatório HTML:** Gerado em `DBA/tests/htmlcov/index.html`.
 - **Destaque de Falhas:** O argumento `--cov-report=term-missing` lista no próprio terminal as linhas exatas do arquivo que deixaram de ser exercitadas.
 
 ---
@@ -77,7 +77,7 @@ Para inspecionar detalhadamente quais linhas estão descobertas (marcadas em ver
 # No Windows:
 start no_fluxo_backend/coverage/lcov-report/index.html
 start no_fluxo_frontend_svelte/coverage/index.html
-start tests-python/htmlcov/index.html
+start DBA/tests/htmlcov/index.html
 
 # No Linux:
 xdg-open no_fluxo_backend/coverage/lcov-report/index.html

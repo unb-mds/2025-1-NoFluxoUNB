@@ -14,7 +14,6 @@ O NoFluxoUnB é composto pelos seguintes módulos:
 | **Backend** | Express.js, TypeScript, Node.js | `no_fluxo_backend/` | API REST principal (porta 3325) |
 | **Agente IA** | FastAPI, Python, OpenAI, Gemini | `mcp_agent/` | Serviço de IA e recomendações |
 | **DBA & Scripts** | Python, Supabase, BeautifulSoup | `DBA/database/`, `DBA/scraping/` | Ingestão, scraping e migrações |
-| **Parse PDF** | Python, PyMuPDF, Flask | `no_fluxo_backend/parse-pdf/` | Extração de dados de históricos em PDF |
 
 ---
 

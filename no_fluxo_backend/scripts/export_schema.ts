@@ -85,7 +85,7 @@ const OUTPUT_FILE_RLS = path.join(OUTPUT_DIR, 'rls_policies.sql');
 const OUTPUT_FILE_FUNCTIONS = path.join(OUTPUT_DIR, 'database_functions.sql');
 const OUTPUT_FILE_TRIGGERS = path.join(OUTPUT_DIR, 'database_triggers.sql');
 
-const DEFAULT_MIGRATIONS_OUT_DIR = path.join(OUTPUT_DIR, 'supabase_migrations');
+const DEFAULT_MIGRATIONS_OUT_DIR = path.join(__dirname, '..', '..', 'supabase', 'migrations');
 const DEFAULT_MIGRATION_BASENAME = 'latest_init_from_export.sql';
 
 interface DatabaseSchema {
@@ -1402,14 +1402,6 @@ export async function exportSchema(): Promise<DatabaseSchema> {
             fs.writeFileSync(timestampedPath, migrationSql); */
 
             console.log(`✅ Supabase baseline migration saved to: ${latestPath}`);
-
-            // Also copy to the main supabase/migrations folder for actual deployment
-            const supabaseMigrationsDir = path.join(__dirname, '..', '..', '..', 'supabase', 'migrations');
-            const supabaseMigrationPath = path.join(supabaseMigrationsDir, '000_init_from_export.sql');
-            if (fs.existsSync(supabaseMigrationsDir)) {
-                fs.writeFileSync(supabaseMigrationPath, migrationSql);
-                console.log(`✅ Supabase migration also copied to: ${supabaseMigrationPath}`);
-            }
             //console.log(`✅ Supabase baseline migration (timestamped) saved to: ${timestampedPath}`);
         }
 

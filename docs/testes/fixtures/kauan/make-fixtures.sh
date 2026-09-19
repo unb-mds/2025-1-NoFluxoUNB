@@ -8,6 +8,9 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
+# NOTA (fase 3 da reorganização): no_fluxo_backend/parse-pdf/ foi removido do repo;
+# as fixtures geradas por este script estão congeladas. Para regenerar, recuperar o
+# parser do histórico git ou adaptar para DBA/parse_pdf/.
 VENV="../../../../no_fluxo_backend/parse-pdf/.venv/bin/python"
 
 # 1) PDF de 0 byte (BVA tamanho mínimo)

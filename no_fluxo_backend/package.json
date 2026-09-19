@@ -4,7 +4,6 @@
   "description": "Backend do projeto No Fluxo com TypeScript, Express.js e Supabase",
   "main": "dist/index.js",
   "scripts": {
-    "setup-tesseract": "node scripts/setup-tesseract.js",
     "build": "tsc",
     "build-and-start": "npm run build && npm run start",
     "start": "node dist/index.js",

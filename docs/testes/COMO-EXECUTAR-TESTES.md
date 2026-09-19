@@ -45,7 +45,7 @@ npx jest tests-ts/fluxograma_controller --coverage --verbose
 ## 2. Testes Python (Parser de Expressoes)
 
 ```bash
-cd tests-python
+cd DBA/tests
 pip install pytest pytest-cov
 
 # Executar todos os testes
@@ -70,7 +70,7 @@ Apos rodar com `--coverage` (TS) ou `--cov-report=html` (Python), os relatorios
 ficam em:
 
 - **TypeScript**: `no_fluxo_backend/coverage/` (abrir `index.html`)
-- **Python**: `tests-python/htmlcov/` (abrir `index.html`)
+- **Python**: `DBA/tests/htmlcov/` (abrir `index.html`)
 
 ## 4. CI (GitHub Actions)
 

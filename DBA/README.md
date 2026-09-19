@@ -15,18 +15,19 @@ Coleta, transformação e ingestão dos dados acadêmicos da UnB no Supabase.
 - `scraping/` — coleta do SIGAA (`scraping_turmas.py`, `scraping_ementa.py`,
   `scraping_equivalencias.py`, `scraping_calendario_academico.py`). Rodam agendados
   pelos workflows `scrape_*.yml` do GitHub Actions.
-- `parse_pdf/` — `pdf_parser_final.py`, parser de histórico em PDF (atenção: existe uma
-  cópia legada em `no_fluxo_backend/parse-pdf/`; a versão medida pelos testes é esta).
+- `parse_pdf/` — `pdf_parser_final.py`, parser de histórico em PDF usado pela suíte de
+  testes (o parse vivo do produto é client-side, no frontend Svelte).
 - `dados/` — datasets de apoio (`cursos-de-graduacao.json`, expressões lógicas).
 - `turmas_2026_1/` — saída do scraping de turmas (JSON por departamento).
 - `package.json` (`coleta-dados`) — só 2 scripts JS de migração pontual.
 
 ## Testes
 
-A suíte fica em `tests-python/` na **raiz do repo** (importa `DBA.*` via conftest):
+A suíte fica em `DBA/tests/` (o conftest põe a raiz do repo no `sys.path` para os
+imports `DBA.*` funcionarem):
 
 ```bash
-cd tests-python && python -m pytest
+cd DBA/tests && python -m pytest
 ```
 
 Cobertura medida sobre `expressao_parser` (~93%) e `DBA.parse_pdf.pdf_parser_final`

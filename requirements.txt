@@ -8,7 +8,6 @@
 #   DBA / Banco:   python -m pip install -r DBA/database/requirements.txt
 #   Scraping:      python -m pip install -r DBA/scraping/requirements.txt
 #   AI Agent:      python -m pip install -r mcp_agent/requirements.txt
-#   Parse PDF:     python -m pip install -r no_fluxo_backend/parse-pdf/requirements.txt
 # ==============================================================================
 
 # --- DBA / Banco de Dados (DBA/database) ---
@@ -38,6 +37,6 @@ pydantic>=2.0.0,<3.0.0
 openai>=1.60.0
 google-generativeai>=0.8.0
 
-# --- Testes e Qualidade (tests-python) ---
+# --- Testes e Qualidade (DBA/tests) ---
 pytest>=7.4.0
 pytest-cov>=4.1.0
