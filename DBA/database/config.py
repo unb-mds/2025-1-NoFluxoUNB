@@ -17,7 +17,7 @@ try:
     from dotenv import load_dotenv
 
     for p in [
-        DBA_ROOT.parent / "no_fluxo_backend" / ".env",
+        DBA_ROOT.parent / "backend" / ".env",
         DBA_ROOT.parent / ".env",
         Path.cwd() / ".env",
         DBA_ROOT / ".env",

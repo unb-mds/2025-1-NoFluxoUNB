@@ -182,7 +182,7 @@ test.describe.serial('Busca/Filtro Disciplinas — Sessão Exploratória', () =>
 
 	test('EG4/D1-cross-ref: parser de expressão lógica já corrigido em cd3b888d', async ({ page }) => {
 		// Não há UI pública para o parser; D1 está coberto por unit test
-		// (no_fluxo_backend/tests-ts/utils/expressao_logica.test.ts).
+		// (backend/tests-ts/utils/expressao_logica.test.ts).
 		// Este placeholder visual apenas registra o link cruzado.
 		await gotoBusca(page);
 		await shot(page, 'andre-18-d1-crossref-parser');

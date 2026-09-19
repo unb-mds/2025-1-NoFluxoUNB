@@ -32,8 +32,8 @@ git diff origin/main..HEAD
 
 1. **Review commits** — `git log` shows all agent work
 2. **Run tests**:
-   - Backend: `cd no_fluxo_backend && npm test -- --testPathPattern=planejamento`
-   - Frontend: `cd no_fluxo_frontend_svelte && npm run check`
+   - Backend: `cd backend && npm test -- --testPathPattern=planejamento`
+   - Frontend: `cd frontend && npm run check`
 3. **Apply migration** (if any): `supabase db push`
 
 ## YOU Push Manually

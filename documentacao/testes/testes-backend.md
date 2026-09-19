@@ -1,15 +1,15 @@
 # Testes do Backend (Jest / TypeScript)
 
-O backend do NoFluxoUNB (`no_fluxo_backend`) conta com uma suíte de **25 arquivos de teste** implementados em TypeScript com **Jest** e `ts-jest`.
+O backend do NoFluxoUNB (`backend`) conta com uma suíte de **25 arquivos de teste** implementados em TypeScript com **Jest** e `ts-jest`.
 
 ---
 
 ## 📂 Organização dos Testes
 
-Os arquivos residem em `no_fluxo_backend/tests-ts/` e cobrem os três pilares principais do backend: **Controllers da API**, **Motor 2 de Planejamento Acadêmico** e o **Orquestrador de Agentes de IA**.
+Os arquivos residem em `backend/tests-ts/` e cobrem os três pilares principais do backend: **Controllers da API**, **Motor 2 de Planejamento Acadêmico** e o **Orquestrador de Agentes de IA**.
 
 ```
-no_fluxo_backend/
+backend/
 ├── src/                    # Código-fonte
 └── tests-ts/               # Suíte de testes Jest
     ├── controller_logger.test.ts
@@ -84,10 +84,10 @@ Validam a arquitetura multiagente de recomendação:
 
 ## 🛠️ Como Executar os Testes do Backend
 
-A partir da raiz do repositório ou de `no_fluxo_backend/`:
+A partir da raiz do repositório ou de `backend/`:
 
 ```bash
-cd no_fluxo_backend
+cd backend
 
 # 1. Executar todos os testes:
 npm test
@@ -106,5 +106,5 @@ npm run test:coverage
 ```
 
 ### Relatório de Cobertura
-O relatório é exportado em formato LCOV e HTML no diretório `no_fluxo_backend/coverage/`. Para visualizar no navegador:
-- Abra `no_fluxo_backend/coverage/lcov-report/index.html`.
+O relatório é exportado em formato LCOV e HTML no diretório `backend/coverage/`. Para visualizar no navegador:
+- Abra `backend/coverage/lcov-report/index.html`.

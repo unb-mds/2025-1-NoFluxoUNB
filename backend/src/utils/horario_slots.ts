@@ -1,6 +1,6 @@
 /**
  * Porto do núcleo algorítmico do Montador de Grade
- * (no_fluxo_frontend_svelte/src/lib/utils/horario-slots.ts). Duplicado de
+ * (frontend/src/lib/utils/horario-slots.ts). Duplicado de
  * propósito — os dois projetos não compartilham pacote — mas os dois lados
  * DEVEM mudar juntos se o formato de horário SIGAA mudar. Ver também o
  * comentário espelhado no arquivo do frontend.

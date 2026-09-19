@@ -1,7 +1,7 @@
-# CLAUDE.md — mapa do repositório NoFluxoUNB
+# AGENTS.md — mapa do repositório NoFluxoUNB
 
 Guia de orientação para agentes de IA (e humanos chegando agora). O produto vivo é
-**no-fluxo.com**: fluxograma acadêmico interativo da UnB com assistente de IA (Darcy).
+**no-fluxo.crianex.com**: fluxograma acadêmico interativo da UnB com assistente de IA (Darcy).
 
 ## Regras de trabalho
 

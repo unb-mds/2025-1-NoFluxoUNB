@@ -10,9 +10,9 @@ A estratégia adota a pirâmide de testes para garantir retorno rápido de feedb
 
 | Nível | Objetivo | Onde está implementado | Ferramental |
 |---|---|---|---|
-| **Unidade** | Validar funções puras, controladores isolados, cálculos de carga horária e stores | `no_fluxo_frontend_svelte` (`src/**/*.test.ts`), `no_fluxo_backend` (`tests-ts/`), `DBA/tests/` | Vitest, Jest, Pytest |
-| **Integração** | Validar a comunicação entre múltiplos módulos (ex.: orquestrador com revisor de IA, resolução de dependências no grafo) | `no_fluxo_backend/tests-ts/orquestrador-*.test.ts`, `mcp_agent/test_tool_call_utils.py` | Jest, Pytest, Mocks de API |
-| **Sistema / E2E** | Validar fluxos completos da perspectiva do estudante universitário | `no_fluxo_frontend_svelte/tests-e2e/*.spec.ts` | Playwright |
+| **Unidade** | Validar funções puras, controladores isolados, cálculos de carga horária e stores | `frontend` (`src/**/*.test.ts`), `backend` (`tests-ts/`), `DBA/tests/` | Vitest, Jest, Pytest |
+| **Integração** | Validar a comunicação entre múltiplos módulos (ex.: orquestrador com revisor de IA, resolução de dependências no grafo) | `backend/tests-ts/orquestrador-*.test.ts`, `mcp_agent/test_tool_call_utils.py` | Jest, Pytest, Mocks de API |
+| **Sistema / E2E** | Validar fluxos completos da perspectiva do estudante universitário | `frontend/tests-e2e/*.spec.ts` | Playwright |
 
 ---
 

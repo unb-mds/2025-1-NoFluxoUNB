@@ -24,7 +24,7 @@ A rota retorna 404 em produção (gate no `+page.ts`).
 | `lib/stores/auth.ts` | `clear()` também remove `nofluxo_dev_impersonate`. |
 | `lib/guards/authGuard.ts:checkAuth` | Quando a flag está setada, pula `isSessionValid()` (que faria signOut imediato sem sessão Supabase real). |
 | `lib/services/auth.service.ts:getAuthHeaders` | Quando a flag está setada, envia `X-Dev-Impersonate: <email>` em vez de `Authorization: Bearer <token>`. |
-| `no_fluxo_backend/src/utils.ts:checkAuthorization` | Quando `NODE_ENV !== "production"` E header `X-Dev-Impersonate` presente, faz lookup em `public.users` por `id_user`, compara o email, e autoriza. |
+| `backend/src/utils.ts:checkAuthorization` | Quando `NODE_ENV !== "production"` E header `X-Dev-Impersonate` presente, faz lookup em `public.users` por `id_user`, compara o email, e autoriza. |
 
 ## Limitações & segurança
 
@@ -34,7 +34,7 @@ A rota retorna 404 em produção (gate no `+page.ts`).
 
 ## Validação
 
-Spec Playwright em `no_fluxo_frontend_svelte/tests-e2e/dev-impersonation.spec.ts` — 5 cenários, todos PASS:
+Spec Playwright em `frontend/tests-e2e/dev-impersonation.spec.ts` — 5 cenários, todos PASS:
 
 1. Rota carrega e mostra título + presets
 2. Submeter form impersona, seta flag e redireciona

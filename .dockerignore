@@ -18,35 +18,22 @@ Thumbs.db
 *~
 
 # Backend específico
-no_fluxo_backend/node_modules/
-no_fluxo_backend/dist/
-no_fluxo_backend/.env*
-no_fluxo_backend/logs/*.log
+backend/node_modules/
+backend/dist/
+backend/.env*
+backend/logs/*.log
 
 # Frontend Svelte específico
-no_fluxo_frontend_svelte/node_modules/
-no_fluxo_frontend_svelte/.svelte-kit/
-no_fluxo_frontend_svelte/build/
-no_fluxo_frontend_svelte/.env*
+frontend/node_modules/
+frontend/.svelte-kit/
+frontend/build/
+frontend/.env*
 
 # mcp_agent específico
 mcp_agent/.venv/
 mcp_agent/__pycache__/
 mcp_agent/.env*
 
-# Frontend específico
-no_fluxo_frontend/.dart_tool/
-no_fluxo_frontend/.packages
-no_fluxo_frontend/build/
-no_fluxo_frontend/.flutter-plugins
-no_fluxo_frontend/.flutter-plugins-dependencies
-no_fluxo_frontend/android/
-no_fluxo_frontend/ios/
-no_fluxo_frontend/linux/
-no_fluxo_frontend/macos/
-no_fluxo_frontend/windows/
-no_fluxo_frontend/web/
-no_fluxo_frontend/test/
 
 # Outros
 coverage/
@@ -59,9 +46,17 @@ scripts/deploy/
 kubernetes_docs/
 
 # Directories not needed in builds
-documentation/
 documentacao/
-tests-*
-coleta_dados/
+docs/
+plans/
+kubernetes_docs/
+DBA/
+supabase/
 assets/
+# Sobras locais não rastreadas (podem ser gigantes — app Flutter etc.)
 no_fluxo_frontend/
+no_fluxo_app/
+test_historicos/
+testes/
+docs_testes/
+venv/

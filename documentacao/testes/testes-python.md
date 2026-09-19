@@ -14,9 +14,7 @@ Os módulos em Python do NoFluxoUNB englobam o **pipeline de ingestão e scrapin
 │   ├── test_expressao_parser.py            # Parser de pré-requisitos lógicos
 │   ├── test_scraping_equivalencias.py      # Scraping do SIGAA
 │   └── test_upload_pdf.py                  # Integração de upload
-├── no_fluxo_backend/parse-pdf/tests/       # Testes do serviço de PDF
-│   ├── test_parser.py                      # Extração tabular de notas e matérias
-│   └── test_exploratorio_kauan.py          # Casos de borda de PDFs reais
+├── DBA/parse_pdf/                          # Parser de históricos em PDF (coberto pela suíte)
 └── mcp_agent/                              # Agente de IA
     └── test_tool_call_utils.py             # Validação de tool calling
 ```
@@ -39,13 +37,12 @@ Os módulos em Python do NoFluxoUNB englobam o **pipeline de ingestão e scrapin
 - **`test_upload_pdf.py`**:
   - Teste de integração que envia arquivos multipart/form-data para o endpoint de extração e valida o JSON estruturado resultante.
 
-### 2. `no_fluxo_backend/parse-pdf/tests/` (Parser de Históricos)
-- **`test_parser.py`**:
-  - Valida a extração por coordenadas de texto via PyMuPDF.
-  - Verifica o parsing de matrículas, códigos de curso, menções (`SS`, `MS`, `MM`, `MI`, `II`, `SR`, `TR`, `AP`, `DP`), semestre cursado e carga horária integralizada.
-- **`test_exploratorio_kauan.py`**:
-  - Bateria de testes exploratórios construída a partir de fixtures de históricos reais e simulados.
-  - Avalia o comportamento com PDFs de diferentes tamanhos (fixtures pequenas e teste de limite de 10 MB).
+### 2. `DBA/parse_pdf/` (Parser de Históricos)
+- O parser Python `pdf_parser_final.py` é coberto pela própria suíte `DBA/tests/`
+  (`test_upload_pdf.py` e a métrica `--cov=DBA.parse_pdf.pdf_parser_final` no
+  `pytest.ini`). O antigo serviço `parse-pdf/` do backend foi aposentado na fase 3
+  da reorganização — o parse vivo do produto é client-side, no frontend
+  (`pdfjs-dist`), validado pelo E2E `upload-historico.exploratorio.spec.ts`.
 
 ### 3. `mcp_agent/` (Agente de IA)
 - **`test_tool_call_utils.py`**:
@@ -82,11 +79,7 @@ python -m pytest -v
 # 2. Executar com cobertura:
 python -m pytest --cov=. --cov-report=html --cov-report=term-missing
 
-# 3. Executar testes do parse-pdf:
-cd ../no_fluxo_backend/parse-pdf
-python -m pytest tests/
-
-# 4. Executar testes do MCP Agent:
+# 3. Executar testes do MCP Agent:
 cd ../../mcp_agent
 python -m pytest test_tool_call_utils.py
 

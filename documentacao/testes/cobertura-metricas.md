@@ -22,25 +22,25 @@ As políticas de cobertura de testes do projeto são regidas pela configuração
 O Jest utiliza o instrumentador Istanbul para gerar métricas detalhadas de linhas, funções, instruções e ramos:
 
 ```bash
-cd no_fluxo_backend
+cd backend
 npm run test:coverage
 ```
 
 - **Saída no Terminal:** Tabela resumida indicando percentual por arquivo em `src/`.
-- **Relatório HTML Navegável:** Salvo em `no_fluxo_backend/coverage/lcov-report/index.html`.
-- **Relatório LCOV:** Salvo em `no_fluxo_backend/coverage/lcov.info` (consumido pelo Codecov).
+- **Relatório HTML Navegável:** Salvo em `backend/coverage/lcov-report/index.html`.
+- **Relatório LCOV:** Salvo em `backend/coverage/lcov.info` (consumido pelo Codecov).
 
 ### 2. Frontend (SvelteKit / Vitest)
 
 O Vitest utiliza o provedor `@vitest/coverage-v8` para mensuração de alta performance diretamente sobre a V8:
 
 ```bash
-cd no_fluxo_frontend_svelte
+cd frontend
 pnpm run test:coverage
 ```
 
 - **Saída no Terminal:** Cobertura de stores, componentes e utilitários.
-- **Relatório HTML:** Gerado em `no_fluxo_frontend_svelte/coverage/index.html`.
+- **Relatório HTML:** Gerado em `frontend/coverage/index.html`.
 
 ### 3. Python (Pytest / pytest-cov)
 
@@ -75,13 +75,13 @@ Para inspecionar detalhadamente quais linhas estão descobertas (marcadas em ver
 
 ```bash
 # No Windows:
-start no_fluxo_backend/coverage/lcov-report/index.html
-start no_fluxo_frontend_svelte/coverage/index.html
+start backend/coverage/lcov-report/index.html
+start frontend/coverage/index.html
 start DBA/tests/htmlcov/index.html
 
 # No Linux:
-xdg-open no_fluxo_backend/coverage/lcov-report/index.html
+xdg-open backend/coverage/lcov-report/index.html
 
 # No macOS:
-open no_fluxo_backend/coverage/lcov-report/index.html
+open backend/coverage/lcov-report/index.html
 ```

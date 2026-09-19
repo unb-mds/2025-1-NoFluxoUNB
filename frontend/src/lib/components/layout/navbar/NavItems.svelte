@@ -1,4 +1,4 @@
-<!-- no_fluxo_frontend_svelte/src/lib/components/layout/navbar/NavItems.svelte -->
+<!-- frontend/src/lib/components/layout/navbar/NavItems.svelte -->
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';

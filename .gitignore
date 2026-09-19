@@ -139,7 +139,7 @@ opinioes_publicas/
 
 # Relatórios do import de avaliações (scripts/import_avaliacoes_disciplinas.ts):
 # incluem trechos de texto livre para revisão manual, mesmo já redigidos.
-no_fluxo_backend/scripts/_import_reports/
+backend/scripts/_import_reports/
 linhas_avaliacoes_nao_importadas.json
 
 # Backups de .env: o padrão `.env` acima não cobre sufixos, e um `.env.bak`

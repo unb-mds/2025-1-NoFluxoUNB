@@ -9,8 +9,8 @@ Para o build de produção (Kubernetes), veja `k8s.backend.Dockerfile`, `k8s.fro
 ## Pré-requisitos
 
 - Cada subprojeto precisa do seu `.env` já preenchido:
-  - `no_fluxo_backend/.env` (copie de `no_fluxo_backend/.env.example`)
-  - `no_fluxo_frontend_svelte/.env` (copie de `no_fluxo_frontend_svelte/.env.example`)
+  - `backend/.env` (copie de `backend/.env.example`)
+  - `frontend/.env` (copie de `frontend/.env.example`)
   - `mcp_agent/.env`
 - O banco (Supabase) é em nuvem — não tem container de banco aqui.
 
@@ -22,11 +22,11 @@ A partir da raiz do repositório:
 docker-compose up --build
 ```
 
-- Backend (Express): `http://localhost:3000` (porta vem de `PORT` em `no_fluxo_backend/.env`; se você mudar esse valor, ajuste também `ports:` em `docker-compose.yml`)
+- Backend (Express): `http://localhost:3000` (porta vem de `PORT` em `backend/.env`; se você mudar esse valor, ajuste também `ports:` em `docker-compose.yml`)
 - Frontend (SvelteKit): `http://localhost:5173`
 - MCP Agent / Darcy AI (FastAPI): `http://localhost:8000`
 
-Editar código em `no_fluxo_backend/src/`, `no_fluxo_frontend_svelte/src/` ou `mcp_agent/` reflete nos containers automaticamente (nodemon, Vite HMR e uvicorn `--reload`, respectivamente) — não precisa rebuildar.
+Editar código em `backend/src/`, `frontend/src/` ou `mcp_agent/` reflete nos containers automaticamente (nodemon, Vite HMR e uvicorn `--reload`, respectivamente) — não precisa rebuildar.
 
 ## Parar
 

@@ -9,7 +9,7 @@
  *     (uma entrada POR LINHA do extrato do SIGAA que sobreviveu ao parser:
  *     codigo, status [APR/REP/TRANC/MATR/CUMP/DISP/...], mencao, ano_periodo,
  *     tipo_dado, codigo_equivalente, ...). Formato definido em
- *     no_fluxo_frontend_svelte/src/lib/factories/index.ts (dadosMateriaToJson).
+ *     frontend/src/lib/factories/index.ts (dadosMateriaToJson).
  *   - O PDF bruto e o extracted_data do parser NÃO são persistidos. Logo:
  *       (a) Um CUMP descartado pelo parser é INVISÍVEL aqui — auditamos por
  *           PROXY: matérias cujo único registro é REP/REPF/REPMF/TRANC/CANC
@@ -20,7 +20,7 @@
  *           de uma obrigatória X não aprovada → X aparece vermelha (se X tem
  *           REP) ou disponível/bloqueada (se X não tem registro) em vez de
  *           roxa (matriculado). Espelha determineSubjectStatus()
- *           (no_fluxo_frontend_svelte/src/lib/types/materia.ts:94) +
+ *           (frontend/src/lib/types/materia.ts:94) +
  *           currentCodes/failedCodes (fluxograma.store.svelte.ts:292-310).
  *
  * SEGURANÇA:
@@ -30,12 +30,12 @@
  *
  * USO (quando autorizado):
  *   cd /Users/vitormarconi/Documents/GitHub/2025-1-NoFluxoUNB/2025-1-NoFluxoUNB
- *   set -a && source no_fluxo_backend/.env && set +a
+ *   set -a && source backend/.env && set +a
  *   AUDIT_CONFIRM=1 node scripts/audit_aproveitamento.mjs [--json] [--historicos]
  *
  * Requer: SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY no ambiente (service role
  * necessário para ler dados de todos os usuários — RLS restringe anon/auth).
- * Dependência resolvida de no_fluxo_backend/node_modules via createRequire.
+ * Dependência resolvida de backend/node_modules via createRequire.
  */
 
 import { createRequire } from 'node:module';
@@ -43,7 +43,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const backendDir = path.resolve(__dirname, '..', 'no_fluxo_backend');
+const backendDir = path.resolve(__dirname, '..', 'backend');
 const require = createRequire(path.join(backendDir, 'package.json'));
 const { createClient } = require('@supabase/supabase-js');
 
@@ -86,7 +86,7 @@ function isAprovada(entry) {
 }
 
 // ─── Extração de códigos de expressao_logica (espelha
-//     no_fluxo_backend/src/controllers/fluxograma_controller.ts:63-83) ──────
+//     backend/src/controllers/fluxograma_controller.ts:63-83) ──────
 const CODE_RE = /[A-Z]{2,}\d{3,}/g;
 function codesFromExpressaoLogica(node, out = new Set()) {
 	if (node == null) return out;

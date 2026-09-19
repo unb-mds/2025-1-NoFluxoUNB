@@ -13,7 +13,7 @@ description: Run backend unit tests for Motor 2 (Tasks 1-4). Validates DB migrat
 
 ## Execution Checklist
 
-- [ ] Navigate to `no_fluxo_backend/`
+- [ ] Navigate to `backend/`
 - [ ] Run migration check: `npx supabase migration list` (verify `20260522_add_preferencias_plano` exists)
 - [ ] Run types validation: `npm run type-check`
 - [ ] Run algorithm tests: `npm test -- --testPathPattern="planejamento" 2>&1`

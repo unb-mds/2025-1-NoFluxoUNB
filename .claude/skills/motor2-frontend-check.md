@@ -13,7 +13,7 @@ description: Type-check and build frontend for Motor 2 (Tasks 5-12). Validates t
 
 ## Execution Checklist
 
-- [ ] Navigate to `no_fluxo_frontend_svelte/`
+- [ ] Navigate to `frontend/`
 - [ ] Run Svelte type check: `npm run check 2>&1 | head -50`
   - **Expected:** No errors
   - **If fail:** Report first error (file:line)

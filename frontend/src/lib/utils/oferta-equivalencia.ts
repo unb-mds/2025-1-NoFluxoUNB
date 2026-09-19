@@ -6,7 +6,7 @@
  * equivalências, o Montador de Grade coloca a matéria no pool com zero turmas.
  *
  * Espelho da lógica do backend em
- * no_fluxo_backend/src/services/plano_formatura.service.ts
+ * backend/src/services/plano_formatura.service.ts
  * (construirSubstitutosPorCodigo) e .../chat/actuators/grade_actuator.ts.
  *
  * Spec: docs/superpowers/specs/2026-08-03-equivalencias-oferta-turmas-design.md

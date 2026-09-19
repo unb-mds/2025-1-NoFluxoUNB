@@ -32,7 +32,7 @@ print_warning() {
 }
 
 # Verificar se estamos no diretório raiz do projeto
-if [ ! -f "no_fluxo_backend/package.json" ]; then
+if [ ! -f "backend/package.json" ]; then
     print_error "Este script deve ser executado no diretório raiz do projeto"
     exit 1
 fi
@@ -40,7 +40,7 @@ fi
 # Testes TypeScript
 print_status "Executando testes TypeScript..."
 
-cd no_fluxo_backend
+cd backend
 
 # Verificar se node_modules existe
 if [ ! -d "node_modules" ]; then
@@ -71,7 +71,7 @@ cd ..
 # Testes Frontend SvelteKit (Vitest)
 print_status "Executando testes Frontend SvelteKit (Vitest)..."
 
-cd no_fluxo_frontend_svelte
+cd frontend
 
 if [ ! -d "node_modules" ]; then
     print_warning "Instalando dependências do Frontend..."
@@ -117,6 +117,6 @@ cd ../..
 
 print_success "🎉 Todos os testes foram executados com sucesso!"
 print_status "Relatórios de coverage disponíveis em:"
-print_status "- Backend TypeScript: no_fluxo_backend/coverage/"
-print_status "- Frontend SvelteKit: no_fluxo_frontend_svelte/coverage/"
+print_status "- Backend TypeScript: backend/coverage/"
+print_status "- Frontend SvelteKit: frontend/coverage/"
 print_status "- Python: DBA/tests/htmlcov/" 

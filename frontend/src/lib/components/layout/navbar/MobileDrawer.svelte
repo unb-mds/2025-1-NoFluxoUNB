@@ -1,4 +1,4 @@
-<!-- no_fluxo_frontend_svelte/src/lib/components/layout/navbar/MobileDrawer.svelte -->
+<!-- frontend/src/lib/components/layout/navbar/MobileDrawer.svelte -->
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { Button } from '$lib/components/ui/button';

@@ -56,7 +56,7 @@ Semântica no greedy (distribuição por semestres):
 
 ## Agent loop + tools
 
-Novo serviço `no_fluxo_backend/src/services/planejador_agente.service.ts`:
+Novo serviço `backend/src/services/planejador_agente.service.ts`:
 
 - Chama `https://chat.maritaca.ai/api/chat/completions` com `tools`;
   executa tool calls localmente; repete até resposta final.

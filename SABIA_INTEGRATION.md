@@ -24,7 +24,7 @@ Maritaca AI API (Sabiázinho-4 + Sabiá-4)
 
 ### 1. Variáveis de Ambiente
 
-**`no_fluxo_backend/.env`**
+**`backend/.env`**
 ```env
 # Supabase
 SUPABASE_URL=https://.supabase.co
@@ -49,7 +49,7 @@ MARITACA_API_KEY=sua_chave_maritaca
 
 ### 2. Dependências Python
 
-O `npm run dev` dentro de `no_fluxo_backend` instala automaticamente via `postinstall`:
+O `npm run dev` dentro de `backend` instala automaticamente via `postinstall`:
 
 ```powershell
 # PyTorch CPU (instalar antes para evitar versão CUDA)
@@ -73,7 +73,7 @@ Baixa `paraphrase-multilingual-MiniLM-L12-v2` (~420MB) para `mcp_agent/modelo_lo
 ### 4. Subir o Backend
 
 ```powershell
-cd no_fluxo_backend
+cd backend
 npm run dev
 # OU da raiz do projeto:
 pnpm dev:backend
@@ -81,7 +81,7 @@ pnpm dev:backend
 
 O `SabiaService` detecta o Python automaticamente:
 1. `{raiz}/venv/Scripts/python.exe`
-2. `no_fluxo_backend/venv/Scripts/python.exe`
+2. `backend/venv/Scripts/python.exe`
 3. `python` do sistema (PATH)
 
 ### 5. Subir o Frontend
@@ -161,9 +161,9 @@ console.log(resultado.disciplinas);
 | `mcp_agent/agente_sabia.py` | Agente principal (modo interativo + API stdin) |
 | `mcp_agent/servidor_mcp_sabia.py` | Servidor MCP com busca vetorial |
 | `mcp_agent/baixar_modelo.py` | Download do modelo de embeddings |
-| `no_fluxo_backend/src/services/sabia.service.ts` | Serviço TS que chama o Python via spawn |
-| `no_fluxo_backend/src/controllers/assistente_controller.ts` | Controller com endpoint `/assistente/analyze-sabia` |
-| `no_fluxo_frontend_svelte/src/lib/services/assistente.service.ts` | Service do frontend |
+| `backend/src/services/sabia.service.ts` | Serviço TS que chama o Python via spawn |
+| `backend/src/controllers/assistente_controller.ts` | Controller com endpoint `/assistente/analyze-sabia` |
+| `frontend/src/lib/services/assistente.service.ts` | Service do frontend |
 | `requirements.txt` | Dependências Python do projeto todo |
 
 ---
@@ -191,7 +191,7 @@ O script detecta que está em modo API via `sys.stdin.isatty()` e retorna JSON p
 ```
 
 **Causa:** O `SabiaService` não encontrou o executável Python.  
-**Solução:** Verifique se o venv existe em `no_fluxo_backend/venv/` (criado com `python -m venv venv` dentro de `no_fluxo_backend`).
+**Solução:** Verifique se o venv existe em `backend/venv/` (criado com `python -m venv venv` dentro de `backend`).
 
 ### `[WinError 2]` no JSON de retorno do Python
 
@@ -218,7 +218,7 @@ O script detecta que está em modo API via `sys.stdin.isatty()` e retorna JSON p
 **Solução:** Ajuste `PORT` no `.env` do backend para `3000` (dev), ou configure `PUBLIC_API_URL` no `.env` do frontend:
 
 ```env
-# no_fluxo_frontend_svelte/.env
+# frontend/.env
 PUBLIC_API_URL=http://localhost:3000
 ```
 

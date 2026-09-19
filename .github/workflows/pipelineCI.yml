@@ -46,10 +46,10 @@ jobs:
               - 'setup.cfg'
               - '.github/workflows/pipelineCI.yml'
             backend:
-              - 'no_fluxo_backend/**'
+              - 'backend/**'
               - '.github/workflows/pipelineCI.yml'
             frontend:
-              - 'no_fluxo_frontend_svelte/**'
+              - 'frontend/**'
               - '.github/workflows/pipelineCI.yml'
 
   # Análise estática Python (não é teste funcional: formatação + lint)
@@ -111,12 +111,12 @@ jobs:
         with:
           node-version: "20.x"
           cache: "npm"
-          cache-dependency-path: no_fluxo_backend/package-lock.json
+          cache-dependency-path: backend/package-lock.json
       - name: Instalar dependências
-        working-directory: no_fluxo_backend
+        working-directory: backend
         run: npm ci
       - name: Jest
-        working-directory: no_fluxo_backend
+        working-directory: backend
         run: npm test
 
   # Testes de unidade do frontend Svelte (Vitest)
@@ -139,10 +139,10 @@ jobs:
         with:
           node-version: "20.x"
           cache: "npm"
-          cache-dependency-path: no_fluxo_frontend_svelte/package-lock.json
+          cache-dependency-path: frontend/package-lock.json
       - name: Instalar dependências
-        working-directory: no_fluxo_frontend_svelte
+        working-directory: frontend
         run: npm ci
       - name: Vitest
-        working-directory: no_fluxo_frontend_svelte
+        working-directory: frontend
         run: npx vitest run --passWithNoTests
